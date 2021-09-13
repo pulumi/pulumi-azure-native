@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.28.0 (2021-09-13)
+
 #### New functions:
 
 - `kubernetes.listConnectedClusterUserCredential`
@@ -11,8 +17,6 @@ CHANGELOG
 
 - SKU property removed from `purview.Account` 
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15965))
-
----
 
 ## 1.27.0 (2021-09-10)
 
