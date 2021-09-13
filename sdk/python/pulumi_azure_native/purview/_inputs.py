@@ -10,51 +10,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AccountSkuArgs',
     'IdentityArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
-
-@pulumi.input_type
-class AccountSkuArgs:
-    def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[Union[str, 'Name']]] = None):
-        """
-        The Sku
-        :param pulumi.Input[int] capacity: Gets or sets the sku capacity. Possible values include: 4, 16
-        :param pulumi.Input[Union[str, 'Name']] name: Gets or sets the sku name.
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or sets the sku capacity. Possible values include: 4, 16
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[str, 'Name']]]:
-        """
-        Gets or sets the sku name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[str, 'Name']]]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class IdentityArgs:

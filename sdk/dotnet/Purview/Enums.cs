@@ -8,36 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
-    /// Gets or sets the sku name.
-    /// </summary>
-    [EnumType]
-    public readonly struct Name : IEquatable<Name>
-    {
-        private readonly string _value;
-
-        private Name(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Name Standard { get; } = new Name("Standard");
-
-        public static bool operator ==(Name left, Name right) => left.Equals(right);
-        public static bool operator !=(Name left, Name right) => !left.Equals(right);
-
-        public static explicit operator string(Name value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Name other && Equals(other);
-        public bool Equals(Name other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Gets or sets the public network access.
     /// </summary>
     [EnumType]

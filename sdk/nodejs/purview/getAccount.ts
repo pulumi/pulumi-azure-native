@@ -102,7 +102,7 @@ export interface GetAccountResult {
     /**
      * Gets or sets the Sku.
      */
-    readonly sku?: outputs.purview.AccountSkuResponse;
+    readonly sku: outputs.purview.AccountResponseSku;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

@@ -38,7 +38,7 @@ type LookupAccountResult struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse       `pulumi:"privateEndpointConnections"`
 	ProvisioningState          string                                    `pulumi:"provisioningState"`
 	PublicNetworkAccess        *string                                   `pulumi:"publicNetworkAccess"`
-	Sku                        *AccountSkuResponse                       `pulumi:"sku"`
+	Sku                        AccountResponseSku                        `pulumi:"sku"`
 	SystemData                 AccountPropertiesResponseSystemData       `pulumi:"systemData"`
 	Tags                       map[string]string                         `pulumi:"tags"`
 	Type                       string                                    `pulumi:"type"`

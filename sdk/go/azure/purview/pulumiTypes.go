@@ -601,148 +601,148 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedByType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku
-type AccountSku struct {
-	// Gets or sets the sku capacity. Possible values include: 4, 16
+// Gets or sets the Sku.
+type AccountResponseSku struct {
+	// Gets or sets the sku capacity.
 	Capacity *int `pulumi:"capacity"`
 	// Gets or sets the sku name.
 	Name *string `pulumi:"name"`
 }
 
-// AccountSkuInput is an input type that accepts AccountSkuArgs and AccountSkuOutput values.
-// You can construct a concrete instance of `AccountSkuInput` via:
+// AccountResponseSkuInput is an input type that accepts AccountResponseSkuArgs and AccountResponseSkuOutput values.
+// You can construct a concrete instance of `AccountResponseSkuInput` via:
 //
-//          AccountSkuArgs{...}
-type AccountSkuInput interface {
+//          AccountResponseSkuArgs{...}
+type AccountResponseSkuInput interface {
 	pulumi.Input
 
-	ToAccountSkuOutput() AccountSkuOutput
-	ToAccountSkuOutputWithContext(context.Context) AccountSkuOutput
+	ToAccountResponseSkuOutput() AccountResponseSkuOutput
+	ToAccountResponseSkuOutputWithContext(context.Context) AccountResponseSkuOutput
 }
 
-// The Sku
-type AccountSkuArgs struct {
-	// Gets or sets the sku capacity. Possible values include: 4, 16
+// Gets or sets the Sku.
+type AccountResponseSkuArgs struct {
+	// Gets or sets the sku capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Gets or sets the sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (AccountSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSku)(nil)).Elem()
+func (AccountResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountResponseSku)(nil)).Elem()
 }
 
-func (i AccountSkuArgs) ToAccountSkuOutput() AccountSkuOutput {
-	return i.ToAccountSkuOutputWithContext(context.Background())
+func (i AccountResponseSkuArgs) ToAccountResponseSkuOutput() AccountResponseSkuOutput {
+	return i.ToAccountResponseSkuOutputWithContext(context.Background())
 }
 
-func (i AccountSkuArgs) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuOutput)
+func (i AccountResponseSkuArgs) ToAccountResponseSkuOutputWithContext(ctx context.Context) AccountResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountResponseSkuOutput)
 }
 
-func (i AccountSkuArgs) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
-	return i.ToAccountSkuPtrOutputWithContext(context.Background())
+func (i AccountResponseSkuArgs) ToAccountResponseSkuPtrOutput() AccountResponseSkuPtrOutput {
+	return i.ToAccountResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (i AccountSkuArgs) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuOutput).ToAccountSkuPtrOutputWithContext(ctx)
+func (i AccountResponseSkuArgs) ToAccountResponseSkuPtrOutputWithContext(ctx context.Context) AccountResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountResponseSkuOutput).ToAccountResponseSkuPtrOutputWithContext(ctx)
 }
 
-// AccountSkuPtrInput is an input type that accepts AccountSkuArgs, AccountSkuPtr and AccountSkuPtrOutput values.
-// You can construct a concrete instance of `AccountSkuPtrInput` via:
+// AccountResponseSkuPtrInput is an input type that accepts AccountResponseSkuArgs, AccountResponseSkuPtr and AccountResponseSkuPtrOutput values.
+// You can construct a concrete instance of `AccountResponseSkuPtrInput` via:
 //
-//          AccountSkuArgs{...}
+//          AccountResponseSkuArgs{...}
 //
 //  or:
 //
 //          nil
-type AccountSkuPtrInput interface {
+type AccountResponseSkuPtrInput interface {
 	pulumi.Input
 
-	ToAccountSkuPtrOutput() AccountSkuPtrOutput
-	ToAccountSkuPtrOutputWithContext(context.Context) AccountSkuPtrOutput
+	ToAccountResponseSkuPtrOutput() AccountResponseSkuPtrOutput
+	ToAccountResponseSkuPtrOutputWithContext(context.Context) AccountResponseSkuPtrOutput
 }
 
-type accountSkuPtrType AccountSkuArgs
+type accountResponseSkuPtrType AccountResponseSkuArgs
 
-func AccountSkuPtr(v *AccountSkuArgs) AccountSkuPtrInput {
-	return (*accountSkuPtrType)(v)
+func AccountResponseSkuPtr(v *AccountResponseSkuArgs) AccountResponseSkuPtrInput {
+	return (*accountResponseSkuPtrType)(v)
 }
 
-func (*accountSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSku)(nil)).Elem()
+func (*accountResponseSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountResponseSku)(nil)).Elem()
 }
 
-func (i *accountSkuPtrType) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
-	return i.ToAccountSkuPtrOutputWithContext(context.Background())
+func (i *accountResponseSkuPtrType) ToAccountResponseSkuPtrOutput() AccountResponseSkuPtrOutput {
+	return i.ToAccountResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (i *accountSkuPtrType) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuPtrOutput)
+func (i *accountResponseSkuPtrType) ToAccountResponseSkuPtrOutputWithContext(ctx context.Context) AccountResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountResponseSkuPtrOutput)
 }
 
-// The Sku
-type AccountSkuOutput struct{ *pulumi.OutputState }
+// Gets or sets the Sku.
+type AccountResponseSkuOutput struct{ *pulumi.OutputState }
 
-func (AccountSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSku)(nil)).Elem()
+func (AccountResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountResponseSku)(nil)).Elem()
 }
 
-func (o AccountSkuOutput) ToAccountSkuOutput() AccountSkuOutput {
+func (o AccountResponseSkuOutput) ToAccountResponseSkuOutput() AccountResponseSkuOutput {
 	return o
 }
 
-func (o AccountSkuOutput) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+func (o AccountResponseSkuOutput) ToAccountResponseSkuOutputWithContext(ctx context.Context) AccountResponseSkuOutput {
 	return o
 }
 
-func (o AccountSkuOutput) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
-	return o.ToAccountSkuPtrOutputWithContext(context.Background())
+func (o AccountResponseSkuOutput) ToAccountResponseSkuPtrOutput() AccountResponseSkuPtrOutput {
+	return o.ToAccountResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (o AccountSkuOutput) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSku) *AccountSku {
+func (o AccountResponseSkuOutput) ToAccountResponseSkuPtrOutputWithContext(ctx context.Context) AccountResponseSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountResponseSku) *AccountResponseSku {
 		return &v
-	}).(AccountSkuPtrOutput)
+	}).(AccountResponseSkuPtrOutput)
 }
 
-// Gets or sets the sku capacity. Possible values include: 4, 16
-func (o AccountSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+// Gets or sets the sku capacity.
+func (o AccountResponseSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountResponseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 // Gets or sets the sku name.
-func (o AccountSkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o AccountResponseSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type AccountSkuPtrOutput struct{ *pulumi.OutputState }
+type AccountResponseSkuPtrOutput struct{ *pulumi.OutputState }
 
-func (AccountSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSku)(nil)).Elem()
+func (AccountResponseSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountResponseSku)(nil)).Elem()
 }
 
-func (o AccountSkuPtrOutput) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
+func (o AccountResponseSkuPtrOutput) ToAccountResponseSkuPtrOutput() AccountResponseSkuPtrOutput {
 	return o
 }
 
-func (o AccountSkuPtrOutput) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
+func (o AccountResponseSkuPtrOutput) ToAccountResponseSkuPtrOutputWithContext(ctx context.Context) AccountResponseSkuPtrOutput {
 	return o
 }
 
-func (o AccountSkuPtrOutput) Elem() AccountSkuOutput {
-	return o.ApplyT(func(v *AccountSku) AccountSku {
+func (o AccountResponseSkuPtrOutput) Elem() AccountResponseSkuOutput {
+	return o.ApplyT(func(v *AccountResponseSku) AccountResponseSku {
 		if v != nil {
 			return *v
 		}
-		var ret AccountSku
+		var ret AccountResponseSku
 		return ret
-	}).(AccountSkuOutput)
+	}).(AccountResponseSkuOutput)
 }
 
-// Gets or sets the sku capacity. Possible values include: 4, 16
-func (o AccountSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountSku) *int {
+// Gets or sets the sku capacity.
+func (o AccountResponseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountResponseSku) *int {
 		if v == nil {
 			return nil
 		}
@@ -751,167 +751,8 @@ func (o AccountSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Gets or sets the sku name.
-func (o AccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Sku
-type AccountSkuResponse struct {
-	// Gets or sets the sku capacity. Possible values include: 4, 16
-	Capacity *int `pulumi:"capacity"`
-	// Gets or sets the sku name.
-	Name *string `pulumi:"name"`
-}
-
-// AccountSkuResponseInput is an input type that accepts AccountSkuResponseArgs and AccountSkuResponseOutput values.
-// You can construct a concrete instance of `AccountSkuResponseInput` via:
-//
-//          AccountSkuResponseArgs{...}
-type AccountSkuResponseInput interface {
-	pulumi.Input
-
-	ToAccountSkuResponseOutput() AccountSkuResponseOutput
-	ToAccountSkuResponseOutputWithContext(context.Context) AccountSkuResponseOutput
-}
-
-// The Sku
-type AccountSkuResponseArgs struct {
-	// Gets or sets the sku capacity. Possible values include: 4, 16
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Gets or sets the sku name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (AccountSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSkuResponse)(nil)).Elem()
-}
-
-func (i AccountSkuResponseArgs) ToAccountSkuResponseOutput() AccountSkuResponseOutput {
-	return i.ToAccountSkuResponseOutputWithContext(context.Background())
-}
-
-func (i AccountSkuResponseArgs) ToAccountSkuResponseOutputWithContext(ctx context.Context) AccountSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuResponseOutput)
-}
-
-func (i AccountSkuResponseArgs) ToAccountSkuResponsePtrOutput() AccountSkuResponsePtrOutput {
-	return i.ToAccountSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AccountSkuResponseArgs) ToAccountSkuResponsePtrOutputWithContext(ctx context.Context) AccountSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuResponseOutput).ToAccountSkuResponsePtrOutputWithContext(ctx)
-}
-
-// AccountSkuResponsePtrInput is an input type that accepts AccountSkuResponseArgs, AccountSkuResponsePtr and AccountSkuResponsePtrOutput values.
-// You can construct a concrete instance of `AccountSkuResponsePtrInput` via:
-//
-//          AccountSkuResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToAccountSkuResponsePtrOutput() AccountSkuResponsePtrOutput
-	ToAccountSkuResponsePtrOutputWithContext(context.Context) AccountSkuResponsePtrOutput
-}
-
-type accountSkuResponsePtrType AccountSkuResponseArgs
-
-func AccountSkuResponsePtr(v *AccountSkuResponseArgs) AccountSkuResponsePtrInput {
-	return (*accountSkuResponsePtrType)(v)
-}
-
-func (*accountSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSkuResponse)(nil)).Elem()
-}
-
-func (i *accountSkuResponsePtrType) ToAccountSkuResponsePtrOutput() AccountSkuResponsePtrOutput {
-	return i.ToAccountSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *accountSkuResponsePtrType) ToAccountSkuResponsePtrOutputWithContext(ctx context.Context) AccountSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuResponsePtrOutput)
-}
-
-// The Sku
-type AccountSkuResponseOutput struct{ *pulumi.OutputState }
-
-func (AccountSkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSkuResponse)(nil)).Elem()
-}
-
-func (o AccountSkuResponseOutput) ToAccountSkuResponseOutput() AccountSkuResponseOutput {
-	return o
-}
-
-func (o AccountSkuResponseOutput) ToAccountSkuResponseOutputWithContext(ctx context.Context) AccountSkuResponseOutput {
-	return o
-}
-
-func (o AccountSkuResponseOutput) ToAccountSkuResponsePtrOutput() AccountSkuResponsePtrOutput {
-	return o.ToAccountSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AccountSkuResponseOutput) ToAccountSkuResponsePtrOutputWithContext(ctx context.Context) AccountSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSkuResponse) *AccountSkuResponse {
-		return &v
-	}).(AccountSkuResponsePtrOutput)
-}
-
-// Gets or sets the sku capacity. Possible values include: 4, 16
-func (o AccountSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the sku name.
-func (o AccountSkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type AccountSkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AccountSkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSkuResponse)(nil)).Elem()
-}
-
-func (o AccountSkuResponsePtrOutput) ToAccountSkuResponsePtrOutput() AccountSkuResponsePtrOutput {
-	return o
-}
-
-func (o AccountSkuResponsePtrOutput) ToAccountSkuResponsePtrOutputWithContext(ctx context.Context) AccountSkuResponsePtrOutput {
-	return o
-}
-
-func (o AccountSkuResponsePtrOutput) Elem() AccountSkuResponseOutput {
-	return o.ApplyT(func(v *AccountSkuResponse) AccountSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AccountSkuResponse
-		return ret
-	}).(AccountSkuResponseOutput)
-}
-
-// Gets or sets the sku capacity. Possible values include: 4, 16
-func (o AccountSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountSkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the sku name.
-func (o AccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountSkuResponse) *string {
+func (o AccountResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountResponseSku) *string {
 		if v == nil {
 			return nil
 		}
@@ -2168,10 +2009,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountPropertiesResponseManagedResourcesPtrOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseSystemDataOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseSystemDataPtrOutput{})
-	pulumi.RegisterOutputType(AccountSkuOutput{})
-	pulumi.RegisterOutputType(AccountSkuPtrOutput{})
-	pulumi.RegisterOutputType(AccountSkuResponseOutput{})
-	pulumi.RegisterOutputType(AccountSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(AccountResponseSkuOutput{})
+	pulumi.RegisterOutputType(AccountResponseSkuPtrOutput{})
 	pulumi.RegisterOutputType(CloudConnectorsResponseOutput{})
 	pulumi.RegisterOutputType(CloudConnectorsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})

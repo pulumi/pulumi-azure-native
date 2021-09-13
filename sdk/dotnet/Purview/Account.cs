@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the Sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AccountSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.AccountResponseSku> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -213,12 +213,6 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the Sku.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.AccountSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -95,7 +95,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Gets or sets the Sku.
      */
-    public readonly sku!: pulumi.Output<outputs.purview.v20210701.AccountSkuResponse | undefined>;
+    public /*out*/ readonly sku!: pulumi.Output<outputs.purview.v20210701.AccountResponseSku>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -129,7 +129,6 @@ export class Account extends pulumi.CustomResource {
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cloudConnectors"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
@@ -141,6 +140,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -200,10 +200,6 @@ export interface AccountArgs {
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the Sku.
-     */
-    sku?: pulumi.Input<inputs.purview.v20210701.AccountSkuArgs>;
     /**
      * Tags on the azure resource.
      */

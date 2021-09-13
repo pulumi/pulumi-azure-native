@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20210315preview from "./v20210315preview";
+import * as v20210815 from "./v20210815";
 
 export {
     v20210315preview,
+    v20210815,
 };
 
 export const HostType = {

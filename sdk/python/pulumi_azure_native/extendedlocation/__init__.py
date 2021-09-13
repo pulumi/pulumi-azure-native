@@ -15,6 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.extendedlocation.v20210315preview as __v20210315preview
     v20210315preview = __v20210315preview
+    import pulumi_azure_native.extendedlocation.v20210815 as __v20210815
+    v20210815 = __v20210815
 else:
     v20210315preview = _utilities.lazy_import('pulumi_azure_native.extendedlocation.v20210315preview')
+    v20210815 = _utilities.lazy_import('pulumi_azure_native.extendedlocation.v20210815')
 

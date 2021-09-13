@@ -5,18 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'Name',
     'PublicNetworkAccess',
     'Status',
     'Type',
 ]
-
-
-class Name(str, Enum):
-    """
-    Gets or sets the sku name.
-    """
-    STANDARD = "Standard"
 
 
 class PublicNetworkAccess(str, Enum):

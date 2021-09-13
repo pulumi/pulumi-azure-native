@@ -2,15 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Name = {
-    Standard: "Standard",
-} as const;
-
-/**
- * Gets or sets the sku name.
- */
-export type Name = (typeof Name)[keyof typeof Name];
-
 export const PublicNetworkAccess = {
     NotSpecified: "NotSpecified",
     Enabled: "Enabled",

@@ -7103,6 +7103,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "extendedlocation/v20210815",
+  "fqn": "pulumi_azure_native.extendedlocation.v20210815",
+  "classes": {
+   "azure-native:extendedlocation/v20210815:CustomLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "features",
   "fqn": "pulumi_azure_native.features",
   "classes": {
@@ -8125,6 +8133,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.kubernetes.v20210401preview",
   "classes": {
    "azure-native:kubernetes/v20210401preview:ConnectedCluster": "ConnectedCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetes/v20211001",
+  "fqn": "pulumi_azure_native.kubernetes.v20211001",
+  "classes": {
+   "azure-native:kubernetes/v20211001:ConnectedCluster": "ConnectedCluster"
   }
  },
  {

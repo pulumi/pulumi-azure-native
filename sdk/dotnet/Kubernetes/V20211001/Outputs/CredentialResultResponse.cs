@@ -7,32 +7,32 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Purview.V20210701.Outputs
+namespace Pulumi.AzureNative.Kubernetes.V20211001.Outputs
 {
 
     /// <summary>
-    /// The Sku
+    /// The credential result response.
     /// </summary>
     [OutputType]
-    public sealed class AccountSkuResponse
+    public sealed class CredentialResultResponse
     {
         /// <summary>
-        /// Gets or sets the sku capacity. Possible values include: 4, 16
+        /// The name of the credential.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly string Name;
         /// <summary>
-        /// Gets or sets the sku name.
+        /// Base64-encoded Kubernetes configuration file.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Value;
 
         [OutputConstructor]
-        private AccountSkuResponse(
-            int? capacity,
+        private CredentialResultResponse(
+            string name,
 
-            string? name)
+            string value)
         {
-            Capacity = capacity;
             Name = name;
+            Value = value;
         }
     }
 }

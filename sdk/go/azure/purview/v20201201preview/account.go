@@ -28,7 +28,7 @@ type Account struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput    `pulumi:"privateEndpointConnections"`
 	ProvisioningState          pulumi.StringOutput                             `pulumi:"provisioningState"`
 	PublicNetworkAccess        pulumi.StringPtrOutput                          `pulumi:"publicNetworkAccess"`
-	Sku                        AccountSkuResponsePtrOutput                     `pulumi:"sku"`
+	Sku                        AccountResponseSkuOutput                        `pulumi:"sku"`
 	SystemData                 AccountPropertiesResponseSystemDataOutput       `pulumi:"systemData"`
 	Tags                       pulumi.StringMapOutput                          `pulumi:"tags"`
 	Type                       pulumi.StringOutput                             `pulumi:"type"`
@@ -103,7 +103,6 @@ type accountArgs struct {
 	ManagedResourceGroupName *string           `pulumi:"managedResourceGroupName"`
 	PublicNetworkAccess      *string           `pulumi:"publicNetworkAccess"`
 	ResourceGroupName        string            `pulumi:"resourceGroupName"`
-	Sku                      *AccountSku       `pulumi:"sku"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
 
@@ -115,7 +114,6 @@ type AccountArgs struct {
 	ManagedResourceGroupName pulumi.StringPtrInput
 	PublicNetworkAccess      pulumi.StringPtrInput
 	ResourceGroupName        pulumi.StringInput
-	Sku                      AccountSkuPtrInput
 	Tags                     pulumi.StringMapInput
 }
 

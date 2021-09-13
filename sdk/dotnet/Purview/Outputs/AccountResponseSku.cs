@@ -7,28 +7,32 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Purview.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.Purview.Outputs
 {
 
     /// <summary>
-    /// The Sku
+    /// Gets or sets the Sku.
     /// </summary>
-    public sealed class AccountSkuArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class AccountResponseSku
     {
         /// <summary>
-        /// Gets or sets the sku capacity. Possible values include: 4, 16
+        /// Gets or sets the sku capacity.
         /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
+        public readonly int? Capacity;
         /// <summary>
         /// Gets or sets the sku name.
         /// </summary>
-        [Input("name")]
-        public InputUnion<string, Pulumi.AzureNative.Purview.V20201201Preview.Name>? Name { get; set; }
+        public readonly string? Name;
 
-        public AccountSkuArgs()
+        [OutputConstructor]
+        private AccountResponseSku(
+            int? capacity,
+
+            string? name)
         {
+            Capacity = capacity;
+            Name = name;
         }
     }
 }

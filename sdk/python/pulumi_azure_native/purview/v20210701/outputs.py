@@ -13,7 +13,7 @@ from ._enums import *
 __all__ = [
     'AccountPropertiesResponseEndpoints',
     'AccountPropertiesResponseManagedResources',
-    'AccountSkuResponse',
+    'AccountResponseSku',
     'CloudConnectorsResponse',
     'IdentityResponse',
     'PrivateEndpointConnectionResponse',
@@ -132,16 +132,16 @@ class AccountPropertiesResponseManagedResources(dict):
 
 
 @pulumi.output_type
-class AccountSkuResponse(dict):
+class AccountResponseSku(dict):
     """
-    The Sku
+    Gets or sets the Sku.
     """
     def __init__(__self__, *,
                  capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
-        The Sku
-        :param int capacity: Gets or sets the sku capacity. Possible values include: 4, 16
+        Gets or sets the Sku.
+        :param int capacity: Gets or sets the sku capacity.
         :param str name: Gets or sets the sku name.
         """
         if capacity is not None:
@@ -153,7 +153,7 @@ class AccountSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        Gets or sets the sku capacity. Possible values include: 4, 16
+        Gets or sets the sku capacity.
         """
         return pulumi.get(self, "capacity")
 

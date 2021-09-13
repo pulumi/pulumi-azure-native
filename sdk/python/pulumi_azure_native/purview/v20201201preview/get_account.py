@@ -202,7 +202,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AccountSkuResponse']:
+    def sku(self) -> 'outputs.AccountResponseSku':
         """
         Gets or sets the Sku.
         """

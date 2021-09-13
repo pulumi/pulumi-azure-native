@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .connected_cluster import *
 from .get_connected_cluster import *
+from .list_connected_cluster_user_credential import *
 from .list_connected_cluster_user_credentials import *
 from ._inputs import *
 from . import outputs
@@ -20,8 +21,11 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.kubernetes.v20210401preview as __v20210401preview
     v20210401preview = __v20210401preview
+    import pulumi_azure_native.kubernetes.v20211001 as __v20211001
+    v20211001 = __v20211001
 else:
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20200101preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20210301')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20210401preview')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20211001')
 

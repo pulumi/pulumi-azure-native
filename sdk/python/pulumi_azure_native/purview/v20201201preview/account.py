@@ -22,7 +22,6 @@ class AccountArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 sku: Optional[pulumi.Input['AccountSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
@@ -32,7 +31,6 @@ class AccountArgs:
         :param pulumi.Input[str] location: Gets or sets the location.
         :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
-        :param pulumi.Input['AccountSkuArgs'] sku: Gets or sets the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -48,8 +46,6 @@ class AccountArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -127,18 +123,6 @@ class AccountArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['AccountSkuArgs']]:
-        """
-        Gets or sets the Sku.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['AccountSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags on the azure resource.
@@ -161,7 +145,6 @@ class Account(pulumi.CustomResource):
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AccountSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -175,7 +158,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['AccountSkuArgs']] sku: Gets or sets the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
         """
         ...
@@ -208,7 +190,6 @@ class Account(pulumi.CustomResource):
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AccountSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -232,7 +213,6 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloud_connectors"] = None
             __props__.__dict__["created_at"] = None
@@ -244,6 +224,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sku"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview:Account"), pulumi.Alias(type_="azure-nextgen:purview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account"), pulumi.Alias(type_="azure-nextgen:purview/v20210701:Account")])
@@ -405,7 +386,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.AccountSkuResponse']]:
+    def sku(self) -> pulumi.Output['outputs.AccountResponseSku']:
         """
         Gets or sets the Sku.
         """

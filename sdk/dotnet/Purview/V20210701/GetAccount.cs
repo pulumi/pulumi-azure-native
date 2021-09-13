@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Purview.V20210701
         /// <summary>
         /// Gets or sets the Sku.
         /// </summary>
-        public readonly Outputs.AccountSkuResponse? Sku;
+        public readonly Outputs.AccountResponseSku Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Purview.V20210701
 
             string? publicNetworkAccess,
 
-            Outputs.AccountSkuResponse? sku,
+            Outputs.AccountResponseSku sku,
 
             Outputs.TrackedResourceResponseSystemData systemData,
 

@@ -3,7 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New functions:
+
+- `kubernetes.listConnectedClusterUserCredential`
+
+#### Breaking Changes published by Microsoft:
+
+- SKU property removed from `purview.Account` 
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15965))
 
 ---
 

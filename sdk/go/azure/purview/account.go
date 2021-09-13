@@ -46,7 +46,7 @@ type Account struct {
 	// Gets or sets the public network access.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
-	Sku AccountSkuResponsePtrOutput `pulumi:"sku"`
+	Sku AccountResponseSkuOutput `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData AccountPropertiesResponseSystemDataOutput `pulumi:"systemData"`
 	// Tags on the azure resource.
@@ -130,8 +130,6 @@ type accountArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the Sku.
-	Sku *AccountSku `pulumi:"sku"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -150,8 +148,6 @@ type AccountArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
-	// Gets or sets the Sku.
-	Sku AccountSkuPtrInput
 	// Tags on the azure resource.
 	Tags pulumi.StringMapInput
 }
