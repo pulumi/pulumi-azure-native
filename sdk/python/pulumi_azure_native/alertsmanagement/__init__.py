@@ -29,6 +29,8 @@ if typing.TYPE_CHECKING:
     v20200804preview = __v20200804preview
     import pulumi_azure_native.alertsmanagement.v20210401 as __v20210401
     v20210401 = __v20210401
+    import pulumi_azure_native.alertsmanagement.v20210808preview as __v20210808preview
+    v20210808preview = __v20210808preview
 else:
     v20181102privatepreview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20181102privatepreview')
     v20190301 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190301')
@@ -36,4 +38,5 @@ else:
     v20190601 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190601')
     v20200804preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20200804preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210401')
+    v20210808preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210808preview')
 

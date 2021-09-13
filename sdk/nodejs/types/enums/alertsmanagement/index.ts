@@ -8,6 +8,7 @@ import * as v20190505preview from "./v20190505preview";
 import * as v20190601 from "./v20190601";
 import * as v20200804preview from "./v20200804preview";
 import * as v20210401 from "./v20210401";
+import * as v20210808preview from "./v20210808preview";
 
 export {
     v20181102privatepreview,
@@ -16,6 +17,7 @@ export {
     v20190601,
     v20200804preview,
     v20210401,
+    v20210808preview,
 };
 
 export const ActionRuleStatus = {

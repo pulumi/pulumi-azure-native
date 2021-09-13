@@ -768,6 +768,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210808preview",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210808preview",
+  "classes": {
+   "azure-native:alertsmanagement/v20210808preview:ActionRuleByName": "ActionRuleByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "analysisservices",
   "fqn": "pulumi_azure_native.analysisservices",
   "classes": {
