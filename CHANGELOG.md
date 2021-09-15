@@ -16,6 +16,11 @@ CHANGELOG
 - The shape of the `documentdb.Service` resource adjusted to match API expectations
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15971))
 
+#### Bug Fixes
+
+- Fix `authorization.getClientConfig` when using Managed Identities
+  [#1008](https://github.com/pulumi/pulumi-azure-native/issues/1008).
+
 ---
 
 ## 1.28.0 (2021-09-13)
