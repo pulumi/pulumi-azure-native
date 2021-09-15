@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of private cloud addon
 type AddonType string
 
 const (
@@ -175,7 +174,6 @@ func (in *addonTypePtr) ToAddonTypePtrOutputWithContext(ctx context.Context) Add
 	return pulumi.ToOutputWithContext(ctx, in).(AddonTypePtrOutput)
 }
 
-// Type of DHCP: SERVER or RELAY.
 type DhcpTypeEnum string
 
 const (
@@ -339,7 +337,6 @@ func (in *dhcpTypeEnumPtr) ToDhcpTypeEnumPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(DhcpTypeEnumPtrOutput)
 }
 
-// DNS Service log level.
 type DnsServiceLogLevelEnum string
 
 const (
@@ -507,7 +504,6 @@ func (in *dnsServiceLogLevelEnumPtr) ToDnsServiceLogLevelEnumPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DnsServiceLogLevelEnumPtrOutput)
 }
 
-// Connectivity to internet is enabled or disabled
 type InternetEnum string
 
 const (
@@ -672,7 +668,6 @@ func (in *internetEnumPtr) ToInternetEnumPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(InternetEnumPtrOutput)
 }
 
-// Direction of port mirroring profile.
 type PortMirroringDirectionEnum string
 
 const (
@@ -836,7 +831,6 @@ func (in *portMirroringDirectionEnumPtr) ToPortMirroringDirectionEnumPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(PortMirroringDirectionEnumPtrOutput)
 }
 
-// The type of execution parameter
 type ScriptExecutionParameterType string
 
 const (
@@ -1002,7 +996,6 @@ func (in *scriptExecutionParameterTypePtr) ToScriptExecutionParameterTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ScriptExecutionParameterTypePtrOutput)
 }
 
-// Protect LDAP communication using SSL certificate (LDAPS)
 type SslEnum string
 
 const (

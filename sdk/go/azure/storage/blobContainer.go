@@ -133,6 +133,12 @@ func NewBlobContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobContainer"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210601:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobContainer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobContainer

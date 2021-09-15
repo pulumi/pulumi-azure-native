@@ -103,6 +103,8 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

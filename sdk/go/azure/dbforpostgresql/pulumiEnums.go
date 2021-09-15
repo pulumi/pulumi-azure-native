@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of administrator.
 type AdministratorType string
 
 const (
@@ -174,7 +173,6 @@ func (in *administratorTypePtr) ToAdministratorTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AdministratorTypePtrOutput)
 }
 
-// The mode to create a new server.
 type CreateMode string
 
 const (
@@ -341,7 +339,6 @@ func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 type GeoRedundantBackup string
 
 const (
@@ -506,7 +503,6 @@ func (in *geoRedundantBackupPtr) ToGeoRedundantBackupPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(GeoRedundantBackupPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 type IdentityType string
 
 const (
@@ -670,7 +666,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// Status showing whether the server enabled infrastructure encryption.
 type InfrastructureEncryption string
 
 const (
@@ -837,7 +832,6 @@ func (in *infrastructureEncryptionPtr) ToInfrastructureEncryptionPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureEncryptionPtrOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 type MinimalTlsVersionEnum string
 
 const (
@@ -1004,7 +998,6 @@ func (in *minimalTlsVersionEnumPtr) ToMinimalTlsVersionEnumPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(MinimalTlsVersionEnumPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 type PublicNetworkAccessEnum string
 
 const (
@@ -1169,7 +1162,6 @@ func (in *publicNetworkAccessEnumPtr) ToPublicNetworkAccessEnumPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessEnumPtrOutput)
 }
 
-// The key type like 'AzureKeyVault'.
 type ServerKeyType string
 
 const (
@@ -1333,7 +1325,6 @@ func (in *serverKeyTypePtr) ToServerKeyTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServerKeyTypePtrOutput)
 }
 
-// Specifies the state of the policy, whether it is enabled or disabled.
 type ServerSecurityAlertPolicyStateEnum string
 
 const (
@@ -1498,7 +1489,6 @@ func (in *serverSecurityAlertPolicyStateEnumPtr) ToServerSecurityAlertPolicyStat
 	return pulumi.ToOutputWithContext(ctx, in).(ServerSecurityAlertPolicyStateEnumPtrOutput)
 }
 
-// Server version.
 type ServerVersion string
 
 const (
@@ -1667,7 +1657,6 @@ func (in *serverVersionPtr) ToServerVersionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServerVersionPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 type SkuTier string
 
 const (
@@ -1833,7 +1822,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 type SslEnforcementEnum string
 
 const (
@@ -1998,7 +1986,6 @@ func (in *sslEnforcementEnumPtr) ToSslEnforcementEnumPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SslEnforcementEnumPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 type StorageAutogrow string
 
 const (

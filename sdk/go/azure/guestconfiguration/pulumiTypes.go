@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponse struct {
 	// Information about the configuration.
 	Configuration *ConfigurationInfoResponse `pulumi:"configuration"`
@@ -29,7 +28,6 @@ type AssignmentInfoResponseInput interface {
 	ToAssignmentInfoResponseOutputWithContext(context.Context) AssignmentInfoResponseOutput
 }
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponseArgs struct {
 	// Information about the configuration.
 	Configuration ConfigurationInfoResponsePtrInput `pulumi:"configuration"`
@@ -90,7 +88,6 @@ func (i *assignmentInfoResponsePtrType) ToAssignmentInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoResponsePtrOutput)
 }
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentInfoResponseOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o AssignmentInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponse struct {
 	// Code for the compliance of the guest configuration assignment resource.
 	Code string `pulumi:"code"`
@@ -188,7 +184,6 @@ type AssignmentReportResourceComplianceReasonResponseInput interface {
 	ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonResponseOutput
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponseArgs struct {
 	// Code for the compliance of the guest configuration assignment resource.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -233,7 +228,6 @@ func (i AssignmentReportResourceComplianceReasonResponseArray) ToAssignmentRepor
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentReportResourceComplianceReasonResponseOutput) ElementType() reflect.Type {
@@ -278,7 +272,6 @@ func (o AssignmentReportResourceComplianceReasonResponseArrayOutput) Index(i pul
 	}).(AssignmentReportResourceComplianceReasonResponseOutput)
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponse struct {
 	// A value indicating compliance status of the machine for the assigned guest configuration.
 	ComplianceStatus string `pulumi:"complianceStatus"`
@@ -301,7 +294,6 @@ type AssignmentReportResourceResponseInput interface {
 	ToAssignmentReportResourceResponseOutputWithContext(context.Context) AssignmentReportResourceResponseOutput
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponseArgs struct {
 	// A value indicating compliance status of the machine for the assigned guest configuration.
 	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
@@ -350,7 +342,6 @@ func (i AssignmentReportResourceResponseArray) ToAssignmentReportResourceRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceResponseArrayOutput)
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentReportResourceResponseOutput) ElementType() reflect.Type {
@@ -696,7 +687,6 @@ func (o AssignmentReportResponsePtrOutput) Vm() VMInfoResponsePtrOutput {
 	}).(VMInfoResponsePtrOutput)
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponse struct {
 	// Name of the configuration.
 	Name string `pulumi:"name"`
@@ -715,7 +705,6 @@ type ConfigurationInfoResponseInput interface {
 	ToConfigurationInfoResponseOutputWithContext(context.Context) ConfigurationInfoResponseOutput
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponseArgs struct {
 	// Name of the configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -776,7 +765,6 @@ func (i *configurationInfoResponsePtrType) ToConfigurationInfoResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoResponsePtrOutput)
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -855,7 +843,6 @@ func (o ConfigurationInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameter struct {
 	// Name of the configuration parameter.
 	Name *string `pulumi:"name"`
@@ -874,7 +861,6 @@ type ConfigurationParameterInput interface {
 	ToConfigurationParameterOutputWithContext(context.Context) ConfigurationParameterOutput
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterArgs struct {
 	// Name of the configuration parameter.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -919,7 +905,6 @@ func (i ConfigurationParameterArray) ToConfigurationParameterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterArrayOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationParameterOutput) ElementType() reflect.Type {
@@ -964,7 +949,6 @@ func (o ConfigurationParameterArrayOutput) Index(i pulumi.IntInput) Configuratio
 	}).(ConfigurationParameterOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponse struct {
 	// Name of the configuration parameter.
 	Name *string `pulumi:"name"`
@@ -983,7 +967,6 @@ type ConfigurationParameterResponseInput interface {
 	ToConfigurationParameterResponseOutputWithContext(context.Context) ConfigurationParameterResponseOutput
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponseArgs struct {
 	// Name of the configuration parameter.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1028,7 +1011,6 @@ func (i ConfigurationParameterResponseArray) ToConfigurationParameterResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterResponseArrayOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationParameterResponseOutput) ElementType() reflect.Type {
@@ -1073,7 +1055,6 @@ func (o ConfigurationParameterResponseArrayOutput) Index(i pulumi.IntInput) Conf
 	}).(ConfigurationParameterResponseOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSetting struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
@@ -1100,7 +1081,6 @@ type ConfigurationSettingInput interface {
 	ToConfigurationSettingOutputWithContext(context.Context) ConfigurationSettingOutput
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingArgs struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
@@ -1169,7 +1149,6 @@ func (i *configurationSettingPtrType) ToConfigurationSettingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingPtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSettingOutput) ElementType() reflect.Type {
@@ -1308,7 +1287,6 @@ func (o ConfigurationSettingPtrOutput) RefreshFrequencyMins() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponse struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
@@ -1335,7 +1313,6 @@ type ConfigurationSettingResponseInput interface {
 	ToConfigurationSettingResponseOutputWithContext(context.Context) ConfigurationSettingResponseOutput
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponseArgs struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
@@ -1404,7 +1381,6 @@ func (i *configurationSettingResponsePtrType) ToConfigurationSettingResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingResponsePtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSettingResponseOutput) ElementType() reflect.Type {
@@ -1543,7 +1519,6 @@ func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentProperties struct {
 	// The source which initiated the guest configuration assignment. Ex: Azure Policy
 	Context *string `pulumi:"context"`
@@ -1562,7 +1537,6 @@ type GuestConfigurationAssignmentPropertiesInput interface {
 	ToGuestConfigurationAssignmentPropertiesOutputWithContext(context.Context) GuestConfigurationAssignmentPropertiesOutput
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesArgs struct {
 	// The source which initiated the guest configuration assignment. Ex: Azure Policy
 	Context pulumi.StringPtrInput `pulumi:"context"`
@@ -1623,7 +1597,6 @@ func (i *guestConfigurationAssignmentPropertiesPtrType) ToGuestConfigurationAssi
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentPropertiesPtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -1704,7 +1677,6 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) GuestConfiguration() Gu
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponse struct {
 	// Combined hash of the configuration package and parameters.
 	AssignmentHash string `pulumi:"assignmentHash"`
@@ -1737,7 +1709,6 @@ type GuestConfigurationAssignmentPropertiesResponseInput interface {
 	ToGuestConfigurationAssignmentPropertiesResponseOutputWithContext(context.Context) GuestConfigurationAssignmentPropertiesResponseOutput
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponseArgs struct {
 	// Combined hash of the configuration package and parameters.
 	AssignmentHash pulumi.StringInput `pulumi:"assignmentHash"`
@@ -1812,7 +1783,6 @@ func (i *guestConfigurationAssignmentPropertiesResponsePtrType) ToGuestConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2000,7 +1970,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceI
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigation struct {
 	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 	AssignmentType *string `pulumi:"assignmentType"`
@@ -2031,7 +2000,6 @@ type GuestConfigurationNavigationInput interface {
 	ToGuestConfigurationNavigationOutputWithContext(context.Context) GuestConfigurationNavigationOutput
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationArgs struct {
 	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
@@ -2104,7 +2072,6 @@ func (i *guestConfigurationNavigationPtrType) ToGuestConfigurationNavigationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationNavigationOutput) ElementType() reflect.Type {
@@ -2273,7 +2240,6 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponse struct {
 	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 	AssignmentType *string `pulumi:"assignmentType"`
@@ -2304,7 +2270,6 @@ type GuestConfigurationNavigationResponseInput interface {
 	ToGuestConfigurationNavigationResponseOutputWithContext(context.Context) GuestConfigurationNavigationResponseOutput
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponseArgs struct {
 	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
@@ -2377,7 +2342,6 @@ func (i *guestConfigurationNavigationResponsePtrType) ToGuestConfigurationNaviga
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationNavigationResponseOutput) ElementType() reflect.Type {
@@ -2550,7 +2514,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the VM.
 type VMInfoResponse struct {
 	// Azure resource Id of the VM.
 	Id string `pulumi:"id"`
@@ -2569,7 +2532,6 @@ type VMInfoResponseInput interface {
 	ToVMInfoResponseOutputWithContext(context.Context) VMInfoResponseOutput
 }
 
-// Information about the VM.
 type VMInfoResponseArgs struct {
 	// Azure resource Id of the VM.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2630,7 +2592,6 @@ func (i *vminfoResponsePtrType) ToVMInfoResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VMInfoResponsePtrOutput)
 }
 
-// Information about the VM.
 type VMInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (VMInfoResponseOutput) ElementType() reflect.Type {

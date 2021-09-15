@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Alexa channel definition
 type AlexaChannel struct {
 	// The channel name
 	// Expected value is 'AlexaChannel'.
@@ -30,7 +29,6 @@ type AlexaChannelInput interface {
 	ToAlexaChannelOutputWithContext(context.Context) AlexaChannelOutput
 }
 
-// Alexa channel definition
 type AlexaChannelArgs struct {
 	// The channel name
 	// Expected value is 'AlexaChannel'.
@@ -51,7 +49,6 @@ func (i AlexaChannelArgs) ToAlexaChannelOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AlexaChannelOutput)
 }
 
-// Alexa channel definition
 type AlexaChannelOutput struct{ *pulumi.OutputState }
 
 func (AlexaChannelOutput) ElementType() reflect.Type {
@@ -77,7 +74,6 @@ func (o AlexaChannelOutput) Properties() AlexaChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v AlexaChannel) *AlexaChannelProperties { return v.Properties }).(AlexaChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelProperties struct {
 	// The Alexa skill Id
 	AlexaSkillId string `pulumi:"alexaSkillId"`
@@ -96,7 +92,6 @@ type AlexaChannelPropertiesInput interface {
 	ToAlexaChannelPropertiesOutputWithContext(context.Context) AlexaChannelPropertiesOutput
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelPropertiesArgs struct {
 	// The Alexa skill Id
 	AlexaSkillId pulumi.StringInput `pulumi:"alexaSkillId"`
@@ -157,7 +152,6 @@ func (i *alexaChannelPropertiesPtrType) ToAlexaChannelPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AlexaChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AlexaChannelPropertiesOutput) ElementType() reflect.Type {
@@ -236,7 +230,6 @@ func (o AlexaChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelPropertiesResponse struct {
 	// The Alexa skill Id
 	AlexaSkillId string `pulumi:"alexaSkillId"`
@@ -259,7 +252,6 @@ type AlexaChannelPropertiesResponseInput interface {
 	ToAlexaChannelPropertiesResponseOutputWithContext(context.Context) AlexaChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelPropertiesResponseArgs struct {
 	// The Alexa skill Id
 	AlexaSkillId pulumi.StringInput `pulumi:"alexaSkillId"`
@@ -324,7 +316,6 @@ func (i *alexaChannelPropertiesResponsePtrType) ToAlexaChannelPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AlexaChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Alexa channel.
 type AlexaChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AlexaChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -433,7 +424,6 @@ func (o AlexaChannelPropertiesResponsePtrOutput) UrlFragment() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Alexa channel definition
 type AlexaChannelResponse struct {
 	// The channel name
 	// Expected value is 'AlexaChannel'.
@@ -453,7 +443,6 @@ type AlexaChannelResponseInput interface {
 	ToAlexaChannelResponseOutputWithContext(context.Context) AlexaChannelResponseOutput
 }
 
-// Alexa channel definition
 type AlexaChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'AlexaChannel'.
@@ -474,7 +463,6 @@ func (i AlexaChannelResponseArgs) ToAlexaChannelResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlexaChannelResponseOutput)
 }
 
-// Alexa channel definition
 type AlexaChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (AlexaChannelResponseOutput) ElementType() reflect.Type {
@@ -500,7 +488,6 @@ func (o AlexaChannelResponseOutput) Properties() AlexaChannelPropertiesResponseP
 	return o.ApplyT(func(v AlexaChannelResponse) *AlexaChannelPropertiesResponse { return v.Properties }).(AlexaChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Bot.
 type BotProperties struct {
 	// The CMK Url
 	CmekKeyVaultUrl *string `pulumi:"cmekKeyVaultUrl"`
@@ -543,7 +530,6 @@ type BotPropertiesInput interface {
 	ToBotPropertiesOutputWithContext(context.Context) BotPropertiesOutput
 }
 
-// The parameters to provide for the Bot.
 type BotPropertiesArgs struct {
 	// The CMK Url
 	CmekKeyVaultUrl pulumi.StringPtrInput `pulumi:"cmekKeyVaultUrl"`
@@ -628,7 +614,6 @@ func (i *botPropertiesPtrType) ToBotPropertiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BotPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Bot.
 type BotPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotPropertiesOutput) ElementType() reflect.Type {
@@ -887,7 +872,6 @@ func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Bot.
 type BotPropertiesResponse struct {
 	// The CMK Url
 	CmekKeyVaultUrl *string `pulumi:"cmekKeyVaultUrl"`
@@ -936,7 +920,6 @@ type BotPropertiesResponseInput interface {
 	ToBotPropertiesResponseOutputWithContext(context.Context) BotPropertiesResponseOutput
 }
 
-// The parameters to provide for the Bot.
 type BotPropertiesResponseArgs struct {
 	// The CMK Url
 	CmekKeyVaultUrl pulumi.StringPtrInput `pulumi:"cmekKeyVaultUrl"`
@@ -1027,7 +1010,6 @@ func (i *botPropertiesResponsePtrType) ToBotPropertiesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Bot.
 type BotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1331,7 +1313,6 @@ func (o BotPropertiesResponsePtrOutput) SchemaTransformationVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameter struct {
 	// Key for the Connection Setting Parameter.
 	Key *string `pulumi:"key"`
@@ -1350,7 +1331,6 @@ type ConnectionSettingParameterInput interface {
 	ToConnectionSettingParameterOutputWithContext(context.Context) ConnectionSettingParameterOutput
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterArgs struct {
 	// Key for the Connection Setting Parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -1395,7 +1375,6 @@ func (i ConnectionSettingParameterArray) ToConnectionSettingParameterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingParameterArrayOutput)
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterOutput struct{ *pulumi.OutputState }
 
 func (ConnectionSettingParameterOutput) ElementType() reflect.Type {
@@ -1440,7 +1419,6 @@ func (o ConnectionSettingParameterArrayOutput) Index(i pulumi.IntInput) Connecti
 	}).(ConnectionSettingParameterOutput)
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterResponse struct {
 	// Key for the Connection Setting Parameter.
 	Key *string `pulumi:"key"`
@@ -1459,7 +1437,6 @@ type ConnectionSettingParameterResponseInput interface {
 	ToConnectionSettingParameterResponseOutputWithContext(context.Context) ConnectionSettingParameterResponseOutput
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterResponseArgs struct {
 	// Key for the Connection Setting Parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -1504,7 +1481,6 @@ func (i ConnectionSettingParameterResponseArray) ToConnectionSettingParameterRes
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingParameterResponseArrayOutput)
 }
 
-// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionSettingParameterResponseOutput) ElementType() reflect.Type {
@@ -1549,7 +1525,6 @@ func (o ConnectionSettingParameterResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ConnectionSettingParameterResponseOutput)
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingProperties struct {
 	// Client Id associated with the Connection Setting.
 	ClientId *string `pulumi:"clientId"`
@@ -1576,7 +1551,6 @@ type ConnectionSettingPropertiesInput interface {
 	ToConnectionSettingPropertiesOutputWithContext(context.Context) ConnectionSettingPropertiesOutput
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesArgs struct {
 	// Client Id associated with the Connection Setting.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -1645,7 +1619,6 @@ func (i *connectionSettingPropertiesPtrType) ToConnectionSettingPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingPropertiesPtrOutput)
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectionSettingPropertiesOutput) ElementType() reflect.Type {
@@ -1784,7 +1757,6 @@ func (o ConnectionSettingPropertiesPtrOutput) ServiceProviderId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesResponse struct {
 	// Client Id associated with the Connection Setting.
 	ClientId *string `pulumi:"clientId"`
@@ -1813,7 +1785,6 @@ type ConnectionSettingPropertiesResponseInput interface {
 	ToConnectionSettingPropertiesResponseOutputWithContext(context.Context) ConnectionSettingPropertiesResponseOutput
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesResponseArgs struct {
 	// Client Id associated with the Connection Setting.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -1884,7 +1855,6 @@ func (i *connectionSettingPropertiesResponsePtrType) ToConnectionSettingProperti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingPropertiesResponsePtrOutput)
 }
 
-// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionSettingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2038,7 +2008,6 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) SettingId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Direct Line channel definition
 type DirectLineChannel struct {
 	// The channel name
 	// Expected value is 'DirectLineChannel'.
@@ -2058,7 +2027,6 @@ type DirectLineChannelInput interface {
 	ToDirectLineChannelOutputWithContext(context.Context) DirectLineChannelOutput
 }
 
-// Direct Line channel definition
 type DirectLineChannelArgs struct {
 	// The channel name
 	// Expected value is 'DirectLineChannel'.
@@ -2079,7 +2047,6 @@ func (i DirectLineChannelArgs) ToDirectLineChannelOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelOutput)
 }
 
-// Direct Line channel definition
 type DirectLineChannelOutput struct{ *pulumi.OutputState }
 
 func (DirectLineChannelOutput) ElementType() reflect.Type {
@@ -2105,7 +2072,6 @@ func (o DirectLineChannelOutput) Properties() DirectLineChannelPropertiesPtrOutp
 	return o.ApplyT(func(v DirectLineChannel) *DirectLineChannelProperties { return v.Properties }).(DirectLineChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelProperties struct {
 	// The list of Direct Line sites
 	Sites []DirectLineSite `pulumi:"sites"`
@@ -2122,7 +2088,6 @@ type DirectLineChannelPropertiesInput interface {
 	ToDirectLineChannelPropertiesOutputWithContext(context.Context) DirectLineChannelPropertiesOutput
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelPropertiesArgs struct {
 	// The list of Direct Line sites
 	Sites DirectLineSiteArrayInput `pulumi:"sites"`
@@ -2181,7 +2146,6 @@ func (i *directLineChannelPropertiesPtrType) ToDirectLineChannelPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DirectLineChannelPropertiesOutput) ElementType() reflect.Type {
@@ -2245,7 +2209,6 @@ func (o DirectLineChannelPropertiesPtrOutput) Sites() DirectLineSiteArrayOutput 
 	}).(DirectLineSiteArrayOutput)
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelPropertiesResponse struct {
 	// The list of Direct Line sites
 	Sites []DirectLineSiteResponse `pulumi:"sites"`
@@ -2262,7 +2225,6 @@ type DirectLineChannelPropertiesResponseInput interface {
 	ToDirectLineChannelPropertiesResponseOutputWithContext(context.Context) DirectLineChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelPropertiesResponseArgs struct {
 	// The list of Direct Line sites
 	Sites DirectLineSiteResponseArrayInput `pulumi:"sites"`
@@ -2321,7 +2283,6 @@ func (i *directLineChannelPropertiesResponsePtrType) ToDirectLineChannelProperti
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Direct Line channel.
 type DirectLineChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectLineChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2385,7 +2346,6 @@ func (o DirectLineChannelPropertiesResponsePtrOutput) Sites() DirectLineSiteResp
 	}).(DirectLineSiteResponseArrayOutput)
 }
 
-// Direct Line channel definition
 type DirectLineChannelResponse struct {
 	// The channel name
 	// Expected value is 'DirectLineChannel'.
@@ -2405,7 +2365,6 @@ type DirectLineChannelResponseInput interface {
 	ToDirectLineChannelResponseOutputWithContext(context.Context) DirectLineChannelResponseOutput
 }
 
-// Direct Line channel definition
 type DirectLineChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'DirectLineChannel'.
@@ -2426,7 +2385,6 @@ func (i DirectLineChannelResponseArgs) ToDirectLineChannelResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelResponseOutput)
 }
 
-// Direct Line channel definition
 type DirectLineChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectLineChannelResponseOutput) ElementType() reflect.Type {
@@ -2452,7 +2410,6 @@ func (o DirectLineChannelResponseOutput) Properties() DirectLineChannelPropertie
 	return o.ApplyT(func(v DirectLineChannelResponse) *DirectLineChannelPropertiesResponse { return v.Properties }).(DirectLineChannelPropertiesResponsePtrOutput)
 }
 
-// A site for the Direct Line channel
 type DirectLineSite struct {
 	// Whether this site is enabled for DirectLine channel.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -2479,7 +2436,6 @@ type DirectLineSiteInput interface {
 	ToDirectLineSiteOutputWithContext(context.Context) DirectLineSiteOutput
 }
 
-// A site for the Direct Line channel
 type DirectLineSiteArgs struct {
 	// Whether this site is enabled for DirectLine channel.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -2532,7 +2488,6 @@ func (i DirectLineSiteArray) ToDirectLineSiteArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSiteArrayOutput)
 }
 
-// A site for the Direct Line channel
 type DirectLineSiteOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSiteOutput) ElementType() reflect.Type {
@@ -2597,7 +2552,6 @@ func (o DirectLineSiteArrayOutput) Index(i pulumi.IntInput) DirectLineSiteOutput
 	}).(DirectLineSiteOutput)
 }
 
-// A site for the Direct Line channel
 type DirectLineSiteResponse struct {
 	// Whether this site is enabled for DirectLine channel.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -2630,7 +2584,6 @@ type DirectLineSiteResponseInput interface {
 	ToDirectLineSiteResponseOutputWithContext(context.Context) DirectLineSiteResponseOutput
 }
 
-// A site for the Direct Line channel
 type DirectLineSiteResponseArgs struct {
 	// Whether this site is enabled for DirectLine channel.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -2689,7 +2642,6 @@ func (i DirectLineSiteResponseArray) ToDirectLineSiteResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSiteResponseArrayOutput)
 }
 
-// A site for the Direct Line channel
 type DirectLineSiteResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSiteResponseOutput) ElementType() reflect.Type {
@@ -2769,7 +2721,6 @@ func (o DirectLineSiteResponseArrayOutput) Index(i pulumi.IntInput) DirectLineSi
 	}).(DirectLineSiteResponseOutput)
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannel struct {
 	// The channel name
 	// Expected value is 'DirectLineSpeechChannel'.
@@ -2789,7 +2740,6 @@ type DirectLineSpeechChannelInput interface {
 	ToDirectLineSpeechChannelOutputWithContext(context.Context) DirectLineSpeechChannelOutput
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannelArgs struct {
 	// The channel name
 	// Expected value is 'DirectLineSpeechChannel'.
@@ -2810,7 +2760,6 @@ func (i DirectLineSpeechChannelArgs) ToDirectLineSpeechChannelOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSpeechChannelOutput)
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannelOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSpeechChannelOutput) ElementType() reflect.Type {
@@ -2836,7 +2785,6 @@ func (o DirectLineSpeechChannelOutput) Properties() DirectLineSpeechChannelPrope
 	return o.ApplyT(func(v DirectLineSpeechChannel) *DirectLineSpeechChannelProperties { return v.Properties }).(DirectLineSpeechChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelProperties struct {
 	// The cognitive service region with this channel registration.
 	CognitiveServiceRegion string `pulumi:"cognitiveServiceRegion"`
@@ -2863,7 +2811,6 @@ type DirectLineSpeechChannelPropertiesInput interface {
 	ToDirectLineSpeechChannelPropertiesOutputWithContext(context.Context) DirectLineSpeechChannelPropertiesOutput
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesArgs struct {
 	// The cognitive service region with this channel registration.
 	CognitiveServiceRegion pulumi.StringInput `pulumi:"cognitiveServiceRegion"`
@@ -2932,7 +2879,6 @@ func (i *directLineSpeechChannelPropertiesPtrType) ToDirectLineSpeechChannelProp
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSpeechChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSpeechChannelPropertiesOutput) ElementType() reflect.Type {
@@ -3071,7 +3017,6 @@ func (o DirectLineSpeechChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesResponse struct {
 	// The cognitive service region with this channel registration.
 	CognitiveServiceRegion string `pulumi:"cognitiveServiceRegion"`
@@ -3098,7 +3043,6 @@ type DirectLineSpeechChannelPropertiesResponseInput interface {
 	ToDirectLineSpeechChannelPropertiesResponseOutputWithContext(context.Context) DirectLineSpeechChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesResponseArgs struct {
 	// The cognitive service region with this channel registration.
 	CognitiveServiceRegion pulumi.StringInput `pulumi:"cognitiveServiceRegion"`
@@ -3167,7 +3111,6 @@ func (i *directLineSpeechChannelPropertiesResponsePtrType) ToDirectLineSpeechCha
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSpeechChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSpeechChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3306,7 +3249,6 @@ func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannelResponse struct {
 	// The channel name
 	// Expected value is 'DirectLineSpeechChannel'.
@@ -3326,7 +3268,6 @@ type DirectLineSpeechChannelResponseInput interface {
 	ToDirectLineSpeechChannelResponseOutputWithContext(context.Context) DirectLineSpeechChannelResponseOutput
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'DirectLineSpeechChannel'.
@@ -3347,7 +3288,6 @@ func (i DirectLineSpeechChannelResponseArgs) ToDirectLineSpeechChannelResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSpeechChannelResponseOutput)
 }
 
-// DirectLine Speech channel definition
 type DirectLineSpeechChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectLineSpeechChannelResponseOutput) ElementType() reflect.Type {
@@ -3375,7 +3315,6 @@ func (o DirectLineSpeechChannelResponseOutput) Properties() DirectLineSpeechChan
 	}).(DirectLineSpeechChannelPropertiesResponsePtrOutput)
 }
 
-// Email channel definition
 type EmailChannel struct {
 	// The channel name
 	// Expected value is 'EmailChannel'.
@@ -3395,7 +3334,6 @@ type EmailChannelInput interface {
 	ToEmailChannelOutputWithContext(context.Context) EmailChannelOutput
 }
 
-// Email channel definition
 type EmailChannelArgs struct {
 	// The channel name
 	// Expected value is 'EmailChannel'.
@@ -3416,7 +3354,6 @@ func (i EmailChannelArgs) ToEmailChannelOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
 }
 
-// Email channel definition
 type EmailChannelOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelOutput) ElementType() reflect.Type {
@@ -3442,7 +3379,6 @@ func (o EmailChannelOutput) Properties() EmailChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v EmailChannel) *EmailChannelProperties { return v.Properties }).(EmailChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelProperties struct {
 	// The email address
 	EmailAddress string `pulumi:"emailAddress"`
@@ -3463,7 +3399,6 @@ type EmailChannelPropertiesInput interface {
 	ToEmailChannelPropertiesOutputWithContext(context.Context) EmailChannelPropertiesOutput
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelPropertiesArgs struct {
 	// The email address
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
@@ -3526,7 +3461,6 @@ func (i *emailChannelPropertiesPtrType) ToEmailChannelPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelPropertiesOutput) ElementType() reflect.Type {
@@ -3620,7 +3554,6 @@ func (o EmailChannelPropertiesPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelPropertiesResponse struct {
 	// The email address
 	EmailAddress string `pulumi:"emailAddress"`
@@ -3641,7 +3574,6 @@ type EmailChannelPropertiesResponseInput interface {
 	ToEmailChannelPropertiesResponseOutputWithContext(context.Context) EmailChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelPropertiesResponseArgs struct {
 	// The email address
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
@@ -3704,7 +3636,6 @@ func (i *emailChannelPropertiesResponsePtrType) ToEmailChannelPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Email channel.
 type EmailChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3798,7 +3729,6 @@ func (o EmailChannelPropertiesResponsePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email channel definition
 type EmailChannelResponse struct {
 	// The channel name
 	// Expected value is 'EmailChannel'.
@@ -3818,7 +3748,6 @@ type EmailChannelResponseInput interface {
 	ToEmailChannelResponseOutputWithContext(context.Context) EmailChannelResponseOutput
 }
 
-// Email channel definition
 type EmailChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'EmailChannel'.
@@ -3839,7 +3768,6 @@ func (i EmailChannelResponseArgs) ToEmailChannelResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelResponseOutput)
 }
 
-// Email channel definition
 type EmailChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelResponseOutput) ElementType() reflect.Type {
@@ -3865,7 +3793,6 @@ func (o EmailChannelResponseOutput) Properties() EmailChannelPropertiesResponseP
 	return o.ApplyT(func(v EmailChannelResponse) *EmailChannelPropertiesResponse { return v.Properties }).(EmailChannelPropertiesResponsePtrOutput)
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNode struct {
 	// The location of the Enterprise Channel Node.
 	AzureLocation string `pulumi:"azureLocation"`
@@ -3888,7 +3815,6 @@ type EnterpriseChannelNodeInput interface {
 	ToEnterpriseChannelNodeOutputWithContext(context.Context) EnterpriseChannelNodeOutput
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNodeArgs struct {
 	// The location of the Enterprise Channel Node.
 	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
@@ -3937,7 +3863,6 @@ func (i EnterpriseChannelNodeArray) ToEnterpriseChannelNodeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeArrayOutput)
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNodeOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseChannelNodeOutput) ElementType() reflect.Type {
@@ -3992,7 +3917,6 @@ func (o EnterpriseChannelNodeArrayOutput) Index(i pulumi.IntInput) EnterpriseCha
 	}).(EnterpriseChannelNodeOutput)
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNodeResponse struct {
 	// The location of the Enterprise Channel Node.
 	AzureLocation string `pulumi:"azureLocation"`
@@ -4017,7 +3941,6 @@ type EnterpriseChannelNodeResponseInput interface {
 	ToEnterpriseChannelNodeResponseOutputWithContext(context.Context) EnterpriseChannelNodeResponseOutput
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNodeResponseArgs struct {
 	// The location of the Enterprise Channel Node.
 	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
@@ -4068,7 +3991,6 @@ func (i EnterpriseChannelNodeResponseArray) ToEnterpriseChannelNodeResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeResponseArrayOutput)
 }
 
-// The properties specific to an Enterprise Channel Node.
 type EnterpriseChannelNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseChannelNodeResponseOutput) ElementType() reflect.Type {
@@ -4128,7 +4050,6 @@ func (o EnterpriseChannelNodeResponseArrayOutput) Index(i pulumi.IntInput) Enter
 	}).(EnterpriseChannelNodeResponseOutput)
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelProperties struct {
 	// The nodes associated with the Enterprise Channel.
 	Nodes []EnterpriseChannelNode `pulumi:"nodes"`
@@ -4147,7 +4068,6 @@ type EnterpriseChannelPropertiesInput interface {
 	ToEnterpriseChannelPropertiesOutputWithContext(context.Context) EnterpriseChannelPropertiesOutput
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelPropertiesArgs struct {
 	// The nodes associated with the Enterprise Channel.
 	Nodes EnterpriseChannelNodeArrayInput `pulumi:"nodes"`
@@ -4208,7 +4128,6 @@ func (i *enterpriseChannelPropertiesPtrType) ToEnterpriseChannelPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseChannelPropertiesOutput) ElementType() reflect.Type {
@@ -4287,7 +4206,6 @@ func (o EnterpriseChannelPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelPropertiesResponse struct {
 	// The nodes associated with the Enterprise Channel.
 	Nodes []EnterpriseChannelNodeResponse `pulumi:"nodes"`
@@ -4306,7 +4224,6 @@ type EnterpriseChannelPropertiesResponseInput interface {
 	ToEnterpriseChannelPropertiesResponseOutputWithContext(context.Context) EnterpriseChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelPropertiesResponseArgs struct {
 	// The nodes associated with the Enterprise Channel.
 	Nodes EnterpriseChannelNodeResponseArrayInput `pulumi:"nodes"`
@@ -4367,7 +4284,6 @@ func (i *enterpriseChannelPropertiesResponsePtrType) ToEnterpriseChannelProperti
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Enterprise Channel.
 type EnterpriseChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4446,7 +4362,6 @@ func (o EnterpriseChannelPropertiesResponsePtrOutput) State() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Facebook channel definition
 type FacebookChannel struct {
 	// The channel name
 	// Expected value is 'FacebookChannel'.
@@ -4466,7 +4381,6 @@ type FacebookChannelInput interface {
 	ToFacebookChannelOutputWithContext(context.Context) FacebookChannelOutput
 }
 
-// Facebook channel definition
 type FacebookChannelArgs struct {
 	// The channel name
 	// Expected value is 'FacebookChannel'.
@@ -4487,7 +4401,6 @@ func (i FacebookChannelArgs) ToFacebookChannelOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelOutput)
 }
 
-// Facebook channel definition
 type FacebookChannelOutput struct{ *pulumi.OutputState }
 
 func (FacebookChannelOutput) ElementType() reflect.Type {
@@ -4513,7 +4426,6 @@ func (o FacebookChannelOutput) Properties() FacebookChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v FacebookChannel) *FacebookChannelProperties { return v.Properties }).(FacebookChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelProperties struct {
 	// Facebook application id
 	AppId string `pulumi:"appId"`
@@ -4536,7 +4448,6 @@ type FacebookChannelPropertiesInput interface {
 	ToFacebookChannelPropertiesOutputWithContext(context.Context) FacebookChannelPropertiesOutput
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelPropertiesArgs struct {
 	// Facebook application id
 	AppId pulumi.StringInput `pulumi:"appId"`
@@ -4601,7 +4512,6 @@ func (i *facebookChannelPropertiesPtrType) ToFacebookChannelPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FacebookChannelPropertiesOutput) ElementType() reflect.Type {
@@ -4710,7 +4620,6 @@ func (o FacebookChannelPropertiesPtrOutput) Pages() FacebookPageArrayOutput {
 	}).(FacebookPageArrayOutput)
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelPropertiesResponse struct {
 	// Facebook application id
 	AppId string `pulumi:"appId"`
@@ -4737,7 +4646,6 @@ type FacebookChannelPropertiesResponseInput interface {
 	ToFacebookChannelPropertiesResponseOutputWithContext(context.Context) FacebookChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelPropertiesResponseArgs struct {
 	// Facebook application id
 	AppId pulumi.StringInput `pulumi:"appId"`
@@ -4806,7 +4714,6 @@ func (i *facebookChannelPropertiesResponsePtrType) ToFacebookChannelPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Facebook channel.
 type FacebookChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (FacebookChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4945,7 +4852,6 @@ func (o FacebookChannelPropertiesResponsePtrOutput) VerifyToken() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Facebook channel definition
 type FacebookChannelResponse struct {
 	// The channel name
 	// Expected value is 'FacebookChannel'.
@@ -4965,7 +4871,6 @@ type FacebookChannelResponseInput interface {
 	ToFacebookChannelResponseOutputWithContext(context.Context) FacebookChannelResponseOutput
 }
 
-// Facebook channel definition
 type FacebookChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'FacebookChannel'.
@@ -4986,7 +4891,6 @@ func (i FacebookChannelResponseArgs) ToFacebookChannelResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelResponseOutput)
 }
 
-// Facebook channel definition
 type FacebookChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (FacebookChannelResponseOutput) ElementType() reflect.Type {
@@ -5012,7 +4916,6 @@ func (o FacebookChannelResponseOutput) Properties() FacebookChannelPropertiesRes
 	return o.ApplyT(func(v FacebookChannelResponse) *FacebookChannelPropertiesResponse { return v.Properties }).(FacebookChannelPropertiesResponsePtrOutput)
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPage struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken *string `pulumi:"accessToken"`
@@ -5031,7 +4934,6 @@ type FacebookPageInput interface {
 	ToFacebookPageOutputWithContext(context.Context) FacebookPageOutput
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPageArgs struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
@@ -5076,7 +4978,6 @@ func (i FacebookPageArray) ToFacebookPageArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookPageArrayOutput)
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPageOutput struct{ *pulumi.OutputState }
 
 func (FacebookPageOutput) ElementType() reflect.Type {
@@ -5121,7 +5022,6 @@ func (o FacebookPageArrayOutput) Index(i pulumi.IntInput) FacebookPageOutput {
 	}).(FacebookPageOutput)
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPageResponse struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken *string `pulumi:"accessToken"`
@@ -5140,7 +5040,6 @@ type FacebookPageResponseInput interface {
 	ToFacebookPageResponseOutputWithContext(context.Context) FacebookPageResponseOutput
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPageResponseArgs struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
@@ -5185,7 +5084,6 @@ func (i FacebookPageResponseArray) ToFacebookPageResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookPageResponseArrayOutput)
 }
 
-// A Facebook page for Facebook channel registration
 type FacebookPageResponseOutput struct{ *pulumi.OutputState }
 
 func (FacebookPageResponseOutput) ElementType() reflect.Type {
@@ -5230,7 +5128,6 @@ func (o FacebookPageResponseArrayOutput) Index(i pulumi.IntInput) FacebookPageRe
 	}).(FacebookPageResponseOutput)
 }
 
-// Kik channel definition
 type KikChannel struct {
 	// The channel name
 	// Expected value is 'KikChannel'.
@@ -5250,7 +5147,6 @@ type KikChannelInput interface {
 	ToKikChannelOutputWithContext(context.Context) KikChannelOutput
 }
 
-// Kik channel definition
 type KikChannelArgs struct {
 	// The channel name
 	// Expected value is 'KikChannel'.
@@ -5271,7 +5167,6 @@ func (i KikChannelArgs) ToKikChannelOutputWithContext(ctx context.Context) KikCh
 	return pulumi.ToOutputWithContext(ctx, i).(KikChannelOutput)
 }
 
-// Kik channel definition
 type KikChannelOutput struct{ *pulumi.OutputState }
 
 func (KikChannelOutput) ElementType() reflect.Type {
@@ -5297,7 +5192,6 @@ func (o KikChannelOutput) Properties() KikChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v KikChannel) *KikChannelProperties { return v.Properties }).(KikChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelProperties struct {
 	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
 	ApiKey *string `pulumi:"apiKey"`
@@ -5320,7 +5214,6 @@ type KikChannelPropertiesInput interface {
 	ToKikChannelPropertiesOutputWithContext(context.Context) KikChannelPropertiesOutput
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelPropertiesArgs struct {
 	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
@@ -5385,7 +5278,6 @@ func (i *kikChannelPropertiesPtrType) ToKikChannelPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KikChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KikChannelPropertiesOutput) ElementType() reflect.Type {
@@ -5494,7 +5386,6 @@ func (o KikChannelPropertiesPtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelPropertiesResponse struct {
 	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
 	ApiKey *string `pulumi:"apiKey"`
@@ -5517,7 +5408,6 @@ type KikChannelPropertiesResponseInput interface {
 	ToKikChannelPropertiesResponseOutputWithContext(context.Context) KikChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelPropertiesResponseArgs struct {
 	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
@@ -5582,7 +5472,6 @@ func (i *kikChannelPropertiesResponsePtrType) ToKikChannelPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KikChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Kik channel.
 type KikChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KikChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5691,7 +5580,6 @@ func (o KikChannelPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kik channel definition
 type KikChannelResponse struct {
 	// The channel name
 	// Expected value is 'KikChannel'.
@@ -5711,7 +5599,6 @@ type KikChannelResponseInput interface {
 	ToKikChannelResponseOutputWithContext(context.Context) KikChannelResponseOutput
 }
 
-// Kik channel definition
 type KikChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'KikChannel'.
@@ -5732,7 +5619,6 @@ func (i KikChannelResponseArgs) ToKikChannelResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(KikChannelResponseOutput)
 }
 
-// Kik channel definition
 type KikChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (KikChannelResponseOutput) ElementType() reflect.Type {
@@ -5758,7 +5644,6 @@ func (o KikChannelResponseOutput) Properties() KikChannelPropertiesResponsePtrOu
 	return o.ApplyT(func(v KikChannelResponse) *KikChannelPropertiesResponse { return v.Properties }).(KikChannelPropertiesResponsePtrOutput)
 }
 
-// Line channel definition
 type LineChannel struct {
 	// The channel name
 	// Expected value is 'LineChannel'.
@@ -5778,7 +5663,6 @@ type LineChannelInput interface {
 	ToLineChannelOutputWithContext(context.Context) LineChannelOutput
 }
 
-// Line channel definition
 type LineChannelArgs struct {
 	// The channel name
 	// Expected value is 'LineChannel'.
@@ -5799,7 +5683,6 @@ func (i LineChannelArgs) ToLineChannelOutputWithContext(ctx context.Context) Lin
 	return pulumi.ToOutputWithContext(ctx, i).(LineChannelOutput)
 }
 
-// Line channel definition
 type LineChannelOutput struct{ *pulumi.OutputState }
 
 func (LineChannelOutput) ElementType() reflect.Type {
@@ -5825,7 +5708,6 @@ func (o LineChannelOutput) Properties() LineChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v LineChannel) *LineChannelProperties { return v.Properties }).(LineChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelProperties struct {
 	// The list of line channel registrations
 	LineRegistrations []LineRegistration `pulumi:"lineRegistrations"`
@@ -5842,7 +5724,6 @@ type LineChannelPropertiesInput interface {
 	ToLineChannelPropertiesOutputWithContext(context.Context) LineChannelPropertiesOutput
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelPropertiesArgs struct {
 	// The list of line channel registrations
 	LineRegistrations LineRegistrationArrayInput `pulumi:"lineRegistrations"`
@@ -5901,7 +5782,6 @@ func (i *lineChannelPropertiesPtrType) ToLineChannelPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LineChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LineChannelPropertiesOutput) ElementType() reflect.Type {
@@ -5965,7 +5845,6 @@ func (o LineChannelPropertiesPtrOutput) LineRegistrations() LineRegistrationArra
 	}).(LineRegistrationArrayOutput)
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelPropertiesResponse struct {
 	// Callback Url to enter in line registration.
 	CallbackUrl string `pulumi:"callbackUrl"`
@@ -5986,7 +5865,6 @@ type LineChannelPropertiesResponseInput interface {
 	ToLineChannelPropertiesResponseOutputWithContext(context.Context) LineChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelPropertiesResponseArgs struct {
 	// Callback Url to enter in line registration.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
@@ -6049,7 +5927,6 @@ func (i *lineChannelPropertiesResponsePtrType) ToLineChannelPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(LineChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Line channel.
 type LineChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LineChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6143,7 +6020,6 @@ func (o LineChannelPropertiesResponsePtrOutput) LineRegistrations() LineRegistra
 	}).(LineRegistrationResponseArrayOutput)
 }
 
-// Line channel definition
 type LineChannelResponse struct {
 	// The channel name
 	// Expected value is 'LineChannel'.
@@ -6163,7 +6039,6 @@ type LineChannelResponseInput interface {
 	ToLineChannelResponseOutputWithContext(context.Context) LineChannelResponseOutput
 }
 
-// Line channel definition
 type LineChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'LineChannel'.
@@ -6184,7 +6059,6 @@ func (i LineChannelResponseArgs) ToLineChannelResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LineChannelResponseOutput)
 }
 
-// Line channel definition
 type LineChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (LineChannelResponseOutput) ElementType() reflect.Type {
@@ -6210,7 +6084,6 @@ func (o LineChannelResponseOutput) Properties() LineChannelPropertiesResponsePtr
 	return o.ApplyT(func(v LineChannelResponse) *LineChannelPropertiesResponse { return v.Properties }).(LineChannelPropertiesResponsePtrOutput)
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistration struct {
 	// Access token for the line channel registration
 	ChannelAccessToken *string `pulumi:"channelAccessToken"`
@@ -6229,7 +6102,6 @@ type LineRegistrationInput interface {
 	ToLineRegistrationOutputWithContext(context.Context) LineRegistrationOutput
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistrationArgs struct {
 	// Access token for the line channel registration
 	ChannelAccessToken pulumi.StringPtrInput `pulumi:"channelAccessToken"`
@@ -6274,7 +6146,6 @@ func (i LineRegistrationArray) ToLineRegistrationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LineRegistrationArrayOutput)
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistrationOutput struct{ *pulumi.OutputState }
 
 func (LineRegistrationOutput) ElementType() reflect.Type {
@@ -6319,7 +6190,6 @@ func (o LineRegistrationArrayOutput) Index(i pulumi.IntInput) LineRegistrationOu
 	}).(LineRegistrationOutput)
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistrationResponse struct {
 	// Access token for the line channel registration
 	ChannelAccessToken *string `pulumi:"channelAccessToken"`
@@ -6340,7 +6210,6 @@ type LineRegistrationResponseInput interface {
 	ToLineRegistrationResponseOutputWithContext(context.Context) LineRegistrationResponseOutput
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistrationResponseArgs struct {
 	// Access token for the line channel registration
 	ChannelAccessToken pulumi.StringPtrInput `pulumi:"channelAccessToken"`
@@ -6387,7 +6256,6 @@ func (i LineRegistrationResponseArray) ToLineRegistrationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LineRegistrationResponseArrayOutput)
 }
 
-// The properties corresponding to a line channel registration
 type LineRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (LineRegistrationResponseOutput) ElementType() reflect.Type {
@@ -6437,7 +6305,6 @@ func (o LineRegistrationResponseArrayOutput) Index(i pulumi.IntInput) LineRegist
 	}).(LineRegistrationResponseOutput)
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannel struct {
 	// The channel name
 	// Expected value is 'MsTeamsChannel'.
@@ -6457,7 +6324,6 @@ type MsTeamsChannelInput interface {
 	ToMsTeamsChannelOutputWithContext(context.Context) MsTeamsChannelOutput
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannelArgs struct {
 	// The channel name
 	// Expected value is 'MsTeamsChannel'.
@@ -6478,7 +6344,6 @@ func (i MsTeamsChannelArgs) ToMsTeamsChannelOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelOutput)
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannelOutput struct{ *pulumi.OutputState }
 
 func (MsTeamsChannelOutput) ElementType() reflect.Type {
@@ -6504,7 +6369,6 @@ func (o MsTeamsChannelOutput) Properties() MsTeamsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannel) *MsTeamsChannelProperties { return v.Properties }).(MsTeamsChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelProperties struct {
 	// Webhook for Microsoft Teams channel calls
 	CallingWebHook *string `pulumi:"callingWebHook"`
@@ -6525,7 +6389,6 @@ type MsTeamsChannelPropertiesInput interface {
 	ToMsTeamsChannelPropertiesOutputWithContext(context.Context) MsTeamsChannelPropertiesOutput
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelPropertiesArgs struct {
 	// Webhook for Microsoft Teams channel calls
 	CallingWebHook pulumi.StringPtrInput `pulumi:"callingWebHook"`
@@ -6588,7 +6451,6 @@ func (i *msTeamsChannelPropertiesPtrType) ToMsTeamsChannelPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MsTeamsChannelPropertiesOutput) ElementType() reflect.Type {
@@ -6682,7 +6544,6 @@ func (o MsTeamsChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelPropertiesResponse struct {
 	// Webhook for Microsoft Teams channel calls
 	CallingWebHook *string `pulumi:"callingWebHook"`
@@ -6703,7 +6564,6 @@ type MsTeamsChannelPropertiesResponseInput interface {
 	ToMsTeamsChannelPropertiesResponseOutputWithContext(context.Context) MsTeamsChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelPropertiesResponseArgs struct {
 	// Webhook for Microsoft Teams channel calls
 	CallingWebHook pulumi.StringPtrInput `pulumi:"callingWebHook"`
@@ -6766,7 +6626,6 @@ func (i *msTeamsChannelPropertiesResponsePtrType) ToMsTeamsChannelPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MsTeamsChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6860,7 +6719,6 @@ func (o MsTeamsChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannelResponse struct {
 	// The channel name
 	// Expected value is 'MsTeamsChannel'.
@@ -6880,7 +6738,6 @@ type MsTeamsChannelResponseInput interface {
 	ToMsTeamsChannelResponseOutputWithContext(context.Context) MsTeamsChannelResponseOutput
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'MsTeamsChannel'.
@@ -6901,7 +6758,6 @@ func (i MsTeamsChannelResponseArgs) ToMsTeamsChannelResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelResponseOutput)
 }
 
-// Microsoft Teams channel definition
 type MsTeamsChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (MsTeamsChannelResponseOutput) ElementType() reflect.Type {
@@ -6927,7 +6783,6 @@ func (o MsTeamsChannelResponseOutput) Properties() MsTeamsChannelPropertiesRespo
 	return o.ApplyT(func(v MsTeamsChannelResponse) *MsTeamsChannelPropertiesResponse { return v.Properties }).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -6944,7 +6799,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -7003,7 +6857,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -7067,7 +6920,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -7088,7 +6940,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -7151,7 +7002,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -7245,7 +7095,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -7266,7 +7115,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -7329,7 +7177,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -7423,7 +7270,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra Parameters specific to each Service Provider
 type ServiceProviderParameterResponse struct {
 	// Default Name for the Service Provider
 	Default string `pulumi:"default"`
@@ -7450,7 +7296,6 @@ type ServiceProviderParameterResponseInput interface {
 	ToServiceProviderParameterResponseOutputWithContext(context.Context) ServiceProviderParameterResponseOutput
 }
 
-// Extra Parameters specific to each Service Provider
 type ServiceProviderParameterResponseArgs struct {
 	// Default Name for the Service Provider
 	Default pulumi.StringInput `pulumi:"default"`
@@ -7503,7 +7348,6 @@ func (i ServiceProviderParameterResponseArray) ToServiceProviderParameterRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseArrayOutput)
 }
 
-// Extra Parameters specific to each Service Provider
 type ServiceProviderParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceProviderParameterResponseOutput) ElementType() reflect.Type {
@@ -7568,7 +7412,6 @@ func (o ServiceProviderParameterResponseArrayOutput) Index(i pulumi.IntInput) Se
 	}).(ServiceProviderParameterResponseOutput)
 }
 
-// The Object used to describe a Service Provider supported by Bot Service
 type ServiceProviderPropertiesResponse struct {
 	// Display Name of the Service Provider
 	DevPortalUrl string `pulumi:"devPortalUrl"`
@@ -7595,7 +7438,6 @@ type ServiceProviderPropertiesResponseInput interface {
 	ToServiceProviderPropertiesResponseOutputWithContext(context.Context) ServiceProviderPropertiesResponseOutput
 }
 
-// The Object used to describe a Service Provider supported by Bot Service
 type ServiceProviderPropertiesResponseArgs struct {
 	// Display Name of the Service Provider
 	DevPortalUrl pulumi.StringInput `pulumi:"devPortalUrl"`
@@ -7664,7 +7506,6 @@ func (i *serviceProviderPropertiesResponsePtrType) ToServiceProviderPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponsePtrOutput)
 }
 
-// The Object used to describe a Service Provider supported by Bot Service
 type ServiceProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceProviderPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7803,7 +7644,6 @@ func (o ServiceProviderPropertiesResponsePtrOutput) ServiceProviderName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Provider Definition
 type ServiceProviderResponse struct {
 	// The Properties of a Service Provider Object
 	Properties *ServiceProviderPropertiesResponse `pulumi:"properties"`
@@ -7820,7 +7660,6 @@ type ServiceProviderResponseInput interface {
 	ToServiceProviderResponseOutputWithContext(context.Context) ServiceProviderResponseOutput
 }
 
-// Service Provider Definition
 type ServiceProviderResponseArgs struct {
 	// The Properties of a Service Provider Object
 	Properties ServiceProviderPropertiesResponsePtrInput `pulumi:"properties"`
@@ -7863,7 +7702,6 @@ func (i ServiceProviderResponseArray) ToServiceProviderResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderResponseArrayOutput)
 }
 
-// Service Provider Definition
 type ServiceProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceProviderResponseOutput) ElementType() reflect.Type {
@@ -7903,7 +7741,6 @@ func (o ServiceProviderResponseArrayOutput) Index(i pulumi.IntInput) ServiceProv
 	}).(ServiceProviderResponseOutput)
 }
 
-// The SKU of the cognitive services account.
 type Sku struct {
 	// The sku name
 	Name string `pulumi:"name"`
@@ -7920,7 +7757,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuArgs struct {
 	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -7979,7 +7815,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -8043,7 +7878,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponse struct {
 	// The sku name
 	Name string `pulumi:"name"`
@@ -8062,7 +7896,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseArgs struct {
 	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8123,7 +7956,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -8202,7 +8034,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Skype channel definition
 type SkypeChannel struct {
 	// The channel name
 	// Expected value is 'SkypeChannel'.
@@ -8222,7 +8053,6 @@ type SkypeChannelInput interface {
 	ToSkypeChannelOutputWithContext(context.Context) SkypeChannelOutput
 }
 
-// Skype channel definition
 type SkypeChannelArgs struct {
 	// The channel name
 	// Expected value is 'SkypeChannel'.
@@ -8243,7 +8073,6 @@ func (i SkypeChannelArgs) ToSkypeChannelOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelOutput)
 }
 
-// Skype channel definition
 type SkypeChannelOutput struct{ *pulumi.OutputState }
 
 func (SkypeChannelOutput) ElementType() reflect.Type {
@@ -8269,7 +8098,6 @@ func (o SkypeChannelOutput) Properties() SkypeChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SkypeChannel) *SkypeChannelProperties { return v.Properties }).(SkypeChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelProperties struct {
 	// Calling web hook for Skype channel
 	CallingWebHook *string `pulumi:"callingWebHook"`
@@ -8302,7 +8130,6 @@ type SkypeChannelPropertiesInput interface {
 	ToSkypeChannelPropertiesOutputWithContext(context.Context) SkypeChannelPropertiesOutput
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelPropertiesArgs struct {
 	// Calling web hook for Skype channel
 	CallingWebHook pulumi.StringPtrInput `pulumi:"callingWebHook"`
@@ -8377,7 +8204,6 @@ func (i *skypeChannelPropertiesPtrType) ToSkypeChannelPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SkypeChannelPropertiesOutput) ElementType() reflect.Type {
@@ -8561,7 +8387,6 @@ func (o SkypeChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelPropertiesResponse struct {
 	// Calling web hook for Skype channel
 	CallingWebHook *string `pulumi:"callingWebHook"`
@@ -8594,7 +8419,6 @@ type SkypeChannelPropertiesResponseInput interface {
 	ToSkypeChannelPropertiesResponseOutputWithContext(context.Context) SkypeChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelPropertiesResponseArgs struct {
 	// Calling web hook for Skype channel
 	CallingWebHook pulumi.StringPtrInput `pulumi:"callingWebHook"`
@@ -8669,7 +8493,6 @@ func (i *skypeChannelPropertiesResponsePtrType) ToSkypeChannelPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SkypeChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8853,7 +8676,6 @@ func (o SkypeChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Skype channel definition
 type SkypeChannelResponse struct {
 	// The channel name
 	// Expected value is 'SkypeChannel'.
@@ -8873,7 +8695,6 @@ type SkypeChannelResponseInput interface {
 	ToSkypeChannelResponseOutputWithContext(context.Context) SkypeChannelResponseOutput
 }
 
-// Skype channel definition
 type SkypeChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'SkypeChannel'.
@@ -8894,7 +8715,6 @@ func (i SkypeChannelResponseArgs) ToSkypeChannelResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelResponseOutput)
 }
 
-// Skype channel definition
 type SkypeChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (SkypeChannelResponseOutput) ElementType() reflect.Type {
@@ -8920,7 +8740,6 @@ func (o SkypeChannelResponseOutput) Properties() SkypeChannelPropertiesResponseP
 	return o.ApplyT(func(v SkypeChannelResponse) *SkypeChannelPropertiesResponse { return v.Properties }).(SkypeChannelPropertiesResponsePtrOutput)
 }
 
-// Slack channel definition
 type SlackChannel struct {
 	// The channel name
 	// Expected value is 'SlackChannel'.
@@ -8940,7 +8759,6 @@ type SlackChannelInput interface {
 	ToSlackChannelOutputWithContext(context.Context) SlackChannelOutput
 }
 
-// Slack channel definition
 type SlackChannelArgs struct {
 	// The channel name
 	// Expected value is 'SlackChannel'.
@@ -8961,7 +8779,6 @@ func (i SlackChannelArgs) ToSlackChannelOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelOutput)
 }
 
-// Slack channel definition
 type SlackChannelOutput struct{ *pulumi.OutputState }
 
 func (SlackChannelOutput) ElementType() reflect.Type {
@@ -8987,7 +8804,6 @@ func (o SlackChannelOutput) Properties() SlackChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SlackChannel) *SlackChannelProperties { return v.Properties }).(SlackChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelProperties struct {
 	// The Slack client id
 	ClientId *string `pulumi:"clientId"`
@@ -9014,7 +8830,6 @@ type SlackChannelPropertiesInput interface {
 	ToSlackChannelPropertiesOutputWithContext(context.Context) SlackChannelPropertiesOutput
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelPropertiesArgs struct {
 	// The Slack client id
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -9083,7 +8898,6 @@ func (i *slackChannelPropertiesPtrType) ToSlackChannelPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SlackChannelPropertiesOutput) ElementType() reflect.Type {
@@ -9222,7 +9036,6 @@ func (o SlackChannelPropertiesPtrOutput) VerificationToken() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelPropertiesResponse struct {
 	// The Slack client id
 	ClientId *string `pulumi:"clientId"`
@@ -9257,7 +9070,6 @@ type SlackChannelPropertiesResponseInput interface {
 	ToSlackChannelPropertiesResponseOutputWithContext(context.Context) SlackChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelPropertiesResponseArgs struct {
 	// The Slack client id
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -9334,7 +9146,6 @@ func (i *slackChannelPropertiesResponsePtrType) ToSlackChannelPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Slack channel.
 type SlackChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SlackChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -9533,7 +9344,6 @@ func (o SlackChannelPropertiesResponsePtrOutput) VerificationToken() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Slack channel definition
 type SlackChannelResponse struct {
 	// The channel name
 	// Expected value is 'SlackChannel'.
@@ -9553,7 +9363,6 @@ type SlackChannelResponseInput interface {
 	ToSlackChannelResponseOutputWithContext(context.Context) SlackChannelResponseOutput
 }
 
-// Slack channel definition
 type SlackChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'SlackChannel'.
@@ -9574,7 +9383,6 @@ func (i SlackChannelResponseArgs) ToSlackChannelResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelResponseOutput)
 }
 
-// Slack channel definition
 type SlackChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (SlackChannelResponseOutput) ElementType() reflect.Type {
@@ -9600,7 +9408,6 @@ func (o SlackChannelResponseOutput) Properties() SlackChannelPropertiesResponseP
 	return o.ApplyT(func(v SlackChannelResponse) *SlackChannelPropertiesResponse { return v.Properties }).(SlackChannelPropertiesResponsePtrOutput)
 }
 
-// Sms channel definition
 type SmsChannel struct {
 	// The channel name
 	// Expected value is 'SmsChannel'.
@@ -9620,7 +9427,6 @@ type SmsChannelInput interface {
 	ToSmsChannelOutputWithContext(context.Context) SmsChannelOutput
 }
 
-// Sms channel definition
 type SmsChannelArgs struct {
 	// The channel name
 	// Expected value is 'SmsChannel'.
@@ -9641,7 +9447,6 @@ func (i SmsChannelArgs) ToSmsChannelOutputWithContext(ctx context.Context) SmsCh
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelOutput)
 }
 
-// Sms channel definition
 type SmsChannelOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelOutput) ElementType() reflect.Type {
@@ -9667,7 +9472,6 @@ func (o SmsChannelOutput) Properties() SmsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SmsChannel) *SmsChannelProperties { return v.Properties }).(SmsChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelProperties struct {
 	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccountSID string `pulumi:"accountSID"`
@@ -9692,7 +9496,6 @@ type SmsChannelPropertiesInput interface {
 	ToSmsChannelPropertiesOutputWithContext(context.Context) SmsChannelPropertiesOutput
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelPropertiesArgs struct {
 	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccountSID pulumi.StringInput `pulumi:"accountSID"`
@@ -9759,7 +9562,6 @@ func (i *smsChannelPropertiesPtrType) ToSmsChannelPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelPropertiesOutput) ElementType() reflect.Type {
@@ -9883,7 +9685,6 @@ func (o SmsChannelPropertiesPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelPropertiesResponse struct {
 	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccountSID string `pulumi:"accountSID"`
@@ -9908,7 +9709,6 @@ type SmsChannelPropertiesResponseInput interface {
 	ToSmsChannelPropertiesResponseOutputWithContext(context.Context) SmsChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelPropertiesResponseArgs struct {
 	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccountSID pulumi.StringInput `pulumi:"accountSID"`
@@ -9975,7 +9775,6 @@ func (i *smsChannelPropertiesResponsePtrType) ToSmsChannelPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Sms channel.
 type SmsChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -10099,7 +9898,6 @@ func (o SmsChannelPropertiesResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sms channel definition
 type SmsChannelResponse struct {
 	// The channel name
 	// Expected value is 'SmsChannel'.
@@ -10119,7 +9917,6 @@ type SmsChannelResponseInput interface {
 	ToSmsChannelResponseOutputWithContext(context.Context) SmsChannelResponseOutput
 }
 
-// Sms channel definition
 type SmsChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'SmsChannel'.
@@ -10140,7 +9937,6 @@ func (i SmsChannelResponseArgs) ToSmsChannelResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelResponseOutput)
 }
 
-// Sms channel definition
 type SmsChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelResponseOutput) ElementType() reflect.Type {
@@ -10166,7 +9962,6 @@ func (o SmsChannelResponseOutput) Properties() SmsChannelPropertiesResponsePtrOu
 	return o.ApplyT(func(v SmsChannelResponse) *SmsChannelPropertiesResponse { return v.Properties }).(SmsChannelPropertiesResponsePtrOutput)
 }
 
-// Telegram channel definition
 type TelegramChannel struct {
 	// The channel name
 	// Expected value is 'TelegramChannel'.
@@ -10186,7 +9981,6 @@ type TelegramChannelInput interface {
 	ToTelegramChannelOutputWithContext(context.Context) TelegramChannelOutput
 }
 
-// Telegram channel definition
 type TelegramChannelArgs struct {
 	// The channel name
 	// Expected value is 'TelegramChannel'.
@@ -10207,7 +10001,6 @@ func (i TelegramChannelArgs) ToTelegramChannelOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelOutput)
 }
 
-// Telegram channel definition
 type TelegramChannelOutput struct{ *pulumi.OutputState }
 
 func (TelegramChannelOutput) ElementType() reflect.Type {
@@ -10233,7 +10026,6 @@ func (o TelegramChannelOutput) Properties() TelegramChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v TelegramChannel) *TelegramChannelProperties { return v.Properties }).(TelegramChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelProperties struct {
 	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken *string `pulumi:"accessToken"`
@@ -10254,7 +10046,6 @@ type TelegramChannelPropertiesInput interface {
 	ToTelegramChannelPropertiesOutputWithContext(context.Context) TelegramChannelPropertiesOutput
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelPropertiesArgs struct {
 	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
@@ -10317,7 +10108,6 @@ func (i *telegramChannelPropertiesPtrType) ToTelegramChannelPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TelegramChannelPropertiesOutput) ElementType() reflect.Type {
@@ -10411,7 +10201,6 @@ func (o TelegramChannelPropertiesPtrOutput) IsValidated() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelPropertiesResponse struct {
 	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken *string `pulumi:"accessToken"`
@@ -10432,7 +10221,6 @@ type TelegramChannelPropertiesResponseInput interface {
 	ToTelegramChannelPropertiesResponseOutputWithContext(context.Context) TelegramChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelPropertiesResponseArgs struct {
 	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
@@ -10495,7 +10283,6 @@ func (i *telegramChannelPropertiesResponsePtrType) ToTelegramChannelPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Telegram channel.
 type TelegramChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TelegramChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -10589,7 +10376,6 @@ func (o TelegramChannelPropertiesResponsePtrOutput) IsValidated() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Telegram channel definition
 type TelegramChannelResponse struct {
 	// The channel name
 	// Expected value is 'TelegramChannel'.
@@ -10609,7 +10395,6 @@ type TelegramChannelResponseInput interface {
 	ToTelegramChannelResponseOutputWithContext(context.Context) TelegramChannelResponseOutput
 }
 
-// Telegram channel definition
 type TelegramChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'TelegramChannel'.
@@ -10630,7 +10415,6 @@ func (i TelegramChannelResponseArgs) ToTelegramChannelResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelResponseOutput)
 }
 
-// Telegram channel definition
 type TelegramChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (TelegramChannelResponseOutput) ElementType() reflect.Type {
@@ -10656,7 +10440,6 @@ func (o TelegramChannelResponseOutput) Properties() TelegramChannelPropertiesRes
 	return o.ApplyT(func(v TelegramChannelResponse) *TelegramChannelPropertiesResponse { return v.Properties }).(TelegramChannelPropertiesResponsePtrOutput)
 }
 
-// Web Chat channel definition
 type WebChatChannel struct {
 	// The channel name
 	// Expected value is 'WebChatChannel'.
@@ -10676,7 +10459,6 @@ type WebChatChannelInput interface {
 	ToWebChatChannelOutputWithContext(context.Context) WebChatChannelOutput
 }
 
-// Web Chat channel definition
 type WebChatChannelArgs struct {
 	// The channel name
 	// Expected value is 'WebChatChannel'.
@@ -10697,7 +10479,6 @@ func (i WebChatChannelArgs) ToWebChatChannelOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelOutput)
 }
 
-// Web Chat channel definition
 type WebChatChannelOutput struct{ *pulumi.OutputState }
 
 func (WebChatChannelOutput) ElementType() reflect.Type {
@@ -10723,7 +10504,6 @@ func (o WebChatChannelOutput) Properties() WebChatChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v WebChatChannel) *WebChatChannelProperties { return v.Properties }).(WebChatChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelProperties struct {
 	// The list of Web Chat sites
 	Sites []WebChatSite `pulumi:"sites"`
@@ -10740,7 +10520,6 @@ type WebChatChannelPropertiesInput interface {
 	ToWebChatChannelPropertiesOutputWithContext(context.Context) WebChatChannelPropertiesOutput
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelPropertiesArgs struct {
 	// The list of Web Chat sites
 	Sites WebChatSiteArrayInput `pulumi:"sites"`
@@ -10799,7 +10578,6 @@ func (i *webChatChannelPropertiesPtrType) ToWebChatChannelPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelPropertiesPtrOutput)
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (WebChatChannelPropertiesOutput) ElementType() reflect.Type {
@@ -10863,7 +10641,6 @@ func (o WebChatChannelPropertiesPtrOutput) Sites() WebChatSiteArrayOutput {
 	}).(WebChatSiteArrayOutput)
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelPropertiesResponse struct {
 	// The list of Web Chat sites
 	Sites []WebChatSiteResponse `pulumi:"sites"`
@@ -10882,7 +10659,6 @@ type WebChatChannelPropertiesResponseInput interface {
 	ToWebChatChannelPropertiesResponseOutputWithContext(context.Context) WebChatChannelPropertiesResponseOutput
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelPropertiesResponseArgs struct {
 	// The list of Web Chat sites
 	Sites WebChatSiteResponseArrayInput `pulumi:"sites"`
@@ -10943,7 +10719,6 @@ func (i *webChatChannelPropertiesResponsePtrType) ToWebChatChannelPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the Web Chat channel.
 type WebChatChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WebChatChannelPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11022,7 +10797,6 @@ func (o WebChatChannelPropertiesResponsePtrOutput) WebChatEmbedCode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Web Chat channel definition
 type WebChatChannelResponse struct {
 	// The channel name
 	// Expected value is 'WebChatChannel'.
@@ -11042,7 +10816,6 @@ type WebChatChannelResponseInput interface {
 	ToWebChatChannelResponseOutputWithContext(context.Context) WebChatChannelResponseOutput
 }
 
-// Web Chat channel definition
 type WebChatChannelResponseArgs struct {
 	// The channel name
 	// Expected value is 'WebChatChannel'.
@@ -11063,7 +10836,6 @@ func (i WebChatChannelResponseArgs) ToWebChatChannelResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelResponseOutput)
 }
 
-// Web Chat channel definition
 type WebChatChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (WebChatChannelResponseOutput) ElementType() reflect.Type {
@@ -11089,7 +10861,6 @@ func (o WebChatChannelResponseOutput) Properties() WebChatChannelPropertiesRespo
 	return o.ApplyT(func(v WebChatChannelResponse) *WebChatChannelPropertiesResponse { return v.Properties }).(WebChatChannelPropertiesResponsePtrOutput)
 }
 
-// A site for the Webchat channel
 type WebChatSite struct {
 	// Whether this site is enabled for preview versions of Webchat
 	EnablePreview bool `pulumi:"enablePreview"`
@@ -11110,7 +10881,6 @@ type WebChatSiteInput interface {
 	ToWebChatSiteOutputWithContext(context.Context) WebChatSiteOutput
 }
 
-// A site for the Webchat channel
 type WebChatSiteArgs struct {
 	// Whether this site is enabled for preview versions of Webchat
 	EnablePreview pulumi.BoolInput `pulumi:"enablePreview"`
@@ -11157,7 +10927,6 @@ func (i WebChatSiteArray) ToWebChatSiteArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatSiteArrayOutput)
 }
 
-// A site for the Webchat channel
 type WebChatSiteOutput struct{ *pulumi.OutputState }
 
 func (WebChatSiteOutput) ElementType() reflect.Type {
@@ -11207,7 +10976,6 @@ func (o WebChatSiteArrayOutput) Index(i pulumi.IntInput) WebChatSiteOutput {
 	}).(WebChatSiteOutput)
 }
 
-// A site for the Webchat channel
 type WebChatSiteResponse struct {
 	// Whether this site is enabled for preview versions of Webchat
 	EnablePreview bool `pulumi:"enablePreview"`
@@ -11234,7 +11002,6 @@ type WebChatSiteResponseInput interface {
 	ToWebChatSiteResponseOutputWithContext(context.Context) WebChatSiteResponseOutput
 }
 
-// A site for the Webchat channel
 type WebChatSiteResponseArgs struct {
 	// Whether this site is enabled for preview versions of Webchat
 	EnablePreview pulumi.BoolInput `pulumi:"enablePreview"`
@@ -11287,7 +11054,6 @@ func (i WebChatSiteResponseArray) ToWebChatSiteResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WebChatSiteResponseArrayOutput)
 }
 
-// A site for the Webchat channel
 type WebChatSiteResponseOutput struct{ *pulumi.OutputState }
 
 func (WebChatSiteResponseOutput) ElementType() reflect.Type {

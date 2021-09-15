@@ -57,6 +57,12 @@ func NewApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:hdinsight/v20180601preview:Application"),
 		},
+		{
+			Type: pulumi.String("azure-native:hdinsight/v20210601:Application"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hdinsight/v20210601:Application"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Application

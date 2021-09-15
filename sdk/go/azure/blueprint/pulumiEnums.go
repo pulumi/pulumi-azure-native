@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the kind of blueprint artifact.
 type ArtifactKind string
 
 const (
@@ -176,7 +175,6 @@ func (in *artifactKindPtr) ToArtifactKindPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ArtifactKindPtrOutput)
 }
 
-// Lock mode.
 type AssignmentLockMode string
 
 const (
@@ -342,7 +340,6 @@ func (in *assignmentLockModePtr) ToAssignmentLockModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentLockModePtrOutput)
 }
 
-// The scope where this blueprint definition can be assigned.
 type BlueprintTargetScope string
 
 const (
@@ -509,7 +506,6 @@ func (in *blueprintTargetScopePtr) ToBlueprintTargetScopePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BlueprintTargetScopePtrOutput)
 }
 
-// Type of the managed identity.
 type ManagedServiceIdentityType string
 
 const (
@@ -675,7 +671,6 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// Allowed data types for Resource Manager template parameters.
 type TemplateParameterType string
 
 const (

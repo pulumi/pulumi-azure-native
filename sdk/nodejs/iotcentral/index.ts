@@ -14,10 +14,12 @@ export * from "../types/enums/iotcentral";
 // Export sub-modules:
 import * as v20170701privatepreview from "./v20170701privatepreview";
 import * as v20180901 from "./v20180901";
+import * as v20210601 from "./v20210601";
 
 export {
     v20170701privatepreview,
     v20180901,
+    v20210601,
 };
 
 // Import resources to register:

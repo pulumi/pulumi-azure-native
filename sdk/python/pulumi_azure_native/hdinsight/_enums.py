@@ -10,6 +10,7 @@ __all__ = [
     'JsonWebKeyEncryptionAlgorithm',
     'OSType',
     'PrivateLink',
+    'PrivateLinkServiceConnectionStatus',
     'ResourceIdentityType',
     'ResourceProviderConnection',
     'Tier',
@@ -56,6 +57,16 @@ class PrivateLink(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class PrivateLinkServiceConnectionStatus(str, Enum):
+    """
+    The concrete private link service connection.
+    """
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    PENDING = "Pending"
+    REMOVED = "Removed"
 
 
 class ResourceIdentityType(str, Enum):

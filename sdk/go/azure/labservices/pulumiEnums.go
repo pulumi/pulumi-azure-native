@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enum indicating if user is adding or removing a favorite lab
 type AddRemove string
 
 const (
@@ -177,7 +176,6 @@ func (in *addRemovePtr) ToAddRemovePtrOutputWithContext(ctx context.Context) Add
 	return pulumi.ToOutputWithContext(ctx, in).(AddRemovePtrOutput)
 }
 
-// Describes the user's progress in configuring their environment setting
 type ConfigurationState string
 
 const (
@@ -345,7 +343,6 @@ func (in *configurationStatePtr) ToConfigurationStatePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationStatePtrOutput)
 }
 
-// Lab user access mode (open to all vs. restricted to those listed on the lab).
 type LabUserAccessMode string
 
 const (
@@ -512,7 +509,6 @@ func (in *labUserAccessModePtr) ToLabUserAccessModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(LabUserAccessModePtrOutput)
 }
 
-// The size of the virtual machine
 type ManagedLabVmSize string
 
 const (

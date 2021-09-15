@@ -88,6 +88,12 @@ func NewBlobStorageAccountDataSetMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobStorageAccountDataSetMapping"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:BlobStorageAccountDataSetMapping"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobStorageAccountDataSetMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobStorageAccountDataSetMapping

@@ -112,6 +112,8 @@ namespace Pulumi.AzureNative.DataShare
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:BlobContainerDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobContainerDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:BlobContainerDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobContainerDataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:BlobContainerDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

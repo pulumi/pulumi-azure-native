@@ -17,7 +17,10 @@ if typing.TYPE_CHECKING:
     v20170701privatepreview = __v20170701privatepreview
     import pulumi_azure_native.iotcentral.v20180901 as __v20180901
     v20180901 = __v20180901
+    import pulumi_azure_native.iotcentral.v20210601 as __v20210601
+    v20210601 = __v20210601
 else:
     v20170701privatepreview = _utilities.lazy_import('pulumi_azure_native.iotcentral.v20170701privatepreview')
     v20180901 = _utilities.lazy_import('pulumi_azure_native.iotcentral.v20180901')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.iotcentral.v20210601')
 

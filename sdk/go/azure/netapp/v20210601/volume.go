@@ -14,42 +14,45 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
-	AvsDataStore             pulumi.StringPtrOutput                          `pulumi:"avsDataStore"`
-	BackupId                 pulumi.StringPtrOutput                          `pulumi:"backupId"`
-	BaremetalTenantId        pulumi.StringOutput                             `pulumi:"baremetalTenantId"`
-	CloneProgress            pulumi.IntOutput                                `pulumi:"cloneProgress"`
-	CoolAccess               pulumi.BoolPtrOutput                            `pulumi:"coolAccess"`
-	CoolnessPeriod           pulumi.IntPtrOutput                             `pulumi:"coolnessPeriod"`
-	CreationToken            pulumi.StringOutput                             `pulumi:"creationToken"`
-	DataProtection           VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
-	DefaultGroupQuotaInKiBs  pulumi.Float64PtrOutput                         `pulumi:"defaultGroupQuotaInKiBs"`
-	DefaultUserQuotaInKiBs   pulumi.Float64PtrOutput                         `pulumi:"defaultUserQuotaInKiBs"`
-	EncryptionKeySource      pulumi.StringPtrOutput                          `pulumi:"encryptionKeySource"`
-	Etag                     pulumi.StringOutput                             `pulumi:"etag"`
-	ExportPolicy             VolumePropertiesResponseExportPolicyPtrOutput   `pulumi:"exportPolicy"`
-	FileSystemId             pulumi.StringOutput                             `pulumi:"fileSystemId"`
-	IsDefaultQuotaEnabled    pulumi.BoolPtrOutput                            `pulumi:"isDefaultQuotaEnabled"`
-	IsRestoring              pulumi.BoolPtrOutput                            `pulumi:"isRestoring"`
-	KerberosEnabled          pulumi.BoolPtrOutput                            `pulumi:"kerberosEnabled"`
-	LdapEnabled              pulumi.BoolPtrOutput                            `pulumi:"ldapEnabled"`
-	Location                 pulumi.StringOutput                             `pulumi:"location"`
-	MountTargets             MountTargetPropertiesResponseArrayOutput        `pulumi:"mountTargets"`
-	Name                     pulumi.StringOutput                             `pulumi:"name"`
-	ProtocolTypes            pulumi.StringArrayOutput                        `pulumi:"protocolTypes"`
-	ProvisioningState        pulumi.StringOutput                             `pulumi:"provisioningState"`
-	SecurityStyle            pulumi.StringPtrOutput                          `pulumi:"securityStyle"`
-	ServiceLevel             pulumi.StringPtrOutput                          `pulumi:"serviceLevel"`
-	SmbContinuouslyAvailable pulumi.BoolPtrOutput                            `pulumi:"smbContinuouslyAvailable"`
-	SmbEncryption            pulumi.BoolPtrOutput                            `pulumi:"smbEncryption"`
-	SnapshotDirectoryVisible pulumi.BoolPtrOutput                            `pulumi:"snapshotDirectoryVisible"`
-	SnapshotId               pulumi.StringPtrOutput                          `pulumi:"snapshotId"`
-	SubnetId                 pulumi.StringOutput                             `pulumi:"subnetId"`
-	Tags                     pulumi.StringMapOutput                          `pulumi:"tags"`
-	ThroughputMibps          pulumi.Float64PtrOutput                         `pulumi:"throughputMibps"`
-	Type                     pulumi.StringOutput                             `pulumi:"type"`
-	UnixPermissions          pulumi.StringPtrOutput                          `pulumi:"unixPermissions"`
-	UsageThreshold           pulumi.Float64Output                            `pulumi:"usageThreshold"`
-	VolumeType               pulumi.StringPtrOutput                          `pulumi:"volumeType"`
+	AvsDataStore              pulumi.StringPtrOutput                          `pulumi:"avsDataStore"`
+	BackupId                  pulumi.StringPtrOutput                          `pulumi:"backupId"`
+	BaremetalTenantId         pulumi.StringOutput                             `pulumi:"baremetalTenantId"`
+	CloneProgress             pulumi.IntOutput                                `pulumi:"cloneProgress"`
+	CoolAccess                pulumi.BoolPtrOutput                            `pulumi:"coolAccess"`
+	CoolnessPeriod            pulumi.IntPtrOutput                             `pulumi:"coolnessPeriod"`
+	CreationToken             pulumi.StringOutput                             `pulumi:"creationToken"`
+	DataProtection            VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
+	DefaultGroupQuotaInKiBs   pulumi.Float64PtrOutput                         `pulumi:"defaultGroupQuotaInKiBs"`
+	DefaultUserQuotaInKiBs    pulumi.Float64PtrOutput                         `pulumi:"defaultUserQuotaInKiBs"`
+	EncryptionKeySource       pulumi.StringPtrOutput                          `pulumi:"encryptionKeySource"`
+	Etag                      pulumi.StringOutput                             `pulumi:"etag"`
+	ExportPolicy              VolumePropertiesResponseExportPolicyPtrOutput   `pulumi:"exportPolicy"`
+	FileSystemId              pulumi.StringOutput                             `pulumi:"fileSystemId"`
+	IsDefaultQuotaEnabled     pulumi.BoolPtrOutput                            `pulumi:"isDefaultQuotaEnabled"`
+	IsRestoring               pulumi.BoolPtrOutput                            `pulumi:"isRestoring"`
+	KerberosEnabled           pulumi.BoolPtrOutput                            `pulumi:"kerberosEnabled"`
+	LdapEnabled               pulumi.BoolPtrOutput                            `pulumi:"ldapEnabled"`
+	Location                  pulumi.StringOutput                             `pulumi:"location"`
+	MountTargets              MountTargetPropertiesResponseArrayOutput        `pulumi:"mountTargets"`
+	Name                      pulumi.StringOutput                             `pulumi:"name"`
+	NetworkFeatures           pulumi.StringPtrOutput                          `pulumi:"networkFeatures"`
+	NetworkSiblingSetId       pulumi.StringOutput                             `pulumi:"networkSiblingSetId"`
+	ProtocolTypes             pulumi.StringArrayOutput                        `pulumi:"protocolTypes"`
+	ProvisioningState         pulumi.StringOutput                             `pulumi:"provisioningState"`
+	SecurityStyle             pulumi.StringPtrOutput                          `pulumi:"securityStyle"`
+	ServiceLevel              pulumi.StringPtrOutput                          `pulumi:"serviceLevel"`
+	SmbContinuouslyAvailable  pulumi.BoolPtrOutput                            `pulumi:"smbContinuouslyAvailable"`
+	SmbEncryption             pulumi.BoolPtrOutput                            `pulumi:"smbEncryption"`
+	SnapshotDirectoryVisible  pulumi.BoolPtrOutput                            `pulumi:"snapshotDirectoryVisible"`
+	SnapshotId                pulumi.StringPtrOutput                          `pulumi:"snapshotId"`
+	StorageToNetworkProximity pulumi.StringOutput                             `pulumi:"storageToNetworkProximity"`
+	SubnetId                  pulumi.StringOutput                             `pulumi:"subnetId"`
+	Tags                      pulumi.StringMapOutput                          `pulumi:"tags"`
+	ThroughputMibps           pulumi.Float64PtrOutput                         `pulumi:"throughputMibps"`
+	Type                      pulumi.StringOutput                             `pulumi:"type"`
+	UnixPermissions           pulumi.StringPtrOutput                          `pulumi:"unixPermissions"`
+	UsageThreshold            pulumi.Float64Output                            `pulumi:"usageThreshold"`
+	VolumeType                pulumi.StringPtrOutput                          `pulumi:"volumeType"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -94,6 +97,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.LdapEnabled == nil {
 		args.LdapEnabled = pulumi.BoolPtr(false)
+	}
+	if args.NetworkFeatures == nil {
+		args.NetworkFeatures = pulumi.StringPtr("Basic")
 	}
 	if args.SecurityStyle == nil {
 		args.SecurityStyle = pulumi.StringPtr("unix")
@@ -290,6 +296,7 @@ type volumeArgs struct {
 	KerberosEnabled          *bool                           `pulumi:"kerberosEnabled"`
 	LdapEnabled              *bool                           `pulumi:"ldapEnabled"`
 	Location                 *string                         `pulumi:"location"`
+	NetworkFeatures          *string                         `pulumi:"networkFeatures"`
 	PoolName                 string                          `pulumi:"poolName"`
 	ProtocolTypes            []string                        `pulumi:"protocolTypes"`
 	ResourceGroupName        string                          `pulumi:"resourceGroupName"`
@@ -326,6 +333,7 @@ type VolumeArgs struct {
 	KerberosEnabled          pulumi.BoolPtrInput
 	LdapEnabled              pulumi.BoolPtrInput
 	Location                 pulumi.StringPtrInput
+	NetworkFeatures          pulumi.StringPtrInput
 	PoolName                 pulumi.StringInput
 	ProtocolTypes            pulumi.StringArrayInput
 	ResourceGroupName        pulumi.StringInput

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The drive's current state.
 type DriveState string
 
 const (
@@ -180,7 +179,6 @@ func (in *driveStatePtr) ToDriveStatePtrOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, in).(DriveStatePtrOutput)
 }
 
-// The type of kek encryption key
 type EncryptionKekType string
 
 const (

@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20151001preview from "./v20151001preview";
 import * as v20161101 from "./v20161101";
+import * as v20191101preview from "./v20191101preview";
 
 export {
     v20151001preview,
     v20161101,
+    v20191101preview,
 };
 
 export const AADObjectType = {

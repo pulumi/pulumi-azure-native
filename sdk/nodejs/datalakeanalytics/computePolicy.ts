@@ -104,7 +104,7 @@ export class ComputePolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20161101:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20161101:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20191101preview:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20191101preview:ComputePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComputePolicy.__pulumiType, name, inputs, opts);
     }

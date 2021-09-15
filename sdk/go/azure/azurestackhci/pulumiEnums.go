@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of identity that last modified the resource.
 type CreatedByType string
 
 const (

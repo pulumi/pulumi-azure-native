@@ -3,7 +3,18 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `hdinsight.PrivateEndpointConnection`
+
+#### New functions:
+
+- `hdinsight.getPrivateEndpointConnection`
+
+#### Breaking Changes published by Microsoft:
+
+- The shape of the `documentdb.Service` resource adjusted to match API expectations
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15971))
 
 ---
 

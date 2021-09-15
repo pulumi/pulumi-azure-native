@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
 type HostingMode string
 
 const (
@@ -175,7 +174,6 @@ func (in *hostingModePtr) ToHostingModePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(HostingModePtrOutput)
 }
 
-// The identity type.
 type IdentityType string
 
 const (
@@ -340,7 +338,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -507,7 +504,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
 type PublicNetworkAccess string
 
 const (
@@ -672,7 +668,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
 type SharedPrivateLinkResourceProvisioningState string
 
 const (
@@ -840,7 +835,6 @@ func (in *sharedPrivateLinkResourceProvisioningStatePtr) ToSharedPrivateLinkReso
 	return pulumi.ToOutputWithContext(ctx, in).(SharedPrivateLinkResourceProvisioningStatePtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
 type SharedPrivateLinkResourceStatus string
 
 const (
@@ -1007,7 +1001,6 @@ func (in *sharedPrivateLinkResourceStatusPtr) ToSharedPrivateLinkResourceStatusP
 	return pulumi.ToOutputWithContext(ctx, in).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
-// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 type SkuName string
 
 const (

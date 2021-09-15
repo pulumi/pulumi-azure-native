@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of the managed identity
 type ManagedIdentityType string
 
 const (
@@ -177,7 +176,6 @@ func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
 }
 
-// Runtime version
 type RuntimeVersion string
 
 const (
@@ -343,7 +341,6 @@ func (in *runtimeVersionPtr) ToRuntimeVersionPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimeVersionPtrOutput)
 }
 
-// Type of the source uploaded
 type UserSourceType string
 
 const (

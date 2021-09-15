@@ -106,6 +106,8 @@ namespace Pulumi.AzureNative.DataShare
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:KustoDatabaseDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoDatabaseDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:KustoDatabaseDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoDatabaseDataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:KustoDatabaseDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

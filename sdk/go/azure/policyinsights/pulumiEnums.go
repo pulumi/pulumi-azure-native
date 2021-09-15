@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The compliance state that should be set on the resource.
 type ComplianceState string
 
 const (
@@ -179,7 +178,6 @@ func (in *complianceStatePtr) ToComplianceStatePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ComplianceStatePtrOutput)
 }
 
-// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 type ResourceDiscoveryMode string
 
 const (

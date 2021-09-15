@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the type of ARM deployment to be performed on the resource.
 type DeploymentMode string
 
 const (
@@ -175,7 +174,6 @@ func (in *deploymentModePtr) ToDeploymentModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentModePtrOutput)
 }
 
-// The location of the authentication key/value pair in the request.
 type RestAuthLocation string
 
 const (
@@ -340,7 +338,6 @@ func (in *restAuthLocationPtr) ToRestAuthLocationPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(RestAuthLocationPtrOutput)
 }
 
-// The authentication type.
 type RestAuthType string
 
 const (
@@ -505,7 +502,6 @@ func (in *restAuthTypePtr) ToRestAuthTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(RestAuthTypePtrOutput)
 }
 
-// Indicates whether any or all of the expressions should match with the response content.
 type RestMatchQuantifier string
 
 const (
@@ -670,7 +666,6 @@ func (in *restMatchQuantifierPtr) ToRestMatchQuantifierPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RestMatchQuantifierPtrOutput)
 }
 
-// The HTTP method to use for the request.
 type RestRequestMethod string
 
 const (
@@ -835,7 +830,6 @@ func (in *restRequestMethodPtr) ToRestRequestMethodPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RestRequestMethodPtrOutput)
 }
 
-// The type of step.
 type StepType string
 
 const (

@@ -93,10 +93,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Services response resource.
+        /// Instance count for the service.
         /// </summary>
-        [Input("properties")]
-        public object? Properties { get; set; }
+        [Input("instanceCount")]
+        public Input<int>? InstanceCount { get; set; }
+
+        /// <summary>
+        /// Instance type for the service.
+        /// </summary>
+        [Input("instanceSize")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20210701Preview.ServiceSize>? InstanceSize { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -109,6 +115,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// ServiceType for the service.
+        /// </summary>
+        [Input("serviceType")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20210701Preview.ServiceType>? ServiceType { get; set; }
 
         public ServiceArgs()
         {

@@ -224,7 +224,6 @@ func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) DaysOfWeekOutput {
 	}).(DaysOfWeekOutput)
 }
 
-// The directory type.
 type DirectoryType string
 
 const (
@@ -388,7 +387,6 @@ func (in *directoryTypePtr) ToDirectoryTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryTypePtrOutput)
 }
 
-// Algorithm identifier for encryption, default RSA-OAEP.
 type JsonWebKeyEncryptionAlgorithm string
 
 const (
@@ -554,7 +552,6 @@ func (in *jsonWebKeyEncryptionAlgorithmPtr) ToJsonWebKeyEncryptionAlgorithmPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(JsonWebKeyEncryptionAlgorithmPtrOutput)
 }
 
-// The type of operating system.
 type OSType string
 
 const (
@@ -719,7 +716,6 @@ func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
 }
 
-// Indicates whether or not private link is enabled.
 type PrivateLink string
 
 const (
@@ -884,7 +880,172 @@ func (in *privateLinkPtr) ToPrivateLinkPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkPtrOutput)
 }
 
-// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+type PrivateLinkServiceConnectionStatus string
+
+const (
+	PrivateLinkServiceConnectionStatusApproved = PrivateLinkServiceConnectionStatus("Approved")
+	PrivateLinkServiceConnectionStatusRejected = PrivateLinkServiceConnectionStatus("Rejected")
+	PrivateLinkServiceConnectionStatusPending  = PrivateLinkServiceConnectionStatus("Pending")
+	PrivateLinkServiceConnectionStatusRemoved  = PrivateLinkServiceConnectionStatus("Removed")
+)
+
+func (PrivateLinkServiceConnectionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatus)(nil)).Elem()
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput {
+	return pulumi.ToOutput(e).(PrivateLinkServiceConnectionStatusOutput)
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivateLinkServiceConnectionStatusOutput)
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
+	return e.ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
+	return PrivateLinkServiceConnectionStatus(e).ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx).ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx)
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateLinkServiceConnectionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivateLinkServiceConnectionStatusOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatus) *PrivateLinkServiceConnectionStatus {
+		return &v
+	}).(PrivateLinkServiceConnectionStatusPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateLinkServiceConnectionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateLinkServiceConnectionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatusPtrOutput) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatusPtrOutput) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatusPtrOutput) Elem() PrivateLinkServiceConnectionStatusOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatus) PrivateLinkServiceConnectionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStatus
+		return ret
+	}).(PrivateLinkServiceConnectionStatusOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateLinkServiceConnectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateLinkServiceConnectionStatusInput is an input type that accepts PrivateLinkServiceConnectionStatusArgs and PrivateLinkServiceConnectionStatusOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatusInput` via:
+//
+//          PrivateLinkServiceConnectionStatusArgs{...}
+type PrivateLinkServiceConnectionStatusInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput
+	ToPrivateLinkServiceConnectionStatusOutputWithContext(context.Context) PrivateLinkServiceConnectionStatusOutput
+}
+
+var privateLinkServiceConnectionStatusPtrType = reflect.TypeOf((**PrivateLinkServiceConnectionStatus)(nil)).Elem()
+
+type PrivateLinkServiceConnectionStatusPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput
+	ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatusPtrOutput
+}
+
+type privateLinkServiceConnectionStatusPtr string
+
+func PrivateLinkServiceConnectionStatusPtr(v string) PrivateLinkServiceConnectionStatusPtrInput {
+	return (*privateLinkServiceConnectionStatusPtr)(&v)
+}
+
+func (*privateLinkServiceConnectionStatusPtr) ElementType() reflect.Type {
+	return privateLinkServiceConnectionStatusPtrType
+}
+
+func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
+	return pulumi.ToOutput(in).(PrivateLinkServiceConnectionStatusPtrOutput)
+}
+
+func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
+}
+
 type ResourceIdentityType string
 
 const (
@@ -1051,7 +1212,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The direction for the resource provider connection.
 type ResourceProviderConnection string
 
 const (
@@ -1216,7 +1376,6 @@ func (in *resourceProviderConnectionPtr) ToResourceProviderConnectionPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceProviderConnectionPtrOutput)
 }
 
-// The cluster tier.
 type Tier string
 
 const (
@@ -1393,6 +1552,8 @@ func init() {
 	pulumi.RegisterOutputType(OSTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatusOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceProviderConnectionOutput{})

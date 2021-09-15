@@ -179,9 +179,9 @@ func (in *createdByTypePtr) ToCreatedByTypePtrOutputWithContext(ctx context.Cont
 type DiagnosticLevel string
 
 const (
-	DiagnosticLevelOff                 = DiagnosticLevel("Off")
-	DiagnosticLevelRequired            = DiagnosticLevel("Required")
-	DiagnosticLevelRequiredAndOptional = DiagnosticLevel("RequiredAndOptional")
+	DiagnosticLevelOff      = DiagnosticLevel("Off")
+	DiagnosticLevelBasic    = DiagnosticLevel("Basic")
+	DiagnosticLevelEnhanced = DiagnosticLevel("Enhanced")
 )
 
 func (DiagnosticLevel) ElementType() reflect.Type {

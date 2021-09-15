@@ -78,6 +78,12 @@ func NewBlobStorageAccountDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobStorageAccountDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:BlobStorageAccountDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobStorageAccountDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobStorageAccountDataSet

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of address.
 type AddressType string
 
 const (
@@ -179,7 +178,6 @@ func (in *addressTypePtr) ToAddressTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(AddressTypePtrOutput)
 }
 
-// Defines secondary layer of software-based encryption enablement.
 type DoubleEncryptionStatus string
 
 const (
@@ -346,7 +344,6 @@ func (in *doubleEncryptionStatusPtr) ToDoubleEncryptionStatusPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DoubleEncryptionStatusPtrOutput)
 }
 
-// Name of the stage.
 type NotificationStageName string
 
 const (
@@ -513,7 +510,6 @@ func (in *notificationStageNamePtr) ToNotificationStageNamePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationStageNamePtrOutput)
 }
 
-// Order item type.
 type OrderItemType string
 
 const (
@@ -680,7 +676,6 @@ func (in *orderItemTypePtr) ToOrderItemTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(OrderItemTypePtrOutput)
 }
 
-// Type of product filter.
 type SupportedFilterTypes string
 
 const (
@@ -847,7 +842,6 @@ func (in *supportedFilterTypesPtr) ToSupportedFilterTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SupportedFilterTypesPtrOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 type TransportShipmentTypes string
 
 const (

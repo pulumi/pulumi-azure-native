@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetails struct {
 	// (Optional) The ID of the parent management group used during creation.
 	Parent *CreateParentGroupInfo `pulumi:"parent"`
@@ -27,7 +26,6 @@ type CreateManagementGroupDetailsInput interface {
 	ToCreateManagementGroupDetailsOutputWithContext(context.Context) CreateManagementGroupDetailsOutput
 }
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetailsArgs struct {
 	// (Optional) The ID of the parent management group used during creation.
 	Parent CreateParentGroupInfoPtrInput `pulumi:"parent"`
@@ -86,7 +84,6 @@ func (i *createManagementGroupDetailsPtrType) ToCreateManagementGroupDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CreateManagementGroupDetailsPtrOutput)
 }
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetailsOutput struct{ *pulumi.OutputState }
 
 func (CreateManagementGroupDetailsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o CreateManagementGroupDetailsPtrOutput) Parent() CreateParentGroupInfoPtr
 	}).(CreateParentGroupInfoPtrOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfo struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id *string `pulumi:"id"`
@@ -167,7 +163,6 @@ type CreateParentGroupInfoInput interface {
 	ToCreateParentGroupInfoOutputWithContext(context.Context) CreateParentGroupInfoOutput
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfoArgs struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -226,7 +221,6 @@ func (i *createParentGroupInfoPtrType) ToCreateParentGroupInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CreateParentGroupInfoPtrOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (CreateParentGroupInfoOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o CreateParentGroupInfoPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the parent management group.
 type DescendantParentGroupInfoResponse struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id *string `pulumi:"id"`
@@ -307,7 +300,6 @@ type DescendantParentGroupInfoResponseInput interface {
 	ToDescendantParentGroupInfoResponseOutputWithContext(context.Context) DescendantParentGroupInfoResponseOutput
 }
 
-// The ID of the parent management group.
 type DescendantParentGroupInfoResponseArgs struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -366,7 +358,6 @@ func (i *descendantParentGroupInfoResponsePtrType) ToDescendantParentGroupInfoRe
 	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponsePtrOutput)
 }
 
-// The ID of the parent management group.
 type DescendantParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DescendantParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -430,7 +421,6 @@ func (o DescendantParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity.
 type EntityInfoResponse struct {
 	// The friendly name of the management group.
 	DisplayName *string `pulumi:"displayName"`
@@ -470,7 +460,6 @@ type EntityInfoResponseInput interface {
 	ToEntityInfoResponseOutputWithContext(context.Context) EntityInfoResponseOutput
 }
 
-// The entity.
 type EntityInfoResponseArgs struct {
 	// The friendly name of the management group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -536,7 +525,6 @@ func (i EntityInfoResponseArray) ToEntityInfoResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EntityInfoResponseArrayOutput)
 }
 
-// The entity.
 type EntityInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityInfoResponseOutput) ElementType() reflect.Type {
@@ -635,7 +623,6 @@ func (o EntityInfoResponseArrayOutput) Index(i pulumi.IntInput) EntityInfoRespon
 	}).(EntityInfoResponseOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponse struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id *string `pulumi:"id"`
@@ -652,7 +639,6 @@ type EntityParentGroupInfoResponseInput interface {
 	ToEntityParentGroupInfoResponseOutputWithContext(context.Context) EntityParentGroupInfoResponseOutput
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponseArgs struct {
 	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -711,7 +697,6 @@ func (i *entityParentGroupInfoResponsePtrType) ToEntityParentGroupInfoResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EntityParentGroupInfoResponsePtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -775,7 +760,6 @@ func (o EntityParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponse struct {
 	// The list of children.
 	Children []ManagementGroupChildInfoResponse `pulumi:"children"`
@@ -800,7 +784,6 @@ type ManagementGroupChildInfoResponseInput interface {
 	ToManagementGroupChildInfoResponseOutputWithContext(context.Context) ManagementGroupChildInfoResponseOutput
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponseArgs struct {
 	// The list of children.
 	Children ManagementGroupChildInfoResponseArrayInput `pulumi:"children"`
@@ -851,7 +834,6 @@ func (i ManagementGroupChildInfoResponseArray) ToManagementGroupChildInfoRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoResponseArrayOutput)
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupChildInfoResponseOutput) ElementType() reflect.Type {
@@ -911,7 +893,6 @@ func (o ManagementGroupChildInfoResponseArrayOutput) Index(i pulumi.IntInput) Ma
 	}).(ManagementGroupChildInfoResponseOutput)
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponse struct {
 	// (Optional) The ID of the parent management group.
 	Parent *ParentGroupInfoResponse `pulumi:"parent"`
@@ -936,7 +917,6 @@ type ManagementGroupDetailsResponseInput interface {
 	ToManagementGroupDetailsResponseOutputWithContext(context.Context) ManagementGroupDetailsResponseOutput
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponseArgs struct {
 	// (Optional) The ID of the parent management group.
 	Parent ParentGroupInfoResponsePtrInput `pulumi:"parent"`
@@ -1003,7 +983,6 @@ func (i *managementGroupDetailsResponsePtrType) ToManagementGroupDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsResponsePtrOutput)
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDetailsResponseOutput) ElementType() reflect.Type {
@@ -1127,7 +1106,6 @@ func (o ManagementGroupDetailsResponsePtrOutput) Version() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// A path element of a management group ancestors.
 type ManagementGroupPathElementResponse struct {
 	// The friendly name of the group.
 	DisplayName *string `pulumi:"displayName"`
@@ -1146,7 +1124,6 @@ type ManagementGroupPathElementResponseInput interface {
 	ToManagementGroupPathElementResponseOutputWithContext(context.Context) ManagementGroupPathElementResponseOutput
 }
 
-// A path element of a management group ancestors.
 type ManagementGroupPathElementResponseArgs struct {
 	// The friendly name of the group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -1191,7 +1168,6 @@ func (i ManagementGroupPathElementResponseArray) ToManagementGroupPathElementRes
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupPathElementResponseArrayOutput)
 }
 
-// A path element of a management group ancestors.
 type ManagementGroupPathElementResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupPathElementResponseOutput) ElementType() reflect.Type {
@@ -1236,7 +1212,6 @@ func (o ManagementGroupPathElementResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ManagementGroupPathElementResponseOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponse struct {
 	// The friendly name of the parent management group.
 	DisplayName *string `pulumi:"displayName"`
@@ -1257,7 +1232,6 @@ type ParentGroupInfoResponseInput interface {
 	ToParentGroupInfoResponseOutputWithContext(context.Context) ParentGroupInfoResponseOutput
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponseArgs struct {
 	// The friendly name of the parent management group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -1320,7 +1294,6 @@ func (i *parentGroupInfoResponsePtrType) ToParentGroupInfoResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoResponsePtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ParentGroupInfoResponseOutput) ElementType() reflect.Type {

@@ -93,6 +93,8 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

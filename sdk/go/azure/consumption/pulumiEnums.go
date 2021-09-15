@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The operator to use for comparison.
 type BudgetOperatorType string
 
 const (
@@ -174,7 +173,6 @@ func (in *budgetOperatorTypePtr) ToBudgetOperatorTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetOperatorTypePtrOutput)
 }
 
-// The category of the budget, whether the budget tracks cost or usage.
 type CategoryType string
 
 const (
@@ -338,7 +336,6 @@ func (in *categoryTypePtr) ToCategoryTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(CategoryTypePtrOutput)
 }
 
-// Language in which the recipient will receive the notification
 type CultureCode string
 
 const (
@@ -522,7 +519,6 @@ func (in *cultureCodePtr) ToCultureCodePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(CultureCodePtrOutput)
 }
 
-// The comparison operator.
 type OperatorType string
 
 const (
@@ -688,7 +684,6 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorTypePtrOutput)
 }
 
-// The type of threshold
 type ThresholdType string
 
 const (
@@ -852,7 +847,6 @@ func (in *thresholdTypePtr) ToThresholdTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ThresholdTypePtrOutput)
 }
 
-// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
 type TimeGrainType string
 
 const (

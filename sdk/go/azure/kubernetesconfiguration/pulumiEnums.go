@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Level of the status.
 type LevelType string
 
 const (
@@ -176,7 +175,6 @@ func (in *levelTypePtr) ToLevelTypePtrOutputWithContext(ctx context.Context) Lev
 	return pulumi.ToOutputWithContext(ctx, in).(LevelTypePtrOutput)
 }
 
-// Scope at which the operator will be installed.
 type OperatorScopeType string
 
 const (
@@ -341,7 +339,6 @@ func (in *operatorScopeTypePtr) ToOperatorScopeTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorScopeTypePtrOutput)
 }
 
-// Type of the operator
 type OperatorType string
 
 const (
@@ -505,7 +502,6 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorTypePtrOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 type ResourceIdentityType string
 
 const (

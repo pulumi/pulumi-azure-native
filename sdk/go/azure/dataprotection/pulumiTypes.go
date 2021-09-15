@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Delete option with duration
 type AbsoluteDeleteOption struct {
 	// Duration of deletion after given timespan
 	Duration string `pulumi:"duration"`
@@ -30,7 +29,6 @@ type AbsoluteDeleteOptionInput interface {
 	ToAbsoluteDeleteOptionOutputWithContext(context.Context) AbsoluteDeleteOptionOutput
 }
 
-// Delete option with duration
 type AbsoluteDeleteOptionArgs struct {
 	// Duration of deletion after given timespan
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -51,7 +49,6 @@ func (i AbsoluteDeleteOptionArgs) ToAbsoluteDeleteOptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteDeleteOptionOutput)
 }
 
-// Delete option with duration
 type AbsoluteDeleteOptionOutput struct{ *pulumi.OutputState }
 
 func (AbsoluteDeleteOptionOutput) ElementType() reflect.Type {
@@ -77,7 +74,6 @@ func (o AbsoluteDeleteOptionOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteDeleteOption) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Delete option with duration
 type AbsoluteDeleteOptionResponse struct {
 	// Duration of deletion after given timespan
 	Duration string `pulumi:"duration"`
@@ -97,7 +93,6 @@ type AbsoluteDeleteOptionResponseInput interface {
 	ToAbsoluteDeleteOptionResponseOutputWithContext(context.Context) AbsoluteDeleteOptionResponseOutput
 }
 
-// Delete option with duration
 type AbsoluteDeleteOptionResponseArgs struct {
 	// Duration of deletion after given timespan
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -118,7 +113,6 @@ func (i AbsoluteDeleteOptionResponseArgs) ToAbsoluteDeleteOptionResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteDeleteOptionResponseOutput)
 }
 
-// Delete option with duration
 type AbsoluteDeleteOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (AbsoluteDeleteOptionResponseOutput) ElementType() reflect.Type {
@@ -144,7 +138,6 @@ func (o AbsoluteDeleteOptionResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteDeleteOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteria struct {
 	// Retention tag information
 	TagInfo *RetentionTag `pulumi:"tagInfo"`
@@ -161,7 +154,6 @@ type AdhocBasedTaggingCriteriaInput interface {
 	ToAdhocBasedTaggingCriteriaOutputWithContext(context.Context) AdhocBasedTaggingCriteriaOutput
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteriaArgs struct {
 	// Retention tag information
 	TagInfo RetentionTagPtrInput `pulumi:"tagInfo"`
@@ -179,7 +171,6 @@ func (i AdhocBasedTaggingCriteriaArgs) ToAdhocBasedTaggingCriteriaOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTaggingCriteriaOutput)
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (AdhocBasedTaggingCriteriaOutput) ElementType() reflect.Type {
@@ -199,7 +190,6 @@ func (o AdhocBasedTaggingCriteriaOutput) TagInfo() RetentionTagPtrOutput {
 	return o.ApplyT(func(v AdhocBasedTaggingCriteria) *RetentionTag { return v.TagInfo }).(RetentionTagPtrOutput)
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteriaResponse struct {
 	// Retention tag information
 	TagInfo *RetentionTagResponse `pulumi:"tagInfo"`
@@ -216,7 +206,6 @@ type AdhocBasedTaggingCriteriaResponseInput interface {
 	ToAdhocBasedTaggingCriteriaResponseOutputWithContext(context.Context) AdhocBasedTaggingCriteriaResponseOutput
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteriaResponseArgs struct {
 	// Retention tag information
 	TagInfo RetentionTagResponsePtrInput `pulumi:"tagInfo"`
@@ -234,7 +223,6 @@ func (i AdhocBasedTaggingCriteriaResponseArgs) ToAdhocBasedTaggingCriteriaRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTaggingCriteriaResponseOutput)
 }
 
-// Adhoc backup tagging criteria
 type AdhocBasedTaggingCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (AdhocBasedTaggingCriteriaResponseOutput) ElementType() reflect.Type {
@@ -254,7 +242,6 @@ func (o AdhocBasedTaggingCriteriaResponseOutput) TagInfo() RetentionTagResponseP
 	return o.ApplyT(func(v AdhocBasedTaggingCriteriaResponse) *RetentionTagResponse { return v.TagInfo }).(RetentionTagResponsePtrOutput)
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContext struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AdhocBasedTriggerContext'.
@@ -274,7 +261,6 @@ type AdhocBasedTriggerContextInput interface {
 	ToAdhocBasedTriggerContextOutputWithContext(context.Context) AdhocBasedTriggerContextOutput
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContextArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AdhocBasedTriggerContext'.
@@ -295,7 +281,6 @@ func (i AdhocBasedTriggerContextArgs) ToAdhocBasedTriggerContextOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTriggerContextOutput)
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContextOutput struct{ *pulumi.OutputState }
 
 func (AdhocBasedTriggerContextOutput) ElementType() reflect.Type {
@@ -321,7 +306,6 @@ func (o AdhocBasedTriggerContextOutput) TaggingCriteria() AdhocBasedTaggingCrite
 	return o.ApplyT(func(v AdhocBasedTriggerContext) AdhocBasedTaggingCriteria { return v.TaggingCriteria }).(AdhocBasedTaggingCriteriaOutput)
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContextResponse struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AdhocBasedTriggerContext'.
@@ -341,7 +325,6 @@ type AdhocBasedTriggerContextResponseInput interface {
 	ToAdhocBasedTriggerContextResponseOutputWithContext(context.Context) AdhocBasedTriggerContextResponseOutput
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContextResponseArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AdhocBasedTriggerContext'.
@@ -362,7 +345,6 @@ func (i AdhocBasedTriggerContextResponseArgs) ToAdhocBasedTriggerContextResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTriggerContextResponseOutput)
 }
 
-// Adhoc trigger context
 type AdhocBasedTriggerContextResponseOutput struct{ *pulumi.OutputState }
 
 func (AdhocBasedTriggerContextResponseOutput) ElementType() reflect.Type {
@@ -388,7 +370,6 @@ func (o AdhocBasedTriggerContextResponseOutput) TaggingCriteria() AdhocBasedTagg
 	return o.ApplyT(func(v AdhocBasedTriggerContextResponse) AdhocBasedTaggingCriteriaResponse { return v.TaggingCriteria }).(AdhocBasedTaggingCriteriaResponseOutput)
 }
 
-// Azure backup parameters
 type AzureBackupParams struct {
 	// BackupType ; Full/Incremental etc
 	BackupType string `pulumi:"backupType"`
@@ -408,7 +389,6 @@ type AzureBackupParamsInput interface {
 	ToAzureBackupParamsOutputWithContext(context.Context) AzureBackupParamsOutput
 }
 
-// Azure backup parameters
 type AzureBackupParamsArgs struct {
 	// BackupType ; Full/Incremental etc
 	BackupType pulumi.StringInput `pulumi:"backupType"`
@@ -470,7 +450,6 @@ func (i *azureBackupParamsPtrType) ToAzureBackupParamsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsPtrOutput)
 }
 
-// Azure backup parameters
 type AzureBackupParamsOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupParamsOutput) ElementType() reflect.Type {
@@ -551,7 +530,6 @@ func (o AzureBackupParamsPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure backup parameters
 type AzureBackupParamsResponse struct {
 	// BackupType ; Full/Incremental etc
 	BackupType string `pulumi:"backupType"`
@@ -571,7 +549,6 @@ type AzureBackupParamsResponseInput interface {
 	ToAzureBackupParamsResponseOutputWithContext(context.Context) AzureBackupParamsResponseOutput
 }
 
-// Azure backup parameters
 type AzureBackupParamsResponseArgs struct {
 	// BackupType ; Full/Incremental etc
 	BackupType pulumi.StringInput `pulumi:"backupType"`
@@ -633,7 +610,6 @@ func (i *azureBackupParamsResponsePtrType) ToAzureBackupParamsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsResponsePtrOutput)
 }
 
-// Azure backup parameters
 type AzureBackupParamsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupParamsResponseOutput) ElementType() reflect.Type {
@@ -714,7 +690,6 @@ func (o AzureBackupParamsResponsePtrOutput) ObjectType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure backup rule
 type AzureBackupRule struct {
 	// BackupParameters base
 	BackupParameters *AzureBackupParams `pulumi:"backupParameters"`
@@ -738,7 +713,6 @@ type AzureBackupRuleInput interface {
 	ToAzureBackupRuleOutputWithContext(context.Context) AzureBackupRuleOutput
 }
 
-// Azure backup rule
 type AzureBackupRuleArgs struct {
 	// BackupParameters base
 	BackupParameters AzureBackupParamsPtrInput `pulumi:"backupParameters"`
@@ -763,7 +737,6 @@ func (i AzureBackupRuleArgs) ToAzureBackupRuleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupRuleOutput)
 }
 
-// Azure backup rule
 type AzureBackupRuleOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupRuleOutput) ElementType() reflect.Type {
@@ -802,7 +775,6 @@ func (o AzureBackupRuleOutput) Trigger() pulumi.AnyOutput {
 	return o.ApplyT(func(v AzureBackupRule) interface{} { return v.Trigger }).(pulumi.AnyOutput)
 }
 
-// Azure backup rule
 type AzureBackupRuleResponse struct {
 	// BackupParameters base
 	BackupParameters *AzureBackupParamsResponse `pulumi:"backupParameters"`
@@ -826,7 +798,6 @@ type AzureBackupRuleResponseInput interface {
 	ToAzureBackupRuleResponseOutputWithContext(context.Context) AzureBackupRuleResponseOutput
 }
 
-// Azure backup rule
 type AzureBackupRuleResponseArgs struct {
 	// BackupParameters base
 	BackupParameters AzureBackupParamsResponsePtrInput `pulumi:"backupParameters"`
@@ -851,7 +822,6 @@ func (i AzureBackupRuleResponseArgs) ToAzureBackupRuleResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupRuleResponseOutput)
 }
 
-// Azure backup rule
 type AzureBackupRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupRuleResponseOutput) ElementType() reflect.Type {
@@ -890,7 +860,6 @@ func (o AzureBackupRuleResponseOutput) Trigger() pulumi.AnyOutput {
 	return o.ApplyT(func(v AzureBackupRuleResponse) interface{} { return v.Trigger }).(pulumi.AnyOutput)
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParameters struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType string `pulumi:"dataStoreType"`
@@ -912,7 +881,6 @@ type AzureOperationalStoreParametersInput interface {
 	ToAzureOperationalStoreParametersOutputWithContext(context.Context) AzureOperationalStoreParametersOutput
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParametersArgs struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
@@ -960,7 +928,6 @@ func (i AzureOperationalStoreParametersArray) ToAzureOperationalStoreParametersA
 	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersArrayOutput)
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParametersOutput struct{ *pulumi.OutputState }
 
 func (AzureOperationalStoreParametersOutput) ElementType() reflect.Type {
@@ -1011,7 +978,6 @@ func (o AzureOperationalStoreParametersArrayOutput) Index(i pulumi.IntInput) Azu
 	}).(AzureOperationalStoreParametersOutput)
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParametersResponse struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType string `pulumi:"dataStoreType"`
@@ -1033,7 +999,6 @@ type AzureOperationalStoreParametersResponseInput interface {
 	ToAzureOperationalStoreParametersResponseOutputWithContext(context.Context) AzureOperationalStoreParametersResponseOutput
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParametersResponseArgs struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
@@ -1081,7 +1046,6 @@ func (i AzureOperationalStoreParametersResponseArray) ToAzureOperationalStorePar
 	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersResponseArrayOutput)
 }
 
-// Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureOperationalStoreParametersResponseOutput) ElementType() reflect.Type {
@@ -1132,7 +1096,6 @@ func (o AzureOperationalStoreParametersResponseArrayOutput) Index(i pulumi.IntIn
 	}).(AzureOperationalStoreParametersResponseOutput)
 }
 
-// Azure retention rule
 type AzureRetentionRule struct {
 	IsDefault  *bool             `pulumi:"isDefault"`
 	Lifecycles []SourceLifeCycle `pulumi:"lifecycles"`
@@ -1152,7 +1115,6 @@ type AzureRetentionRuleInput interface {
 	ToAzureRetentionRuleOutputWithContext(context.Context) AzureRetentionRuleOutput
 }
 
-// Azure retention rule
 type AzureRetentionRuleArgs struct {
 	IsDefault  pulumi.BoolPtrInput       `pulumi:"isDefault"`
 	Lifecycles SourceLifeCycleArrayInput `pulumi:"lifecycles"`
@@ -1173,7 +1135,6 @@ func (i AzureRetentionRuleArgs) ToAzureRetentionRuleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRetentionRuleOutput)
 }
 
-// Azure retention rule
 type AzureRetentionRuleOutput struct{ *pulumi.OutputState }
 
 func (AzureRetentionRuleOutput) ElementType() reflect.Type {
@@ -1205,7 +1166,6 @@ func (o AzureRetentionRuleOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureRetentionRule) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Azure retention rule
 type AzureRetentionRuleResponse struct {
 	IsDefault  *bool                     `pulumi:"isDefault"`
 	Lifecycles []SourceLifeCycleResponse `pulumi:"lifecycles"`
@@ -1225,7 +1185,6 @@ type AzureRetentionRuleResponseInput interface {
 	ToAzureRetentionRuleResponseOutputWithContext(context.Context) AzureRetentionRuleResponseOutput
 }
 
-// Azure retention rule
 type AzureRetentionRuleResponseArgs struct {
 	IsDefault  pulumi.BoolPtrInput               `pulumi:"isDefault"`
 	Lifecycles SourceLifeCycleResponseArrayInput `pulumi:"lifecycles"`
@@ -1246,7 +1205,6 @@ func (i AzureRetentionRuleResponseArgs) ToAzureRetentionRuleResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRetentionRuleResponseOutput)
 }
 
-// Azure retention rule
 type AzureRetentionRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureRetentionRuleResponseOutput) ElementType() reflect.Type {
@@ -1278,7 +1236,6 @@ func (o AzureRetentionRuleResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureRetentionRuleResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Backup Instance
 type BackupInstanceType struct {
 	// Gets or sets the data source information.
 	DataSourceInfo Datasource `pulumi:"dataSourceInfo"`
@@ -1302,7 +1259,6 @@ type BackupInstanceTypeInput interface {
 	ToBackupInstanceTypeOutputWithContext(context.Context) BackupInstanceTypeOutput
 }
 
-// Backup Instance
 type BackupInstanceTypeArgs struct {
 	// Gets or sets the data source information.
 	DataSourceInfo DatasourceInput `pulumi:"dataSourceInfo"`
@@ -1368,7 +1324,6 @@ func (i *backupInstanceTypePtrType) ToBackupInstanceTypePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceTypePtrOutput)
 }
 
-// Backup Instance
 type BackupInstanceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceTypeOutput) ElementType() reflect.Type {
@@ -1490,7 +1445,6 @@ func (o BackupInstanceTypePtrOutput) PolicyInfo() PolicyInfoPtrOutput {
 	}).(PolicyInfoPtrOutput)
 }
 
-// Backup Instance
 type BackupInstanceResponse struct {
 	// Specifies the current protection state of the resource
 	CurrentProtectionState string `pulumi:"currentProtectionState"`
@@ -1522,7 +1476,6 @@ type BackupInstanceResponseInput interface {
 	ToBackupInstanceResponseOutputWithContext(context.Context) BackupInstanceResponseOutput
 }
 
-// Backup Instance
 type BackupInstanceResponseArgs struct {
 	// Specifies the current protection state of the resource
 	CurrentProtectionState pulumi.StringInput `pulumi:"currentProtectionState"`
@@ -1596,7 +1549,6 @@ func (i *backupInstanceResponsePtrType) ToBackupInstanceResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceResponsePtrOutput)
 }
 
-// Backup Instance
 type BackupInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceResponseOutput) ElementType() reflect.Type {
@@ -1778,7 +1730,6 @@ func (o BackupInstanceResponsePtrOutput) ProvisioningState() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Rule based backup policy
 type BackupPolicyType struct {
 	// Type of datasource for the backup management
 	DatasourceTypes []string `pulumi:"datasourceTypes"`
@@ -1799,7 +1750,6 @@ type BackupPolicyTypeInput interface {
 	ToBackupPolicyTypeOutputWithContext(context.Context) BackupPolicyTypeOutput
 }
 
-// Rule based backup policy
 type BackupPolicyTypeArgs struct {
 	// Type of datasource for the backup management
 	DatasourceTypes pulumi.StringArrayInput `pulumi:"datasourceTypes"`
@@ -1862,7 +1812,6 @@ func (i *backupPolicyTypePtrType) ToBackupPolicyTypePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyTypePtrOutput)
 }
 
-// Rule based backup policy
 type BackupPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyTypeOutput) ElementType() reflect.Type {
@@ -1956,7 +1905,6 @@ func (o BackupPolicyTypePtrOutput) PolicyRules() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// Rule based backup policy
 type BackupPolicyResponse struct {
 	// Type of datasource for the backup management
 	DatasourceTypes []string `pulumi:"datasourceTypes"`
@@ -1977,7 +1925,6 @@ type BackupPolicyResponseInput interface {
 	ToBackupPolicyResponseOutputWithContext(context.Context) BackupPolicyResponseOutput
 }
 
-// Rule based backup policy
 type BackupPolicyResponseArgs struct {
 	// Type of datasource for the backup management
 	DatasourceTypes pulumi.StringArrayInput `pulumi:"datasourceTypes"`
@@ -2040,7 +1987,6 @@ func (i *backupPolicyResponsePtrType) ToBackupPolicyResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyResponsePtrOutput)
 }
 
-// Rule based backup policy
 type BackupPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyResponseOutput) ElementType() reflect.Type {
@@ -2134,7 +2080,6 @@ func (o BackupPolicyResponsePtrOutput) PolicyRules() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// Schedule for backup
 type BackupSchedule struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
@@ -2151,7 +2096,6 @@ type BackupScheduleInput interface {
 	ToBackupScheduleOutputWithContext(context.Context) BackupScheduleOutput
 }
 
-// Schedule for backup
 type BackupScheduleArgs struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals pulumi.StringArrayInput `pulumi:"repeatingTimeIntervals"`
@@ -2169,7 +2113,6 @@ func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
-// Schedule for backup
 type BackupScheduleOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleOutput) ElementType() reflect.Type {
@@ -2189,7 +2132,6 @@ func (o BackupScheduleOutput) RepeatingTimeIntervals() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v BackupSchedule) []string { return v.RepeatingTimeIntervals }).(pulumi.StringArrayOutput)
 }
 
-// Schedule for backup
 type BackupScheduleResponse struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
@@ -2206,7 +2148,6 @@ type BackupScheduleResponseInput interface {
 	ToBackupScheduleResponseOutputWithContext(context.Context) BackupScheduleResponseOutput
 }
 
-// Schedule for backup
 type BackupScheduleResponseArgs struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals pulumi.StringArrayInput `pulumi:"repeatingTimeIntervals"`
@@ -2224,7 +2165,6 @@ func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput)
 }
 
-// Schedule for backup
 type BackupScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleResponseOutput) ElementType() reflect.Type {
@@ -2244,7 +2184,6 @@ func (o BackupScheduleResponseOutput) RepeatingTimeIntervals() pulumi.StringArra
 	return o.ApplyT(func(v BackupScheduleResponse) []string { return v.RepeatingTimeIntervals }).(pulumi.StringArrayOutput)
 }
 
-// Backup Vault
 type BackupVaultType struct {
 	// Storage Settings
 	StorageSettings []StorageSetting `pulumi:"storageSettings"`
@@ -2261,7 +2200,6 @@ type BackupVaultTypeInput interface {
 	ToBackupVaultTypeOutputWithContext(context.Context) BackupVaultTypeOutput
 }
 
-// Backup Vault
 type BackupVaultTypeArgs struct {
 	// Storage Settings
 	StorageSettings StorageSettingArrayInput `pulumi:"storageSettings"`
@@ -2320,7 +2258,6 @@ func (i *backupVaultTypePtrType) ToBackupVaultTypePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultTypePtrOutput)
 }
 
-// Backup Vault
 type BackupVaultTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultTypeOutput) ElementType() reflect.Type {
@@ -2384,7 +2321,6 @@ func (o BackupVaultTypePtrOutput) StorageSettings() StorageSettingArrayOutput {
 	}).(StorageSettingArrayOutput)
 }
 
-// Backup Vault
 type BackupVaultResponse struct {
 	// Provisioning state of the BackupVault resource
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -2403,7 +2339,6 @@ type BackupVaultResponseInput interface {
 	ToBackupVaultResponseOutputWithContext(context.Context) BackupVaultResponseOutput
 }
 
-// Backup Vault
 type BackupVaultResponseArgs struct {
 	// Provisioning state of the BackupVault resource
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -2464,7 +2399,6 @@ func (i *backupVaultResponsePtrType) ToBackupVaultResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultResponsePtrOutput)
 }
 
-// Backup Vault
 type BackupVaultResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultResponseOutput) ElementType() reflect.Type {
@@ -2543,7 +2477,6 @@ func (o BackupVaultResponsePtrOutput) StorageSettings() StorageSettingResponseAr
 	}).(StorageSettingResponseArrayOutput)
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOption struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'CopyOnExpiryOption'.
@@ -2561,7 +2494,6 @@ type CopyOnExpiryOptionInput interface {
 	ToCopyOnExpiryOptionOutputWithContext(context.Context) CopyOnExpiryOptionOutput
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOptionArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'CopyOnExpiryOption'.
@@ -2580,7 +2512,6 @@ func (i CopyOnExpiryOptionArgs) ToCopyOnExpiryOptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CopyOnExpiryOptionOutput)
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOptionOutput struct{ *pulumi.OutputState }
 
 func (CopyOnExpiryOptionOutput) ElementType() reflect.Type {
@@ -2601,7 +2532,6 @@ func (o CopyOnExpiryOptionOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyOnExpiryOption) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOptionResponse struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'CopyOnExpiryOption'.
@@ -2619,7 +2549,6 @@ type CopyOnExpiryOptionResponseInput interface {
 	ToCopyOnExpiryOptionResponseOutputWithContext(context.Context) CopyOnExpiryOptionResponseOutput
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOptionResponseArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'CopyOnExpiryOption'.
@@ -2638,7 +2567,6 @@ func (i CopyOnExpiryOptionResponseArgs) ToCopyOnExpiryOptionResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CopyOnExpiryOptionResponseOutput)
 }
 
-// Copy on Expiry Option
 type CopyOnExpiryOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CopyOnExpiryOptionResponseOutput) ElementType() reflect.Type {
@@ -2659,7 +2587,6 @@ func (o CopyOnExpiryOptionResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyOnExpiryOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Duration based custom options to copy
 type CustomCopyOption struct {
 	// Data copied after given timespan
 	Duration *string `pulumi:"duration"`
@@ -2679,7 +2606,6 @@ type CustomCopyOptionInput interface {
 	ToCustomCopyOptionOutputWithContext(context.Context) CustomCopyOptionOutput
 }
 
-// Duration based custom options to copy
 type CustomCopyOptionArgs struct {
 	// Data copied after given timespan
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
@@ -2700,7 +2626,6 @@ func (i CustomCopyOptionArgs) ToCustomCopyOptionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomCopyOptionOutput)
 }
 
-// Duration based custom options to copy
 type CustomCopyOptionOutput struct{ *pulumi.OutputState }
 
 func (CustomCopyOptionOutput) ElementType() reflect.Type {
@@ -2726,7 +2651,6 @@ func (o CustomCopyOptionOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomCopyOption) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Duration based custom options to copy
 type CustomCopyOptionResponse struct {
 	// Data copied after given timespan
 	Duration *string `pulumi:"duration"`
@@ -2746,7 +2670,6 @@ type CustomCopyOptionResponseInput interface {
 	ToCustomCopyOptionResponseOutputWithContext(context.Context) CustomCopyOptionResponseOutput
 }
 
-// Duration based custom options to copy
 type CustomCopyOptionResponseArgs struct {
 	// Data copied after given timespan
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
@@ -2767,7 +2690,6 @@ func (i CustomCopyOptionResponseArgs) ToCustomCopyOptionResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomCopyOptionResponseOutput)
 }
 
-// Duration based custom options to copy
 type CustomCopyOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomCopyOptionResponseOutput) ElementType() reflect.Type {
@@ -2793,7 +2715,6 @@ func (o CustomCopyOptionResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomCopyOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// DataStoreInfo base
 type DataStoreInfoBase struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType string `pulumi:"dataStoreType"`
@@ -2812,7 +2733,6 @@ type DataStoreInfoBaseInput interface {
 	ToDataStoreInfoBaseOutputWithContext(context.Context) DataStoreInfoBaseOutput
 }
 
-// DataStoreInfo base
 type DataStoreInfoBaseArgs struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
@@ -2832,7 +2752,6 @@ func (i DataStoreInfoBaseArgs) ToDataStoreInfoBaseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataStoreInfoBaseOutput)
 }
 
-// DataStoreInfo base
 type DataStoreInfoBaseOutput struct{ *pulumi.OutputState }
 
 func (DataStoreInfoBaseOutput) ElementType() reflect.Type {
@@ -2857,7 +2776,6 @@ func (o DataStoreInfoBaseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataStoreInfoBase) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// DataStoreInfo base
 type DataStoreInfoBaseResponse struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType string `pulumi:"dataStoreType"`
@@ -2876,7 +2794,6 @@ type DataStoreInfoBaseResponseInput interface {
 	ToDataStoreInfoBaseResponseOutputWithContext(context.Context) DataStoreInfoBaseResponseOutput
 }
 
-// DataStoreInfo base
 type DataStoreInfoBaseResponseArgs struct {
 	// type of datastore; Operational/Vault/Archive
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
@@ -2896,7 +2813,6 @@ func (i DataStoreInfoBaseResponseArgs) ToDataStoreInfoBaseResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataStoreInfoBaseResponseOutput)
 }
 
-// DataStoreInfo base
 type DataStoreInfoBaseResponseOutput struct{ *pulumi.OutputState }
 
 func (DataStoreInfoBaseResponseOutput) ElementType() reflect.Type {
@@ -2921,7 +2837,6 @@ func (o DataStoreInfoBaseResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataStoreInfoBaseResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Datasource to be backed up
 type Datasource struct {
 	// DatasourceType of the resource.
 	DatasourceType *string `pulumi:"datasourceType"`
@@ -2950,7 +2865,6 @@ type DatasourceInput interface {
 	ToDatasourceOutputWithContext(context.Context) DatasourceOutput
 }
 
-// Datasource to be backed up
 type DatasourceArgs struct {
 	// DatasourceType of the resource.
 	DatasourceType pulumi.StringPtrInput `pulumi:"datasourceType"`
@@ -3021,7 +2935,6 @@ func (i *datasourcePtrType) ToDatasourcePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DatasourcePtrOutput)
 }
 
-// Datasource to be backed up
 type DatasourceOutput struct{ *pulumi.OutputState }
 
 func (DatasourceOutput) ElementType() reflect.Type {
@@ -3175,7 +3088,6 @@ func (o DatasourcePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datasource to be backed up
 type DatasourceResponse struct {
 	// DatasourceType of the resource.
 	DatasourceType *string `pulumi:"datasourceType"`
@@ -3204,7 +3116,6 @@ type DatasourceResponseInput interface {
 	ToDatasourceResponseOutputWithContext(context.Context) DatasourceResponseOutput
 }
 
-// Datasource to be backed up
 type DatasourceResponseArgs struct {
 	// DatasourceType of the resource.
 	DatasourceType pulumi.StringPtrInput `pulumi:"datasourceType"`
@@ -3275,7 +3186,6 @@ func (i *datasourceResponsePtrType) ToDatasourceResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DatasourceResponsePtrOutput)
 }
 
-// Datasource to be backed up
 type DatasourceResponseOutput struct{ *pulumi.OutputState }
 
 func (DatasourceResponseOutput) ElementType() reflect.Type {
@@ -3429,7 +3339,6 @@ func (o DatasourceResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSet struct {
 	// DatasourceType of the resource.
 	DatasourceType *string `pulumi:"datasourceType"`
@@ -3458,7 +3367,6 @@ type DatasourceSetInput interface {
 	ToDatasourceSetOutputWithContext(context.Context) DatasourceSetOutput
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSetArgs struct {
 	// DatasourceType of the resource.
 	DatasourceType pulumi.StringPtrInput `pulumi:"datasourceType"`
@@ -3529,7 +3437,6 @@ func (i *datasourceSetPtrType) ToDatasourceSetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetPtrOutput)
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSetOutput struct{ *pulumi.OutputState }
 
 func (DatasourceSetOutput) ElementType() reflect.Type {
@@ -3683,7 +3590,6 @@ func (o DatasourceSetPtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSetResponse struct {
 	// DatasourceType of the resource.
 	DatasourceType *string `pulumi:"datasourceType"`
@@ -3712,7 +3618,6 @@ type DatasourceSetResponseInput interface {
 	ToDatasourceSetResponseOutputWithContext(context.Context) DatasourceSetResponseOutput
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSetResponseArgs struct {
 	// DatasourceType of the resource.
 	DatasourceType pulumi.StringPtrInput `pulumi:"datasourceType"`
@@ -3783,7 +3688,6 @@ func (i *datasourceSetResponsePtrType) ToDatasourceSetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetResponsePtrOutput)
 }
 
-// DatasourceSet details of datasource to be backed up
 type DatasourceSetResponseOutput struct{ *pulumi.OutputState }
 
 func (DatasourceSetResponseOutput) ElementType() reflect.Type {
@@ -3937,7 +3841,6 @@ func (o DatasourceSetResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Day of the week
 type Day struct {
 	// Date of the month
 	Date *int `pulumi:"date"`
@@ -3956,7 +3859,6 @@ type DayInput interface {
 	ToDayOutputWithContext(context.Context) DayOutput
 }
 
-// Day of the week
 type DayArgs struct {
 	// Date of the month
 	Date pulumi.IntPtrInput `pulumi:"date"`
@@ -4001,7 +3903,6 @@ func (i DayArray) ToDayArrayOutputWithContext(ctx context.Context) DayArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DayArrayOutput)
 }
 
-// Day of the week
 type DayOutput struct{ *pulumi.OutputState }
 
 func (DayOutput) ElementType() reflect.Type {
@@ -4046,7 +3947,6 @@ func (o DayArrayOutput) Index(i pulumi.IntInput) DayOutput {
 	}).(DayOutput)
 }
 
-// Day of the week
 type DayResponse struct {
 	// Date of the month
 	Date *int `pulumi:"date"`
@@ -4065,7 +3965,6 @@ type DayResponseInput interface {
 	ToDayResponseOutputWithContext(context.Context) DayResponseOutput
 }
 
-// Day of the week
 type DayResponseArgs struct {
 	// Date of the month
 	Date pulumi.IntPtrInput `pulumi:"date"`
@@ -4110,7 +4009,6 @@ func (i DayResponseArray) ToDayResponseArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DayResponseArrayOutput)
 }
 
-// Day of the week
 type DayResponseOutput struct{ *pulumi.OutputState }
 
 func (DayResponseOutput) ElementType() reflect.Type {
@@ -4155,7 +4053,6 @@ func (o DayResponseArrayOutput) Index(i pulumi.IntInput) DayResponseOutput {
 	}).(DayResponseOutput)
 }
 
-// Identity details
 type DppIdentityDetails struct {
 	// The identityType which can be either SystemAssigned or None
 	Type *string `pulumi:"type"`
@@ -4172,7 +4069,6 @@ type DppIdentityDetailsInput interface {
 	ToDppIdentityDetailsOutputWithContext(context.Context) DppIdentityDetailsOutput
 }
 
-// Identity details
 type DppIdentityDetailsArgs struct {
 	// The identityType which can be either SystemAssigned or None
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -4231,7 +4127,6 @@ func (i *dppIdentityDetailsPtrType) ToDppIdentityDetailsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsPtrOutput)
 }
 
-// Identity details
 type DppIdentityDetailsOutput struct{ *pulumi.OutputState }
 
 func (DppIdentityDetailsOutput) ElementType() reflect.Type {
@@ -4295,7 +4190,6 @@ func (o DppIdentityDetailsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity details
 type DppIdentityDetailsResponse struct {
 	// The object ID of the service principal object for the managed identity that is used to grant role-based access to an Azure resource.
 	PrincipalId string `pulumi:"principalId"`
@@ -4316,7 +4210,6 @@ type DppIdentityDetailsResponseInput interface {
 	ToDppIdentityDetailsResponseOutputWithContext(context.Context) DppIdentityDetailsResponseOutput
 }
 
-// Identity details
 type DppIdentityDetailsResponseArgs struct {
 	// The object ID of the service principal object for the managed identity that is used to grant role-based access to an Azure resource.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -4379,7 +4272,6 @@ func (i *dppIdentityDetailsResponsePtrType) ToDppIdentityDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsResponsePtrOutput)
 }
 
-// Identity details
 type DppIdentityDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DppIdentityDetailsResponseOutput) ElementType() reflect.Type {
@@ -4473,7 +4365,6 @@ func (o DppIdentityDetailsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Immediate copy Option
 type ImmediateCopyOption struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ImmediateCopyOption'.
@@ -4491,7 +4382,6 @@ type ImmediateCopyOptionInput interface {
 	ToImmediateCopyOptionOutputWithContext(context.Context) ImmediateCopyOptionOutput
 }
 
-// Immediate copy Option
 type ImmediateCopyOptionArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ImmediateCopyOption'.
@@ -4510,7 +4400,6 @@ func (i ImmediateCopyOptionArgs) ToImmediateCopyOptionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ImmediateCopyOptionOutput)
 }
 
-// Immediate copy Option
 type ImmediateCopyOptionOutput struct{ *pulumi.OutputState }
 
 func (ImmediateCopyOptionOutput) ElementType() reflect.Type {
@@ -4531,7 +4420,6 @@ func (o ImmediateCopyOptionOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmediateCopyOption) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Immediate copy Option
 type ImmediateCopyOptionResponse struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ImmediateCopyOption'.
@@ -4549,7 +4437,6 @@ type ImmediateCopyOptionResponseInput interface {
 	ToImmediateCopyOptionResponseOutputWithContext(context.Context) ImmediateCopyOptionResponseOutput
 }
 
-// Immediate copy Option
 type ImmediateCopyOptionResponseArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ImmediateCopyOption'.
@@ -4568,7 +4455,6 @@ func (i ImmediateCopyOptionResponseArgs) ToImmediateCopyOptionResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ImmediateCopyOptionResponseOutput)
 }
 
-// Immediate copy Option
 type ImmediateCopyOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ImmediateCopyOptionResponseOutput) ElementType() reflect.Type {
@@ -4589,7 +4475,6 @@ func (o ImmediateCopyOptionResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmediateCopyOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Inner Error
 type InnerErrorResponse struct {
 	// Any Key value pairs that can be provided to the client for additional  verbose information.
 	AdditionalInfo map[string]string `pulumi:"additionalInfo"`
@@ -4610,7 +4495,6 @@ type InnerErrorResponseInput interface {
 	ToInnerErrorResponseOutputWithContext(context.Context) InnerErrorResponseOutput
 }
 
-// Inner Error
 type InnerErrorResponseArgs struct {
 	// Any Key value pairs that can be provided to the client for additional  verbose information.
 	AdditionalInfo pulumi.StringMapInput `pulumi:"additionalInfo"`
@@ -4673,7 +4557,6 @@ func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponsePtrOutput)
 }
 
-// Inner Error
 type InnerErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (InnerErrorResponseOutput) ElementType() reflect.Type {
@@ -4767,7 +4650,6 @@ func (o InnerErrorResponsePtrOutput) EmbeddedInnerError() InnerErrorResponsePtrO
 	}).(InnerErrorResponsePtrOutput)
 }
 
-// Policy Info in backupInstance
 type PolicyInfo struct {
 	PolicyId string `pulumi:"policyId"`
 	// Policy parameters for the backup instance
@@ -4785,7 +4667,6 @@ type PolicyInfoInput interface {
 	ToPolicyInfoOutputWithContext(context.Context) PolicyInfoOutput
 }
 
-// Policy Info in backupInstance
 type PolicyInfoArgs struct {
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
 	// Policy parameters for the backup instance
@@ -4845,7 +4726,6 @@ func (i *policyInfoPtrType) ToPolicyInfoPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoPtrOutput)
 }
 
-// Policy Info in backupInstance
 type PolicyInfoOutput struct{ *pulumi.OutputState }
 
 func (PolicyInfoOutput) ElementType() reflect.Type {
@@ -4922,7 +4802,6 @@ func (o PolicyInfoPtrOutput) PolicyParameters() PolicyParametersPtrOutput {
 	}).(PolicyParametersPtrOutput)
 }
 
-// Policy Info in backupInstance
 type PolicyInfoResponse struct {
 	PolicyId string `pulumi:"policyId"`
 	// Policy parameters for the backup instance
@@ -4941,7 +4820,6 @@ type PolicyInfoResponseInput interface {
 	ToPolicyInfoResponseOutputWithContext(context.Context) PolicyInfoResponseOutput
 }
 
-// Policy Info in backupInstance
 type PolicyInfoResponseArgs struct {
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
 	// Policy parameters for the backup instance
@@ -5002,7 +4880,6 @@ func (i *policyInfoResponsePtrType) ToPolicyInfoResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoResponsePtrOutput)
 }
 
-// Policy Info in backupInstance
 type PolicyInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyInfoResponseOutput) ElementType() reflect.Type {
@@ -5092,7 +4969,6 @@ func (o PolicyInfoResponsePtrOutput) PolicyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parameters in Policy
 type PolicyParameters struct {
 	// Gets or sets the DataStore Parameters
 	DataStoreParametersList []AzureOperationalStoreParameters `pulumi:"dataStoreParametersList"`
@@ -5109,7 +4985,6 @@ type PolicyParametersInput interface {
 	ToPolicyParametersOutputWithContext(context.Context) PolicyParametersOutput
 }
 
-// Parameters in Policy
 type PolicyParametersArgs struct {
 	// Gets or sets the DataStore Parameters
 	DataStoreParametersList AzureOperationalStoreParametersArrayInput `pulumi:"dataStoreParametersList"`
@@ -5168,7 +5043,6 @@ func (i *policyParametersPtrType) ToPolicyParametersPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersPtrOutput)
 }
 
-// Parameters in Policy
 type PolicyParametersOutput struct{ *pulumi.OutputState }
 
 func (PolicyParametersOutput) ElementType() reflect.Type {
@@ -5232,7 +5106,6 @@ func (o PolicyParametersPtrOutput) DataStoreParametersList() AzureOperationalSto
 	}).(AzureOperationalStoreParametersArrayOutput)
 }
 
-// Parameters in Policy
 type PolicyParametersResponse struct {
 	// Gets or sets the DataStore Parameters
 	DataStoreParametersList []AzureOperationalStoreParametersResponse `pulumi:"dataStoreParametersList"`
@@ -5249,7 +5122,6 @@ type PolicyParametersResponseInput interface {
 	ToPolicyParametersResponseOutputWithContext(context.Context) PolicyParametersResponseOutput
 }
 
-// Parameters in Policy
 type PolicyParametersResponseArgs struct {
 	// Gets or sets the DataStore Parameters
 	DataStoreParametersList AzureOperationalStoreParametersResponseArrayInput `pulumi:"dataStoreParametersList"`
@@ -5308,7 +5180,6 @@ func (i *policyParametersResponsePtrType) ToPolicyParametersResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersResponsePtrOutput)
 }
 
-// Parameters in Policy
 type PolicyParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyParametersResponseOutput) ElementType() reflect.Type {
@@ -5374,7 +5245,6 @@ func (o PolicyParametersResponsePtrOutput) DataStoreParametersList() AzureOperat
 	}).(AzureOperationalStoreParametersResponseArrayOutput)
 }
 
-// Protection status details
 type ProtectionStatusDetailsResponse struct {
 	// Specifies the protection status error of the resource
 	ErrorDetails *UserFacingErrorResponse `pulumi:"errorDetails"`
@@ -5393,7 +5263,6 @@ type ProtectionStatusDetailsResponseInput interface {
 	ToProtectionStatusDetailsResponseOutputWithContext(context.Context) ProtectionStatusDetailsResponseOutput
 }
 
-// Protection status details
 type ProtectionStatusDetailsResponseArgs struct {
 	// Specifies the protection status error of the resource
 	ErrorDetails UserFacingErrorResponsePtrInput `pulumi:"errorDetails"`
@@ -5454,7 +5323,6 @@ func (i *protectionStatusDetailsResponsePtrType) ToProtectionStatusDetailsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionStatusDetailsResponsePtrOutput)
 }
 
-// Protection status details
 type ProtectionStatusDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionStatusDetailsResponseOutput) ElementType() reflect.Type {
@@ -5533,7 +5401,6 @@ func (o ProtectionStatusDetailsResponsePtrOutput) Status() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This class contains all the details about a critical operation.
 type ResourceGuardOperationResponse struct {
 	// Type of resource request.
 	RequestResourceType string `pulumi:"requestResourceType"`
@@ -5552,7 +5419,6 @@ type ResourceGuardOperationResponseInput interface {
 	ToResourceGuardOperationResponseOutputWithContext(context.Context) ResourceGuardOperationResponseOutput
 }
 
-// This class contains all the details about a critical operation.
 type ResourceGuardOperationResponseArgs struct {
 	// Type of resource request.
 	RequestResourceType pulumi.StringInput `pulumi:"requestResourceType"`
@@ -5597,7 +5463,6 @@ func (i ResourceGuardOperationResponseArray) ToResourceGuardOperationResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOperationResponseArrayOutput)
 }
 
-// This class contains all the details about a critical operation.
 type ResourceGuardOperationResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGuardOperationResponseOutput) ElementType() reflect.Type {
@@ -5855,7 +5720,6 @@ func (o ResourceGuardResponsePtrOutput) VaultCriticalOperationExclusionList() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Retention tag
 type RetentionTag struct {
 	// Retention Tag Name to relate it to retention rule.
 	TagName string `pulumi:"tagName"`
@@ -5872,7 +5736,6 @@ type RetentionTagInput interface {
 	ToRetentionTagOutputWithContext(context.Context) RetentionTagOutput
 }
 
-// Retention tag
 type RetentionTagArgs struct {
 	// Retention Tag Name to relate it to retention rule.
 	TagName pulumi.StringInput `pulumi:"tagName"`
@@ -5931,7 +5794,6 @@ func (i *retentionTagPtrType) ToRetentionTagPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagPtrOutput)
 }
 
-// Retention tag
 type RetentionTagOutput struct{ *pulumi.OutputState }
 
 func (RetentionTagOutput) ElementType() reflect.Type {
@@ -5995,7 +5857,6 @@ func (o RetentionTagPtrOutput) TagName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retention tag
 type RetentionTagResponse struct {
 	// Retention Tag version.
 	ETag string `pulumi:"eTag"`
@@ -6016,7 +5877,6 @@ type RetentionTagResponseInput interface {
 	ToRetentionTagResponseOutputWithContext(context.Context) RetentionTagResponseOutput
 }
 
-// Retention tag
 type RetentionTagResponseArgs struct {
 	// Retention Tag version.
 	ETag pulumi.StringInput `pulumi:"eTag"`
@@ -6079,7 +5939,6 @@ func (i *retentionTagResponsePtrType) ToRetentionTagResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagResponsePtrOutput)
 }
 
-// Retention tag
 type RetentionTagResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionTagResponseOutput) ElementType() reflect.Type {
@@ -6173,7 +6032,6 @@ func (o RetentionTagResponsePtrOutput) TagName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteria struct {
 	// it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
 	// and should be part of AbsoluteMarker enum
@@ -6204,7 +6062,6 @@ type ScheduleBasedBackupCriteriaInput interface {
 	ToScheduleBasedBackupCriteriaOutputWithContext(context.Context) ScheduleBasedBackupCriteriaOutput
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteriaArgs struct {
 	// it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
 	// and should be part of AbsoluteMarker enum
@@ -6261,7 +6118,6 @@ func (i ScheduleBasedBackupCriteriaArray) ToScheduleBasedBackupCriteriaArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaArrayOutput)
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduleBasedBackupCriteriaOutput) ElementType() reflect.Type {
@@ -6333,7 +6189,6 @@ func (o ScheduleBasedBackupCriteriaArrayOutput) Index(i pulumi.IntInput) Schedul
 	}).(ScheduleBasedBackupCriteriaOutput)
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteriaResponse struct {
 	// it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
 	// and should be part of AbsoluteMarker enum
@@ -6364,7 +6219,6 @@ type ScheduleBasedBackupCriteriaResponseInput interface {
 	ToScheduleBasedBackupCriteriaResponseOutputWithContext(context.Context) ScheduleBasedBackupCriteriaResponseOutput
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteriaResponseArgs struct {
 	// it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
 	// and should be part of AbsoluteMarker enum
@@ -6421,7 +6275,6 @@ func (i ScheduleBasedBackupCriteriaResponseArray) ToScheduleBasedBackupCriteriaR
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaResponseArrayOutput)
 }
 
-// Schedule based backup criteria
 type ScheduleBasedBackupCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleBasedBackupCriteriaResponseOutput) ElementType() reflect.Type {
@@ -6493,7 +6346,6 @@ func (o ScheduleBasedBackupCriteriaResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ScheduleBasedBackupCriteriaResponseOutput)
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContext struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ScheduleBasedTriggerContext'.
@@ -6515,7 +6367,6 @@ type ScheduleBasedTriggerContextInput interface {
 	ToScheduleBasedTriggerContextOutputWithContext(context.Context) ScheduleBasedTriggerContextOutput
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContextArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ScheduleBasedTriggerContext'.
@@ -6538,7 +6389,6 @@ func (i ScheduleBasedTriggerContextArgs) ToScheduleBasedTriggerContextOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedTriggerContextOutput)
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContextOutput struct{ *pulumi.OutputState }
 
 func (ScheduleBasedTriggerContextOutput) ElementType() reflect.Type {
@@ -6569,7 +6419,6 @@ func (o ScheduleBasedTriggerContextOutput) TaggingCriteria() TaggingCriteriaArra
 	return o.ApplyT(func(v ScheduleBasedTriggerContext) []TaggingCriteria { return v.TaggingCriteria }).(TaggingCriteriaArrayOutput)
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContextResponse struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ScheduleBasedTriggerContext'.
@@ -6591,7 +6440,6 @@ type ScheduleBasedTriggerContextResponseInput interface {
 	ToScheduleBasedTriggerContextResponseOutputWithContext(context.Context) ScheduleBasedTriggerContextResponseOutput
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContextResponseArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'ScheduleBasedTriggerContext'.
@@ -6614,7 +6462,6 @@ func (i ScheduleBasedTriggerContextResponseArgs) ToScheduleBasedTriggerContextRe
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedTriggerContextResponseOutput)
 }
 
-// Schedule based trigger context
 type ScheduleBasedTriggerContextResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleBasedTriggerContextResponseOutput) ElementType() reflect.Type {
@@ -6645,7 +6492,6 @@ func (o ScheduleBasedTriggerContextResponseOutput) TaggingCriteria() TaggingCrit
 	return o.ApplyT(func(v ScheduleBasedTriggerContextResponse) []TaggingCriteriaResponse { return v.TaggingCriteria }).(TaggingCriteriaResponseArrayOutput)
 }
 
-// Source LifeCycle
 type SourceLifeCycle struct {
 	// Delete Option
 	DeleteAfter AbsoluteDeleteOption `pulumi:"deleteAfter"`
@@ -6665,7 +6511,6 @@ type SourceLifeCycleInput interface {
 	ToSourceLifeCycleOutputWithContext(context.Context) SourceLifeCycleOutput
 }
 
-// Source LifeCycle
 type SourceLifeCycleArgs struct {
 	// Delete Option
 	DeleteAfter AbsoluteDeleteOptionInput `pulumi:"deleteAfter"`
@@ -6711,7 +6556,6 @@ func (i SourceLifeCycleArray) ToSourceLifeCycleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleArrayOutput)
 }
 
-// Source LifeCycle
 type SourceLifeCycleOutput struct{ *pulumi.OutputState }
 
 func (SourceLifeCycleOutput) ElementType() reflect.Type {
@@ -6760,7 +6604,6 @@ func (o SourceLifeCycleArrayOutput) Index(i pulumi.IntInput) SourceLifeCycleOutp
 	}).(SourceLifeCycleOutput)
 }
 
-// Source LifeCycle
 type SourceLifeCycleResponse struct {
 	// Delete Option
 	DeleteAfter AbsoluteDeleteOptionResponse `pulumi:"deleteAfter"`
@@ -6780,7 +6623,6 @@ type SourceLifeCycleResponseInput interface {
 	ToSourceLifeCycleResponseOutputWithContext(context.Context) SourceLifeCycleResponseOutput
 }
 
-// Source LifeCycle
 type SourceLifeCycleResponseArgs struct {
 	// Delete Option
 	DeleteAfter AbsoluteDeleteOptionResponseInput `pulumi:"deleteAfter"`
@@ -6826,7 +6668,6 @@ func (i SourceLifeCycleResponseArray) ToSourceLifeCycleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleResponseArrayOutput)
 }
 
-// Source LifeCycle
 type SourceLifeCycleResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceLifeCycleResponseOutput) ElementType() reflect.Type {
@@ -6875,7 +6716,6 @@ func (o SourceLifeCycleResponseArrayOutput) Index(i pulumi.IntInput) SourceLifeC
 	}).(SourceLifeCycleResponseOutput)
 }
 
-// Storage setting
 type StorageSetting struct {
 	// Gets or sets the type of the datastore.
 	DatastoreType *string `pulumi:"datastoreType"`
@@ -6894,7 +6734,6 @@ type StorageSettingInput interface {
 	ToStorageSettingOutputWithContext(context.Context) StorageSettingOutput
 }
 
-// Storage setting
 type StorageSettingArgs struct {
 	// Gets or sets the type of the datastore.
 	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
@@ -6939,7 +6778,6 @@ func (i StorageSettingArray) ToStorageSettingArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingArrayOutput)
 }
 
-// Storage setting
 type StorageSettingOutput struct{ *pulumi.OutputState }
 
 func (StorageSettingOutput) ElementType() reflect.Type {
@@ -6984,7 +6822,6 @@ func (o StorageSettingArrayOutput) Index(i pulumi.IntInput) StorageSettingOutput
 	}).(StorageSettingOutput)
 }
 
-// Storage setting
 type StorageSettingResponse struct {
 	// Gets or sets the type of the datastore.
 	DatastoreType *string `pulumi:"datastoreType"`
@@ -7003,7 +6840,6 @@ type StorageSettingResponseInput interface {
 	ToStorageSettingResponseOutputWithContext(context.Context) StorageSettingResponseOutput
 }
 
-// Storage setting
 type StorageSettingResponseArgs struct {
 	// Gets or sets the type of the datastore.
 	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
@@ -7048,7 +6884,6 @@ func (i StorageSettingResponseArray) ToStorageSettingResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingResponseArrayOutput)
 }
 
-// Storage setting
 type StorageSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageSettingResponseOutput) ElementType() reflect.Type {
@@ -7093,7 +6928,6 @@ func (o StorageSettingResponseArrayOutput) Index(i pulumi.IntInput) StorageSetti
 	}).(StorageSettingResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -7120,7 +6954,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -7189,7 +7022,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -7328,7 +7160,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tagging criteria
 type TaggingCriteria struct {
 	// Criteria which decides whether the tag can be applied to a triggered backup.
 	Criteria []ScheduleBasedBackupCriteria `pulumi:"criteria"`
@@ -7351,7 +7182,6 @@ type TaggingCriteriaInput interface {
 	ToTaggingCriteriaOutputWithContext(context.Context) TaggingCriteriaOutput
 }
 
-// Tagging criteria
 type TaggingCriteriaArgs struct {
 	// Criteria which decides whether the tag can be applied to a triggered backup.
 	Criteria ScheduleBasedBackupCriteriaArrayInput `pulumi:"criteria"`
@@ -7400,7 +7230,6 @@ func (i TaggingCriteriaArray) ToTaggingCriteriaArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaArrayOutput)
 }
 
-// Tagging criteria
 type TaggingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (TaggingCriteriaOutput) ElementType() reflect.Type {
@@ -7455,7 +7284,6 @@ func (o TaggingCriteriaArrayOutput) Index(i pulumi.IntInput) TaggingCriteriaOutp
 	}).(TaggingCriteriaOutput)
 }
 
-// Tagging criteria
 type TaggingCriteriaResponse struct {
 	// Criteria which decides whether the tag can be applied to a triggered backup.
 	Criteria []ScheduleBasedBackupCriteriaResponse `pulumi:"criteria"`
@@ -7478,7 +7306,6 @@ type TaggingCriteriaResponseInput interface {
 	ToTaggingCriteriaResponseOutputWithContext(context.Context) TaggingCriteriaResponseOutput
 }
 
-// Tagging criteria
 type TaggingCriteriaResponseArgs struct {
 	// Criteria which decides whether the tag can be applied to a triggered backup.
 	Criteria ScheduleBasedBackupCriteriaResponseArrayInput `pulumi:"criteria"`
@@ -7527,7 +7354,6 @@ func (i TaggingCriteriaResponseArray) ToTaggingCriteriaResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaResponseArrayOutput)
 }
 
-// Tagging criteria
 type TaggingCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (TaggingCriteriaResponseOutput) ElementType() reflect.Type {
@@ -7582,7 +7408,6 @@ func (o TaggingCriteriaResponseArrayOutput) Index(i pulumi.IntInput) TaggingCrit
 	}).(TaggingCriteriaResponseOutput)
 }
 
-// Target copy settings
 type TargetCopySetting struct {
 	// It can be CustomCopyOption or ImmediateCopyOption.
 	CopyAfter interface{} `pulumi:"copyAfter"`
@@ -7601,7 +7426,6 @@ type TargetCopySettingInput interface {
 	ToTargetCopySettingOutputWithContext(context.Context) TargetCopySettingOutput
 }
 
-// Target copy settings
 type TargetCopySettingArgs struct {
 	// It can be CustomCopyOption or ImmediateCopyOption.
 	CopyAfter pulumi.Input `pulumi:"copyAfter"`
@@ -7646,7 +7470,6 @@ func (i TargetCopySettingArray) ToTargetCopySettingArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingArrayOutput)
 }
 
-// Target copy settings
 type TargetCopySettingOutput struct{ *pulumi.OutputState }
 
 func (TargetCopySettingOutput) ElementType() reflect.Type {
@@ -7691,7 +7514,6 @@ func (o TargetCopySettingArrayOutput) Index(i pulumi.IntInput) TargetCopySetting
 	}).(TargetCopySettingOutput)
 }
 
-// Target copy settings
 type TargetCopySettingResponse struct {
 	// It can be CustomCopyOption or ImmediateCopyOption.
 	CopyAfter interface{} `pulumi:"copyAfter"`
@@ -7710,7 +7532,6 @@ type TargetCopySettingResponseInput interface {
 	ToTargetCopySettingResponseOutputWithContext(context.Context) TargetCopySettingResponseOutput
 }
 
-// Target copy settings
 type TargetCopySettingResponseArgs struct {
 	// It can be CustomCopyOption or ImmediateCopyOption.
 	CopyAfter pulumi.Input `pulumi:"copyAfter"`
@@ -7755,7 +7576,6 @@ func (i TargetCopySettingResponseArray) ToTargetCopySettingResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingResponseArrayOutput)
 }
 
-// Target copy settings
 type TargetCopySettingResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetCopySettingResponseOutput) ElementType() reflect.Type {
@@ -7800,7 +7620,6 @@ func (o TargetCopySettingResponseArrayOutput) Index(i pulumi.IntInput) TargetCop
 	}).(TargetCopySettingResponseOutput)
 }
 
-// Error object used by layers that have access to localized content, and propagate that to user
 type UserFacingErrorResponse struct {
 	// Unique code for this error
 	Code *string `pulumi:"code"`
@@ -7832,7 +7651,6 @@ type UserFacingErrorResponseInput interface {
 	ToUserFacingErrorResponseOutputWithContext(context.Context) UserFacingErrorResponseOutput
 }
 
-// Error object used by layers that have access to localized content, and propagate that to user
 type UserFacingErrorResponseArgs struct {
 	// Unique code for this error
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -7931,7 +7749,6 @@ func (i UserFacingErrorResponseArray) ToUserFacingErrorResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserFacingErrorResponseArrayOutput)
 }
 
-// Error object used by layers that have access to localized content, and propagate that to user
 type UserFacingErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (UserFacingErrorResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformation struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
@@ -33,7 +32,6 @@ type DeliveryPackageInformationInput interface {
 	ToDeliveryPackageInformationOutputWithContext(context.Context) DeliveryPackageInformationOutput
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
@@ -98,7 +96,6 @@ func (i *deliveryPackageInformationPtrType) ToDeliveryPackageInformationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationPtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryPackageInformationOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o DeliveryPackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponse struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
@@ -230,7 +226,6 @@ type DeliveryPackageInformationResponseInput interface {
 	ToDeliveryPackageInformationResponseOutputWithContext(context.Context) DeliveryPackageInformationResponseOutput
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponseArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
@@ -295,7 +290,6 @@ func (i *deliveryPackageInformationResponsePtrType) ToDeliveryPackageInformation
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationResponsePtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryPackageInformationResponseOutput) ElementType() reflect.Type {
@@ -404,7 +398,6 @@ func (o DeliveryPackageInformationResponsePtrOutput) TrackingNumber() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponse struct {
 	// BitLocker recovery key or password
 	BitLockerKey *string `pulumi:"bitLockerKey"`
@@ -423,7 +416,6 @@ type DriveBitLockerKeyResponseInput interface {
 	ToDriveBitLockerKeyResponseOutputWithContext(context.Context) DriveBitLockerKeyResponseOutput
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponseArgs struct {
 	// BitLocker recovery key or password
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
@@ -468,7 +460,6 @@ func (i DriveBitLockerKeyResponseArray) ToDriveBitLockerKeyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DriveBitLockerKeyResponseArrayOutput)
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (DriveBitLockerKeyResponseOutput) ElementType() reflect.Type {
@@ -513,7 +504,6 @@ func (o DriveBitLockerKeyResponseArrayOutput) Index(i pulumi.IntInput) DriveBitL
 	}).(DriveBitLockerKeyResponseOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatus struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
@@ -552,7 +542,6 @@ type DriveStatusInput interface {
 	ToDriveStatusOutputWithContext(context.Context) DriveStatusOutput
 }
 
-// Provides information about the drive's status
 type DriveStatusArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
@@ -617,7 +606,6 @@ func (i DriveStatusArray) ToDriveStatusArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DriveStatusArrayOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusOutput struct{ *pulumi.OutputState }
 
 func (DriveStatusOutput) ElementType() reflect.Type {
@@ -712,7 +700,6 @@ func (o DriveStatusArrayOutput) Index(i pulumi.IntInput) DriveStatusOutput {
 	}).(DriveStatusOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusResponse struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
@@ -751,7 +738,6 @@ type DriveStatusResponseInput interface {
 	ToDriveStatusResponseOutputWithContext(context.Context) DriveStatusResponseOutput
 }
 
-// Provides information about the drive's status
 type DriveStatusResponseArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
@@ -816,7 +802,6 @@ func (i DriveStatusResponseArray) ToDriveStatusResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DriveStatusResponseArrayOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (DriveStatusResponseOutput) ElementType() reflect.Type {
@@ -911,7 +896,6 @@ func (o DriveStatusResponseArrayOutput) Index(i pulumi.IntInput) DriveStatusResp
 	}).(DriveStatusResponseOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetails struct {
 	// The type of kek encryption key
 	KekType *string `pulumi:"kekType"`
@@ -932,7 +916,6 @@ type EncryptionKeyDetailsInput interface {
 	ToEncryptionKeyDetailsOutputWithContext(context.Context) EncryptionKeyDetailsOutput
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsArgs struct {
 	// The type of kek encryption key
 	KekType pulumi.StringPtrInput `pulumi:"kekType"`
@@ -995,7 +978,6 @@ func (i *encryptionKeyDetailsPtrType) ToEncryptionKeyDetailsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyDetailsPtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyDetailsOutput) ElementType() reflect.Type {
@@ -1089,7 +1071,6 @@ func (o EncryptionKeyDetailsPtrOutput) KekVaultResourceID() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponse struct {
 	// The type of kek encryption key
 	KekType *string `pulumi:"kekType"`
@@ -1110,7 +1091,6 @@ type EncryptionKeyDetailsResponseInput interface {
 	ToEncryptionKeyDetailsResponseOutputWithContext(context.Context) EncryptionKeyDetailsResponseOutput
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponseArgs struct {
 	// The type of kek encryption key
 	KekType pulumi.StringPtrInput `pulumi:"kekType"`
@@ -1173,7 +1153,6 @@ func (i *encryptionKeyDetailsResponsePtrType) ToEncryptionKeyDetailsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyDetailsResponsePtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyDetailsResponseOutput) ElementType() reflect.Type {
@@ -1267,7 +1246,6 @@ func (o EncryptionKeyDetailsResponsePtrOutput) KekVaultResourceID() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type Export struct {
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListBlobPath *string `pulumi:"blobListBlobPath"`
@@ -1288,7 +1266,6 @@ type ExportInput interface {
 	ToExportOutputWithContext(context.Context) ExportOutput
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportArgs struct {
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListBlobPath pulumi.StringPtrInput `pulumi:"blobListBlobPath"`
@@ -1351,7 +1328,6 @@ func (i *exportPtrType) ToExportPtrOutputWithContext(ctx context.Context) Export
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportOutput struct{ *pulumi.OutputState }
 
 func (ExportOutput) ElementType() reflect.Type {
@@ -1445,7 +1421,6 @@ func (o ExportPtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponse struct {
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListBlobPath *string `pulumi:"blobListBlobPath"`
@@ -1466,7 +1441,6 @@ type ExportResponseInput interface {
 	ToExportResponseOutputWithContext(context.Context) ExportResponseOutput
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponseArgs struct {
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListBlobPath pulumi.StringPtrInput `pulumi:"blobListBlobPath"`
@@ -1529,7 +1503,6 @@ func (i *exportResponsePtrType) ToExportResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportResponsePtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportResponseOutput) ElementType() reflect.Type {
@@ -1623,7 +1596,6 @@ func (o ExportResponsePtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponse struct {
 	// Specifies the principal id for the identity for the job.
 	PrincipalId string `pulumi:"principalId"`
@@ -1644,7 +1616,6 @@ type IdentityDetailsResponseInput interface {
 	ToIdentityDetailsResponseOutputWithContext(context.Context) IdentityDetailsResponseOutput
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponseArgs struct {
 	// Specifies the principal id for the identity for the job.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -1707,7 +1678,6 @@ func (i *identityDetailsResponsePtrType) ToIdentityDetailsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityDetailsResponsePtrOutput)
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityDetailsResponseOutput) ElementType() reflect.Type {
@@ -1801,7 +1771,6 @@ func (o IdentityDetailsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetails struct {
 	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 	BackupDriveManifest *bool `pulumi:"backupDriveManifest"`
@@ -1852,7 +1821,6 @@ type JobDetailsInput interface {
 	ToJobDetailsOutputWithContext(context.Context) JobDetailsOutput
 }
 
-// Specifies the job properties
 type JobDetailsArgs struct {
 	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 	BackupDriveManifest pulumi.BoolPtrInput `pulumi:"backupDriveManifest"`
@@ -1945,7 +1913,6 @@ func (i *jobDetailsPtrType) ToJobDetailsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(JobDetailsPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsOutput struct{ *pulumi.OutputState }
 
 func (JobDetailsOutput) ElementType() reflect.Type {
@@ -2264,7 +2231,6 @@ func (o JobDetailsPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsResponse struct {
 	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 	BackupDriveManifest *bool `pulumi:"backupDriveManifest"`
@@ -2315,7 +2281,6 @@ type JobDetailsResponseInput interface {
 	ToJobDetailsResponseOutputWithContext(context.Context) JobDetailsResponseOutput
 }
 
-// Specifies the job properties
 type JobDetailsResponseArgs struct {
 	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 	BackupDriveManifest pulumi.BoolPtrInput `pulumi:"backupDriveManifest"`
@@ -2408,7 +2373,6 @@ func (i *jobDetailsResponsePtrType) ToJobDetailsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(JobDetailsResponsePtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (JobDetailsResponseOutput) ElementType() reflect.Type {
@@ -2727,7 +2691,6 @@ func (o JobDetailsResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformation struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
@@ -2750,7 +2713,6 @@ type PackageInformationInput interface {
 	ToPackageInformationOutputWithContext(context.Context) PackageInformationOutput
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
@@ -2815,7 +2777,6 @@ func (i *packageInformationPtrType) ToPackageInformationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PackageInformationPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationOutput struct{ *pulumi.OutputState }
 
 func (PackageInformationOutput) ElementType() reflect.Type {
@@ -2924,7 +2885,6 @@ func (o PackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponse struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
@@ -2947,7 +2907,6 @@ type PackageInformationResponseInput interface {
 	ToPackageInformationResponseOutputWithContext(context.Context) PackageInformationResponseOutput
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponseArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
@@ -3012,7 +2971,6 @@ func (i *packageInformationResponsePtrType) ToPackageInformationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PackageInformationResponsePtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (PackageInformationResponseOutput) ElementType() reflect.Type {
@@ -3121,7 +3079,6 @@ func (o PackageInformationResponsePtrOutput) TrackingNumber() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddress struct {
 	// The city name to use when returning the drives.
 	City string `pulumi:"city"`
@@ -3154,7 +3111,6 @@ type ReturnAddressInput interface {
 	ToReturnAddressOutputWithContext(context.Context) ReturnAddressOutput
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressArgs struct {
 	// The city name to use when returning the drives.
 	City pulumi.StringInput `pulumi:"city"`
@@ -3229,7 +3185,6 @@ func (i *returnAddressPtrType) ToReturnAddressPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnAddressPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressOutput struct{ *pulumi.OutputState }
 
 func (ReturnAddressOutput) ElementType() reflect.Type {
@@ -3413,7 +3368,6 @@ func (o ReturnAddressPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponse struct {
 	// The city name to use when returning the drives.
 	City string `pulumi:"city"`
@@ -3446,7 +3400,6 @@ type ReturnAddressResponseInput interface {
 	ToReturnAddressResponseOutputWithContext(context.Context) ReturnAddressResponseOutput
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponseArgs struct {
 	// The city name to use when returning the drives.
 	City pulumi.StringInput `pulumi:"city"`
@@ -3521,7 +3474,6 @@ func (i *returnAddressResponsePtrType) ToReturnAddressResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnAddressResponsePtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (ReturnAddressResponseOutput) ElementType() reflect.Type {
@@ -3705,7 +3657,6 @@ func (o ReturnAddressResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShipping struct {
 	// The customer's account number with the carrier.
 	CarrierAccountNumber string `pulumi:"carrierAccountNumber"`
@@ -3724,7 +3675,6 @@ type ReturnShippingInput interface {
 	ToReturnShippingOutputWithContext(context.Context) ReturnShippingOutput
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingArgs struct {
 	// The customer's account number with the carrier.
 	CarrierAccountNumber pulumi.StringInput `pulumi:"carrierAccountNumber"`
@@ -3785,7 +3735,6 @@ func (i *returnShippingPtrType) ToReturnShippingPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnShippingPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingOutput struct{ *pulumi.OutputState }
 
 func (ReturnShippingOutput) ElementType() reflect.Type {
@@ -3864,7 +3813,6 @@ func (o ReturnShippingPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponse struct {
 	// The customer's account number with the carrier.
 	CarrierAccountNumber string `pulumi:"carrierAccountNumber"`
@@ -3883,7 +3831,6 @@ type ReturnShippingResponseInput interface {
 	ToReturnShippingResponseOutputWithContext(context.Context) ReturnShippingResponseOutput
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponseArgs struct {
 	// The customer's account number with the carrier.
 	CarrierAccountNumber pulumi.StringInput `pulumi:"carrierAccountNumber"`
@@ -3944,7 +3891,6 @@ func (i *returnShippingResponsePtrType) ToReturnShippingResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnShippingResponsePtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReturnShippingResponseOutput) ElementType() reflect.Type {
@@ -4023,7 +3969,6 @@ func (o ReturnShippingResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformation struct {
 	// The city name to use when returning the drives.
 	City *string `pulumi:"city"`
@@ -4054,7 +3999,6 @@ type ShippingInformationInput interface {
 	ToShippingInformationOutputWithContext(context.Context) ShippingInformationOutput
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationArgs struct {
 	// The city name to use when returning the drives.
 	City pulumi.StringPtrInput `pulumi:"city"`
@@ -4127,7 +4071,6 @@ func (i *shippingInformationPtrType) ToShippingInformationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingInformationPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationOutput struct{ *pulumi.OutputState }
 
 func (ShippingInformationOutput) ElementType() reflect.Type {
@@ -4296,7 +4239,6 @@ func (o ShippingInformationPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponse struct {
 	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 	AdditionalInformation string `pulumi:"additionalInformation"`
@@ -4329,7 +4271,6 @@ type ShippingInformationResponseInput interface {
 	ToShippingInformationResponseOutputWithContext(context.Context) ShippingInformationResponseOutput
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponseArgs struct {
 	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 	AdditionalInformation pulumi.StringInput `pulumi:"additionalInformation"`
@@ -4404,7 +4345,6 @@ func (i *shippingInformationResponsePtrType) ToShippingInformationResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingInformationResponsePtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShippingInformationResponseOutput) ElementType() reflect.Type {
@@ -4588,7 +4528,6 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -4615,7 +4554,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -4684,7 +4622,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

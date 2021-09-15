@@ -32,11 +32,9 @@ __all__ = [
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
     'DataCenterResourcePropertiesArgs',
-    'DataTransferServiceResourcePropertiesArgs',
     'DatabaseRestoreResourceArgs',
     'DiagnosticLogSettingsArgs',
     'ExcludedPathArgs',
-    'GraphAPIComputeServiceResourcePropertiesArgs',
     'GraphResourceArgs',
     'GremlinDatabaseResourceArgs',
     'GremlinGraphResourceArgs',
@@ -61,7 +59,6 @@ __all__ = [
     'SpatialSpecArgs',
     'SqlContainerResourceArgs',
     'SqlDatabaseResourceArgs',
-    'SqlDedicatedGatewayServiceResourcePropertiesArgs',
     'SqlStoredProcedureResourceArgs',
     'SqlTriggerResourceArgs',
     'SqlUserDefinedFunctionResourceArgs',
@@ -1220,63 +1217,6 @@ class DataCenterResourcePropertiesArgs:
 
 
 @pulumi.input_type
-class DataTransferServiceResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 service_type: pulumi.Input[str],
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
-        """
-        Properties for DataTransferServiceResource.
-        :param pulumi.Input[str] service_type: ServiceType for the service.
-               Expected value is 'DataTransferServiceResourceProperties'.
-        :param pulumi.Input[int] instance_count: Instance count for the service.
-        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
-        """
-        pulumi.set(__self__, "service_type", 'DataTransferServiceResourceProperties')
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-
-    @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> pulumi.Input[str]:
-        """
-        ServiceType for the service.
-        Expected value is 'DataTransferServiceResourceProperties'.
-        """
-        return pulumi.get(self, "service_type")
-
-    @service_type.setter
-    def service_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "service_type", value)
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "instance_count", value)
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
-
-    @instance_size.setter
-    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
-        pulumi.set(self, "instance_size", value)
-
-
-@pulumi.input_type
 class DatabaseRestoreResourceArgs:
     def __init__(__self__, *,
                  collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1361,79 +1301,6 @@ class ExcludedPathArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-
-@pulumi.input_type
-class GraphAPIComputeServiceResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 service_type: pulumi.Input[str],
-                 graph_api_compute_endpoint: Optional[pulumi.Input[str]] = None,
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
-        """
-        Properties for GraphAPIComputeServiceResource.
-        :param pulumi.Input[str] service_type: ServiceType for the service.
-               Expected value is 'GraphAPIComputeServiceResourceProperties'.
-        :param pulumi.Input[str] graph_api_compute_endpoint: GraphAPICompute endpoint for the service.
-        :param pulumi.Input[int] instance_count: Instance count for the service.
-        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
-        """
-        pulumi.set(__self__, "service_type", 'GraphAPIComputeServiceResourceProperties')
-        if graph_api_compute_endpoint is not None:
-            pulumi.set(__self__, "graph_api_compute_endpoint", graph_api_compute_endpoint)
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-
-    @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> pulumi.Input[str]:
-        """
-        ServiceType for the service.
-        Expected value is 'GraphAPIComputeServiceResourceProperties'.
-        """
-        return pulumi.get(self, "service_type")
-
-    @service_type.setter
-    def service_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "service_type", value)
-
-    @property
-    @pulumi.getter(name="graphApiComputeEndpoint")
-    def graph_api_compute_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        GraphAPICompute endpoint for the service.
-        """
-        return pulumi.get(self, "graph_api_compute_endpoint")
-
-    @graph_api_compute_endpoint.setter
-    def graph_api_compute_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "graph_api_compute_endpoint", value)
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "instance_count", value)
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
-
-    @instance_size.setter
-    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
-        pulumi.set(self, "instance_size", value)
 
 
 @pulumi.input_type
@@ -2600,79 +2467,6 @@ class SqlDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class SqlDedicatedGatewayServiceResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 service_type: pulumi.Input[str],
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None,
-                 sql_dedicated_gateway_endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        Properties for SqlDedicatedGatewayServiceResource.
-        :param pulumi.Input[str] service_type: ServiceType for the service.
-               Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
-        :param pulumi.Input[int] instance_count: Instance count for the service.
-        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
-        :param pulumi.Input[str] sql_dedicated_gateway_endpoint: SqlDedicatedGateway endpoint for the service.
-        """
-        pulumi.set(__self__, "service_type", 'SqlDedicatedGatewayServiceResourceProperties')
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-        if sql_dedicated_gateway_endpoint is not None:
-            pulumi.set(__self__, "sql_dedicated_gateway_endpoint", sql_dedicated_gateway_endpoint)
-
-    @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> pulumi.Input[str]:
-        """
-        ServiceType for the service.
-        Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
-        """
-        return pulumi.get(self, "service_type")
-
-    @service_type.setter
-    def service_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "service_type", value)
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "instance_count", value)
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
-
-    @instance_size.setter
-    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
-        pulumi.set(self, "instance_size", value)
-
-    @property
-    @pulumi.getter(name="sqlDedicatedGatewayEndpoint")
-    def sql_dedicated_gateway_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        SqlDedicatedGateway endpoint for the service.
-        """
-        return pulumi.get(self, "sql_dedicated_gateway_endpoint")
-
-    @sql_dedicated_gateway_endpoint.setter
-    def sql_dedicated_gateway_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sql_dedicated_gateway_endpoint", value)
 
 
 @pulumi.input_type

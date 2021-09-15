@@ -10,6 +10,8 @@ export * from "./cluster";
 export * from "./getApplication";
 export * from "./getCluster";
 export * from "./getClusterGatewaySettings";
+export * from "./getPrivateEndpointConnection";
+export * from "./privateEndpointConnection";
 
 // Export enums:
 export * from "../types/enums/hdinsight";
@@ -17,15 +19,18 @@ export * from "../types/enums/hdinsight";
 // Export sub-modules:
 import * as v20150301preview from "./v20150301preview";
 import * as v20180601preview from "./v20180601preview";
+import * as v20210601 from "./v20210601";
 
 export {
     v20150301preview,
     v20180601preview,
+    v20210601,
 };
 
 // Import resources to register:
 import { Application } from "./application";
 import { Cluster } from "./cluster";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,6 +40,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure-native:hdinsight:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "azure-native:hdinsight:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponse struct {
 	// The link.
 	BotManagementPortalLink string `pulumi:"botManagementPortalLink"`
@@ -29,7 +28,6 @@ type HealthBotPropertiesResponseInput interface {
 	ToHealthBotPropertiesResponseOutputWithContext(context.Context) HealthBotPropertiesResponseOutput
 }
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseArgs struct {
 	// The link.
 	BotManagementPortalLink pulumi.StringInput `pulumi:"botManagementPortalLink"`
@@ -90,7 +88,6 @@ func (i *healthBotPropertiesResponsePtrType) ToHealthBotPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesResponsePtrOutput)
 }
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthBotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type Sku struct {
 	// The name of the HealthBot SKU
 	Name SkuName `pulumi:"name"`
@@ -186,7 +182,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The resource model definition representing SKU
 type SkuArgs struct {
 	// The name of the HealthBot SKU
 	Name SkuNameInput `pulumi:"name"`
@@ -245,7 +240,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -309,7 +303,6 @@ func (o SkuPtrOutput) Name() SkuNamePtrOutput {
 	}).(SkuNamePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponse struct {
 	// The name of the HealthBot SKU
 	Name string `pulumi:"name"`
@@ -326,7 +319,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The resource model definition representing SKU
 type SkuResponseArgs struct {
 	// The name of the HealthBot SKU
 	Name pulumi.StringInput `pulumi:"name"`
@@ -385,7 +377,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -449,7 +440,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only system data
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -476,7 +466,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -545,7 +534,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

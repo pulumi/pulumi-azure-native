@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 type ExternalAccess string
 
 const (
@@ -175,7 +174,6 @@ func (in *externalAccessPtr) ToExternalAccessPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ExternalAccessPtrOutput)
 }
 
-// Enabled or Disabled flag to turn on Group-based filtered sync
 type FilteredSync string
 
 const (
@@ -340,7 +338,6 @@ func (in *filteredSyncPtr) ToFilteredSyncPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(FilteredSyncPtrOutput)
 }
 
-// A flag to determine whether or not KerberosArmoring is enabled or disabled.
 type KerberosArmoring string
 
 const (
@@ -505,7 +502,6 @@ func (in *kerberosArmoringPtr) ToKerberosArmoringPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(KerberosArmoringPtrOutput)
 }
 
-// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
 type KerberosRc4Encryption string
 
 const (
@@ -670,7 +666,6 @@ func (in *kerberosRc4EncryptionPtr) ToKerberosRc4EncryptionPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(KerberosRc4EncryptionPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP is enabled or disabled.
 type Ldaps string
 
 const (
@@ -835,7 +830,6 @@ func (in *ldapsPtr) ToLdapsPtrOutputWithContext(ctx context.Context) LdapsPtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(LdapsPtrOutput)
 }
 
-// Should domain controller admins be notified
 type NotifyDcAdmins string
 
 const (
@@ -1000,7 +994,6 @@ func (in *notifyDcAdminsPtr) ToNotifyDcAdminsPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(NotifyDcAdminsPtrOutput)
 }
 
-// Should global admins be notified
 type NotifyGlobalAdmins string
 
 const (
@@ -1165,7 +1158,6 @@ func (in *notifyGlobalAdminsPtr) ToNotifyGlobalAdminsPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(NotifyGlobalAdminsPtrOutput)
 }
 
-// A flag to determine whether or not NtlmV1 is enabled or disabled.
 type NtlmV1 string
 
 const (
@@ -1330,7 +1322,6 @@ func (in *ntlmV1Ptr) ToNtlmV1PtrOutputWithContext(ctx context.Context) NtlmV1Ptr
 	return pulumi.ToOutputWithContext(ctx, in).(NtlmV1PtrOutput)
 }
 
-// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
 type SyncKerberosPasswords string
 
 const (
@@ -1495,7 +1486,6 @@ func (in *syncKerberosPasswordsPtr) ToSyncKerberosPasswordsPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(SyncKerberosPasswordsPtrOutput)
 }
 
-// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 type SyncNtlmPasswords string
 
 const (
@@ -1660,7 +1650,6 @@ func (in *syncNtlmPasswordsPtr) ToSyncNtlmPasswordsPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SyncNtlmPasswordsPtrOutput)
 }
 
-// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
 type SyncOnPremPasswords string
 
 const (
@@ -1825,7 +1814,6 @@ func (in *syncOnPremPasswordsPtr) ToSyncOnPremPasswordsPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(SyncOnPremPasswordsPtrOutput)
 }
 
-// A flag to determine whether or not TlsV1 is enabled or disabled.
 type TlsV1 string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The mode to create a new server.
 type CreateMode string
 
 const (
@@ -177,7 +176,6 @@ func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 type GeoRedundantBackup string
 
 const (
@@ -342,7 +340,6 @@ func (in *geoRedundantBackupPtr) ToGeoRedundantBackupPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(GeoRedundantBackupPtrOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 type MinimalTlsVersionEnum string
 
 const (
@@ -509,7 +506,6 @@ func (in *minimalTlsVersionEnumPtr) ToMinimalTlsVersionEnumPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(MinimalTlsVersionEnumPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 type PublicNetworkAccessEnum string
 
 const (
@@ -674,7 +670,6 @@ func (in *publicNetworkAccessEnumPtr) ToPublicNetworkAccessEnumPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessEnumPtrOutput)
 }
 
-// Server version.
 type ServerVersion string
 
 const (
@@ -839,7 +834,6 @@ func (in *serverVersionPtr) ToServerVersionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServerVersionPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 type SkuTier string
 
 const (
@@ -1005,7 +999,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 type SslEnforcementEnum string
 
 const (
@@ -1170,7 +1163,6 @@ func (in *sslEnforcementEnumPtr) ToSslEnforcementEnumPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SslEnforcementEnumPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 type StorageAutogrow string
 
 const (

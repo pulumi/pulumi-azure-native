@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// the criteria time aggregation types.
 type AggregationTypeEnum string
 
 const (
@@ -178,7 +177,6 @@ func (in *aggregationTypeEnumPtr) ToAggregationTypeEnumPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(AggregationTypeEnumPtrOutput)
 }
 
-// Severity of the alert
 type AlertSeverity string
 
 const (
@@ -346,7 +344,6 @@ func (in *alertSeverityPtr) ToAlertSeverityPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AlertSeverityPtrOutput)
 }
 
-// Type of application being monitored.
 type ApplicationType string
 
 const (
@@ -511,7 +508,6 @@ func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationTypePtrOutput)
 }
 
-// the operator that is used to compare the metric data and the threshold.
 type ComparisonOperationType string
 
 const (
@@ -680,7 +676,6 @@ func (in *comparisonOperationTypePtr) ToComparisonOperationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ComparisonOperationTypePtrOutput)
 }
 
-// the operator used to compare the data and the threshold.
 type ConditionOperator string
 
 const (
@@ -847,7 +842,6 @@ func (in *conditionOperatorPtr) ToConditionOperatorPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ConditionOperatorPtrOutput)
 }
 
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 type ConditionalOperator string
 
 const (
@@ -1015,7 +1009,6 @@ func (in *conditionalOperatorPtr) ToConditionalOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ConditionalOperatorPtrOutput)
 }
 
-// Specifies the type of threshold criteria
 type CriterionType string
 
 const (
@@ -1180,7 +1173,6 @@ func (in *criterionTypePtr) ToCriterionTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(CriterionTypePtrOutput)
 }
 
-// The operator used to compare the metric value against the threshold.
 type DynamicThresholdOperator string
 
 const (
@@ -1346,7 +1338,6 @@ func (in *dynamicThresholdOperatorPtr) ToDynamicThresholdOperatorPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(DynamicThresholdOperatorPtrOutput)
 }
 
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 type DynamicThresholdSensitivity string
 
 const (
@@ -1512,7 +1503,6 @@ func (in *dynamicThresholdSensitivityPtr) ToDynamicThresholdSensitivityPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(DynamicThresholdSensitivityPtrOutput)
 }
 
-// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
 type Enabled string
 
 const (
@@ -1677,7 +1667,6 @@ func (in *enabledPtr) ToEnabledPtrOutputWithContext(ctx context.Context) Enabled
 	return pulumi.ToOutputWithContext(ctx, in).(EnabledPtrOutput)
 }
 
-// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 type FavoriteType string
 
 const (
@@ -1842,7 +1831,6 @@ func (in *favoriteTypePtr) ToFavoriteTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(FavoriteTypePtrOutput)
 }
 
-// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 type FlowType string
 
 const (
@@ -2006,7 +1994,6 @@ func (in *flowTypePtr) ToFlowTypePtrOutputWithContext(ctx context.Context) FlowT
 	return pulumi.ToOutputWithContext(ctx, in).(FlowTypePtrOutput)
 }
 
-// Indicates the flow of the ingestion.
 type IngestionMode string
 
 const (
@@ -2172,7 +2159,6 @@ func (in *ingestionModePtr) ToIngestionModePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(IngestionModePtrOutput)
 }
 
-// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 type ItemScope string
 
 const (
@@ -2337,7 +2323,6 @@ func (in *itemScopePtr) ToItemScopePtrOutputWithContext(ctx context.Context) Ite
 	return pulumi.ToOutputWithContext(ctx, in).(ItemScopePtrOutput)
 }
 
-// Enum indicating the type of the Analytics item.
 type ItemType string
 
 const (
@@ -2504,7 +2489,6 @@ func (in *itemTypePtr) ToItemTypePtrOutputWithContext(ctx context.Context) ItemT
 	return pulumi.ToOutputWithContext(ctx, in).(ItemTypePtrOutput)
 }
 
-// The kind of workbook. Choices are user and shared.
 type Kind string
 
 const (
@@ -2669,7 +2653,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// The kind of the resource.
 type KnownDataCollectionEndpointResourceKind string
 
 const (
@@ -2834,7 +2817,6 @@ func (in *knownDataCollectionEndpointResourceKindPtr) ToKnownDataCollectionEndpo
 	return pulumi.ToOutputWithContext(ctx, in).(KnownDataCollectionEndpointResourceKindPtrOutput)
 }
 
-// The kind of the resource.
 type KnownDataCollectionRuleResourceKind string
 
 const (
@@ -3497,7 +3479,6 @@ func (in *knownPerfCounterDataSourceStreamsPtr) ToKnownPerfCounterDataSourceStre
 	return pulumi.ToOutputWithContext(ctx, in).(KnownPerfCounterDataSourceStreamsPtrOutput)
 }
 
-// The configuration to set whether network access from public internet to the endpoints are allowed.
 type KnownPublicNetworkAccessOptions string
 
 const (
@@ -4343,7 +4324,6 @@ func (in *knownWindowsEventLogDataSourceStreamsPtr) ToKnownWindowsEventLogDataSo
 	return pulumi.ToOutputWithContext(ctx, in).(KnownWindowsEventLogDataSourceStreamsPtrOutput)
 }
 
-// the metric statistic type. How the metrics from multiple instances are combined.
 type MetricStatisticType string
 
 const (
@@ -4511,7 +4491,6 @@ func (in *metricStatisticTypePtr) ToMetricStatisticTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(MetricStatisticTypePtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 type MetricTriggerType string
 
 const (
@@ -4676,7 +4655,6 @@ func (in *metricTriggerTypePtr) ToMetricTriggerTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(MetricTriggerTypePtrOutput)
 }
 
-// specifies the type of the alert criteria.
 type Odatatype string
 
 const (
@@ -4842,7 +4820,6 @@ func (in *odatatypePtr) ToOdatatypePtrOutputWithContext(ctx context.Context) Oda
 	return pulumi.ToOutputWithContext(ctx, in).(OdatatypePtrOutput)
 }
 
-// the operation associated with the notification and its value must be "scale"
 type OperationType string
 
 const (
@@ -5006,7 +4983,6 @@ func (in *operationTypePtr) ToOperationTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(OperationTypePtrOutput)
 }
 
-// Operator for dimension values
 type Operator string
 
 const (
@@ -5170,7 +5146,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 type QueryType string
 
 const (
@@ -5334,7 +5309,6 @@ func (in *queryTypePtr) ToQueryTypePtrOutputWithContext(ctx context.Context) Que
 	return pulumi.ToOutputWithContext(ctx, in).(QueryTypePtrOutput)
 }
 
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 type RecurrenceFrequency string
 
 const (
@@ -5505,7 +5479,6 @@ func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceFrequencyPtrOutput)
 }
 
-// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 type RequestSource string
 
 const (
@@ -5669,7 +5642,6 @@ func (in *requestSourcePtr) ToRequestSourcePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(RequestSourcePtrOutput)
 }
 
-// the scale direction. Whether the scaling action increases or decreases the number of instances.
 type ScaleDirection string
 
 const (
@@ -5835,7 +5807,6 @@ func (in *scaleDirectionPtr) ToScaleDirectionPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleDirectionPtrOutput)
 }
 
-// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
 type ScaleRuleMetricDimensionOperationType string
 
 const (
@@ -6000,7 +5971,6 @@ func (in *scaleRuleMetricDimensionOperationTypePtr) ToScaleRuleMetricDimensionOp
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleRuleMetricDimensionOperationTypePtrOutput)
 }
 
-// the type of action that should occur when the scale rule fires.
 type ScaleType string
 
 const (
@@ -6167,7 +6137,6 @@ func (in *scaleTypePtr) ToScaleTypePtrOutputWithContext(ctx context.Context) Sca
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleTypePtrOutput)
 }
 
-// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
 type TimeAggregationOperator string
 
 const (
@@ -6335,7 +6304,6 @@ func (in *timeAggregationOperatorPtr) ToTimeAggregationOperatorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(TimeAggregationOperatorPtrOutput)
 }
 
-// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
 type TimeAggregationType string
 
 const (
@@ -6504,7 +6472,6 @@ func (in *timeAggregationTypePtr) ToTimeAggregationTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(TimeAggregationTypePtrOutput)
 }
 
-// The kind of web test this is, valid choices are ping and multistep.
 type WebTestKind string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of identity used for the cache
 type CacheIdentityType string
 
 const (
@@ -175,7 +174,6 @@ func (in *cacheIdentityTypePtr) ToCacheIdentityTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CacheIdentityTypePtrOutput)
 }
 
-// Access allowed by this rule.
 type NfsAccessRuleAccess string
 
 const (
@@ -341,7 +339,6 @@ func (in *nfsAccessRuleAccessPtr) ToNfsAccessRuleAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(NfsAccessRuleAccessPtrOutput)
 }
 
-// Scope for this rule. The scope and filter determine which clients match the rule.
 type NfsAccessRuleScope string
 
 const (
@@ -507,7 +504,6 @@ func (in *nfsAccessRuleScopePtr) ToNfsAccessRuleScopePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(NfsAccessRuleScopePtrOutput)
 }
 
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 type ProvisioningStateType string
 
 const (
@@ -676,7 +672,6 @@ func (in *provisioningStateTypePtr) ToProvisioningStateTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStateTypePtrOutput)
 }
 
-// Type of the Storage Target.
 type StorageTargetType string
 
 const (
@@ -843,7 +838,6 @@ func (in *storageTargetTypePtr) ToStorageTargetTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(StorageTargetTypePtrOutput)
 }
 
-// This setting determines how the cache gets username and group names for clients.
 type UsernameSource string
 
 const (

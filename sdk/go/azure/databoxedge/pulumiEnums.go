@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of storage accessed on the storage account.
 type AccountType string
 
 const (
@@ -175,7 +174,6 @@ func (in *accountTypePtr) ToAccountTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(AccountTypePtrOutput)
 }
 
-// Addon type.
 type AddonType string
 
 const (
@@ -340,7 +338,6 @@ func (in *addonTypePtr) ToAddonTypePtrOutputWithContext(ctx context.Context) Add
 	return pulumi.ToOutputWithContext(ctx, in).(AddonTypePtrOutput)
 }
 
-// Storage format used for the file represented by the share.
 type AzureContainerDataFormat string
 
 const (
@@ -506,7 +503,6 @@ func (in *azureContainerDataFormatPtr) ToAzureContainerDataFormatPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AzureContainerDataFormatPtrOutput)
 }
 
-// Type of access to be allowed for the client.
 type ClientPermissionType string
 
 const (
@@ -672,7 +668,6 @@ func (in *clientPermissionTypePtr) ToClientPermissionTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ClientPermissionTypePtrOutput)
 }
 
-// The status of the Data Box Edge/Gateway device.
 type DataBoxEdgeDeviceStatus string
 
 const (
@@ -842,7 +837,6 @@ func (in *dataBoxEdgeDeviceStatusPtr) ToDataBoxEdgeDeviceStatusPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DataBoxEdgeDeviceStatusPtrOutput)
 }
 
-// Data policy of the storage Account.
 type DataPolicy string
 
 const (
@@ -1176,7 +1170,6 @@ func (in *dayOfWeekPtr) ToDayOfWeekPtrOutputWithContext(ctx context.Context) Day
 	return pulumi.ToOutputWithContext(ctx, in).(DayOfWeekPtrOutput)
 }
 
-// The algorithm used to encrypt "Value".
 type EncryptionAlgorithm string
 
 const (
@@ -1342,7 +1335,6 @@ func (in *encryptionAlgorithmPtr) ToEncryptionAlgorithmPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionAlgorithmPtrOutput)
 }
 
-// Current monitoring status of the share.
 type MonitoringStatus string
 
 const (
@@ -1507,7 +1499,6 @@ func (in *monitoringStatusPtr) ToMonitoringStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringStatusPtrOutput)
 }
 
-// Identity type
 type MsiIdentityType string
 
 const (
@@ -1673,7 +1664,6 @@ func (in *msiIdentityTypePtr) ToMsiIdentityTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(MsiIdentityTypePtrOutput)
 }
 
-// Host OS supported by the Kubernetes role.
 type PlatformType string
 
 const (
@@ -1838,7 +1828,6 @@ func (in *platformTypePtr) ToPlatformTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PlatformTypePtrOutput)
 }
 
-// Role status.
 type RoleStatus string
 
 const (
@@ -2003,7 +1992,6 @@ func (in *roleStatusPtr) ToRoleStatusPtrOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, in).(RoleStatusPtrOutput)
 }
 
-// Role type.
 type RoleTypes string
 
 const (
@@ -2173,7 +2161,6 @@ func (in *roleTypesPtr) ToRoleTypesPtrOutputWithContext(ctx context.Context) Rol
 	return pulumi.ToOutputWithContext(ctx, in).(RoleTypesPtrOutput)
 }
 
-// Signifies whether SSL needs to be enabled or not.
 type SSLStatus string
 
 const (
@@ -2338,7 +2325,6 @@ func (in *sslstatusPtr) ToSSLStatusPtrOutputWithContext(ctx context.Context) SSL
 	return pulumi.ToOutputWithContext(ctx, in).(SSLStatusPtrOutput)
 }
 
-// Access protocol to be used by the share.
 type ShareAccessProtocol string
 
 const (
@@ -2503,7 +2489,6 @@ func (in *shareAccessProtocolPtr) ToShareAccessProtocolPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ShareAccessProtocolPtrOutput)
 }
 
-// Type of access to be allowed for the user.
 type ShareAccessType string
 
 const (
@@ -2669,7 +2654,6 @@ func (in *shareAccessTypePtr) ToShareAccessTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ShareAccessTypePtrOutput)
 }
 
-// Current status of the share.
 type ShareStatus string
 
 const (
@@ -2837,7 +2821,6 @@ func (in *shareStatusPtr) ToShareStatusPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ShareStatusPtrOutput)
 }
 
-// ShipmentType of the order
 type ShipmentType string
 
 const (
@@ -3003,7 +2986,6 @@ func (in *shipmentTypePtr) ToShipmentTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ShipmentTypePtrOutput)
 }
 
-// SKU name.
 type SkuName string
 
 const (
@@ -3187,7 +3169,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 type SkuTier string
 
 const (
@@ -3351,7 +3332,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
 
-// Current status of the storage account
 type StorageAccountStatus string
 
 const (
@@ -3519,7 +3499,6 @@ func (in *storageAccountStatusPtr) ToStorageAccountStatusPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountStatusPtrOutput)
 }
 
-// Trigger Kind.
 type TriggerEventType string
 
 const (
@@ -3684,7 +3663,6 @@ func (in *triggerEventTypePtr) ToTriggerEventTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(TriggerEventTypePtrOutput)
 }
 
-// Type of the user.
 type UserType string
 
 const (

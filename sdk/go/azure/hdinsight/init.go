@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "azure-native:hdinsight:Cluster":
 		r = &Cluster{}
+	case "azure-native:hdinsight:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

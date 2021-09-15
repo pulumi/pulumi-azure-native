@@ -89,6 +89,12 @@ func NewBlobDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:BlobDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobDataSet

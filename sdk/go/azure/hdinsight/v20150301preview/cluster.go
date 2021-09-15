@@ -49,6 +49,12 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:hdinsight/v20180601preview:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:hdinsight/v20210601:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hdinsight/v20210601:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

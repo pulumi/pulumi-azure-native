@@ -73,6 +73,12 @@ func NewSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SynapseWorkspaceSqlPoolTableDataSet

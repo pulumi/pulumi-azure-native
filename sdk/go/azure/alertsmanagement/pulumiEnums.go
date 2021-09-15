@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates if the given action rule is enabled or disabled
 type ActionRuleStatus string
 
 const (
@@ -175,7 +174,6 @@ func (in *actionRuleStatusPtr) ToActionRuleStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ActionRuleStatusPtrOutput)
 }
 
-// Indicates type of action rule
 type ActionRuleType string
 
 const (
@@ -341,7 +339,6 @@ func (in *actionRuleTypePtr) ToActionRuleTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ActionRuleTypePtrOutput)
 }
 
-// The alert rule state.
 type AlertRuleState string
 
 const (
@@ -506,7 +503,6 @@ func (in *alertRuleStatePtr) ToAlertRuleStatePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AlertRuleStatePtrOutput)
 }
 
-// specifies the type of the alert criterion.
 type HealthAlertsNamespace string
 
 const (
@@ -670,7 +666,6 @@ func (in *healthAlertsNamespacePtr) ToHealthAlertsNamespacePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(HealthAlertsNamespacePtrOutput)
 }
 
-// Health state name
 type HealthStateName string
 
 const (
@@ -835,7 +830,6 @@ func (in *healthStateNamePtr) ToHealthStateNamePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(HealthStateNamePtrOutput)
 }
 
-// operator for a given condition
 type Operator string
 
 const (
@@ -1002,7 +996,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// type of target scope
 type ScopeType string
 
 const (
@@ -1168,7 +1161,6 @@ func (in *scopeTypePtr) ToScopeTypePtrOutputWithContext(ctx context.Context) Sco
 	return pulumi.ToOutputWithContext(ctx, in).(ScopeTypePtrOutput)
 }
 
-// The alert rule severity.
 type Severity string
 
 const (
@@ -1336,7 +1328,6 @@ func (in *severityPtr) ToSeverityPtrOutputWithContext(ctx context.Context) Sever
 	return pulumi.ToOutputWithContext(ctx, in).(SeverityPtrOutput)
 }
 
-// Specifies when the suppression should be applied
 type SuppressionType string
 
 const (

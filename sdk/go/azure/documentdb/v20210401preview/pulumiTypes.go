@@ -5652,67 +5652,6 @@ func (o DataTransferRegionalServiceResourceResponseArrayOutput) Index(i pulumi.I
 	}).(DataTransferRegionalServiceResourceResponseOutput)
 }
 
-type DataTransferServiceResourceProperties struct {
-	InstanceCount *int    `pulumi:"instanceCount"`
-	InstanceSize  *string `pulumi:"instanceSize"`
-	ServiceType   string  `pulumi:"serviceType"`
-}
-
-// DataTransferServiceResourcePropertiesInput is an input type that accepts DataTransferServiceResourcePropertiesArgs and DataTransferServiceResourcePropertiesOutput values.
-// You can construct a concrete instance of `DataTransferServiceResourcePropertiesInput` via:
-//
-//          DataTransferServiceResourcePropertiesArgs{...}
-type DataTransferServiceResourcePropertiesInput interface {
-	pulumi.Input
-
-	ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput
-	ToDataTransferServiceResourcePropertiesOutputWithContext(context.Context) DataTransferServiceResourcePropertiesOutput
-}
-
-type DataTransferServiceResourcePropertiesArgs struct {
-	InstanceCount pulumi.IntPtrInput    `pulumi:"instanceCount"`
-	InstanceSize  pulumi.StringPtrInput `pulumi:"instanceSize"`
-	ServiceType   pulumi.StringInput    `pulumi:"serviceType"`
-}
-
-func (DataTransferServiceResourcePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataTransferServiceResourceProperties)(nil)).Elem()
-}
-
-func (i DataTransferServiceResourcePropertiesArgs) ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput {
-	return i.ToDataTransferServiceResourcePropertiesOutputWithContext(context.Background())
-}
-
-func (i DataTransferServiceResourcePropertiesArgs) ToDataTransferServiceResourcePropertiesOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataTransferServiceResourcePropertiesOutput)
-}
-
-type DataTransferServiceResourcePropertiesOutput struct{ *pulumi.OutputState }
-
-func (DataTransferServiceResourcePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataTransferServiceResourceProperties)(nil)).Elem()
-}
-
-func (o DataTransferServiceResourcePropertiesOutput) ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput {
-	return o
-}
-
-func (o DataTransferServiceResourcePropertiesOutput) ToDataTransferServiceResourcePropertiesOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesOutput {
-	return o
-}
-
-func (o DataTransferServiceResourcePropertiesOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataTransferServiceResourceProperties) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
-}
-
-func (o DataTransferServiceResourcePropertiesOutput) InstanceSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataTransferServiceResourceProperties) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
-}
-
-func (o DataTransferServiceResourcePropertiesOutput) ServiceType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataTransferServiceResourceProperties) string { return v.ServiceType }).(pulumi.StringOutput)
-}
-
 type DataTransferServiceResourcePropertiesResponse struct {
 	CreationTime  string                                        `pulumi:"creationTime"`
 	InstanceCount *int                                          `pulumi:"instanceCount"`
@@ -14821,73 +14760,6 @@ func (o SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) Index(i p
 	}).(SqlDedicatedGatewayRegionalServiceResourceResponseOutput)
 }
 
-type SqlDedicatedGatewayServiceResourceProperties struct {
-	InstanceCount               *int    `pulumi:"instanceCount"`
-	InstanceSize                *string `pulumi:"instanceSize"`
-	ServiceType                 string  `pulumi:"serviceType"`
-	SqlDedicatedGatewayEndpoint *string `pulumi:"sqlDedicatedGatewayEndpoint"`
-}
-
-// SqlDedicatedGatewayServiceResourcePropertiesInput is an input type that accepts SqlDedicatedGatewayServiceResourcePropertiesArgs and SqlDedicatedGatewayServiceResourcePropertiesOutput values.
-// You can construct a concrete instance of `SqlDedicatedGatewayServiceResourcePropertiesInput` via:
-//
-//          SqlDedicatedGatewayServiceResourcePropertiesArgs{...}
-type SqlDedicatedGatewayServiceResourcePropertiesInput interface {
-	pulumi.Input
-
-	ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput
-	ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput
-}
-
-type SqlDedicatedGatewayServiceResourcePropertiesArgs struct {
-	InstanceCount               pulumi.IntPtrInput    `pulumi:"instanceCount"`
-	InstanceSize                pulumi.StringPtrInput `pulumi:"instanceSize"`
-	ServiceType                 pulumi.StringInput    `pulumi:"serviceType"`
-	SqlDedicatedGatewayEndpoint pulumi.StringPtrInput `pulumi:"sqlDedicatedGatewayEndpoint"`
-}
-
-func (SqlDedicatedGatewayServiceResourcePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourceProperties)(nil)).Elem()
-}
-
-func (i SqlDedicatedGatewayServiceResourcePropertiesArgs) ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput {
-	return i.ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(context.Background())
-}
-
-func (i SqlDedicatedGatewayServiceResourcePropertiesArgs) ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayServiceResourcePropertiesOutput)
-}
-
-type SqlDedicatedGatewayServiceResourcePropertiesOutput struct{ *pulumi.OutputState }
-
-func (SqlDedicatedGatewayServiceResourcePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourceProperties)(nil)).Elem()
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput {
-	return o
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput {
-	return o
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) InstanceSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ServiceType() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) string { return v.ServiceType }).(pulumi.StringOutput)
-}
-
-func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) SqlDedicatedGatewayEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *string { return v.SqlDedicatedGatewayEndpoint }).(pulumi.StringPtrOutput)
-}
-
 type SqlDedicatedGatewayServiceResourcePropertiesResponse struct {
 	CreationTime                string                                               `pulumi:"creationTime"`
 	InstanceCount               *int                                                 `pulumi:"instanceCount"`
@@ -17550,7 +17422,6 @@ func init() {
 	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataTransferRegionalServiceResourceResponseOutput{})
 	pulumi.RegisterOutputType(DataTransferRegionalServiceResourceResponseArrayOutput{})
-	pulumi.RegisterOutputType(DataTransferServiceResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(DataTransferServiceResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
@@ -17676,7 +17547,6 @@ func init() {
 	pulumi.RegisterOutputType(SqlDatabaseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlDedicatedGatewayRegionalServiceResourceResponseOutput{})
 	pulumi.RegisterOutputType(SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput{})
-	pulumi.RegisterOutputType(SqlDedicatedGatewayServiceResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SqlDedicatedGatewayServiceResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourceOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput{})

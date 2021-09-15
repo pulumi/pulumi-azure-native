@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of address.
 type AddressType string
 
 const (
@@ -179,7 +178,6 @@ func (in *addressTypePtr) ToAddressTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(AddressTypePtrOutput)
 }
 
-// Indicates the type of job details.
 type ClassDiscriminator string
 
 const (
@@ -348,7 +346,6 @@ func (in *classDiscriminatorPtr) ToClassDiscriminatorPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ClassDiscriminatorPtrOutput)
 }
 
-// Type of the account of data.
 type DataAccountType string
 
 const (
@@ -515,7 +512,6 @@ func (in *dataAccountTypePtr) ToDataAccountTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DataAccountTypePtrOutput)
 }
 
-// Defines secondary layer of software-based encryption enablement.
 type DoubleEncryption string
 
 const (
@@ -682,7 +678,6 @@ func (in *doubleEncryptionPtr) ToDoubleEncryptionPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DoubleEncryptionPtrOutput)
 }
 
-// Type of the filter file.
 type FilterFileType string
 
 const (
@@ -849,7 +844,6 @@ func (in *filterFileTypePtr) ToFilterFileTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(FilterFileTypePtrOutput)
 }
 
-// Delivery type of Job.
 type JobDeliveryType string
 
 const (
@@ -1016,7 +1010,6 @@ func (in *jobDeliveryTypePtr) ToJobDeliveryTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(JobDeliveryTypePtrOutput)
 }
 
-// Type of encryption key used for key encryption.
 type KekType string
 
 const (
@@ -1183,7 +1176,6 @@ func (in *kekTypePtr) ToKekTypePtrOutputWithContext(ctx context.Context) KekType
 	return pulumi.ToOutputWithContext(ctx, in).(KekTypePtrOutput)
 }
 
-// Level of the logs to be collected.
 type LogCollectionLevel string
 
 const (
@@ -1350,7 +1342,6 @@ func (in *logCollectionLevelPtr) ToLogCollectionLevelPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(LogCollectionLevelPtrOutput)
 }
 
-// Name of the stage.
 type NotificationStageName string
 
 const (
@@ -1525,7 +1516,6 @@ func (in *notificationStageNamePtr) ToNotificationStageNamePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationStageNamePtrOutput)
 }
 
-// The sku name.
 type SkuName string
 
 const (
@@ -1694,7 +1684,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// Type of the configuration for transfer.
 type TransferConfigurationType string
 
 const (
@@ -1861,7 +1850,6 @@ func (in *transferConfigurationTypePtr) ToTransferConfigurationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(TransferConfigurationTypePtrOutput)
 }
 
-// Type of the data transfer.
 type TransferType string
 
 const (
@@ -2028,7 +2016,6 @@ func (in *transferTypePtr) ToTransferTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(TransferTypePtrOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 type TransportShipmentTypes string
 
 const (

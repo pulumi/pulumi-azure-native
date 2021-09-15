@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Product compatibility
 type CompatibilityResponse struct {
 	// Full error message if any compatibility issues are found
 	Description *string `pulumi:"description"`
@@ -33,7 +32,6 @@ type CompatibilityResponseInput interface {
 	ToCompatibilityResponseOutputWithContext(context.Context) CompatibilityResponseOutput
 }
 
-// Product compatibility
 type CompatibilityResponseArgs struct {
 	// Full error message if any compatibility issues are found
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -98,7 +96,6 @@ func (i *compatibilityResponsePtrType) ToCompatibilityResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityResponsePtrOutput)
 }
 
-// Product compatibility
 type CompatibilityResponseOutput struct{ *pulumi.OutputState }
 
 func (CompatibilityResponseOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o CompatibilityResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data disk image.
 type DataDiskImageResponse struct {
 	// The LUN.
 	Lun int `pulumi:"lun"`
@@ -226,7 +222,6 @@ type DataDiskImageResponseInput interface {
 	ToDataDiskImageResponseOutputWithContext(context.Context) DataDiskImageResponseOutput
 }
 
-// Data disk image.
 type DataDiskImageResponseArgs struct {
 	// The LUN.
 	Lun pulumi.IntInput `pulumi:"lun"`
@@ -271,7 +266,6 @@ func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseArrayOutput)
 }
 
-// Data disk image.
 type DataDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageResponseOutput) ElementType() reflect.Type {
@@ -316,7 +310,6 @@ func (o DataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImage
 	}).(DataDiskImageResponseOutput)
 }
 
-// Links to product icons.
 type IconUrisResponse struct {
 	// URI to hero icon.
 	Hero *string `pulumi:"hero"`
@@ -341,7 +334,6 @@ type IconUrisResponseInput interface {
 	ToIconUrisResponseOutputWithContext(context.Context) IconUrisResponseOutput
 }
 
-// Links to product icons.
 type IconUrisResponseArgs struct {
 	// URI to hero icon.
 	Hero pulumi.StringPtrInput `pulumi:"hero"`
@@ -408,7 +400,6 @@ func (i *iconUrisResponsePtrType) ToIconUrisResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IconUrisResponsePtrOutput)
 }
 
-// Links to product icons.
 type IconUrisResponseOutput struct{ *pulumi.OutputState }
 
 func (IconUrisResponseOutput) ElementType() reflect.Type {
@@ -532,7 +523,6 @@ func (o IconUrisResponsePtrOutput) Wide() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS disk image.
 type OsDiskImageResponse struct {
 	// OS operating system type.
 	OperatingSystem string `pulumi:"operatingSystem"`
@@ -551,7 +541,6 @@ type OsDiskImageResponseInput interface {
 	ToOsDiskImageResponseOutputWithContext(context.Context) OsDiskImageResponseOutput
 }
 
-// OS disk image.
 type OsDiskImageResponseArgs struct {
 	// OS operating system type.
 	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
@@ -571,7 +560,6 @@ func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OsDiskImageResponseOutput)
 }
 
-// OS disk image.
 type OsDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (OsDiskImageResponseOutput) ElementType() reflect.Type {
@@ -596,7 +584,6 @@ func (o OsDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v OsDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
 
-// Link with additional information about a product.
 type ProductLinkResponse struct {
 	// The description of the link.
 	DisplayName *string `pulumi:"displayName"`
@@ -615,7 +602,6 @@ type ProductLinkResponseInput interface {
 	ToProductLinkResponseOutputWithContext(context.Context) ProductLinkResponseOutput
 }
 
-// Link with additional information about a product.
 type ProductLinkResponseArgs struct {
 	// The description of the link.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -660,7 +646,6 @@ func (i ProductLinkResponseArray) ToProductLinkResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkResponseArrayOutput)
 }
 
-// Link with additional information about a product.
 type ProductLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductLinkResponseOutput) ElementType() reflect.Type {
@@ -705,7 +690,6 @@ func (o ProductLinkResponseArrayOutput) Index(i pulumi.IntInput) ProductLinkResp
 	}).(ProductLinkResponseOutput)
 }
 
-// Additional properties of the product
 type ProductPropertiesResponse struct {
 	// The version.
 	Version *string `pulumi:"version"`
@@ -722,7 +706,6 @@ type ProductPropertiesResponseInput interface {
 	ToProductPropertiesResponseOutputWithContext(context.Context) ProductPropertiesResponseOutput
 }
 
-// Additional properties of the product
 type ProductPropertiesResponseArgs struct {
 	// The version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -781,7 +764,6 @@ func (i *productPropertiesResponsePtrType) ToProductPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesResponsePtrOutput)
 }
 
-// Additional properties of the product
 type ProductPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductPropertiesResponseOutput) ElementType() reflect.Type {
@@ -845,7 +827,6 @@ func (o ProductPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Product information.
 type ProductResponse struct {
 	// The part number used for billing purposes.
 	BillingPartNumber *string `pulumi:"billingPartNumber"`
@@ -904,7 +885,6 @@ type ProductResponseInput interface {
 	ToProductResponseOutputWithContext(context.Context) ProductResponseOutput
 }
 
-// Product information.
 type ProductResponseArgs struct {
 	// The part number used for billing purposes.
 	BillingPartNumber pulumi.StringPtrInput `pulumi:"billingPartNumber"`
@@ -989,7 +969,6 @@ func (i ProductResponseArray) ToProductResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProductResponseArrayOutput)
 }
 
-// Product information.
 type ProductResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductResponseOutput) ElementType() reflect.Type {
@@ -1134,7 +1113,6 @@ func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutp
 	}).(ProductResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1161,7 +1139,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1230,7 +1207,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The mode of client authentication.
 type AuthenticationMethod string
 
 const (
@@ -175,7 +174,6 @@ func (in *authenticationMethodPtr) ToAuthenticationMethodPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationMethodPtrOutput)
 }
 
-// Provisioning state of the connected cluster resource.
 type ProvisioningState string
 
 const (
@@ -345,7 +343,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 type ResourceIdentityType string
 
 const (

@@ -123,6 +123,8 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

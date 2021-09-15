@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_type=None):
         if avs_data_store and not isinstance(avs_data_store, str):
             raise TypeError("Expected argument 'avs_data_store' to be a str")
         pulumi.set(__self__, "avs_data_store", avs_data_store)
@@ -87,6 +87,12 @@ class GetVolumeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_features and not isinstance(network_features, str):
+            raise TypeError("Expected argument 'network_features' to be a str")
+        pulumi.set(__self__, "network_features", network_features)
+        if network_sibling_set_id and not isinstance(network_sibling_set_id, str):
+            raise TypeError("Expected argument 'network_sibling_set_id' to be a str")
+        pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
         if protocol_types and not isinstance(protocol_types, list):
             raise TypeError("Expected argument 'protocol_types' to be a list")
         pulumi.set(__self__, "protocol_types", protocol_types)
@@ -111,6 +117,9 @@ class GetVolumeResult:
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if storage_to_network_proximity and not isinstance(storage_to_network_proximity, str):
+            raise TypeError("Expected argument 'storage_to_network_proximity' to be a str")
+        pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -310,6 +319,22 @@ class GetVolumeResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[str]:
+        """
+        Basic network, or Standard features available to the volume.
+        """
+        return pulumi.get(self, "network_features")
+
+    @property
+    @pulumi.getter(name="networkSiblingSetId")
+    def network_sibling_set_id(self) -> str:
+        """
+        Network Sibling Set ID for the the group of volumes sharing networking resources.
+        """
+        return pulumi.get(self, "network_sibling_set_id")
+
+    @property
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> Optional[Sequence[str]]:
         """
@@ -374,6 +399,14 @@ class GetVolumeResult:
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter(name="storageToNetworkProximity")
+    def storage_to_network_proximity(self) -> str:
+        """
+        Provides storage to network proximity information for the volume.
+        """
+        return pulumi.get(self, "storage_to_network_proximity")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
@@ -422,7 +455,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        What type of volume is this
+        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
         return pulumi.get(self, "volume_type")
 
@@ -455,6 +488,8 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             location=self.location,
             mount_targets=self.mount_targets,
             name=self.name,
+            network_features=self.network_features,
+            network_sibling_set_id=self.network_sibling_set_id,
             protocol_types=self.protocol_types,
             provisioning_state=self.provisioning_state,
             security_style=self.security_style,
@@ -463,6 +498,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             smb_encryption=self.smb_encryption,
             snapshot_directory_visible=self.snapshot_directory_visible,
             snapshot_id=self.snapshot_id,
+            storage_to_network_proximity=self.storage_to_network_proximity,
             subnet_id=self.subnet_id,
             tags=self.tags,
             throughput_mibps=self.throughput_mibps,
@@ -520,6 +556,8 @@ def get_volume(account_name: Optional[str] = None,
         location=__ret__.location,
         mount_targets=__ret__.mount_targets,
         name=__ret__.name,
+        network_features=__ret__.network_features,
+        network_sibling_set_id=__ret__.network_sibling_set_id,
         protocol_types=__ret__.protocol_types,
         provisioning_state=__ret__.provisioning_state,
         security_style=__ret__.security_style,
@@ -528,6 +566,7 @@ def get_volume(account_name: Optional[str] = None,
         smb_encryption=__ret__.smb_encryption,
         snapshot_directory_visible=__ret__.snapshot_directory_visible,
         snapshot_id=__ret__.snapshot_id,
+        storage_to_network_proximity=__ret__.storage_to_network_proximity,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         throughput_mibps=__ret__.throughput_mibps,

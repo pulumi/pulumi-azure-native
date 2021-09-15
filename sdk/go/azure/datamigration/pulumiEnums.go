@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authentication type to use for connection
 type AuthenticationType string
 
 const (
@@ -178,7 +177,6 @@ func (in *authenticationTypePtr) ToAuthenticationTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationTypePtrOutput)
 }
 
-// Backup Mode to specify whether to use existing backup or create new backup.
 type BackupMode string
 
 const (
@@ -343,7 +341,6 @@ func (in *backupModePtr) ToBackupModePtrOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, in).(BackupModePtrOutput)
 }
 
-// Source platform for the project
 type ProjectSourcePlatform string
 
 const (
@@ -508,7 +505,6 @@ func (in *projectSourcePlatformPtr) ToProjectSourcePlatformPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectSourcePlatformPtrOutput)
 }
 
-// Target platform for the project
 type ProjectTargetPlatform string
 
 const (
@@ -673,7 +669,6 @@ func (in *projectTargetPlatformPtr) ToProjectTargetPlatformPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectTargetPlatformPtrOutput)
 }
 
-// Permission group for validations
 type ServerLevelPermissionsGroup string
 
 const (
@@ -840,7 +835,6 @@ func (in *serverLevelPermissionsGroupPtr) ToServerLevelPermissionsGroupPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ServerLevelPermissionsGroupPtrOutput)
 }
 
-// Server platform type for connection
 type SqlSourcePlatform string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type Provider struct {
 	// The provider's marketplace application display name.
 	ApplicationName *string `pulumi:"applicationName"`
@@ -37,7 +36,6 @@ type ProviderInput interface {
 	ToProviderOutputWithContext(context.Context) ProviderOutput
 }
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderArgs struct {
 	// The provider's marketplace application display name.
 	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
@@ -90,7 +88,6 @@ func (i ProviderArray) ToProviderArrayOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderArrayOutput)
 }
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
@@ -155,7 +152,6 @@ func (o ProviderArrayOutput) Index(i pulumi.IntInput) ProviderOutput {
 	}).(ProviderOutput)
 }
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponse struct {
 	// The provider's marketplace application display name.
 	ApplicationName *string `pulumi:"applicationName"`
@@ -182,7 +178,6 @@ type ProviderResponseInput interface {
 	ToProviderResponseOutputWithContext(context.Context) ProviderResponseOutput
 }
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponseArgs struct {
 	// The provider's marketplace application display name.
 	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
@@ -235,7 +230,6 @@ func (i ProviderResponseArray) ToProviderResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderResponseArrayOutput)
 }
 
-// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (ProviderResponseOutput) ElementType() reflect.Type {
@@ -300,7 +294,6 @@ func (o ProviderResponseArrayOutput) Index(i pulumi.IntInput) ProviderResponseOu
 	}).(ProviderResponseOutput)
 }
 
-// Managed Identity information.
 type QuantumWorkspaceIdentity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
@@ -317,7 +310,6 @@ type QuantumWorkspaceIdentityInput interface {
 	ToQuantumWorkspaceIdentityOutputWithContext(context.Context) QuantumWorkspaceIdentityOutput
 }
 
-// Managed Identity information.
 type QuantumWorkspaceIdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -376,7 +368,6 @@ func (i *quantumWorkspaceIdentityPtrType) ToQuantumWorkspaceIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(QuantumWorkspaceIdentityPtrOutput)
 }
 
-// Managed Identity information.
 type QuantumWorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (QuantumWorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -440,7 +431,6 @@ func (o QuantumWorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed Identity information.
 type QuantumWorkspaceResponseIdentity struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -461,7 +451,6 @@ type QuantumWorkspaceResponseIdentityInput interface {
 	ToQuantumWorkspaceResponseIdentityOutputWithContext(context.Context) QuantumWorkspaceResponseIdentityOutput
 }
 
-// Managed Identity information.
 type QuantumWorkspaceResponseIdentityArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -524,7 +513,6 @@ func (i *quantumWorkspaceResponseIdentityPtrType) ToQuantumWorkspaceResponseIden
 	return pulumi.ToOutputWithContext(ctx, i).(QuantumWorkspaceResponseIdentityPtrOutput)
 }
 
-// Managed Identity information.
 type QuantumWorkspaceResponseIdentityOutput struct{ *pulumi.OutputState }
 
 func (QuantumWorkspaceResponseIdentityOutput) ElementType() reflect.Type {
@@ -618,7 +606,6 @@ func (o QuantumWorkspaceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -645,7 +632,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -714,7 +700,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
 type AdvancedFilterOperatorType string
 
 const (
@@ -185,7 +184,6 @@ func (in *advancedFilterOperatorTypePtr) ToAdvancedFilterOperatorTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(AdvancedFilterOperatorTypePtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
 type DeadLetterEndPointType string
 
 const (
@@ -349,7 +347,6 @@ func (in *deadLetterEndPointTypePtr) ToDeadLetterEndPointTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DeadLetterEndPointTypePtrOutput)
 }
 
-// Type of the endpoint for the event subscription destination.
 type EndpointType string
 
 const (
@@ -519,7 +516,6 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointTypePtrOutput)
 }
 
-// The event delivery schema for the event subscription.
 type EventDeliverySchema string
 
 const (
@@ -685,7 +681,6 @@ func (in *eventDeliverySchemaPtr) ToEventDeliverySchemaPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EventDeliverySchemaPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 type EventSubscriptionIdentityType string
 
 const (
@@ -850,7 +845,6 @@ func (in *eventSubscriptionIdentityTypePtr) ToEventSubscriptionIdentityTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionIdentityTypePtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 type IdentityType string
 
 const (
@@ -1017,7 +1011,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// This determines the format that Event Grid should expect for incoming events published to the topic.
 type InputSchema string
 
 const (
@@ -1183,7 +1176,6 @@ func (in *inputSchemaPtr) ToInputSchemaPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(InputSchemaPtrOutput)
 }
 
-// Type of the custom mapping
 type InputSchemaMappingType string
 
 const (
@@ -1347,7 +1339,6 @@ func (in *inputSchemaMappingTypePtr) ToInputSchemaMappingTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(InputSchemaMappingTypePtrOutput)
 }
 
-// Action to perform based on the match or no match of the IpMask.
 type IpActionType string
 
 const (
@@ -1511,7 +1502,6 @@ func (in *ipActionTypePtr) ToIpActionTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IpActionTypePtrOutput)
 }
 
-// Visibility state of the partner registration.
 type PartnerRegistrationVisibilityState string
 
 const (
@@ -1677,7 +1667,6 @@ func (in *partnerRegistrationVisibilityStatePtr) ToPartnerRegistrationVisibility
 	return pulumi.ToOutputWithContext(ctx, in).(PartnerRegistrationVisibilityStatePtrOutput)
 }
 
-// Status of the connection.
 type PersistedConnectionStatus string
 
 const (
@@ -1844,8 +1833,6 @@ func (in *persistedConnectionStatusPtr) ToPersistedConnectionStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(PersistedConnectionStatusPtrOutput)
 }
 
-// This determines if traffic is allowed over public network. By default it is enabled.
-// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 type PublicNetworkAccess string
 
 const (
@@ -2010,7 +1997,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// Provisioning state of the Private Endpoint Connection.
 type ResourceProvisioningState string
 
 const (

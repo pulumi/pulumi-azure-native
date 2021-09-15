@@ -42,7 +42,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Services response resource.
      */
-    public readonly properties!: pulumi.Output<outputs.documentdb.v20210701preview.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.v20210701preview.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.v20210701preview.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20210701preview.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.v20210701preview.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.v20210701preview.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
     /**
      * The type of Azure resource.
      */
@@ -66,10 +66,13 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["instanceCount"] = args ? args.instanceCount : undefined;
+            inputs["instanceSize"] = args ? args.instanceSize : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["serviceType"] = args ? args.serviceType : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
@@ -94,9 +97,13 @@ export interface ServiceArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Services response resource.
+     * Instance count for the service.
      */
-    properties?: pulumi.Input<inputs.documentdb.v20210701preview.DataTransferServiceResourcePropertiesArgs | inputs.documentdb.v20210701preview.GraphAPIComputeServiceResourcePropertiesArgs | inputs.documentdb.v20210701preview.SqlDedicatedGatewayServiceResourcePropertiesArgs>;
+    instanceCount?: pulumi.Input<number>;
+    /**
+     * Instance type for the service.
+     */
+    instanceSize?: pulumi.Input<string | enums.documentdb.v20210701preview.ServiceSize>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,4 +112,8 @@ export interface ServiceArgs {
      * Cosmos DB service name.
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * ServiceType for the service.
+     */
+    serviceType?: pulumi.Input<string | enums.documentdb.v20210701preview.ServiceType>;
 }

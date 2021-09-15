@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of host the Custom Locations is referencing (Kubernetes, etc...).
 type HostType string
 
 const (

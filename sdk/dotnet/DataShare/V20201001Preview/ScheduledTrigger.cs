@@ -123,6 +123,8 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ScheduledTrigger"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:ScheduledTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ScheduledTrigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:ScheduledTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

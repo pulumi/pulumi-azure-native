@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A2A container mapping input.
 type A2AContainerMappingInput struct {
 	// A value indicating whether the auto update is enabled.
 	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
@@ -32,7 +31,6 @@ type A2AContainerMappingInputInput interface {
 	ToA2AContainerMappingInputOutputWithContext(context.Context) A2AContainerMappingInputOutput
 }
 
-// A2A container mapping input.
 type A2AContainerMappingInputArgs struct {
 	// A value indicating whether the auto update is enabled.
 	AgentAutoUpdateStatus pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
@@ -55,7 +53,6 @@ func (i A2AContainerMappingInputArgs) ToA2AContainerMappingInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AContainerMappingInputOutput)
 }
 
-// A2A container mapping input.
 type A2AContainerMappingInputOutput struct{ *pulumi.OutputState }
 
 func (A2AContainerMappingInputOutput) ElementType() reflect.Type {
@@ -86,7 +83,6 @@ func (o A2AContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInput struct {
 	// The recovery disk encryption information.
 	DiskEncryptionInfo *DiskEncryptionInfo `pulumi:"diskEncryptionInfo"`
@@ -132,7 +128,6 @@ type A2AEnableProtectionInputInput interface {
 	ToA2AEnableProtectionInputOutputWithContext(context.Context) A2AEnableProtectionInputOutput
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInputArgs struct {
 	// The recovery disk encryption information.
 	DiskEncryptionInfo DiskEncryptionInfoPtrInput `pulumi:"diskEncryptionInfo"`
@@ -179,7 +174,6 @@ func (i A2AEnableProtectionInputArgs) ToA2AEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AEnableProtectionInputOutput)
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (A2AEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -270,7 +264,6 @@ func (o A2AEnableProtectionInputOutput) VmManagedDisks() A2AVmManagedDiskInputDe
 	return o.ApplyT(func(v A2AEnableProtectionInput) []A2AVmManagedDiskInputDetails { return v.VmManagedDisks }).(A2AVmManagedDiskInputDetailsArrayOutput)
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -296,7 +289,6 @@ type A2APolicyCreationInputInput interface {
 	ToA2APolicyCreationInputOutputWithContext(context.Context) A2APolicyCreationInputOutput
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -323,7 +315,6 @@ func (i A2APolicyCreationInputArgs) ToA2APolicyCreationInputOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyCreationInputOutput)
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInputOutput struct{ *pulumi.OutputState }
 
 func (A2APolicyCreationInputOutput) ElementType() reflect.Type {
@@ -364,7 +355,6 @@ func (o A2APolicyCreationInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput
 	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -392,7 +382,6 @@ type A2APolicyDetailsResponseInput interface {
 	ToA2APolicyDetailsResponseOutputWithContext(context.Context) A2APolicyDetailsResponseOutput
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -421,7 +410,6 @@ func (i A2APolicyDetailsResponseArgs) ToA2APolicyDetailsResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyDetailsResponseOutput)
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2APolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -467,7 +455,6 @@ func (o A2APolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponse struct {
 	// The disk level operations list.
 	AllowedDiskLevelOperation []string `pulumi:"allowedDiskLevelOperation"`
@@ -524,7 +511,6 @@ type A2AProtectedDiskDetailsResponseInput interface {
 	ToA2AProtectedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedDiskDetailsResponseOutput
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponseArgs struct {
 	// The disk level operations list.
 	AllowedDiskLevelOperation pulumi.StringArrayInput `pulumi:"allowedDiskLevelOperation"`
@@ -607,7 +593,6 @@ func (i A2AProtectedDiskDetailsResponseArray) ToA2AProtectedDiskDetailsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedDiskDetailsResponseArrayOutput)
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -747,7 +732,6 @@ func (o A2AProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) A2A
 	}).(A2AProtectedDiskDetailsResponseOutput)
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponse struct {
 	// The disk level operations list.
 	AllowedDiskLevelOperation []string `pulumi:"allowedDiskLevelOperation"`
@@ -814,7 +798,6 @@ type A2AProtectedManagedDiskDetailsResponseInput interface {
 	ToA2AProtectedManagedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedManagedDiskDetailsResponseOutput
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponseArgs struct {
 	// The disk level operations list.
 	AllowedDiskLevelOperation pulumi.StringArrayInput `pulumi:"allowedDiskLevelOperation"`
@@ -907,7 +890,6 @@ func (i A2AProtectedManagedDiskDetailsResponseArray) ToA2AProtectedManagedDiskDe
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedManagedDiskDetailsResponseArrayOutput)
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectedManagedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -1074,7 +1056,6 @@ func (o A2AProtectedManagedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInp
 	}).(A2AProtectedManagedDiskDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponse struct {
 	// A value indicating whether the auto update is enabled.
 	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
@@ -1100,7 +1081,6 @@ type A2AProtectionContainerMappingDetailsResponseInput interface {
 	ToA2AProtectionContainerMappingDetailsResponseOutputWithContext(context.Context) A2AProtectionContainerMappingDetailsResponseOutput
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponseArgs struct {
 	// A value indicating whether the auto update is enabled.
 	AgentAutoUpdateStatus pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
@@ -1127,7 +1107,6 @@ func (i A2AProtectionContainerMappingDetailsResponseArgs) ToA2AProtectionContain
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectionContainerMappingDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectionContainerMappingDetailsResponseOutput) ElementType() reflect.Type {
@@ -1168,7 +1147,6 @@ func (o A2AProtectionContainerMappingDetailsResponseOutput) ScheduleName() pulum
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) *string { return v.ScheduleName }).(pulumi.StringPtrOutput)
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponse struct {
 	// The agent version.
 	AgentVersion *string `pulumi:"agentVersion"`
@@ -1268,7 +1246,6 @@ type A2AReplicationDetailsResponseInput interface {
 	ToA2AReplicationDetailsResponseOutputWithContext(context.Context) A2AReplicationDetailsResponseOutput
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponseArgs struct {
 	// The agent version.
 	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
@@ -1369,7 +1346,6 @@ func (i A2AReplicationDetailsResponseArgs) ToA2AReplicationDetailsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(A2AReplicationDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -1599,7 +1575,6 @@ func (o A2AReplicationDetailsResponseOutput) VmSyncedConfigDetails() AzureToAzur
 	}).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
-// A2A unprotected disk details.
 type A2AUnprotectedDiskDetailsResponse struct {
 	// The source lun Id for the data disk.
 	DiskLunId *int `pulumi:"diskLunId"`
@@ -1616,7 +1591,6 @@ type A2AUnprotectedDiskDetailsResponseInput interface {
 	ToA2AUnprotectedDiskDetailsResponseOutputWithContext(context.Context) A2AUnprotectedDiskDetailsResponseOutput
 }
 
-// A2A unprotected disk details.
 type A2AUnprotectedDiskDetailsResponseArgs struct {
 	// The source lun Id for the data disk.
 	DiskLunId pulumi.IntPtrInput `pulumi:"diskLunId"`
@@ -1659,7 +1633,6 @@ func (i A2AUnprotectedDiskDetailsResponseArray) ToA2AUnprotectedDiskDetailsRespo
 	return pulumi.ToOutputWithContext(ctx, i).(A2AUnprotectedDiskDetailsResponseArrayOutput)
 }
 
-// A2A unprotected disk details.
 type A2AUnprotectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AUnprotectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -1699,7 +1672,6 @@ func (o A2AUnprotectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(A2AUnprotectedDiskDetailsResponseOutput)
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetails struct {
 	// The disk Uri.
 	DiskUri *string `pulumi:"diskUri"`
@@ -1720,7 +1692,6 @@ type A2AVmDiskInputDetailsInput interface {
 	ToA2AVmDiskInputDetailsOutputWithContext(context.Context) A2AVmDiskInputDetailsOutput
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetailsArgs struct {
 	// The disk Uri.
 	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
@@ -1767,7 +1738,6 @@ func (i A2AVmDiskInputDetailsArray) ToA2AVmDiskInputDetailsArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmDiskInputDetailsArrayOutput)
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetailsOutput struct{ *pulumi.OutputState }
 
 func (A2AVmDiskInputDetailsOutput) ElementType() reflect.Type {
@@ -1817,7 +1787,6 @@ func (o A2AVmDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmDiskInpu
 	}).(A2AVmDiskInputDetailsOutput)
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetails struct {
 	// The recovery disk encryption information (for one / single pass flows).
 	DiskEncryptionInfo *DiskEncryptionInfo `pulumi:"diskEncryptionInfo"`
@@ -1846,7 +1815,6 @@ type A2AVmManagedDiskInputDetailsInput interface {
 	ToA2AVmManagedDiskInputDetailsOutputWithContext(context.Context) A2AVmManagedDiskInputDetailsOutput
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetailsArgs struct {
 	// The recovery disk encryption information (for one / single pass flows).
 	DiskEncryptionInfo DiskEncryptionInfoPtrInput `pulumi:"diskEncryptionInfo"`
@@ -1901,7 +1869,6 @@ func (i A2AVmManagedDiskInputDetailsArray) ToA2AVmManagedDiskInputDetailsArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmManagedDiskInputDetailsArrayOutput)
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetailsOutput struct{ *pulumi.OutputState }
 
 func (A2AVmManagedDiskInputDetailsOutput) ElementType() reflect.Type {
@@ -2044,7 +2011,6 @@ func (o AADPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputProperties struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInput `pulumi:"authenticationIdentityInput"`
@@ -2069,7 +2035,6 @@ type AddRecoveryServicesProviderInputPropertiesInput interface {
 	ToAddRecoveryServicesProviderInputPropertiesOutputWithContext(context.Context) AddRecoveryServicesProviderInputPropertiesOutput
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputPropertiesArgs struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInputInput `pulumi:"authenticationIdentityInput"`
@@ -2136,7 +2101,6 @@ func (i *addRecoveryServicesProviderInputPropertiesPtrType) ToAddRecoveryService
 	return pulumi.ToOutputWithContext(ctx, i).(AddRecoveryServicesProviderInputPropertiesPtrOutput)
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AddRecoveryServicesProviderInputPropertiesOutput) ElementType() reflect.Type {
@@ -2266,7 +2230,6 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) ResourceAccessIdent
 	}).(IdentityProviderInputPtrOutput)
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestProperties struct {
 	// The friendly name of the vCenter.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -2291,7 +2254,6 @@ type AddVCenterRequestPropertiesInput interface {
 	ToAddVCenterRequestPropertiesOutputWithContext(context.Context) AddVCenterRequestPropertiesOutput
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestPropertiesArgs struct {
 	// The friendly name of the vCenter.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -2358,7 +2320,6 @@ func (i *addVCenterRequestPropertiesPtrType) ToAddVCenterRequestPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AddVCenterRequestPropertiesPtrOutput)
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AddVCenterRequestPropertiesOutput) ElementType() reflect.Type {
@@ -2482,7 +2443,6 @@ func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Agent details.
 type AgentDetailsResponse struct {
 	// The Id of the agent running on the server.
 	AgentId string `pulumi:"agentId"`
@@ -2507,7 +2467,6 @@ type AgentDetailsResponseInput interface {
 	ToAgentDetailsResponseOutputWithContext(context.Context) AgentDetailsResponseOutput
 }
 
-// Agent details.
 type AgentDetailsResponseArgs struct {
 	// The Id of the agent running on the server.
 	AgentId pulumi.StringInput `pulumi:"agentId"`
@@ -2558,7 +2517,6 @@ func (i AgentDetailsResponseArray) ToAgentDetailsResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AgentDetailsResponseArrayOutput)
 }
 
-// Agent details.
 type AgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -2618,7 +2576,6 @@ func (o AgentDetailsResponseArrayOutput) Index(i pulumi.IntInput) AgentDetailsRe
 	}).(AgentDetailsResponseOutput)
 }
 
-// Agent disk details.
 type AgentDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	CapacityInBytes float64 `pulumi:"capacityInBytes"`
@@ -2643,7 +2600,6 @@ type AgentDiskDetailsResponseInput interface {
 	ToAgentDiskDetailsResponseOutputWithContext(context.Context) AgentDiskDetailsResponseOutput
 }
 
-// Agent disk details.
 type AgentDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
 	CapacityInBytes pulumi.Float64Input `pulumi:"capacityInBytes"`
@@ -2694,7 +2650,6 @@ func (i AgentDiskDetailsResponseArray) ToAgentDiskDetailsResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AgentDiskDetailsResponseArrayOutput)
 }
 
-// Agent disk details.
 type AgentDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -2754,7 +2709,6 @@ func (o AgentDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) AgentDiskD
 	}).(AgentDiskDetailsResponseOutput)
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -2799,7 +2753,6 @@ type AzureBackupServerContainerInput interface {
 	ToAzureBackupServerContainerOutputWithContext(context.Context) AzureBackupServerContainerOutput
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -2845,7 +2798,6 @@ func (i AzureBackupServerContainerArgs) ToAzureBackupServerContainerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupServerContainerOutput)
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupServerContainerOutput) ElementType() reflect.Type {
@@ -2929,7 +2881,6 @@ func (o AzureBackupServerContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v AzureBackupServerContainer) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -2974,7 +2925,6 @@ type AzureBackupServerContainerResponseInput interface {
 	ToAzureBackupServerContainerResponseOutputWithContext(context.Context) AzureBackupServerContainerResponseOutput
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -3020,7 +2970,6 @@ func (i AzureBackupServerContainerResponseArgs) ToAzureBackupServerContainerResp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupServerContainerResponseOutput)
 }
 
-// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureBackupServerContainerResponseOutput) ElementType() reflect.Type {
@@ -3104,7 +3053,6 @@ func (o AzureBackupServerContainerResponseOutput) UpgradeAvailable() pulumi.Bool
 	return o.ApplyT(func(v AzureBackupServerContainerResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInput struct {
 	// Gets the class type.
 	// Expected value is 'Azure'.
@@ -3124,7 +3072,6 @@ type AzureFabricCreationInputInput interface {
 	ToAzureFabricCreationInputOutputWithContext(context.Context) AzureFabricCreationInputOutput
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInputArgs struct {
 	// Gets the class type.
 	// Expected value is 'Azure'.
@@ -3145,7 +3092,6 @@ func (i AzureFabricCreationInputArgs) ToAzureFabricCreationInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFabricCreationInputOutput)
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInputOutput struct{ *pulumi.OutputState }
 
 func (AzureFabricCreationInputOutput) ElementType() reflect.Type {
@@ -3171,7 +3117,6 @@ func (o AzureFabricCreationInputOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFabricCreationInput) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponse struct {
 	// The container Ids for the Azure fabric.
 	ContainerIds []string `pulumi:"containerIds"`
@@ -3193,7 +3138,6 @@ type AzureFabricSpecificDetailsResponseInput interface {
 	ToAzureFabricSpecificDetailsResponseOutputWithContext(context.Context) AzureFabricSpecificDetailsResponseOutput
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponseArgs struct {
 	// The container Ids for the Azure fabric.
 	ContainerIds pulumi.StringArrayInput `pulumi:"containerIds"`
@@ -3216,7 +3160,6 @@ func (i AzureFabricSpecificDetailsResponseArgs) ToAzureFabricSpecificDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFabricSpecificDetailsResponseOutput)
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
@@ -3247,7 +3190,6 @@ func (o AzureFabricSpecificDetailsResponseOutput) Location() pulumi.StringPtrOut
 	return o.ApplyT(func(v AzureFabricSpecificDetailsResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureStorage'.
@@ -3275,7 +3217,6 @@ type AzureFileShareProtectionPolicyInput interface {
 	ToAzureFileShareProtectionPolicyOutputWithContext(context.Context) AzureFileShareProtectionPolicyOutput
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureStorage'.
@@ -3304,7 +3245,6 @@ func (i AzureFileShareProtectionPolicyArgs) ToAzureFileShareProtectionPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileShareProtectionPolicyOutput)
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AzureFileShareProtectionPolicyOutput) ElementType() reflect.Type {
@@ -3350,7 +3290,6 @@ func (o AzureFileShareProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOut
 	return o.ApplyT(func(v AzureFileShareProtectionPolicy) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureStorage'.
@@ -3378,7 +3317,6 @@ type AzureFileShareProtectionPolicyResponseInput interface {
 	ToAzureFileShareProtectionPolicyResponseOutputWithContext(context.Context) AzureFileShareProtectionPolicyResponseOutput
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureStorage'.
@@ -3407,7 +3345,6 @@ func (i AzureFileShareProtectionPolicyResponseArgs) ToAzureFileShareProtectionPo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileShareProtectionPolicyResponseOutput)
 }
 
-// AzureStorage backup policy.
 type AzureFileShareProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileShareProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -3453,7 +3390,6 @@ func (o AzureFileShareProtectionPolicyResponseOutput) WorkLoadType() pulumi.Stri
 	return o.ApplyT(func(v AzureFileShareProtectionPolicyResponse) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -3511,7 +3447,6 @@ type AzureFileshareProtectedItemInput interface {
 	ToAzureFileshareProtectedItemOutputWithContext(context.Context) AzureFileshareProtectedItemOutput
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -3570,7 +3505,6 @@ func (i AzureFileshareProtectedItemArgs) ToAzureFileshareProtectedItemOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemOutput) ElementType() reflect.Type {
@@ -3691,7 +3625,6 @@ func (o AzureFileshareProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfo struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -3712,7 +3645,6 @@ type AzureFileshareProtectedItemExtendedInfoInput interface {
 	ToAzureFileshareProtectedItemExtendedInfoOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoOutput
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoArgs struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -3775,7 +3707,6 @@ func (i *azureFileshareProtectedItemExtendedInfoPtrType) ToAzureFileshareProtect
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -3869,7 +3800,6 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -3894,7 +3824,6 @@ type AzureFileshareProtectedItemExtendedInfoResponseInput interface {
 	ToAzureFileshareProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponseArgs struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -3961,7 +3890,6 @@ func (i *azureFileshareProtectedItemExtendedInfoResponsePtrType) ToAzureFileshar
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -4085,7 +4013,6 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceStateS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4143,7 +4070,6 @@ type AzureFileshareProtectedItemResponseInput interface {
 	ToAzureFileshareProtectedItemResponseOutputWithContext(context.Context) AzureFileshareProtectedItemResponseOutput
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -4202,7 +4128,6 @@ func (i AzureFileshareProtectedItemResponseArgs) ToAzureFileshareProtectedItemRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemResponseOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -4327,7 +4252,6 @@ func (o AzureFileshareProtectedItemResponseOutput) WorkloadType() pulumi.StringP
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4362,7 +4286,6 @@ type AzureIaaSClassicComputeVMContainerInput interface {
 	ToAzureIaaSClassicComputeVMContainerOutputWithContext(context.Context) AzureIaaSClassicComputeVMContainerOutput
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -4398,7 +4321,6 @@ func (i AzureIaaSClassicComputeVMContainerArgs) ToAzureIaaSClassicComputeVMConta
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMContainerOutput)
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMContainerOutput) ElementType() reflect.Type {
@@ -4457,7 +4379,6 @@ func (o AzureIaaSClassicComputeVMContainerOutput) VirtualMachineVersion() pulumi
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4492,7 +4413,6 @@ type AzureIaaSClassicComputeVMContainerResponseInput interface {
 	ToAzureIaaSClassicComputeVMContainerResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMContainerResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -4528,7 +4448,6 @@ func (i AzureIaaSClassicComputeVMContainerResponseArgs) ToAzureIaaSClassicComput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMContainerResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing a classic virtual machine.
 type AzureIaaSClassicComputeVMContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMContainerResponseOutput) ElementType() reflect.Type {
@@ -4587,7 +4506,6 @@ func (o AzureIaaSClassicComputeVMContainerResponseOutput) VirtualMachineVersion(
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4653,7 +4571,6 @@ type AzureIaaSClassicComputeVMProtectedItemInput interface {
 	ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -4720,7 +4637,6 @@ func (i AzureIaaSClassicComputeVMProtectedItemArgs) ToAzureIaaSClassicComputeVMP
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMProtectedItemOutput) ElementType() reflect.Type {
@@ -4865,7 +4781,6 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() pulumi.Stri
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4933,7 +4848,6 @@ type AzureIaaSClassicComputeVMProtectedItemResponseInput interface {
 	ToAzureIaaSClassicComputeVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -5002,7 +4916,6 @@ func (i AzureIaaSClassicComputeVMProtectedItemResponseArgs) ToAzureIaaSClassicCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -5158,7 +5071,6 @@ func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) WorkloadType() pul
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -5193,7 +5105,6 @@ type AzureIaaSComputeVMContainerInput interface {
 	ToAzureIaaSComputeVMContainerOutputWithContext(context.Context) AzureIaaSComputeVMContainerOutput
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -5229,7 +5140,6 @@ func (i AzureIaaSComputeVMContainerArgs) ToAzureIaaSComputeVMContainerOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMContainerOutput)
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMContainerOutput) ElementType() reflect.Type {
@@ -5288,7 +5198,6 @@ func (o AzureIaaSComputeVMContainerOutput) VirtualMachineVersion() pulumi.String
 	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -5323,7 +5232,6 @@ type AzureIaaSComputeVMContainerResponseInput interface {
 	ToAzureIaaSComputeVMContainerResponseOutputWithContext(context.Context) AzureIaaSComputeVMContainerResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -5359,7 +5267,6 @@ func (i AzureIaaSComputeVMContainerResponseArgs) ToAzureIaaSComputeVMContainerRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMContainerResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMContainerResponseOutput) ElementType() reflect.Type {
@@ -5418,7 +5325,6 @@ func (o AzureIaaSComputeVMContainerResponseOutput) VirtualMachineVersion() pulum
 	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -5484,7 +5390,6 @@ type AzureIaaSComputeVMProtectedItemInput interface {
 	ToAzureIaaSComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -5551,7 +5456,6 @@ func (i AzureIaaSComputeVMProtectedItemArgs) ToAzureIaaSComputeVMProtectedItemOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMProtectedItemOutput) ElementType() reflect.Type {
@@ -5692,7 +5596,6 @@ func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -5760,7 +5663,6 @@ type AzureIaaSComputeVMProtectedItemResponseInput interface {
 	ToAzureIaaSComputeVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -5829,7 +5731,6 @@ func (i AzureIaaSComputeVMProtectedItemResponseArgs) ToAzureIaaSComputeVMProtect
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -5983,7 +5884,6 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) WorkloadType() pulumi.Str
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponse struct {
 	// Health Code
 	Code int `pulumi:"code"`
@@ -6006,7 +5906,6 @@ type AzureIaaSVMHealthDetailsResponseInput interface {
 	ToAzureIaaSVMHealthDetailsResponseOutputWithContext(context.Context) AzureIaaSVMHealthDetailsResponseOutput
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponseArgs struct {
 	// Health Code
 	Code pulumi.IntInput `pulumi:"code"`
@@ -6055,7 +5954,6 @@ func (i AzureIaaSVMHealthDetailsResponseArray) ToAzureIaaSVMHealthDetailsRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMHealthDetailsResponseArrayOutput)
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -6110,7 +6008,6 @@ func (o AzureIaaSVMHealthDetailsResponseArrayOutput) Index(i pulumi.IntInput) Az
 	}).(AzureIaaSVMHealthDetailsResponseOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -6176,7 +6073,6 @@ type AzureIaaSVMProtectedItemInput interface {
 	ToAzureIaaSVMProtectedItemOutputWithContext(context.Context) AzureIaaSVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -6243,7 +6139,6 @@ func (i AzureIaaSVMProtectedItemArgs) ToAzureIaaSVMProtectedItemOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemOutput) ElementType() reflect.Type {
@@ -6384,7 +6279,6 @@ func (o AzureIaaSVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfo struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -6405,7 +6299,6 @@ type AzureIaaSVMProtectedItemExtendedInfoInput interface {
 	ToAzureIaaSVMProtectedItemExtendedInfoOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoArgs struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -6468,7 +6361,6 @@ func (i *azureIaaSVMProtectedItemExtendedInfoPtrType) ToAzureIaaSVMProtectedItem
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -6562,7 +6454,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -6583,7 +6474,6 @@ type AzureIaaSVMProtectedItemExtendedInfoResponseInput interface {
 	ToAzureIaaSVMProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponseArgs struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -6646,7 +6536,6 @@ func (i *azureIaaSVMProtectedItemExtendedInfoResponsePtrType) ToAzureIaaSVMProte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -6740,7 +6629,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCoun
 	}).(pulumi.IntPtrOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -6808,7 +6696,6 @@ type AzureIaaSVMProtectedItemResponseInput interface {
 	ToAzureIaaSVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -6877,7 +6764,6 @@ func (i AzureIaaSVMProtectedItemResponseArgs) ToAzureIaaSVMProtectedItemResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -7027,7 +6913,6 @@ func (o AzureIaaSVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrO
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -7056,7 +6941,6 @@ type AzureIaaSVMProtectionPolicyInput interface {
 	ToAzureIaaSVMProtectionPolicyOutputWithContext(context.Context) AzureIaaSVMProtectionPolicyOutput
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -7086,7 +6970,6 @@ func (i AzureIaaSVMProtectionPolicyArgs) ToAzureIaaSVMProtectionPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectionPolicyOutput)
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectionPolicyOutput) ElementType() reflect.Type {
@@ -7136,7 +7019,6 @@ func (o AzureIaaSVMProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicy) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -7165,7 +7047,6 @@ type AzureIaaSVMProtectionPolicyResponseInput interface {
 	ToAzureIaaSVMProtectionPolicyResponseOutputWithContext(context.Context) AzureIaaSVMProtectionPolicyResponseOutput
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -7195,7 +7076,6 @@ func (i AzureIaaSVMProtectionPolicyResponseArgs) ToAzureIaaSVMProtectionPolicyRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectionPolicyResponseOutput)
 }
 
-// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -7247,7 +7127,6 @@ func (o AzureIaaSVMProtectionPolicyResponseOutput) TimeZone() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntent struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7275,7 +7154,6 @@ type AzureRecoveryServiceVaultProtectionIntentInput interface {
 	ToAzureRecoveryServiceVaultProtectionIntentOutputWithContext(context.Context) AzureRecoveryServiceVaultProtectionIntentOutput
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntentArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7304,7 +7182,6 @@ func (i AzureRecoveryServiceVaultProtectionIntentArgs) ToAzureRecoveryServiceVau
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRecoveryServiceVaultProtectionIntentOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntentOutput struct{ *pulumi.OutputState }
 
 func (AzureRecoveryServiceVaultProtectionIntentOutput) ElementType() reflect.Type {
@@ -7350,7 +7227,6 @@ func (o AzureRecoveryServiceVaultProtectionIntentOutput) SourceResourceId() pulu
 	return o.ApplyT(func(v AzureRecoveryServiceVaultProtectionIntent) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntentResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7378,7 +7254,6 @@ type AzureRecoveryServiceVaultProtectionIntentResponseInput interface {
 	ToAzureRecoveryServiceVaultProtectionIntentResponseOutputWithContext(context.Context) AzureRecoveryServiceVaultProtectionIntentResponseOutput
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntentResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7407,7 +7282,6 @@ func (i AzureRecoveryServiceVaultProtectionIntentResponseArgs) ToAzureRecoverySe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRecoveryServiceVaultProtectionIntentResponseOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureRecoveryServiceVaultProtectionIntentResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureRecoveryServiceVaultProtectionIntentResponseOutput) ElementType() reflect.Type {
@@ -7453,7 +7327,6 @@ func (o AzureRecoveryServiceVaultProtectionIntentResponseOutput) SourceResourceI
 	return o.ApplyT(func(v AzureRecoveryServiceVaultProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntent struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7483,7 +7356,6 @@ type AzureResourceProtectionIntentInput interface {
 	ToAzureResourceProtectionIntentOutputWithContext(context.Context) AzureResourceProtectionIntentOutput
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntentArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7514,7 +7386,6 @@ func (i AzureResourceProtectionIntentArgs) ToAzureResourceProtectionIntentOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceProtectionIntentOutput)
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntentOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceProtectionIntentOutput) ElementType() reflect.Type {
@@ -7565,7 +7436,6 @@ func (o AzureResourceProtectionIntentOutput) SourceResourceId() pulumi.StringPtr
 	return o.ApplyT(func(v AzureResourceProtectionIntent) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntentResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7595,7 +7465,6 @@ type AzureResourceProtectionIntentResponseInput interface {
 	ToAzureResourceProtectionIntentResponseOutputWithContext(context.Context) AzureResourceProtectionIntentResponseOutput
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntentResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7626,7 +7495,6 @@ func (i AzureResourceProtectionIntentResponseArgs) ToAzureResourceProtectionInte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceProtectionIntentResponseOutput)
 }
 
-// IaaS VM specific backup protection intent item.
 type AzureResourceProtectionIntentResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceProtectionIntentResponseOutput) ElementType() reflect.Type {
@@ -7677,7 +7545,6 @@ func (o AzureResourceProtectionIntentResponseOutput) SourceResourceId() pulumi.S
 	return o.ApplyT(func(v AzureResourceProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7716,7 +7583,6 @@ type AzureSQLAGWorkloadContainerProtectionContainerInput interface {
 	ToAzureSQLAGWorkloadContainerProtectionContainerOutputWithContext(context.Context) AzureSQLAGWorkloadContainerProtectionContainerOutput
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7756,7 +7622,6 @@ func (i AzureSQLAGWorkloadContainerProtectionContainerArgs) ToAzureSQLAGWorkload
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSQLAGWorkloadContainerProtectionContainerOutput)
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureSQLAGWorkloadContainerProtectionContainerOutput) ElementType() reflect.Type {
@@ -7827,7 +7692,6 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) WorkloadType() pul
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -7866,7 +7730,6 @@ type AzureSQLAGWorkloadContainerProtectionContainerResponseInput interface {
 	ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutputWithContext(context.Context) AzureSQLAGWorkloadContainerProtectionContainerResponseOutput
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -7906,7 +7769,6 @@ func (i AzureSQLAGWorkloadContainerProtectionContainerResponseArgs) ToAzureSQLAG
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSQLAGWorkloadContainerProtectionContainerResponseOutput)
 }
 
-// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ElementType() reflect.Type {
@@ -7977,7 +7839,6 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) WorkloadTy
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -8006,7 +7867,6 @@ type AzureSqlContainerInput interface {
 	ToAzureSqlContainerOutputWithContext(context.Context) AzureSqlContainerOutput
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -8036,7 +7896,6 @@ func (i AzureSqlContainerArgs) ToAzureSqlContainerOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlContainerOutput)
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlContainerOutput) ElementType() reflect.Type {
@@ -8080,7 +7939,6 @@ func (o AzureSqlContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -8109,7 +7967,6 @@ type AzureSqlContainerResponseInput interface {
 	ToAzureSqlContainerResponseOutputWithContext(context.Context) AzureSqlContainerResponseOutput
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -8139,7 +7996,6 @@ func (i AzureSqlContainerResponseArgs) ToAzureSqlContainerResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlContainerResponseOutput)
 }
 
-// Azure Sql workload-specific container.
 type AzureSqlContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlContainerResponseOutput) ElementType() reflect.Type {
@@ -8183,7 +8039,6 @@ func (o AzureSqlContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureSqlContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -8233,7 +8088,6 @@ type AzureSqlProtectedItemInput interface {
 	ToAzureSqlProtectedItemOutputWithContext(context.Context) AzureSqlProtectedItemOutput
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -8284,7 +8138,6 @@ func (i AzureSqlProtectedItemArgs) ToAzureSqlProtectedItemOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemOutput) ElementType() reflect.Type {
@@ -8385,7 +8238,6 @@ func (o AzureSqlProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfo struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -8406,7 +8258,6 @@ type AzureSqlProtectedItemExtendedInfoInput interface {
 	ToAzureSqlProtectedItemExtendedInfoOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoArgs struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -8469,7 +8320,6 @@ func (i *azureSqlProtectedItemExtendedInfoPtrType) ToAzureSqlProtectedItemExtend
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -8563,7 +8413,6 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -8584,7 +8433,6 @@ type AzureSqlProtectedItemExtendedInfoResponseInput interface {
 	ToAzureSqlProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponseArgs struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -8647,7 +8495,6 @@ func (i *azureSqlProtectedItemExtendedInfoResponsePtrType) ToAzureSqlProtectedIt
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -8741,7 +8588,6 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -8791,7 +8637,6 @@ type AzureSqlProtectedItemResponseInput interface {
 	ToAzureSqlProtectedItemResponseOutputWithContext(context.Context) AzureSqlProtectedItemResponseOutput
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -8842,7 +8687,6 @@ func (i AzureSqlProtectedItemResponseArgs) ToAzureSqlProtectedItemResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemResponseOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -8945,7 +8789,6 @@ func (o AzureSqlProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutp
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -8967,7 +8810,6 @@ type AzureSqlProtectionPolicyInput interface {
 	ToAzureSqlProtectionPolicyOutputWithContext(context.Context) AzureSqlProtectionPolicyOutput
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -8990,7 +8832,6 @@ func (i AzureSqlProtectionPolicyArgs) ToAzureSqlProtectionPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectionPolicyOutput)
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectionPolicyOutput) ElementType() reflect.Type {
@@ -9021,7 +8862,6 @@ func (o AzureSqlProtectionPolicyOutput) RetentionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v AzureSqlProtectionPolicy) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -9043,7 +8883,6 @@ type AzureSqlProtectionPolicyResponseInput interface {
 	ToAzureSqlProtectionPolicyResponseOutputWithContext(context.Context) AzureSqlProtectionPolicyResponseOutput
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -9066,7 +8905,6 @@ func (i AzureSqlProtectionPolicyResponseArgs) ToAzureSqlProtectionPolicyResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectionPolicyResponseOutput)
 }
 
-// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -9097,7 +8935,6 @@ func (o AzureSqlProtectionPolicyResponseOutput) RetentionPolicy() pulumi.AnyOutp
 	return o.ApplyT(func(v AzureSqlProtectionPolicyResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -9134,7 +8971,6 @@ type AzureStorageContainerInput interface {
 	ToAzureStorageContainerOutputWithContext(context.Context) AzureStorageContainerOutput
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -9172,7 +9008,6 @@ func (i AzureStorageContainerArgs) ToAzureStorageContainerOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageContainerOutput)
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureStorageContainerOutput) ElementType() reflect.Type {
@@ -9236,7 +9071,6 @@ func (o AzureStorageContainerOutput) StorageAccountVersion() pulumi.StringPtrOut
 	return o.ApplyT(func(v AzureStorageContainer) *string { return v.StorageAccountVersion }).(pulumi.StringPtrOutput)
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -9273,7 +9107,6 @@ type AzureStorageContainerResponseInput interface {
 	ToAzureStorageContainerResponseOutputWithContext(context.Context) AzureStorageContainerResponseOutput
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -9311,7 +9144,6 @@ func (i AzureStorageContainerResponseArgs) ToAzureStorageContainerResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageContainerResponseOutput)
 }
 
-// Azure Storage Account workload-specific container.
 type AzureStorageContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureStorageContainerResponseOutput) ElementType() reflect.Type {
@@ -9375,7 +9207,6 @@ func (o AzureStorageContainerResponseOutput) StorageAccountVersion() pulumi.Stri
 	return o.ApplyT(func(v AzureStorageContainerResponse) *string { return v.StorageAccountVersion }).(pulumi.StringPtrOutput)
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'AzureToAzure'.
@@ -9395,7 +9226,6 @@ type AzureToAzureCreateNetworkMappingInputInput interface {
 	ToAzureToAzureCreateNetworkMappingInputOutputWithContext(context.Context) AzureToAzureCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInputArgs struct {
 	// The instance type.
 	// Expected value is 'AzureToAzure'.
@@ -9416,7 +9246,6 @@ func (i AzureToAzureCreateNetworkMappingInputArgs) ToAzureToAzureCreateNetworkMa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -9442,7 +9271,6 @@ func (o AzureToAzureCreateNetworkMappingInputOutput) PrimaryNetworkId() pulumi.S
 	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.PrimaryNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'AzureToAzure'.
@@ -9464,7 +9292,6 @@ type AzureToAzureNetworkMappingSettingsResponseInput interface {
 	ToAzureToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) AzureToAzureNetworkMappingSettingsResponseOutput
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'AzureToAzure'.
@@ -9487,7 +9314,6 @@ func (i AzureToAzureNetworkMappingSettingsResponseArgs) ToAzureToAzureNetworkMap
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureNetworkMappingSettingsResponseOutput)
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -9518,7 +9344,6 @@ func (o AzureToAzureNetworkMappingSettingsResponseOutput) RecoveryFabricLocation
 	return o.ApplyT(func(v AzureToAzureNetworkMappingSettingsResponse) *string { return v.RecoveryFabricLocation }).(pulumi.StringPtrOutput)
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponse struct {
 	// The Azure VM input endpoints.
 	InputEndpoints []InputEndpointResponse `pulumi:"inputEndpoints"`
@@ -9537,7 +9362,6 @@ type AzureToAzureVmSyncedConfigDetailsResponseInput interface {
 	ToAzureToAzureVmSyncedConfigDetailsResponseOutputWithContext(context.Context) AzureToAzureVmSyncedConfigDetailsResponseOutput
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponseArgs struct {
 	// The Azure VM input endpoints.
 	InputEndpoints InputEndpointResponseArrayInput `pulumi:"inputEndpoints"`
@@ -9598,7 +9422,6 @@ func (i *azureToAzureVmSyncedConfigDetailsResponsePtrType) ToAzureToAzureVmSynce
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureVmSyncedConfigDetailsResponseOutput) ElementType() reflect.Type {
@@ -9677,7 +9500,6 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Tags() pulumi.String
 	}).(pulumi.StringMapOutput)
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -9716,7 +9538,6 @@ type AzureVMAppContainerProtectionContainerInput interface {
 	ToAzureVMAppContainerProtectionContainerOutputWithContext(context.Context) AzureVMAppContainerProtectionContainerOutput
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -9756,7 +9577,6 @@ func (i AzureVMAppContainerProtectionContainerArgs) ToAzureVMAppContainerProtect
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVMAppContainerProtectionContainerOutput)
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureVMAppContainerProtectionContainerOutput) ElementType() reflect.Type {
@@ -9827,7 +9647,6 @@ func (o AzureVMAppContainerProtectionContainerOutput) WorkloadType() pulumi.Stri
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -9866,7 +9685,6 @@ type AzureVMAppContainerProtectionContainerResponseInput interface {
 	ToAzureVMAppContainerProtectionContainerResponseOutputWithContext(context.Context) AzureVMAppContainerProtectionContainerResponseOutput
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -9906,7 +9724,6 @@ func (i AzureVMAppContainerProtectionContainerResponseArgs) ToAzureVMAppContaine
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVMAppContainerProtectionContainerResponseOutput)
 }
 
-// Container for SQL workloads under Azure Virtual Machines.
 type AzureVMAppContainerProtectionContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVMAppContainerProtectionContainerResponseOutput) ElementType() reflect.Type {
@@ -9977,7 +9794,6 @@ func (o AzureVMAppContainerProtectionContainerResponseOutput) WorkloadType() pul
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponse struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -10010,7 +9826,6 @@ type AzureVmDiskDetailsResponseInput interface {
 	ToAzureVmDiskDetailsResponseOutputWithContext(context.Context) AzureVmDiskDetailsResponseOutput
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponseArgs struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -10069,7 +9884,6 @@ func (i AzureVmDiskDetailsResponseArray) ToAzureVmDiskDetailsResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmDiskDetailsResponseArrayOutput)
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -10149,7 +9963,6 @@ func (o AzureVmDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) AzureVmD
 	}).(AzureVmDiskDetailsResponseOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -10217,7 +10030,6 @@ type AzureVmWorkloadProtectedItemInput interface {
 	ToAzureVmWorkloadProtectedItemOutputWithContext(context.Context) AzureVmWorkloadProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -10286,7 +10098,6 @@ func (i AzureVmWorkloadProtectedItemArgs) ToAzureVmWorkloadProtectedItemOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemOutput) ElementType() reflect.Type {
@@ -10432,7 +10243,6 @@ func (o AzureVmWorkloadProtectedItemOutput) WorkloadType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfo struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -10453,7 +10263,6 @@ type AzureVmWorkloadProtectedItemExtendedInfoInput interface {
 	ToAzureVmWorkloadProtectedItemExtendedInfoOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoArgs struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -10516,7 +10325,6 @@ func (i *azureVmWorkloadProtectedItemExtendedInfoPtrType) ToAzureVmWorkloadProte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -10610,7 +10418,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -10631,7 +10438,6 @@ type AzureVmWorkloadProtectedItemExtendedInfoResponseInput interface {
 	ToAzureVmWorkloadProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponseArgs struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
@@ -10694,7 +10500,6 @@ func (i *azureVmWorkloadProtectedItemExtendedInfoResponsePtrType) ToAzureVmWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -10788,7 +10593,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryPoint
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -10858,7 +10662,6 @@ type AzureVmWorkloadProtectedItemResponseInput interface {
 	ToAzureVmWorkloadProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -10929,7 +10732,6 @@ func (i AzureVmWorkloadProtectedItemResponseArgs) ToAzureVmWorkloadProtectedItem
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -11084,7 +10886,6 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) WorkloadType() pulumi.String
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureWorkload'.
@@ -11112,7 +10913,6 @@ type AzureVmWorkloadProtectionPolicyInput interface {
 	ToAzureVmWorkloadProtectionPolicyOutputWithContext(context.Context) AzureVmWorkloadProtectionPolicyOutput
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureWorkload'.
@@ -11141,7 +10941,6 @@ func (i AzureVmWorkloadProtectionPolicyArgs) ToAzureVmWorkloadProtectionPolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectionPolicyOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectionPolicyOutput) ElementType() reflect.Type {
@@ -11187,7 +10986,6 @@ func (o AzureVmWorkloadProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicy) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureWorkload'.
@@ -11215,7 +11013,6 @@ type AzureVmWorkloadProtectionPolicyResponseInput interface {
 	ToAzureVmWorkloadProtectionPolicyResponseOutputWithContext(context.Context) AzureVmWorkloadProtectionPolicyResponseOutput
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureWorkload'.
@@ -11244,7 +11041,6 @@ func (i AzureVmWorkloadProtectionPolicyResponseArgs) ToAzureVmWorkloadProtection
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectionPolicyResponseOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -11292,7 +11088,6 @@ func (o AzureVmWorkloadProtectionPolicyResponseOutput) WorkLoadType() pulumi.Str
 	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyResponse) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -11360,7 +11155,6 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSAPAseDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -11429,7 +11223,6 @@ func (i AzureVmWorkloadSAPAseDatabaseProtectedItemArgs) ToAzureVmWorkloadSAPAseD
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPAseDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -11579,7 +11372,6 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) WorkloadType() pulumi.
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -11649,7 +11441,6 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -11720,7 +11511,6 @@ func (i AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs) ToAzureVmWorkloa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -11883,7 +11673,6 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) WorkloadType()
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -11951,7 +11740,6 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -12020,7 +11808,6 @@ func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs) ToAzureVmWorkloadSAPHan
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -12170,7 +11957,6 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) WorkloadType() pulumi
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -12240,7 +12026,6 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -12311,7 +12096,6 @@ func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs) ToAzureVmWorklo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -12478,7 +12262,6 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) WorkloadType(
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -12546,7 +12329,6 @@ type AzureVmWorkloadSQLDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSQLDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSQLDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -12615,7 +12397,6 @@ func (i AzureVmWorkloadSQLDatabaseProtectedItemArgs) ToAzureVmWorkloadSQLDatabas
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSQLDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -12765,7 +12546,6 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) WorkloadType() pulumi.Str
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -12835,7 +12615,6 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSQLDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -12906,7 +12685,6 @@ func (i AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs) ToAzureVmWorkloadSQ
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -13065,7 +12843,6 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) WorkloadType() pu
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntent struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13093,7 +12870,6 @@ type AzureWorkloadAutoProtectionIntentInput interface {
 	ToAzureWorkloadAutoProtectionIntentOutputWithContext(context.Context) AzureWorkloadAutoProtectionIntentOutput
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntentArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -13122,7 +12898,6 @@ func (i AzureWorkloadAutoProtectionIntentArgs) ToAzureWorkloadAutoProtectionInte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadAutoProtectionIntentOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntentOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadAutoProtectionIntentOutput) ElementType() reflect.Type {
@@ -13168,7 +12943,6 @@ func (o AzureWorkloadAutoProtectionIntentOutput) SourceResourceId() pulumi.Strin
 	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntentResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13196,7 +12970,6 @@ type AzureWorkloadAutoProtectionIntentResponseInput interface {
 	ToAzureWorkloadAutoProtectionIntentResponseOutputWithContext(context.Context) AzureWorkloadAutoProtectionIntentResponseOutput
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntentResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -13225,7 +12998,6 @@ func (i AzureWorkloadAutoProtectionIntentResponseArgs) ToAzureWorkloadAutoProtec
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadAutoProtectionIntentResponseOutput)
 }
 
-// Azure Recovery Services Vault specific protection intent item.
 type AzureWorkloadAutoProtectionIntentResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadAutoProtectionIntentResponseOutput) ElementType() reflect.Type {
@@ -13271,7 +13043,6 @@ func (o AzureWorkloadAutoProtectionIntentResponseOutput) SourceResourceId() pulu
 	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13310,7 +13081,6 @@ type AzureWorkloadContainerInput interface {
 	ToAzureWorkloadContainerOutputWithContext(context.Context) AzureWorkloadContainerOutput
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -13350,7 +13120,6 @@ func (i AzureWorkloadContainerArgs) ToAzureWorkloadContainerOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerOutput)
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainerOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadContainerOutput) ElementType() reflect.Type {
@@ -13419,7 +13188,6 @@ func (o AzureWorkloadContainerOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfo struct {
 	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
 	HostServerName *string `pulumi:"hostServerName"`
@@ -13440,7 +13208,6 @@ type AzureWorkloadContainerExtendedInfoInput interface {
 	ToAzureWorkloadContainerExtendedInfoOutputWithContext(context.Context) AzureWorkloadContainerExtendedInfoOutput
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoArgs struct {
 	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
 	HostServerName pulumi.StringPtrInput `pulumi:"hostServerName"`
@@ -13503,7 +13270,6 @@ func (i *azureWorkloadContainerExtendedInfoPtrType) ToAzureWorkloadContainerExte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerExtendedInfoPtrOutput)
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadContainerExtendedInfoOutput) ElementType() reflect.Type {
@@ -13597,7 +13363,6 @@ func (o AzureWorkloadContainerExtendedInfoPtrOutput) NodesList() DistributedNode
 	}).(DistributedNodesInfoArrayOutput)
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoResponse struct {
 	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
 	HostServerName *string `pulumi:"hostServerName"`
@@ -13618,7 +13383,6 @@ type AzureWorkloadContainerExtendedInfoResponseInput interface {
 	ToAzureWorkloadContainerExtendedInfoResponseOutputWithContext(context.Context) AzureWorkloadContainerExtendedInfoResponseOutput
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoResponseArgs struct {
 	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
 	HostServerName pulumi.StringPtrInput `pulumi:"hostServerName"`
@@ -13681,7 +13445,6 @@ func (i *azureWorkloadContainerExtendedInfoResponsePtrType) ToAzureWorkloadConta
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerExtendedInfoResponsePtrOutput)
 }
 
-// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadContainerExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -13775,7 +13538,6 @@ func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) NodesList() Distrib
 	}).(DistributedNodesInfoResponseArrayOutput)
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13814,7 +13576,6 @@ type AzureWorkloadContainerResponseInput interface {
 	ToAzureWorkloadContainerResponseOutputWithContext(context.Context) AzureWorkloadContainerResponseOutput
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -13854,7 +13615,6 @@ func (i AzureWorkloadContainerResponseArgs) ToAzureWorkloadContainerResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerResponseOutput)
 }
 
-// Container for the workloads running inside Azure Compute or Classic Compute.
 type AzureWorkloadContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadContainerResponseOutput) ElementType() reflect.Type {
@@ -13925,7 +13685,6 @@ func (o AzureWorkloadContainerResponseOutput) WorkloadType() pulumi.StringPtrOut
 	return o.ApplyT(func(v AzureWorkloadContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntent struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13955,7 +13714,6 @@ type AzureWorkloadSQLAutoProtectionIntentInput interface {
 	ToAzureWorkloadSQLAutoProtectionIntentOutputWithContext(context.Context) AzureWorkloadSQLAutoProtectionIntentOutput
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntentArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -13986,7 +13744,6 @@ func (i AzureWorkloadSQLAutoProtectionIntentArgs) ToAzureWorkloadSQLAutoProtecti
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadSQLAutoProtectionIntentOutput)
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntentOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadSQLAutoProtectionIntentOutput) ElementType() reflect.Type {
@@ -14037,7 +13794,6 @@ func (o AzureWorkloadSQLAutoProtectionIntentOutput) WorkloadItemType() pulumi.St
 	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.WorkloadItemType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntentResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -14067,7 +13823,6 @@ type AzureWorkloadSQLAutoProtectionIntentResponseInput interface {
 	ToAzureWorkloadSQLAutoProtectionIntentResponseOutputWithContext(context.Context) AzureWorkloadSQLAutoProtectionIntentResponseOutput
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntentResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -14098,7 +13853,6 @@ func (i AzureWorkloadSQLAutoProtectionIntentResponseArgs) ToAzureWorkloadSQLAuto
 	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadSQLAutoProtectionIntentResponseOutput)
 }
 
-// Azure Workload SQL Auto Protection intent item.
 type AzureWorkloadSQLAutoProtectionIntentResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureWorkloadSQLAutoProtectionIntentResponseOutput) ElementType() reflect.Type {
@@ -14149,7 +13903,6 @@ func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) WorkloadItemType() p
 	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.WorkloadItemType }).(pulumi.StringPtrOutput)
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentity struct {
 	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
 	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
@@ -14168,7 +13921,6 @@ type CmkKekIdentityInput interface {
 	ToCmkKekIdentityOutputWithContext(context.Context) CmkKekIdentityOutput
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentityArgs struct {
 	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
 	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
@@ -14229,7 +13981,6 @@ func (i *cmkKekIdentityPtrType) ToCmkKekIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityPtrOutput)
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentityOutput struct{ *pulumi.OutputState }
 
 func (CmkKekIdentityOutput) ElementType() reflect.Type {
@@ -14308,7 +14059,6 @@ func (o CmkKekIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentityResponse struct {
 	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
 	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
@@ -14327,7 +14077,6 @@ type CmkKekIdentityResponseInput interface {
 	ToCmkKekIdentityResponseOutputWithContext(context.Context) CmkKekIdentityResponseOutput
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentityResponseArgs struct {
 	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
 	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
@@ -14388,7 +14137,6 @@ func (i *cmkKekIdentityResponsePtrType) ToCmkKekIdentityResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityResponsePtrOutput)
 }
 
-// The details of the identity used for CMK
 type CmkKekIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (CmkKekIdentityResponseOutput) ElementType() reflect.Type {
@@ -14467,7 +14215,6 @@ func (o CmkKekIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultProperties struct {
 	// The key uri of the Customer Managed Key
 	KeyUri *string `pulumi:"keyUri"`
@@ -14484,7 +14231,6 @@ type CmkKeyVaultPropertiesInput interface {
 	ToCmkKeyVaultPropertiesOutputWithContext(context.Context) CmkKeyVaultPropertiesOutput
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultPropertiesArgs struct {
 	// The key uri of the Customer Managed Key
 	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
@@ -14543,7 +14289,6 @@ func (i *cmkKeyVaultPropertiesPtrType) ToCmkKeyVaultPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesPtrOutput)
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CmkKeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -14607,7 +14352,6 @@ func (o CmkKeyVaultPropertiesPtrOutput) KeyUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultPropertiesResponse struct {
 	// The key uri of the Customer Managed Key
 	KeyUri *string `pulumi:"keyUri"`
@@ -14624,7 +14368,6 @@ type CmkKeyVaultPropertiesResponseInput interface {
 	ToCmkKeyVaultPropertiesResponseOutputWithContext(context.Context) CmkKeyVaultPropertiesResponseOutput
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultPropertiesResponseArgs struct {
 	// The key uri of the Customer Managed Key
 	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
@@ -14683,7 +14426,6 @@ func (i *cmkKeyVaultPropertiesResponsePtrType) ToCmkKeyVaultPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesResponsePtrOutput)
 }
 
-// The properties of the Key Vault which hosts CMK
 type CmkKeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CmkKeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -14747,7 +14489,6 @@ func (o CmkKeyVaultPropertiesResponsePtrOutput) KeyUri() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Container identity information
 type ContainerIdentityInfo struct {
 	// Protection container identity - AAD Tenant
 	AadTenantId *string `pulumi:"aadTenantId"`
@@ -14770,7 +14511,6 @@ type ContainerIdentityInfoInput interface {
 	ToContainerIdentityInfoOutputWithContext(context.Context) ContainerIdentityInfoOutput
 }
 
-// Container identity information
 type ContainerIdentityInfoArgs struct {
 	// Protection container identity - AAD Tenant
 	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
@@ -14835,7 +14575,6 @@ func (i *containerIdentityInfoPtrType) ToContainerIdentityInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerIdentityInfoPtrOutput)
 }
 
-// Container identity information
 type ContainerIdentityInfoOutput struct{ *pulumi.OutputState }
 
 func (ContainerIdentityInfoOutput) ElementType() reflect.Type {
@@ -14944,7 +14683,6 @@ func (o ContainerIdentityInfoPtrOutput) UniqueName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Container identity information
 type ContainerIdentityInfoResponse struct {
 	// Protection container identity - AAD Tenant
 	AadTenantId *string `pulumi:"aadTenantId"`
@@ -14967,7 +14705,6 @@ type ContainerIdentityInfoResponseInput interface {
 	ToContainerIdentityInfoResponseOutputWithContext(context.Context) ContainerIdentityInfoResponseOutput
 }
 
-// Container identity information
 type ContainerIdentityInfoResponseArgs struct {
 	// Protection container identity - AAD Tenant
 	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
@@ -15032,7 +14769,6 @@ func (i *containerIdentityInfoResponsePtrType) ToContainerIdentityInfoResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerIdentityInfoResponsePtrOutput)
 }
 
-// Container identity information
 type ContainerIdentityInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerIdentityInfoResponseOutput) ElementType() reflect.Type {
@@ -15141,7 +14877,6 @@ func (o ContainerIdentityInfoResponsePtrOutput) UniqueName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputProperties struct {
 	// Fabric specific input properties.
 	FabricSpecificDetails interface{} `pulumi:"fabricSpecificDetails"`
@@ -15162,7 +14897,6 @@ type CreateNetworkMappingInputPropertiesInput interface {
 	ToCreateNetworkMappingInputPropertiesOutputWithContext(context.Context) CreateNetworkMappingInputPropertiesOutput
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputPropertiesArgs struct {
 	// Fabric specific input properties.
 	FabricSpecificDetails pulumi.Input `pulumi:"fabricSpecificDetails"`
@@ -15225,7 +14959,6 @@ func (i *createNetworkMappingInputPropertiesPtrType) ToCreateNetworkMappingInput
 	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateNetworkMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -15319,7 +15052,6 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryNetworkId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy creation properties.
 type CreatePolicyInputProperties struct {
 	// The ReplicationProviderSettings.
 	ProviderSpecificInput interface{} `pulumi:"providerSpecificInput"`
@@ -15336,7 +15068,6 @@ type CreatePolicyInputPropertiesInput interface {
 	ToCreatePolicyInputPropertiesOutputWithContext(context.Context) CreatePolicyInputPropertiesOutput
 }
 
-// Policy creation properties.
 type CreatePolicyInputPropertiesArgs struct {
 	// The ReplicationProviderSettings.
 	ProviderSpecificInput pulumi.Input `pulumi:"providerSpecificInput"`
@@ -15395,7 +15126,6 @@ func (i *createPolicyInputPropertiesPtrType) ToCreatePolicyInputPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CreatePolicyInputPropertiesPtrOutput)
 }
 
-// Policy creation properties.
 type CreatePolicyInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreatePolicyInputPropertiesOutput) ElementType() reflect.Type {
@@ -15459,7 +15189,6 @@ func (o CreatePolicyInputPropertiesPtrOutput) ProviderSpecificInput() pulumi.Any
 	}).(pulumi.AnyOutput)
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputProperties struct {
 	// Applicable policy.
 	PolicyId *string `pulumi:"policyId"`
@@ -15480,7 +15209,6 @@ type CreateProtectionContainerMappingInputPropertiesInput interface {
 	ToCreateProtectionContainerMappingInputPropertiesOutputWithContext(context.Context) CreateProtectionContainerMappingInputPropertiesOutput
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputPropertiesArgs struct {
 	// Applicable policy.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
@@ -15543,7 +15271,6 @@ func (i *createProtectionContainerMappingInputPropertiesPtrType) ToCreateProtect
 	return pulumi.ToOutputWithContext(ctx, i).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateProtectionContainerMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -15637,7 +15364,6 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtecti
 	}).(pulumi.StringPtrOutput)
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputProperties struct {
 	// The failover deployment model.
 	FailoverDeploymentModel *string `pulumi:"failoverDeploymentModel"`
@@ -15662,7 +15388,6 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 	ToCreateRecoveryPlanInputPropertiesOutputWithContext(context.Context) CreateRecoveryPlanInputPropertiesOutput
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
 	// The failover deployment model.
 	FailoverDeploymentModel pulumi.StringPtrInput `pulumi:"failoverDeploymentModel"`
@@ -15729,7 +15454,6 @@ func (i *createRecoveryPlanInputPropertiesPtrType) ToCreateRecoveryPlanInputProp
 	return pulumi.ToOutputWithContext(ctx, i).(CreateRecoveryPlanInputPropertiesPtrOutput)
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateRecoveryPlanInputPropertiesOutput) ElementType() reflect.Type {
@@ -15853,7 +15577,6 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) RecoveryFabricId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponse struct {
 	// The ARM Id of the job being executed.
 	JobId *string `pulumi:"jobId"`
@@ -15874,7 +15597,6 @@ type CurrentJobDetailsResponseInput interface {
 	ToCurrentJobDetailsResponseOutputWithContext(context.Context) CurrentJobDetailsResponseOutput
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponseArgs struct {
 	// The ARM Id of the job being executed.
 	JobId pulumi.StringPtrInput `pulumi:"jobId"`
@@ -15937,7 +15659,6 @@ func (i *currentJobDetailsResponsePtrType) ToCurrentJobDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentJobDetailsResponsePtrOutput)
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentJobDetailsResponseOutput) ElementType() reflect.Type {
@@ -16031,7 +15752,6 @@ func (o CurrentJobDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponse struct {
 	// ARM Id of the job being executed.
 	JobId *string `pulumi:"jobId"`
@@ -16052,7 +15772,6 @@ type CurrentScenarioDetailsResponseInput interface {
 	ToCurrentScenarioDetailsResponseOutputWithContext(context.Context) CurrentScenarioDetailsResponseOutput
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponseArgs struct {
 	// ARM Id of the job being executed.
 	JobId pulumi.StringPtrInput `pulumi:"jobId"`
@@ -16115,7 +15834,6 @@ func (i *currentScenarioDetailsResponsePtrType) ToCurrentScenarioDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentScenarioDetailsResponseOutput) ElementType() reflect.Type {
@@ -16209,7 +15927,6 @@ func (o CurrentScenarioDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfo struct {
 	// Last refresh time of the DPMContainer.
 	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
@@ -16226,7 +15943,6 @@ type DPMContainerExtendedInfoInput interface {
 	ToDPMContainerExtendedInfoOutputWithContext(context.Context) DPMContainerExtendedInfoOutput
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfoArgs struct {
 	// Last refresh time of the DPMContainer.
 	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
@@ -16285,7 +16001,6 @@ func (i *dpmcontainerExtendedInfoPtrType) ToDPMContainerExtendedInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DPMContainerExtendedInfoPtrOutput)
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (DPMContainerExtendedInfoOutput) ElementType() reflect.Type {
@@ -16349,7 +16064,6 @@ func (o DPMContainerExtendedInfoPtrOutput) LastRefreshedAt() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfoResponse struct {
 	// Last refresh time of the DPMContainer.
 	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
@@ -16366,7 +16080,6 @@ type DPMContainerExtendedInfoResponseInput interface {
 	ToDPMContainerExtendedInfoResponseOutputWithContext(context.Context) DPMContainerExtendedInfoResponseOutput
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfoResponseArgs struct {
 	// Last refresh time of the DPMContainer.
 	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
@@ -16425,7 +16138,6 @@ func (i *dpmcontainerExtendedInfoResponsePtrType) ToDPMContainerExtendedInfoResp
 	return pulumi.ToOutputWithContext(ctx, i).(DPMContainerExtendedInfoResponsePtrOutput)
 }
 
-// Additional information of the DPMContainer.
 type DPMContainerExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DPMContainerExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -16489,7 +16201,6 @@ func (o DPMContainerExtendedInfoResponsePtrOutput) LastRefreshedAt() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItem struct {
 	// Backup Management server protecting this backup item
 	BackupEngineName *string `pulumi:"backupEngineName"`
@@ -16541,7 +16252,6 @@ type DPMProtectedItemInput interface {
 	ToDPMProtectedItemOutputWithContext(context.Context) DPMProtectedItemOutput
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemArgs struct {
 	// Backup Management server protecting this backup item
 	BackupEngineName pulumi.StringPtrInput `pulumi:"backupEngineName"`
@@ -16594,7 +16304,6 @@ func (i DPMProtectedItemArgs) ToDPMProtectedItemOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemOutput) ElementType() reflect.Type {
@@ -16700,7 +16409,6 @@ func (o DPMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfo struct {
 	// Used Disk storage in bytes.
 	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
@@ -16743,7 +16451,6 @@ type DPMProtectedItemExtendedInfoInput interface {
 	ToDPMProtectedItemExtendedInfoOutputWithContext(context.Context) DPMProtectedItemExtendedInfoOutput
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoArgs struct {
 	// Used Disk storage in bytes.
 	DiskStorageUsedInBytes pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
@@ -16828,7 +16535,6 @@ func (i *dpmprotectedItemExtendedInfoPtrType) ToDPMProtectedItemExtendedInfoPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -17087,7 +16793,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) TotalDiskStorageSizeInBytes() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponse struct {
 	// Used Disk storage in bytes.
 	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
@@ -17130,7 +16835,6 @@ type DPMProtectedItemExtendedInfoResponseInput interface {
 	ToDPMProtectedItemExtendedInfoResponseOutputWithContext(context.Context) DPMProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponseArgs struct {
 	// Used Disk storage in bytes.
 	DiskStorageUsedInBytes pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
@@ -17215,7 +16919,6 @@ func (i *dpmprotectedItemExtendedInfoResponsePtrType) ToDPMProtectedItemExtended
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -17474,7 +17177,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) TotalDiskStorageSizeInByt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponse struct {
 	// Backup Management server protecting this backup item
 	BackupEngineName *string `pulumi:"backupEngineName"`
@@ -17526,7 +17228,6 @@ type DPMProtectedItemResponseInput interface {
 	ToDPMProtectedItemResponseOutputWithContext(context.Context) DPMProtectedItemResponseOutput
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponseArgs struct {
 	// Backup Management server protecting this backup item
 	BackupEngineName pulumi.StringPtrInput `pulumi:"backupEngineName"`
@@ -17579,7 +17280,6 @@ func (i DPMProtectedItemResponseArgs) ToDPMProtectedItemResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemResponseOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -17685,7 +17385,6 @@ func (o DPMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Daily retention format.
 type DailyRetentionFormat struct {
 	// List of days of the month.
 	DaysOfTheMonth []Day `pulumi:"daysOfTheMonth"`
@@ -17702,7 +17401,6 @@ type DailyRetentionFormatInput interface {
 	ToDailyRetentionFormatOutputWithContext(context.Context) DailyRetentionFormatOutput
 }
 
-// Daily retention format.
 type DailyRetentionFormatArgs struct {
 	// List of days of the month.
 	DaysOfTheMonth DayArrayInput `pulumi:"daysOfTheMonth"`
@@ -17761,7 +17459,6 @@ func (i *dailyRetentionFormatPtrType) ToDailyRetentionFormatPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatPtrOutput)
 }
 
-// Daily retention format.
 type DailyRetentionFormatOutput struct{ *pulumi.OutputState }
 
 func (DailyRetentionFormatOutput) ElementType() reflect.Type {
@@ -17825,7 +17522,6 @@ func (o DailyRetentionFormatPtrOutput) DaysOfTheMonth() DayArrayOutput {
 	}).(DayArrayOutput)
 }
 
-// Daily retention format.
 type DailyRetentionFormatResponse struct {
 	// List of days of the month.
 	DaysOfTheMonth []DayResponse `pulumi:"daysOfTheMonth"`
@@ -17842,7 +17538,6 @@ type DailyRetentionFormatResponseInput interface {
 	ToDailyRetentionFormatResponseOutputWithContext(context.Context) DailyRetentionFormatResponseOutput
 }
 
-// Daily retention format.
 type DailyRetentionFormatResponseArgs struct {
 	// List of days of the month.
 	DaysOfTheMonth DayResponseArrayInput `pulumi:"daysOfTheMonth"`
@@ -17901,7 +17596,6 @@ func (i *dailyRetentionFormatResponsePtrType) ToDailyRetentionFormatResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatResponsePtrOutput)
 }
 
-// Daily retention format.
 type DailyRetentionFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (DailyRetentionFormatResponseOutput) ElementType() reflect.Type {
@@ -17965,7 +17659,6 @@ func (o DailyRetentionFormatResponsePtrOutput) DaysOfTheMonth() DayResponseArray
 	}).(DayResponseArrayOutput)
 }
 
-// Daily retention schedule.
 type DailyRetentionSchedule struct {
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
@@ -17984,7 +17677,6 @@ type DailyRetentionScheduleInput interface {
 	ToDailyRetentionScheduleOutputWithContext(context.Context) DailyRetentionScheduleOutput
 }
 
-// Daily retention schedule.
 type DailyRetentionScheduleArgs struct {
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
@@ -18045,7 +17737,6 @@ func (i *dailyRetentionSchedulePtrType) ToDailyRetentionSchedulePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionSchedulePtrOutput)
 }
 
-// Daily retention schedule.
 type DailyRetentionScheduleOutput struct{ *pulumi.OutputState }
 
 func (DailyRetentionScheduleOutput) ElementType() reflect.Type {
@@ -18124,7 +17815,6 @@ func (o DailyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Daily retention schedule.
 type DailyRetentionScheduleResponse struct {
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -18143,7 +17833,6 @@ type DailyRetentionScheduleResponseInput interface {
 	ToDailyRetentionScheduleResponseOutputWithContext(context.Context) DailyRetentionScheduleResponseOutput
 }
 
-// Daily retention schedule.
 type DailyRetentionScheduleResponseArgs struct {
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationResponsePtrInput `pulumi:"retentionDuration"`
@@ -18204,7 +17893,6 @@ func (i *dailyRetentionScheduleResponsePtrType) ToDailyRetentionScheduleResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleResponsePtrOutput)
 }
 
-// Daily retention schedule.
 type DailyRetentionScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (DailyRetentionScheduleResponseOutput) ElementType() reflect.Type {
@@ -18283,7 +17971,6 @@ func (o DailyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// The data store details of the MT.
 type DataStoreResponse struct {
 	// The capacity of data store in GBs.
 	Capacity *string `pulumi:"capacity"`
@@ -18308,7 +17995,6 @@ type DataStoreResponseInput interface {
 	ToDataStoreResponseOutputWithContext(context.Context) DataStoreResponseOutput
 }
 
-// The data store details of the MT.
 type DataStoreResponseArgs struct {
 	// The capacity of data store in GBs.
 	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
@@ -18359,7 +18045,6 @@ func (i DataStoreResponseArray) ToDataStoreResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataStoreResponseArrayOutput)
 }
 
-// The data store details of the MT.
 type DataStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (DataStoreResponseOutput) ElementType() reflect.Type {
@@ -18419,7 +18104,6 @@ func (o DataStoreResponseArrayOutput) Index(i pulumi.IntInput) DataStoreResponse
 	}).(DataStoreResponseOutput)
 }
 
-// Day of the week.
 type Day struct {
 	// Date of the month
 	Date *int `pulumi:"date"`
@@ -18438,7 +18122,6 @@ type DayInput interface {
 	ToDayOutputWithContext(context.Context) DayOutput
 }
 
-// Day of the week.
 type DayArgs struct {
 	// Date of the month
 	Date pulumi.IntPtrInput `pulumi:"date"`
@@ -18483,7 +18166,6 @@ func (i DayArray) ToDayArrayOutputWithContext(ctx context.Context) DayArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DayArrayOutput)
 }
 
-// Day of the week.
 type DayOutput struct{ *pulumi.OutputState }
 
 func (DayOutput) ElementType() reflect.Type {
@@ -18528,7 +18210,6 @@ func (o DayArrayOutput) Index(i pulumi.IntInput) DayOutput {
 	}).(DayOutput)
 }
 
-// Day of the week.
 type DayResponse struct {
 	// Date of the month
 	Date *int `pulumi:"date"`
@@ -18547,7 +18228,6 @@ type DayResponseInput interface {
 	ToDayResponseOutputWithContext(context.Context) DayResponseOutput
 }
 
-// Day of the week.
 type DayResponseArgs struct {
 	// Date of the month
 	Date pulumi.IntPtrInput `pulumi:"date"`
@@ -18592,7 +18272,6 @@ func (i DayResponseArray) ToDayResponseArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DayResponseArrayOutput)
 }
 
-// Day of the week.
 type DayResponseOutput struct{ *pulumi.OutputState }
 
 func (DayResponseOutput) ElementType() reflect.Type {
@@ -18637,7 +18316,6 @@ func (o DayResponseArrayOutput) Index(i pulumi.IntInput) DayResponseOutput {
 	}).(DayResponseOutput)
 }
 
-// On-prem disk details data.
 type DiskDetailsResponse struct {
 	// The hard disk max size in MB.
 	MaxSizeMB *float64 `pulumi:"maxSizeMB"`
@@ -18660,7 +18338,6 @@ type DiskDetailsResponseInput interface {
 	ToDiskDetailsResponseOutputWithContext(context.Context) DiskDetailsResponseOutput
 }
 
-// On-prem disk details data.
 type DiskDetailsResponseArgs struct {
 	// The hard disk max size in MB.
 	MaxSizeMB pulumi.Float64PtrInput `pulumi:"maxSizeMB"`
@@ -18709,7 +18386,6 @@ func (i DiskDetailsResponseArray) ToDiskDetailsResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DiskDetailsResponseArrayOutput)
 }
 
-// On-prem disk details data.
 type DiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -18764,7 +18440,6 @@ func (o DiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) DiskDetailsResp
 	}).(DiskDetailsResponseOutput)
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfo struct {
 	// The recovery KeyVault reference for secret.
 	DiskEncryptionKeyInfo *DiskEncryptionKeyInfo `pulumi:"diskEncryptionKeyInfo"`
@@ -18783,7 +18458,6 @@ type DiskEncryptionInfoInput interface {
 	ToDiskEncryptionInfoOutputWithContext(context.Context) DiskEncryptionInfoOutput
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfoArgs struct {
 	// The recovery KeyVault reference for secret.
 	DiskEncryptionKeyInfo DiskEncryptionKeyInfoPtrInput `pulumi:"diskEncryptionKeyInfo"`
@@ -18844,7 +18518,6 @@ func (i *diskEncryptionInfoPtrType) ToDiskEncryptionInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionInfoPtrOutput)
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfoOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionInfoOutput) ElementType() reflect.Type {
@@ -18923,7 +18596,6 @@ func (o DiskEncryptionInfoPtrOutput) KeyEncryptionKeyInfo() KeyEncryptionKeyInfo
 	}).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfo struct {
 	// The KeyVault resource ARM Id for secret.
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
@@ -18942,7 +18614,6 @@ type DiskEncryptionKeyInfoInput interface {
 	ToDiskEncryptionKeyInfoOutputWithContext(context.Context) DiskEncryptionKeyInfoOutput
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfoArgs struct {
 	// The KeyVault resource ARM Id for secret.
 	KeyVaultResourceArmId pulumi.StringPtrInput `pulumi:"keyVaultResourceArmId"`
@@ -19003,7 +18674,6 @@ func (i *diskEncryptionKeyInfoPtrType) ToDiskEncryptionKeyInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfoOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionKeyInfoOutput) ElementType() reflect.Type {
@@ -19394,7 +19064,6 @@ func (o DiskExclusionPropertiesResponsePtrOutput) IsInclusionList() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfo struct {
 	// Name of the node under a distributed container.
 	NodeName *string `pulumi:"nodeName"`
@@ -19414,7 +19083,6 @@ type DistributedNodesInfoInput interface {
 	ToDistributedNodesInfoOutputWithContext(context.Context) DistributedNodesInfoOutput
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfoArgs struct {
 	// Name of the node under a distributed container.
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
@@ -19460,7 +19128,6 @@ func (i DistributedNodesInfoArray) ToDistributedNodesInfoArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DistributedNodesInfoArrayOutput)
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfoOutput struct{ *pulumi.OutputState }
 
 func (DistributedNodesInfoOutput) ElementType() reflect.Type {
@@ -19506,7 +19173,6 @@ func (o DistributedNodesInfoArrayOutput) Index(i pulumi.IntInput) DistributedNod
 	}).(DistributedNodesInfoOutput)
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfoResponse struct {
 	// Error Details if the Status is non-success.
 	ErrorDetail *ErrorDetailResponse `pulumi:"errorDetail"`
@@ -19528,7 +19194,6 @@ type DistributedNodesInfoResponseInput interface {
 	ToDistributedNodesInfoResponseOutputWithContext(context.Context) DistributedNodesInfoResponseOutput
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfoResponseArgs struct {
 	// Error Details if the Status is non-success.
 	ErrorDetail ErrorDetailResponsePtrInput `pulumi:"errorDetail"`
@@ -19576,7 +19241,6 @@ func (i DistributedNodesInfoResponseArray) ToDistributedNodesInfoResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributedNodesInfoResponseArrayOutput)
 }
 
-// This is used to represent the various nodes of the distributed container.
 type DistributedNodesInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DistributedNodesInfoResponseOutput) ElementType() reflect.Type {
@@ -19627,7 +19291,6 @@ func (o DistributedNodesInfoResponseArrayOutput) Index(i pulumi.IntInput) Distri
 	}).(DistributedNodesInfoResponseOutput)
 }
 
-// DPM workload-specific protection container.
 type DpmContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -19672,7 +19335,6 @@ type DpmContainerInput interface {
 	ToDpmContainerOutputWithContext(context.Context) DpmContainerOutput
 }
 
-// DPM workload-specific protection container.
 type DpmContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -19718,7 +19380,6 @@ func (i DpmContainerArgs) ToDpmContainerOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DpmContainerOutput)
 }
 
-// DPM workload-specific protection container.
 type DpmContainerOutput struct{ *pulumi.OutputState }
 
 func (DpmContainerOutput) ElementType() reflect.Type {
@@ -19802,7 +19463,6 @@ func (o DpmContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DpmContainer) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
 }
 
-// DPM workload-specific protection container.
 type DpmContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -19847,7 +19507,6 @@ type DpmContainerResponseInput interface {
 	ToDpmContainerResponseOutputWithContext(context.Context) DpmContainerResponseOutput
 }
 
-// DPM workload-specific protection container.
 type DpmContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -19893,7 +19552,6 @@ func (i DpmContainerResponseArgs) ToDpmContainerResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DpmContainerResponseOutput)
 }
 
-// DPM workload-specific protection container.
 type DpmContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (DpmContainerResponseOutput) ElementType() reflect.Type {
@@ -19977,7 +19635,6 @@ func (o DpmContainerResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DpmContainerResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
 }
 
-// DRA details.
 type DraDetailsResponse struct {
 	// The health of the DRA.
 	Health string `pulumi:"health"`
@@ -20004,7 +19661,6 @@ type DraDetailsResponseInput interface {
 	ToDraDetailsResponseOutputWithContext(context.Context) DraDetailsResponseOutput
 }
 
-// DRA details.
 type DraDetailsResponseArgs struct {
 	// The health of the DRA.
 	Health pulumi.StringInput `pulumi:"health"`
@@ -20057,7 +19713,6 @@ func (i DraDetailsResponseArray) ToDraDetailsResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DraDetailsResponseArrayOutput)
 }
 
-// DRA details.
 type DraDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DraDetailsResponseOutput) ElementType() reflect.Type {
@@ -20122,7 +19777,6 @@ func (o DraDetailsResponseArrayOutput) Index(i pulumi.IntInput) DraDetailsRespon
 	}).(DraDetailsResponseOutput)
 }
 
-// Enable migration input properties.
 type EnableMigrationInputProperties struct {
 	// The policy Id.
 	PolicyId string `pulumi:"policyId"`
@@ -20141,7 +19795,6 @@ type EnableMigrationInputPropertiesInput interface {
 	ToEnableMigrationInputPropertiesOutputWithContext(context.Context) EnableMigrationInputPropertiesOutput
 }
 
-// Enable migration input properties.
 type EnableMigrationInputPropertiesArgs struct {
 	// The policy Id.
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
@@ -20202,7 +19855,6 @@ func (i *enableMigrationInputPropertiesPtrType) ToEnableMigrationInputProperties
 	return pulumi.ToOutputWithContext(ctx, i).(EnableMigrationInputPropertiesPtrOutput)
 }
 
-// Enable migration input properties.
 type EnableMigrationInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnableMigrationInputPropertiesOutput) ElementType() reflect.Type {
@@ -20281,7 +19933,6 @@ func (o EnableMigrationInputPropertiesPtrOutput) ProviderSpecificDetails() VMwar
 	}).(VMwareCbtEnableMigrationInputPtrOutput)
 }
 
-// Enable protection input properties.
 type EnableProtectionInputProperties struct {
 	// The Policy Id.
 	PolicyId *string `pulumi:"policyId"`
@@ -20302,7 +19953,6 @@ type EnableProtectionInputPropertiesInput interface {
 	ToEnableProtectionInputPropertiesOutputWithContext(context.Context) EnableProtectionInputPropertiesOutput
 }
 
-// Enable protection input properties.
 type EnableProtectionInputPropertiesArgs struct {
 	// The Policy Id.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
@@ -20365,7 +20015,6 @@ func (i *enableProtectionInputPropertiesPtrType) ToEnableProtectionInputProperti
 	return pulumi.ToOutputWithContext(ctx, i).(EnableProtectionInputPropertiesPtrOutput)
 }
 
-// Enable protection input properties.
 type EnableProtectionInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnableProtectionInputPropertiesOutput) ElementType() reflect.Type {
@@ -20459,7 +20108,6 @@ func (o EnableProtectionInputPropertiesPtrOutput) ProviderSpecificDetails() pulu
 	}).(pulumi.AnyOutput)
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponse struct {
 	// The key encryption key certificate expiry date.
 	KekCertExpiryDate *string `pulumi:"kekCertExpiryDate"`
@@ -20480,7 +20128,6 @@ type EncryptionDetailsResponseInput interface {
 	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponseArgs struct {
 	// The key encryption key certificate expiry date.
 	KekCertExpiryDate pulumi.StringPtrInput `pulumi:"kekCertExpiryDate"`
@@ -20543,7 +20190,6 @@ func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionDetailsResponseOutput) ElementType() reflect.Type {
@@ -20637,7 +20283,6 @@ func (o EncryptionDetailsResponsePtrOutput) KekState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -20658,7 +20303,6 @@ type ErrorDetailResponseInput interface {
 	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponseArgs struct {
 	// Error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -20721,7 +20365,6 @@ func (i *errorDetailResponsePtrType) ToErrorDetailResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponsePtrOutput)
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -20815,7 +20458,6 @@ func (o ErrorDetailResponsePtrOutput) Recommendations() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedProperties struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionProperties `pulumi:"diskExclusionProperties"`
@@ -20832,7 +20474,6 @@ type ExtendedPropertiesInput interface {
 	ToExtendedPropertiesOutputWithContext(context.Context) ExtendedPropertiesOutput
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesArgs struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties DiskExclusionPropertiesPtrInput `pulumi:"diskExclusionProperties"`
@@ -20891,7 +20532,6 @@ func (i *extendedPropertiesPtrType) ToExtendedPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesOutput) ElementType() reflect.Type {
@@ -20955,7 +20595,6 @@ func (o ExtendedPropertiesPtrOutput) DiskExclusionProperties() DiskExclusionProp
 	}).(DiskExclusionPropertiesPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponse struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionPropertiesResponse `pulumi:"diskExclusionProperties"`
@@ -20972,7 +20611,6 @@ type ExtendedPropertiesResponseInput interface {
 	ToExtendedPropertiesResponseOutputWithContext(context.Context) ExtendedPropertiesResponseOutput
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponseArgs struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties DiskExclusionPropertiesResponsePtrInput `pulumi:"diskExclusionProperties"`
@@ -21031,7 +20669,6 @@ func (i *extendedPropertiesResponsePtrType) ToExtendedPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesResponseOutput) ElementType() reflect.Type {
@@ -21095,7 +20732,6 @@ func (o ExtendedPropertiesResponsePtrOutput) DiskExclusionProperties() DiskExclu
 	}).(DiskExclusionPropertiesResponsePtrOutput)
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputProperties struct {
 	// Fabric provider specific creation input.
 	CustomDetails interface{} `pulumi:"customDetails"`
@@ -21112,7 +20748,6 @@ type FabricCreationInputPropertiesInput interface {
 	ToFabricCreationInputPropertiesOutputWithContext(context.Context) FabricCreationInputPropertiesOutput
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputPropertiesArgs struct {
 	// Fabric provider specific creation input.
 	CustomDetails pulumi.Input `pulumi:"customDetails"`
@@ -21171,7 +20806,6 @@ func (i *fabricCreationInputPropertiesPtrType) ToFabricCreationInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FabricCreationInputPropertiesPtrOutput)
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FabricCreationInputPropertiesOutput) ElementType() reflect.Type {
@@ -21235,7 +20869,6 @@ func (o FabricCreationInputPropertiesPtrOutput) CustomDetails() pulumi.AnyOutput
 	}).(pulumi.AnyOutput)
 }
 
-// Fabric properties.
 type FabricPropertiesResponse struct {
 	// BCDR state of the fabric.
 	BcdrState *string `pulumi:"bcdrState"`
@@ -21266,7 +20899,6 @@ type FabricPropertiesResponseInput interface {
 	ToFabricPropertiesResponseOutputWithContext(context.Context) FabricPropertiesResponseOutput
 }
 
-// Fabric properties.
 type FabricPropertiesResponseArgs struct {
 	// BCDR state of the fabric.
 	BcdrState pulumi.StringPtrInput `pulumi:"bcdrState"`
@@ -21339,7 +20971,6 @@ func (i *fabricPropertiesResponsePtrType) ToFabricPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FabricPropertiesResponsePtrOutput)
 }
 
-// Fabric properties.
 type FabricPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (FabricPropertiesResponseOutput) ElementType() reflect.Type {
@@ -21508,7 +21139,6 @@ func (o FabricPropertiesResponsePtrOutput) RolloverEncryptionDetails() Encryptio
 	}).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Base class for generic container of backup items
 type GenericContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -21541,7 +21171,6 @@ type GenericContainerInput interface {
 	ToGenericContainerOutputWithContext(context.Context) GenericContainerOutput
 }
 
-// Base class for generic container of backup items
 type GenericContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -21575,7 +21204,6 @@ func (i GenericContainerArgs) ToGenericContainerOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerOutput)
 }
 
-// Base class for generic container of backup items
 type GenericContainerOutput struct{ *pulumi.OutputState }
 
 func (GenericContainerOutput) ElementType() reflect.Type {
@@ -21629,7 +21257,6 @@ func (o GenericContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Container extended information
 type GenericContainerExtendedInfo struct {
 	// Container identity information
 	ContainerIdentityInfo *ContainerIdentityInfo `pulumi:"containerIdentityInfo"`
@@ -21650,7 +21277,6 @@ type GenericContainerExtendedInfoInput interface {
 	ToGenericContainerExtendedInfoOutputWithContext(context.Context) GenericContainerExtendedInfoOutput
 }
 
-// Container extended information
 type GenericContainerExtendedInfoArgs struct {
 	// Container identity information
 	ContainerIdentityInfo ContainerIdentityInfoPtrInput `pulumi:"containerIdentityInfo"`
@@ -21713,7 +21339,6 @@ func (i *genericContainerExtendedInfoPtrType) ToGenericContainerExtendedInfoPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerExtendedInfoPtrOutput)
 }
 
-// Container extended information
 type GenericContainerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (GenericContainerExtendedInfoOutput) ElementType() reflect.Type {
@@ -21807,7 +21432,6 @@ func (o GenericContainerExtendedInfoPtrOutput) ServiceEndpoints() pulumi.StringM
 	}).(pulumi.StringMapOutput)
 }
 
-// Container extended information
 type GenericContainerExtendedInfoResponse struct {
 	// Container identity information
 	ContainerIdentityInfo *ContainerIdentityInfoResponse `pulumi:"containerIdentityInfo"`
@@ -21828,7 +21452,6 @@ type GenericContainerExtendedInfoResponseInput interface {
 	ToGenericContainerExtendedInfoResponseOutputWithContext(context.Context) GenericContainerExtendedInfoResponseOutput
 }
 
-// Container extended information
 type GenericContainerExtendedInfoResponseArgs struct {
 	// Container identity information
 	ContainerIdentityInfo ContainerIdentityInfoResponsePtrInput `pulumi:"containerIdentityInfo"`
@@ -21891,7 +21514,6 @@ func (i *genericContainerExtendedInfoResponsePtrType) ToGenericContainerExtended
 	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerExtendedInfoResponsePtrOutput)
 }
 
-// Container extended information
 type GenericContainerExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (GenericContainerExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -21987,7 +21609,6 @@ func (o GenericContainerExtendedInfoResponsePtrOutput) ServiceEndpoints() pulumi
 	}).(pulumi.StringMapOutput)
 }
 
-// Base class for generic container of backup items
 type GenericContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -22020,7 +21641,6 @@ type GenericContainerResponseInput interface {
 	ToGenericContainerResponseOutputWithContext(context.Context) GenericContainerResponseOutput
 }
 
-// Base class for generic container of backup items
 type GenericContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -22054,7 +21674,6 @@ func (i GenericContainerResponseArgs) ToGenericContainerResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerResponseOutput)
 }
 
-// Base class for generic container of backup items
 type GenericContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (GenericContainerResponseOutput) ElementType() reflect.Type {
@@ -22108,7 +21727,6 @@ func (o GenericContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOut
 	return o.ApplyT(func(v GenericContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -22164,7 +21782,6 @@ type GenericProtectedItemInput interface {
 	ToGenericProtectedItemOutputWithContext(context.Context) GenericProtectedItemOutput
 }
 
-// Base class for backup items.
 type GenericProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -22221,7 +21838,6 @@ func (i GenericProtectedItemArgs) ToGenericProtectedItemOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectedItemOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectedItemOutput) ElementType() reflect.Type {
@@ -22337,7 +21953,6 @@ func (o GenericProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -22393,7 +22008,6 @@ type GenericProtectedItemResponseInput interface {
 	ToGenericProtectedItemResponseOutputWithContext(context.Context) GenericProtectedItemResponseOutput
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -22450,7 +22064,6 @@ func (i GenericProtectedItemResponseArgs) ToGenericProtectedItemResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectedItemResponseOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -22566,7 +22179,6 @@ func (o GenericProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'GenericProtectionPolicy'.
@@ -22592,7 +22204,6 @@ type GenericProtectionPolicyInput interface {
 	ToGenericProtectionPolicyOutputWithContext(context.Context) GenericProtectionPolicyOutput
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'GenericProtectionPolicy'.
@@ -22619,7 +22230,6 @@ func (i GenericProtectionPolicyArgs) ToGenericProtectionPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectionPolicyOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectionPolicyOutput) ElementType() reflect.Type {
@@ -22660,7 +22270,6 @@ func (o GenericProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectionPolicy) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'GenericProtectionPolicy'.
@@ -22686,7 +22295,6 @@ type GenericProtectionPolicyResponseInput interface {
 	ToGenericProtectionPolicyResponseOutputWithContext(context.Context) GenericProtectionPolicyResponseOutput
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'GenericProtectionPolicy'.
@@ -22713,7 +22321,6 @@ func (i GenericProtectionPolicyResponseArgs) ToGenericProtectionPolicyResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectionPolicyResponseOutput)
 }
 
-// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -22754,7 +22361,6 @@ func (o GenericProtectionPolicyResponseOutput) TimeZone() pulumi.StringPtrOutput
 	return o.ApplyT(func(v GenericProtectionPolicyResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// Health Error
 type HealthErrorResponse struct {
 	// Error creation time (UTC)
 	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
@@ -22799,7 +22405,6 @@ type HealthErrorResponseInput interface {
 	ToHealthErrorResponseOutputWithContext(context.Context) HealthErrorResponseOutput
 }
 
-// Health Error
 type HealthErrorResponseArgs struct {
 	// Error creation time (UTC)
 	CreationTimeUtc pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
@@ -22870,7 +22475,6 @@ func (i HealthErrorResponseArray) ToHealthErrorResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HealthErrorResponseArrayOutput)
 }
 
-// Health Error
 type HealthErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthErrorResponseOutput) ElementType() reflect.Type {
@@ -22980,7 +22584,6 @@ func (o HealthErrorResponseArrayOutput) Index(i pulumi.IntInput) HealthErrorResp
 	}).(HealthErrorResponseOutput)
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInput struct {
 	// The list of VHD IDs of disks to be protected.
 	DisksToInclude []string `pulumi:"disksToInclude"`
@@ -23034,7 +22637,6 @@ type HyperVReplicaAzureEnableProtectionInputInput interface {
 	ToHyperVReplicaAzureEnableProtectionInputOutputWithContext(context.Context) HyperVReplicaAzureEnableProtectionInputOutput
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInputArgs struct {
 	// The list of VHD IDs of disks to be protected.
 	DisksToInclude pulumi.StringArrayInput `pulumi:"disksToInclude"`
@@ -23089,7 +22691,6 @@ func (i HyperVReplicaAzureEnableProtectionInputArgs) ToHyperVReplicaAzureEnableP
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureEnableProtectionInputOutput)
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzureEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -23200,7 +22801,6 @@ func (o HyperVReplicaAzureEnableProtectionInputOutput) VmName() pulumi.StringPtr
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponse struct {
 	// The active storage account Id.
 	ActiveStorageAccountId *string `pulumi:"activeStorageAccountId"`
@@ -23230,7 +22830,6 @@ type HyperVReplicaAzurePolicyDetailsResponseInput interface {
 	ToHyperVReplicaAzurePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzurePolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponseArgs struct {
 	// The active storage account Id.
 	ActiveStorageAccountId pulumi.StringPtrInput `pulumi:"activeStorageAccountId"`
@@ -23261,7 +22860,6 @@ func (i HyperVReplicaAzurePolicyDetailsResponseArgs) ToHyperVReplicaAzurePolicyD
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzurePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -23314,7 +22912,6 @@ func (o HyperVReplicaAzurePolicyDetailsResponseOutput) ReplicationInterval() pul
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *int { return v.ReplicationInterval }).(pulumi.IntPtrOutput)
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInput struct {
 	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
@@ -23342,7 +22939,6 @@ type HyperVReplicaAzurePolicyInputInput interface {
 	ToHyperVReplicaAzurePolicyInputOutputWithContext(context.Context) HyperVReplicaAzurePolicyInputOutput
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInputArgs struct {
 	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
@@ -23371,7 +22967,6 @@ func (i HyperVReplicaAzurePolicyInputArgs) ToHyperVReplicaAzurePolicyInputOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyInputOutput)
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzurePolicyInputOutput) ElementType() reflect.Type {
@@ -23417,7 +23012,6 @@ func (o HyperVReplicaAzurePolicyInputOutput) StorageAccounts() pulumi.StringArra
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) []string { return v.StorageAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Azure VM Disk details.
 	AzureVmDiskDetails []AzureVmDiskDetailsResponse `pulumi:"azureVmDiskDetails"`
@@ -23487,7 +23081,6 @@ type HyperVReplicaAzureReplicationDetailsResponseInput interface {
 	ToHyperVReplicaAzureReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzureReplicationDetailsResponseOutput
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponseArgs struct {
 	// Azure VM Disk details.
 	AzureVmDiskDetails AzureVmDiskDetailsResponseArrayInput `pulumi:"azureVmDiskDetails"`
@@ -23558,7 +23151,6 @@ func (i HyperVReplicaAzureReplicationDetailsResponseArgs) ToHyperVReplicaAzureRe
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureReplicationDetailsResponseOutput)
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzureReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -23715,7 +23307,6 @@ func (o HyperVReplicaAzureReplicationDetailsResponseOutput) VmProtectionStateDes
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponse struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
@@ -23753,7 +23344,6 @@ type HyperVReplicaBasePolicyDetailsResponseInput interface {
 	ToHyperVReplicaBasePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBasePolicyDetailsResponseOutput
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponseArgs struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
@@ -23792,7 +23382,6 @@ func (i HyperVReplicaBasePolicyDetailsResponseArgs) ToHyperVReplicaBasePolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBasePolicyDetailsResponseOutput)
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBasePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -23865,7 +23454,6 @@ func (o HyperVReplicaBasePolicyDetailsResponseOutput) ReplicationPort() pulumi.I
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
@@ -23897,7 +23485,6 @@ type HyperVReplicaBaseReplicationDetailsResponseInput interface {
 	ToHyperVReplicaBaseReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBaseReplicationDetailsResponseOutput
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
@@ -23930,7 +23517,6 @@ func (i HyperVReplicaBaseReplicationDetailsResponseArgs) ToHyperVReplicaBaseRepl
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBaseReplicationDetailsResponseOutput)
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBaseReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -23988,7 +23574,6 @@ func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VmProtectionStateDesc
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponse struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
@@ -24028,7 +23613,6 @@ type HyperVReplicaBluePolicyDetailsResponseInput interface {
 	ToHyperVReplicaBluePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBluePolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponseArgs struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
@@ -24069,7 +23653,6 @@ func (i HyperVReplicaBluePolicyDetailsResponseArgs) ToHyperVReplicaBluePolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBluePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -24147,7 +23730,6 @@ func (o HyperVReplicaBluePolicyDetailsResponseOutput) ReplicationPort() pulumi.I
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInput struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
@@ -24187,7 +23769,6 @@ type HyperVReplicaBluePolicyInputInput interface {
 	ToHyperVReplicaBluePolicyInputOutputWithContext(context.Context) HyperVReplicaBluePolicyInputOutput
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInputArgs struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
@@ -24228,7 +23809,6 @@ func (i HyperVReplicaBluePolicyInputArgs) ToHyperVReplicaBluePolicyInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyInputOutput)
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBluePolicyInputOutput) ElementType() reflect.Type {
@@ -24304,7 +23884,6 @@ func (o HyperVReplicaBluePolicyInputOutput) ReplicationPort() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
@@ -24336,7 +23915,6 @@ type HyperVReplicaBlueReplicationDetailsResponseInput interface {
 	ToHyperVReplicaBlueReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBlueReplicationDetailsResponseOutput
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
@@ -24369,7 +23947,6 @@ func (i HyperVReplicaBlueReplicationDetailsResponseArgs) ToHyperVReplicaBlueRepl
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBlueReplicationDetailsResponseOutput)
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBlueReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -24427,7 +24004,6 @@ func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VmProtectionStateDesc
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponse struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
@@ -24465,7 +24041,6 @@ type HyperVReplicaPolicyDetailsResponseInput interface {
 	ToHyperVReplicaPolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaPolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponseArgs struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
@@ -24504,7 +24079,6 @@ func (i HyperVReplicaPolicyDetailsResponseArgs) ToHyperVReplicaPolicyDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -24577,7 +24151,6 @@ func (o HyperVReplicaPolicyDetailsResponseOutput) ReplicationPort() pulumi.IntPt
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInput struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
@@ -24615,7 +24188,6 @@ type HyperVReplicaPolicyInputInput interface {
 	ToHyperVReplicaPolicyInputOutputWithContext(context.Context) HyperVReplicaPolicyInputOutput
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInputArgs struct {
 	// A value indicating the authentication type.
 	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
@@ -24654,7 +24226,6 @@ func (i HyperVReplicaPolicyInputArgs) ToHyperVReplicaPolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyInputOutput)
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaPolicyInputOutput) ElementType() reflect.Type {
@@ -24725,7 +24296,6 @@ func (o HyperVReplicaPolicyInputOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
@@ -24757,7 +24327,6 @@ type HyperVReplicaReplicationDetailsResponseInput interface {
 	ToHyperVReplicaReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaReplicationDetailsResponseOutput
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
@@ -24790,7 +24359,6 @@ func (i HyperVReplicaReplicationDetailsResponseArgs) ToHyperVReplicaReplicationD
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaReplicationDetailsResponseOutput)
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -24848,7 +24416,6 @@ func (o HyperVReplicaReplicationDetailsResponseOutput) VmProtectionStateDescript
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'HyperVSite'.
@@ -24866,7 +24433,6 @@ type HyperVSiteDetailsResponseInput interface {
 	ToHyperVSiteDetailsResponseOutputWithContext(context.Context) HyperVSiteDetailsResponseOutput
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'HyperVSite'.
@@ -24885,7 +24451,6 @@ func (i HyperVSiteDetailsResponseArgs) ToHyperVSiteDetailsResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteDetailsResponseOutput)
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVSiteDetailsResponseOutput) ElementType() reflect.Type {
@@ -24906,7 +24471,6 @@ func (o HyperVSiteDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVSiteDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// IP configuration details.
 type IPConfigResponse struct {
 	// The backend address pools associated with the IP configuration.
 	LBBackendAddressPoolIds []string `pulumi:"lBBackendAddressPoolIds"`
@@ -24927,7 +24491,6 @@ type IPConfigResponseInput interface {
 	ToIPConfigResponseOutputWithContext(context.Context) IPConfigResponseOutput
 }
 
-// IP configuration details.
 type IPConfigResponseArgs struct {
 	// The backend address pools associated with the IP configuration.
 	LBBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"lBBackendAddressPoolIds"`
@@ -24974,7 +24537,6 @@ func (i IPConfigResponseArray) ToIPConfigResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IPConfigResponseArrayOutput)
 }
 
-// IP configuration details.
 type IPConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (IPConfigResponseOutput) ElementType() reflect.Type {
@@ -25024,7 +24586,6 @@ func (o IPConfigResponseArrayOutput) Index(i pulumi.IntInput) IPConfigResponseOu
 	}).(IPConfigResponseOutput)
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainer struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -25059,7 +24620,6 @@ type IaaSVMContainerInput interface {
 	ToIaaSVMContainerOutputWithContext(context.Context) IaaSVMContainerOutput
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainerArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -25095,7 +24655,6 @@ func (i IaaSVMContainerArgs) ToIaaSVMContainerOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IaaSVMContainerOutput)
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainerOutput struct{ *pulumi.OutputState }
 
 func (IaaSVMContainerOutput) ElementType() reflect.Type {
@@ -25154,7 +24713,6 @@ func (o IaaSVMContainerOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IaaSVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -25189,7 +24747,6 @@ type IaaSVMContainerResponseInput interface {
 	ToIaaSVMContainerResponseOutputWithContext(context.Context) IaaSVMContainerResponseOutput
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainerResponseArgs struct {
 	// Type of backup management for the container.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -25225,7 +24782,6 @@ func (i IaaSVMContainerResponseArgs) ToIaaSVMContainerResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IaaSVMContainerResponseOutput)
 }
 
-// IaaS VM workload-specific container.
 type IaaSVMContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (IaaSVMContainerResponseOutput) ElementType() reflect.Type {
@@ -25284,7 +24840,6 @@ func (o IaaSVMContainerResponseOutput) VirtualMachineVersion() pulumi.StringPtrO
 	return o.ApplyT(func(v IaaSVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityData struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type string `pulumi:"type"`
@@ -25303,7 +24858,6 @@ type IdentityDataInput interface {
 	ToIdentityDataOutputWithContext(context.Context) IdentityDataOutput
 }
 
-// Identity for the resource.
 type IdentityDataArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -25364,7 +24918,6 @@ func (i *identityDataPtrType) ToIdentityDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityDataOutput struct{ *pulumi.OutputState }
 
 func (IdentityDataOutput) ElementType() reflect.Type {
@@ -25443,7 +24996,6 @@ func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the resource.
 type IdentityDataResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -25466,7 +25018,6 @@ type IdentityDataResponseInput interface {
 	ToIdentityDataResponseOutputWithContext(context.Context) IdentityDataResponseOutput
 }
 
-// Identity for the resource.
 type IdentityDataResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -25531,7 +25082,6 @@ func (i *identityDataResponsePtrType) ToIdentityDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityDataResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityDataResponseOutput) ElementType() reflect.Type {
@@ -25640,7 +25190,6 @@ func (o IdentityDataResponsePtrOutput) UserAssignedIdentities() UserIdentityResp
 	}).(UserIdentityResponseMapOutput)
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponse struct {
 	// The base authority for Azure Active Directory authentication.
 	AadAuthority *string `pulumi:"aadAuthority"`
@@ -25665,7 +25214,6 @@ type IdentityProviderDetailsResponseInput interface {
 	ToIdentityProviderDetailsResponseOutputWithContext(context.Context) IdentityProviderDetailsResponseOutput
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponseArgs struct {
 	// The base authority for Azure Active Directory authentication.
 	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
@@ -25732,7 +25280,6 @@ func (i *identityProviderDetailsResponsePtrType) ToIdentityProviderDetailsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderDetailsResponseOutput) ElementType() reflect.Type {
@@ -25856,7 +25403,6 @@ func (o IdentityProviderDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity provider input.
 type IdentityProviderInput struct {
 	// The base authority for Azure Active Directory authentication.
 	AadAuthority string `pulumi:"aadAuthority"`
@@ -25881,7 +25427,6 @@ type IdentityProviderInputInput interface {
 	ToIdentityProviderInputOutputWithContext(context.Context) IdentityProviderInputOutput
 }
 
-// Identity provider input.
 type IdentityProviderInputArgs struct {
 	// The base authority for Azure Active Directory authentication.
 	AadAuthority pulumi.StringInput `pulumi:"aadAuthority"`
@@ -25948,7 +25493,6 @@ func (i *identityProviderInputPtrType) ToIdentityProviderInputPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderInputPtrOutput)
 }
 
-// Identity provider input.
 type IdentityProviderInputOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderInputOutput) ElementType() reflect.Type {
@@ -26072,7 +25616,6 @@ func (o IdentityProviderInputPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponse struct {
 	// Agent expiry date.
 	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
@@ -26095,7 +25638,6 @@ type InMageAgentDetailsResponseInput interface {
 	ToInMageAgentDetailsResponseOutputWithContext(context.Context) InMageAgentDetailsResponseOutput
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponseArgs struct {
 	// Agent expiry date.
 	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
@@ -26160,7 +25702,6 @@ func (i *inMageAgentDetailsResponsePtrType) ToInMageAgentDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAgentDetailsResponsePtrOutput)
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -26269,7 +25810,6 @@ func (o InMageAgentDetailsResponsePtrOutput) PostUpdateRebootStatus() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk input details.
 type InMageAzureV2DiskInputDetails struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -26292,7 +25832,6 @@ type InMageAzureV2DiskInputDetailsInput interface {
 	ToInMageAzureV2DiskInputDetailsOutputWithContext(context.Context) InMageAzureV2DiskInputDetailsOutput
 }
 
-// Disk input details.
 type InMageAzureV2DiskInputDetailsArgs struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -26341,7 +25880,6 @@ func (i InMageAzureV2DiskInputDetailsArray) ToInMageAzureV2DiskInputDetailsArray
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2DiskInputDetailsArrayOutput)
 }
 
-// Disk input details.
 type InMageAzureV2DiskInputDetailsOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2DiskInputDetailsOutput) ElementType() reflect.Type {
@@ -26396,7 +25934,6 @@ func (o InMageAzureV2DiskInputDetailsArrayOutput) Index(i pulumi.IntInput) InMag
 	}).(InMageAzureV2DiskInputDetailsOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInput struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -26454,7 +25991,6 @@ type InMageAzureV2EnableProtectionInputInput interface {
 	ToInMageAzureV2EnableProtectionInputOutputWithContext(context.Context) InMageAzureV2EnableProtectionInputOutput
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInputArgs struct {
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -26513,7 +26049,6 @@ func (i InMageAzureV2EnableProtectionInputArgs) ToInMageAzureV2EnableProtectionI
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2EnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2EnableProtectionInputOutput) ElementType() reflect.Type {
@@ -26634,7 +26169,6 @@ func (o InMageAzureV2EnableProtectionInputOutput) TargetVmSize() pulumi.StringPt
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-// InMageAzureV2 Managed disk details.
 type InMageAzureV2ManagedDiskDetailsResponse struct {
 	// The disk id.
 	DiskId *string `pulumi:"diskId"`
@@ -26655,7 +26189,6 @@ type InMageAzureV2ManagedDiskDetailsResponseInput interface {
 	ToInMageAzureV2ManagedDiskDetailsResponseOutputWithContext(context.Context) InMageAzureV2ManagedDiskDetailsResponseOutput
 }
 
-// InMageAzureV2 Managed disk details.
 type InMageAzureV2ManagedDiskDetailsResponseArgs struct {
 	// The disk id.
 	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
@@ -26702,7 +26235,6 @@ func (i InMageAzureV2ManagedDiskDetailsResponseArray) ToInMageAzureV2ManagedDisk
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ManagedDiskDetailsResponseArrayOutput)
 }
 
-// InMageAzureV2 Managed disk details.
 type InMageAzureV2ManagedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2ManagedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -26752,7 +26284,6 @@ func (o InMageAzureV2ManagedDiskDetailsResponseArrayOutput) Index(i pulumi.IntIn
 	}).(InMageAzureV2ManagedDiskDetailsResponseOutput)
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -26780,7 +26311,6 @@ type InMageAzureV2PolicyDetailsResponseInput interface {
 	ToInMageAzureV2PolicyDetailsResponseOutputWithContext(context.Context) InMageAzureV2PolicyDetailsResponseOutput
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -26809,7 +26339,6 @@ func (i InMageAzureV2PolicyDetailsResponseArgs) ToInMageAzureV2PolicyDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyDetailsResponseOutput)
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2PolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -26855,7 +26384,6 @@ func (o InMageAzureV2PolicyDetailsResponseOutput) RecoveryPointThresholdInMinute
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -26883,7 +26411,6 @@ type InMageAzureV2PolicyInputInput interface {
 	ToInMageAzureV2PolicyInputOutputWithContext(context.Context) InMageAzureV2PolicyInputOutput
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -26912,7 +26439,6 @@ func (i InMageAzureV2PolicyInputArgs) ToInMageAzureV2PolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyInputOutput)
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInputOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2PolicyInputOutput) ElementType() reflect.Type {
@@ -26958,7 +26484,6 @@ func (o InMageAzureV2PolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
@@ -27003,7 +26528,6 @@ type InMageAzureV2ProtectedDiskDetailsResponseInput interface {
 	ToInMageAzureV2ProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageAzureV2ProtectedDiskDetailsResponseOutput
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
 	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
@@ -27074,7 +26598,6 @@ func (i InMageAzureV2ProtectedDiskDetailsResponseArray) ToInMageAzureV2Protected
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ProtectedDiskDetailsResponseArrayOutput)
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2ProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -27184,7 +26707,6 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.Int
 	}).(InMageAzureV2ProtectedDiskDetailsResponseOutput)
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponse struct {
 	// Agent expiry date.
 	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
@@ -27310,7 +26832,6 @@ type InMageAzureV2ReplicationDetailsResponseInput interface {
 	ToInMageAzureV2ReplicationDetailsResponseOutputWithContext(context.Context) InMageAzureV2ReplicationDetailsResponseOutput
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponseArgs struct {
 	// Agent expiry date.
 	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
@@ -27437,7 +26958,6 @@ func (i InMageAzureV2ReplicationDetailsResponseArgs) ToInMageAzureV2ReplicationD
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ReplicationDetailsResponseOutput)
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2ReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -27734,7 +27254,6 @@ func (o InMageAzureV2ReplicationDetailsResponseOutput) VmProtectionStateDescript
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -27760,7 +27279,6 @@ type InMageBasePolicyDetailsResponseInput interface {
 	ToInMageBasePolicyDetailsResponseOutputWithContext(context.Context) InMageBasePolicyDetailsResponseOutput
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -27787,7 +27305,6 @@ func (i InMageBasePolicyDetailsResponseArgs) ToInMageBasePolicyDetailsResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageBasePolicyDetailsResponseOutput)
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageBasePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -27828,7 +27345,6 @@ func (o InMageBasePolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes()
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInput struct {
 	// The guest disk signature based option for disk exclusion.
 	DiskSignatureOptions []InMageDiskSignatureExclusionOptions `pulumi:"diskSignatureOptions"`
@@ -27847,7 +27363,6 @@ type InMageDiskExclusionInputInput interface {
 	ToInMageDiskExclusionInputOutputWithContext(context.Context) InMageDiskExclusionInputOutput
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInputArgs struct {
 	// The guest disk signature based option for disk exclusion.
 	DiskSignatureOptions InMageDiskSignatureExclusionOptionsArrayInput `pulumi:"diskSignatureOptions"`
@@ -27908,7 +27423,6 @@ func (i *inMageDiskExclusionInputPtrType) ToInMageDiskExclusionInputPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskExclusionInputPtrOutput)
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageDiskExclusionInputOutput) ElementType() reflect.Type {
@@ -27987,7 +27501,6 @@ func (o InMageDiskExclusionInputPtrOutput) VolumeOptions() InMageVolumeExclusion
 	}).(InMageVolumeExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptions struct {
 	// The guest signature of disk to be excluded from replication.
 	DiskSignature *string `pulumi:"diskSignature"`
@@ -28004,7 +27517,6 @@ type InMageDiskSignatureExclusionOptionsInput interface {
 	ToInMageDiskSignatureExclusionOptionsOutputWithContext(context.Context) InMageDiskSignatureExclusionOptionsOutput
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptionsArgs struct {
 	// The guest signature of disk to be excluded from replication.
 	DiskSignature pulumi.StringPtrInput `pulumi:"diskSignature"`
@@ -28047,7 +27559,6 @@ func (i InMageDiskSignatureExclusionOptionsArray) ToInMageDiskSignatureExclusion
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskSignatureExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptionsOutput struct{ *pulumi.OutputState }
 
 func (InMageDiskSignatureExclusionOptionsOutput) ElementType() reflect.Type {
@@ -28087,7 +27598,6 @@ func (o InMageDiskSignatureExclusionOptionsArrayOutput) Index(i pulumi.IntInput)
 	}).(InMageDiskSignatureExclusionOptionsOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInput struct {
 	// The target data store name.
 	DatastoreName *string `pulumi:"datastoreName"`
@@ -28125,7 +27635,6 @@ type InMageEnableProtectionInputInput interface {
 	ToInMageEnableProtectionInputOutputWithContext(context.Context) InMageEnableProtectionInputOutput
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInputArgs struct {
 	// The target data store name.
 	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
@@ -28164,7 +27673,6 @@ func (i InMageEnableProtectionInputArgs) ToInMageEnableProtectionInputOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InMageEnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -28235,7 +27743,6 @@ func (o InMageEnableProtectionInputOutput) VmFriendlyName() pulumi.StringPtrOutp
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.VmFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -28261,7 +27768,6 @@ type InMagePolicyDetailsResponseInput interface {
 	ToInMagePolicyDetailsResponseOutputWithContext(context.Context) InMagePolicyDetailsResponseOutput
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -28288,7 +27794,6 @@ func (i InMagePolicyDetailsResponseArgs) ToInMagePolicyDetailsResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyDetailsResponseOutput)
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMagePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -28329,7 +27834,6 @@ func (o InMagePolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pul
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -28355,7 +27859,6 @@ type InMagePolicyInputInput interface {
 	ToInMagePolicyInputOutputWithContext(context.Context) InMagePolicyInputOutput
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -28382,7 +27885,6 @@ func (i InMagePolicyInputArgs) ToInMagePolicyInputOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyInputOutput)
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (InMagePolicyInputOutput) ElementType() reflect.Type {
@@ -28423,7 +27925,6 @@ func (o InMagePolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtr
 	return o.ApplyT(func(v InMagePolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
@@ -28468,7 +27969,6 @@ type InMageProtectedDiskDetailsResponseInput interface {
 	ToInMageProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageProtectedDiskDetailsResponseOutput
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
 	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
@@ -28539,7 +28039,6 @@ func (i InMageProtectedDiskDetailsResponseArray) ToInMageProtectedDiskDetailsRes
 	return pulumi.ToOutputWithContext(ctx, i).(InMageProtectedDiskDetailsResponseArrayOutput)
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -28649,7 +28148,6 @@ func (o InMageProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(InMageProtectedDiskDetailsResponseOutput)
 }
 
-// InMageRcm source agent upgrade blocking error details.
 type InMageRcmAgentUpgradeBlockingErrorDetailsResponse struct {
 	// The error code.
 	ErrorCode string `pulumi:"errorCode"`
@@ -28676,7 +28174,6 @@ type InMageRcmAgentUpgradeBlockingErrorDetailsResponseInput interface {
 	ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutputWithContext(context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput
 }
 
-// InMageRcm source agent upgrade blocking error details.
 type InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs struct {
 	// The error code.
 	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
@@ -28729,7 +28226,6 @@ func (i InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray) ToInMageRcmAgent
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput)
 }
 
-// InMageRcm source agent upgrade blocking error details.
 type InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ElementType() reflect.Type {
@@ -28796,7 +28292,6 @@ func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput) Index(i pu
 	}).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput)
 }
 
-// InMageRcm disk input.
 type InMageRcmDiskInput struct {
 	// The disk encryption set ARM Id.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -28819,7 +28314,6 @@ type InMageRcmDiskInputInput interface {
 	ToInMageRcmDiskInputOutputWithContext(context.Context) InMageRcmDiskInputOutput
 }
 
-// InMageRcm disk input.
 type InMageRcmDiskInputArgs struct {
 	// The disk encryption set ARM Id.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -28868,7 +28362,6 @@ func (i InMageRcmDiskInputArray) ToInMageRcmDiskInputArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDiskInputArrayOutput)
 }
 
-// InMageRcm disk input.
 type InMageRcmDiskInputOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmDiskInputOutput) ElementType() reflect.Type {
@@ -28923,7 +28416,6 @@ func (o InMageRcmDiskInputArrayOutput) Index(i pulumi.IntInput) InMageRcmDiskInp
 	}).(InMageRcmDiskInputOutput)
 }
 
-// InMageRcm disk input.
 type InMageRcmDisksDefaultInput struct {
 	// The disk encryption set ARM Id.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -28944,7 +28436,6 @@ type InMageRcmDisksDefaultInputInput interface {
 	ToInMageRcmDisksDefaultInputOutputWithContext(context.Context) InMageRcmDisksDefaultInputOutput
 }
 
-// InMageRcm disk input.
 type InMageRcmDisksDefaultInputArgs struct {
 	// The disk encryption set ARM Id.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -29007,7 +28498,6 @@ func (i *inMageRcmDisksDefaultInputPtrType) ToInMageRcmDisksDefaultInputPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDisksDefaultInputPtrOutput)
 }
 
-// InMageRcm disk input.
 type InMageRcmDisksDefaultInputOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmDisksDefaultInputOutput) ElementType() reflect.Type {
@@ -29101,7 +28591,6 @@ func (o InMageRcmDisksDefaultInputPtrOutput) LogStorageAccountId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// InMageRcm specific enable protection input.
 type InMageRcmEnableProtectionInput struct {
 	// The default disk input.
 	DisksDefault *InMageRcmDisksDefaultInput `pulumi:"disksDefault"`
@@ -29155,7 +28644,6 @@ type InMageRcmEnableProtectionInputInput interface {
 	ToInMageRcmEnableProtectionInputOutputWithContext(context.Context) InMageRcmEnableProtectionInputOutput
 }
 
-// InMageRcm specific enable protection input.
 type InMageRcmEnableProtectionInputArgs struct {
 	// The default disk input.
 	DisksDefault InMageRcmDisksDefaultInputPtrInput `pulumi:"disksDefault"`
@@ -29210,7 +28698,6 @@ func (i InMageRcmEnableProtectionInputArgs) ToInMageRcmEnableProtectionInputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmEnableProtectionInputOutput)
 }
 
-// InMageRcm specific enable protection input.
 type InMageRcmEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -29321,7 +28808,6 @@ func (o InMageRcmEnableProtectionInputOutput) TestSubnetName() pulumi.StringPtrO
 	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TestSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// InMageRcm fabric provider specific settings.
 type InMageRcmFabricCreationInput struct {
 	// The certificate to be used for AAD authentication.
 	AuthCertificate *string `pulumi:"authCertificate"`
@@ -29347,7 +28833,6 @@ type InMageRcmFabricCreationInputInput interface {
 	ToInMageRcmFabricCreationInputOutputWithContext(context.Context) InMageRcmFabricCreationInputOutput
 }
 
-// InMageRcm fabric provider specific settings.
 type InMageRcmFabricCreationInputArgs struct {
 	// The certificate to be used for AAD authentication.
 	AuthCertificate pulumi.StringPtrInput `pulumi:"authCertificate"`
@@ -29374,7 +28859,6 @@ func (i InMageRcmFabricCreationInputArgs) ToInMageRcmFabricCreationInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmFabricCreationInputOutput)
 }
 
-// InMageRcm fabric provider specific settings.
 type InMageRcmFabricCreationInputOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmFabricCreationInputOutput) ElementType() reflect.Type {
@@ -29415,7 +28899,6 @@ func (o InMageRcmFabricCreationInputOutput) VmwareSiteId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v InMageRcmFabricCreationInput) *string { return v.VmwareSiteId }).(pulumi.StringPtrOutput)
 }
 
-// InMageRcm fabric specific details.
 type InMageRcmFabricSpecificDetailsResponse struct {
 	// The list of agent details.
 	AgentDetails []AgentDetailsResponse `pulumi:"agentDetails"`
@@ -29461,7 +28944,6 @@ type InMageRcmFabricSpecificDetailsResponseInput interface {
 	ToInMageRcmFabricSpecificDetailsResponseOutputWithContext(context.Context) InMageRcmFabricSpecificDetailsResponseOutput
 }
 
-// InMageRcm fabric specific details.
 type InMageRcmFabricSpecificDetailsResponseArgs struct {
 	// The list of agent details.
 	AgentDetails AgentDetailsResponseArrayInput `pulumi:"agentDetails"`
@@ -29508,7 +28990,6 @@ func (i InMageRcmFabricSpecificDetailsResponseArgs) ToInMageRcmFabricSpecificDet
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmFabricSpecificDetailsResponseOutput)
 }
 
-// InMageRcm fabric specific details.
 type InMageRcmFabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmFabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
@@ -29603,7 +29084,6 @@ func (o InMageRcmFabricSpecificDetailsResponseOutput) VmwareSiteId() pulumi.Stri
 	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.VmwareSiteId }).(pulumi.StringOutput)
 }
 
-// InMageRcm last source agent upgrade error details.
 type InMageRcmLastAgentUpgradeErrorDetailsResponse struct {
 	// The error code.
 	ErrorCode string `pulumi:"errorCode"`
@@ -29630,7 +29110,6 @@ type InMageRcmLastAgentUpgradeErrorDetailsResponseInput interface {
 	ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutputWithContext(context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseOutput
 }
 
-// InMageRcm last source agent upgrade error details.
 type InMageRcmLastAgentUpgradeErrorDetailsResponseArgs struct {
 	// The error code.
 	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
@@ -29683,7 +29162,6 @@ func (i InMageRcmLastAgentUpgradeErrorDetailsResponseArray) ToInMageRcmLastAgent
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput)
 }
 
-// InMageRcm last source agent upgrade error details.
 type InMageRcmLastAgentUpgradeErrorDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ElementType() reflect.Type {
@@ -29750,7 +29228,6 @@ func (o InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput) Index(i pulumi
 	}).(InMageRcmLastAgentUpgradeErrorDetailsResponseOutput)
 }
 
-// InMageRcm mobility agent details.
 type InMageRcmMobilityAgentDetailsResponse struct {
 	// The agent version expiry date.
 	AgentVersionExpiryDate string `pulumi:"agentVersionExpiryDate"`
@@ -29783,7 +29260,6 @@ type InMageRcmMobilityAgentDetailsResponseInput interface {
 	ToInMageRcmMobilityAgentDetailsResponseOutputWithContext(context.Context) InMageRcmMobilityAgentDetailsResponseOutput
 }
 
-// InMageRcm mobility agent details.
 type InMageRcmMobilityAgentDetailsResponseArgs struct {
 	// The agent version expiry date.
 	AgentVersionExpiryDate pulumi.StringInput `pulumi:"agentVersionExpiryDate"`
@@ -29817,7 +29293,6 @@ func (i InMageRcmMobilityAgentDetailsResponseArgs) ToInMageRcmMobilityAgentDetai
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmMobilityAgentDetailsResponseOutput)
 }
 
-// InMageRcm mobility agent details.
 type InMageRcmMobilityAgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmMobilityAgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -29877,7 +29352,6 @@ func (o InMageRcmMobilityAgentDetailsResponseOutput) Version() pulumi.StringOutp
 	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// InMageRcm NIC details.
 type InMageRcmNicDetailsResponse struct {
 	// A value indicating whether this is the primary NIC.
 	IsPrimaryNic string `pulumi:"isPrimaryNic"`
@@ -29918,7 +29392,6 @@ type InMageRcmNicDetailsResponseInput interface {
 	ToInMageRcmNicDetailsResponseOutputWithContext(context.Context) InMageRcmNicDetailsResponseOutput
 }
 
-// InMageRcm NIC details.
 type InMageRcmNicDetailsResponseArgs struct {
 	// A value indicating whether this is the primary NIC.
 	IsPrimaryNic pulumi.StringInput `pulumi:"isPrimaryNic"`
@@ -29985,7 +29458,6 @@ func (i InMageRcmNicDetailsResponseArray) ToInMageRcmNicDetailsResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmNicDetailsResponseArrayOutput)
 }
 
-// InMageRcm NIC details.
 type InMageRcmNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmNicDetailsResponseOutput) ElementType() reflect.Type {
@@ -30085,7 +29557,6 @@ func (o InMageRcmNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) InMageR
 	}).(InMageRcmNicDetailsResponseOutput)
 }
 
-// InMageRcm policy creation input.
 type InMageRcmPolicyCreationInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -30111,7 +29582,6 @@ type InMageRcmPolicyCreationInputInput interface {
 	ToInMageRcmPolicyCreationInputOutputWithContext(context.Context) InMageRcmPolicyCreationInputOutput
 }
 
-// InMageRcm policy creation input.
 type InMageRcmPolicyCreationInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -30138,7 +29608,6 @@ func (i InMageRcmPolicyCreationInputArgs) ToInMageRcmPolicyCreationInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmPolicyCreationInputOutput)
 }
 
-// InMageRcm policy creation input.
 type InMageRcmPolicyCreationInputOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmPolicyCreationInputOutput) ElementType() reflect.Type {
@@ -30179,7 +29648,6 @@ func (o InMageRcmPolicyCreationInputOutput) RecoveryPointHistoryInMinutes() pulu
 	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// InMageRcm specific policy details.
 type InMageRcmPolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -30205,7 +29673,6 @@ type InMageRcmPolicyDetailsResponseInput interface {
 	ToInMageRcmPolicyDetailsResponseOutputWithContext(context.Context) InMageRcmPolicyDetailsResponseOutput
 }
 
-// InMageRcm specific policy details.
 type InMageRcmPolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -30232,7 +29699,6 @@ func (i InMageRcmPolicyDetailsResponseArgs) ToInMageRcmPolicyDetailsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmPolicyDetailsResponseOutput)
 }
 
-// InMageRcm specific policy details.
 type InMageRcmPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -30273,7 +29739,6 @@ func (o InMageRcmPolicyDetailsResponseOutput) RecoveryPointHistoryInMinutes() pu
 	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntOutput)
 }
 
-// InMageRcm protected disk details.
 type InMageRcmProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	CapacityInBytes float64 `pulumi:"capacityInBytes"`
@@ -30306,7 +29771,6 @@ type InMageRcmProtectedDiskDetailsResponseInput interface {
 	ToInMageRcmProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageRcmProtectedDiskDetailsResponseOutput
 }
 
-// InMageRcm protected disk details.
 type InMageRcmProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
 	CapacityInBytes pulumi.Float64Input `pulumi:"capacityInBytes"`
@@ -30365,7 +29829,6 @@ func (i InMageRcmProtectedDiskDetailsResponseArray) ToInMageRcmProtectedDiskDeta
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmProtectedDiskDetailsResponseArrayOutput)
 }
 
-// InMageRcm protected disk details.
 type InMageRcmProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -30445,7 +29908,6 @@ func (o InMageRcmProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(InMageRcmProtectedDiskDetailsResponseOutput)
 }
 
-// InMageRcm provider specific details.
 type InMageRcmReplicationDetailsResponse struct {
 	// The agent upgrade blocking error information.
 	AgentUpgradeBlockingErrorDetails []InMageRcmAgentUpgradeBlockingErrorDetailsResponse `pulumi:"agentUpgradeBlockingErrorDetails"`
@@ -30551,7 +30013,6 @@ type InMageRcmReplicationDetailsResponseInput interface {
 	ToInMageRcmReplicationDetailsResponseOutputWithContext(context.Context) InMageRcmReplicationDetailsResponseOutput
 }
 
-// InMageRcm provider specific details.
 type InMageRcmReplicationDetailsResponseArgs struct {
 	// The agent upgrade blocking error information.
 	AgentUpgradeBlockingErrorDetails InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayInput `pulumi:"agentUpgradeBlockingErrorDetails"`
@@ -30658,7 +30119,6 @@ func (i InMageRcmReplicationDetailsResponseArgs) ToInMageRcmReplicationDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmReplicationDetailsResponseOutput)
 }
 
-// InMageRcm provider specific details.
 type InMageRcmReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageRcmReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -30907,7 +30367,6 @@ func (o InMageRcmReplicationDetailsResponseOutput) VmNics() InMageRcmNicDetailsR
 	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) []InMageRcmNicDetailsResponse { return v.VmNics }).(InMageRcmNicDetailsResponseArrayOutput)
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponse struct {
 	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
 	ActiveSiteType *string `pulumi:"activeSiteType"`
@@ -30999,7 +30458,6 @@ type InMageReplicationDetailsResponseInput interface {
 	ToInMageReplicationDetailsResponseOutputWithContext(context.Context) InMageReplicationDetailsResponseOutput
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponseArgs struct {
 	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
 	ActiveSiteType pulumi.StringPtrInput `pulumi:"activeSiteType"`
@@ -31092,7 +30550,6 @@ func (i InMageReplicationDetailsResponseArgs) ToInMageReplicationDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(InMageReplicationDetailsResponseOutput)
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -31298,7 +30755,6 @@ func (o InMageReplicationDetailsResponseOutput) VmProtectionStateDescription() p
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptions struct {
 	// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
 	OnlyExcludeIfSingleVolume *string `pulumi:"onlyExcludeIfSingleVolume"`
@@ -31317,7 +30773,6 @@ type InMageVolumeExclusionOptionsInput interface {
 	ToInMageVolumeExclusionOptionsOutputWithContext(context.Context) InMageVolumeExclusionOptionsOutput
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptionsArgs struct {
 	// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
 	OnlyExcludeIfSingleVolume pulumi.StringPtrInput `pulumi:"onlyExcludeIfSingleVolume"`
@@ -31362,7 +30817,6 @@ func (i InMageVolumeExclusionOptionsArray) ToInMageVolumeExclusionOptionsArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageVolumeExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptionsOutput struct{ *pulumi.OutputState }
 
 func (InMageVolumeExclusionOptionsOutput) ElementType() reflect.Type {
@@ -31407,7 +30861,6 @@ func (o InMageVolumeExclusionOptionsArrayOutput) Index(i pulumi.IntInput) InMage
 	}).(InMageVolumeExclusionOptionsOutput)
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponse struct {
 	// The initial replication progress percentage.
 	InitialReplicationProgressPercentage *string `pulumi:"initialReplicationProgressPercentage"`
@@ -31426,7 +30879,6 @@ type InitialReplicationDetailsResponseInput interface {
 	ToInitialReplicationDetailsResponseOutputWithContext(context.Context) InitialReplicationDetailsResponseOutput
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponseArgs struct {
 	// The initial replication progress percentage.
 	InitialReplicationProgressPercentage pulumi.StringPtrInput `pulumi:"initialReplicationProgressPercentage"`
@@ -31487,7 +30939,6 @@ func (i *initialReplicationDetailsResponsePtrType) ToInitialReplicationDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InitialReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -31566,7 +31017,6 @@ func (o InitialReplicationDetailsResponsePtrOutput) InitialReplicationType() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponse struct {
 	// Error creation time (UTC)
 	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
@@ -31605,7 +31055,6 @@ type InnerHealthErrorResponseInput interface {
 	ToInnerHealthErrorResponseOutputWithContext(context.Context) InnerHealthErrorResponseOutput
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponseArgs struct {
 	// Error creation time (UTC)
 	CreationTimeUtc pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
@@ -31670,7 +31119,6 @@ func (i InnerHealthErrorResponseArray) ToInnerHealthErrorResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InnerHealthErrorResponseArrayOutput)
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (InnerHealthErrorResponseOutput) ElementType() reflect.Type {
@@ -31765,7 +31213,6 @@ func (o InnerHealthErrorResponseArrayOutput) Index(i pulumi.IntInput) InnerHealt
 	}).(InnerHealthErrorResponseOutput)
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponse struct {
 	// The input endpoint name.
 	EndpointName *string `pulumi:"endpointName"`
@@ -31788,7 +31235,6 @@ type InputEndpointResponseInput interface {
 	ToInputEndpointResponseOutputWithContext(context.Context) InputEndpointResponseOutput
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponseArgs struct {
 	// The input endpoint name.
 	EndpointName pulumi.StringPtrInput `pulumi:"endpointName"`
@@ -31837,7 +31283,6 @@ func (i InputEndpointResponseArray) ToInputEndpointResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InputEndpointResponseArrayOutput)
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (InputEndpointResponseOutput) ElementType() reflect.Type {
@@ -31892,7 +31337,6 @@ func (o InputEndpointResponseArrayOutput) Index(i pulumi.IntInput) InputEndpoint
 	}).(InputEndpointResponseOutput)
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfo struct {
 	// Inquiry Details which will have workload specific details.
 	// For e.g. - For SQL and oracle this will contain different details.
@@ -31913,7 +31357,6 @@ type InquiryInfoInput interface {
 	ToInquiryInfoOutputWithContext(context.Context) InquiryInfoOutput
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfoArgs struct {
 	// Inquiry Details which will have workload specific details.
 	// For e.g. - For SQL and oracle this will contain different details.
@@ -31976,7 +31419,6 @@ func (i *inquiryInfoPtrType) ToInquiryInfoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(InquiryInfoPtrOutput)
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfoOutput struct{ *pulumi.OutputState }
 
 func (InquiryInfoOutput) ElementType() reflect.Type {
@@ -32059,7 +31501,6 @@ func (o InquiryInfoPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfoResponse struct {
 	// Error Details if the Status is non-success.
 	ErrorDetail *ErrorDetailResponse `pulumi:"errorDetail"`
@@ -32082,7 +31523,6 @@ type InquiryInfoResponseInput interface {
 	ToInquiryInfoResponseOutputWithContext(context.Context) InquiryInfoResponseOutput
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfoResponseArgs struct {
 	// Error Details if the Status is non-success.
 	ErrorDetail ErrorDetailResponsePtrInput `pulumi:"errorDetail"`
@@ -32147,7 +31587,6 @@ func (i *inquiryInfoResponsePtrType) ToInquiryInfoResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(InquiryInfoResponsePtrOutput)
 }
 
-// Details about inquired protectable items under a given container.
 type InquiryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (InquiryInfoResponseOutput) ElementType() reflect.Type {
@@ -32245,7 +31684,6 @@ func (o InquiryInfoResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidation struct {
 	// Status for the Inquiry Validation.
 	Status *string `pulumi:"status"`
@@ -32262,7 +31700,6 @@ type InquiryValidationInput interface {
 	ToInquiryValidationOutputWithContext(context.Context) InquiryValidationOutput
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidationArgs struct {
 	// Status for the Inquiry Validation.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -32321,7 +31758,6 @@ func (i *inquiryValidationPtrType) ToInquiryValidationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(InquiryValidationPtrOutput)
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidationOutput struct{ *pulumi.OutputState }
 
 func (InquiryValidationOutput) ElementType() reflect.Type {
@@ -32385,7 +31821,6 @@ func (o InquiryValidationPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidationResponse struct {
 	// Error Additional Detail in case the status is non-success.
 	AdditionalDetail string `pulumi:"additionalDetail"`
@@ -32406,7 +31841,6 @@ type InquiryValidationResponseInput interface {
 	ToInquiryValidationResponseOutputWithContext(context.Context) InquiryValidationResponseOutput
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidationResponseArgs struct {
 	// Error Additional Detail in case the status is non-success.
 	AdditionalDetail pulumi.StringInput `pulumi:"additionalDetail"`
@@ -32469,7 +31903,6 @@ func (i *inquiryValidationResponsePtrType) ToInquiryValidationResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(InquiryValidationResponsePtrOutput)
 }
 
-// Validation for inquired protectable items under a given container.
 type InquiryValidationResponseOutput struct{ *pulumi.OutputState }
 
 func (InquiryValidationResponseOutput) ElementType() reflect.Type {
@@ -32859,7 +32292,6 @@ func (o InstantRPAdditionalDetailsResponsePtrOutput) AzureBackupRGNameSuffix() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetails struct {
 	// Resource Health Status
 	ResourceHealthStatus *string `pulumi:"resourceHealthStatus"`
@@ -32876,7 +32308,6 @@ type KPIResourceHealthDetailsInput interface {
 	ToKPIResourceHealthDetailsOutputWithContext(context.Context) KPIResourceHealthDetailsOutput
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsArgs struct {
 	// Resource Health Status
 	ResourceHealthStatus pulumi.StringPtrInput `pulumi:"resourceHealthStatus"`
@@ -32919,7 +32350,6 @@ func (i KPIResourceHealthDetailsMap) ToKPIResourceHealthDetailsMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsMapOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsOutput struct{ *pulumi.OutputState }
 
 func (KPIResourceHealthDetailsOutput) ElementType() reflect.Type {
@@ -32959,7 +32389,6 @@ func (o KPIResourceHealthDetailsMapOutput) MapIndex(k pulumi.StringInput) KPIRes
 	}).(KPIResourceHealthDetailsOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponse struct {
 	// Resource Health Status
 	ResourceHealthDetails []ResourceHealthDetailsResponse `pulumi:"resourceHealthDetails"`
@@ -32978,7 +32407,6 @@ type KPIResourceHealthDetailsResponseInput interface {
 	ToKPIResourceHealthDetailsResponseOutputWithContext(context.Context) KPIResourceHealthDetailsResponseOutput
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponseArgs struct {
 	// Resource Health Status
 	ResourceHealthDetails ResourceHealthDetailsResponseArrayInput `pulumi:"resourceHealthDetails"`
@@ -33023,7 +32451,6 @@ func (i KPIResourceHealthDetailsResponseMap) ToKPIResourceHealthDetailsResponseM
 	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (KPIResourceHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -33070,7 +32497,6 @@ func (o KPIResourceHealthDetailsResponseMapOutput) MapIndex(k pulumi.StringInput
 	}).(KPIResourceHealthDetailsResponseOutput)
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfo struct {
 	// The key URL / identifier.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
@@ -33089,7 +32515,6 @@ type KeyEncryptionKeyInfoInput interface {
 	ToKeyEncryptionKeyInfoOutputWithContext(context.Context) KeyEncryptionKeyInfoOutput
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfoArgs struct {
 	// The key URL / identifier.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
@@ -33150,7 +32575,6 @@ func (i *keyEncryptionKeyInfoPtrType) ToKeyEncryptionKeyInfoPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfoOutput struct{ *pulumi.OutputState }
 
 func (KeyEncryptionKeyInfoOutput) ElementType() reflect.Type {
@@ -33229,7 +32653,6 @@ func (o KeyEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log policy schedule.
 type LogSchedulePolicy struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
@@ -33249,7 +32672,6 @@ type LogSchedulePolicyInput interface {
 	ToLogSchedulePolicyOutputWithContext(context.Context) LogSchedulePolicyOutput
 }
 
-// Log policy schedule.
 type LogSchedulePolicyArgs struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins pulumi.IntPtrInput `pulumi:"scheduleFrequencyInMins"`
@@ -33270,7 +32692,6 @@ func (i LogSchedulePolicyArgs) ToLogSchedulePolicyOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LogSchedulePolicyOutput)
 }
 
-// Log policy schedule.
 type LogSchedulePolicyOutput struct{ *pulumi.OutputState }
 
 func (LogSchedulePolicyOutput) ElementType() reflect.Type {
@@ -33296,7 +32717,6 @@ func (o LogSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
 
-// Log policy schedule.
 type LogSchedulePolicyResponse struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
@@ -33316,7 +32736,6 @@ type LogSchedulePolicyResponseInput interface {
 	ToLogSchedulePolicyResponseOutputWithContext(context.Context) LogSchedulePolicyResponseOutput
 }
 
-// Log policy schedule.
 type LogSchedulePolicyResponseArgs struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins pulumi.IntPtrInput `pulumi:"scheduleFrequencyInMins"`
@@ -33337,7 +32756,6 @@ func (i LogSchedulePolicyResponseArgs) ToLogSchedulePolicyResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LogSchedulePolicyResponseOutput)
 }
 
-// Log policy schedule.
 type LogSchedulePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (LogSchedulePolicyResponseOutput) ElementType() reflect.Type {
@@ -33363,7 +32781,6 @@ func (o LogSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringOutpu
 	return o.ApplyT(func(v LogSchedulePolicyResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicy struct {
 	// Daily retention schedule of the protection policy.
 	DailySchedule *DailyRetentionSchedule `pulumi:"dailySchedule"`
@@ -33389,7 +32806,6 @@ type LongTermRetentionPolicyInput interface {
 	ToLongTermRetentionPolicyOutputWithContext(context.Context) LongTermRetentionPolicyOutput
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicyArgs struct {
 	// Daily retention schedule of the protection policy.
 	DailySchedule DailyRetentionSchedulePtrInput `pulumi:"dailySchedule"`
@@ -33416,7 +32832,6 @@ func (i LongTermRetentionPolicyArgs) ToLongTermRetentionPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyOutput)
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LongTermRetentionPolicyOutput) ElementType() reflect.Type {
@@ -33457,7 +32872,6 @@ func (o LongTermRetentionPolicyOutput) YearlySchedule() YearlyRetentionScheduleP
 	return o.ApplyT(func(v LongTermRetentionPolicy) *YearlyRetentionSchedule { return v.YearlySchedule }).(YearlyRetentionSchedulePtrOutput)
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicyResponse struct {
 	// Daily retention schedule of the protection policy.
 	DailySchedule *DailyRetentionScheduleResponse `pulumi:"dailySchedule"`
@@ -33483,7 +32897,6 @@ type LongTermRetentionPolicyResponseInput interface {
 	ToLongTermRetentionPolicyResponseOutputWithContext(context.Context) LongTermRetentionPolicyResponseOutput
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicyResponseArgs struct {
 	// Daily retention schedule of the protection policy.
 	DailySchedule DailyRetentionScheduleResponsePtrInput `pulumi:"dailySchedule"`
@@ -33510,7 +32923,6 @@ func (i LongTermRetentionPolicyResponseArgs) ToLongTermRetentionPolicyResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyResponseOutput)
 }
 
-// Long term retention policy.
 type LongTermRetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (LongTermRetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -33551,7 +32963,6 @@ func (o LongTermRetentionPolicyResponseOutput) YearlySchedule() YearlyRetentionS
 	return o.ApplyT(func(v LongTermRetentionPolicyResponse) *YearlyRetentionScheduleResponse { return v.YearlySchedule }).(YearlyRetentionScheduleResponsePtrOutput)
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'LongTermSchedulePolicy'.
@@ -33569,7 +32980,6 @@ type LongTermSchedulePolicyInput interface {
 	ToLongTermSchedulePolicyOutputWithContext(context.Context) LongTermSchedulePolicyOutput
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'LongTermSchedulePolicy'.
@@ -33588,7 +32998,6 @@ func (i LongTermSchedulePolicyArgs) ToLongTermSchedulePolicyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermSchedulePolicyOutput)
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicyOutput struct{ *pulumi.OutputState }
 
 func (LongTermSchedulePolicyOutput) ElementType() reflect.Type {
@@ -33609,7 +33018,6 @@ func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'LongTermSchedulePolicy'.
@@ -33627,7 +33035,6 @@ type LongTermSchedulePolicyResponseInput interface {
 	ToLongTermSchedulePolicyResponseOutputWithContext(context.Context) LongTermSchedulePolicyResponseOutput
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'LongTermSchedulePolicy'.
@@ -33646,7 +33053,6 @@ func (i LongTermSchedulePolicyResponseArgs) ToLongTermSchedulePolicyResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermSchedulePolicyResponseOutput)
 }
 
-// Long term policy schedule.
 type LongTermSchedulePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (LongTermSchedulePolicyResponseOutput) ElementType() reflect.Type {
@@ -33667,7 +33073,6 @@ func (o LongTermSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.String
 	return o.ApplyT(func(v LongTermSchedulePolicyResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetails struct {
 	// Health Code
 	Code *int `pulumi:"code"`
@@ -33690,7 +33095,6 @@ type MABContainerHealthDetailsInput interface {
 	ToMABContainerHealthDetailsOutputWithContext(context.Context) MABContainerHealthDetailsOutput
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetailsArgs struct {
 	// Health Code
 	Code pulumi.IntPtrInput `pulumi:"code"`
@@ -33739,7 +33143,6 @@ func (i MABContainerHealthDetailsArray) ToMABContainerHealthDetailsArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MABContainerHealthDetailsArrayOutput)
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetailsOutput struct{ *pulumi.OutputState }
 
 func (MABContainerHealthDetailsOutput) ElementType() reflect.Type {
@@ -33794,7 +33197,6 @@ func (o MABContainerHealthDetailsArrayOutput) Index(i pulumi.IntInput) MABContai
 	}).(MABContainerHealthDetailsOutput)
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetailsResponse struct {
 	// Health Code
 	Code *int `pulumi:"code"`
@@ -33817,7 +33219,6 @@ type MABContainerHealthDetailsResponseInput interface {
 	ToMABContainerHealthDetailsResponseOutputWithContext(context.Context) MABContainerHealthDetailsResponseOutput
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetailsResponseArgs struct {
 	// Health Code
 	Code pulumi.IntPtrInput `pulumi:"code"`
@@ -33866,7 +33267,6 @@ func (i MABContainerHealthDetailsResponseArray) ToMABContainerHealthDetailsRespo
 	return pulumi.ToOutputWithContext(ctx, i).(MABContainerHealthDetailsResponseArrayOutput)
 }
 
-// MAB workload-specific Health Details.
 type MABContainerHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MABContainerHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -33921,7 +33321,6 @@ func (o MABContainerHealthDetailsResponseArrayOutput) Index(i pulumi.IntInput) M
 	}).(MABContainerHealthDetailsResponseOutput)
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainer struct {
 	// Agent version of this container.
 	AgentVersion *string `pulumi:"agentVersion"`
@@ -33964,7 +33363,6 @@ type MabContainerInput interface {
 	ToMabContainerOutputWithContext(context.Context) MabContainerOutput
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainerArgs struct {
 	// Agent version of this container.
 	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
@@ -34008,7 +33406,6 @@ func (i MabContainerArgs) ToMabContainerOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MabContainerOutput)
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainerOutput struct{ *pulumi.OutputState }
 
 func (MabContainerOutput) ElementType() reflect.Type {
@@ -34087,7 +33484,6 @@ func (o MabContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfo struct {
 	// Type of backup items associated with this container.
 	BackupItemType *string `pulumi:"backupItemType"`
@@ -34112,7 +33508,6 @@ type MabContainerExtendedInfoInput interface {
 	ToMabContainerExtendedInfoOutputWithContext(context.Context) MabContainerExtendedInfoOutput
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfoArgs struct {
 	// Type of backup items associated with this container.
 	BackupItemType pulumi.StringPtrInput `pulumi:"backupItemType"`
@@ -34179,7 +33574,6 @@ func (i *mabContainerExtendedInfoPtrType) ToMabContainerExtendedInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MabContainerExtendedInfoPtrOutput)
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (MabContainerExtendedInfoOutput) ElementType() reflect.Type {
@@ -34303,7 +33697,6 @@ func (o MabContainerExtendedInfoPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfoResponse struct {
 	// Type of backup items associated with this container.
 	BackupItemType *string `pulumi:"backupItemType"`
@@ -34328,7 +33721,6 @@ type MabContainerExtendedInfoResponseInput interface {
 	ToMabContainerExtendedInfoResponseOutputWithContext(context.Context) MabContainerExtendedInfoResponseOutput
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfoResponseArgs struct {
 	// Type of backup items associated with this container.
 	BackupItemType pulumi.StringPtrInput `pulumi:"backupItemType"`
@@ -34395,7 +33787,6 @@ func (i *mabContainerExtendedInfoResponsePtrType) ToMabContainerExtendedInfoResp
 	return pulumi.ToOutputWithContext(ctx, i).(MabContainerExtendedInfoResponsePtrOutput)
 }
 
-// Additional information of the container.
 type MabContainerExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (MabContainerExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -34519,7 +33910,6 @@ func (o MabContainerExtendedInfoResponsePtrOutput) PolicyName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainerResponse struct {
 	// Agent version of this container.
 	AgentVersion *string `pulumi:"agentVersion"`
@@ -34562,7 +33952,6 @@ type MabContainerResponseInput interface {
 	ToMabContainerResponseOutputWithContext(context.Context) MabContainerResponseOutput
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainerResponseArgs struct {
 	// Agent version of this container.
 	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
@@ -34606,7 +33995,6 @@ func (i MabContainerResponseArgs) ToMabContainerResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MabContainerResponseOutput)
 }
 
-// Container with items backed up using MAB backup engine.
 type MabContainerResponseOutput struct{ *pulumi.OutputState }
 
 func (MabContainerResponseOutput) ElementType() reflect.Type {
@@ -34685,7 +34073,6 @@ func (o MabContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MabContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItem struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -34743,7 +34130,6 @@ type MabFileFolderProtectedItemInput interface {
 	ToMabFileFolderProtectedItemOutputWithContext(context.Context) MabFileFolderProtectedItemOutput
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -34802,7 +34188,6 @@ func (i MabFileFolderProtectedItemArgs) ToMabFileFolderProtectedItemOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemOutput) ElementType() reflect.Type {
@@ -34923,7 +34308,6 @@ func (o MabFileFolderProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfo struct {
 	// Last time when the agent data synced to service.
 	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
@@ -34944,7 +34328,6 @@ type MabFileFolderProtectedItemExtendedInfoInput interface {
 	ToMabFileFolderProtectedItemExtendedInfoOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoOutput
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoArgs struct {
 	// Last time when the agent data synced to service.
 	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
@@ -35007,7 +34390,6 @@ func (i *mabFileFolderProtectedItemExtendedInfoPtrType) ToMabFileFolderProtected
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -35101,7 +34483,6 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponse struct {
 	// Last time when the agent data synced to service.
 	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
@@ -35122,7 +34503,6 @@ type MabFileFolderProtectedItemExtendedInfoResponseInput interface {
 	ToMabFileFolderProtectedItemExtendedInfoResponseOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponseArgs struct {
 	// Last time when the agent data synced to service.
 	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
@@ -35185,7 +34565,6 @@ func (i *mabFileFolderProtectedItemExtendedInfoResponsePtrType) ToMabFileFolderP
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -35279,7 +34658,6 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCo
 	}).(pulumi.IntPtrOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -35337,7 +34715,6 @@ type MabFileFolderProtectedItemResponseInput interface {
 	ToMabFileFolderProtectedItemResponseOutputWithContext(context.Context) MabFileFolderProtectedItemResponseOutput
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponseArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
@@ -35396,7 +34773,6 @@ func (i MabFileFolderProtectedItemResponseArgs) ToMabFileFolderProtectedItemResp
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemResponseOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -35519,7 +34895,6 @@ func (o MabFileFolderProtectedItemResponseOutput) WorkloadType() pulumi.StringPt
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -35543,7 +34918,6 @@ type MabProtectionPolicyInput interface {
 	ToMabProtectionPolicyOutputWithContext(context.Context) MabProtectionPolicyOutput
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -35568,7 +34942,6 @@ func (i MabProtectionPolicyArgs) ToMabProtectionPolicyOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MabProtectionPolicyOutput)
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (MabProtectionPolicyOutput) ElementType() reflect.Type {
@@ -35604,7 +34977,6 @@ func (o MabProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v MabProtectionPolicy) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -35628,7 +35000,6 @@ type MabProtectionPolicyResponseInput interface {
 	ToMabProtectionPolicyResponseOutputWithContext(context.Context) MabProtectionPolicyResponseOutput
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -35653,7 +35024,6 @@ func (i MabProtectionPolicyResponseArgs) ToMabProtectionPolicyResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MabProtectionPolicyResponseOutput)
 }
 
-// Mab container-specific backup policy.
 type MabProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (MabProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -35689,7 +35059,6 @@ func (o MabProtectionPolicyResponseOutput) SchedulePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v MabProtectionPolicyResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponse struct {
 	// Agent expiry date.
 	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
@@ -35740,7 +35109,6 @@ type MasterTargetServerResponseInput interface {
 	ToMasterTargetServerResponseOutputWithContext(context.Context) MasterTargetServerResponseOutput
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponseArgs struct {
 	// Agent expiry date.
 	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
@@ -35817,7 +35185,6 @@ func (i MasterTargetServerResponseArray) ToMasterTargetServerResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MasterTargetServerResponseArrayOutput)
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponseOutput struct{ *pulumi.OutputState }
 
 func (MasterTargetServerResponseOutput) ElementType() reflect.Type {
@@ -35942,7 +35309,6 @@ func (o MasterTargetServerResponseArrayOutput) Index(i pulumi.IntInput) MasterTa
 	}).(MasterTargetServerResponseOutput)
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponse struct {
 	// The allowed operations on the migration item, based on the current migration state of the item.
 	AllowedOperations []string `pulumi:"allowedOperations"`
@@ -35983,7 +35349,6 @@ type MigrationItemPropertiesResponseInput interface {
 	ToMigrationItemPropertiesResponseOutputWithContext(context.Context) MigrationItemPropertiesResponseOutput
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponseArgs struct {
 	// The allowed operations on the migration item, based on the current migration state of the item.
 	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
@@ -36066,7 +35431,6 @@ func (i *migrationItemPropertiesResponsePtrType) ToMigrationItemPropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationItemPropertiesResponsePtrOutput)
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -36312,7 +35676,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) TestMigrateStateDescription() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponse struct {
 	// The OS type.
 	OsType *string `pulumi:"osType"`
@@ -36333,7 +35696,6 @@ type MobilityServiceUpdateResponseInput interface {
 	ToMobilityServiceUpdateResponseOutputWithContext(context.Context) MobilityServiceUpdateResponseOutput
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponseArgs struct {
 	// The OS type.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -36380,7 +35742,6 @@ func (i MobilityServiceUpdateResponseArray) ToMobilityServiceUpdateResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MobilityServiceUpdateResponseArrayOutput)
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponseOutput struct{ *pulumi.OutputState }
 
 func (MobilityServiceUpdateResponseOutput) ElementType() reflect.Type {
@@ -36430,7 +35791,6 @@ func (o MobilityServiceUpdateResponseArrayOutput) Index(i pulumi.IntInput) Mobil
 	}).(MobilityServiceUpdateResponseOutput)
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionSchedule struct {
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
@@ -36455,7 +35815,6 @@ type MonthlyRetentionScheduleInput interface {
 	ToMonthlyRetentionScheduleOutputWithContext(context.Context) MonthlyRetentionScheduleOutput
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionScheduleArgs struct {
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
@@ -36522,7 +35881,6 @@ func (i *monthlyRetentionSchedulePtrType) ToMonthlyRetentionSchedulePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionSchedulePtrOutput)
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonthlyRetentionScheduleOutput) ElementType() reflect.Type {
@@ -36646,7 +36004,6 @@ func (o MonthlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionScheduleResponse struct {
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -36671,7 +36028,6 @@ type MonthlyRetentionScheduleResponseInput interface {
 	ToMonthlyRetentionScheduleResponseOutputWithContext(context.Context) MonthlyRetentionScheduleResponseOutput
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionScheduleResponseArgs struct {
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationResponsePtrInput `pulumi:"retentionDuration"`
@@ -36738,7 +36094,6 @@ func (i *monthlyRetentionScheduleResponsePtrType) ToMonthlyRetentionScheduleResp
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleResponsePtrOutput)
 }
 
-// Monthly retention schedule.
 type MonthlyRetentionScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (MonthlyRetentionScheduleResponseOutput) ElementType() reflect.Type {
@@ -36866,7 +36221,6 @@ func (o MonthlyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponse struct {
 	// The fabric specific settings.
 	FabricSpecificSettings interface{} `pulumi:"fabricSpecificSettings"`
@@ -36899,7 +36253,6 @@ type NetworkMappingPropertiesResponseInput interface {
 	ToNetworkMappingPropertiesResponseOutputWithContext(context.Context) NetworkMappingPropertiesResponseOutput
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponseArgs struct {
 	// The fabric specific settings.
 	FabricSpecificSettings pulumi.Input `pulumi:"fabricSpecificSettings"`
@@ -36974,7 +36327,6 @@ func (i *networkMappingPropertiesResponsePtrType) ToNetworkMappingPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPropertiesResponsePtrOutput)
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -37158,7 +36510,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) State() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk Details.
 type OSDetailsResponse struct {
 	// The OS Major Version.
 	OSMajorVersion *string `pulumi:"oSMajorVersion"`
@@ -37185,7 +36536,6 @@ type OSDetailsResponseInput interface {
 	ToOSDetailsResponseOutputWithContext(context.Context) OSDetailsResponseOutput
 }
 
-// Disk Details.
 type OSDetailsResponseArgs struct {
 	// The OS Major Version.
 	OSMajorVersion pulumi.StringPtrInput `pulumi:"oSMajorVersion"`
@@ -37254,7 +36604,6 @@ func (i *osdetailsResponsePtrType) ToOSDetailsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OSDetailsResponsePtrOutput)
 }
 
-// Disk Details.
 type OSDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDetailsResponseOutput) ElementType() reflect.Type {
@@ -37393,7 +36742,6 @@ func (o OSDetailsResponsePtrOutput) ProductType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponse struct {
 	// The type of the OS on the VM.
 	OsType *string `pulumi:"osType"`
@@ -37414,7 +36762,6 @@ type OSDiskDetailsResponseInput interface {
 	ToOSDiskDetailsResponseOutputWithContext(context.Context) OSDiskDetailsResponseOutput
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponseArgs struct {
 	// The type of the OS on the VM.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -37477,7 +36824,6 @@ func (i *osdiskDetailsResponsePtrType) ToOSDiskDetailsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskDetailsResponsePtrOutput)
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -37571,7 +36917,6 @@ func (o OSDiskDetailsResponsePtrOutput) VhdName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponse struct {
 	// The FriendlyName.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -37590,7 +36935,6 @@ type PolicyPropertiesResponseInput interface {
 	ToPolicyPropertiesResponseOutputWithContext(context.Context) PolicyPropertiesResponseOutput
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponseArgs struct {
 	// The FriendlyName.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -37651,7 +36995,6 @@ func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponsePtrOutput)
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -37730,7 +37073,6 @@ func (o PolicyPropertiesResponsePtrOutput) ProviderSpecificDetails() pulumi.AnyO
 	}).(pulumi.AnyOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
 type PrivateEndpoint struct {
 	// Gets or sets id
 	Id *string `pulumi:"id"`
@@ -37747,7 +37089,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
 type PrivateEndpointArgs struct {
 	// Gets or sets id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -37806,7 +37147,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -37870,7 +37210,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionType struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
@@ -37891,7 +37230,6 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionTypeArgs struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
@@ -37954,7 +37292,6 @@ func (i *privateEndpointConnectionTypePtrType) ToPrivateEndpointConnectionTypePt
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypePtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -38050,7 +37387,6 @@ func (o PrivateEndpointConnectionTypePtrOutput) ProvisioningState() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponse struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -38071,7 +37407,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponseArgs struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
@@ -38134,7 +37469,6 @@ func (i *privateEndpointConnectionResponsePtrType) ToPrivateEndpointConnectionRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponsePtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -38230,7 +37564,6 @@ func (o PrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information to be stored in Vault properties as an element of privateEndpointConnections List.
 type PrivateEndpointConnectionVaultPropertiesResponse struct {
 	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
 	Id string `pulumi:"id"`
@@ -38249,7 +37582,6 @@ type PrivateEndpointConnectionVaultPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionVaultPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionVaultPropertiesResponseOutput
 }
 
-// Information to be stored in Vault properties as an element of privateEndpointConnections List.
 type PrivateEndpointConnectionVaultPropertiesResponseArgs struct {
 	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -38294,7 +37626,6 @@ func (i PrivateEndpointConnectionVaultPropertiesResponseArray) ToPrivateEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput)
 }
 
-// Information to be stored in Vault properties as an element of privateEndpointConnections List.
 type PrivateEndpointConnectionVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -38341,7 +37672,6 @@ func (o PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) Index(i pul
 	}).(PrivateEndpointConnectionVaultPropertiesResponseOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponse struct {
 	// Gets or sets id.
 	Id string `pulumi:"id"`
@@ -38358,7 +37688,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponseArgs struct {
 	// Gets or sets id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -38417,7 +37746,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -38481,7 +37809,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionState struct {
 	// Gets or sets actions required
 	ActionRequired *string `pulumi:"actionRequired"`
@@ -38502,7 +37829,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateArgs struct {
 	// Gets or sets actions required
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
@@ -38565,7 +37891,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -38659,7 +37984,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponse struct {
 	// Gets or sets actions required
 	ActionRequired *string `pulumi:"actionRequired"`
@@ -38680,7 +38004,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// Gets or sets actions required
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
@@ -38743,7 +38066,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -38837,7 +38159,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Process server details.
 type ProcessServerDetailsResponse struct {
 	// The available memory.
 	AvailableMemoryInBytes float64 `pulumi:"availableMemoryInBytes"`
@@ -38888,7 +38209,6 @@ type ProcessServerDetailsResponseInput interface {
 	ToProcessServerDetailsResponseOutputWithContext(context.Context) ProcessServerDetailsResponseOutput
 }
 
-// Process server details.
 type ProcessServerDetailsResponseArgs struct {
 	// The available memory.
 	AvailableMemoryInBytes pulumi.Float64Input `pulumi:"availableMemoryInBytes"`
@@ -38965,7 +38285,6 @@ func (i ProcessServerDetailsResponseArray) ToProcessServerDetailsResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerDetailsResponseArrayOutput)
 }
 
-// Process server details.
 type ProcessServerDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ProcessServerDetailsResponseOutput) ElementType() reflect.Type {
@@ -39090,7 +38409,6 @@ func (o ProcessServerDetailsResponseArrayOutput) Index(i pulumi.IntInput) Proces
 	}).(ProcessServerDetailsResponseOutput)
 }
 
-// Details of the Process Server.
 type ProcessServerResponse struct {
 	// Agent expiry date.
 	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
@@ -39177,7 +38495,6 @@ type ProcessServerResponseInput interface {
 	ToProcessServerResponseOutputWithContext(context.Context) ProcessServerResponseOutput
 }
 
-// Details of the Process Server.
 type ProcessServerResponseArgs struct {
 	// Agent expiry date.
 	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
@@ -39290,7 +38607,6 @@ func (i ProcessServerResponseArray) ToProcessServerResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerResponseArrayOutput)
 }
 
-// Details of the Process Server.
 type ProcessServerResponseOutput struct{ *pulumi.OutputState }
 
 func (ProcessServerResponseOutput) ElementType() reflect.Type {
@@ -39505,7 +38821,6 @@ func (o ProcessServerResponseArrayOutput) Index(i pulumi.IntInput) ProcessServer
 	}).(ProcessServerResponseOutput)
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponse struct {
 	// Health of pairing.
 	Health *string `pulumi:"health"`
@@ -39542,7 +38857,6 @@ type ProtectionContainerMappingPropertiesResponseInput interface {
 	ToProtectionContainerMappingPropertiesResponseOutputWithContext(context.Context) ProtectionContainerMappingPropertiesResponseOutput
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponseArgs struct {
 	// Health of pairing.
 	Health pulumi.StringPtrInput `pulumi:"health"`
@@ -39621,7 +38935,6 @@ func (i *protectionContainerMappingPropertiesResponsePtrType) ToProtectionContai
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPropertiesResponsePtrOutput)
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -39841,7 +39154,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Push installer details.
 type PushInstallerDetailsResponse struct {
 	// The health of the push installer.
 	Health string `pulumi:"health"`
@@ -39868,7 +39180,6 @@ type PushInstallerDetailsResponseInput interface {
 	ToPushInstallerDetailsResponseOutputWithContext(context.Context) PushInstallerDetailsResponseOutput
 }
 
-// Push installer details.
 type PushInstallerDetailsResponseArgs struct {
 	// The health of the push installer.
 	Health pulumi.StringInput `pulumi:"health"`
@@ -39921,7 +39232,6 @@ func (i PushInstallerDetailsResponseArray) ToPushInstallerDetailsResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(PushInstallerDetailsResponseArrayOutput)
 }
 
-// Push installer details.
 type PushInstallerDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (PushInstallerDetailsResponseOutput) ElementType() reflect.Type {
@@ -39986,7 +39296,6 @@ func (o PushInstallerDetailsResponseArrayOutput) Index(i pulumi.IntInput) PushIn
 	}).(PushInstallerDetailsResponseOutput)
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -40014,7 +39323,6 @@ type RcmAzureMigrationPolicyDetailsResponseInput interface {
 	ToRcmAzureMigrationPolicyDetailsResponseOutputWithContext(context.Context) RcmAzureMigrationPolicyDetailsResponseOutput
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -40043,7 +39351,6 @@ func (i RcmAzureMigrationPolicyDetailsResponseArgs) ToRcmAzureMigrationPolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(RcmAzureMigrationPolicyDetailsResponseOutput)
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RcmAzureMigrationPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -40089,7 +39396,6 @@ func (o RcmAzureMigrationPolicyDetailsResponseOutput) RecoveryPointThresholdInMi
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// RCM proxy details.
 type RcmProxyDetailsResponse struct {
 	// The health of the RCM proxy.
 	Health string `pulumi:"health"`
@@ -40116,7 +39422,6 @@ type RcmProxyDetailsResponseInput interface {
 	ToRcmProxyDetailsResponseOutputWithContext(context.Context) RcmProxyDetailsResponseOutput
 }
 
-// RCM proxy details.
 type RcmProxyDetailsResponseArgs struct {
 	// The health of the RCM proxy.
 	Health pulumi.StringInput `pulumi:"health"`
@@ -40169,7 +39474,6 @@ func (i RcmProxyDetailsResponseArray) ToRcmProxyDetailsResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RcmProxyDetailsResponseArrayOutput)
 }
 
-// RCM proxy details.
 type RcmProxyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RcmProxyDetailsResponseOutput) ElementType() reflect.Type {
@@ -40234,7 +39538,6 @@ func (o RcmProxyDetailsResponseArrayOutput) Index(i pulumi.IntInput) RcmProxyDet
 	}).(RcmProxyDetailsResponseOutput)
 }
 
-// Recovery plan A2A specific details.
 type RecoveryPlanA2ADetailsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
@@ -40256,7 +39559,6 @@ type RecoveryPlanA2ADetailsResponseInput interface {
 	ToRecoveryPlanA2ADetailsResponseOutputWithContext(context.Context) RecoveryPlanA2ADetailsResponseOutput
 }
 
-// Recovery plan A2A specific details.
 type RecoveryPlanA2ADetailsResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
@@ -40304,7 +39606,6 @@ func (i RecoveryPlanA2ADetailsResponseArray) ToRecoveryPlanA2ADetailsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanA2ADetailsResponseArrayOutput)
 }
 
-// Recovery plan A2A specific details.
 type RecoveryPlanA2ADetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanA2ADetailsResponseOutput) ElementType() reflect.Type {
@@ -40355,7 +39656,6 @@ func (o RecoveryPlanA2ADetailsResponseArrayOutput) Index(i pulumi.IntInput) Reco
 	}).(RecoveryPlanA2ADetailsResponseOutput)
 }
 
-// Recovery plan A2A input.
 type RecoveryPlanA2AInput struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
@@ -40377,7 +39677,6 @@ type RecoveryPlanA2AInputInput interface {
 	ToRecoveryPlanA2AInputOutputWithContext(context.Context) RecoveryPlanA2AInputOutput
 }
 
-// Recovery plan A2A input.
 type RecoveryPlanA2AInputArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
@@ -40425,7 +39724,6 @@ func (i RecoveryPlanA2AInputArray) ToRecoveryPlanA2AInputArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanA2AInputArrayOutput)
 }
 
-// Recovery plan A2A input.
 type RecoveryPlanA2AInputOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanA2AInputOutput) ElementType() reflect.Type {
@@ -40476,7 +39774,6 @@ func (o RecoveryPlanA2AInputArrayOutput) Index(i pulumi.IntInput) RecoveryPlanA2
 	}).(RecoveryPlanA2AInputOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanAction struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
@@ -40497,7 +39794,6 @@ type RecoveryPlanActionInput interface {
 	ToRecoveryPlanActionOutputWithContext(context.Context) RecoveryPlanActionOutput
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionArgs struct {
 	// The action name.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
@@ -40544,7 +39840,6 @@ func (i RecoveryPlanActionArray) ToRecoveryPlanActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionArrayOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanActionOutput) ElementType() reflect.Type {
@@ -40594,7 +39889,6 @@ func (o RecoveryPlanActionArrayOutput) Index(i pulumi.IntInput) RecoveryPlanActi
 	}).(RecoveryPlanActionOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponse struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
@@ -40617,7 +39911,6 @@ type RecoveryPlanActionResponseInput interface {
 	ToRecoveryPlanActionResponseOutputWithContext(context.Context) RecoveryPlanActionResponseOutput
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponseArgs struct {
 	// The action name.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
@@ -40666,7 +39959,6 @@ func (i RecoveryPlanActionResponseArray) ToRecoveryPlanActionResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionResponseArrayOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanActionResponseOutput) ElementType() reflect.Type {
@@ -40721,7 +40013,6 @@ func (o RecoveryPlanActionResponseArrayOutput) Index(i pulumi.IntInput) Recovery
 	}).(RecoveryPlanActionResponseOutput)
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponse struct {
 	// The fabric location.
 	FabricLocation string `pulumi:"fabricLocation"`
@@ -40745,7 +40036,6 @@ type RecoveryPlanAutomationRunbookActionDetailsResponseInput interface {
 	ToRecoveryPlanAutomationRunbookActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanAutomationRunbookActionDetailsResponseOutput
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponseArgs struct {
 	// The fabric location.
 	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
@@ -40770,7 +40060,6 @@ func (i RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ToRecoveryPlanAu
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanAutomationRunbookActionDetailsResponseOutput)
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanAutomationRunbookActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -40806,7 +40095,6 @@ func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) Timeout() pulu
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroup struct {
 	// The end group actions.
 	EndGroupActions []RecoveryPlanAction `pulumi:"endGroupActions"`
@@ -40829,7 +40117,6 @@ type RecoveryPlanGroupInput interface {
 	ToRecoveryPlanGroupOutputWithContext(context.Context) RecoveryPlanGroupOutput
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupArgs struct {
 	// The end group actions.
 	EndGroupActions RecoveryPlanActionArrayInput `pulumi:"endGroupActions"`
@@ -40878,7 +40165,6 @@ func (i RecoveryPlanGroupArray) ToRecoveryPlanGroupArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupArrayOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanGroupOutput) ElementType() reflect.Type {
@@ -40933,7 +40219,6 @@ func (o RecoveryPlanGroupArrayOutput) Index(i pulumi.IntInput) RecoveryPlanGroup
 	}).(RecoveryPlanGroupOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponse struct {
 	// The end group actions.
 	EndGroupActions []RecoveryPlanActionResponse `pulumi:"endGroupActions"`
@@ -40956,7 +40241,6 @@ type RecoveryPlanGroupResponseInput interface {
 	ToRecoveryPlanGroupResponseOutputWithContext(context.Context) RecoveryPlanGroupResponseOutput
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponseArgs struct {
 	// The end group actions.
 	EndGroupActions RecoveryPlanActionResponseArrayInput `pulumi:"endGroupActions"`
@@ -41005,7 +40289,6 @@ func (i RecoveryPlanGroupResponseArray) ToRecoveryPlanGroupResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupResponseArrayOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanGroupResponseOutput) ElementType() reflect.Type {
@@ -41062,7 +40345,6 @@ func (o RecoveryPlanGroupResponseArrayOutput) Index(i pulumi.IntInput) RecoveryP
 	}).(RecoveryPlanGroupResponseOutput)
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponse struct {
 	// The manual action description.
 	Description *string `pulumi:"description"`
@@ -41082,7 +40364,6 @@ type RecoveryPlanManualActionDetailsResponseInput interface {
 	ToRecoveryPlanManualActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanManualActionDetailsResponseOutput
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponseArgs struct {
 	// The manual action description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -41103,7 +40384,6 @@ func (i RecoveryPlanManualActionDetailsResponseArgs) ToRecoveryPlanManualActionD
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanManualActionDetailsResponseOutput)
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanManualActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -41129,7 +40409,6 @@ func (o RecoveryPlanManualActionDetailsResponseOutput) InstanceType() pulumi.Str
 	return o.ApplyT(func(v RecoveryPlanManualActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponse struct {
 	// The list of allowed operations.
 	AllowedOperations []string `pulumi:"allowedOperations"`
@@ -41176,7 +40455,6 @@ type RecoveryPlanPropertiesResponseInput interface {
 	ToRecoveryPlanPropertiesResponseOutputWithContext(context.Context) RecoveryPlanPropertiesResponseOutput
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponseArgs struct {
 	// The list of allowed operations.
 	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
@@ -41265,7 +40543,6 @@ func (i *recoveryPlanPropertiesResponsePtrType) ToRecoveryPlanPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanPropertiesResponsePtrOutput)
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanPropertiesResponseOutput) ElementType() reflect.Type {
@@ -41556,7 +40833,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) ReplicationProviders() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItem struct {
 	// The ARM Id of the recovery plan protected item.
 	Id *string `pulumi:"id"`
@@ -41575,7 +40851,6 @@ type RecoveryPlanProtectedItemInput interface {
 	ToRecoveryPlanProtectedItemOutputWithContext(context.Context) RecoveryPlanProtectedItemOutput
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemArgs struct {
 	// The ARM Id of the recovery plan protected item.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -41620,7 +40895,6 @@ func (i RecoveryPlanProtectedItemArray) ToRecoveryPlanProtectedItemArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanProtectedItemOutput) ElementType() reflect.Type {
@@ -41665,7 +40939,6 @@ func (o RecoveryPlanProtectedItemArrayOutput) Index(i pulumi.IntInput) RecoveryP
 	}).(RecoveryPlanProtectedItemOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponse struct {
 	// The ARM Id of the recovery plan protected item.
 	Id *string `pulumi:"id"`
@@ -41684,7 +40957,6 @@ type RecoveryPlanProtectedItemResponseInput interface {
 	ToRecoveryPlanProtectedItemResponseOutputWithContext(context.Context) RecoveryPlanProtectedItemResponseOutput
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponseArgs struct {
 	// The ARM Id of the recovery plan protected item.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -41729,7 +41001,6 @@ func (i RecoveryPlanProtectedItemResponseArray) ToRecoveryPlanProtectedItemRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemResponseArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -41774,7 +41045,6 @@ func (o RecoveryPlanProtectedItemResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RecoveryPlanProtectedItemResponseOutput)
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponse struct {
 	// The fabric location.
 	FabricLocation string `pulumi:"fabricLocation"`
@@ -41798,7 +41068,6 @@ type RecoveryPlanScriptActionDetailsResponseInput interface {
 	ToRecoveryPlanScriptActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanScriptActionDetailsResponseOutput
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponseArgs struct {
 	// The fabric location.
 	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
@@ -41823,7 +41092,6 @@ func (i RecoveryPlanScriptActionDetailsResponseArgs) ToRecoveryPlanScriptActionD
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanScriptActionDetailsResponseOutput)
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanScriptActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -41859,7 +41127,6 @@ func (o RecoveryPlanScriptActionDetailsResponseOutput) Timeout() pulumi.StringPt
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponse struct {
 	// The scenarios allowed on this provider.
 	AllowedScenarios []string `pulumi:"allowedScenarios"`
@@ -41906,7 +41173,6 @@ type RecoveryServicesProviderPropertiesResponseInput interface {
 	ToRecoveryServicesProviderPropertiesResponseOutputWithContext(context.Context) RecoveryServicesProviderPropertiesResponseOutput
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponseArgs struct {
 	// The scenarios allowed on this provider.
 	AllowedScenarios pulumi.StringArrayInput `pulumi:"allowedScenarios"`
@@ -41995,7 +41261,6 @@ func (i *recoveryServicesProviderPropertiesResponsePtrType) ToRecoveryServicesPr
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryServicesProviderPropertiesResponsePtrOutput)
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryServicesProviderPropertiesResponseOutput) ElementType() reflect.Type {
@@ -42290,7 +41555,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ServerVersion() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication agent details.
 type ReplicationAgentDetailsResponse struct {
 	// The health of the replication agent.
 	Health string `pulumi:"health"`
@@ -42317,7 +41581,6 @@ type ReplicationAgentDetailsResponseInput interface {
 	ToReplicationAgentDetailsResponseOutputWithContext(context.Context) ReplicationAgentDetailsResponseOutput
 }
 
-// Replication agent details.
 type ReplicationAgentDetailsResponseArgs struct {
 	// The health of the replication agent.
 	Health pulumi.StringInput `pulumi:"health"`
@@ -42370,7 +41633,6 @@ func (i ReplicationAgentDetailsResponseArray) ToReplicationAgentDetailsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationAgentDetailsResponseArrayOutput)
 }
 
-// Replication agent details.
 type ReplicationAgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationAgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -42435,7 +41697,6 @@ func (o ReplicationAgentDetailsResponseArrayOutput) Index(i pulumi.IntInput) Rep
 	}).(ReplicationAgentDetailsResponseOutput)
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponse struct {
 	// The Current active location of the PE.
 	ActiveLocation *string `pulumi:"activeLocation"`
@@ -42504,7 +41765,6 @@ type ReplicationProtectedItemPropertiesResponseInput interface {
 	ToReplicationProtectedItemPropertiesResponseOutputWithContext(context.Context) ReplicationProtectedItemPropertiesResponseOutput
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponseArgs struct {
 	// The Current active location of the PE.
 	ActiveLocation pulumi.StringPtrInput `pulumi:"activeLocation"`
@@ -42615,7 +41875,6 @@ func (i *replicationProtectedItemPropertiesResponsePtrType) ToReplicationProtect
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemPropertiesResponsePtrOutput)
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectedItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -43075,7 +42334,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reprotect agent details.
 type ReprotectAgentDetailsResponse struct {
 	// The health of the reprotect agent.
 	Health string `pulumi:"health"`
@@ -43102,7 +42360,6 @@ type ReprotectAgentDetailsResponseInput interface {
 	ToReprotectAgentDetailsResponseOutputWithContext(context.Context) ReprotectAgentDetailsResponseOutput
 }
 
-// Reprotect agent details.
 type ReprotectAgentDetailsResponseArgs struct {
 	// The health of the reprotect agent.
 	Health pulumi.StringInput `pulumi:"health"`
@@ -43155,7 +42412,6 @@ func (i ReprotectAgentDetailsResponseArray) ToReprotectAgentDetailsResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ReprotectAgentDetailsResponseArrayOutput)
 }
 
-// Reprotect agent details.
 type ReprotectAgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ReprotectAgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -43485,7 +42741,6 @@ func (o ResourceGuardProxyBaseResponsePtrOutput) ResourceGuardResourceId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponse struct {
 	// Health Code
 	Code int `pulumi:"code"`
@@ -43508,7 +42763,6 @@ type ResourceHealthDetailsResponseInput interface {
 	ToResourceHealthDetailsResponseOutputWithContext(context.Context) ResourceHealthDetailsResponseOutput
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponseArgs struct {
 	// Health Code
 	Code pulumi.IntInput `pulumi:"code"`
@@ -43557,7 +42811,6 @@ func (i ResourceHealthDetailsResponseArray) ToResourceHealthDetailsResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceHealthDetailsResponseArrayOutput)
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -43612,7 +42865,6 @@ func (o ResourceHealthDetailsResponseArrayOutput) Index(i pulumi.IntInput) Resou
 	}).(ResourceHealthDetailsResponseOutput)
 }
 
-// Retention duration.
 type RetentionDuration struct {
 	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
 	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
@@ -43632,7 +42884,6 @@ type RetentionDurationInput interface {
 	ToRetentionDurationOutputWithContext(context.Context) RetentionDurationOutput
 }
 
-// Retention duration.
 type RetentionDurationArgs struct {
 	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
 	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
@@ -43694,7 +42945,6 @@ func (i *retentionDurationPtrType) ToRetentionDurationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationPtrOutput)
 }
 
-// Retention duration.
 type RetentionDurationOutput struct{ *pulumi.OutputState }
 
 func (RetentionDurationOutput) ElementType() reflect.Type {
@@ -43775,7 +43025,6 @@ func (o RetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retention duration.
 type RetentionDurationResponse struct {
 	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
 	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
@@ -43795,7 +43044,6 @@ type RetentionDurationResponseInput interface {
 	ToRetentionDurationResponseOutputWithContext(context.Context) RetentionDurationResponseOutput
 }
 
-// Retention duration.
 type RetentionDurationResponseArgs struct {
 	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
 	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
@@ -43857,7 +43105,6 @@ func (i *retentionDurationResponsePtrType) ToRetentionDurationResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationResponsePtrOutput)
 }
 
-// Retention duration.
 type RetentionDurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionDurationResponseOutput) ElementType() reflect.Type {
@@ -43938,7 +43185,6 @@ func (o RetentionDurationResponsePtrOutput) DurationType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponse struct {
 	// The volume capacity.
 	CapacityInBytes *float64 `pulumi:"capacityInBytes"`
@@ -43961,7 +43207,6 @@ type RetentionVolumeResponseInput interface {
 	ToRetentionVolumeResponseOutputWithContext(context.Context) RetentionVolumeResponseOutput
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponseArgs struct {
 	// The volume capacity.
 	CapacityInBytes pulumi.Float64PtrInput `pulumi:"capacityInBytes"`
@@ -44010,7 +43255,6 @@ func (i RetentionVolumeResponseArray) ToRetentionVolumeResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionVolumeResponseArrayOutput)
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionVolumeResponseOutput) ElementType() reflect.Type {
@@ -44065,7 +43309,6 @@ func (o RetentionVolumeResponseArrayOutput) Index(i pulumi.IntInput) RetentionVo
 	}).(RetentionVolumeResponseOutput)
 }
 
-// CS Accounts Details.
 type RunAsAccountResponse struct {
 	// The CS RunAs account Id.
 	AccountId *string `pulumi:"accountId"`
@@ -44084,7 +43327,6 @@ type RunAsAccountResponseInput interface {
 	ToRunAsAccountResponseOutputWithContext(context.Context) RunAsAccountResponseOutput
 }
 
-// CS Accounts Details.
 type RunAsAccountResponseArgs struct {
 	// The CS RunAs account Id.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -44129,7 +43371,6 @@ func (i RunAsAccountResponseArray) ToRunAsAccountResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RunAsAccountResponseArrayOutput)
 }
 
-// CS Accounts Details.
 type RunAsAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (RunAsAccountResponseOutput) ElementType() reflect.Type {
@@ -44174,7 +43415,6 @@ func (o RunAsAccountResponseArrayOutput) Index(i pulumi.IntInput) RunAsAccountRe
 	}).(RunAsAccountResponseOutput)
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInput struct {
 	// The class type.
 	// Expected value is 'San'.
@@ -44192,7 +43432,6 @@ type SanEnableProtectionInputInput interface {
 	ToSanEnableProtectionInputOutputWithContext(context.Context) SanEnableProtectionInputOutput
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInputArgs struct {
 	// The class type.
 	// Expected value is 'San'.
@@ -44211,7 +43450,6 @@ func (i SanEnableProtectionInputArgs) ToSanEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SanEnableProtectionInputOutput)
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (SanEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -44232,7 +43470,6 @@ func (o SanEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SanEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Common settings field for backup management
 type Settings struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
 	// will be deprecated once clients upgrade to consider this flag.
@@ -44254,7 +43491,6 @@ type SettingsInput interface {
 	ToSettingsOutputWithContext(context.Context) SettingsOutput
 }
 
-// Common settings field for backup management
 type SettingsArgs struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
 	// will be deprecated once clients upgrade to consider this flag.
@@ -44318,7 +43554,6 @@ func (i *settingsPtrType) ToSettingsPtrOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsPtrOutput)
 }
 
-// Common settings field for backup management
 type SettingsOutput struct{ *pulumi.OutputState }
 
 func (SettingsOutput) ElementType() reflect.Type {
@@ -44414,7 +43649,6 @@ func (o SettingsPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Common settings field for backup management
 type SettingsResponse struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
 	// will be deprecated once clients upgrade to consider this flag.
@@ -44436,7 +43670,6 @@ type SettingsResponseInput interface {
 	ToSettingsResponseOutputWithContext(context.Context) SettingsResponseOutput
 }
 
-// Common settings field for backup management
 type SettingsResponseArgs struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
 	// will be deprecated once clients upgrade to consider this flag.
@@ -44500,7 +43733,6 @@ func (i *settingsResponsePtrType) ToSettingsResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsResponsePtrOutput)
 }
 
-// Common settings field for backup management
 type SettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsResponseOutput) ElementType() reflect.Type {
@@ -44596,7 +43828,6 @@ func (o SettingsResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicy struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
@@ -44616,7 +43847,6 @@ type SimpleRetentionPolicyInput interface {
 	ToSimpleRetentionPolicyOutputWithContext(context.Context) SimpleRetentionPolicyOutput
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicyArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
@@ -44637,7 +43867,6 @@ func (i SimpleRetentionPolicyArgs) ToSimpleRetentionPolicyOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleRetentionPolicyOutput)
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (SimpleRetentionPolicyOutput) ElementType() reflect.Type {
@@ -44663,7 +43892,6 @@ func (o SimpleRetentionPolicyOutput) RetentionPolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleRetentionPolicy) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicyResponse struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -44683,7 +43911,6 @@ type SimpleRetentionPolicyResponseInput interface {
 	ToSimpleRetentionPolicyResponseOutputWithContext(context.Context) SimpleRetentionPolicyResponseOutput
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicyResponseArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationResponsePtrInput `pulumi:"retentionDuration"`
@@ -44704,7 +43931,6 @@ func (i SimpleRetentionPolicyResponseArgs) ToSimpleRetentionPolicyResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleRetentionPolicyResponseOutput)
 }
 
-// Simple policy retention.
 type SimpleRetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (SimpleRetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -44730,7 +43956,6 @@ func (o SimpleRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.String
 	return o.ApplyT(func(v SimpleRetentionPolicyResponse) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
@@ -44756,7 +43981,6 @@ type SimpleSchedulePolicyInput interface {
 	ToSimpleSchedulePolicyOutputWithContext(context.Context) SimpleSchedulePolicyOutput
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
@@ -44783,7 +44007,6 @@ func (i SimpleSchedulePolicyArgs) ToSimpleSchedulePolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleSchedulePolicyOutput)
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicyOutput struct{ *pulumi.OutputState }
 
 func (SimpleSchedulePolicyOutput) ElementType() reflect.Type {
@@ -44824,7 +44047,6 @@ func (o SimpleSchedulePolicyOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SimpleSchedulePolicy) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
@@ -44850,7 +44072,6 @@ type SimpleSchedulePolicyResponseInput interface {
 	ToSimpleSchedulePolicyResponseOutputWithContext(context.Context) SimpleSchedulePolicyResponseOutput
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
@@ -44877,7 +44098,6 @@ func (i SimpleSchedulePolicyResponseArgs) ToSimpleSchedulePolicyResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleSchedulePolicyResponseOutput)
 }
 
-// Simple policy schedule.
 type SimpleSchedulePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (SimpleSchedulePolicyResponseOutput) ElementType() reflect.Type {
@@ -44918,7 +44138,6 @@ func (o SimpleSchedulePolicyResponseOutput) ScheduleWeeklyFrequency() pulumi.Int
 	return o.ApplyT(func(v SimpleSchedulePolicyResponse) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type Sku struct {
 	// The Sku name.
 	Name string `pulumi:"name"`
@@ -44937,7 +44156,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type SkuArgs struct {
 	// The Sku name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -44998,7 +44216,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -45077,7 +44294,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type SkuResponse struct {
 	// The Sku name.
 	Name string `pulumi:"name"`
@@ -45096,7 +44312,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type SkuResponseArgs struct {
 	// The Sku name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -45157,7 +44372,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Identifies the unique system identifier for each Azure resource.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -45236,7 +44450,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponse struct {
 	// Target storage object Id.
 	TargetStorageClassificationId *string `pulumi:"targetStorageClassificationId"`
@@ -45253,7 +44466,6 @@ type StorageClassificationMappingPropertiesResponseInput interface {
 	ToStorageClassificationMappingPropertiesResponseOutputWithContext(context.Context) StorageClassificationMappingPropertiesResponseOutput
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponseArgs struct {
 	// Target storage object Id.
 	TargetStorageClassificationId pulumi.StringPtrInput `pulumi:"targetStorageClassificationId"`
@@ -45312,7 +44524,6 @@ func (i *storageClassificationMappingPropertiesResponsePtrType) ToStorageClassif
 	return pulumi.ToOutputWithContext(ctx, i).(StorageClassificationMappingPropertiesResponsePtrOutput)
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageClassificationMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -45376,7 +44587,6 @@ func (o StorageClassificationMappingPropertiesResponsePtrOutput) TargetStorageCl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage mapping input properties.
 type StorageMappingInputProperties struct {
 	// The ID of the storage object.
 	TargetStorageClassificationId *string `pulumi:"targetStorageClassificationId"`
@@ -45393,7 +44603,6 @@ type StorageMappingInputPropertiesInput interface {
 	ToStorageMappingInputPropertiesOutputWithContext(context.Context) StorageMappingInputPropertiesOutput
 }
 
-// Storage mapping input properties.
 type StorageMappingInputPropertiesArgs struct {
 	// The ID of the storage object.
 	TargetStorageClassificationId pulumi.StringPtrInput `pulumi:"targetStorageClassificationId"`
@@ -45452,7 +44661,6 @@ func (i *storageMappingInputPropertiesPtrType) ToStorageMappingInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageMappingInputPropertiesPtrOutput)
 }
 
-// Storage mapping input properties.
 type StorageMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -45516,7 +44724,6 @@ func (o StorageMappingInputPropertiesPtrOutput) TargetStorageClassificationId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicy struct {
 	// Type of backup policy type
 	PolicyType *string `pulumi:"policyType"`
@@ -45537,7 +44744,6 @@ type SubProtectionPolicyInput interface {
 	ToSubProtectionPolicyOutputWithContext(context.Context) SubProtectionPolicyOutput
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicyArgs struct {
 	// Type of backup policy type
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -45584,7 +44790,6 @@ func (i SubProtectionPolicyArray) ToSubProtectionPolicyArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubProtectionPolicyArrayOutput)
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (SubProtectionPolicyOutput) ElementType() reflect.Type {
@@ -45634,7 +44839,6 @@ func (o SubProtectionPolicyArrayOutput) Index(i pulumi.IntInput) SubProtectionPo
 	}).(SubProtectionPolicyOutput)
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicyResponse struct {
 	// Type of backup policy type
 	PolicyType *string `pulumi:"policyType"`
@@ -45655,7 +44859,6 @@ type SubProtectionPolicyResponseInput interface {
 	ToSubProtectionPolicyResponseOutputWithContext(context.Context) SubProtectionPolicyResponseOutput
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicyResponseArgs struct {
 	// Type of backup policy type
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -45702,7 +44905,6 @@ func (i SubProtectionPolicyResponseArray) ToSubProtectionPolicyResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SubProtectionPolicyResponseArrayOutput)
 }
 
-// Sub-protection policy which includes schedule and retention
 type SubProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (SubProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -45752,7 +44954,6 @@ func (o SubProtectionPolicyResponseArrayOutput) Index(i pulumi.IntInput) SubProt
 	}).(SubProtectionPolicyResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -45779,7 +44980,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -45848,7 +45048,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -45987,7 +45186,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details for upgrading vault.
 type UpgradeDetailsResponse struct {
 	// UTC time at which the upgrade operation has ended.
 	EndTimeUtc string `pulumi:"endTimeUtc"`
@@ -46020,7 +45218,6 @@ type UpgradeDetailsResponseInput interface {
 	ToUpgradeDetailsResponseOutputWithContext(context.Context) UpgradeDetailsResponseOutput
 }
 
-// Details for upgrading vault.
 type UpgradeDetailsResponseArgs struct {
 	// UTC time at which the upgrade operation has ended.
 	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
@@ -46095,7 +45292,6 @@ func (i *upgradeDetailsResponsePtrType) ToUpgradeDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsResponsePtrOutput)
 }
 
-// Details for upgrading vault.
 type UpgradeDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (UpgradeDetailsResponseOutput) ElementType() reflect.Type {
@@ -46279,7 +45475,6 @@ func (o UpgradeDetailsResponsePtrOutput) UpgradedResourceId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponse struct {
 	// The client ID of the user-assigned identity.
 	ClientId string `pulumi:"clientId"`
@@ -46298,7 +45493,6 @@ type UserIdentityResponseInput interface {
 	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponseArgs struct {
 	// The client ID of the user-assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -46343,7 +45537,6 @@ func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseMapOutput)
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityResponseOutput) ElementType() reflect.Type {
@@ -46388,7 +45581,6 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 	}).(UserIdentityResponseOutput)
 }
 
-// vCenter properties.
 type VCenterPropertiesResponse struct {
 	// The VCenter discovery status.
 	DiscoveryStatus *string `pulumi:"discoveryStatus"`
@@ -46425,7 +45617,6 @@ type VCenterPropertiesResponseInput interface {
 	ToVCenterPropertiesResponseOutputWithContext(context.Context) VCenterPropertiesResponseOutput
 }
 
-// vCenter properties.
 type VCenterPropertiesResponseArgs struct {
 	// The VCenter discovery status.
 	DiscoveryStatus pulumi.StringPtrInput `pulumi:"discoveryStatus"`
@@ -46504,7 +45695,6 @@ func (i *vcenterPropertiesResponsePtrType) ToVCenterPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesResponsePtrOutput)
 }
 
-// vCenter properties.
 type VCenterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VCenterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -46718,7 +45908,6 @@ func (o VCenterPropertiesResponsePtrOutput) RunAsAccountId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponse struct {
 	// A value indicating whether the NIC has accelerated networking enabled.
 	EnableAcceleratedNetworkingOnRecovery *bool `pulumi:"enableAcceleratedNetworkingOnRecovery"`
@@ -46787,7 +45976,6 @@ type VMNicDetailsResponseInput interface {
 	ToVMNicDetailsResponseOutputWithContext(context.Context) VMNicDetailsResponseOutput
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponseArgs struct {
 	// A value indicating whether the NIC has accelerated networking enabled.
 	EnableAcceleratedNetworkingOnRecovery pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworkingOnRecovery"`
@@ -46882,7 +46070,6 @@ func (i VMNicDetailsResponseArray) ToVMNicDetailsResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VMNicDetailsResponseArrayOutput)
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMNicDetailsResponseOutput) ElementType() reflect.Type {
@@ -47052,7 +46239,6 @@ func (o VMNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) VMNicDetailsRe
 	}).(VMNicDetailsResponseOutput)
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInput struct {
 	// The class type.
 	// Expected value is 'VMwareCbt'.
@@ -47082,7 +46268,6 @@ type VMwareCbtContainerMappingInputInput interface {
 	ToVMwareCbtContainerMappingInputOutputWithContext(context.Context) VMwareCbtContainerMappingInputOutput
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInputArgs struct {
 	// The class type.
 	// Expected value is 'VMwareCbt'.
@@ -47113,7 +46298,6 @@ func (i VMwareCbtContainerMappingInputArgs) ToVMwareCbtContainerMappingInputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtContainerMappingInputOutput)
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtContainerMappingInputOutput) ElementType() reflect.Type {
@@ -47164,7 +46348,6 @@ func (o VMwareCbtContainerMappingInputOutput) TargetLocation() pulumi.StringOutp
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInput struct {
 	// The disk Id.
 	DiskId string `pulumi:"diskId"`
@@ -47189,7 +46372,6 @@ type VMwareCbtDiskInputInput interface {
 	ToVMwareCbtDiskInputOutputWithContext(context.Context) VMwareCbtDiskInputOutput
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInputArgs struct {
 	// The disk Id.
 	DiskId pulumi.StringInput `pulumi:"diskId"`
@@ -47240,7 +46422,6 @@ func (i VMwareCbtDiskInputArray) ToVMwareCbtDiskInputArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtDiskInputArrayOutput)
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtDiskInputOutput) ElementType() reflect.Type {
@@ -47300,7 +46481,6 @@ func (o VMwareCbtDiskInputArrayOutput) Index(i pulumi.IntInput) VMwareCbtDiskInp
 	}).(VMwareCbtDiskInputOutput)
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInput struct {
 	// The data mover RunAs account Id.
 	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
@@ -47342,7 +46522,6 @@ type VMwareCbtEnableMigrationInputInput interface {
 	ToVMwareCbtEnableMigrationInputOutputWithContext(context.Context) VMwareCbtEnableMigrationInputOutput
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInputArgs struct {
 	// The data mover RunAs account Id.
 	DataMoverRunAsAccountId pulumi.StringInput `pulumi:"dataMoverRunAsAccountId"`
@@ -47426,7 +46605,6 @@ func (i *vmwareCbtEnableMigrationInputPtrType) ToVMwareCbtEnableMigrationInputPt
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtEnableMigrationInputPtrOutput)
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtEnableMigrationInputOutput) ElementType() reflect.Type {
@@ -47672,7 +46850,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) VmwareMachineId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMwareCbt provider specific settings
 type VMwareCbtMigrationDetailsResponse struct {
 	// The data mover RunAs account Id.
 	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
@@ -47722,7 +46899,6 @@ type VMwareCbtMigrationDetailsResponseInput interface {
 	ToVMwareCbtMigrationDetailsResponseOutputWithContext(context.Context) VMwareCbtMigrationDetailsResponseOutput
 }
 
-// VMwareCbt provider specific settings
 type VMwareCbtMigrationDetailsResponseArgs struct {
 	// The data mover RunAs account Id.
 	DataMoverRunAsAccountId pulumi.StringInput `pulumi:"dataMoverRunAsAccountId"`
@@ -47814,7 +46990,6 @@ func (i *vmwareCbtMigrationDetailsResponsePtrType) ToVMwareCbtMigrationDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// VMwareCbt provider specific settings
 type VMwareCbtMigrationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtMigrationDetailsResponseOutput) ElementType() reflect.Type {
@@ -48122,7 +47297,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) VmwareMachineId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponse struct {
 	// A value indicating whether this is the primary NIC.
 	IsPrimaryNic *string `pulumi:"isPrimaryNic"`
@@ -48155,7 +47329,6 @@ type VMwareCbtNicDetailsResponseInput interface {
 	ToVMwareCbtNicDetailsResponseOutputWithContext(context.Context) VMwareCbtNicDetailsResponseOutput
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponseArgs struct {
 	// A value indicating whether this is the primary NIC.
 	IsPrimaryNic pulumi.StringPtrInput `pulumi:"isPrimaryNic"`
@@ -48214,7 +47387,6 @@ func (i VMwareCbtNicDetailsResponseArray) ToVMwareCbtNicDetailsResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtNicDetailsResponseArrayOutput)
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtNicDetailsResponseOutput) ElementType() reflect.Type {
@@ -48294,7 +47466,6 @@ func (o VMwareCbtNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) VMwareC
 	}).(VMwareCbtNicDetailsResponseOutput)
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -48318,7 +47489,6 @@ type VMwareCbtPolicyCreationInputInput interface {
 	ToVMwareCbtPolicyCreationInputOutputWithContext(context.Context) VMwareCbtPolicyCreationInputOutput
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -48343,7 +47513,6 @@ func (i VMwareCbtPolicyCreationInputArgs) ToVMwareCbtPolicyCreationInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtPolicyCreationInputOutput)
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtPolicyCreationInputOutput) ElementType() reflect.Type {
@@ -48379,7 +47548,6 @@ func (o VMwareCbtPolicyCreationInputOutput) RecoveryPointHistoryInMinutes() pulu
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	CapacityInBytes float64 `pulumi:"capacityInBytes"`
@@ -48414,7 +47582,6 @@ type VMwareCbtProtectedDiskDetailsResponseInput interface {
 	ToVMwareCbtProtectedDiskDetailsResponseOutputWithContext(context.Context) VMwareCbtProtectedDiskDetailsResponseOutput
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
 	CapacityInBytes pulumi.Float64Input `pulumi:"capacityInBytes"`
@@ -48475,7 +47642,6 @@ func (i VMwareCbtProtectedDiskDetailsResponseArray) ToVMwareCbtProtectedDiskDeta
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -48560,7 +47726,6 @@ func (o VMwareCbtProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(VMwareCbtProtectedDiskDetailsResponseOutput)
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMwareCbt'.
@@ -48590,7 +47755,6 @@ type VMwareCbtProtectionContainerMappingDetailsResponseInput interface {
 	ToVMwareCbtProtectionContainerMappingDetailsResponseOutputWithContext(context.Context) VMwareCbtProtectionContainerMappingDetailsResponseOutput
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMwareCbt'.
@@ -48621,7 +47785,6 @@ func (i VMwareCbtProtectionContainerMappingDetailsResponseArgs) ToVMwareCbtProte
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtProtectionContainerMappingDetailsResponseOutput)
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtProtectionContainerMappingDetailsResponseOutput) ElementType() reflect.Type {
@@ -48676,7 +47839,6 @@ func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) TargetLocation
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponse struct {
 	// The number of source and target servers configured to talk to this CS.
 	AgentCount *string `pulumi:"agentCount"`
@@ -48758,7 +47920,6 @@ type VMwareDetailsResponseInput interface {
 	ToVMwareDetailsResponseOutputWithContext(context.Context) VMwareDetailsResponseOutput
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponseArgs struct {
 	// The number of source and target servers configured to talk to this CS.
 	AgentCount pulumi.StringPtrInput `pulumi:"agentCount"`
@@ -48841,7 +48002,6 @@ func (i VMwareDetailsResponseArgs) ToVMwareDetailsResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareDetailsResponseOutput)
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareDetailsResponseOutput) ElementType() reflect.Type {
@@ -49022,7 +48182,6 @@ func (o VMwareDetailsResponseOutput) WebLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.WebLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInput struct {
 	// Gets the class type.
 	// Expected value is 'VMwareV2'.
@@ -49044,7 +48203,6 @@ type VMwareV2FabricCreationInputInput interface {
 	ToVMwareV2FabricCreationInputOutputWithContext(context.Context) VMwareV2FabricCreationInputOutput
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInputArgs struct {
 	// Gets the class type.
 	// Expected value is 'VMwareV2'.
@@ -49067,7 +48225,6 @@ func (i VMwareV2FabricCreationInputArgs) ToVMwareV2FabricCreationInputOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareV2FabricCreationInputOutput)
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareV2FabricCreationInputOutput) ElementType() reflect.Type {
@@ -49098,7 +48255,6 @@ func (o VMwareV2FabricCreationInputOutput) VmwareSiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) string { return v.VmwareSiteId }).(pulumi.StringOutput)
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMwareV2'.
@@ -49124,7 +48280,6 @@ type VMwareV2FabricSpecificDetailsResponseInput interface {
 	ToVMwareV2FabricSpecificDetailsResponseOutputWithContext(context.Context) VMwareV2FabricSpecificDetailsResponseOutput
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMwareV2'.
@@ -49151,7 +48306,6 @@ func (i VMwareV2FabricSpecificDetailsResponseArgs) ToVMwareV2FabricSpecificDetai
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareV2FabricSpecificDetailsResponseOutput)
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareV2FabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
@@ -49192,7 +48346,6 @@ func (o VMwareV2FabricSpecificDetailsResponseOutput) VmwareSiteId() pulumi.Strin
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.VmwareSiteId }).(pulumi.StringOutput)
 }
 
-// Private Endpoint Connection Response Properties.
 type VaultPrivateEndpointConnectionResponse struct {
 	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -49213,7 +48366,6 @@ type VaultPrivateEndpointConnectionResponseInput interface {
 	ToVaultPrivateEndpointConnectionResponseOutputWithContext(context.Context) VaultPrivateEndpointConnectionResponseOutput
 }
 
-// Private Endpoint Connection Response Properties.
 type VaultPrivateEndpointConnectionResponseArgs struct {
 	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 	PrivateEndpoint PrivateEndpointResponseInput `pulumi:"privateEndpoint"`
@@ -49235,7 +48387,6 @@ func (i VaultPrivateEndpointConnectionResponseArgs) ToVaultPrivateEndpointConnec
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateEndpointConnectionResponseOutput)
 }
 
-// Private Endpoint Connection Response Properties.
 type VaultPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -49267,7 +48418,6 @@ func (o VaultPrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi
 	return o.ApplyT(func(v VaultPrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Gets or sets private link service connection state.
 type VaultPrivateLinkServiceConnectionStateResponse struct {
 	// Gets or sets actions required.
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -49288,7 +48438,6 @@ type VaultPrivateLinkServiceConnectionStateResponseInput interface {
 	ToVaultPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) VaultPrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Gets or sets private link service connection state.
 type VaultPrivateLinkServiceConnectionStateResponseArgs struct {
 	// Gets or sets actions required.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
@@ -49310,7 +48459,6 @@ func (i VaultPrivateLinkServiceConnectionStateResponseArgs) ToVaultPrivateLinkSe
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Gets or sets private link service connection state.
 type VaultPrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -49340,7 +48488,6 @@ func (o VaultPrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.St
 	return o.ApplyT(func(v VaultPrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Properties of the vault.
 type VaultProperties struct {
 	// Customer Managed Key details of the resource.
 	Encryption *VaultPropertiesEncryption `pulumi:"encryption"`
@@ -49357,7 +48504,6 @@ type VaultPropertiesInput interface {
 	ToVaultPropertiesOutputWithContext(context.Context) VaultPropertiesOutput
 }
 
-// Properties of the vault.
 type VaultPropertiesArgs struct {
 	// Customer Managed Key details of the resource.
 	Encryption VaultPropertiesEncryptionPtrInput `pulumi:"encryption"`
@@ -49416,7 +48562,6 @@ func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesPtrOutput)
 }
 
-// Properties of the vault.
 type VaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesOutput) ElementType() reflect.Type {
@@ -49480,7 +48625,6 @@ func (o VaultPropertiesPtrOutput) Encryption() VaultPropertiesEncryptionPtrOutpu
 	}).(VaultPropertiesEncryptionPtrOutput)
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesEncryption struct {
 	// Enabling/Disabling the Double Encryption state
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -49501,7 +48645,6 @@ type VaultPropertiesEncryptionInput interface {
 	ToVaultPropertiesEncryptionOutputWithContext(context.Context) VaultPropertiesEncryptionOutput
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesEncryptionArgs struct {
 	// Enabling/Disabling the Double Encryption state
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -49564,7 +48707,6 @@ func (i *vaultPropertiesEncryptionPtrType) ToVaultPropertiesEncryptionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesEncryptionPtrOutput)
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesEncryptionOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesEncryptionOutput) ElementType() reflect.Type {
@@ -49658,7 +48800,6 @@ func (o VaultPropertiesEncryptionPtrOutput) KeyVaultProperties() CmkKeyVaultProp
 	}).(CmkKeyVaultPropertiesPtrOutput)
 }
 
-// Properties of the vault.
 type VaultPropertiesResponse struct {
 	// Customer Managed Key details of the resource.
 	Encryption *VaultPropertiesResponseEncryption `pulumi:"encryption"`
@@ -49685,7 +48826,6 @@ type VaultPropertiesResponseInput interface {
 	ToVaultPropertiesResponseOutputWithContext(context.Context) VaultPropertiesResponseOutput
 }
 
-// Properties of the vault.
 type VaultPropertiesResponseArgs struct {
 	// Customer Managed Key details of the resource.
 	Encryption VaultPropertiesResponseEncryptionPtrInput `pulumi:"encryption"`
@@ -49754,7 +48894,6 @@ func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponsePtrOutput)
 }
 
-// Properties of the vault.
 type VaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -49895,7 +49034,6 @@ func (o VaultPropertiesResponsePtrOutput) UpgradeDetails() UpgradeDetailsRespons
 	}).(UpgradeDetailsResponsePtrOutput)
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesResponseEncryption struct {
 	// Enabling/Disabling the Double Encryption state
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -49916,7 +49054,6 @@ type VaultPropertiesResponseEncryptionInput interface {
 	ToVaultPropertiesResponseEncryptionOutputWithContext(context.Context) VaultPropertiesResponseEncryptionOutput
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesResponseEncryptionArgs struct {
 	// Enabling/Disabling the Double Encryption state
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -49979,7 +49116,6 @@ func (i *vaultPropertiesResponseEncryptionPtrType) ToVaultPropertiesResponseEncr
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseEncryptionPtrOutput)
 }
 
-// Customer Managed Key details of the resource.
 type VaultPropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesResponseEncryptionOutput) ElementType() reflect.Type {
@@ -50073,7 +49209,6 @@ func (o VaultPropertiesResponseEncryptionPtrOutput) KeyVaultProperties() CmkKeyV
 	}).(CmkKeyVaultPropertiesResponsePtrOutput)
 }
 
-// Version related details.
 type VersionDetailsResponse struct {
 	// Version expiry date.
 	ExpiryDate *string `pulumi:"expiryDate"`
@@ -50094,7 +49229,6 @@ type VersionDetailsResponseInput interface {
 	ToVersionDetailsResponseOutputWithContext(context.Context) VersionDetailsResponseOutput
 }
 
-// Version related details.
 type VersionDetailsResponseArgs struct {
 	// Version expiry date.
 	ExpiryDate pulumi.StringPtrInput `pulumi:"expiryDate"`
@@ -50157,7 +49291,6 @@ func (i *versionDetailsResponsePtrType) ToVersionDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VersionDetailsResponsePtrOutput)
 }
 
-// Version related details.
 type VersionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VersionDetailsResponseOutput) ElementType() reflect.Type {
@@ -50251,7 +49384,6 @@ func (o VersionDetailsResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMM'.
@@ -50269,7 +49401,6 @@ type VmmDetailsResponseInput interface {
 	ToVmmDetailsResponseOutputWithContext(context.Context) VmmDetailsResponseOutput
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'VMM'.
@@ -50288,7 +49419,6 @@ func (i VmmDetailsResponseArgs) ToVmmDetailsResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VmmDetailsResponseOutput)
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmDetailsResponseOutput) ElementType() reflect.Type {
@@ -50309,7 +49439,6 @@ func (o VmmDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'VmmToAzure'.
@@ -50327,7 +49456,6 @@ type VmmToAzureCreateNetworkMappingInputInput interface {
 	ToVmmToAzureCreateNetworkMappingInputOutputWithContext(context.Context) VmmToAzureCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInputArgs struct {
 	// The instance type.
 	// Expected value is 'VmmToAzure'.
@@ -50346,7 +49474,6 @@ func (i VmmToAzureCreateNetworkMappingInputArgs) ToVmmToAzureCreateNetworkMappin
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VmmToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -50367,7 +49494,6 @@ func (o VmmToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringP
 	return o.ApplyT(func(v VmmToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'VmmToAzure'.
@@ -50385,7 +49511,6 @@ type VmmToAzureNetworkMappingSettingsResponseInput interface {
 	ToVmmToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToAzureNetworkMappingSettingsResponseOutput
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'VmmToAzure'.
@@ -50404,7 +49529,6 @@ func (i VmmToAzureNetworkMappingSettingsResponseArgs) ToVmmToAzureNetworkMapping
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureNetworkMappingSettingsResponseOutput)
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmToAzureNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -50425,7 +49549,6 @@ func (o VmmToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.St
 	return o.ApplyT(func(v VmmToAzureNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'VmmToVmm'.
@@ -50443,7 +49566,6 @@ type VmmToVmmCreateNetworkMappingInputInput interface {
 	ToVmmToVmmCreateNetworkMappingInputOutputWithContext(context.Context) VmmToVmmCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInputArgs struct {
 	// The instance type.
 	// Expected value is 'VmmToVmm'.
@@ -50462,7 +49584,6 @@ func (i VmmToVmmCreateNetworkMappingInputArgs) ToVmmToVmmCreateNetworkMappingInp
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VmmToVmmCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -50483,7 +49604,6 @@ func (o VmmToVmmCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtr
 	return o.ApplyT(func(v VmmToVmmCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'VmmToVmm'.
@@ -50501,7 +49621,6 @@ type VmmToVmmNetworkMappingSettingsResponseInput interface {
 	ToVmmToVmmNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToVmmNetworkMappingSettingsResponseOutput
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'VmmToVmm'.
@@ -50520,7 +49639,6 @@ func (i VmmToVmmNetworkMappingSettingsResponseArgs) ToVmmToVmmNetworkMappingSett
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmNetworkMappingSettingsResponseOutput)
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmToVmmNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -50541,7 +49659,6 @@ func (o VmmToVmmNetworkMappingSettingsResponseOutput) InstanceType() pulumi.Stri
 	return o.ApplyT(func(v VmmToVmmNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
@@ -50565,7 +49682,6 @@ type VmwareCbtPolicyDetailsResponseInput interface {
 	ToVmwareCbtPolicyDetailsResponseOutputWithContext(context.Context) VmwareCbtPolicyDetailsResponseOutput
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
@@ -50590,7 +49706,6 @@ func (i VmwareCbtPolicyDetailsResponseArgs) ToVmwareCbtPolicyDetailsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VmwareCbtPolicyDetailsResponseOutput)
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmwareCbtPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -50626,7 +49741,6 @@ func (o VmwareCbtPolicyDetailsResponseOutput) RecoveryPointHistoryInMinutes() pu
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormat struct {
 	// List of days of the week.
 	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
@@ -50645,7 +49759,6 @@ type WeeklyRetentionFormatInput interface {
 	ToWeeklyRetentionFormatOutputWithContext(context.Context) WeeklyRetentionFormatOutput
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormatArgs struct {
 	// List of days of the week.
 	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
@@ -50706,7 +49819,6 @@ func (i *weeklyRetentionFormatPtrType) ToWeeklyRetentionFormatPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatPtrOutput)
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormatOutput struct{ *pulumi.OutputState }
 
 func (WeeklyRetentionFormatOutput) ElementType() reflect.Type {
@@ -50785,7 +49897,6 @@ func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput
 	}).(WeekOfMonthArrayOutput)
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormatResponse struct {
 	// List of days of the week.
 	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
@@ -50804,7 +49915,6 @@ type WeeklyRetentionFormatResponseInput interface {
 	ToWeeklyRetentionFormatResponseOutputWithContext(context.Context) WeeklyRetentionFormatResponseOutput
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormatResponseArgs struct {
 	// List of days of the week.
 	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
@@ -50865,7 +49975,6 @@ func (i *weeklyRetentionFormatResponsePtrType) ToWeeklyRetentionFormatResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatResponsePtrOutput)
 }
 
-// Weekly retention format.
 type WeeklyRetentionFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (WeeklyRetentionFormatResponseOutput) ElementType() reflect.Type {
@@ -50944,7 +50053,6 @@ func (o WeeklyRetentionFormatResponsePtrOutput) WeeksOfTheMonth() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionSchedule struct {
 	// List of days of week for weekly retention policy.
 	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
@@ -50965,7 +50073,6 @@ type WeeklyRetentionScheduleInput interface {
 	ToWeeklyRetentionScheduleOutputWithContext(context.Context) WeeklyRetentionScheduleOutput
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionScheduleArgs struct {
 	// List of days of week for weekly retention policy.
 	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
@@ -51028,7 +50135,6 @@ func (i *weeklyRetentionSchedulePtrType) ToWeeklyRetentionSchedulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionSchedulePtrOutput)
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionScheduleOutput struct{ *pulumi.OutputState }
 
 func (WeeklyRetentionScheduleOutput) ElementType() reflect.Type {
@@ -51122,7 +50228,6 @@ func (o WeeklyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionScheduleResponse struct {
 	// List of days of week for weekly retention policy.
 	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
@@ -51143,7 +50248,6 @@ type WeeklyRetentionScheduleResponseInput interface {
 	ToWeeklyRetentionScheduleResponseOutputWithContext(context.Context) WeeklyRetentionScheduleResponseOutput
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionScheduleResponseArgs struct {
 	// List of days of week for weekly retention policy.
 	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
@@ -51206,7 +50310,6 @@ func (i *weeklyRetentionScheduleResponsePtrType) ToWeeklyRetentionScheduleRespon
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleResponsePtrOutput)
 }
 
-// Weekly retention schedule.
 type WeeklyRetentionScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (WeeklyRetentionScheduleResponseOutput) ElementType() reflect.Type {
@@ -51643,7 +50746,6 @@ func (o WorkloadCrrAccessTokenResponseOutput) TokenExtendedInformation() pulumi.
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.TokenExtendedInformation }).(pulumi.StringPtrOutput)
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetails struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation *InquiryValidation `pulumi:"inquiryValidation"`
@@ -51664,7 +50766,6 @@ type WorkloadInquiryDetailsInput interface {
 	ToWorkloadInquiryDetailsOutputWithContext(context.Context) WorkloadInquiryDetailsOutput
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetailsArgs struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation InquiryValidationPtrInput `pulumi:"inquiryValidation"`
@@ -51711,7 +50812,6 @@ func (i WorkloadInquiryDetailsArray) ToWorkloadInquiryDetailsArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInquiryDetailsArrayOutput)
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkloadInquiryDetailsOutput) ElementType() reflect.Type {
@@ -51761,7 +50861,6 @@ func (o WorkloadInquiryDetailsArrayOutput) Index(i pulumi.IntInput) WorkloadInqu
 	}).(WorkloadInquiryDetailsOutput)
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetailsResponse struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation *InquiryValidationResponse `pulumi:"inquiryValidation"`
@@ -51782,7 +50881,6 @@ type WorkloadInquiryDetailsResponseInput interface {
 	ToWorkloadInquiryDetailsResponseOutputWithContext(context.Context) WorkloadInquiryDetailsResponseOutput
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetailsResponseArgs struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation InquiryValidationResponsePtrInput `pulumi:"inquiryValidation"`
@@ -51829,7 +50927,6 @@ func (i WorkloadInquiryDetailsResponseArray) ToWorkloadInquiryDetailsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInquiryDetailsResponseArrayOutput)
 }
 
-// Details of an inquired protectable item.
 type WorkloadInquiryDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkloadInquiryDetailsResponseOutput) ElementType() reflect.Type {
@@ -51879,7 +50976,6 @@ func (o WorkloadInquiryDetailsResponseArrayOutput) Index(i pulumi.IntInput) Work
 	}).(WorkloadInquiryDetailsResponseOutput)
 }
 
-// Yearly retention schedule.
 type YearlyRetentionSchedule struct {
 	// List of months of year of yearly retention policy.
 	MonthsOfYear []MonthOfYear `pulumi:"monthsOfYear"`
@@ -51906,7 +51002,6 @@ type YearlyRetentionScheduleInput interface {
 	ToYearlyRetentionScheduleOutputWithContext(context.Context) YearlyRetentionScheduleOutput
 }
 
-// Yearly retention schedule.
 type YearlyRetentionScheduleArgs struct {
 	// List of months of year of yearly retention policy.
 	MonthsOfYear MonthOfYearArrayInput `pulumi:"monthsOfYear"`
@@ -51975,7 +51070,6 @@ func (i *yearlyRetentionSchedulePtrType) ToYearlyRetentionSchedulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionSchedulePtrOutput)
 }
 
-// Yearly retention schedule.
 type YearlyRetentionScheduleOutput struct{ *pulumi.OutputState }
 
 func (YearlyRetentionScheduleOutput) ElementType() reflect.Type {
@@ -52114,7 +51208,6 @@ func (o YearlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Yearly retention schedule.
 type YearlyRetentionScheduleResponse struct {
 	// List of months of year of yearly retention policy.
 	MonthsOfYear []string `pulumi:"monthsOfYear"`
@@ -52141,7 +51234,6 @@ type YearlyRetentionScheduleResponseInput interface {
 	ToYearlyRetentionScheduleResponseOutputWithContext(context.Context) YearlyRetentionScheduleResponseOutput
 }
 
-// Yearly retention schedule.
 type YearlyRetentionScheduleResponseArgs struct {
 	// List of months of year of yearly retention policy.
 	MonthsOfYear pulumi.StringArrayInput `pulumi:"monthsOfYear"`
@@ -52210,7 +51302,6 @@ func (i *yearlyRetentionScheduleResponsePtrType) ToYearlyRetentionScheduleRespon
 	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleResponsePtrOutput)
 }
 
-// Yearly retention schedule.
 type YearlyRetentionScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (YearlyRetentionScheduleResponseOutput) ElementType() reflect.Type {

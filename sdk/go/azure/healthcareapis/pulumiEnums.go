@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The kind of the service.
 type FhirServiceKind string
 
 const (
@@ -175,7 +174,6 @@ func (in *fhirServiceKindPtr) ToFhirServiceKindPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(FhirServiceKindPtrOutput)
 }
 
-// Determines how resource identity is resolved on the destination.
 type IotIdentityResolutionType string
 
 const (
@@ -340,7 +338,6 @@ func (in *iotIdentityResolutionTypePtr) ToIotIdentityResolutionTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(IotIdentityResolutionTypePtrOutput)
 }
 
-// The kind of the service.
 type Kind string
 
 const (
@@ -506,7 +503,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Type of identity being specified, currently SystemAssigned and None are allowed.
 type ManagedServiceIdentityType string
 
 const (
@@ -671,7 +667,6 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -837,7 +832,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 type PublicNetworkAccess string
 
 const (

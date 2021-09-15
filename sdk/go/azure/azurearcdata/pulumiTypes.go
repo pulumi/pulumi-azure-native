@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Username and password for basic login authentication.
 type BasicLoginInformation struct {
 	// Login password.
 	Password *string `pulumi:"password"`
@@ -29,7 +28,6 @@ type BasicLoginInformationInput interface {
 	ToBasicLoginInformationOutputWithContext(context.Context) BasicLoginInformationOutput
 }
 
-// Username and password for basic login authentication.
 type BasicLoginInformationArgs struct {
 	// Login password.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -90,7 +88,6 @@ func (i *basicLoginInformationPtrType) ToBasicLoginInformationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BasicLoginInformationPtrOutput)
 }
 
-// Username and password for basic login authentication.
 type BasicLoginInformationOutput struct{ *pulumi.OutputState }
 
 func (BasicLoginInformationOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o BasicLoginInformationPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic login authentication.
 type BasicLoginInformationResponse struct {
 	// Login username.
 	Username *string `pulumi:"username"`
@@ -186,7 +182,6 @@ type BasicLoginInformationResponseInput interface {
 	ToBasicLoginInformationResponseOutputWithContext(context.Context) BasicLoginInformationResponseOutput
 }
 
-// Username and password for basic login authentication.
 type BasicLoginInformationResponseArgs struct {
 	// Login username.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -245,7 +240,6 @@ func (i *basicLoginInformationResponsePtrType) ToBasicLoginInformationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(BasicLoginInformationResponsePtrOutput)
 }
 
-// Username and password for basic login authentication.
 type BasicLoginInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (BasicLoginInformationResponseOutput) ElementType() reflect.Type {
@@ -309,7 +303,6 @@ func (o BasicLoginInformationResponsePtrOutput) Username() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data controller properties.
 type DataControllerProperties struct {
 	// Username and password for basic login authentication.
 	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
@@ -338,7 +331,6 @@ type DataControllerPropertiesInput interface {
 	ToDataControllerPropertiesOutputWithContext(context.Context) DataControllerPropertiesOutput
 }
 
-// The data controller properties.
 type DataControllerPropertiesArgs struct {
 	// Username and password for basic login authentication.
 	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
@@ -409,7 +401,6 @@ func (i *dataControllerPropertiesPtrType) ToDataControllerPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesPtrOutput)
 }
 
-// The data controller properties.
 type DataControllerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataControllerPropertiesOutput) ElementType() reflect.Type {
@@ -563,7 +554,6 @@ func (o DataControllerPropertiesPtrOutput) UploadWatermark() UploadWatermarkPtrO
 	}).(UploadWatermarkPtrOutput)
 }
 
-// The data controller properties.
 type DataControllerPropertiesResponse struct {
 	// Username and password for basic login authentication.
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
@@ -593,7 +583,6 @@ type DataControllerPropertiesResponseInput interface {
 	ToDataControllerPropertiesResponseOutputWithContext(context.Context) DataControllerPropertiesResponseOutput
 }
 
-// The data controller properties.
 type DataControllerPropertiesResponseArgs struct {
 	// Username and password for basic login authentication.
 	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
@@ -665,7 +654,6 @@ func (i *dataControllerPropertiesResponsePtrType) ToDataControllerPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesResponsePtrOutput)
 }
 
-// The data controller properties.
 type DataControllerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DataControllerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -838,7 +826,6 @@ func (o DataControllerPropertiesResponsePtrOutput) UploadWatermark() UploadWater
 	}).(UploadWatermarkResponsePtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocation struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -857,7 +844,6 @@ type ExtendedLocationInput interface {
 	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -918,7 +904,6 @@ func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationOutput) ElementType() reflect.Type {
@@ -997,7 +982,6 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponse struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -1016,7 +1000,6 @@ type ExtendedLocationResponseInput interface {
 	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1077,7 +1060,6 @@ func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
@@ -1156,7 +1138,6 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfig struct {
 	// Primary key of the workspace
 	PrimaryKey *string `pulumi:"primaryKey"`
@@ -1175,7 +1156,6 @@ type LogAnalyticsWorkspaceConfigInput interface {
 	ToLogAnalyticsWorkspaceConfigOutputWithContext(context.Context) LogAnalyticsWorkspaceConfigOutput
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfigArgs struct {
 	// Primary key of the workspace
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
@@ -1236,7 +1216,6 @@ func (i *logAnalyticsWorkspaceConfigPtrType) ToLogAnalyticsWorkspaceConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfigOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsWorkspaceConfigOutput) ElementType() reflect.Type {
@@ -1315,7 +1294,6 @@ func (o LogAnalyticsWorkspaceConfigPtrOutput) WorkspaceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfigResponse struct {
 	// Azure Log Analytics workspace ID
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -1332,7 +1310,6 @@ type LogAnalyticsWorkspaceConfigResponseInput interface {
 	ToLogAnalyticsWorkspaceConfigResponseOutputWithContext(context.Context) LogAnalyticsWorkspaceConfigResponseOutput
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfigResponseArgs struct {
 	// Azure Log Analytics workspace ID
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
@@ -1391,7 +1368,6 @@ func (i *logAnalyticsWorkspaceConfigResponsePtrType) ToLogAnalyticsWorkspaceConf
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
-// Log analytics workspace id and primary key
 type LogAnalyticsWorkspaceConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsWorkspaceConfigResponseOutput) ElementType() reflect.Type {
@@ -1455,7 +1431,6 @@ func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) WorkspaceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 type OnPremiseProperty struct {
 	// A globally unique ID identifying the associated Kubernetes cluster
 	Id string `pulumi:"id"`
@@ -1476,7 +1451,6 @@ type OnPremisePropertyInput interface {
 	ToOnPremisePropertyOutputWithContext(context.Context) OnPremisePropertyOutput
 }
 
-// Properties from the Kubernetes data controller
 type OnPremisePropertyArgs struct {
 	// A globally unique ID identifying the associated Kubernetes cluster
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1539,7 +1513,6 @@ func (i *onPremisePropertyPtrType) ToOnPremisePropertyPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyPtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 type OnPremisePropertyOutput struct{ *pulumi.OutputState }
 
 func (OnPremisePropertyOutput) ElementType() reflect.Type {
@@ -1633,7 +1606,6 @@ func (o OnPremisePropertyPtrOutput) SigningCertificateThumbprint() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 type OnPremisePropertyResponse struct {
 	// A globally unique ID identifying the associated Kubernetes cluster
 	Id string `pulumi:"id"`
@@ -1654,7 +1626,6 @@ type OnPremisePropertyResponseInput interface {
 	ToOnPremisePropertyResponseOutputWithContext(context.Context) OnPremisePropertyResponseOutput
 }
 
-// Properties from the Kubernetes data controller
 type OnPremisePropertyResponseArgs struct {
 	// A globally unique ID identifying the associated Kubernetes cluster
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1717,7 +1688,6 @@ func (i *onPremisePropertyResponsePtrType) ToOnPremisePropertyResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyResponsePtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 type OnPremisePropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremisePropertyResponseOutput) ElementType() reflect.Type {
@@ -1811,7 +1781,6 @@ func (o OnPremisePropertyResponsePtrOutput) SigningCertificateThumbprint() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Postgres Instance properties.
 type PostgresInstanceProperties struct {
 	// The instance admin
 	Admin *string `pulumi:"admin"`
@@ -1836,7 +1805,6 @@ type PostgresInstancePropertiesInput interface {
 	ToPostgresInstancePropertiesOutputWithContext(context.Context) PostgresInstancePropertiesOutput
 }
 
-// Postgres Instance properties.
 type PostgresInstancePropertiesArgs struct {
 	// The instance admin
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
@@ -1903,7 +1871,6 @@ func (i *postgresInstancePropertiesPtrType) ToPostgresInstancePropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesPtrOutput)
 }
 
-// Postgres Instance properties.
 type PostgresInstancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstancePropertiesOutput) ElementType() reflect.Type {
@@ -2027,7 +1994,6 @@ func (o PostgresInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Postgres Instance properties.
 type PostgresInstancePropertiesResponse struct {
 	// The instance admin
 	Admin *string `pulumi:"admin"`
@@ -2053,7 +2019,6 @@ type PostgresInstancePropertiesResponseInput interface {
 	ToPostgresInstancePropertiesResponseOutputWithContext(context.Context) PostgresInstancePropertiesResponseOutput
 }
 
-// Postgres Instance properties.
 type PostgresInstancePropertiesResponseArgs struct {
 	// The instance admin
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
@@ -2121,7 +2086,6 @@ func (i *postgresInstancePropertiesResponsePtrType) ToPostgresInstanceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesResponsePtrOutput)
 }
 
-// Postgres Instance properties.
 type PostgresInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstancePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2260,7 +2224,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSku struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -2287,7 +2250,6 @@ type PostgresInstanceSkuInput interface {
 	ToPostgresInstanceSkuOutputWithContext(context.Context) PostgresInstanceSkuOutput
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSkuArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2356,7 +2318,6 @@ func (i *postgresInstanceSkuPtrType) ToPostgresInstanceSkuPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSkuOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstanceSkuOutput) ElementType() reflect.Type {
@@ -2495,7 +2456,6 @@ func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
 	}).(PostgresInstanceSkuTierPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSkuResponse struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -2522,7 +2482,6 @@ type PostgresInstanceSkuResponseInput interface {
 	ToPostgresInstanceSkuResponseOutputWithContext(context.Context) PostgresInstanceSkuResponseOutput
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSkuResponseArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2591,7 +2550,6 @@ func (i *postgresInstanceSkuResponsePtrType) ToPostgresInstanceSkuResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
 type PostgresInstanceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstanceSkuResponseOutput) ElementType() reflect.Type {
@@ -2730,7 +2688,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstanceProperties struct {
 	// The instance admin user
 	Admin *string `pulumi:"admin"`
@@ -2759,7 +2716,6 @@ type SqlManagedInstancePropertiesInput interface {
 	ToSqlManagedInstancePropertiesOutputWithContext(context.Context) SqlManagedInstancePropertiesOutput
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesArgs struct {
 	// The instance admin user
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
@@ -2830,7 +2786,6 @@ func (i *sqlManagedInstancePropertiesPtrType) ToSqlManagedInstancePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesPtrOutput)
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstancePropertiesOutput) ElementType() reflect.Type {
@@ -2984,7 +2939,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) StartTime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesResponse struct {
 	// The instance admin user
 	Admin *string `pulumi:"admin"`
@@ -3014,7 +2968,6 @@ type SqlManagedInstancePropertiesResponseInput interface {
 	ToSqlManagedInstancePropertiesResponseOutputWithContext(context.Context) SqlManagedInstancePropertiesResponseOutput
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesResponseArgs struct {
 	// The instance admin user
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
@@ -3086,7 +3039,6 @@ func (i *sqlManagedInstancePropertiesResponsePtrType) ToSqlManagedInstanceProper
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesResponsePtrOutput)
 }
 
-// Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstancePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3255,7 +3207,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) StartTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSku struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -3282,7 +3233,6 @@ type SqlManagedInstanceSkuInput interface {
 	ToSqlManagedInstanceSkuOutputWithContext(context.Context) SqlManagedInstanceSkuOutput
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -3351,7 +3301,6 @@ func (i *sqlManagedInstanceSkuPtrType) ToSqlManagedInstanceSkuPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceSkuPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstanceSkuOutput) ElementType() reflect.Type {
@@ -3490,7 +3439,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutpu
 	}).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuResponse struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -3517,7 +3465,6 @@ type SqlManagedInstanceSkuResponseInput interface {
 	ToSqlManagedInstanceSkuResponseOutputWithContext(context.Context) SqlManagedInstanceSkuResponseOutput
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuResponseArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -3586,7 +3533,6 @@ func (i *sqlManagedInstanceSkuResponsePtrType) ToSqlManagedInstanceSkuResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceSkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstanceSkuResponseOutput) ElementType() reflect.Type {
@@ -3725,7 +3671,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstanceProperties struct {
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
@@ -3766,7 +3711,6 @@ type SqlServerInstancePropertiesInput interface {
 	ToSqlServerInstancePropertiesOutputWithContext(context.Context) SqlServerInstancePropertiesOutput
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstancePropertiesArgs struct {
 	// SQL Server collation.
 	Collation pulumi.StringPtrInput `pulumi:"collation"`
@@ -3849,7 +3793,6 @@ func (i *sqlServerInstancePropertiesPtrType) ToSqlServerInstancePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstancePropertiesPtrOutput)
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SqlServerInstancePropertiesOutput) ElementType() reflect.Type {
@@ -4093,7 +4036,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponse struct {
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
@@ -4137,7 +4079,6 @@ type SqlServerInstancePropertiesResponseInput interface {
 	ToSqlServerInstancePropertiesResponseOutputWithContext(context.Context) SqlServerInstancePropertiesResponseOutput
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponseArgs struct {
 	// SQL Server collation.
 	Collation pulumi.StringPtrInput `pulumi:"collation"`
@@ -4223,7 +4164,6 @@ func (i *sqlServerInstancePropertiesResponsePtrType) ToSqlServerInstanceProperti
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstancePropertiesResponsePtrOutput)
 }
 
-// Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlServerInstancePropertiesResponseOutput) ElementType() reflect.Type {
@@ -4495,7 +4435,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Version() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only system data
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -4522,7 +4461,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -4591,7 +4529,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4730,7 +4667,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipal struct {
 	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority *string `pulumi:"authority"`
@@ -4753,7 +4689,6 @@ type UploadServicePrincipalInput interface {
 	ToUploadServicePrincipalOutputWithContext(context.Context) UploadServicePrincipalOutput
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipalArgs struct {
 	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
@@ -4818,7 +4753,6 @@ func (i *uploadServicePrincipalPtrType) ToUploadServicePrincipalPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UploadServicePrincipalPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (UploadServicePrincipalOutput) ElementType() reflect.Type {
@@ -4927,7 +4861,6 @@ func (o UploadServicePrincipalPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipalResponse struct {
 	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority *string `pulumi:"authority"`
@@ -4948,7 +4881,6 @@ type UploadServicePrincipalResponseInput interface {
 	ToUploadServicePrincipalResponseOutputWithContext(context.Context) UploadServicePrincipalResponseOutput
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipalResponseArgs struct {
 	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
@@ -5011,7 +4943,6 @@ func (i *uploadServicePrincipalResponsePtrType) ToUploadServicePrincipalResponse
 	return pulumi.ToOutputWithContext(ctx, i).(UploadServicePrincipalResponsePtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 type UploadServicePrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (UploadServicePrincipalResponseOutput) ElementType() reflect.Type {
@@ -5105,7 +5036,6 @@ func (o UploadServicePrincipalResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermark struct {
 	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 	Logs *string `pulumi:"logs"`
@@ -5126,7 +5056,6 @@ type UploadWatermarkInput interface {
 	ToUploadWatermarkOutputWithContext(context.Context) UploadWatermarkOutput
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermarkArgs struct {
 	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 	Logs pulumi.StringPtrInput `pulumi:"logs"`
@@ -5189,7 +5118,6 @@ func (i *uploadWatermarkPtrType) ToUploadWatermarkPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UploadWatermarkPtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermarkOutput struct{ *pulumi.OutputState }
 
 func (UploadWatermarkOutput) ElementType() reflect.Type {
@@ -5283,7 +5211,6 @@ func (o UploadWatermarkPtrOutput) Usages() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermarkResponse struct {
 	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 	Logs *string `pulumi:"logs"`
@@ -5304,7 +5231,6 @@ type UploadWatermarkResponseInput interface {
 	ToUploadWatermarkResponseOutputWithContext(context.Context) UploadWatermarkResponseOutput
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermarkResponseArgs struct {
 	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 	Logs pulumi.StringPtrInput `pulumi:"logs"`
@@ -5367,7 +5293,6 @@ func (i *uploadWatermarkResponsePtrType) ToUploadWatermarkResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UploadWatermarkResponsePtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 type UploadWatermarkResponseOutput struct{ *pulumi.OutputState }
 
 func (UploadWatermarkResponseOutput) ElementType() reflect.Type {

@@ -68,6 +68,8 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:SynchronizationSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

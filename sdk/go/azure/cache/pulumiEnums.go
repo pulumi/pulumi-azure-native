@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sets the frequency at which data is written to disk.
 type AofFrequency string
 
 const (
@@ -175,7 +174,6 @@ func (in *aofFrequencyPtr) ToAofFrequencyPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AofFrequencyPtrOutput)
 }
 
-// Clustering policy - default is OSSCluster. Specified at create time.
 type ClusteringPolicy string
 
 const (
@@ -340,7 +338,6 @@ func (in *clusteringPolicyPtr) ToClusteringPolicyPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ClusteringPolicyPtrOutput)
 }
 
-// Day of the week when a cache can be patched.
 type DayOfWeek string
 
 const (
@@ -512,7 +509,6 @@ func (in *dayOfWeekPtr) ToDayOfWeekPtrOutputWithContext(ctx context.Context) Day
 	return pulumi.ToOutputWithContext(ctx, in).(DayOfWeekPtrOutput)
 }
 
-// Redis eviction policy - default is VolatileLRU
 type EvictionPolicy string
 
 const (
@@ -683,7 +679,6 @@ func (in *evictionPolicyPtr) ToEvictionPolicyPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(EvictionPolicyPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -849,7 +844,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
 type Protocol string
 
 const (
@@ -1014,7 +1008,6 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
 }
 
-// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
 type PublicNetworkAccess string
 
 const (
@@ -1179,7 +1172,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// Sets the frequency at which a snapshot of the database is created.
 type RdbFrequency string
 
 const (
@@ -1345,7 +1337,6 @@ func (in *rdbFrequencyPtr) ToRdbFrequencyPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(RdbFrequencyPtrOutput)
 }
 
-// Role of the linked server.
 type ReplicationRole string
 
 const (
@@ -1510,7 +1501,6 @@ func (in *replicationRolePtr) ToReplicationRolePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationRolePtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 type SkuFamily string
 
 const (
@@ -1675,7 +1665,6 @@ func (in *skuFamilyPtr) ToSkuFamilyPtrOutputWithContext(ctx context.Context) Sku
 	return pulumi.ToOutputWithContext(ctx, in).(SkuFamilyPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 type SkuName string
 
 const (
@@ -1845,7 +1834,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The minimum TLS version for the cluster to support, e.g. '1.2'
 type TlsVersion string
 
 const (

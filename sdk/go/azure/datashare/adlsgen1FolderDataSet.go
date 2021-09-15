@@ -94,6 +94,12 @@ func NewADLSGen1FolderDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ADLSGen1FolderDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:ADLSGen1FolderDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:ADLSGen1FolderDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ADLSGen1FolderDataSet

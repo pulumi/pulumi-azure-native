@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type Authorization struct {
 	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
@@ -33,7 +32,6 @@ type AuthorizationInput interface {
 	ToAuthorizationOutputWithContext(context.Context) AuthorizationOutput
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationArgs struct {
 	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
@@ -82,7 +80,6 @@ func (i AuthorizationArray) ToAuthorizationArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationArrayOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
@@ -137,7 +134,6 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 	}).(AuthorizationOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponse struct {
 	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
@@ -160,7 +156,6 @@ type AuthorizationResponseInput interface {
 	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseArgs struct {
 	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
@@ -209,7 +204,6 @@ func (i AuthorizationResponseArray) ToAuthorizationResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponseArrayOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -264,7 +258,6 @@ func (o AuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Authorization
 	}).(AuthorizationResponseOutput)
 }
 
-// Plan details for the managed services.
 type Plan struct {
 	// The plan name.
 	Name string `pulumi:"name"`
@@ -287,7 +280,6 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Plan details for the managed services.
 type PlanArgs struct {
 	// The plan name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -352,7 +344,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -461,7 +452,6 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanResponse struct {
 	// The plan name.
 	Name string `pulumi:"name"`
@@ -484,7 +474,6 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Plan details for the managed services.
 type PlanResponseArgs struct {
 	// The plan name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -549,7 +538,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -658,7 +646,6 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentProperties struct {
 	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
@@ -675,7 +662,6 @@ type RegistrationAssignmentPropertiesInput interface {
 	ToRegistrationAssignmentPropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesOutput
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesArgs struct {
 	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
@@ -734,7 +720,6 @@ func (i *registrationAssignmentPropertiesPtrType) ToRegistrationAssignmentProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -798,7 +783,6 @@ func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponse struct {
 	// Current state of the registration assignment.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -819,7 +803,6 @@ type RegistrationAssignmentPropertiesResponseInput interface {
 	ToRegistrationAssignmentPropertiesResponseOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseOutput
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponseArgs struct {
 	// Current state of the registration assignment.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -882,7 +865,6 @@ func (i *registrationAssignmentPropertiesResponsePtrType) ToRegistrationAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -978,7 +960,6 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseProperties struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
@@ -1009,7 +990,6 @@ type RegistrationAssignmentPropertiesResponsePropertiesInput interface {
 	ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
@@ -1082,7 +1062,6 @@ func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrati
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
@@ -1255,7 +1234,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Registratio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinition struct {
 	// Fully qualified path of the registration definition.
 	Id string `pulumi:"id"`
@@ -1280,7 +1258,6 @@ type RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput interfa
 	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs struct {
 	// Fully qualified path of the registration definition.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1347,7 +1324,6 @@ func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
@@ -1473,7 +1449,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionProperties struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations []Authorization `pulumi:"authorizations"`
@@ -1496,7 +1471,6 @@ type RegistrationDefinitionPropertiesInput interface {
 	ToRegistrationDefinitionPropertiesOutputWithContext(context.Context) RegistrationDefinitionPropertiesOutput
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesArgs struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations AuthorizationArrayInput `pulumi:"authorizations"`
@@ -1561,7 +1535,6 @@ func (i *registrationDefinitionPropertiesPtrType) ToRegistrationDefinitionProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesOutput) ElementType() reflect.Type {
@@ -1670,7 +1643,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponse struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
@@ -1697,7 +1669,6 @@ type RegistrationDefinitionPropertiesResponseInput interface {
 	ToRegistrationDefinitionPropertiesResponseOutputWithContext(context.Context) RegistrationDefinitionPropertiesResponseOutput
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseArgs struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
@@ -1766,7 +1737,6 @@ func (i *registrationDefinitionPropertiesResponsePtrType) ToRegistrationDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesResponseOutput) ElementType() reflect.Type {

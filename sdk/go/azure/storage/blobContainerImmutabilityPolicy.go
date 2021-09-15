@@ -110,6 +110,12 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobContainerImmutabilityPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobContainerImmutabilityPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobContainerImmutabilityPolicy

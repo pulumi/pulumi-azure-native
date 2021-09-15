@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the Automanage account.
 type AccountIdentity struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -27,7 +26,6 @@ type AccountIdentityInput interface {
 	ToAccountIdentityOutputWithContext(context.Context) AccountIdentityOutput
 }
 
-// Identity for the Automanage account.
 type AccountIdentityArgs struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-// Identity for the Automanage account.
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the Automanage account.
 type AccountIdentityResponse struct {
 	// The principal id of Automanage account identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -171,7 +167,6 @@ type AccountIdentityResponseInput interface {
 	ToAccountIdentityResponseOutputWithContext(context.Context) AccountIdentityResponseOutput
 }
 
-// Identity for the Automanage account.
 type AccountIdentityResponseArgs struct {
 	// The principal id of Automanage account identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -234,7 +229,6 @@ func (i *accountIdentityResponsePtrType) ToAccountIdentityResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityResponsePtrOutput)
 }
 
-// Identity for the Automanage account.
 type AccountIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o AccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The compliance status for the configuration profile assignment.
 type ConfigurationProfileAssignmentComplianceResponse struct {
 	// The state of compliance, which only appears in the response.
 	UpdateStatus string `pulumi:"updateStatus"`
@@ -345,7 +338,6 @@ type ConfigurationProfileAssignmentComplianceResponseInput interface {
 	ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceResponseOutput
 }
 
-// The compliance status for the configuration profile assignment.
 type ConfigurationProfileAssignmentComplianceResponseArgs struct {
 	// The state of compliance, which only appears in the response.
 	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
@@ -404,7 +396,6 @@ func (i *configurationProfileAssignmentComplianceResponsePtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
 
-// The compliance status for the configuration profile assignment.
 type ConfigurationProfileAssignmentComplianceResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentComplianceResponseOutput) ElementType() reflect.Type {
@@ -468,7 +459,6 @@ func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) UpdateStatus(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentProperties struct {
 	// The Automanage account ARM Resource URI
 	AccountId *string `pulumi:"accountId"`
@@ -491,7 +481,6 @@ type ConfigurationProfileAssignmentPropertiesInput interface {
 	ToConfigurationProfileAssignmentPropertiesOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesOutput
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesArgs struct {
 	// The Automanage account ARM Resource URI
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -556,7 +545,6 @@ func (i *configurationProfileAssignmentPropertiesPtrType) ToConfigurationProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesPtrOutput)
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -665,7 +653,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponse struct {
 	// The Automanage account ARM Resource URI
 	AccountId *string `pulumi:"accountId"`
@@ -692,7 +679,6 @@ type ConfigurationProfileAssignmentPropertiesResponseInput interface {
 	ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
 	// The Automanage account ARM Resource URI
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -761,7 +747,6 @@ func (i *configurationProfileAssignmentPropertiesResponsePtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
 
-// Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -904,7 +889,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) TargetId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalware struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
@@ -931,7 +915,6 @@ type ConfigurationProfilePreferenceAntiMalwareInput interface {
 	ToConfigurationProfilePreferenceAntiMalwareOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareOutput
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareArgs struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
@@ -1000,7 +983,6 @@ func (i *configurationProfilePreferenceAntiMalwarePtrType) ToConfigurationProfil
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwarePtrOutput)
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceAntiMalwareOutput) ElementType() reflect.Type {
@@ -1139,7 +1121,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareResponse struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
@@ -1166,7 +1147,6 @@ type ConfigurationProfilePreferenceAntiMalwareResponseInput interface {
 	ToConfigurationProfilePreferenceAntiMalwareResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareResponseOutput
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareResponseArgs struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
@@ -1235,7 +1215,6 @@ func (i *configurationProfilePreferenceAntiMalwareResponsePtrType) ToConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
 
-// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceAntiMalwareResponseOutput) ElementType() reflect.Type {
@@ -1374,7 +1353,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferenceProperties struct {
 	// The custom preferences for Azure Antimalware.
 	AntiMalware *ConfigurationProfilePreferenceAntiMalware `pulumi:"antiMalware"`
@@ -1393,7 +1371,6 @@ type ConfigurationProfilePreferencePropertiesInput interface {
 	ToConfigurationProfilePreferencePropertiesOutputWithContext(context.Context) ConfigurationProfilePreferencePropertiesOutput
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesArgs struct {
 	// The custom preferences for Azure Antimalware.
 	AntiMalware ConfigurationProfilePreferenceAntiMalwarePtrInput `pulumi:"antiMalware"`
@@ -1454,7 +1431,6 @@ func (i *configurationProfilePreferencePropertiesPtrType) ToConfigurationProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesPtrOutput)
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferencePropertiesOutput) ElementType() reflect.Type {
@@ -1537,7 +1513,6 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) VmBackup() Configurat
 	}).(ConfigurationProfilePreferenceVmBackupPtrOutput)
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesResponse struct {
 	// The custom preferences for Azure Antimalware.
 	AntiMalware *ConfigurationProfilePreferenceAntiMalwareResponse `pulumi:"antiMalware"`
@@ -1556,7 +1531,6 @@ type ConfigurationProfilePreferencePropertiesResponseInput interface {
 	ToConfigurationProfilePreferencePropertiesResponseOutputWithContext(context.Context) ConfigurationProfilePreferencePropertiesResponseOutput
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesResponseArgs struct {
 	// The custom preferences for Azure Antimalware.
 	AntiMalware ConfigurationProfilePreferenceAntiMalwareResponsePtrInput `pulumi:"antiMalware"`
@@ -1617,7 +1591,6 @@ func (i *configurationProfilePreferencePropertiesResponsePtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesResponsePtrOutput)
 }
 
-// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferencePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1700,7 +1673,6 @@ func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) VmBackup() Co
 	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackup struct {
 	// Instant RP retention policy range in days
 	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
@@ -1723,7 +1695,6 @@ type ConfigurationProfilePreferenceVmBackupInput interface {
 	ToConfigurationProfilePreferenceVmBackupOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupOutput
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupArgs struct {
 	// Instant RP retention policy range in days
 	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
@@ -1788,7 +1759,6 @@ func (i *configurationProfilePreferenceVmBackupPtrType) ToConfigurationProfilePr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupPtrOutput)
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceVmBackupOutput) ElementType() reflect.Type {
@@ -1897,7 +1867,6 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) TimeZone() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupResponse struct {
 	// Instant RP retention policy range in days
 	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
@@ -1920,7 +1889,6 @@ type ConfigurationProfilePreferenceVmBackupResponseInput interface {
 	ToConfigurationProfilePreferenceVmBackupResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupResponseOutput
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupResponseArgs struct {
 	// Instant RP retention policy range in days
 	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
@@ -1985,7 +1953,6 @@ func (i *configurationProfilePreferenceVmBackupResponsePtrType) ToConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
 
-// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceVmBackupResponseOutput) ElementType() reflect.Type {

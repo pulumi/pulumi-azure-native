@@ -65,6 +65,12 @@ func NewApp(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:iotcentral/v20180901:App"),
 		},
+		{
+			Type: pulumi.String("azure-native:iotcentral/v20210601:App"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:iotcentral/v20210601:App"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource App

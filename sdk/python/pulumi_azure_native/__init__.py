@@ -3705,6 +3705,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerinstance/v20210701",
+  "fqn": "pulumi_azure_native.containerinstance.v20210701",
+  "classes": {
+   "azure-native:containerinstance/v20210701:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerregistry",
   "fqn": "pulumi_azure_native.containerregistry",
   "classes": {
@@ -4795,6 +4803,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "datalakeanalytics/v20191101preview",
+  "fqn": "pulumi_azure_native.datalakeanalytics.v20191101preview",
+  "classes": {
+   "azure-native:datalakeanalytics/v20191101preview:Account": "Account",
+   "azure-native:datalakeanalytics/v20191101preview:ComputePolicy": "ComputePolicy",
+   "azure-native:datalakeanalytics/v20191101preview:FirewallRule": "FirewallRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datalakestore",
   "fqn": "pulumi_azure_native.datalakestore",
   "classes": {
@@ -5145,6 +5163,49 @@ _utilities.register(
    "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping": "SynapseWorkspaceSqlPoolTableDataSetMapping",
    "azure-native:datashare/v20201001preview:SynchronizationSetting": "SynchronizationSetting",
    "azure-native:datashare/v20201001preview:Trigger": "Trigger"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datashare/v20210801",
+  "fqn": "pulumi_azure_native.datashare.v20210801",
+  "classes": {
+   "azure-native:datashare/v20210801:ADLSGen1FileDataSet": "ADLSGen1FileDataSet",
+   "azure-native:datashare/v20210801:ADLSGen1FolderDataSet": "ADLSGen1FolderDataSet",
+   "azure-native:datashare/v20210801:ADLSGen2FileDataSet": "ADLSGen2FileDataSet",
+   "azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping": "ADLSGen2FileDataSetMapping",
+   "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet": "ADLSGen2FileSystemDataSet",
+   "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping": "ADLSGen2FileSystemDataSetMapping",
+   "azure-native:datashare/v20210801:ADLSGen2FolderDataSet": "ADLSGen2FolderDataSet",
+   "azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping": "ADLSGen2FolderDataSetMapping",
+   "azure-native:datashare/v20210801:Account": "Account",
+   "azure-native:datashare/v20210801:BlobContainerDataSet": "BlobContainerDataSet",
+   "azure-native:datashare/v20210801:BlobContainerDataSetMapping": "BlobContainerDataSetMapping",
+   "azure-native:datashare/v20210801:BlobDataSet": "BlobDataSet",
+   "azure-native:datashare/v20210801:BlobDataSetMapping": "BlobDataSetMapping",
+   "azure-native:datashare/v20210801:BlobFolderDataSet": "BlobFolderDataSet",
+   "azure-native:datashare/v20210801:BlobFolderDataSetMapping": "BlobFolderDataSetMapping",
+   "azure-native:datashare/v20210801:DataSet": "DataSet",
+   "azure-native:datashare/v20210801:DataSetMapping": "DataSetMapping",
+   "azure-native:datashare/v20210801:Invitation": "Invitation",
+   "azure-native:datashare/v20210801:KustoClusterDataSet": "KustoClusterDataSet",
+   "azure-native:datashare/v20210801:KustoClusterDataSetMapping": "KustoClusterDataSetMapping",
+   "azure-native:datashare/v20210801:KustoDatabaseDataSet": "KustoDatabaseDataSet",
+   "azure-native:datashare/v20210801:KustoDatabaseDataSetMapping": "KustoDatabaseDataSetMapping",
+   "azure-native:datashare/v20210801:KustoTableDataSet": "KustoTableDataSet",
+   "azure-native:datashare/v20210801:KustoTableDataSetMapping": "KustoTableDataSetMapping",
+   "azure-native:datashare/v20210801:ScheduledSynchronizationSetting": "ScheduledSynchronizationSetting",
+   "azure-native:datashare/v20210801:ScheduledTrigger": "ScheduledTrigger",
+   "azure-native:datashare/v20210801:Share": "Share",
+   "azure-native:datashare/v20210801:ShareSubscription": "ShareSubscription",
+   "azure-native:datashare/v20210801:SqlDBTableDataSet": "SqlDBTableDataSet",
+   "azure-native:datashare/v20210801:SqlDBTableDataSetMapping": "SqlDBTableDataSetMapping",
+   "azure-native:datashare/v20210801:SqlDWTableDataSet": "SqlDWTableDataSet",
+   "azure-native:datashare/v20210801:SqlDWTableDataSetMapping": "SqlDWTableDataSetMapping",
+   "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet": "SynapseWorkspaceSqlPoolTableDataSet",
+   "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping": "SynapseWorkspaceSqlPoolTableDataSetMapping",
+   "azure-native:datashare/v20210801:SynchronizationSetting": "SynchronizationSetting",
+   "azure-native:datashare/v20210801:Trigger": "Trigger"
   }
  },
  {
@@ -5703,6 +5764,21 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20210712:MSIXPackage": "MSIXPackage",
    "azure-native:desktopvirtualization/v20210712:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20210712:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20210903preview",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20210903preview",
+  "classes": {
+   "azure-native:desktopvirtualization/v20210903preview:Application": "Application",
+   "azure-native:desktopvirtualization/v20210903preview:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20210903preview:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20210903preview:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
+   "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
+   "azure-native:desktopvirtualization/v20210903preview:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20210903preview:Workspace": "Workspace"
   }
  },
  {
@@ -7250,7 +7326,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.hdinsight",
   "classes": {
    "azure-native:hdinsight:Application": "Application",
-   "azure-native:hdinsight:Cluster": "Cluster"
+   "azure-native:hdinsight:Cluster": "Cluster",
+   "azure-native:hdinsight:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -7269,6 +7346,16 @@ _utilities.register(
   "classes": {
    "azure-native:hdinsight/v20180601preview:Application": "Application",
    "azure-native:hdinsight/v20180601preview:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hdinsight/v20210601",
+  "fqn": "pulumi_azure_native.hdinsight.v20210601",
+  "classes": {
+   "azure-native:hdinsight/v20210601:Application": "Application",
+   "azure-native:hdinsight/v20210601:Cluster": "Cluster",
+   "azure-native:hdinsight/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -7974,6 +8061,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.iotcentral.v20180901",
   "classes": {
    "azure-native:iotcentral/v20180901:App": "App"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iotcentral/v20210601",
+  "fqn": "pulumi_azure_native.iotcentral.v20210601",
+  "classes": {
+   "azure-native:iotcentral/v20210601:App": "App"
   }
  },
  {
@@ -14917,6 +15012,28 @@ _utilities.register(
    "azure-native:storage/v20210401:StorageAccount": "StorageAccount",
    "azure-native:storage/v20210401:Table": "Table",
    "azure-native:storage/v20210401:TableServiceProperties": "TableServiceProperties"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storage/v20210601",
+  "fqn": "pulumi_azure_native.storage.v20210601",
+  "classes": {
+   "azure-native:storage/v20210601:BlobContainer": "BlobContainer",
+   "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage/v20210601:BlobInventoryPolicy": "BlobInventoryPolicy",
+   "azure-native:storage/v20210601:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage/v20210601:EncryptionScope": "EncryptionScope",
+   "azure-native:storage/v20210601:FileServiceProperties": "FileServiceProperties",
+   "azure-native:storage/v20210601:FileShare": "FileShare",
+   "azure-native:storage/v20210601:ManagementPolicy": "ManagementPolicy",
+   "azure-native:storage/v20210601:ObjectReplicationPolicy": "ObjectReplicationPolicy",
+   "azure-native:storage/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storage/v20210601:Queue": "Queue",
+   "azure-native:storage/v20210601:QueueServiceProperties": "QueueServiceProperties",
+   "azure-native:storage/v20210601:StorageAccount": "StorageAccount",
+   "azure-native:storage/v20210601:Table": "Table",
+   "azure-native:storage/v20210601:TableServiceProperties": "TableServiceProperties"
   }
  },
  {

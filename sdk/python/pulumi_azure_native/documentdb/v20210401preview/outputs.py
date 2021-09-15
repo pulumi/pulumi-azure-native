@@ -1385,14 +1385,14 @@ class DataTransferServiceResourcePropertiesResponse(dict):
         :param str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['DataTransferRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param str service_type: ServiceType for the service.
-               Expected value is 'DataTransferServiceResourceProperties'.
+               Expected value is 'DataTransfer'.
         :param str status: Describes the status of a service.
         :param int instance_count: Instance count for the service.
         :param str instance_size: Instance type for the service.
         """
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "service_type", 'DataTransferServiceResourceProperties')
+        pulumi.set(__self__, "service_type", 'DataTransfer')
         pulumi.set(__self__, "status", status)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
@@ -1420,7 +1420,7 @@ class DataTransferServiceResourcePropertiesResponse(dict):
     def service_type(self) -> str:
         """
         ServiceType for the service.
-        Expected value is 'DataTransferServiceResourceProperties'.
+        Expected value is 'DataTransfer'.
         """
         return pulumi.get(self, "service_type")
 
@@ -3711,7 +3711,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
         :param str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['SqlDedicatedGatewayRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param str service_type: ServiceType for the service.
-               Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+               Expected value is 'SqlDedicatedGateway'.
         :param str status: Describes the status of a service.
         :param int instance_count: Instance count for the service.
         :param str instance_size: Instance type for the service.
@@ -3719,7 +3719,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
         """
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "service_type", 'SqlDedicatedGatewayServiceResourceProperties')
+        pulumi.set(__self__, "service_type", 'SqlDedicatedGateway')
         pulumi.set(__self__, "status", status)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
@@ -3749,7 +3749,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
     def service_type(self) -> str:
         """
         ServiceType for the service.
-        Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+        Expected value is 'SqlDedicatedGateway'.
         """
         return pulumi.get(self, "service_type")
 

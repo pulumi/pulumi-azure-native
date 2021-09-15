@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Invitation"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Invitation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:Invitation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

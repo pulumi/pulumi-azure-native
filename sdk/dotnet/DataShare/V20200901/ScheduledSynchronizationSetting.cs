@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ScheduledSynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:ScheduledSynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ScheduledSynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:ScheduledSynchronizationSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

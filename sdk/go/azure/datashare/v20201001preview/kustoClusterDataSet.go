@@ -75,6 +75,12 @@ func NewKustoClusterDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:KustoClusterDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:KustoClusterDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:KustoClusterDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource KustoClusterDataSet

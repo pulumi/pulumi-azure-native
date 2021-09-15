@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A value indicating whether the auto update is enabled.
 type AgentAutoUpdateStatus string
 
 const (
@@ -175,7 +174,6 @@ func (in *agentAutoUpdateStatusPtr) ToAgentAutoUpdateStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AgentAutoUpdateStatusPtrOutput)
 }
 
-// Type of backup items associated with this container.
 type BackupItemType string
 
 const (
@@ -353,7 +351,6 @@ func (in *backupItemTypePtr) ToBackupItemTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(BackupItemTypePtrOutput)
 }
 
-// Type of backup management for the backed up item.
 type BackupManagementType string
 
 const (
@@ -525,10 +522,6 @@ func (in *backupManagementTypePtr) ToBackupManagementTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BackupManagementTypePtrOutput)
 }
 
-// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-// Backup is VMAppContainer
 type ContainerType string
 
 const (
@@ -706,7 +699,6 @@ func (in *containerTypePtr) ToContainerTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerTypePtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 type CreateMode string
 
 const (
@@ -872,7 +864,6 @@ func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
 }
 
-// Type of workload this item represents.
 type DataSourceType string
 
 const (
@@ -1264,7 +1255,6 @@ func (o DayOfWeekArrayOutput) Index(i pulumi.IntInput) DayOfWeekOutput {
 	}).(DayOfWeekOutput)
 }
 
-// The disk type.
 type DiskAccountType string
 
 const (
@@ -1430,7 +1420,6 @@ func (in *diskAccountTypePtr) ToDiskAccountTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DiskAccountTypePtrOutput)
 }
 
-// The failover deployment model.
 type FailoverDeploymentModel string
 
 const (
@@ -1596,7 +1585,6 @@ func (in *failoverDeploymentModelPtr) ToFailoverDeploymentModelPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FailoverDeploymentModelPtrOutput)
 }
 
-// Health status of protected item.
 type HealthStatus string
 
 const (
@@ -1763,7 +1751,6 @@ func (in *healthStatusPtr) ToHealthStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HealthStatusPtrOutput)
 }
 
-// Enabling/Disabling the Double Encryption state
 type InfrastructureEncryptionState string
 
 const (
@@ -1928,7 +1915,6 @@ func (in *infrastructureEncryptionStatePtr) ToInfrastructureEncryptionStatePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureEncryptionStatePtrOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 type LastBackupStatus string
 
 const (
@@ -2095,7 +2081,6 @@ func (in *lastBackupStatusPtr) ToLastBackupStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(LastBackupStatusPtrOutput)
 }
 
-// The license type.
 type LicenseType string
 
 const (
@@ -2481,7 +2466,6 @@ func (o MonthOfYearArrayOutput) Index(i pulumi.IntInput) MonthOfYearOutput {
 	}).(MonthOfYearOutput)
 }
 
-// Re-Do Operation
 type OperationType string
 
 const (
@@ -2647,7 +2631,6 @@ func (in *operationTypePtr) ToOperationTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(OperationTypePtrOutput)
 }
 
-// Type of backup policy type
 type PolicyType string
 
 const (
@@ -2980,7 +2963,6 @@ func (in *possibleOperationsDirectionsPtr) ToPossibleOperationsDirectionsPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(PossibleOperationsDirectionsPtrOutput)
 }
 
-// Gets or sets the status
 type PrivateEndpointConnectionStatus string
 
 const (
@@ -3147,7 +3129,6 @@ func (in *privateEndpointConnectionStatusPtr) ToPrivateEndpointConnectionStatusP
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointConnectionStatusPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 type ProtectedItemHealthStatus string
 
 const (
@@ -3315,7 +3296,6 @@ func (in *protectedItemHealthStatusPtr) ToProtectedItemHealthStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectedItemHealthStatusPtrOutput)
 }
 
-// Protection state of the backup engine
 type ProtectedItemStateEnum string
 
 const (
@@ -3484,7 +3464,6 @@ func (in *protectedItemStateEnumPtr) ToProtectedItemStateEnumPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectedItemStateEnumPtrOutput)
 }
 
-// Backup state of this backup item.
 type ProtectionState string
 
 const (
@@ -3653,7 +3632,6 @@ func (in *protectionStatePtr) ToProtectionStatePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionStatePtrOutput)
 }
 
-// Backup state of this backup item.
 type ProtectionStatus string
 
 const (
@@ -3821,7 +3799,6 @@ func (in *protectionStatusPtr) ToProtectionStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionStatusPtrOutput)
 }
 
-// Gets or sets provisioning state of the private endpoint connection
 type ProvisioningState string
 
 const (
@@ -3988,7 +3965,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// The group type.
 type RecoveryPlanGroupType string
 
 const (
@@ -4329,7 +4305,6 @@ func (in *replicationProtectedItemOperationPtr) ToReplicationProtectedItemOperat
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationProtectedItemOperationPtrOutput)
 }
 
-// Resource Health Status
 type ResourceHealthStatus string
 
 const (
@@ -4498,7 +4473,6 @@ func (in *resourceHealthStatusPtr) ToResourceHealthStatusPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceHealthStatusPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 type ResourceIdentityType string
 
 const (
@@ -4665,7 +4639,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Retention duration type of retention policy.
 type RetentionDurationType string
 
 const (
@@ -4833,7 +4806,6 @@ func (in *retentionDurationTypePtr) ToRetentionDurationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RetentionDurationTypePtrOutput)
 }
 
-// Retention schedule format for yearly retention policy.
 type RetentionScheduleFormat string
 
 const (
@@ -4999,7 +4971,6 @@ func (in *retentionScheduleFormatPtr) ToRetentionScheduleFormatPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(RetentionScheduleFormatPtrOutput)
 }
 
-// Frequency of the schedule operation of this policy.
 type ScheduleRunType string
 
 const (
@@ -5165,7 +5136,6 @@ func (in *scheduleRunTypePtr) ToScheduleRunTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleRunTypePtrOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 type SetMultiVmSyncStatus string
 
 const (
@@ -5330,7 +5300,6 @@ func (in *setMultiVmSyncStatusPtr) ToSetMultiVmSyncStatusPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SetMultiVmSyncStatusPtrOutput)
 }
 
-// The Sku name.
 type SkuName string
 
 const (
@@ -5708,7 +5677,6 @@ func (o WeekOfMonthArrayOutput) Index(i pulumi.IntInput) WeekOfMonthOutput {
 	}).(WeekOfMonthOutput)
 }
 
-// Workload item type of the item for which intent is to be set
 type WorkloadItemType string
 
 const (
@@ -5878,7 +5846,6 @@ func (in *workloadItemTypePtr) ToWorkloadItemTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(WorkloadItemTypePtrOutput)
 }
 
-// Type of workload for the backup management
 type WorkloadType string
 
 const (

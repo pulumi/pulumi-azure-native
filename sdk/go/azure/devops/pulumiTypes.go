@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization info used to access a resource (like code repository).
 type Authorization struct {
 	// Type of authorization.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -29,7 +28,6 @@ type AuthorizationInput interface {
 	ToAuthorizationOutputWithContext(context.Context) AuthorizationOutput
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationArgs struct {
 	// Type of authorization.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
@@ -90,7 +88,6 @@ func (i *authorizationPtrType) ToAuthorizationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationPtrOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o AuthorizationPtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponse struct {
 	// Type of authorization.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -188,7 +184,6 @@ type AuthorizationResponseInput interface {
 	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponseArgs struct {
 	// Type of authorization.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
@@ -249,7 +244,6 @@ func (i *authorizationResponsePtrType) ToAuthorizationResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponsePtrOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o AuthorizationResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfiguration struct {
 	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
 	SourceRepository *CodeRepository `pulumi:"sourceRepository"`
@@ -347,7 +340,6 @@ type BootstrapConfigurationInput interface {
 	ToBootstrapConfigurationOutputWithContext(context.Context) BootstrapConfigurationOutput
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationArgs struct {
 	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
 	SourceRepository CodeRepositoryPtrInput `pulumi:"sourceRepository"`
@@ -408,7 +400,6 @@ func (i *bootstrapConfigurationPtrType) ToBootstrapConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BootstrapConfigurationPtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BootstrapConfigurationOutput) ElementType() reflect.Type {
@@ -487,7 +478,6 @@ func (o BootstrapConfigurationPtrOutput) Template() PipelineTemplatePtrOutput {
 	}).(PipelineTemplatePtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponse struct {
 	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
 	SourceRepository *CodeRepositoryResponse `pulumi:"sourceRepository"`
@@ -506,7 +496,6 @@ type BootstrapConfigurationResponseInput interface {
 	ToBootstrapConfigurationResponseOutputWithContext(context.Context) BootstrapConfigurationResponseOutput
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponseArgs struct {
 	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
 	SourceRepository CodeRepositoryResponsePtrInput `pulumi:"sourceRepository"`
@@ -567,7 +556,6 @@ func (i *bootstrapConfigurationResponsePtrType) ToBootstrapConfigurationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BootstrapConfigurationResponsePtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (BootstrapConfigurationResponseOutput) ElementType() reflect.Type {
@@ -646,7 +634,6 @@ func (o BootstrapConfigurationResponsePtrOutput) Template() PipelineTemplateResp
 	}).(PipelineTemplateResponsePtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepository struct {
 	// Authorization info to access the code repository.
 	Authorization *Authorization `pulumi:"authorization"`
@@ -671,7 +658,6 @@ type CodeRepositoryInput interface {
 	ToCodeRepositoryOutputWithContext(context.Context) CodeRepositoryOutput
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryArgs struct {
 	// Authorization info to access the code repository.
 	Authorization AuthorizationPtrInput `pulumi:"authorization"`
@@ -738,7 +724,6 @@ func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
@@ -862,7 +847,6 @@ func (o CodeRepositoryPtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponse struct {
 	// Authorization info to access the code repository.
 	Authorization *AuthorizationResponse `pulumi:"authorization"`
@@ -887,7 +871,6 @@ type CodeRepositoryResponseInput interface {
 	ToCodeRepositoryResponseOutputWithContext(context.Context) CodeRepositoryResponseOutput
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponseArgs struct {
 	// Authorization info to access the code repository.
 	Authorization AuthorizationResponsePtrInput `pulumi:"authorization"`
@@ -954,7 +937,6 @@ func (i *codeRepositoryResponsePtrType) ToCodeRepositoryResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryResponsePtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponseOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryResponseOutput) ElementType() reflect.Type {
@@ -1078,7 +1060,6 @@ func (o CodeRepositoryResponsePtrOutput) RepositoryType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplate struct {
 	// Unique identifier of the pipeline template.
 	Id string `pulumi:"id"`
@@ -1097,7 +1078,6 @@ type PipelineTemplateInput interface {
 	ToPipelineTemplateOutputWithContext(context.Context) PipelineTemplateOutput
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateArgs struct {
 	// Unique identifier of the pipeline template.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1158,7 +1138,6 @@ func (i *pipelineTemplatePtrType) ToPipelineTemplatePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTemplatePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateOutput struct{ *pulumi.OutputState }
 
 func (PipelineTemplateOutput) ElementType() reflect.Type {
@@ -1237,7 +1216,6 @@ func (o PipelineTemplatePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponse struct {
 	// Unique identifier of the pipeline template.
 	Id string `pulumi:"id"`
@@ -1256,7 +1234,6 @@ type PipelineTemplateResponseInput interface {
 	ToPipelineTemplateResponseOutputWithContext(context.Context) PipelineTemplateResponseOutput
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponseArgs struct {
 	// Unique identifier of the pipeline template.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1317,7 +1294,6 @@ func (i *pipelineTemplateResponsePtrType) ToPipelineTemplateResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTemplateResponsePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponseOutput struct{ *pulumi.OutputState }
 
 func (PipelineTemplateResponseOutput) ElementType() reflect.Type {
@@ -1396,7 +1372,6 @@ func (o PipelineTemplateResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1423,7 +1398,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1492,7 +1466,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

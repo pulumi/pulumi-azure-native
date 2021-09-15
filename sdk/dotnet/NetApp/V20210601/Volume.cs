@@ -142,6 +142,18 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Basic network, or Standard features available to the volume.
+        /// </summary>
+        [Output("networkFeatures")]
+        public Output<string?> NetworkFeatures { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Sibling Set ID for the the group of volumes sharing networking resources.
+        /// </summary>
+        [Output("networkSiblingSetId")]
+        public Output<string> NetworkSiblingSetId { get; private set; } = null!;
+
+        /// <summary>
         /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         [Output("protocolTypes")]
@@ -190,6 +202,12 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Output<string?> SnapshotId { get; private set; } = null!;
 
         /// <summary>
+        /// Provides storage to network proximity information for the volume.
+        /// </summary>
+        [Output("storageToNetworkProximity")]
+        public Output<string> StorageToNetworkProximity { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         /// </summary>
         [Output("subnetId")]
@@ -223,7 +241,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Output<double> UsageThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         [Output("volumeType")]
         public Output<string?> VolumeType { get; private set; } = null!;
@@ -414,6 +432,12 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Basic network, or Standard features available to the volume.
+        /// </summary>
+        [Input("networkFeatures")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210601.NetworkFeatures>? NetworkFeatures { get; set; }
+
+        /// <summary>
         /// The name of the capacity pool
         /// </summary>
         [Input("poolName", required: true)]
@@ -513,7 +537,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Input<string>? VolumeName { get; set; }
 
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -527,6 +551,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601
             IsDefaultQuotaEnabled = false;
             KerberosEnabled = false;
             LdapEnabled = false;
+            NetworkFeatures = "Basic";
             SecurityStyle = "unix";
             SmbContinuouslyAvailable = false;
             SmbEncryption = false;

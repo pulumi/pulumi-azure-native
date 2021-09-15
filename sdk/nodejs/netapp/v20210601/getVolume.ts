@@ -136,6 +136,14 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
+     * Basic network, or Standard features available to the volume.
+     */
+    readonly networkFeatures?: string;
+    /**
+     * Network Sibling Set ID for the the group of volumes sharing networking resources.
+     */
+    readonly networkSiblingSetId: string;
+    /**
      * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: string[];
@@ -168,6 +176,10 @@ export interface GetVolumeResult {
      */
     readonly snapshotId?: string;
     /**
+     * Provides storage to network proximity information for the volume.
+     */
+    readonly storageToNetworkProximity: string;
+    /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */
     readonly subnetId: string;
@@ -189,7 +201,7 @@ export interface GetVolumeResult {
      */
     readonly usageThreshold: number;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     readonly volumeType?: string;
 }

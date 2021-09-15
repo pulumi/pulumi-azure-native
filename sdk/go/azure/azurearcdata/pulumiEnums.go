@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of the extended location.
 type ExtendedLocationTypes string
 
 const (
@@ -174,7 +173,6 @@ func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 type PostgresInstanceSkuTier string
 
 const (
@@ -338,7 +336,6 @@ func (in *postgresInstanceSkuTierPtr) ToPostgresInstanceSkuTierPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PostgresInstanceSkuTierPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 type SqlManagedInstanceSkuTier string
 
 const (

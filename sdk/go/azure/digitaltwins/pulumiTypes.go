@@ -499,7 +499,6 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentity struct {
 	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 	Type *string `pulumi:"type"`
@@ -516,7 +515,6 @@ type DigitalTwinsIdentityInput interface {
 	ToDigitalTwinsIdentityOutputWithContext(context.Context) DigitalTwinsIdentityOutput
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityArgs struct {
 	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -575,7 +573,6 @@ func (i *digitalTwinsIdentityPtrType) ToDigitalTwinsIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinsIdentityPtrOutput)
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinsIdentityOutput) ElementType() reflect.Type {
@@ -639,7 +636,6 @@ func (o DigitalTwinsIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityResponse struct {
 	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	PrincipalId string `pulumi:"principalId"`
@@ -660,7 +656,6 @@ type DigitalTwinsIdentityResponseInput interface {
 	ToDigitalTwinsIdentityResponseOutputWithContext(context.Context) DigitalTwinsIdentityResponseOutput
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityResponseArgs struct {
 	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -723,7 +718,6 @@ func (i *digitalTwinsIdentityResponsePtrType) ToDigitalTwinsIdentityResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinsIdentityResponsePtrOutput)
 }
 
-// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinsIdentityResponseOutput) ElementType() reflect.Type {
@@ -817,7 +811,6 @@ func (o DigitalTwinsIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties related to EventGrid.
 type EventGrid struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read.
 	AccessKey1 string `pulumi:"accessKey1"`
@@ -847,7 +840,6 @@ type EventGridInput interface {
 	ToEventGridOutputWithContext(context.Context) EventGridOutput
 }
 
-// Properties related to EventGrid.
 type EventGridArgs struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read.
 	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
@@ -878,7 +870,6 @@ func (i EventGridArgs) ToEventGridOutputWithContext(ctx context.Context) EventGr
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridOutput struct{ *pulumi.OutputState }
 
 func (EventGridOutput) ElementType() reflect.Type {
@@ -929,7 +920,6 @@ func (o EventGridOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridResponse struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read.
 	AccessKey1 string `pulumi:"accessKey1"`
@@ -963,7 +953,6 @@ type EventGridResponseInput interface {
 	ToEventGridResponseOutputWithContext(context.Context) EventGridResponseOutput
 }
 
-// Properties related to EventGrid.
 type EventGridResponseArgs struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read.
 	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
@@ -998,7 +987,6 @@ func (i EventGridResponseArgs) ToEventGridResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridResponseOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridResponseOutput struct{ *pulumi.OutputState }
 
 func (EventGridResponseOutput) ElementType() reflect.Type {
@@ -1059,7 +1047,6 @@ func (o EventGridResponseOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
-// Properties related to EventHub.
 type EventHub struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -1091,7 +1078,6 @@ type EventHubInput interface {
 	ToEventHubOutputWithContext(context.Context) EventHubOutput
 }
 
-// Properties related to EventHub.
 type EventHubArgs struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
@@ -1124,7 +1110,6 @@ func (i EventHubArgs) ToEventHubOutputWithContext(ctx context.Context) EventHubO
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
 }
 
-// Properties related to EventHub.
 type EventHubOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutput) ElementType() reflect.Type {
@@ -1180,7 +1165,6 @@ func (o EventHubOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Properties related to EventHub.
 type EventHubResponse struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -1216,7 +1200,6 @@ type EventHubResponseInput interface {
 	ToEventHubResponseOutputWithContext(context.Context) EventHubResponseOutput
 }
 
-// Properties related to EventHub.
 type EventHubResponseArgs struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
@@ -1253,7 +1236,6 @@ func (i EventHubResponseArgs) ToEventHubResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubResponseOutput)
 }
 
-// Properties related to EventHub.
 type EventHubResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubResponseOutput) ElementType() reflect.Type {
@@ -1319,7 +1301,6 @@ func (o EventHubResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionType struct {
 	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
@@ -1335,7 +1316,6 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionTypeArgs struct {
 	Properties PrivateEndpointConnectionPropertiesInput `pulumi:"properties"`
 }
@@ -1377,7 +1357,6 @@ func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -1570,7 +1549,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1592,7 +1570,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1640,7 +1617,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The private endpoint connection of a Digital Twin.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1886,7 +1862,6 @@ func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) ProvisioningState(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBus struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -1918,7 +1893,6 @@ type ServiceBusInput interface {
 	ToServiceBusOutputWithContext(context.Context) ServiceBusOutput
 }
 
-// Properties related to ServiceBus.
 type ServiceBusArgs struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
@@ -1951,7 +1925,6 @@ func (i ServiceBusArgs) ToServiceBusOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusOutput) ElementType() reflect.Type {
@@ -2007,7 +1980,6 @@ func (o ServiceBusOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponse struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -2043,7 +2015,6 @@ type ServiceBusResponseInput interface {
 	ToServiceBusResponseOutputWithContext(context.Context) ServiceBusResponseOutput
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponseArgs struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
@@ -2080,7 +2051,6 @@ func (i ServiceBusResponseArgs) ToServiceBusResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusResponseOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusResponseOutput) ElementType() reflect.Type {

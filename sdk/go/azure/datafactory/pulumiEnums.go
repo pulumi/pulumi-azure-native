@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Rest API method for target endpoint.
 type AzureFunctionActivityMethod string
 
 const (
@@ -180,7 +179,6 @@ func (in *azureFunctionActivityMethodPtr) ToAzureFunctionActivityMethodPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFunctionActivityMethodPtrOutput)
 }
 
-// Specify the write behavior when upserting documents into Azure Search Index.
 type AzureSearchIndexWriteBehaviorType string
 
 const (
@@ -509,7 +507,6 @@ func (in *blobEventTypesPtr) ToBlobEventTypesPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(BlobEventTypesPtrOutput)
 }
 
-// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
 type CassandraSourceReadConsistencyLevels string
 
 const (
@@ -682,7 +679,6 @@ func (in *cassandraSourceReadConsistencyLevelsPtr) ToCassandraSourceReadConsiste
 	return pulumi.ToOutputWithContext(ctx, in).(CassandraSourceReadConsistencyLevelsPtrOutput)
 }
 
-// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
 type CosmosDbConnectionMode string
 
 const (
@@ -847,7 +843,6 @@ func (in *cosmosDbConnectionModePtr) ToCosmosDbConnectionModePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CosmosDbConnectionModePtrOutput)
 }
 
-// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
 type CosmosDbServicePrincipalCredentialType string
 
 const (
@@ -1012,7 +1007,6 @@ func (in *cosmosDbServicePrincipalCredentialTypePtr) ToCosmosDbServicePrincipalC
 	return pulumi.ToOutputWithContext(ctx, in).(CosmosDbServicePrincipalCredentialTypePtrOutput)
 }
 
-// Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType string
 
 const (
@@ -1178,7 +1172,6 @@ func (in *dataFlowComputeTypePtr) ToDataFlowComputeTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DataFlowComputeTypePtrOutput)
 }
 
-// The day of the week.
 type DayOfWeek string
 
 const (
@@ -1562,7 +1555,6 @@ func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) DaysOfWeekOutput {
 	}).(DaysOfWeekOutput)
 }
 
-// AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
 type Db2AuthenticationType string
 
 const (
@@ -1892,7 +1884,6 @@ func (in *dependencyConditionPtr) ToDependencyConditionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DependencyConditionPtrOutput)
 }
 
-// The write behavior for the operation.
 type DynamicsSinkWriteBehavior string
 
 const (
@@ -2056,7 +2047,6 @@ func (in *dynamicsSinkWriteBehaviorPtr) ToDynamicsSinkWriteBehaviorPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DynamicsSinkWriteBehaviorPtrOutput)
 }
 
-// The identity type.
 type FactoryIdentityType string
 
 const (
@@ -2222,7 +2212,6 @@ func (in *factoryIdentityTypePtr) ToFactoryIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(FactoryIdentityTypePtrOutput)
 }
 
-// The authentication type to be used to connect to the FTP server.
 type FtpAuthenticationType string
 
 const (
@@ -2387,7 +2376,6 @@ func (in *ftpAuthenticationTypePtr) ToFtpAuthenticationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FtpAuthenticationTypePtrOutput)
 }
 
-// Global Parameter type.
 type GlobalParameterType string
 
 const (
@@ -2556,7 +2544,6 @@ func (in *globalParameterTypePtr) ToGlobalParameterTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalParameterTypePtrOutput)
 }
 
-// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
 type GoogleAdWordsAuthenticationType string
 
 const (
@@ -2721,7 +2708,6 @@ func (in *googleAdWordsAuthenticationTypePtr) ToGoogleAdWordsAuthenticationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleAdWordsAuthenticationTypePtrOutput)
 }
 
-// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
 type GoogleBigQueryAuthenticationType string
 
 const (
@@ -2886,7 +2872,6 @@ func (in *googleBigQueryAuthenticationTypePtr) ToGoogleBigQueryAuthenticationTyp
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleBigQueryAuthenticationTypePtrOutput)
 }
 
-// The authentication mechanism to use to connect to the HBase server.
 type HBaseAuthenticationType string
 
 const (
@@ -3051,7 +3036,6 @@ func (in *hbaseAuthenticationTypePtr) ToHBaseAuthenticationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(HBaseAuthenticationTypePtrOutput)
 }
 
-// Debug info option.
 type HDInsightActivityDebugInfoOption string
 
 const (
@@ -3217,7 +3201,6 @@ func (in *hdinsightActivityDebugInfoOptionPtr) ToHDInsightActivityDebugInfoOptio
 	return pulumi.ToOutputWithContext(ctx, in).(HDInsightActivityDebugInfoOptionPtrOutput)
 }
 
-// The authentication method used to access the Hive server.
 type HiveAuthenticationType string
 
 const (
@@ -3384,7 +3367,6 @@ func (in *hiveAuthenticationTypePtr) ToHiveAuthenticationTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(HiveAuthenticationTypePtrOutput)
 }
 
-// The type of Hive server.
 type HiveServerType string
 
 const (
@@ -3550,7 +3532,6 @@ func (in *hiveServerTypePtr) ToHiveServerTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(HiveServerTypePtrOutput)
 }
 
-// The transport protocol to use in the Thrift layer.
 type HiveThriftTransportProtocol string
 
 const (
@@ -3716,7 +3697,6 @@ func (in *hiveThriftTransportProtocolPtr) ToHiveThriftTransportProtocolPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(HiveThriftTransportProtocolPtrOutput)
 }
 
-// The authentication type to be used to connect to the HTTP server.
 type HttpAuthenticationType string
 
 const (
@@ -3884,7 +3864,6 @@ func (in *httpAuthenticationTypePtr) ToHttpAuthenticationTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(HttpAuthenticationTypePtrOutput)
 }
 
-// The authentication type to use.
 type ImpalaAuthenticationType string
 
 const (
@@ -4050,7 +4029,6 @@ func (in *impalaAuthenticationTypePtr) ToImpalaAuthenticationTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ImpalaAuthenticationTypePtrOutput)
 }
 
-// The edition for the SSIS Integration Runtime
 type IntegrationRuntimeEdition string
 
 const (
@@ -4215,7 +4193,6 @@ func (in *integrationRuntimeEditionPtr) ToIntegrationRuntimeEditionPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEditionPtrOutput)
 }
 
-// The type of this referenced entity.
 type IntegrationRuntimeEntityReferenceType string
 
 const (
@@ -4380,7 +4357,6 @@ func (in *integrationRuntimeEntityReferenceTypePtr) ToIntegrationRuntimeEntityRe
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEntityReferenceTypePtrOutput)
 }
 
-// License type for bringing your own license scenario.
 type IntegrationRuntimeLicenseType string
 
 const (
@@ -4545,7 +4521,6 @@ func (in *integrationRuntimeLicenseTypePtr) ToIntegrationRuntimeLicenseTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeLicenseTypePtrOutput)
 }
 
-// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
 type IntegrationRuntimeSsisCatalogPricingTier string
 
 const (
@@ -4712,7 +4687,6 @@ func (in *integrationRuntimeSsisCatalogPricingTierPtr) ToIntegrationRuntimeSsisC
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeSsisCatalogPricingTierPtrOutput)
 }
 
-// Type of integration runtime.
 type IntegrationRuntimeType string
 
 const (
@@ -4877,7 +4851,6 @@ func (in *integrationRuntimeTypePtr) ToIntegrationRuntimeTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeTypePtrOutput)
 }
 
-// The authentication type to be used to connect to the MongoDB database.
 type MongoDbAuthenticationType string
 
 const (
@@ -5042,7 +5015,6 @@ func (in *mongoDbAuthenticationTypePtr) ToMongoDbAuthenticationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(MongoDbAuthenticationTypePtrOutput)
 }
 
-// Specify the credential type (key or cert) is used for service principal.
 type ODataAadServicePrincipalCredentialType string
 
 const (
@@ -5207,7 +5179,6 @@ func (in *odataAadServicePrincipalCredentialTypePtr) ToODataAadServicePrincipalC
 	return pulumi.ToOutputWithContext(ctx, in).(ODataAadServicePrincipalCredentialTypePtrOutput)
 }
 
-// Type of authentication used to connect to the OData service.
 type ODataAuthenticationType string
 
 const (
@@ -5375,7 +5346,6 @@ func (in *odataAuthenticationTypePtr) ToODataAuthenticationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ODataAuthenticationTypePtrOutput)
 }
 
-// Parameter type.
 type ParameterType string
 
 const (
@@ -5545,7 +5515,6 @@ func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
 }
 
-// The authentication mechanism used to connect to the Phoenix server.
 type PhoenixAuthenticationType string
 
 const (
@@ -5711,7 +5680,6 @@ func (in *phoenixAuthenticationTypePtr) ToPhoenixAuthenticationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(PhoenixAuthenticationTypePtrOutput)
 }
 
-// Reject type.
 type PolybaseSettingsRejectType string
 
 const (
@@ -5876,7 +5844,6 @@ func (in *polybaseSettingsRejectTypePtr) ToPolybaseSettingsRejectTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(PolybaseSettingsRejectTypePtrOutput)
 }
 
-// The authentication mechanism used to connect to the Presto server.
 type PrestoAuthenticationType string
 
 const (
@@ -6041,7 +6008,6 @@ func (in *prestoAuthenticationTypePtr) ToPrestoAuthenticationTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(PrestoAuthenticationTypePtrOutput)
 }
 
-// Whether or not public network access is allowed for the data factory.
 type PublicNetworkAccess string
 
 const (
@@ -6206,7 +6172,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// The frequency.
 type RecurrenceFrequency string
 
 const (
@@ -6376,7 +6341,6 @@ func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceFrequencyPtrOutput)
 }
 
-// Type of authentication used to connect to the REST service.
 type RestServiceAuthenticationType string
 
 const (
@@ -6543,7 +6507,6 @@ func (in *restServiceAuthenticationTypePtr) ToRestServiceAuthenticationTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(RestServiceAuthenticationTypePtrOutput)
 }
 
-// The write behavior for the operation. Default is Insert.
 type SalesforceSinkWriteBehavior string
 
 const (
@@ -6708,7 +6671,6 @@ func (in *salesforceSinkWriteBehaviorPtr) ToSalesforceSinkWriteBehaviorPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(SalesforceSinkWriteBehaviorPtrOutput)
 }
 
-// The read behavior for the operation. Default is Query.
 type SalesforceSourceReadBehavior string
 
 const (
@@ -6873,7 +6835,6 @@ func (in *salesforceSourceReadBehaviorPtr) ToSalesforceSourceReadBehaviorPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(SalesforceSourceReadBehaviorPtrOutput)
 }
 
-// The write behavior for the operation. Default is 'Insert'.
 type SapCloudForCustomerSinkWriteBehavior string
 
 const (
@@ -7038,7 +6999,6 @@ func (in *sapCloudForCustomerSinkWriteBehaviorPtr) ToSapCloudForCustomerSinkWrit
 	return pulumi.ToOutputWithContext(ctx, in).(SapCloudForCustomerSinkWriteBehaviorPtrOutput)
 }
 
-// The authentication type to be used to connect to the SAP HANA server.
 type SapHanaAuthenticationType string
 
 const (
@@ -7203,7 +7163,6 @@ func (in *sapHanaAuthenticationTypePtr) ToSapHanaAuthenticationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(SapHanaAuthenticationTypePtrOutput)
 }
 
-// The authentication type to use.
 type ServiceNowAuthenticationType string
 
 const (
@@ -7368,7 +7327,6 @@ func (in *serviceNowAuthenticationTypePtr) ToServiceNowAuthenticationTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceNowAuthenticationTypePtrOutput)
 }
 
-// The authentication type to be used to connect to the FTP server.
 type SftpAuthenticationType string
 
 const (
@@ -7534,7 +7492,6 @@ func (in *sftpAuthenticationTypePtr) ToSftpAuthenticationTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(SftpAuthenticationTypePtrOutput)
 }
 
-// The authentication method used to access the Spark server.
 type SparkAuthenticationType string
 
 const (
@@ -7701,7 +7658,6 @@ func (in *sparkAuthenticationTypePtr) ToSparkAuthenticationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(SparkAuthenticationTypePtrOutput)
 }
 
-// The type of Spark server.
 type SparkServerType string
 
 const (
@@ -7867,7 +7823,6 @@ func (in *sparkServerTypePtr) ToSparkServerTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(SparkServerTypePtrOutput)
 }
 
-// The transport protocol to use in the Thrift layer.
 type SparkThriftTransportProtocol string
 
 const (
@@ -8033,7 +7988,6 @@ func (in *sparkThriftTransportProtocolPtr) ToSparkThriftTransportProtocolPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(SparkThriftTransportProtocolPtrOutput)
 }
 
-// Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
 type SqlAlwaysEncryptedAkvAuthType string
 
 const (
@@ -8199,7 +8153,6 @@ func (in *sqlAlwaysEncryptedAkvAuthTypePtr) ToSqlAlwaysEncryptedAkvAuthTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(SqlAlwaysEncryptedAkvAuthTypePtrOutput)
 }
 
-// The type of SSIS log location.
 type SsisLogLocationType string
 
 const (
@@ -8363,7 +8316,6 @@ func (in *ssisLogLocationTypePtr) ToSsisLogLocationTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(SsisLogLocationTypePtrOutput)
 }
 
-// The type of SSIS package location.
 type SsisPackageLocationType string
 
 const (
@@ -8530,7 +8482,6 @@ func (in *ssisPackageLocationTypePtr) ToSsisPackageLocationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(SsisPackageLocationTypePtrOutput)
 }
 
-// Stored procedure parameter type.
 type StoredProcedureParameterType string
 
 const (
@@ -8700,7 +8651,6 @@ func (in *storedProcedureParameterTypePtr) ToStoredProcedureParameterTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(StoredProcedureParameterTypePtrOutput)
 }
 
-// AuthenticationType to be used for connection.
 type SybaseAuthenticationType string
 
 const (
@@ -8865,7 +8815,6 @@ func (in *sybaseAuthenticationTypePtr) ToSybaseAuthenticationTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(SybaseAuthenticationTypePtrOutput)
 }
 
-// AuthenticationType to be used for connection.
 type TeradataAuthenticationType string
 
 const (
@@ -9030,7 +8979,6 @@ func (in *teradataAuthenticationTypePtr) ToTeradataAuthenticationTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(TeradataAuthenticationTypePtrOutput)
 }
 
-// The frequency of the time windows.
 type TumblingWindowFrequency string
 
 const (
@@ -9196,7 +9144,6 @@ func (in *tumblingWindowFrequencyPtr) ToTumblingWindowFrequencyPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(TumblingWindowFrequencyPtrOutput)
 }
 
-// Variable type.
 type VariableType string
 
 const (
@@ -9362,7 +9309,6 @@ func (in *variableTypePtr) ToVariableTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(VariableTypePtrOutput)
 }
 
-// Rest API method for target endpoint.
 type WebActivityMethod string
 
 const (
@@ -9529,7 +9475,6 @@ func (in *webActivityMethodPtr) ToWebActivityMethodPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(WebActivityMethodPtrOutput)
 }
 
-// Type of authentication used to connect to the web table source.
 type WebAuthenticationType string
 
 const (
@@ -9695,7 +9640,6 @@ func (in *webAuthenticationTypePtr) ToWebAuthenticationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(WebAuthenticationTypePtrOutput)
 }
 
-// Rest API method for target endpoint.
 type WebHookActivityMethod string
 
 const (

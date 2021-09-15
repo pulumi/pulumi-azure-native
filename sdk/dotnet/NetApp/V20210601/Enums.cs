@@ -144,6 +144,43 @@ namespace Pulumi.AzureNative.NetApp.V20210601
     }
 
     /// <summary>
+    /// Basic network, or Standard features available to the volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkFeatures : IEquatable<NetworkFeatures>
+    {
+        private readonly string _value;
+
+        private NetworkFeatures(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Basic network feature.
+        /// </summary>
+        public static NetworkFeatures Basic { get; } = new NetworkFeatures("Basic");
+        /// <summary>
+        /// Standard network feature.
+        /// </summary>
+        public static NetworkFeatures Standard { get; } = new NetworkFeatures("Standard");
+
+        public static bool operator ==(NetworkFeatures left, NetworkFeatures right) => left.Equals(right);
+        public static bool operator !=(NetworkFeatures left, NetworkFeatures right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkFeatures value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkFeatures other && Equals(other);
+        public bool Equals(NetworkFeatures other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The qos type of the pool
     /// </summary>
     [EnumType]

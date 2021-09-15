@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 type AuthenticationMethod string
 
 const (
@@ -175,7 +174,6 @@ func (in *authenticationMethodPtr) ToAuthenticationMethodPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationMethodPtrOutput)
 }
 
-// Describes the mode of backups.
 type BackupPolicyType string
 
 const (
@@ -340,7 +338,6 @@ func (in *backupPolicyTypePtr) ToBackupPolicyTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(BackupPolicyTypePtrOutput)
 }
 
-// Sort order for composite paths.
 type CompositePathSortOrder string
 
 const (
@@ -505,7 +502,6 @@ func (in *compositePathSortOrderPtr) ToCompositePathSortOrderPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CompositePathSortOrderPtrOutput)
 }
 
-// Indicates the conflict resolution mode.
 type ConflictResolutionMode string
 
 const (
@@ -670,7 +666,6 @@ func (in *conflictResolutionModePtr) ToConflictResolutionModePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ConflictResolutionModePtrOutput)
 }
 
-// The cassandra connector offer type for the Cosmos DB database C* account.
 type ConnectorOffer string
 
 const (
@@ -834,7 +829,6 @@ func (in *connectorOfferPtr) ToConnectorOfferPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorOfferPtrOutput)
 }
 
-// The datatype for which the indexing behavior is applied to.
 type DataType string
 
 const (
@@ -1003,7 +997,6 @@ func (in *dataTypePtr) ToDataTypePtrOutputWithContext(ctx context.Context) DataT
 	return pulumi.ToOutputWithContext(ctx, in).(DataTypePtrOutput)
 }
 
-// Indicates the type of database account. This can only be set at database account creation.
 type DatabaseAccountKind string
 
 const (
@@ -1169,7 +1162,6 @@ func (in *databaseAccountKindPtr) ToDatabaseAccountKindPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseAccountKindPtrOutput)
 }
 
-// The offer type for the database
 type DatabaseAccountOfferType string
 
 const (
@@ -1333,7 +1325,6 @@ func (in *databaseAccountOfferTypePtr) ToDatabaseAccountOfferTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseAccountOfferTypePtrOutput)
 }
 
-// The default consistency level and configuration settings of the Cosmos DB account.
 type DefaultConsistencyLevel string
 
 const (
@@ -1501,7 +1492,6 @@ func (in *defaultConsistencyLevelPtr) ToDefaultConsistencyLevelPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultConsistencyLevelPtrOutput)
 }
 
-// Indicates the type of index.
 type IndexKind string
 
 const (
@@ -1667,7 +1657,6 @@ func (in *indexKindPtr) ToIndexKindPtrOutputWithContext(ctx context.Context) Ind
 	return pulumi.ToOutputWithContext(ctx, in).(IndexKindPtrOutput)
 }
 
-// Indicates the indexing mode.
 type IndexingMode string
 
 const (
@@ -1833,7 +1822,6 @@ func (in *indexingModePtr) ToIndexingModePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IndexingModePtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 type ManagedCassandraProvisioningState string
 
 const (
@@ -2002,7 +1990,6 @@ func (in *managedCassandraProvisioningStatePtr) ToManagedCassandraProvisioningSt
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedCassandraProvisioningStatePtrOutput)
 }
 
-// Indicates what services are allowed to bypass firewall checks.
 type NetworkAclBypass string
 
 const (
@@ -2167,7 +2154,6 @@ func (in *networkAclBypassPtr) ToNetworkAclBypassPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkAclBypassPtrOutput)
 }
 
-// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 type PartitionKind string
 
 const (
@@ -2333,7 +2319,6 @@ func (in *partitionKindPtr) ToPartitionKindPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PartitionKindPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 type PublicNetworkAccess string
 
 const (
@@ -2498,7 +2483,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 type ResourceIdentityType string
 
 const (
@@ -2665,7 +2649,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Indicates whether the Role Definition was built-in or user created.
 type RoleDefinitionType string
 
 const (
@@ -2830,7 +2813,6 @@ func (in *roleDefinitionTypePtr) ToRoleDefinitionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(RoleDefinitionTypePtrOutput)
 }
 
-// Describes the ServerVersion of an a MongoDB account.
 type ServerVersion string
 
 const (
@@ -2996,7 +2978,6 @@ func (in *serverVersionPtr) ToServerVersionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServerVersionPtrOutput)
 }
 
-// Instance type for the service.
 type ServiceSize string
 
 const (
@@ -3162,7 +3143,6 @@ func (in *serviceSizePtr) ToServiceSizePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSizePtrOutput)
 }
 
-// ServiceType for the service.
 type ServiceType string
 
 const (
@@ -3327,7 +3307,6 @@ func (in *serviceTypePtr) ToServiceTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceTypePtrOutput)
 }
 
-// Indicates the spatial type of index.
 type SpatialType string
 
 const (
@@ -3494,7 +3473,6 @@ func (in *spatialTypePtr) ToSpatialTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SpatialTypePtrOutput)
 }
 
-// The operation the trigger is associated with
 type TriggerOperation string
 
 const (
@@ -3662,7 +3640,6 @@ func (in *triggerOperationPtr) ToTriggerOperationPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(TriggerOperationPtrOutput)
 }
 
-// Type of the Trigger
 type TriggerType string
 
 const (

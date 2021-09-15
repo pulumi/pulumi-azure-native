@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A value indicating configuration profile.
 type ConfigurationProfile string
 
 const (
@@ -175,7 +174,6 @@ func (in *configurationProfilePtr) ToConfigurationProfilePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationProfilePtrOutput)
 }
 
-// Enables or disables Real Time Protection
 type EnableRealTimeProtection string
 
 const (
@@ -340,7 +338,6 @@ func (in *enableRealTimeProtectionPtr) ToEnableRealTimeProtectionPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(EnableRealTimeProtectionPtrOutput)
 }
 
-// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 type ResourceIdentityType string
 
 const (
@@ -505,7 +502,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Enables or disables a periodic scan for antimalware
 type RunScheduledScan string
 
 const (
@@ -670,7 +666,6 @@ func (in *runScheduledScanPtr) ToRunScheduledScanPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(RunScheduledScanPtrOutput)
 }
 
-// Type of scheduled scan
 type ScanType string
 
 const (

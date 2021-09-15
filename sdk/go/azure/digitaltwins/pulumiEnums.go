@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the authentication type being used for connecting to the endpoint.
 type AuthenticationType string
 
 const (
@@ -175,7 +174,6 @@ func (in *authenticationTypePtr) ToAuthenticationTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationTypePtrOutput)
 }
 
-// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 type DigitalTwinsIdentityType string
 
 const (
@@ -340,7 +338,6 @@ func (in *digitalTwinsIdentityTypePtr) ToDigitalTwinsIdentityTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(DigitalTwinsIdentityTypePtrOutput)
 }
 
-// The type of Digital Twins endpoint
 type EndpointType string
 
 const (
@@ -506,7 +503,6 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointTypePtrOutput)
 }
 
-// The status of a private endpoint connection.
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -673,7 +669,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// Public network access for the DigitalTwinsInstance.
 type PublicNetworkAccess string
 
 const (

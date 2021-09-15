@@ -89,24 +89,32 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
-	// Services response resource.
-	Properties interface{} `pulumi:"properties"`
+	// Instance count for the service.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize *string `pulumi:"instanceSize"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Cosmos DB service name.
 	ServiceName *string `pulumi:"serviceName"`
+	// ServiceType for the service.
+	ServiceType *string `pulumi:"serviceType"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
-	// Services response resource.
-	Properties pulumi.Input
+	// Instance count for the service.
+	InstanceCount pulumi.IntPtrInput
+	// Instance type for the service.
+	InstanceSize pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Cosmos DB service name.
 	ServiceName pulumi.StringPtrInput
+	// ServiceType for the service.
+	ServiceType pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

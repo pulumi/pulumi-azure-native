@@ -130,6 +130,8 @@ namespace Pulumi.AzureNative.DataShare
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:BlobFolderDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobFolderDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:BlobFolderDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobFolderDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:BlobFolderDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

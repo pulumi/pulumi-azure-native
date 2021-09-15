@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The SKU to be applied for this resource
 type Sku struct {
 	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
@@ -27,7 +26,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU to be applied for this resource
 type SkuArgs struct {
 	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -86,7 +84,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuResponse struct {
 	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
@@ -167,7 +163,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU to be applied for this resource
 type SkuResponseArgs struct {
 	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -226,7 +221,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 type ActionsRequired string
 
 const (
@@ -353,7 +352,6 @@ func (in *certificatePermissionsPtr) ToCertificatePermissionsPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CertificatePermissionsPtrOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
 type CreateMode string
 
 const (
@@ -518,7 +516,6 @@ func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
 }
 
-// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
 type JsonWebKeyCurveName string
 
 const (
@@ -685,7 +682,6 @@ func (in *jsonWebKeyCurveNamePtr) ToJsonWebKeyCurveNamePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(JsonWebKeyCurveNamePtrOutput)
 }
 
-// The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
 type JsonWebKeyOperation string
 
 const (
@@ -855,7 +851,6 @@ func (in *jsonWebKeyOperationPtr) ToJsonWebKeyOperationPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(JsonWebKeyOperationPtrOutput)
 }
 
-// The type of the key. For valid values, see JsonWebKeyType.
 type JsonWebKeyType string
 
 const (
@@ -1201,7 +1196,6 @@ func (in *keyPermissionsPtr) ToKeyPermissionsPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPermissionsPtrOutput)
 }
 
-// SKU Family of the managed HSM Pool
 type ManagedHsmSkuFamily string
 
 const (
@@ -1365,7 +1359,6 @@ func (in *managedHsmSkuFamilyPtr) ToManagedHsmSkuFamilyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedHsmSkuFamilyPtrOutput)
 }
 
-// SKU of the managed HSM Pool
 type ManagedHsmSkuName string
 
 const (
@@ -1530,7 +1523,6 @@ func (in *managedHsmSkuNamePtr) ToManagedHsmSkuNamePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedHsmSkuNamePtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 type NetworkRuleAction string
 
 const (
@@ -1695,7 +1687,6 @@ func (in *networkRuleActionPtr) ToNetworkRuleActionPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkRuleActionPtrOutput)
 }
 
-// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 type NetworkRuleBypassOptions string
 
 const (
@@ -1860,7 +1851,6 @@ func (in *networkRuleBypassOptionsPtr) ToNetworkRuleBypassOptionsPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkRuleBypassOptionsPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -2027,7 +2017,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 type PublicNetworkAccess string
 
 const (
@@ -2363,7 +2352,6 @@ func (in *secretPermissionsPtr) ToSecretPermissionsPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SecretPermissionsPtrOutput)
 }
 
-// SKU family name
 type SkuFamily string
 
 const (
@@ -2527,7 +2515,6 @@ func (in *skuFamilyPtr) ToSkuFamilyPtrOutputWithContext(ctx context.Context) Sku
 	return pulumi.ToOutputWithContext(ctx, in).(SkuFamilyPtrOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
 type SkuName string
 
 const (
@@ -2869,7 +2856,6 @@ func (in *storagePermissionsPtr) ToStoragePermissionsPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(StoragePermissionsPtrOutput)
 }
 
-// Provisioning state of the vault.
 type VaultProvisioningState string
 
 const (

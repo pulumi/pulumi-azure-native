@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 type ActionAfterReboot string
 
 const (
@@ -175,7 +174,6 @@ func (in *actionAfterRebootPtr) ToActionAfterRebootPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ActionAfterRebootPtrOutput)
 }
 
-// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 type AssignmentType string
 
 const (
@@ -342,7 +340,6 @@ func (in *assignmentTypePtr) ToAssignmentTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentTypePtrOutput)
 }
 
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 type ConfigurationMode string
 
 const (
@@ -508,7 +505,6 @@ func (in *configurationModePtr) ToConfigurationModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationModePtrOutput)
 }
 
-// Kind of the guest configuration. For example:DSC
 type Kind string
 
 const (

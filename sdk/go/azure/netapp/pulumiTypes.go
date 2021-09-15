@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Encryption settings
 type AccountEncryption struct {
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
 	KeySource *string `pulumi:"keySource"`
@@ -27,7 +26,6 @@ type AccountEncryptionInput interface {
 	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
 }
 
-// Encryption settings
 type AccountEncryptionArgs struct {
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
@@ -86,7 +84,6 @@ func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
 }
 
-// Encryption settings
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AccountEncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings
 type AccountEncryptionResponse struct {
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
 	KeySource *string `pulumi:"keySource"`
@@ -167,7 +163,6 @@ type AccountEncryptionResponseInput interface {
 	ToAccountEncryptionResponseOutputWithContext(context.Context) AccountEncryptionResponseOutput
 }
 
-// Encryption settings
 type AccountEncryptionResponseArgs struct {
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
@@ -226,7 +221,6 @@ func (i *accountEncryptionResponsePtrType) ToAccountEncryptionResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionResponsePtrOutput)
 }
 
-// Encryption settings
 type AccountEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o AccountEncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory
 type ActiveDirectory struct {
 	// Id of the Active Directory
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
@@ -339,7 +332,6 @@ type ActiveDirectoryInput interface {
 	ToActiveDirectoryOutputWithContext(context.Context) ActiveDirectoryOutput
 }
 
-// Active Directory
 type ActiveDirectoryArgs struct {
 	// Id of the Active Directory
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
@@ -414,7 +406,6 @@ func (i ActiveDirectoryArray) ToActiveDirectoryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryOutput) ElementType() reflect.Type {
@@ -534,7 +525,6 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 	}).(ActiveDirectoryOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponse struct {
 	// Id of the Active Directory
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
@@ -587,7 +577,6 @@ type ActiveDirectoryResponseInput interface {
 	ToActiveDirectoryResponseOutputWithContext(context.Context) ActiveDirectoryResponseOutput
 }
 
-// Active Directory
 type ActiveDirectoryResponseArgs struct {
 	// Id of the Active Directory
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
@@ -666,7 +655,6 @@ func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -796,7 +784,6 @@ func (o ActiveDirectoryResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirec
 	}).(ActiveDirectoryResponseOutput)
 }
 
-// Daily Schedule properties
 type DailySchedule struct {
 	// Indicates which hour in UTC timezone a snapshot should be taken
 	Hour *int `pulumi:"hour"`
@@ -819,7 +806,6 @@ type DailyScheduleInput interface {
 	ToDailyScheduleOutputWithContext(context.Context) DailyScheduleOutput
 }
 
-// Daily Schedule properties
 type DailyScheduleArgs struct {
 	// Indicates which hour in UTC timezone a snapshot should be taken
 	Hour pulumi.IntPtrInput `pulumi:"hour"`
@@ -884,7 +870,6 @@ func (i *dailySchedulePtrType) ToDailySchedulePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DailySchedulePtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (DailyScheduleOutput) ElementType() reflect.Type {
@@ -993,7 +978,6 @@ func (o DailySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleResponse struct {
 	// Indicates which hour in UTC timezone a snapshot should be taken
 	Hour *int `pulumi:"hour"`
@@ -1016,7 +1000,6 @@ type DailyScheduleResponseInput interface {
 	ToDailyScheduleResponseOutputWithContext(context.Context) DailyScheduleResponseOutput
 }
 
-// Daily Schedule properties
 type DailyScheduleResponseArgs struct {
 	// Indicates which hour in UTC timezone a snapshot should be taken
 	Hour pulumi.IntPtrInput `pulumi:"hour"`
@@ -1081,7 +1064,6 @@ func (i *dailyScheduleResponsePtrType) ToDailyScheduleResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleResponsePtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (DailyScheduleResponseOutput) ElementType() reflect.Type {
@@ -1190,7 +1172,6 @@ func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRule struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
@@ -1233,7 +1214,6 @@ type ExportPolicyRuleInput interface {
 	ToExportPolicyRuleOutputWithContext(context.Context) ExportPolicyRuleOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleArgs struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
@@ -1302,7 +1282,6 @@ func (i ExportPolicyRuleArray) ToExportPolicyRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -1407,7 +1386,6 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 	}).(ExportPolicyRuleOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponse struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
@@ -1450,7 +1428,6 @@ type ExportPolicyRuleResponseInput interface {
 	ToExportPolicyRuleResponseOutputWithContext(context.Context) ExportPolicyRuleResponseOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseArgs struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
@@ -1519,7 +1496,6 @@ func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleResponseOutput) ElementType() reflect.Type {
@@ -1624,7 +1600,6 @@ func (o ExportPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) ExportPoli
 	}).(ExportPolicyRuleResponseOutput)
 }
 
-// Hourly Schedule properties
 type HourlySchedule struct {
 	// Indicates which minute snapshot should be taken
 	Minute *int `pulumi:"minute"`
@@ -1645,7 +1620,6 @@ type HourlyScheduleInput interface {
 	ToHourlyScheduleOutputWithContext(context.Context) HourlyScheduleOutput
 }
 
-// Hourly Schedule properties
 type HourlyScheduleArgs struct {
 	// Indicates which minute snapshot should be taken
 	Minute pulumi.IntPtrInput `pulumi:"minute"`
@@ -1708,7 +1682,6 @@ func (i *hourlySchedulePtrType) ToHourlySchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(HourlySchedulePtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (HourlyScheduleOutput) ElementType() reflect.Type {
@@ -1802,7 +1775,6 @@ func (o HourlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponse struct {
 	// Indicates which minute snapshot should be taken
 	Minute *int `pulumi:"minute"`
@@ -1823,7 +1795,6 @@ type HourlyScheduleResponseInput interface {
 	ToHourlyScheduleResponseOutputWithContext(context.Context) HourlyScheduleResponseOutput
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponseArgs struct {
 	// Indicates which minute snapshot should be taken
 	Minute pulumi.IntPtrInput `pulumi:"minute"`
@@ -1886,7 +1857,6 @@ func (i *hourlyScheduleResponsePtrType) ToHourlyScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleResponsePtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (HourlyScheduleResponseOutput) ElementType() reflect.Type {
@@ -1980,7 +1950,6 @@ func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlySchedule struct {
 	// Indicates which days of the month snapshot should be taken. A comma delimited string.
 	DaysOfMonth *string `pulumi:"daysOfMonth"`
@@ -2005,7 +1974,6 @@ type MonthlyScheduleInput interface {
 	ToMonthlyScheduleOutputWithContext(context.Context) MonthlyScheduleOutput
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleArgs struct {
 	// Indicates which days of the month snapshot should be taken. A comma delimited string.
 	DaysOfMonth pulumi.StringPtrInput `pulumi:"daysOfMonth"`
@@ -2072,7 +2040,6 @@ func (i *monthlySchedulePtrType) ToMonthlySchedulePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlySchedulePtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonthlyScheduleOutput) ElementType() reflect.Type {
@@ -2196,7 +2163,6 @@ func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponse struct {
 	// Indicates which days of the month snapshot should be taken. A comma delimited string.
 	DaysOfMonth *string `pulumi:"daysOfMonth"`
@@ -2221,7 +2187,6 @@ type MonthlyScheduleResponseInput interface {
 	ToMonthlyScheduleResponseOutputWithContext(context.Context) MonthlyScheduleResponseOutput
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponseArgs struct {
 	// Indicates which days of the month snapshot should be taken. A comma delimited string.
 	DaysOfMonth pulumi.StringPtrInput `pulumi:"daysOfMonth"`
@@ -2288,7 +2253,6 @@ func (i *monthlyScheduleResponsePtrType) ToMonthlyScheduleResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleResponsePtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (MonthlyScheduleResponseOutput) ElementType() reflect.Type {
@@ -2412,7 +2376,6 @@ func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponse struct {
 	// UUID v4 used to identify the MountTarget
 	FileSystemId string `pulumi:"fileSystemId"`
@@ -2435,7 +2398,6 @@ type MountTargetPropertiesResponseInput interface {
 	ToMountTargetPropertiesResponseOutputWithContext(context.Context) MountTargetPropertiesResponseOutput
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseArgs struct {
 	// UUID v4 used to identify the MountTarget
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
@@ -2484,7 +2446,6 @@ func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MountTargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2539,7 +2500,6 @@ func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Mount
 	}).(MountTargetPropertiesResponseOutput)
 }
 
-// Replication properties
 type ReplicationObject struct {
 	// Indicates whether the local volume is the source or destination for the Volume Replication
 	EndpointType *string `pulumi:"endpointType"`
@@ -2564,7 +2524,6 @@ type ReplicationObjectInput interface {
 	ToReplicationObjectOutputWithContext(context.Context) ReplicationObjectOutput
 }
 
-// Replication properties
 type ReplicationObjectArgs struct {
 	// Indicates whether the local volume is the source or destination for the Volume Replication
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
@@ -2631,7 +2590,6 @@ func (i *replicationObjectPtrType) ToReplicationObjectPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectOutput) ElementType() reflect.Type {
@@ -2755,7 +2713,6 @@ func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponse struct {
 	// Indicates whether the local volume is the source or destination for the Volume Replication
 	EndpointType *string `pulumi:"endpointType"`
@@ -2780,7 +2737,6 @@ type ReplicationObjectResponseInput interface {
 	ToReplicationObjectResponseOutputWithContext(context.Context) ReplicationObjectResponseOutput
 }
 
-// Replication properties
 type ReplicationObjectResponseArgs struct {
 	// Indicates whether the local volume is the source or destination for the Volume Replication
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
@@ -2847,7 +2803,6 @@ func (i *replicationObjectResponsePtrType) ToReplicationObjectResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponsePtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectResponseOutput) ElementType() reflect.Type {
@@ -2971,7 +2926,6 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2998,7 +2952,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -3067,7 +3020,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -3206,7 +3158,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupProperties struct {
 	// Backup Enabled
 	BackupEnabled *bool `pulumi:"backupEnabled"`
@@ -3229,7 +3180,6 @@ type VolumeBackupPropertiesInput interface {
 	ToVolumeBackupPropertiesOutputWithContext(context.Context) VolumeBackupPropertiesOutput
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesArgs struct {
 	// Backup Enabled
 	BackupEnabled pulumi.BoolPtrInput `pulumi:"backupEnabled"`
@@ -3294,7 +3244,6 @@ func (i *volumeBackupPropertiesPtrType) ToVolumeBackupPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupPropertiesPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupPropertiesOutput) ElementType() reflect.Type {
@@ -3403,7 +3352,6 @@ func (o VolumeBackupPropertiesPtrOutput) VaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponse struct {
 	// Backup Enabled
 	BackupEnabled *bool `pulumi:"backupEnabled"`
@@ -3426,7 +3374,6 @@ type VolumeBackupPropertiesResponseInput interface {
 	ToVolumeBackupPropertiesResponseOutputWithContext(context.Context) VolumeBackupPropertiesResponseOutput
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponseArgs struct {
 	// Backup Enabled
 	BackupEnabled pulumi.BoolPtrInput `pulumi:"backupEnabled"`
@@ -3491,7 +3438,6 @@ func (i *volumeBackupPropertiesResponsePtrType) ToVolumeBackupPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupPropertiesResponsePtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3600,7 +3546,6 @@ func (o VolumeBackupPropertiesResponsePtrOutput) VaultId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackups struct {
 	// Total count of backups for volume
 	BackupsCount *int `pulumi:"backupsCount"`
@@ -3621,7 +3566,6 @@ type VolumeBackupsInput interface {
 	ToVolumeBackupsOutputWithContext(context.Context) VolumeBackupsOutput
 }
 
-// Volume details using the backup policy
 type VolumeBackupsArgs struct {
 	// Total count of backups for volume
 	BackupsCount pulumi.IntPtrInput `pulumi:"backupsCount"`
@@ -3668,7 +3612,6 @@ func (i VolumeBackupsArray) ToVolumeBackupsArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsArrayOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupsOutput) ElementType() reflect.Type {
@@ -3718,7 +3661,6 @@ func (o VolumeBackupsArrayOutput) Index(i pulumi.IntInput) VolumeBackupsOutput {
 	}).(VolumeBackupsOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponse struct {
 	// Total count of backups for volume
 	BackupsCount *int `pulumi:"backupsCount"`
@@ -3739,7 +3681,6 @@ type VolumeBackupsResponseInput interface {
 	ToVolumeBackupsResponseOutputWithContext(context.Context) VolumeBackupsResponseOutput
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponseArgs struct {
 	// Total count of backups for volume
 	BackupsCount pulumi.IntPtrInput `pulumi:"backupsCount"`
@@ -3786,7 +3727,6 @@ func (i VolumeBackupsResponseArray) ToVolumeBackupsResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsResponseArrayOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupsResponseOutput) ElementType() reflect.Type {
@@ -3836,7 +3776,6 @@ func (o VolumeBackupsResponseArrayOutput) Index(i pulumi.IntInput) VolumeBackups
 	}).(VolumeBackupsResponseOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtection struct {
 	// Backup Properties
 	Backup *VolumeBackupProperties `pulumi:"backup"`
@@ -3857,7 +3796,6 @@ type VolumePropertiesDataProtectionInput interface {
 	ToVolumePropertiesDataProtectionOutputWithContext(context.Context) VolumePropertiesDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionArgs struct {
 	// Backup Properties
 	Backup VolumeBackupPropertiesPtrInput `pulumi:"backup"`
@@ -3920,7 +3858,6 @@ func (i *volumePropertiesDataProtectionPtrType) ToVolumePropertiesDataProtection
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesDataProtectionOutput) ElementType() reflect.Type {
@@ -4014,7 +3951,6 @@ func (o VolumePropertiesDataProtectionPtrOutput) Snapshot() VolumeSnapshotProper
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicy struct {
 	// Export policy rule
 	Rules []ExportPolicyRule `pulumi:"rules"`
@@ -4031,7 +3967,6 @@ type VolumePropertiesExportPolicyInput interface {
 	ToVolumePropertiesExportPolicyOutputWithContext(context.Context) VolumePropertiesExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyArgs struct {
 	// Export policy rule
 	Rules ExportPolicyRuleArrayInput `pulumi:"rules"`
@@ -4090,7 +4025,6 @@ func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesExportPolicyOutput) ElementType() reflect.Type {
@@ -4154,7 +4088,6 @@ func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutp
 	}).(ExportPolicyRuleArrayOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtection struct {
 	// Backup Properties
 	Backup *VolumeBackupPropertiesResponse `pulumi:"backup"`
@@ -4175,7 +4108,6 @@ type VolumePropertiesResponseDataProtectionInput interface {
 	ToVolumePropertiesResponseDataProtectionOutputWithContext(context.Context) VolumePropertiesResponseDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionArgs struct {
 	// Backup Properties
 	Backup VolumeBackupPropertiesResponsePtrInput `pulumi:"backup"`
@@ -4238,7 +4170,6 @@ func (i *volumePropertiesResponseDataProtectionPtrType) ToVolumePropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseDataProtectionOutput) ElementType() reflect.Type {
@@ -4332,7 +4263,6 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Snapshot() VolumeSnapsh
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicy struct {
 	// Export policy rule
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
@@ -4349,7 +4279,6 @@ type VolumePropertiesResponseExportPolicyInput interface {
 	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyArgs struct {
 	// Export policy rule
 	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
@@ -4408,7 +4337,6 @@ func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
@@ -4472,7 +4400,6 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleR
 	}).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotProperties struct {
 	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
@@ -4489,7 +4416,6 @@ type VolumeSnapshotPropertiesInput interface {
 	ToVolumeSnapshotPropertiesOutputWithContext(context.Context) VolumeSnapshotPropertiesOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesArgs struct {
 	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
@@ -4548,7 +4474,6 @@ func (i *volumeSnapshotPropertiesPtrType) ToVolumeSnapshotPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesOutput) ElementType() reflect.Type {
@@ -4612,7 +4537,6 @@ func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponse struct {
 	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
@@ -4629,7 +4553,6 @@ type VolumeSnapshotPropertiesResponseInput interface {
 	ToVolumeSnapshotPropertiesResponseOutputWithContext(context.Context) VolumeSnapshotPropertiesResponseOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseArgs struct {
 	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
@@ -4688,7 +4611,6 @@ func (i *volumeSnapshotPropertiesResponsePtrType) ToVolumeSnapshotPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4752,7 +4674,6 @@ func (o VolumeSnapshotPropertiesResponsePtrOutput) SnapshotPolicyId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklySchedule struct {
 	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 	Day *string `pulumi:"day"`
@@ -4777,7 +4698,6 @@ type WeeklyScheduleInput interface {
 	ToWeeklyScheduleOutputWithContext(context.Context) WeeklyScheduleOutput
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleArgs struct {
 	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 	Day pulumi.StringPtrInput `pulumi:"day"`
@@ -4844,7 +4764,6 @@ func (i *weeklySchedulePtrType) ToWeeklySchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklySchedulePtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (WeeklyScheduleOutput) ElementType() reflect.Type {
@@ -4968,7 +4887,6 @@ func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponse struct {
 	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 	Day *string `pulumi:"day"`
@@ -4993,7 +4911,6 @@ type WeeklyScheduleResponseInput interface {
 	ToWeeklyScheduleResponseOutputWithContext(context.Context) WeeklyScheduleResponseOutput
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponseArgs struct {
 	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 	Day pulumi.StringPtrInput `pulumi:"day"`
@@ -5060,7 +4977,6 @@ func (i *weeklyScheduleResponsePtrType) ToWeeklyScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleResponsePtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (WeeklyScheduleResponseOutput) ElementType() reflect.Type {

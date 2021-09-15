@@ -112,8 +112,8 @@ func removeCommentsFromVersionedPkgs(pkgSpec schema.PackageSpec) *schema.Package
 			p.Description = ""
 			props[pn] = p
 		}
+		t.Description = ""
 		if isVersioned(n) {
-			t.Description = ""
 			t.Properties = props
 		}
 		types[n] = t

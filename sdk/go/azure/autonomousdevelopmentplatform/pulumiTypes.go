@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Encryption properties of a Data Pool
 type DataPoolEncryption struct {
 	// The name of Key Vault key
 	KeyName string `pulumi:"keyName"`
@@ -33,7 +32,6 @@ type DataPoolEncryptionInput interface {
 	ToDataPoolEncryptionOutputWithContext(context.Context) DataPoolEncryptionOutput
 }
 
-// Encryption properties of a Data Pool
 type DataPoolEncryptionArgs struct {
 	// The name of Key Vault key
 	KeyName pulumi.StringInput `pulumi:"keyName"`
@@ -98,7 +96,6 @@ func (i *dataPoolEncryptionPtrType) ToDataPoolEncryptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionPtrOutput)
 }
 
-// Encryption properties of a Data Pool
 type DataPoolEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DataPoolEncryptionOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o DataPoolEncryptionPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption properties of a Data Pool
 type DataPoolEncryptionResponse struct {
 	// The name of Key Vault key
 	KeyName string `pulumi:"keyName"`
@@ -230,7 +226,6 @@ type DataPoolEncryptionResponseInput interface {
 	ToDataPoolEncryptionResponseOutputWithContext(context.Context) DataPoolEncryptionResponseOutput
 }
 
-// Encryption properties of a Data Pool
 type DataPoolEncryptionResponseArgs struct {
 	// The name of Key Vault key
 	KeyName pulumi.StringInput `pulumi:"keyName"`
@@ -295,7 +290,6 @@ func (i *dataPoolEncryptionResponsePtrType) ToDataPoolEncryptionResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionResponsePtrOutput)
 }
 
-// Encryption properties of a Data Pool
 type DataPoolEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DataPoolEncryptionResponseOutput) ElementType() reflect.Type {
@@ -404,7 +398,6 @@ func (o DataPoolEncryptionResponsePtrOutput) UserAssignedIdentity() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of a Data Pool
 type DataPoolLocation struct {
 	// Encryption properties of a Data Pool location
 	Encryption *DataPoolEncryption `pulumi:"encryption"`
@@ -423,7 +416,6 @@ type DataPoolLocationInput interface {
 	ToDataPoolLocationOutputWithContext(context.Context) DataPoolLocationOutput
 }
 
-// Location of a Data Pool
 type DataPoolLocationArgs struct {
 	// Encryption properties of a Data Pool location
 	Encryption DataPoolEncryptionPtrInput `pulumi:"encryption"`
@@ -468,7 +460,6 @@ func (i DataPoolLocationArray) ToDataPoolLocationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolLocationArrayOutput)
 }
 
-// Location of a Data Pool
 type DataPoolLocationOutput struct{ *pulumi.OutputState }
 
 func (DataPoolLocationOutput) ElementType() reflect.Type {
@@ -513,7 +504,6 @@ func (o DataPoolLocationArrayOutput) Index(i pulumi.IntInput) DataPoolLocationOu
 	}).(DataPoolLocationOutput)
 }
 
-// Location of a Data Pool
 type DataPoolLocationResponse struct {
 	// Encryption properties of a Data Pool location
 	Encryption *DataPoolEncryptionResponse `pulumi:"encryption"`
@@ -532,7 +522,6 @@ type DataPoolLocationResponseInput interface {
 	ToDataPoolLocationResponseOutputWithContext(context.Context) DataPoolLocationResponseOutput
 }
 
-// Location of a Data Pool
 type DataPoolLocationResponseArgs struct {
 	// Encryption properties of a Data Pool location
 	Encryption DataPoolEncryptionResponsePtrInput `pulumi:"encryption"`
@@ -577,7 +566,6 @@ func (i DataPoolLocationResponseArray) ToDataPoolLocationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolLocationResponseArrayOutput)
 }
 
-// Location of a Data Pool
 type DataPoolLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (DataPoolLocationResponseOutput) ElementType() reflect.Type {
@@ -622,7 +610,6 @@ func (o DataPoolLocationResponseArrayOutput) Index(i pulumi.IntInput) DataPoolLo
 	}).(DataPoolLocationResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -649,7 +636,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -718,7 +704,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

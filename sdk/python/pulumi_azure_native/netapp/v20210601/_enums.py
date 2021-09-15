@@ -9,6 +9,7 @@ __all__ = [
     'ChownMode',
     'EncryptionType',
     'EndpointType',
+    'NetworkFeatures',
     'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
@@ -50,6 +51,16 @@ class EndpointType(str, Enum):
     """
     SRC = "src"
     DST = "dst"
+
+
+class NetworkFeatures(str, Enum):
+    """
+    Basic network, or Standard features available to the volume.
+    """
+    BASIC = "Basic"
+    """Basic network feature."""
+    STANDARD = "Standard"
+    """Standard network feature."""
 
 
 class QosType(str, Enum):

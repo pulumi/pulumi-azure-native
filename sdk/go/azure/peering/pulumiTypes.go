@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties that define a BGP session.
 type BgpSession struct {
 	// The maximum number of prefixes advertised over the IPv4 session.
 	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
@@ -43,7 +42,6 @@ type BgpSessionInput interface {
 	ToBgpSessionOutputWithContext(context.Context) BgpSessionOutput
 }
 
-// The properties that define a BGP session.
 type BgpSessionArgs struct {
 	// The maximum number of prefixes advertised over the IPv4 session.
 	MaxPrefixesAdvertisedV4 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV4"`
@@ -118,7 +116,6 @@ func (i *bgpSessionPtrType) ToBgpSessionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionPtrOutput)
 }
 
-// The properties that define a BGP session.
 type BgpSessionOutput struct{ *pulumi.OutputState }
 
 func (BgpSessionOutput) ElementType() reflect.Type {
@@ -302,7 +299,6 @@ func (o BgpSessionPtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that define a BGP session.
 type BgpSessionResponse struct {
 	// The maximum number of prefixes advertised over the IPv4 session.
 	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
@@ -339,7 +335,6 @@ type BgpSessionResponseInput interface {
 	ToBgpSessionResponseOutputWithContext(context.Context) BgpSessionResponseOutput
 }
 
-// The properties that define a BGP session.
 type BgpSessionResponseArgs struct {
 	// The maximum number of prefixes advertised over the IPv4 session.
 	MaxPrefixesAdvertisedV4 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV4"`
@@ -418,7 +413,6 @@ func (i *bgpSessionResponsePtrType) ToBgpSessionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionResponsePtrOutput)
 }
 
-// The properties that define a BGP session.
 type BgpSessionResponseOutput struct{ *pulumi.OutputState }
 
 func (BgpSessionResponseOutput) ElementType() reflect.Type {
@@ -632,7 +626,6 @@ func (o BgpSessionResponsePtrOutput) SessionStateV6() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The contact detail class.
 type ContactDetail struct {
 	// The e-mail address of the contact.
 	Email *string `pulumi:"email"`
@@ -653,7 +646,6 @@ type ContactDetailInput interface {
 	ToContactDetailOutputWithContext(context.Context) ContactDetailOutput
 }
 
-// The contact detail class.
 type ContactDetailArgs struct {
 	// The e-mail address of the contact.
 	Email pulumi.StringPtrInput `pulumi:"email"`
@@ -700,7 +692,6 @@ func (i ContactDetailArray) ToContactDetailArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailArrayOutput)
 }
 
-// The contact detail class.
 type ContactDetailOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailOutput) ElementType() reflect.Type {
@@ -750,7 +741,6 @@ func (o ContactDetailArrayOutput) Index(i pulumi.IntInput) ContactDetailOutput {
 	}).(ContactDetailOutput)
 }
 
-// The contact detail class.
 type ContactDetailResponse struct {
 	// The e-mail address of the contact.
 	Email *string `pulumi:"email"`
@@ -771,7 +761,6 @@ type ContactDetailResponseInput interface {
 	ToContactDetailResponseOutputWithContext(context.Context) ContactDetailResponseOutput
 }
 
-// The contact detail class.
 type ContactDetailResponseArgs struct {
 	// The e-mail address of the contact.
 	Email pulumi.StringPtrInput `pulumi:"email"`
@@ -818,7 +807,6 @@ func (i ContactDetailResponseArray) ToContactDetailResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailResponseArrayOutput)
 }
 
-// The contact detail class.
 type ContactDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailResponseOutput) ElementType() reflect.Type {
@@ -868,7 +856,6 @@ func (o ContactDetailResponseArrayOutput) Index(i pulumi.IntInput) ContactDetail
 	}).(ContactDetailResponseOutput)
 }
 
-// The properties that define a direct connection.
 type DirectConnection struct {
 	// The bandwidth of the connection.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
@@ -895,7 +882,6 @@ type DirectConnectionInput interface {
 	ToDirectConnectionOutputWithContext(context.Context) DirectConnectionOutput
 }
 
-// The properties that define a direct connection.
 type DirectConnectionArgs struct {
 	// The bandwidth of the connection.
 	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
@@ -948,7 +934,6 @@ func (i DirectConnectionArray) ToDirectConnectionArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionArrayOutput)
 }
 
-// The properties that define a direct connection.
 type DirectConnectionOutput struct{ *pulumi.OutputState }
 
 func (DirectConnectionOutput) ElementType() reflect.Type {
@@ -1013,7 +998,6 @@ func (o DirectConnectionArrayOutput) Index(i pulumi.IntInput) DirectConnectionOu
 	}).(DirectConnectionOutput)
 }
 
-// The properties that define a direct connection.
 type DirectConnectionResponse struct {
 	// The bandwidth of the connection.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
@@ -1048,7 +1032,6 @@ type DirectConnectionResponseInput interface {
 	ToDirectConnectionResponseOutputWithContext(context.Context) DirectConnectionResponseOutput
 }
 
-// The properties that define a direct connection.
 type DirectConnectionResponseArgs struct {
 	// The bandwidth of the connection.
 	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
@@ -1109,7 +1092,6 @@ func (i DirectConnectionResponseArray) ToDirectConnectionResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionResponseArrayOutput)
 }
 
-// The properties that define a direct connection.
 type DirectConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (DirectConnectionResponseOutput) ElementType() reflect.Type {
@@ -1194,7 +1176,6 @@ func (o DirectConnectionResponseArrayOutput) Index(i pulumi.IntInput) DirectConn
 	}).(DirectConnectionResponseOutput)
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnection struct {
 	// The BGP session associated with the connection.
 	BgpSession *BgpSession `pulumi:"bgpSession"`
@@ -1215,7 +1196,6 @@ type ExchangeConnectionInput interface {
 	ToExchangeConnectionOutputWithContext(context.Context) ExchangeConnectionOutput
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnectionArgs struct {
 	// The BGP session associated with the connection.
 	BgpSession BgpSessionPtrInput `pulumi:"bgpSession"`
@@ -1262,7 +1242,6 @@ func (i ExchangeConnectionArray) ToExchangeConnectionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionArrayOutput)
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExchangeConnectionOutput) ElementType() reflect.Type {
@@ -1312,7 +1291,6 @@ func (o ExchangeConnectionArrayOutput) Index(i pulumi.IntInput) ExchangeConnecti
 	}).(ExchangeConnectionOutput)
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnectionResponse struct {
 	// The BGP session associated with the connection.
 	BgpSession *BgpSessionResponse `pulumi:"bgpSession"`
@@ -1337,7 +1315,6 @@ type ExchangeConnectionResponseInput interface {
 	ToExchangeConnectionResponseOutputWithContext(context.Context) ExchangeConnectionResponseOutput
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnectionResponseArgs struct {
 	// The BGP session associated with the connection.
 	BgpSession BgpSessionResponsePtrInput `pulumi:"bgpSession"`
@@ -1388,7 +1365,6 @@ func (i ExchangeConnectionResponseArray) ToExchangeConnectionResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionResponseArrayOutput)
 }
 
-// The properties that define an exchange connection.
 type ExchangeConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExchangeConnectionResponseOutput) ElementType() reflect.Type {
@@ -1448,7 +1424,6 @@ func (o ExchangeConnectionResponseArrayOutput) Index(i pulumi.IntInput) Exchange
 	}).(ExchangeConnectionResponseOutput)
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirect struct {
 	// The set of connections that constitute a direct peering.
 	Connections []DirectConnection `pulumi:"connections"`
@@ -1469,7 +1444,6 @@ type PeeringPropertiesDirectInput interface {
 	ToPeeringPropertiesDirectOutputWithContext(context.Context) PeeringPropertiesDirectOutput
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirectArgs struct {
 	// The set of connections that constitute a direct peering.
 	Connections DirectConnectionArrayInput `pulumi:"connections"`
@@ -1532,7 +1506,6 @@ func (i *peeringPropertiesDirectPtrType) ToPeeringPropertiesDirectPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectPtrOutput)
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirectOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesDirectOutput) ElementType() reflect.Type {
@@ -1626,7 +1599,6 @@ func (o PeeringPropertiesDirectPtrOutput) PeerAsn() SubResourcePtrOutput {
 	}).(SubResourcePtrOutput)
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirectResponse struct {
 	// The set of connections that constitute a direct peering.
 	Connections []DirectConnectionResponse `pulumi:"connections"`
@@ -1649,7 +1621,6 @@ type PeeringPropertiesDirectResponseInput interface {
 	ToPeeringPropertiesDirectResponseOutputWithContext(context.Context) PeeringPropertiesDirectResponseOutput
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirectResponseArgs struct {
 	// The set of connections that constitute a direct peering.
 	Connections DirectConnectionResponseArrayInput `pulumi:"connections"`
@@ -1714,7 +1685,6 @@ func (i *peeringPropertiesDirectResponsePtrType) ToPeeringPropertiesDirectRespon
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectResponsePtrOutput)
 }
 
-// The properties that define a direct peering.
 type PeeringPropertiesDirectResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesDirectResponseOutput) ElementType() reflect.Type {
@@ -1823,7 +1793,6 @@ func (o PeeringPropertiesDirectResponsePtrOutput) UseForPeeringService() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchange struct {
 	// The set of connections that constitute an exchange peering.
 	Connections []ExchangeConnection `pulumi:"connections"`
@@ -1842,7 +1811,6 @@ type PeeringPropertiesExchangeInput interface {
 	ToPeeringPropertiesExchangeOutputWithContext(context.Context) PeeringPropertiesExchangeOutput
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchangeArgs struct {
 	// The set of connections that constitute an exchange peering.
 	Connections ExchangeConnectionArrayInput `pulumi:"connections"`
@@ -1903,7 +1871,6 @@ func (i *peeringPropertiesExchangePtrType) ToPeeringPropertiesExchangePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangePtrOutput)
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchangeOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesExchangeOutput) ElementType() reflect.Type {
@@ -1982,7 +1949,6 @@ func (o PeeringPropertiesExchangePtrOutput) PeerAsn() SubResourcePtrOutput {
 	}).(SubResourcePtrOutput)
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchangeResponse struct {
 	// The set of connections that constitute an exchange peering.
 	Connections []ExchangeConnectionResponse `pulumi:"connections"`
@@ -2001,7 +1967,6 @@ type PeeringPropertiesExchangeResponseInput interface {
 	ToPeeringPropertiesExchangeResponseOutputWithContext(context.Context) PeeringPropertiesExchangeResponseOutput
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchangeResponseArgs struct {
 	// The set of connections that constitute an exchange peering.
 	Connections ExchangeConnectionResponseArrayInput `pulumi:"connections"`
@@ -2062,7 +2027,6 @@ func (i *peeringPropertiesExchangeResponsePtrType) ToPeeringPropertiesExchangeRe
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangeResponsePtrOutput)
 }
 
-// The properties that define an exchange peering.
 type PeeringPropertiesExchangeResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesExchangeResponseOutput) ElementType() reflect.Type {
@@ -2141,7 +2105,6 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) PeerAsn() SubResourceRespons
 	}).(SubResourceResponsePtrOutput)
 }
 
-// The details of the event associated with a prefix.
 type PeeringServicePrefixEventResponse struct {
 	// The description of the event associated with a prefix.
 	EventDescription string `pulumi:"eventDescription"`
@@ -2166,7 +2129,6 @@ type PeeringServicePrefixEventResponseInput interface {
 	ToPeeringServicePrefixEventResponseOutputWithContext(context.Context) PeeringServicePrefixEventResponseOutput
 }
 
-// The details of the event associated with a prefix.
 type PeeringServicePrefixEventResponseArgs struct {
 	// The description of the event associated with a prefix.
 	EventDescription pulumi.StringInput `pulumi:"eventDescription"`
@@ -2217,7 +2179,6 @@ func (i PeeringServicePrefixEventResponseArray) ToPeeringServicePrefixEventRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixEventResponseArrayOutput)
 }
 
-// The details of the event associated with a prefix.
 type PeeringServicePrefixEventResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringServicePrefixEventResponseOutput) ElementType() reflect.Type {
@@ -2277,7 +2238,6 @@ func (o PeeringServicePrefixEventResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PeeringServicePrefixEventResponseOutput)
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSku struct {
 	// The name of the peering service SKU.
 	Name *string `pulumi:"name"`
@@ -2294,7 +2254,6 @@ type PeeringServiceSkuInput interface {
 	ToPeeringServiceSkuOutputWithContext(context.Context) PeeringServiceSkuOutput
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSkuArgs struct {
 	// The name of the peering service SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2353,7 +2312,6 @@ func (i *peeringServiceSkuPtrType) ToPeeringServiceSkuPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceSkuPtrOutput)
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSkuOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceSkuOutput) ElementType() reflect.Type {
@@ -2417,7 +2375,6 @@ func (o PeeringServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSkuResponse struct {
 	// The name of the peering service SKU.
 	Name *string `pulumi:"name"`
@@ -2434,7 +2391,6 @@ type PeeringServiceSkuResponseInput interface {
 	ToPeeringServiceSkuResponseOutputWithContext(context.Context) PeeringServiceSkuResponseOutput
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSkuResponseArgs struct {
 	// The name of the peering service SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2493,7 +2449,6 @@ func (i *peeringServiceSkuResponsePtrType) ToPeeringServiceSkuResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceSkuResponsePtrOutput)
 }
 
-// The SKU that defines the type of the peering service.
 type PeeringServiceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceSkuResponseOutput) ElementType() reflect.Type {
@@ -2557,7 +2512,6 @@ func (o PeeringServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSku struct {
 	// The family of the peering SKU.
 	Family *string `pulumi:"family"`
@@ -2580,7 +2534,6 @@ type PeeringSkuInput interface {
 	ToPeeringSkuOutputWithContext(context.Context) PeeringSkuOutput
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSkuArgs struct {
 	// The family of the peering SKU.
 	Family pulumi.StringPtrInput `pulumi:"family"`
@@ -2645,7 +2598,6 @@ func (i *peeringSkuPtrType) ToPeeringSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuPtrOutput)
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSkuOutput struct{ *pulumi.OutputState }
 
 func (PeeringSkuOutput) ElementType() reflect.Type {
@@ -2754,7 +2706,6 @@ func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSkuResponse struct {
 	// The family of the peering SKU.
 	Family *string `pulumi:"family"`
@@ -2777,7 +2728,6 @@ type PeeringSkuResponseInput interface {
 	ToPeeringSkuResponseOutputWithContext(context.Context) PeeringSkuResponseOutput
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSkuResponseArgs struct {
 	// The family of the peering SKU.
 	Family pulumi.StringPtrInput `pulumi:"family"`
@@ -2842,7 +2792,6 @@ func (i *peeringSkuResponsePtrType) ToPeeringSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuResponsePtrOutput)
 }
 
-// The SKU that defines the tier and kind of the peering.
 type PeeringSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringSkuResponseOutput) ElementType() reflect.Type {
@@ -2951,7 +2900,6 @@ func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sub resource.
 type SubResource struct {
 	// The identifier of the referenced resource.
 	Id *string `pulumi:"id"`
@@ -2968,7 +2916,6 @@ type SubResourceInput interface {
 	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
 }
 
-// The sub resource.
 type SubResourceArgs struct {
 	// The identifier of the referenced resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3027,7 +2974,6 @@ func (i *subResourcePtrType) ToSubResourcePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourcePtrOutput)
 }
 
-// The sub resource.
 type SubResourceOutput struct{ *pulumi.OutputState }
 
 func (SubResourceOutput) ElementType() reflect.Type {
@@ -3091,7 +3037,6 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sub resource.
 type SubResourceResponse struct {
 	// The identifier of the referenced resource.
 	Id *string `pulumi:"id"`
@@ -3108,7 +3053,6 @@ type SubResourceResponseInput interface {
 	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
 }
 
-// The sub resource.
 type SubResourceResponseArgs struct {
 	// The identifier of the referenced resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3167,7 +3111,6 @@ func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponsePtrOutput)
 }
 
-// The sub resource.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {

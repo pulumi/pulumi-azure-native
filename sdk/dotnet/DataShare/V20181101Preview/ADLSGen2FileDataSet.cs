@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:ADLSGen2FileDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:ADLSGen2FileDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileDataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:ADLSGen2FileDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -80,6 +80,12 @@ func NewScheduledTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ScheduledTrigger"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:ScheduledTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:ScheduledTrigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledTrigger

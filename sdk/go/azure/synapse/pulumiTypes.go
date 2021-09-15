@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPauseProperties struct {
 	// Number of minutes of idle time before the Big Data pool is automatically paused.
 	DelayInMinutes *int `pulumi:"delayInMinutes"`
@@ -29,7 +28,6 @@ type AutoPausePropertiesInput interface {
 	ToAutoPausePropertiesOutputWithContext(context.Context) AutoPausePropertiesOutput
 }
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPausePropertiesArgs struct {
 	// Number of minutes of idle time before the Big Data pool is automatically paused.
 	DelayInMinutes pulumi.IntPtrInput `pulumi:"delayInMinutes"`
@@ -90,7 +88,6 @@ func (i *autoPausePropertiesPtrType) ToAutoPausePropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AutoPausePropertiesPtrOutput)
 }
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPausePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AutoPausePropertiesOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o AutoPausePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPausePropertiesResponse struct {
 	// Number of minutes of idle time before the Big Data pool is automatically paused.
 	DelayInMinutes *int `pulumi:"delayInMinutes"`
@@ -188,7 +184,6 @@ type AutoPausePropertiesResponseInput interface {
 	ToAutoPausePropertiesResponseOutputWithContext(context.Context) AutoPausePropertiesResponseOutput
 }
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPausePropertiesResponseArgs struct {
 	// Number of minutes of idle time before the Big Data pool is automatically paused.
 	DelayInMinutes pulumi.IntPtrInput `pulumi:"delayInMinutes"`
@@ -249,7 +244,6 @@ func (i *autoPausePropertiesResponsePtrType) ToAutoPausePropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AutoPausePropertiesResponsePtrOutput)
 }
 
-// Auto-pausing properties of a Big Data pool powered by Apache Spark
 type AutoPausePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoPausePropertiesResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o AutoPausePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScaleProperties struct {
 	// Whether automatic scaling is enabled for the Big Data pool.
 	Enabled *bool `pulumi:"enabled"`
@@ -349,7 +342,6 @@ type AutoScalePropertiesInput interface {
 	ToAutoScalePropertiesOutputWithContext(context.Context) AutoScalePropertiesOutput
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScalePropertiesArgs struct {
 	// Whether automatic scaling is enabled for the Big Data pool.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -412,7 +404,6 @@ func (i *autoScalePropertiesPtrType) ToAutoScalePropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalePropertiesPtrOutput)
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScalePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AutoScalePropertiesOutput) ElementType() reflect.Type {
@@ -506,7 +497,6 @@ func (o AutoScalePropertiesPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScalePropertiesResponse struct {
 	// Whether automatic scaling is enabled for the Big Data pool.
 	Enabled *bool `pulumi:"enabled"`
@@ -527,7 +517,6 @@ type AutoScalePropertiesResponseInput interface {
 	ToAutoScalePropertiesResponseOutputWithContext(context.Context) AutoScalePropertiesResponseOutput
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScalePropertiesResponseArgs struct {
 	// Whether automatic scaling is enabled for the Big Data pool.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -590,7 +579,6 @@ func (i *autoScalePropertiesResponsePtrType) ToAutoScalePropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalePropertiesResponsePtrOutput)
 }
 
-// Auto-scaling properties of a Big Data pool powered by Apache Spark
 type AutoScalePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoScalePropertiesResponseOutput) ElementType() reflect.Type {
@@ -684,7 +672,6 @@ func (o AutoScalePropertiesResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure SKU definition.
 type AzureSku struct {
 	// The number of instances of the cluster.
 	Capacity *int `pulumi:"capacity"`
@@ -705,7 +692,6 @@ type AzureSkuInput interface {
 	ToAzureSkuOutputWithContext(context.Context) AzureSkuOutput
 }
 
-// Azure SKU definition.
 type AzureSkuArgs struct {
 	// The number of instances of the cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -768,7 +754,6 @@ func (i *azureSkuPtrType) ToAzureSkuPtrOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuPtrOutput)
 }
 
-// Azure SKU definition.
 type AzureSkuOutput struct{ *pulumi.OutputState }
 
 func (AzureSkuOutput) ElementType() reflect.Type {
@@ -862,7 +847,6 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure SKU definition.
 type AzureSkuResponse struct {
 	// The number of instances of the cluster.
 	Capacity *int `pulumi:"capacity"`
@@ -883,7 +867,6 @@ type AzureSkuResponseInput interface {
 	ToAzureSkuResponseOutputWithContext(context.Context) AzureSkuResponseOutput
 }
 
-// Azure SKU definition.
 type AzureSkuResponseArgs struct {
 	// The number of instances of the cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -946,7 +929,6 @@ func (i *azureSkuResponsePtrType) ToAzureSkuResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponsePtrOutput)
 }
 
-// Azure SKU definition.
 type AzureSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSkuResponseOutput) ElementType() reflect.Type {
@@ -1040,7 +1022,6 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetup struct {
 	// The password of data source access.
 	Password SecureString `pulumi:"password"`
@@ -1064,7 +1045,6 @@ type CmdkeySetupInput interface {
 	ToCmdkeySetupOutputWithContext(context.Context) CmdkeySetupOutput
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetupArgs struct {
 	// The password of data source access.
 	Password SecureStringInput `pulumi:"password"`
@@ -1089,7 +1069,6 @@ func (i CmdkeySetupArgs) ToCmdkeySetupOutputWithContext(ctx context.Context) Cmd
 	return pulumi.ToOutputWithContext(ctx, i).(CmdkeySetupOutput)
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetupOutput struct{ *pulumi.OutputState }
 
 func (CmdkeySetupOutput) ElementType() reflect.Type {
@@ -1125,7 +1104,6 @@ func (o CmdkeySetupOutput) UserName() pulumi.AnyOutput {
 	return o.ApplyT(func(v CmdkeySetup) interface{} { return v.UserName }).(pulumi.AnyOutput)
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetupResponse struct {
 	// The password of data source access.
 	Password SecureStringResponse `pulumi:"password"`
@@ -1149,7 +1127,6 @@ type CmdkeySetupResponseInput interface {
 	ToCmdkeySetupResponseOutputWithContext(context.Context) CmdkeySetupResponseOutput
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetupResponseArgs struct {
 	// The password of data source access.
 	Password SecureStringResponseInput `pulumi:"password"`
@@ -1174,7 +1151,6 @@ func (i CmdkeySetupResponseArgs) ToCmdkeySetupResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CmdkeySetupResponseOutput)
 }
 
-// The custom setup of running cmdkey commands.
 type CmdkeySetupResponseOutput struct{ *pulumi.OutputState }
 
 func (CmdkeySetupResponseOutput) ElementType() reflect.Type {
@@ -1210,7 +1186,6 @@ func (o CmdkeySetupResponseOutput) UserName() pulumi.AnyOutput {
 	return o.ApplyT(func(v CmdkeySetupResponse) interface{} { return v.UserName }).(pulumi.AnyOutput)
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetup struct {
 	// The name of the 3rd party component.
 	ComponentName string `pulumi:"componentName"`
@@ -1232,7 +1207,6 @@ type ComponentSetupInput interface {
 	ToComponentSetupOutputWithContext(context.Context) ComponentSetupOutput
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetupArgs struct {
 	// The name of the 3rd party component.
 	ComponentName pulumi.StringInput `pulumi:"componentName"`
@@ -1255,7 +1229,6 @@ func (i ComponentSetupArgs) ToComponentSetupOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentSetupOutput)
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetupOutput struct{ *pulumi.OutputState }
 
 func (ComponentSetupOutput) ElementType() reflect.Type {
@@ -1286,7 +1259,6 @@ func (o ComponentSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetup) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetupResponse struct {
 	// The name of the 3rd party component.
 	ComponentName string `pulumi:"componentName"`
@@ -1308,7 +1280,6 @@ type ComponentSetupResponseInput interface {
 	ToComponentSetupResponseOutputWithContext(context.Context) ComponentSetupResponseOutput
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetupResponseArgs struct {
 	// The name of the 3rd party component.
 	ComponentName pulumi.StringInput `pulumi:"componentName"`
@@ -1331,7 +1302,6 @@ func (i ComponentSetupResponseArgs) ToComponentSetupResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentSetupResponseOutput)
 }
 
-// The custom setup of installing 3rd party components.
 type ComponentSetupResponseOutput struct{ *pulumi.OutputState }
 
 func (ComponentSetupResponseOutput) ElementType() reflect.Type {
@@ -1362,7 +1332,6 @@ func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetails struct {
 	// The key object of the workspace
 	Key *WorkspaceKeyDetails `pulumi:"key"`
@@ -1379,7 +1348,6 @@ type CustomerManagedKeyDetailsInput interface {
 	ToCustomerManagedKeyDetailsOutputWithContext(context.Context) CustomerManagedKeyDetailsOutput
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsArgs struct {
 	// The key object of the workspace
 	Key WorkspaceKeyDetailsPtrInput `pulumi:"key"`
@@ -1438,7 +1406,6 @@ func (i *customerManagedKeyDetailsPtrType) ToCustomerManagedKeyDetailsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsPtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedKeyDetailsOutput) ElementType() reflect.Type {
@@ -1502,7 +1469,6 @@ func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
 	}).(WorkspaceKeyDetailsPtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponse struct {
 	// The key object of the workspace
 	Key *WorkspaceKeyDetailsResponse `pulumi:"key"`
@@ -1521,7 +1487,6 @@ type CustomerManagedKeyDetailsResponseInput interface {
 	ToCustomerManagedKeyDetailsResponseOutputWithContext(context.Context) CustomerManagedKeyDetailsResponseOutput
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponseArgs struct {
 	// The key object of the workspace
 	Key WorkspaceKeyDetailsResponsePtrInput `pulumi:"key"`
@@ -1582,7 +1547,6 @@ func (i *customerManagedKeyDetailsResponsePtrType) ToCustomerManagedKeyDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponsePtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedKeyDetailsResponseOutput) ElementType() reflect.Type {
@@ -1661,7 +1625,6 @@ func (o CustomerManagedKeyDetailsResponsePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetails struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
@@ -1680,7 +1643,6 @@ type DataLakeStorageAccountDetailsInput interface {
 	ToDataLakeStorageAccountDetailsOutputWithContext(context.Context) DataLakeStorageAccountDetailsOutput
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsArgs struct {
 	// Account URL
 	AccountUrl pulumi.StringPtrInput `pulumi:"accountUrl"`
@@ -1741,7 +1703,6 @@ func (i *dataLakeStorageAccountDetailsPtrType) ToDataLakeStorageAccountDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStorageAccountDetailsPtrOutput)
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeStorageAccountDetailsOutput) ElementType() reflect.Type {
@@ -1820,7 +1781,6 @@ func (o DataLakeStorageAccountDetailsPtrOutput) Filesystem() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsResponse struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
@@ -1839,7 +1799,6 @@ type DataLakeStorageAccountDetailsResponseInput interface {
 	ToDataLakeStorageAccountDetailsResponseOutputWithContext(context.Context) DataLakeStorageAccountDetailsResponseOutput
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsResponseArgs struct {
 	// Account URL
 	AccountUrl pulumi.StringPtrInput `pulumi:"accountUrl"`
@@ -1900,7 +1859,6 @@ func (i *dataLakeStorageAccountDetailsResponsePtrType) ToDataLakeStorageAccountD
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStorageAccountDetailsResponsePtrOutput)
 }
 
-// Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataLakeStorageAccountDetailsResponseOutput) ElementType() reflect.Type {
@@ -1979,7 +1937,6 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A class that contains database statistics information.
 type DatabaseStatisticsResponse struct {
 	// The database size - the total size of compressed data and index in bytes.
 	Size *float64 `pulumi:"size"`
@@ -1996,7 +1953,6 @@ type DatabaseStatisticsResponseInput interface {
 	ToDatabaseStatisticsResponseOutputWithContext(context.Context) DatabaseStatisticsResponseOutput
 }
 
-// A class that contains database statistics information.
 type DatabaseStatisticsResponseArgs struct {
 	// The database size - the total size of compressed data and index in bytes.
 	Size pulumi.Float64PtrInput `pulumi:"size"`
@@ -2055,7 +2011,6 @@ func (i *databaseStatisticsResponsePtrType) ToDatabaseStatisticsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseStatisticsResponsePtrOutput)
 }
 
-// A class that contains database statistics information.
 type DatabaseStatisticsResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseStatisticsResponseOutput) ElementType() reflect.Type {
@@ -2119,7 +2074,6 @@ func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocation struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
@@ -2136,7 +2090,6 @@ type DynamicExecutorAllocationInput interface {
 	ToDynamicExecutorAllocationOutputWithContext(context.Context) DynamicExecutorAllocationOutput
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationArgs struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2195,7 +2148,6 @@ func (i *dynamicExecutorAllocationPtrType) ToDynamicExecutorAllocationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationPtrOutput)
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationOutput struct{ *pulumi.OutputState }
 
 func (DynamicExecutorAllocationOutput) ElementType() reflect.Type {
@@ -2259,7 +2211,6 @@ func (o DynamicExecutorAllocationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponse struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
@@ -2276,7 +2227,6 @@ type DynamicExecutorAllocationResponseInput interface {
 	ToDynamicExecutorAllocationResponseOutputWithContext(context.Context) DynamicExecutorAllocationResponseOutput
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponseArgs struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2335,7 +2285,6 @@ func (i *dynamicExecutorAllocationResponsePtrType) ToDynamicExecutorAllocationRe
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationResponsePtrOutput)
 }
 
-// Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponseOutput struct{ *pulumi.OutputState }
 
 func (DynamicExecutorAllocationResponseOutput) ElementType() reflect.Type {
@@ -2399,7 +2348,6 @@ func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetails struct {
 	// Customer Managed Key Details
 	Cmk *CustomerManagedKeyDetails `pulumi:"cmk"`
@@ -2416,7 +2364,6 @@ type EncryptionDetailsInput interface {
 	ToEncryptionDetailsOutputWithContext(context.Context) EncryptionDetailsOutput
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetailsArgs struct {
 	// Customer Managed Key Details
 	Cmk CustomerManagedKeyDetailsPtrInput `pulumi:"cmk"`
@@ -2475,7 +2422,6 @@ func (i *encryptionDetailsPtrType) ToEncryptionDetailsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsPtrOutput)
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetailsOutput struct{ *pulumi.OutputState }
 
 func (EncryptionDetailsOutput) ElementType() reflect.Type {
@@ -2539,7 +2485,6 @@ func (o EncryptionDetailsPtrOutput) Cmk() CustomerManagedKeyDetailsPtrOutput {
 	}).(CustomerManagedKeyDetailsPtrOutput)
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetailsResponse struct {
 	// Customer Managed Key Details
 	Cmk *CustomerManagedKeyDetailsResponse `pulumi:"cmk"`
@@ -2558,7 +2503,6 @@ type EncryptionDetailsResponseInput interface {
 	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetailsResponseArgs struct {
 	// Customer Managed Key Details
 	Cmk CustomerManagedKeyDetailsResponsePtrInput `pulumi:"cmk"`
@@ -2619,7 +2563,6 @@ func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Details of the encryption associated with the workspace
 type EncryptionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionDetailsResponseOutput) ElementType() reflect.Type {
@@ -2698,7 +2641,6 @@ func (o EncryptionDetailsResponsePtrOutput) DoubleEncryptionEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The entity reference.
 type EntityReference struct {
 	// The name of this referenced entity.
 	ReferenceName *string `pulumi:"referenceName"`
@@ -2717,7 +2659,6 @@ type EntityReferenceInput interface {
 	ToEntityReferenceOutputWithContext(context.Context) EntityReferenceOutput
 }
 
-// The entity reference.
 type EntityReferenceArgs struct {
 	// The name of this referenced entity.
 	ReferenceName pulumi.StringPtrInput `pulumi:"referenceName"`
@@ -2778,7 +2719,6 @@ func (i *entityReferencePtrType) ToEntityReferencePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(EntityReferencePtrOutput)
 }
 
-// The entity reference.
 type EntityReferenceOutput struct{ *pulumi.OutputState }
 
 func (EntityReferenceOutput) ElementType() reflect.Type {
@@ -2857,7 +2797,6 @@ func (o EntityReferencePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity reference.
 type EntityReferenceResponse struct {
 	// The name of this referenced entity.
 	ReferenceName *string `pulumi:"referenceName"`
@@ -2876,7 +2815,6 @@ type EntityReferenceResponseInput interface {
 	ToEntityReferenceResponseOutputWithContext(context.Context) EntityReferenceResponseOutput
 }
 
-// The entity reference.
 type EntityReferenceResponseArgs struct {
 	// The name of this referenced entity.
 	ReferenceName pulumi.StringPtrInput `pulumi:"referenceName"`
@@ -2937,7 +2875,6 @@ func (i *entityReferenceResponsePtrType) ToEntityReferenceResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EntityReferenceResponsePtrOutput)
 }
 
-// The entity reference.
 type EntityReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityReferenceResponseOutput) ElementType() reflect.Type {
@@ -3016,7 +2953,6 @@ func (o EntityReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetup struct {
 	// The type of custom setup.
 	// Expected value is 'EnvironmentVariableSetup'.
@@ -3038,7 +2974,6 @@ type EnvironmentVariableSetupInput interface {
 	ToEnvironmentVariableSetupOutputWithContext(context.Context) EnvironmentVariableSetupOutput
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetupArgs struct {
 	// The type of custom setup.
 	// Expected value is 'EnvironmentVariableSetup'.
@@ -3061,7 +2996,6 @@ func (i EnvironmentVariableSetupArgs) ToEnvironmentVariableSetupOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableSetupOutput)
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetupOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableSetupOutput) ElementType() reflect.Type {
@@ -3092,7 +3026,6 @@ func (o EnvironmentVariableSetupOutput) VariableValue() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableSetup) string { return v.VariableValue }).(pulumi.StringOutput)
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponse struct {
 	// The type of custom setup.
 	// Expected value is 'EnvironmentVariableSetup'.
@@ -3114,7 +3047,6 @@ type EnvironmentVariableSetupResponseInput interface {
 	ToEnvironmentVariableSetupResponseOutputWithContext(context.Context) EnvironmentVariableSetupResponseOutput
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponseArgs struct {
 	// The type of custom setup.
 	// Expected value is 'EnvironmentVariableSetup'.
@@ -3137,7 +3069,6 @@ func (i EnvironmentVariableSetupResponseArgs) ToEnvironmentVariableSetupResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableSetupResponseOutput)
 }
 
-// The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableSetupResponseOutput) ElementType() reflect.Type {
@@ -3168,7 +3099,6 @@ func (o EnvironmentVariableSetupResponseOutput) VariableValue() pulumi.StringOut
 	return o.ApplyT(func(v EnvironmentVariableSetupResponse) string { return v.VariableValue }).(pulumi.StringOutput)
 }
 
-// A class representing follower database request.
 type FollowerDatabaseDefinitionResponse struct {
 	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
@@ -3189,7 +3119,6 @@ type FollowerDatabaseDefinitionResponseInput interface {
 	ToFollowerDatabaseDefinitionResponseOutputWithContext(context.Context) FollowerDatabaseDefinitionResponseOutput
 }
 
-// A class representing follower database request.
 type FollowerDatabaseDefinitionResponseArgs struct {
 	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName pulumi.StringInput `pulumi:"attachedDatabaseConfigurationName"`
@@ -3236,7 +3165,6 @@ func (i FollowerDatabaseDefinitionResponseArray) ToFollowerDatabaseDefinitionRes
 	return pulumi.ToOutputWithContext(ctx, i).(FollowerDatabaseDefinitionResponseArrayOutput)
 }
 
-// A class representing follower database request.
 type FollowerDatabaseDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (FollowerDatabaseDefinitionResponseOutput) ElementType() reflect.Type {
@@ -3286,7 +3214,6 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(FollowerDatabaseDefinitionResponseOutput)
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputeProperties struct {
 	// Data flow properties for managed integration runtime.
 	DataFlowProperties *IntegrationRuntimeDataFlowProperties `pulumi:"dataFlowProperties"`
@@ -3313,7 +3240,6 @@ type IntegrationRuntimeComputePropertiesInput interface {
 	ToIntegrationRuntimeComputePropertiesOutputWithContext(context.Context) IntegrationRuntimeComputePropertiesOutput
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesArgs struct {
 	// Data flow properties for managed integration runtime.
 	DataFlowProperties IntegrationRuntimeDataFlowPropertiesPtrInput `pulumi:"dataFlowProperties"`
@@ -3382,7 +3308,6 @@ func (i *integrationRuntimeComputePropertiesPtrType) ToIntegrationRuntimeCompute
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeComputePropertiesPtrOutput)
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeComputePropertiesOutput) ElementType() reflect.Type {
@@ -3523,7 +3448,6 @@ func (o IntegrationRuntimeComputePropertiesPtrOutput) VNetProperties() Integrati
 	}).(IntegrationRuntimeVNetPropertiesPtrOutput)
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesResponse struct {
 	// Data flow properties for managed integration runtime.
 	DataFlowProperties *IntegrationRuntimeDataFlowPropertiesResponse `pulumi:"dataFlowProperties"`
@@ -3550,7 +3474,6 @@ type IntegrationRuntimeComputePropertiesResponseInput interface {
 	ToIntegrationRuntimeComputePropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeComputePropertiesResponseOutput
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesResponseArgs struct {
 	// Data flow properties for managed integration runtime.
 	DataFlowProperties IntegrationRuntimeDataFlowPropertiesResponsePtrInput `pulumi:"dataFlowProperties"`
@@ -3619,7 +3542,6 @@ func (i *integrationRuntimeComputePropertiesResponsePtrType) ToIntegrationRuntim
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeComputePropertiesResponsePtrOutput)
 }
 
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeComputePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3762,7 +3684,6 @@ func (o IntegrationRuntimeComputePropertiesResponsePtrOutput) VNetProperties() I
 	}).(IntegrationRuntimeVNetPropertiesResponsePtrOutput)
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptProperties struct {
 	// The URI of the Azure blob container that contains the custom setup script.
 	BlobContainerUri *string `pulumi:"blobContainerUri"`
@@ -3781,7 +3702,6 @@ type IntegrationRuntimeCustomSetupScriptPropertiesInput interface {
 	ToIntegrationRuntimeCustomSetupScriptPropertiesOutputWithContext(context.Context) IntegrationRuntimeCustomSetupScriptPropertiesOutput
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesArgs struct {
 	// The URI of the Azure blob container that contains the custom setup script.
 	BlobContainerUri pulumi.StringPtrInput `pulumi:"blobContainerUri"`
@@ -3842,7 +3762,6 @@ func (i *integrationRuntimeCustomSetupScriptPropertiesPtrType) ToIntegrationRunt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput)
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeCustomSetupScriptPropertiesOutput) ElementType() reflect.Type {
@@ -3921,7 +3840,6 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) SasToken() Secur
 	}).(SecureStringPtrOutput)
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesResponse struct {
 	// The URI of the Azure blob container that contains the custom setup script.
 	BlobContainerUri *string `pulumi:"blobContainerUri"`
@@ -3940,7 +3858,6 @@ type IntegrationRuntimeCustomSetupScriptPropertiesResponseInput interface {
 	ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs struct {
 	// The URI of the Azure blob container that contains the custom setup script.
 	BlobContainerUri pulumi.StringPtrInput `pulumi:"blobContainerUri"`
@@ -4001,7 +3918,6 @@ func (i *integrationRuntimeCustomSetupScriptPropertiesResponsePtrType) ToIntegra
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput)
 }
 
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4080,7 +3996,6 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput) SasToken
 	}).(SecureStringResponsePtrOutput)
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowProperties struct {
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType *string `pulumi:"computeType"`
@@ -4101,7 +4016,6 @@ type IntegrationRuntimeDataFlowPropertiesInput interface {
 	ToIntegrationRuntimeDataFlowPropertiesOutputWithContext(context.Context) IntegrationRuntimeDataFlowPropertiesOutput
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesArgs struct {
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType pulumi.StringPtrInput `pulumi:"computeType"`
@@ -4164,7 +4078,6 @@ func (i *integrationRuntimeDataFlowPropertiesPtrType) ToIntegrationRuntimeDataFl
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataFlowPropertiesPtrOutput)
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeDataFlowPropertiesOutput) ElementType() reflect.Type {
@@ -4258,7 +4171,6 @@ func (o IntegrationRuntimeDataFlowPropertiesPtrOutput) TimeToLive() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesResponse struct {
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType *string `pulumi:"computeType"`
@@ -4279,7 +4191,6 @@ type IntegrationRuntimeDataFlowPropertiesResponseInput interface {
 	ToIntegrationRuntimeDataFlowPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeDataFlowPropertiesResponseOutput
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesResponseArgs struct {
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType pulumi.StringPtrInput `pulumi:"computeType"`
@@ -4342,7 +4253,6 @@ func (i *integrationRuntimeDataFlowPropertiesResponsePtrType) ToIntegrationRunti
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataFlowPropertiesResponsePtrOutput)
 }
 
-// Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeDataFlowPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4436,7 +4346,6 @@ func (o IntegrationRuntimeDataFlowPropertiesResponsePtrOutput) TimeToLive() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyProperties struct {
 	// The self-hosted integration runtime reference.
 	ConnectVia *EntityReference `pulumi:"connectVia"`
@@ -4457,7 +4366,6 @@ type IntegrationRuntimeDataProxyPropertiesInput interface {
 	ToIntegrationRuntimeDataProxyPropertiesOutputWithContext(context.Context) IntegrationRuntimeDataProxyPropertiesOutput
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesArgs struct {
 	// The self-hosted integration runtime reference.
 	ConnectVia EntityReferencePtrInput `pulumi:"connectVia"`
@@ -4520,7 +4428,6 @@ func (i *integrationRuntimeDataProxyPropertiesPtrType) ToIntegrationRuntimeDataP
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataProxyPropertiesPtrOutput)
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeDataProxyPropertiesOutput) ElementType() reflect.Type {
@@ -4614,7 +4521,6 @@ func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) StagingLinkedService() E
 	}).(EntityReferencePtrOutput)
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesResponse struct {
 	// The self-hosted integration runtime reference.
 	ConnectVia *EntityReferenceResponse `pulumi:"connectVia"`
@@ -4635,7 +4541,6 @@ type IntegrationRuntimeDataProxyPropertiesResponseInput interface {
 	ToIntegrationRuntimeDataProxyPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeDataProxyPropertiesResponseOutput
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesResponseArgs struct {
 	// The self-hosted integration runtime reference.
 	ConnectVia EntityReferenceResponsePtrInput `pulumi:"connectVia"`
@@ -4698,7 +4603,6 @@ func (i *integrationRuntimeDataProxyPropertiesResponsePtrType) ToIntegrationRunt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataProxyPropertiesResponsePtrOutput)
 }
 
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeDataProxyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4794,7 +4698,6 @@ func (o IntegrationRuntimeDataProxyPropertiesResponsePtrOutput) StagingLinkedSer
 	}).(EntityReferenceResponsePtrOutput)
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfo struct {
 	// The password of the administrator user account of the catalog database.
 	CatalogAdminPassword *SecureString `pulumi:"catalogAdminPassword"`
@@ -4817,7 +4720,6 @@ type IntegrationRuntimeSsisCatalogInfoInput interface {
 	ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoOutput
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoArgs struct {
 	// The password of the administrator user account of the catalog database.
 	CatalogAdminPassword SecureStringPtrInput `pulumi:"catalogAdminPassword"`
@@ -4882,7 +4784,6 @@ func (i *integrationRuntimeSsisCatalogInfoPtrType) ToIntegrationRuntimeSsisCatal
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisCatalogInfoOutput) ElementType() reflect.Type {
@@ -4991,7 +4892,6 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogServerEndpoint() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoResponse struct {
 	// The password of the administrator user account of the catalog database.
 	CatalogAdminPassword *SecureStringResponse `pulumi:"catalogAdminPassword"`
@@ -5014,7 +4914,6 @@ type IntegrationRuntimeSsisCatalogInfoResponseInput interface {
 	ToIntegrationRuntimeSsisCatalogInfoResponseOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoResponseOutput
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoResponseArgs struct {
 	// The password of the administrator user account of the catalog database.
 	CatalogAdminPassword SecureStringResponsePtrInput `pulumi:"catalogAdminPassword"`
@@ -5079,7 +4978,6 @@ func (i *integrationRuntimeSsisCatalogInfoResponsePtrType) ToIntegrationRuntimeS
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoResponsePtrOutput)
 }
 
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisCatalogInfoResponseOutput) ElementType() reflect.Type {
@@ -5188,7 +5086,6 @@ func (o IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) CatalogServerEndpoin
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisProperties struct {
 	// Catalog information for managed dedicated integration runtime.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
@@ -5215,7 +5112,6 @@ type IntegrationRuntimeSsisPropertiesInput interface {
 	ToIntegrationRuntimeSsisPropertiesOutputWithContext(context.Context) IntegrationRuntimeSsisPropertiesOutput
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesArgs struct {
 	// Catalog information for managed dedicated integration runtime.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput `pulumi:"catalogInfo"`
@@ -5284,7 +5180,6 @@ func (i *integrationRuntimeSsisPropertiesPtrType) ToIntegrationRuntimeSsisProper
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPropertiesPtrOutput)
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisPropertiesOutput) ElementType() reflect.Type {
@@ -5427,7 +5322,6 @@ func (o IntegrationRuntimeSsisPropertiesPtrOutput) LicenseType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesResponse struct {
 	// Catalog information for managed dedicated integration runtime.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfoResponse `pulumi:"catalogInfo"`
@@ -5454,7 +5348,6 @@ type IntegrationRuntimeSsisPropertiesResponseInput interface {
 	ToIntegrationRuntimeSsisPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeSsisPropertiesResponseOutput
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesResponseArgs struct {
 	// Catalog information for managed dedicated integration runtime.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoResponsePtrInput `pulumi:"catalogInfo"`
@@ -5523,7 +5416,6 @@ func (i *integrationRuntimeSsisPropertiesResponsePtrType) ToIntegrationRuntimeSs
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPropertiesResponsePtrOutput)
 }
 
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5668,7 +5560,6 @@ func (o IntegrationRuntimeSsisPropertiesResponsePtrOutput) LicenseType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetProperties struct {
 	// Resource IDs of the public IP addresses that this integration runtime will use.
 	PublicIPs []string `pulumi:"publicIPs"`
@@ -5691,7 +5582,6 @@ type IntegrationRuntimeVNetPropertiesInput interface {
 	ToIntegrationRuntimeVNetPropertiesOutputWithContext(context.Context) IntegrationRuntimeVNetPropertiesOutput
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesArgs struct {
 	// Resource IDs of the public IP addresses that this integration runtime will use.
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
@@ -5756,7 +5646,6 @@ func (i *integrationRuntimeVNetPropertiesPtrType) ToIntegrationRuntimeVNetProper
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeVNetPropertiesPtrOutput)
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeVNetPropertiesOutput) ElementType() reflect.Type {
@@ -5865,7 +5754,6 @@ func (o IntegrationRuntimeVNetPropertiesPtrOutput) VNetId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesResponse struct {
 	// Resource IDs of the public IP addresses that this integration runtime will use.
 	PublicIPs []string `pulumi:"publicIPs"`
@@ -5888,7 +5776,6 @@ type IntegrationRuntimeVNetPropertiesResponseInput interface {
 	ToIntegrationRuntimeVNetPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeVNetPropertiesResponseOutput
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesResponseArgs struct {
 	// Resource IDs of the public IP addresses that this integration runtime will use.
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
@@ -5953,7 +5840,6 @@ func (i *integrationRuntimeVNetPropertiesResponsePtrType) ToIntegrationRuntimeVN
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeVNetPropertiesResponsePtrOutput)
 }
 
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeVNetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6062,7 +5948,6 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) VNetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The language extension object.
 type LanguageExtensionResponse struct {
 	// The language extension name.
 	LanguageExtensionName *string `pulumi:"languageExtensionName"`
@@ -6079,7 +5964,6 @@ type LanguageExtensionResponseInput interface {
 	ToLanguageExtensionResponseOutputWithContext(context.Context) LanguageExtensionResponseOutput
 }
 
-// The language extension object.
 type LanguageExtensionResponseArgs struct {
 	// The language extension name.
 	LanguageExtensionName pulumi.StringPtrInput `pulumi:"languageExtensionName"`
@@ -6122,7 +6006,6 @@ func (i LanguageExtensionResponseArray) ToLanguageExtensionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionResponseArrayOutput)
 }
 
-// The language extension object.
 type LanguageExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (LanguageExtensionResponseOutput) ElementType() reflect.Type {
@@ -6162,7 +6045,6 @@ func (o LanguageExtensionResponseArrayOutput) Index(i pulumi.IntInput) LanguageE
 	}).(LanguageExtensionResponseOutput)
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfo struct {
 	// Storage blob container name.
 	ContainerName *string `pulumi:"containerName"`
@@ -6185,7 +6067,6 @@ type LibraryInfoInput interface {
 	ToLibraryInfoOutputWithContext(context.Context) LibraryInfoOutput
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfoArgs struct {
 	// Storage blob container name.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
@@ -6234,7 +6115,6 @@ func (i LibraryInfoArray) ToLibraryInfoArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoArrayOutput)
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfoOutput struct{ *pulumi.OutputState }
 
 func (LibraryInfoOutput) ElementType() reflect.Type {
@@ -6289,7 +6169,6 @@ func (o LibraryInfoArrayOutput) Index(i pulumi.IntInput) LibraryInfoOutput {
 	}).(LibraryInfoOutput)
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfoResponse struct {
 	// Storage blob container name.
 	ContainerName *string `pulumi:"containerName"`
@@ -6318,7 +6197,6 @@ type LibraryInfoResponseInput interface {
 	ToLibraryInfoResponseOutputWithContext(context.Context) LibraryInfoResponseOutput
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfoResponseArgs struct {
 	// Storage blob container name.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
@@ -6373,7 +6251,6 @@ func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseArrayOutput)
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
 type LibraryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (LibraryInfoResponseOutput) ElementType() reflect.Type {
@@ -6443,7 +6320,6 @@ func (o LibraryInfoResponseArrayOutput) Index(i pulumi.IntInput) LibraryInfoResp
 	}).(LibraryInfoResponseOutput)
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirements struct {
 	// The library requirements.
 	Content *string `pulumi:"content"`
@@ -6462,7 +6338,6 @@ type LibraryRequirementsInput interface {
 	ToLibraryRequirementsOutputWithContext(context.Context) LibraryRequirementsOutput
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirementsArgs struct {
 	// The library requirements.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -6523,7 +6398,6 @@ func (i *libraryRequirementsPtrType) ToLibraryRequirementsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LibraryRequirementsPtrOutput)
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirementsOutput struct{ *pulumi.OutputState }
 
 func (LibraryRequirementsOutput) ElementType() reflect.Type {
@@ -6602,7 +6476,6 @@ func (o LibraryRequirementsPtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirementsResponse struct {
 	// The library requirements.
 	Content *string `pulumi:"content"`
@@ -6623,7 +6496,6 @@ type LibraryRequirementsResponseInput interface {
 	ToLibraryRequirementsResponseOutputWithContext(context.Context) LibraryRequirementsResponseOutput
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirementsResponseArgs struct {
 	// The library requirements.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -6686,7 +6558,6 @@ func (i *libraryRequirementsResponsePtrType) ToLibraryRequirementsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LibraryRequirementsResponsePtrOutput)
 }
 
-// Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirementsResponseOutput struct{ *pulumi.OutputState }
 
 func (LibraryRequirementsResponseOutput) ElementType() reflect.Type {
@@ -6780,7 +6651,6 @@ func (o LibraryRequirementsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorization struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'Key'.
@@ -6800,7 +6670,6 @@ type LinkedIntegrationRuntimeKeyAuthorizationInput interface {
 	ToLinkedIntegrationRuntimeKeyAuthorizationOutputWithContext(context.Context) LinkedIntegrationRuntimeKeyAuthorizationOutput
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'Key'.
@@ -6821,7 +6690,6 @@ func (i LinkedIntegrationRuntimeKeyAuthorizationArgs) ToLinkedIntegrationRuntime
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeKeyAuthorizationOutput)
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (LinkedIntegrationRuntimeKeyAuthorizationOutput) ElementType() reflect.Type {
@@ -6847,7 +6715,6 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) Key() SecureStringOutput
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorization) SecureString { return v.Key }).(SecureStringOutput)
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'Key'.
@@ -6867,7 +6734,6 @@ type LinkedIntegrationRuntimeKeyAuthorizationResponseInput interface {
 	ToLinkedIntegrationRuntimeKeyAuthorizationResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeKeyAuthorizationResponseOutput
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'Key'.
@@ -6888,7 +6754,6 @@ func (i LinkedIntegrationRuntimeKeyAuthorizationResponseArgs) ToLinkedIntegratio
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeKeyAuthorizationResponseOutput)
 }
 
-// The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -6914,7 +6779,6 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) Key() SecureStri
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorizationResponse) SecureStringResponse { return v.Key }).(SecureStringResponseOutput)
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorization struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
@@ -6934,7 +6798,6 @@ type LinkedIntegrationRuntimeRbacAuthorizationInput interface {
 	ToLinkedIntegrationRuntimeRbacAuthorizationOutputWithContext(context.Context) LinkedIntegrationRuntimeRbacAuthorizationOutput
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
@@ -6955,7 +6818,6 @@ func (i LinkedIntegrationRuntimeRbacAuthorizationArgs) ToLinkedIntegrationRuntim
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeRbacAuthorizationOutput)
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (LinkedIntegrationRuntimeRbacAuthorizationOutput) ElementType() reflect.Type {
@@ -6981,7 +6843,6 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) ResourceId() pulumi.Str
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorization) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
@@ -7001,7 +6862,6 @@ type LinkedIntegrationRuntimeRbacAuthorizationResponseInput interface {
 	ToLinkedIntegrationRuntimeRbacAuthorizationResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeRbacAuthorizationResponseOutput
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
@@ -7022,7 +6882,6 @@ func (i LinkedIntegrationRuntimeRbacAuthorizationResponseArgs) ToLinkedIntegrati
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeRbacAuthorizationResponseOutput)
 }
 
-// The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -7048,7 +6907,6 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) ResourceId() pu
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorizationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The linked integration runtime information.
 type LinkedIntegrationRuntimeResponse struct {
 	// The creating time of the linked integration runtime.
 	CreateTime string `pulumi:"createTime"`
@@ -7073,7 +6931,6 @@ type LinkedIntegrationRuntimeResponseInput interface {
 	ToLinkedIntegrationRuntimeResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeResponseOutput
 }
 
-// The linked integration runtime information.
 type LinkedIntegrationRuntimeResponseArgs struct {
 	// The creating time of the linked integration runtime.
 	CreateTime pulumi.StringInput `pulumi:"createTime"`
@@ -7124,7 +6981,6 @@ func (i LinkedIntegrationRuntimeResponseArray) ToLinkedIntegrationRuntimeRespons
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeResponseArrayOutput)
 }
 
-// The linked integration runtime information.
 type LinkedIntegrationRuntimeResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedIntegrationRuntimeResponseOutput) ElementType() reflect.Type {
@@ -7184,7 +7040,6 @@ func (o LinkedIntegrationRuntimeResponseArrayOutput) Index(i pulumi.IntInput) Li
 	}).(LinkedIntegrationRuntimeResponseOutput)
 }
 
-// The workspace managed identity
 type ManagedIdentity struct {
 	// The type of managed identity for the workspace
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -7201,7 +7056,6 @@ type ManagedIdentityInput interface {
 	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
 }
 
-// The workspace managed identity
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -7260,7 +7114,6 @@ func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
 }
 
-// The workspace managed identity
 type ManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityOutput) ElementType() reflect.Type {
@@ -7324,7 +7177,6 @@ func (o ManagedIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The workspace managed identity
 type ManagedIdentityResponse struct {
 	// The principal ID of the workspace managed identity
 	PrincipalId string `pulumi:"principalId"`
@@ -7345,7 +7197,6 @@ type ManagedIdentityResponseInput interface {
 	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
 }
 
-// The workspace managed identity
 type ManagedIdentityResponseArgs struct {
 	// The principal ID of the workspace managed identity
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -7408,7 +7259,6 @@ func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
 }
 
-// The workspace managed identity
 type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -7502,7 +7352,6 @@ func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntime struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputeProperties `pulumi:"computeProperties"`
@@ -7526,7 +7375,6 @@ type ManagedIntegrationRuntimeInput interface {
 	ToManagedIntegrationRuntimeOutputWithContext(context.Context) ManagedIntegrationRuntimeOutput
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeArgs struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties IntegrationRuntimeComputePropertiesPtrInput `pulumi:"computeProperties"`
@@ -7551,7 +7399,6 @@ func (i ManagedIntegrationRuntimeArgs) ToManagedIntegrationRuntimeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeOutput)
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeOutput) ElementType() reflect.Type {
@@ -7587,7 +7434,6 @@ func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Error definition for managed integration runtime.
 type ManagedIntegrationRuntimeErrorResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -7610,7 +7456,6 @@ type ManagedIntegrationRuntimeErrorResponseInput interface {
 	ToManagedIntegrationRuntimeErrorResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeErrorResponseOutput
 }
 
-// Error definition for managed integration runtime.
 type ManagedIntegrationRuntimeErrorResponseArgs struct {
 	// Error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -7659,7 +7504,6 @@ func (i ManagedIntegrationRuntimeErrorResponseArray) ToManagedIntegrationRuntime
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeErrorResponseArrayOutput)
 }
 
-// Error definition for managed integration runtime.
 type ManagedIntegrationRuntimeErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeErrorResponseOutput) ElementType() reflect.Type {
@@ -7714,7 +7558,6 @@ func (o ManagedIntegrationRuntimeErrorResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ManagedIntegrationRuntimeErrorResponseOutput)
 }
 
-// Properties of integration runtime node.
 type ManagedIntegrationRuntimeNodeResponse struct {
 	// The errors that occurred on this integration runtime node.
 	Errors []ManagedIntegrationRuntimeErrorResponse `pulumi:"errors"`
@@ -7735,7 +7578,6 @@ type ManagedIntegrationRuntimeNodeResponseInput interface {
 	ToManagedIntegrationRuntimeNodeResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeNodeResponseOutput
 }
 
-// Properties of integration runtime node.
 type ManagedIntegrationRuntimeNodeResponseArgs struct {
 	// The errors that occurred on this integration runtime node.
 	Errors ManagedIntegrationRuntimeErrorResponseArrayInput `pulumi:"errors"`
@@ -7782,7 +7624,6 @@ func (i ManagedIntegrationRuntimeNodeResponseArray) ToManagedIntegrationRuntimeN
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeNodeResponseArrayOutput)
 }
 
-// Properties of integration runtime node.
 type ManagedIntegrationRuntimeNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeNodeResponseOutput) ElementType() reflect.Type {
@@ -7834,7 +7675,6 @@ func (o ManagedIntegrationRuntimeNodeResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(ManagedIntegrationRuntimeNodeResponseOutput)
 }
 
-// Properties of managed integration runtime operation result.
 type ManagedIntegrationRuntimeOperationResultResponse struct {
 	// The activity id for the operation request.
 	ActivityId string `pulumi:"activityId"`
@@ -7861,7 +7701,6 @@ type ManagedIntegrationRuntimeOperationResultResponseInput interface {
 	ToManagedIntegrationRuntimeOperationResultResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeOperationResultResponseOutput
 }
 
-// Properties of managed integration runtime operation result.
 type ManagedIntegrationRuntimeOperationResultResponseArgs struct {
 	// The activity id for the operation request.
 	ActivityId pulumi.StringInput `pulumi:"activityId"`
@@ -7889,7 +7728,6 @@ func (i ManagedIntegrationRuntimeOperationResultResponseArgs) ToManagedIntegrati
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeOperationResultResponseOutput)
 }
 
-// Properties of managed integration runtime operation result.
 type ManagedIntegrationRuntimeOperationResultResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeOperationResultResponseOutput) ElementType() reflect.Type {
@@ -7934,7 +7772,6 @@ func (o ManagedIntegrationRuntimeOperationResultResponseOutput) Type() pulumi.St
 	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeResponse struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
@@ -7960,7 +7797,6 @@ type ManagedIntegrationRuntimeResponseInput interface {
 	ToManagedIntegrationRuntimeResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeResponseOutput
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeResponseArgs struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties IntegrationRuntimeComputePropertiesResponsePtrInput `pulumi:"computeProperties"`
@@ -7987,7 +7823,6 @@ func (i ManagedIntegrationRuntimeResponseArgs) ToManagedIntegrationRuntimeRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeResponseOutput)
 }
 
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeResponseOutput) ElementType() reflect.Type {
@@ -8032,7 +7867,6 @@ func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Managed integration runtime status.
 type ManagedIntegrationRuntimeStatusResponse struct {
 	// The time at which the integration runtime was created, in ISO8601 format.
 	CreateTime string `pulumi:"createTime"`
@@ -8062,7 +7896,6 @@ type ManagedIntegrationRuntimeStatusResponseInput interface {
 	ToManagedIntegrationRuntimeStatusResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeStatusResponseOutput
 }
 
-// Managed integration runtime status.
 type ManagedIntegrationRuntimeStatusResponseArgs struct {
 	// The time at which the integration runtime was created, in ISO8601 format.
 	CreateTime pulumi.StringInput `pulumi:"createTime"`
@@ -8093,7 +7926,6 @@ func (i ManagedIntegrationRuntimeStatusResponseArgs) ToManagedIntegrationRuntime
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeStatusResponseOutput)
 }
 
-// Managed integration runtime status.
 type ManagedIntegrationRuntimeStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIntegrationRuntimeStatusResponseOutput) ElementType() reflect.Type {
@@ -8150,7 +7982,6 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettings struct {
 	// Allowed Aad Tenant Ids For Linking
 	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
@@ -8171,7 +8002,6 @@ type ManagedVirtualNetworkSettingsInput interface {
 	ToManagedVirtualNetworkSettingsOutputWithContext(context.Context) ManagedVirtualNetworkSettingsOutput
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettingsArgs struct {
 	// Allowed Aad Tenant Ids For Linking
 	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
@@ -8234,7 +8064,6 @@ func (i *managedVirtualNetworkSettingsPtrType) ToManagedVirtualNetworkSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsPtrOutput)
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagedVirtualNetworkSettingsOutput) ElementType() reflect.Type {
@@ -8328,7 +8157,6 @@ func (o ManagedVirtualNetworkSettingsPtrOutput) PreventDataExfiltration() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettingsResponse struct {
 	// Allowed Aad Tenant Ids For Linking
 	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
@@ -8349,7 +8177,6 @@ type ManagedVirtualNetworkSettingsResponseInput interface {
 	ToManagedVirtualNetworkSettingsResponseOutputWithContext(context.Context) ManagedVirtualNetworkSettingsResponseOutput
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettingsResponseArgs struct {
 	// Allowed Aad Tenant Ids For Linking
 	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
@@ -8412,7 +8239,6 @@ func (i *managedVirtualNetworkSettingsResponsePtrType) ToManagedVirtualNetworkSe
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponsePtrOutput)
 }
 
-// Managed Virtual Network Settings
 type ManagedVirtualNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedVirtualNetworkSettingsResponseOutput) ElementType() reflect.Type {
@@ -8506,7 +8332,6 @@ func (o ManagedVirtualNetworkSettingsResponsePtrOutput) PreventDataExfiltration(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionType struct {
 	// Connection state of the private endpoint connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
@@ -8523,7 +8348,6 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionTypeArgs struct {
 	// Connection state of the private endpoint connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
@@ -8566,7 +8390,6 @@ func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -8608,7 +8431,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	}).(PrivateEndpointConnectionTypeOutput)
 }
 
-// Private Endpoint Connection For Private Link Hub - Basic
 type PrivateEndpointConnectionForPrivateLinkHubBasicResponse struct {
 	// identifier
 	Id string `pulumi:"id"`
@@ -8631,7 +8453,6 @@ type PrivateEndpointConnectionForPrivateLinkHubBasicResponseInput interface {
 	ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutputWithContext(context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput
 }
 
-// Private Endpoint Connection For Private Link Hub - Basic
 type PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs struct {
 	// identifier
 	Id pulumi.StringInput `pulumi:"id"`
@@ -8680,7 +8501,6 @@ func (i PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray) ToPrivateE
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput)
 }
 
-// Private Endpoint Connection For Private Link Hub - Basic
 type PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) ElementType() reflect.Type {
@@ -8739,7 +8559,6 @@ func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput) Inde
 	}).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput)
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -8766,7 +8585,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -8819,7 +8637,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// A private endpoint connection
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -8886,7 +8703,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Private endpoint details
 type PrivateEndpointResponse struct {
 	// Resource id of the private endpoint.
 	Id string `pulumi:"id"`
@@ -8903,7 +8719,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint details
 type PrivateEndpointResponseArgs struct {
 	// Resource id of the private endpoint.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -8962,7 +8777,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint details
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -9026,7 +8840,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionState struct {
 	// The private link service connection description.
 	Description *string `pulumi:"description"`
@@ -9045,7 +8858,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionStateArgs struct {
 	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -9106,7 +8918,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -9185,7 +8996,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionStateResponse struct {
 	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -9206,7 +9016,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
@@ -9269,7 +9078,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Connection state details of the private endpoint
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -9363,7 +9171,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Purview Configuration
 type PurviewConfiguration struct {
 	// Purview Resource ID
 	PurviewResourceId *string `pulumi:"purviewResourceId"`
@@ -9380,7 +9187,6 @@ type PurviewConfigurationInput interface {
 	ToPurviewConfigurationOutputWithContext(context.Context) PurviewConfigurationOutput
 }
 
-// Purview Configuration
 type PurviewConfigurationArgs struct {
 	// Purview Resource ID
 	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
@@ -9439,7 +9245,6 @@ func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationPtrOutput)
 }
 
-// Purview Configuration
 type PurviewConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PurviewConfigurationOutput) ElementType() reflect.Type {
@@ -9503,7 +9308,6 @@ func (o PurviewConfigurationPtrOutput) PurviewResourceId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Purview Configuration
 type PurviewConfigurationResponse struct {
 	// Purview Resource ID
 	PurviewResourceId *string `pulumi:"purviewResourceId"`
@@ -9520,7 +9324,6 @@ type PurviewConfigurationResponseInput interface {
 	ToPurviewConfigurationResponseOutputWithContext(context.Context) PurviewConfigurationResponseOutput
 }
 
-// Purview Configuration
 type PurviewConfigurationResponseArgs struct {
 	// Purview Resource ID
 	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
@@ -9579,7 +9382,6 @@ func (i *purviewConfigurationResponsePtrType) ToPurviewConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponsePtrOutput)
 }
 
-// Purview Configuration
 type PurviewConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (PurviewConfigurationResponseOutput) ElementType() reflect.Type {
@@ -9643,7 +9445,6 @@ func (o PurviewConfigurationResponsePtrOutput) PurviewResourceId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.
 	// Expected value is 'SecureString'.
@@ -9663,7 +9464,6 @@ type SecureStringInput interface {
 	ToSecureStringOutputWithContext(context.Context) SecureStringOutput
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringArgs struct {
 	// Type of the secret.
 	// Expected value is 'SecureString'.
@@ -9725,7 +9525,6 @@ func (i *secureStringPtrType) ToSecureStringPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SecureStringPtrOutput)
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringOutput struct{ *pulumi.OutputState }
 
 func (SecureStringOutput) ElementType() reflect.Type {
@@ -9806,7 +9605,6 @@ func (o SecureStringPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponse struct {
 	// Type of the secret.
 	// Expected value is 'SecureString'.
@@ -9826,7 +9624,6 @@ type SecureStringResponseInput interface {
 	ToSecureStringResponseOutputWithContext(context.Context) SecureStringResponseOutput
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponseArgs struct {
 	// Type of the secret.
 	// Expected value is 'SecureString'.
@@ -9888,7 +9685,6 @@ func (i *secureStringResponsePtrType) ToSecureStringResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecureStringResponsePtrOutput)
 }
 
-// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponseOutput struct{ *pulumi.OutputState }
 
 func (SecureStringResponseOutput) ElementType() reflect.Type {
@@ -9969,7 +9765,6 @@ func (o SecureStringResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntime struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -9991,7 +9786,6 @@ type SelfHostedIntegrationRuntimeInput interface {
 	ToSelfHostedIntegrationRuntimeOutputWithContext(context.Context) SelfHostedIntegrationRuntimeOutput
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeArgs struct {
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -10014,7 +9808,6 @@ func (i SelfHostedIntegrationRuntimeArgs) ToSelfHostedIntegrationRuntimeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeOutput)
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeOutput struct{ *pulumi.OutputState }
 
 func (SelfHostedIntegrationRuntimeOutput) ElementType() reflect.Type {
@@ -10045,7 +9838,6 @@ func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Properties of Self-hosted integration runtime node.
 type SelfHostedIntegrationRuntimeNodeResponse struct {
 	// The integration runtime capabilities dictionary
 	Capabilities map[string]string `pulumi:"capabilities"`
@@ -10096,7 +9888,6 @@ type SelfHostedIntegrationRuntimeNodeResponseInput interface {
 	ToSelfHostedIntegrationRuntimeNodeResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeNodeResponseOutput
 }
 
-// Properties of Self-hosted integration runtime node.
 type SelfHostedIntegrationRuntimeNodeResponseArgs struct {
 	// The integration runtime capabilities dictionary
 	Capabilities pulumi.StringMapInput `pulumi:"capabilities"`
@@ -10173,7 +9964,6 @@ func (i SelfHostedIntegrationRuntimeNodeResponseArray) ToSelfHostedIntegrationRu
 	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeNodeResponseArrayOutput)
 }
 
-// Properties of Self-hosted integration runtime node.
 type SelfHostedIntegrationRuntimeNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (SelfHostedIntegrationRuntimeNodeResponseOutput) ElementType() reflect.Type {
@@ -10298,7 +10088,6 @@ func (o SelfHostedIntegrationRuntimeNodeResponseArrayOutput) Index(i pulumi.IntI
 	}).(SelfHostedIntegrationRuntimeNodeResponseOutput)
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeResponse struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -10320,7 +10109,6 @@ type SelfHostedIntegrationRuntimeResponseInput interface {
 	ToSelfHostedIntegrationRuntimeResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeResponseOutput
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeResponseArgs struct {
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -10343,7 +10131,6 @@ func (i SelfHostedIntegrationRuntimeResponseArgs) ToSelfHostedIntegrationRuntime
 	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeResponseOutput)
 }
 
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeResponseOutput struct{ *pulumi.OutputState }
 
 func (SelfHostedIntegrationRuntimeResponseOutput) ElementType() reflect.Type {
@@ -10374,7 +10161,6 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Self-hosted integration runtime status.
 type SelfHostedIntegrationRuntimeStatusResponse struct {
 	// Whether Self-hosted integration runtime auto update has been turned on.
 	AutoUpdate string `pulumi:"autoUpdate"`
@@ -10430,7 +10216,6 @@ type SelfHostedIntegrationRuntimeStatusResponseInput interface {
 	ToSelfHostedIntegrationRuntimeStatusResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeStatusResponseOutput
 }
 
-// Self-hosted integration runtime status.
 type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	// Whether Self-hosted integration runtime auto update has been turned on.
 	AutoUpdate pulumi.StringInput `pulumi:"autoUpdate"`
@@ -10487,7 +10272,6 @@ func (i SelfHostedIntegrationRuntimeStatusResponseArgs) ToSelfHostedIntegrationR
 	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeStatusResponseOutput)
 }
 
-// Self-hosted integration runtime status.
 type SelfHostedIntegrationRuntimeStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (SelfHostedIntegrationRuntimeStatusResponseOutput) ElementType() reflect.Type {
@@ -10607,7 +10391,6 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) VersionStatus() pulumi
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.VersionStatus }).(pulumi.StringOutput)
 }
 
-// SQL pool SKU
 type Sku struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -10628,7 +10411,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SQL pool SKU
 type SkuArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -10691,7 +10473,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SQL pool SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -10785,7 +10566,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL pool SKU
 type SkuResponse struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
@@ -10806,7 +10586,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SQL pool SKU
 type SkuResponseArgs struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -10869,7 +10648,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SQL pool SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -10963,7 +10741,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItem struct {
 	// The rule baseline result
 	Result []string `pulumi:"result"`
@@ -10980,7 +10757,6 @@ type SqlPoolVulnerabilityAssessmentRuleBaselineItemInput interface {
 	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs struct {
 	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
@@ -11023,7 +10799,6 @@ func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ToSqlPoolVulnerabil
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput)
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ElementType() reflect.Type {
@@ -11063,7 +10838,6 @@ func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulum
 	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput)
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse struct {
 	// The rule baseline result
 	Result []string `pulumi:"result"`
@@ -11080,7 +10854,6 @@ type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
 	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
 	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
@@ -11123,7 +10896,6 @@ func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ToSqlPoolVu
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
 }
 
-// Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
@@ -11163,7 +10935,6 @@ func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Index
 	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput)
 }
 
-// Ssis environment reference.
 type SsisEnvironmentReferenceResponse struct {
 	// Environment folder name.
 	EnvironmentFolderName *string `pulumi:"environmentFolderName"`
@@ -11186,7 +10957,6 @@ type SsisEnvironmentReferenceResponseInput interface {
 	ToSsisEnvironmentReferenceResponseOutputWithContext(context.Context) SsisEnvironmentReferenceResponseOutput
 }
 
-// Ssis environment reference.
 type SsisEnvironmentReferenceResponseArgs struct {
 	// Environment folder name.
 	EnvironmentFolderName pulumi.StringPtrInput `pulumi:"environmentFolderName"`
@@ -11235,7 +11005,6 @@ func (i SsisEnvironmentReferenceResponseArray) ToSsisEnvironmentReferenceRespons
 	return pulumi.ToOutputWithContext(ctx, i).(SsisEnvironmentReferenceResponseArrayOutput)
 }
 
-// Ssis environment reference.
 type SsisEnvironmentReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisEnvironmentReferenceResponseOutput) ElementType() reflect.Type {
@@ -11290,7 +11059,6 @@ func (o SsisEnvironmentReferenceResponseArrayOutput) Index(i pulumi.IntInput) Ss
 	}).(SsisEnvironmentReferenceResponseOutput)
 }
 
-// Ssis environment.
 type SsisEnvironmentResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
@@ -11318,7 +11086,6 @@ type SsisEnvironmentResponseInput interface {
 	ToSsisEnvironmentResponseOutputWithContext(context.Context) SsisEnvironmentResponseOutput
 }
 
-// Ssis environment.
 type SsisEnvironmentResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -11347,7 +11114,6 @@ func (i SsisEnvironmentResponseArgs) ToSsisEnvironmentResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SsisEnvironmentResponseOutput)
 }
 
-// Ssis environment.
 type SsisEnvironmentResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisEnvironmentResponseOutput) ElementType() reflect.Type {
@@ -11393,7 +11159,6 @@ func (o SsisEnvironmentResponseOutput) Variables() SsisVariableResponseArrayOutp
 	return o.ApplyT(func(v SsisEnvironmentResponse) []SsisVariableResponse { return v.Variables }).(SsisVariableResponseArrayOutput)
 }
 
-// Ssis folder.
 type SsisFolderResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
@@ -11417,7 +11182,6 @@ type SsisFolderResponseInput interface {
 	ToSsisFolderResponseOutputWithContext(context.Context) SsisFolderResponseOutput
 }
 
-// Ssis folder.
 type SsisFolderResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -11442,7 +11206,6 @@ func (i SsisFolderResponseArgs) ToSsisFolderResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SsisFolderResponseOutput)
 }
 
-// Ssis folder.
 type SsisFolderResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisFolderResponseOutput) ElementType() reflect.Type {
@@ -11478,7 +11241,6 @@ func (o SsisFolderResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisFolderResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Ssis Package.
 type SsisPackageResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
@@ -11510,7 +11272,6 @@ type SsisPackageResponseInput interface {
 	ToSsisPackageResponseOutputWithContext(context.Context) SsisPackageResponseOutput
 }
 
-// Ssis Package.
 type SsisPackageResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -11543,7 +11304,6 @@ func (i SsisPackageResponseArgs) ToSsisPackageResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SsisPackageResponseOutput)
 }
 
-// Ssis Package.
 type SsisPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisPackageResponseOutput) ElementType() reflect.Type {
@@ -11599,7 +11359,6 @@ func (o SsisPackageResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisPackageResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Ssis parameter.
 type SsisParameterResponse struct {
 	// Parameter type.
 	DataType *string `pulumi:"dataType"`
@@ -11638,7 +11397,6 @@ type SsisParameterResponseInput interface {
 	ToSsisParameterResponseOutputWithContext(context.Context) SsisParameterResponseOutput
 }
 
-// Ssis parameter.
 type SsisParameterResponseArgs struct {
 	// Parameter type.
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -11703,7 +11461,6 @@ func (i SsisParameterResponseArray) ToSsisParameterResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SsisParameterResponseArrayOutput)
 }
 
-// Ssis parameter.
 type SsisParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisParameterResponseOutput) ElementType() reflect.Type {
@@ -11798,7 +11555,6 @@ func (o SsisParameterResponseArrayOutput) Index(i pulumi.IntInput) SsisParameter
 	}).(SsisParameterResponseOutput)
 }
 
-// Ssis project.
 type SsisProjectResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
@@ -11830,7 +11586,6 @@ type SsisProjectResponseInput interface {
 	ToSsisProjectResponseOutputWithContext(context.Context) SsisProjectResponseOutput
 }
 
-// Ssis project.
 type SsisProjectResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -11863,7 +11618,6 @@ func (i SsisProjectResponseArgs) ToSsisProjectResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SsisProjectResponseOutput)
 }
 
-// Ssis project.
 type SsisProjectResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisProjectResponseOutput) ElementType() reflect.Type {
@@ -11919,7 +11673,6 @@ func (o SsisProjectResponseOutput) Version() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SsisProjectResponse) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
 
-// Ssis variable.
 type SsisVariableResponse struct {
 	// Variable type.
 	DataType *string `pulumi:"dataType"`
@@ -11948,7 +11701,6 @@ type SsisVariableResponseInput interface {
 	ToSsisVariableResponseOutputWithContext(context.Context) SsisVariableResponseOutput
 }
 
-// Ssis variable.
 type SsisVariableResponseArgs struct {
 	// Variable type.
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -12003,7 +11755,6 @@ func (i SsisVariableResponseArray) ToSsisVariableResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SsisVariableResponseArrayOutput)
 }
 
-// Ssis variable.
 type SsisVariableResponseOutput struct{ *pulumi.OutputState }
 
 func (SsisVariableResponseOutput) ElementType() reflect.Type {
@@ -12073,7 +11824,6 @@ func (o SsisVariableResponseArrayOutput) Index(i pulumi.IntInput) SsisVariableRe
 	}).(SsisVariableResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -12100,7 +11850,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -12169,7 +11918,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -12308,7 +12056,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingProperties struct {
 	// List of external tables exclude from the follower database
 	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
@@ -12335,7 +12082,6 @@ type TableLevelSharingPropertiesInput interface {
 	ToTableLevelSharingPropertiesOutputWithContext(context.Context) TableLevelSharingPropertiesOutput
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingPropertiesArgs struct {
 	// List of external tables exclude from the follower database
 	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
@@ -12404,7 +12150,6 @@ func (i *tableLevelSharingPropertiesPtrType) ToTableLevelSharingPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesPtrOutput)
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableLevelSharingPropertiesOutput) ElementType() reflect.Type {
@@ -12543,7 +12288,6 @@ func (o TableLevelSharingPropertiesPtrOutput) TablesToInclude() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingPropertiesResponse struct {
 	// List of external tables exclude from the follower database
 	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
@@ -12570,7 +12314,6 @@ type TableLevelSharingPropertiesResponseInput interface {
 	ToTableLevelSharingPropertiesResponseOutputWithContext(context.Context) TableLevelSharingPropertiesResponseOutput
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingPropertiesResponseArgs struct {
 	// List of external tables exclude from the follower database
 	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
@@ -12639,7 +12382,6 @@ func (i *tableLevelSharingPropertiesResponsePtrType) ToTableLevelSharingProperti
 	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesResponsePtrOutput)
 }
 
-// Tables that will be included and excluded in the follower database
 type TableLevelSharingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TableLevelSharingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -12778,7 +12520,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfile struct {
 	// Subnet ID used for computes in workspace
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
@@ -12795,7 +12536,6 @@ type VirtualNetworkProfileInput interface {
 	ToVirtualNetworkProfileOutputWithContext(context.Context) VirtualNetworkProfileOutput
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfileArgs struct {
 	// Subnet ID used for computes in workspace
 	ComputeSubnetId pulumi.StringPtrInput `pulumi:"computeSubnetId"`
@@ -12854,7 +12594,6 @@ func (i *virtualNetworkProfilePtrType) ToVirtualNetworkProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfilePtrOutput)
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileOutput) ElementType() reflect.Type {
@@ -12918,7 +12657,6 @@ func (o VirtualNetworkProfilePtrOutput) ComputeSubnetId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfileResponse struct {
 	// Subnet ID used for computes in workspace
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
@@ -12935,7 +12673,6 @@ type VirtualNetworkProfileResponseInput interface {
 	ToVirtualNetworkProfileResponseOutputWithContext(context.Context) VirtualNetworkProfileResponseOutput
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfileResponseArgs struct {
 	// Subnet ID used for computes in workspace
 	ComputeSubnetId pulumi.StringPtrInput `pulumi:"computeSubnetId"`
@@ -12994,7 +12731,6 @@ func (i *virtualNetworkProfileResponsePtrType) ToVirtualNetworkProfileResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfileResponsePtrOutput)
 }
 
-// Virtual Network Profile
 type VirtualNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -13058,7 +12794,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) ComputeSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansProperties struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
@@ -13079,7 +12814,6 @@ type VulnerabilityAssessmentRecurringScansPropertiesInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
@@ -13142,7 +12876,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesPtrType) ToVulnerability
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesOutput) ElementType() reflect.Type {
@@ -13236,7 +12969,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
@@ -13257,7 +12989,6 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
@@ -13320,7 +13051,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulne
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ElementType() reflect.Type {
@@ -13416,7 +13146,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetails struct {
 	// Workspace Key sub-resource key vault url
 	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
@@ -13435,7 +13164,6 @@ type WorkspaceKeyDetailsInput interface {
 	ToWorkspaceKeyDetailsOutputWithContext(context.Context) WorkspaceKeyDetailsOutput
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetailsArgs struct {
 	// Workspace Key sub-resource key vault url
 	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
@@ -13496,7 +13224,6 @@ func (i *workspaceKeyDetailsPtrType) ToWorkspaceKeyDetailsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsPtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyDetailsOutput) ElementType() reflect.Type {
@@ -13575,7 +13302,6 @@ func (o WorkspaceKeyDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetailsResponse struct {
 	// Workspace Key sub-resource key vault url
 	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
@@ -13594,7 +13320,6 @@ type WorkspaceKeyDetailsResponseInput interface {
 	ToWorkspaceKeyDetailsResponseOutputWithContext(context.Context) WorkspaceKeyDetailsResponseOutput
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetailsResponseArgs struct {
 	// Workspace Key sub-resource key vault url
 	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
@@ -13655,7 +13380,6 @@ func (i *workspaceKeyDetailsResponsePtrType) ToWorkspaceKeyDetailsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponsePtrOutput)
 }
 
-// Details of the customer managed key associated with the workspace
 type WorkspaceKeyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyDetailsResponseOutput) ElementType() reflect.Type {
@@ -13734,7 +13458,6 @@ func (o WorkspaceKeyDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfiguration struct {
 	// Account name
 	AccountName *string `pulumi:"accountName"`
@@ -13767,7 +13490,6 @@ type WorkspaceRepositoryConfigurationInput interface {
 	ToWorkspaceRepositoryConfigurationOutputWithContext(context.Context) WorkspaceRepositoryConfigurationOutput
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfigurationArgs struct {
 	// Account name
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
@@ -13842,7 +13564,6 @@ func (i *workspaceRepositoryConfigurationPtrType) ToWorkspaceRepositoryConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationPtrOutput)
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceRepositoryConfigurationOutput) ElementType() reflect.Type {
@@ -14026,7 +13747,6 @@ func (o WorkspaceRepositoryConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfigurationResponse struct {
 	// Account name
 	AccountName *string `pulumi:"accountName"`
@@ -14059,7 +13779,6 @@ type WorkspaceRepositoryConfigurationResponseInput interface {
 	ToWorkspaceRepositoryConfigurationResponseOutputWithContext(context.Context) WorkspaceRepositoryConfigurationResponseOutput
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfigurationResponseArgs struct {
 	// Account name
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
@@ -14134,7 +13853,6 @@ func (i *workspaceRepositoryConfigurationResponsePtrType) ToWorkspaceRepositoryC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponsePtrOutput)
 }
 
-// Git integration settings
 type WorkspaceRepositoryConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceRepositoryConfigurationResponseOutput) ElementType() reflect.Type {

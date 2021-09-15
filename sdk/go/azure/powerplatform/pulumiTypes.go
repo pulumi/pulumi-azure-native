@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentity struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -27,7 +26,6 @@ type EnterprisePolicyIdentityInput interface {
 	ToEnterprisePolicyIdentityOutputWithContext(context.Context) EnterprisePolicyIdentityOutput
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *enterprisePolicyIdentityPtrType) ToEnterprisePolicyIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityPtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o EnterprisePolicyIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput 
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponse struct {
 	// The principal id of EnterprisePolicy identity.
 	SystemAssignedIdentityPrincipalId string `pulumi:"systemAssignedIdentityPrincipalId"`
@@ -171,7 +167,6 @@ type EnterprisePolicyIdentityResponseInput interface {
 	ToEnterprisePolicyIdentityResponseOutputWithContext(context.Context) EnterprisePolicyIdentityResponseOutput
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseArgs struct {
 	// The principal id of EnterprisePolicy identity.
 	SystemAssignedIdentityPrincipalId pulumi.StringInput `pulumi:"systemAssignedIdentityPrincipalId"`
@@ -234,7 +229,6 @@ func (i *enterprisePolicyIdentityResponsePtrType) ToEnterprisePolicyIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyProperties struct {
 	// The identifier of the key vault key used to encrypt data.
 	Name *string `pulumi:"name"`
@@ -347,7 +340,6 @@ type KeyPropertiesInput interface {
 	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesArgs struct {
 	// The identifier of the key vault key used to encrypt data.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -408,7 +400,6 @@ func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesOutput) ElementType() reflect.Type {
@@ -487,7 +478,6 @@ func (o KeyPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponse struct {
 	// The identifier of the key vault key used to encrypt data.
 	Name *string `pulumi:"name"`
@@ -506,7 +496,6 @@ type KeyPropertiesResponseInput interface {
 	ToKeyPropertiesResponseOutputWithContext(context.Context) KeyPropertiesResponseOutput
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponseArgs struct {
 	// The identifier of the key vault key used to encrypt data.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -567,7 +556,6 @@ func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponsePtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -646,7 +634,6 @@ func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultProperties struct {
 	// Uri of KeyVault
 	Id *string `pulumi:"id"`
@@ -665,7 +652,6 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesArgs struct {
 	// Uri of KeyVault
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -726,7 +712,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -805,7 +790,6 @@ func (o KeyVaultPropertiesPtrOutput) Key() KeyPropertiesPtrOutput {
 	}).(KeyPropertiesPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponse struct {
 	// Uri of KeyVault
 	Id *string `pulumi:"id"`
@@ -824,7 +808,6 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseArgs struct {
 	// Uri of KeyVault
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -885,7 +868,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -964,7 +946,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Key() KeyPropertiesResponsePtrOutpu
 	}).(KeyPropertiesResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -981,7 +962,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1040,7 +1020,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1104,7 +1083,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1125,7 +1103,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1188,7 +1165,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1282,7 +1258,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1303,7 +1278,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1366,7 +1340,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1460,7 +1433,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryption struct {
 	// Key vault properties.
 	KeyVault *KeyVaultProperties `pulumi:"keyVault"`
@@ -1479,7 +1451,6 @@ type PropertiesEncryptionInput interface {
 	ToPropertiesEncryptionOutputWithContext(context.Context) PropertiesEncryptionOutput
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryptionArgs struct {
 	// Key vault properties.
 	KeyVault KeyVaultPropertiesPtrInput `pulumi:"keyVault"`
@@ -1540,7 +1511,6 @@ func (i *propertiesEncryptionPtrType) ToPropertiesEncryptionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesEncryptionPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesEncryptionOutput) ElementType() reflect.Type {
@@ -1619,7 +1589,6 @@ func (o PropertiesEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesLockbox struct {
 	// lockbox configuration
 	State *string `pulumi:"state"`
@@ -1636,7 +1605,6 @@ type PropertiesLockboxInput interface {
 	ToPropertiesLockboxOutputWithContext(context.Context) PropertiesLockboxOutput
 }
 
-// Settings concerning lockbox.
 type PropertiesLockboxArgs struct {
 	// lockbox configuration
 	State pulumi.StringPtrInput `pulumi:"state"`
@@ -1695,7 +1663,6 @@ func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesLockboxOutput struct{ *pulumi.OutputState }
 
 func (PropertiesLockboxOutput) ElementType() reflect.Type {
@@ -1759,7 +1726,6 @@ func (o PropertiesLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjection struct {
 	// Network injection configuration
 	VirtualNetworks *VirtualNetworkPropertiesList `pulumi:"virtualNetworks"`
@@ -1776,7 +1742,6 @@ type PropertiesNetworkInjectionInput interface {
 	ToPropertiesNetworkInjectionOutputWithContext(context.Context) PropertiesNetworkInjectionOutput
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjectionArgs struct {
 	// Network injection configuration
 	VirtualNetworks VirtualNetworkPropertiesListPtrInput `pulumi:"virtualNetworks"`
@@ -1835,7 +1800,6 @@ func (i *propertiesNetworkInjectionPtrType) ToPropertiesNetworkInjectionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesNetworkInjectionPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjectionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesNetworkInjectionOutput) ElementType() reflect.Type {
@@ -1899,7 +1863,6 @@ func (o PropertiesNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPro
 	}).(VirtualNetworkPropertiesListPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryption struct {
 	// Key vault properties.
 	KeyVault *KeyVaultPropertiesResponse `pulumi:"keyVault"`
@@ -1918,7 +1881,6 @@ type PropertiesResponseEncryptionInput interface {
 	ToPropertiesResponseEncryptionOutputWithContext(context.Context) PropertiesResponseEncryptionOutput
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryptionArgs struct {
 	// Key vault properties.
 	KeyVault KeyVaultPropertiesResponsePtrInput `pulumi:"keyVault"`
@@ -1979,7 +1941,6 @@ func (i *propertiesResponseEncryptionPtrType) ToPropertiesResponseEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseEncryptionPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseEncryptionOutput) ElementType() reflect.Type {
@@ -2058,7 +2019,6 @@ func (o PropertiesResponseEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockbox struct {
 	// lockbox configuration
 	State *string `pulumi:"state"`
@@ -2075,7 +2035,6 @@ type PropertiesResponseLockboxInput interface {
 	ToPropertiesResponseLockboxOutputWithContext(context.Context) PropertiesResponseLockboxOutput
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockboxArgs struct {
 	// lockbox configuration
 	State pulumi.StringPtrInput `pulumi:"state"`
@@ -2134,7 +2093,6 @@ func (i *propertiesResponseLockboxPtrType) ToPropertiesResponseLockboxPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseLockboxPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockboxOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseLockboxOutput) ElementType() reflect.Type {
@@ -2198,7 +2156,6 @@ func (o PropertiesResponseLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjection struct {
 	// Network injection configuration
 	VirtualNetworks *VirtualNetworkPropertiesListResponse `pulumi:"virtualNetworks"`
@@ -2215,7 +2172,6 @@ type PropertiesResponseNetworkInjectionInput interface {
 	ToPropertiesResponseNetworkInjectionOutputWithContext(context.Context) PropertiesResponseNetworkInjectionOutput
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjectionArgs struct {
 	// Network injection configuration
 	VirtualNetworks VirtualNetworkPropertiesListResponsePtrInput `pulumi:"virtualNetworks"`
@@ -2274,7 +2230,6 @@ func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkI
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjectionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseNetworkInjectionOutput) ElementType() reflect.Type {
@@ -2340,7 +2295,6 @@ func (o PropertiesResponseNetworkInjectionPtrOutput) VirtualNetworks() VirtualNe
 	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetProperties struct {
 	// Subnet name.
 	Name *string `pulumi:"name"`
@@ -2357,7 +2311,6 @@ type SubnetPropertiesInput interface {
 	ToSubnetPropertiesOutputWithContext(context.Context) SubnetPropertiesOutput
 }
 
-// Properties of a subnet.
 type SubnetPropertiesArgs struct {
 	// Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2416,7 +2369,6 @@ func (i *subnetPropertiesPtrType) ToSubnetPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesPtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SubnetPropertiesOutput) ElementType() reflect.Type {
@@ -2480,7 +2432,6 @@ func (o SubnetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponse struct {
 	// Subnet name.
 	Name *string `pulumi:"name"`
@@ -2497,7 +2448,6 @@ type SubnetPropertiesResponseInput interface {
 	ToSubnetPropertiesResponseOutputWithContext(context.Context) SubnetPropertiesResponseOutput
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponseArgs struct {
 	// Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2556,7 +2506,6 @@ func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponsePtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2620,7 +2569,6 @@ func (o SubnetPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2647,7 +2595,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -2716,7 +2663,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2855,7 +2801,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkProperties struct {
 	// Uri of the virtual network.
 	Id *string `pulumi:"id"`
@@ -2874,7 +2819,6 @@ type VirtualNetworkPropertiesInput interface {
 	ToVirtualNetworkPropertiesOutputWithContext(context.Context) VirtualNetworkPropertiesOutput
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesArgs struct {
 	// Uri of the virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2919,7 +2863,6 @@ func (i VirtualNetworkPropertiesArray) ToVirtualNetworkPropertiesArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesOutput) ElementType() reflect.Type {
@@ -2964,7 +2907,6 @@ func (o VirtualNetworkPropertiesArrayOutput) Index(i pulumi.IntInput) VirtualNet
 	}).(VirtualNetworkPropertiesOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesList struct {
 	// Next page link if any.
 	NextLink *string `pulumi:"nextLink"`
@@ -2983,7 +2925,6 @@ type VirtualNetworkPropertiesListInput interface {
 	ToVirtualNetworkPropertiesListOutputWithContext(context.Context) VirtualNetworkPropertiesListOutput
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListArgs struct {
 	// Next page link if any.
 	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
@@ -3044,7 +2985,6 @@ func (i *virtualNetworkPropertiesListPtrType) ToVirtualNetworkPropertiesListPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListPtrOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesListOutput) ElementType() reflect.Type {
@@ -3123,7 +3063,6 @@ func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesA
 	}).(VirtualNetworkPropertiesArrayOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponse struct {
 	// Next page link if any.
 	NextLink *string `pulumi:"nextLink"`
@@ -3142,7 +3081,6 @@ type VirtualNetworkPropertiesListResponseInput interface {
 	ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Context) VirtualNetworkPropertiesListResponseOutput
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponseArgs struct {
 	// Next page link if any.
 	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
@@ -3203,7 +3141,6 @@ func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkProperties
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesListResponseOutput) ElementType() reflect.Type {
@@ -3282,7 +3219,6 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) Value() VirtualNetworkPro
 	}).(VirtualNetworkPropertiesResponseArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponse struct {
 	// Uri of the virtual network.
 	Id *string `pulumi:"id"`
@@ -3301,7 +3237,6 @@ type VirtualNetworkPropertiesResponseInput interface {
 	ToVirtualNetworkPropertiesResponseOutputWithContext(context.Context) VirtualNetworkPropertiesResponseOutput
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponseArgs struct {
 	// Uri of the virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3346,7 +3281,6 @@ func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesRespons
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesResponseOutput) ElementType() reflect.Type {

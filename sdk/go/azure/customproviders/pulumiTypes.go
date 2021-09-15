@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinition struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -31,7 +30,6 @@ type CustomRPActionRouteDefinitionInput interface {
 	ToCustomRPActionRouteDefinitionOutputWithContext(context.Context) CustomRPActionRouteDefinitionOutput
 }
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionArgs struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -78,7 +76,6 @@ func (i CustomRPActionRouteDefinitionArray) ToCustomRPActionRouteDefinitionArray
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionArrayOutput)
 }
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CustomRPActionRouteDefinitionOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o CustomRPActionRouteDefinitionArrayOutput) Index(i pulumi.IntInput) Custo
 	}).(CustomRPActionRouteDefinitionOutput)
 }
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionResponse struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -149,7 +145,6 @@ type CustomRPActionRouteDefinitionResponseInput interface {
 	ToCustomRPActionRouteDefinitionResponseOutputWithContext(context.Context) CustomRPActionRouteDefinitionResponseOutput
 }
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionResponseArgs struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -196,7 +191,6 @@ func (i CustomRPActionRouteDefinitionResponseArray) ToCustomRPActionRouteDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionResponseArrayOutput)
 }
 
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRPActionRouteDefinitionResponseOutput) ElementType() reflect.Type {
@@ -246,7 +240,6 @@ func (o CustomRPActionRouteDefinitionResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(CustomRPActionRouteDefinitionResponseOutput)
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinition struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -267,7 +260,6 @@ type CustomRPResourceTypeRouteDefinitionInput interface {
 	ToCustomRPResourceTypeRouteDefinitionOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionOutput
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionArgs struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -314,7 +306,6 @@ func (i CustomRPResourceTypeRouteDefinitionArray) ToCustomRPResourceTypeRouteDef
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionArrayOutput)
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CustomRPResourceTypeRouteDefinitionOutput) ElementType() reflect.Type {
@@ -364,7 +355,6 @@ func (o CustomRPResourceTypeRouteDefinitionArrayOutput) Index(i pulumi.IntInput)
 	}).(CustomRPResourceTypeRouteDefinitionOutput)
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionResponse struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -385,7 +375,6 @@ type CustomRPResourceTypeRouteDefinitionResponseInput interface {
 	ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionResponseOutput
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionResponseArgs struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -432,7 +421,6 @@ func (i CustomRPResourceTypeRouteDefinitionResponseArray) ToCustomRPResourceType
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionResponseArrayOutput)
 }
 
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRPResourceTypeRouteDefinitionResponseOutput) ElementType() reflect.Type {
@@ -482,7 +470,6 @@ func (o CustomRPResourceTypeRouteDefinitionResponseArrayOutput) Index(i pulumi.I
 	}).(CustomRPResourceTypeRouteDefinitionResponseOutput)
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidations struct {
 	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 	Specification string `pulumi:"specification"`
@@ -501,7 +488,6 @@ type CustomRPValidationsInput interface {
 	ToCustomRPValidationsOutputWithContext(context.Context) CustomRPValidationsOutput
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsArgs struct {
 	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 	Specification pulumi.StringInput `pulumi:"specification"`
@@ -546,7 +532,6 @@ func (i CustomRPValidationsArray) ToCustomRPValidationsArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsArrayOutput)
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsOutput struct{ *pulumi.OutputState }
 
 func (CustomRPValidationsOutput) ElementType() reflect.Type {
@@ -591,7 +576,6 @@ func (o CustomRPValidationsArrayOutput) Index(i pulumi.IntInput) CustomRPValidat
 	}).(CustomRPValidationsOutput)
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsResponse struct {
 	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 	Specification string `pulumi:"specification"`
@@ -610,7 +594,6 @@ type CustomRPValidationsResponseInput interface {
 	ToCustomRPValidationsResponseOutputWithContext(context.Context) CustomRPValidationsResponseOutput
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsResponseArgs struct {
 	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 	Specification pulumi.StringInput `pulumi:"specification"`
@@ -655,7 +638,6 @@ func (i CustomRPValidationsResponseArray) ToCustomRPValidationsResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsResponseArrayOutput)
 }
 
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRPValidationsResponseOutput) ElementType() reflect.Type {

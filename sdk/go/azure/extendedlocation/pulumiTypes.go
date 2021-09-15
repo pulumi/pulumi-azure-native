@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesAuthentication struct {
 	// The type of the Custom Locations authentication
 	Type *string `pulumi:"type"`
@@ -29,7 +28,6 @@ type CustomLocationPropertiesAuthenticationInput interface {
 	ToCustomLocationPropertiesAuthenticationOutputWithContext(context.Context) CustomLocationPropertiesAuthenticationOutput
 }
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesAuthenticationArgs struct {
 	// The type of the Custom Locations authentication
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -90,7 +88,6 @@ func (i *customLocationPropertiesAuthenticationPtrType) ToCustomLocationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLocationPropertiesAuthenticationPtrOutput)
 }
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (CustomLocationPropertiesAuthenticationOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o CustomLocationPropertiesAuthenticationPtrOutput) Value() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesResponseAuthentication struct {
 	// The type of the Custom Locations authentication
 	Type *string `pulumi:"type"`
@@ -186,7 +182,6 @@ type CustomLocationPropertiesResponseAuthenticationInput interface {
 	ToCustomLocationPropertiesResponseAuthenticationOutputWithContext(context.Context) CustomLocationPropertiesResponseAuthenticationOutput
 }
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesResponseAuthenticationArgs struct {
 	// The type of the Custom Locations authentication
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -245,7 +240,6 @@ func (i *customLocationPropertiesResponseAuthenticationPtrType) ToCustomLocation
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLocationPropertiesResponseAuthenticationPtrOutput)
 }
 
-// This is optional input that contains the authentication that should be used to generate the namespace.
 type CustomLocationPropertiesResponseAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (CustomLocationPropertiesResponseAuthenticationOutput) ElementType() reflect.Type {
@@ -309,7 +303,6 @@ func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -336,7 +329,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -405,7 +397,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

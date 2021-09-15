@@ -120,6 +120,14 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Basic network, or Standard features available to the volume.
+     */
+    public readonly networkFeatures!: pulumi.Output<string | undefined>;
+    /**
+     * Network Sibling Set ID for the the group of volumes sharing networking resources.
+     */
+    public /*out*/ readonly networkSiblingSetId!: pulumi.Output<string>;
+    /**
      * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
@@ -152,6 +160,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
+     * Provides storage to network proximity information for the volume.
+     */
+    public /*out*/ readonly storageToNetworkProximity!: pulumi.Output<string>;
+    /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -173,7 +185,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly usageThreshold!: pulumi.Output<number>;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
@@ -222,6 +234,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) ?? false;
             inputs["ldapEnabled"] = (args ? args.ldapEnabled : undefined) ?? false;
             inputs["location"] = args ? args.location : undefined;
+            inputs["networkFeatures"] = (args ? args.networkFeatures : undefined) ?? "Basic";
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -244,7 +257,9 @@ export class Volume extends pulumi.CustomResource {
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkSiblingSetId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageToNetworkProximity"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["avsDataStore"] = undefined /*out*/;
@@ -268,6 +283,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkFeatures"] = undefined /*out*/;
+            inputs["networkSiblingSetId"] = undefined /*out*/;
             inputs["protocolTypes"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["securityStyle"] = undefined /*out*/;
@@ -276,6 +293,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["smbEncryption"] = undefined /*out*/;
             inputs["snapshotDirectoryVisible"] = undefined /*out*/;
             inputs["snapshotId"] = undefined /*out*/;
+            inputs["storageToNetworkProximity"] = undefined /*out*/;
             inputs["subnetId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["throughputMibps"] = undefined /*out*/;
@@ -362,6 +380,10 @@ export interface VolumeArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Basic network, or Standard features available to the volume.
+     */
+    networkFeatures?: pulumi.Input<string | enums.netapp.v20210601.NetworkFeatures>;
+    /**
      * The name of the capacity pool
      */
     poolName: pulumi.Input<string>;
@@ -419,7 +441,7 @@ export interface VolumeArgs {
      */
     volumeName?: pulumi.Input<string>;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     volumeType?: pulumi.Input<string>;
 }

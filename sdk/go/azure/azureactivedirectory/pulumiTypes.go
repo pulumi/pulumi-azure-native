@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKU struct {
 	// The name of the SKU for the tenant.
 	Name *B2CResourceSKUName `pulumi:"name"`
@@ -29,7 +28,6 @@ type B2CResourceSKUInput interface {
 	ToB2CResourceSKUOutputWithContext(context.Context) B2CResourceSKUOutput
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUArgs struct {
 	// The name of the SKU for the tenant.
 	Name B2CResourceSKUNamePtrInput `pulumi:"name"`
@@ -90,7 +88,6 @@ func (i *b2cresourceSKUPtrType) ToB2CResourceSKUPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(B2CResourceSKUPtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUOutput struct{ *pulumi.OutputState }
 
 func (B2CResourceSKUOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o B2CResourceSKUPtrOutput) Tier() B2CResourceSKUTierPtrOutput {
 	}).(B2CResourceSKUTierPtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponse struct {
 	// The name of the SKU for the tenant.
 	Name *string `pulumi:"name"`
@@ -188,7 +184,6 @@ type B2CResourceSKUResponseInput interface {
 	ToB2CResourceSKUResponseOutputWithContext(context.Context) B2CResourceSKUResponseOutput
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponseArgs struct {
 	// The name of the SKU for the tenant.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -249,7 +244,6 @@ func (i *b2cresourceSKUResponsePtrType) ToB2CResourceSKUResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(B2CResourceSKUResponsePtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (B2CResourceSKUResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o B2CResourceSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfig struct {
 	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
 	BillingType *string `pulumi:"billingType"`
@@ -347,7 +340,6 @@ type B2CTenantResourcePropertiesResponseBillingConfigInput interface {
 	ToB2CTenantResourcePropertiesResponseBillingConfigOutputWithContext(context.Context) B2CTenantResourcePropertiesResponseBillingConfigOutput
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfigArgs struct {
 	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
 	BillingType pulumi.StringPtrInput `pulumi:"billingType"`
@@ -408,7 +400,6 @@ func (i *b2ctenantResourcePropertiesResponseBillingConfigPtrType) ToB2CTenantRes
 	return pulumi.ToOutputWithContext(ctx, i).(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput)
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfigOutput struct{ *pulumi.OutputState }
 
 func (B2CTenantResourcePropertiesResponseBillingConfigOutput) ElementType() reflect.Type {

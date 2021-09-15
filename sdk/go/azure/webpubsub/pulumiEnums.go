@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Default action when no other rule matches
 type ACLAction string
 
 const (
@@ -175,10 +174,6 @@ func (in *aclactionPtr) ToACLActionPtrOutputWithContext(ctx context.Context) ACL
 	return pulumi.ToOutputWithContext(ctx, in).(ACLActionPtrOutput)
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
 type FeatureFlags string
 
 const (
@@ -344,7 +339,6 @@ func (in *featureFlagsPtr) ToFeatureFlagsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureFlagsPtrOutput)
 }
 
-// Represent the identity type: systemAssigned, userAssigned, None
 type ManagedIdentityType string
 
 const (
@@ -510,7 +504,6 @@ func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -677,7 +670,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// Gets or sets the type of auth. None or ManagedIdentity is supported now.
 type UpstreamAuthType string
 
 const (
@@ -842,7 +834,6 @@ func (in *upstreamAuthTypePtr) ToUpstreamAuthTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(UpstreamAuthTypePtrOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 type WebPubSubRequestType string
 
 const (
@@ -1009,9 +1000,6 @@ func (in *webPubSubRequestTypePtr) ToWebPubSubRequestTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(WebPubSubRequestTypePtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 type WebPubSubSkuTier string
 
 const (

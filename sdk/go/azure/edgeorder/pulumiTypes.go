@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Address details for an order item.
 type AddressDetails struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressProperties `pulumi:"forwardAddress"`
@@ -27,7 +26,6 @@ type AddressDetailsInput interface {
 	ToAddressDetailsOutputWithContext(context.Context) AddressDetailsOutput
 }
 
-// Address details for an order item.
 type AddressDetailsArgs struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesInput `pulumi:"forwardAddress"`
@@ -86,7 +84,6 @@ func (i *addressDetailsPtrType) ToAddressDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AddressDetailsPtrOutput)
 }
 
-// Address details for an order item.
 type AddressDetailsOutput struct{ *pulumi.OutputState }
 
 func (AddressDetailsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AddressDetailsPtrOutput) ForwardAddress() AddressPropertiesPtrOutput {
 	}).(AddressPropertiesPtrOutput)
 }
 
-// Address details for an order item.
 type AddressDetailsResponse struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesResponse `pulumi:"forwardAddress"`
@@ -169,7 +165,6 @@ type AddressDetailsResponseInput interface {
 	ToAddressDetailsResponseOutputWithContext(context.Context) AddressDetailsResponseOutput
 }
 
-// Address details for an order item.
 type AddressDetailsResponseArgs struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesResponseInput `pulumi:"forwardAddress"`
@@ -230,7 +225,6 @@ func (i *addressDetailsResponsePtrType) ToAddressDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AddressDetailsResponsePtrOutput)
 }
 
-// Address details for an order item.
 type AddressDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressDetailsResponseOutput) ElementType() reflect.Type {
@@ -309,7 +303,6 @@ func (o AddressDetailsResponsePtrOutput) ReturnAddress() AddressPropertiesRespon
 	}).(AddressPropertiesResponsePtrOutput)
 }
 
-// Address Properties
 type AddressProperties struct {
 	// Contact details for the address
 	ContactDetails ContactDetails `pulumi:"contactDetails"`
@@ -328,7 +321,6 @@ type AddressPropertiesInput interface {
 	ToAddressPropertiesOutputWithContext(context.Context) AddressPropertiesOutput
 }
 
-// Address Properties
 type AddressPropertiesArgs struct {
 	// Contact details for the address
 	ContactDetails ContactDetailsInput `pulumi:"contactDetails"`
@@ -389,7 +381,6 @@ func (i *addressPropertiesPtrType) ToAddressPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AddressPropertiesPtrOutput)
 }
 
-// Address Properties
 type AddressPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AddressPropertiesOutput) ElementType() reflect.Type {
@@ -468,7 +459,6 @@ func (o AddressPropertiesPtrOutput) ShippingAddress() ShippingAddressPtrOutput {
 	}).(ShippingAddressPtrOutput)
 }
 
-// Address Properties
 type AddressPropertiesResponse struct {
 	// Contact details for the address
 	ContactDetails ContactDetailsResponse `pulumi:"contactDetails"`
@@ -487,7 +477,6 @@ type AddressPropertiesResponseInput interface {
 	ToAddressPropertiesResponseOutputWithContext(context.Context) AddressPropertiesResponseOutput
 }
 
-// Address Properties
 type AddressPropertiesResponseArgs struct {
 	// Contact details for the address
 	ContactDetails ContactDetailsResponseInput `pulumi:"contactDetails"`
@@ -548,7 +537,6 @@ func (i *addressPropertiesResponsePtrType) ToAddressPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AddressPropertiesResponsePtrOutput)
 }
 
-// Address Properties
 type AddressPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressPropertiesResponseOutput) ElementType() reflect.Type {
@@ -627,7 +615,6 @@ func (o AddressPropertiesResponsePtrOutput) ShippingAddress() ShippingAddressRes
 	}).(ShippingAddressResponsePtrOutput)
 }
 
-// Availability information of a product system.
 type AvailabilityInformationResponse struct {
 	// Current availability stage of the product. Availability stage
 	AvailabilityStage string `pulumi:"availabilityStage"`
@@ -648,7 +635,6 @@ type AvailabilityInformationResponseInput interface {
 	ToAvailabilityInformationResponseOutputWithContext(context.Context) AvailabilityInformationResponseOutput
 }
 
-// Availability information of a product system.
 type AvailabilityInformationResponseArgs struct {
 	// Current availability stage of the product. Availability stage
 	AvailabilityStage pulumi.StringInput `pulumi:"availabilityStage"`
@@ -670,7 +656,6 @@ func (i AvailabilityInformationResponseArgs) ToAvailabilityInformationResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityInformationResponseOutput)
 }
 
-// Availability information of a product system.
 type AvailabilityInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityInformationResponseOutput) ElementType() reflect.Type {
@@ -700,7 +685,6 @@ func (o AvailabilityInformationResponseOutput) DisabledReasonMessage() pulumi.St
 	return o.ApplyT(func(v AvailabilityInformationResponse) string { return v.DisabledReasonMessage }).(pulumi.StringOutput)
 }
 
-// Holds billing meter details for each type of billing
 type BillingMeterDetailsResponse struct {
 	// Frequency of recurrence
 	Frequency string `pulumi:"frequency"`
@@ -723,7 +707,6 @@ type BillingMeterDetailsResponseInput interface {
 	ToBillingMeterDetailsResponseOutputWithContext(context.Context) BillingMeterDetailsResponseOutput
 }
 
-// Holds billing meter details for each type of billing
 type BillingMeterDetailsResponseArgs struct {
 	// Frequency of recurrence
 	Frequency pulumi.StringInput `pulumi:"frequency"`
@@ -772,7 +755,6 @@ func (i BillingMeterDetailsResponseArray) ToBillingMeterDetailsResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BillingMeterDetailsResponseArrayOutput)
 }
 
-// Holds billing meter details for each type of billing
 type BillingMeterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (BillingMeterDetailsResponseOutput) ElementType() reflect.Type {
@@ -827,7 +809,6 @@ func (o BillingMeterDetailsResponseArrayOutput) Index(i pulumi.IntInput) Billing
 	}).(BillingMeterDetailsResponseOutput)
 }
 
-// Configuration filters
 type ConfigurationFilters struct {
 	// Filters specific to product
 	FilterableProperty []FilterableProperty `pulumi:"filterableProperty"`
@@ -846,7 +827,6 @@ type ConfigurationFiltersInput interface {
 	ToConfigurationFiltersOutputWithContext(context.Context) ConfigurationFiltersOutput
 }
 
-// Configuration filters
 type ConfigurationFiltersArgs struct {
 	// Filters specific to product
 	FilterableProperty FilterablePropertyArrayInput `pulumi:"filterableProperty"`
@@ -891,7 +871,6 @@ func (i ConfigurationFiltersArray) ToConfigurationFiltersArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFiltersArrayOutput)
 }
 
-// Configuration filters
 type ConfigurationFiltersOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFiltersOutput) ElementType() reflect.Type {
@@ -936,7 +915,6 @@ func (o ConfigurationFiltersArrayOutput) Index(i pulumi.IntInput) ConfigurationF
 	}).(ConfigurationFiltersOutput)
 }
 
-// Configuration object.
 type ConfigurationResponse struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponse `pulumi:"availabilityInformation"`
@@ -969,7 +947,6 @@ type ConfigurationResponseInput interface {
 	ToConfigurationResponseOutputWithContext(context.Context) ConfigurationResponseOutput
 }
 
-// Configuration object.
 type ConfigurationResponseArgs struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponseInput `pulumi:"availabilityInformation"`
@@ -1028,7 +1005,6 @@ func (i ConfigurationResponseArray) ToConfigurationResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationResponseArrayOutput)
 }
 
-// Configuration object.
 type ConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1108,7 +1084,6 @@ func (o ConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Configuration
 	}).(ConfigurationResponseOutput)
 }
 
-// Contact Details.
 type ContactDetails struct {
 	// Contact name of the person.
 	ContactName string `pulumi:"contactName"`
@@ -1133,7 +1108,6 @@ type ContactDetailsInput interface {
 	ToContactDetailsOutputWithContext(context.Context) ContactDetailsOutput
 }
 
-// Contact Details.
 type ContactDetailsArgs struct {
 	// Contact name of the person.
 	ContactName pulumi.StringInput `pulumi:"contactName"`
@@ -1200,7 +1174,6 @@ func (i *contactDetailsPtrType) ToContactDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsPtrOutput)
 }
 
-// Contact Details.
 type ContactDetailsOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsOutput) ElementType() reflect.Type {
@@ -1324,7 +1297,6 @@ func (o ContactDetailsPtrOutput) PhoneExtension() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contact Details.
 type ContactDetailsResponse struct {
 	// Contact name of the person.
 	ContactName string `pulumi:"contactName"`
@@ -1349,7 +1321,6 @@ type ContactDetailsResponseInput interface {
 	ToContactDetailsResponseOutputWithContext(context.Context) ContactDetailsResponseOutput
 }
 
-// Contact Details.
 type ContactDetailsResponseArgs struct {
 	// Contact name of the person.
 	ContactName pulumi.StringInput `pulumi:"contactName"`
@@ -1416,7 +1387,6 @@ func (i *contactDetailsResponsePtrType) ToContactDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsResponsePtrOutput)
 }
 
-// Contact Details.
 type ContactDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsResponseOutput) ElementType() reflect.Type {
@@ -1540,7 +1510,6 @@ func (o ContactDetailsResponsePtrOutput) PhoneExtension() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cost information for the product system
 type CostInformationResponse struct {
 	// Default url to display billing information
 	BillingInfoUrl string `pulumi:"billingInfoUrl"`
@@ -1559,7 +1528,6 @@ type CostInformationResponseInput interface {
 	ToCostInformationResponseOutputWithContext(context.Context) CostInformationResponseOutput
 }
 
-// Cost information for the product system
 type CostInformationResponseArgs struct {
 	// Default url to display billing information
 	BillingInfoUrl pulumi.StringInput `pulumi:"billingInfoUrl"`
@@ -1579,7 +1547,6 @@ func (i CostInformationResponseArgs) ToCostInformationResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CostInformationResponseOutput)
 }
 
-// Cost information for the product system
 type CostInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (CostInformationResponseOutput) ElementType() reflect.Type {
@@ -1604,7 +1571,6 @@ func (o CostInformationResponseOutput) BillingMeterDetails() BillingMeterDetails
 	return o.ApplyT(func(v CostInformationResponse) []BillingMeterDetailsResponse { return v.BillingMeterDetails }).(BillingMeterDetailsResponseArrayOutput)
 }
 
-// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetails struct {
 	// Location placement Id of a subscription
 	LocationPlacementId *string `pulumi:"locationPlacementId"`
@@ -1625,7 +1591,6 @@ type CustomerSubscriptionDetailsInput interface {
 	ToCustomerSubscriptionDetailsOutputWithContext(context.Context) CustomerSubscriptionDetailsOutput
 }
 
-// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetailsArgs struct {
 	// Location placement Id of a subscription
 	LocationPlacementId pulumi.StringPtrInput `pulumi:"locationPlacementId"`
@@ -1647,7 +1612,6 @@ func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput)
 }
 
-// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionDetailsOutput) ElementType() reflect.Type {
@@ -1679,7 +1643,6 @@ func (o CustomerSubscriptionDetailsOutput) RegisteredFeatures() CustomerSubscrip
 	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
 }
 
-// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeatures struct {
 	// Name of subscription registered feature
 	Name *string `pulumi:"name"`
@@ -1698,7 +1661,6 @@ type CustomerSubscriptionRegisteredFeaturesInput interface {
 	ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(context.Context) CustomerSubscriptionRegisteredFeaturesOutput
 }
 
-// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeaturesArgs struct {
 	// Name of subscription registered feature
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1743,7 +1705,6 @@ func (i CustomerSubscriptionRegisteredFeaturesArray) ToCustomerSubscriptionRegis
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
 }
 
-// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeaturesOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionRegisteredFeaturesOutput) ElementType() reflect.Type {
@@ -1788,7 +1749,6 @@ func (o CustomerSubscriptionRegisteredFeaturesArrayOutput) Index(i pulumi.IntInp
 	}).(CustomerSubscriptionRegisteredFeaturesOutput)
 }
 
-// Description related properties of a product system.
 type DescriptionResponse struct {
 	// Attributes for the product system.
 	Attributes []string `pulumi:"attributes"`
@@ -1815,7 +1775,6 @@ type DescriptionResponseInput interface {
 	ToDescriptionResponseOutputWithContext(context.Context) DescriptionResponseOutput
 }
 
-// Description related properties of a product system.
 type DescriptionResponseArgs struct {
 	// Attributes for the product system.
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
@@ -1843,7 +1802,6 @@ func (i DescriptionResponseArgs) ToDescriptionResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DescriptionResponseOutput)
 }
 
-// Description related properties of a product system.
 type DescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DescriptionResponseOutput) ElementType() reflect.Type {
@@ -1888,7 +1846,6 @@ func (o DescriptionResponseOutput) ShortDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v DescriptionResponse) string { return v.ShortDescription }).(pulumi.StringOutput)
 }
 
-// Device details.
 type DeviceDetailsResponse struct {
 	// Management Resource Id
 	ManagementResourceId string `pulumi:"managementResourceId"`
@@ -1907,7 +1864,6 @@ type DeviceDetailsResponseInput interface {
 	ToDeviceDetailsResponseOutputWithContext(context.Context) DeviceDetailsResponseOutput
 }
 
-// Device details.
 type DeviceDetailsResponseArgs struct {
 	// Management Resource Id
 	ManagementResourceId pulumi.StringInput `pulumi:"managementResourceId"`
@@ -1952,7 +1908,6 @@ func (i DeviceDetailsResponseArray) ToDeviceDetailsResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDetailsResponseArrayOutput)
 }
 
-// Device details.
 type DeviceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DeviceDetailsResponseOutput) ElementType() reflect.Type {
@@ -1997,7 +1952,6 @@ func (o DeviceDetailsResponseArrayOutput) Index(i pulumi.IntInput) DeviceDetails
 	}).(DeviceDetailsResponseOutput)
 }
 
-// Dimensions of a configuration.
 type DimensionsResponse struct {
 	// Depth of the device.
 	Depth float64 `pulumi:"depth"`
@@ -2026,7 +1980,6 @@ type DimensionsResponseInput interface {
 	ToDimensionsResponseOutputWithContext(context.Context) DimensionsResponseOutput
 }
 
-// Dimensions of a configuration.
 type DimensionsResponseArgs struct {
 	// Depth of the device.
 	Depth pulumi.Float64Input `pulumi:"depth"`
@@ -2056,7 +2009,6 @@ func (i DimensionsResponseArgs) ToDimensionsResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DimensionsResponseOutput)
 }
 
-// Dimensions of a configuration.
 type DimensionsResponseOutput struct{ *pulumi.OutputState }
 
 func (DimensionsResponseOutput) ElementType() reflect.Type {
@@ -2106,7 +2058,6 @@ func (o DimensionsResponseOutput) Width() pulumi.Float64Output {
 	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Width }).(pulumi.Float64Output)
 }
 
-// Describes product display information
 type DisplayInfoResponse struct {
 	// Configuration display name
 	ConfigurationDisplayName string `pulumi:"configurationDisplayName"`
@@ -2125,7 +2076,6 @@ type DisplayInfoResponseInput interface {
 	ToDisplayInfoResponseOutputWithContext(context.Context) DisplayInfoResponseOutput
 }
 
-// Describes product display information
 type DisplayInfoResponseArgs struct {
 	// Configuration display name
 	ConfigurationDisplayName pulumi.StringInput `pulumi:"configurationDisplayName"`
@@ -2186,7 +2136,6 @@ func (i *displayInfoResponsePtrType) ToDisplayInfoResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DisplayInfoResponsePtrOutput)
 }
 
-// Describes product display information
 type DisplayInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DisplayInfoResponseOutput) ElementType() reflect.Type {
@@ -2265,7 +2214,6 @@ func (o DisplayInfoResponsePtrOutput) ProductFamilyDisplayName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferences struct {
 	// Defines secondary layer of software-based encryption enablement.
 	DoubleEncryptionStatus *string `pulumi:"doubleEncryptionStatus"`
@@ -2282,7 +2230,6 @@ type EncryptionPreferencesInput interface {
 	ToEncryptionPreferencesOutputWithContext(context.Context) EncryptionPreferencesOutput
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferencesArgs struct {
 	// Defines secondary layer of software-based encryption enablement.
 	DoubleEncryptionStatus pulumi.StringPtrInput `pulumi:"doubleEncryptionStatus"`
@@ -2341,7 +2288,6 @@ func (i *encryptionPreferencesPtrType) ToEncryptionPreferencesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesPtrOutput)
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferencesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPreferencesOutput) ElementType() reflect.Type {
@@ -2405,7 +2351,6 @@ func (o EncryptionPreferencesPtrOutput) DoubleEncryptionStatus() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferencesResponse struct {
 	// Defines secondary layer of software-based encryption enablement.
 	DoubleEncryptionStatus *string `pulumi:"doubleEncryptionStatus"`
@@ -2422,7 +2367,6 @@ type EncryptionPreferencesResponseInput interface {
 	ToEncryptionPreferencesResponseOutputWithContext(context.Context) EncryptionPreferencesResponseOutput
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferencesResponseArgs struct {
 	// Defines secondary layer of software-based encryption enablement.
 	DoubleEncryptionStatus pulumi.StringPtrInput `pulumi:"doubleEncryptionStatus"`
@@ -2481,7 +2425,6 @@ func (i *encryptionPreferencesResponsePtrType) ToEncryptionPreferencesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponsePtrOutput)
 }
 
-// Preferences related to the double encryption
 type EncryptionPreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPreferencesResponseOutput) ElementType() reflect.Type {
@@ -2545,7 +2488,6 @@ func (o EncryptionPreferencesResponsePtrOutput) DoubleEncryptionStatus() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponse struct {
 	// The additional info.
 	Info interface{} `pulumi:"info"`
@@ -2564,7 +2506,6 @@ type ErrorAdditionalInfoResponseInput interface {
 	ToErrorAdditionalInfoResponseOutputWithContext(context.Context) ErrorAdditionalInfoResponseOutput
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponseArgs struct {
 	// The additional info.
 	Info pulumi.Input `pulumi:"info"`
@@ -2609,7 +2550,6 @@ func (i ErrorAdditionalInfoResponseArray) ToErrorAdditionalInfoResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorAdditionalInfoResponseArrayOutput)
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorAdditionalInfoResponseOutput) ElementType() reflect.Type {
@@ -2654,7 +2594,6 @@ func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAd
 	}).(ErrorAdditionalInfoResponseOutput)
 }
 
-// The error detail.
 type ErrorDetailResponse struct {
 	// The error additional info.
 	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
@@ -2679,7 +2618,6 @@ type ErrorDetailResponseInput interface {
 	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
 }
 
-// The error detail.
 type ErrorDetailResponseArgs struct {
 	// The error additional info.
 	AdditionalInfo ErrorAdditionalInfoResponseArrayInput `pulumi:"additionalInfo"`
@@ -2771,7 +2709,6 @@ func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
 }
 
-// The error detail.
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -2915,7 +2852,6 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
-// Different types of filters supported and its values.
 type FilterableProperty struct {
 	// Values to be filtered.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -2934,7 +2870,6 @@ type FilterablePropertyInput interface {
 	ToFilterablePropertyOutputWithContext(context.Context) FilterablePropertyOutput
 }
 
-// Different types of filters supported and its values.
 type FilterablePropertyArgs struct {
 	// Values to be filtered.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -2979,7 +2914,6 @@ func (i FilterablePropertyArray) ToFilterablePropertyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayOutput)
 }
 
-// Different types of filters supported and its values.
 type FilterablePropertyOutput struct{ *pulumi.OutputState }
 
 func (FilterablePropertyOutput) ElementType() reflect.Type {
@@ -3024,7 +2958,6 @@ func (o FilterablePropertyArrayOutput) Index(i pulumi.IntInput) FilterableProper
 	}).(FilterablePropertyOutput)
 }
 
-// Different types of filters supported and its values.
 type FilterablePropertyResponse struct {
 	// Values to be filtered.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -3043,7 +2976,6 @@ type FilterablePropertyResponseInput interface {
 	ToFilterablePropertyResponseOutputWithContext(context.Context) FilterablePropertyResponseOutput
 }
 
-// Different types of filters supported and its values.
 type FilterablePropertyResponseArgs struct {
 	// Values to be filtered.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -3088,7 +3020,6 @@ func (i FilterablePropertyResponseArray) ToFilterablePropertyResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyResponseArrayOutput)
 }
 
-// Different types of filters supported and its values.
 type FilterablePropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (FilterablePropertyResponseOutput) ElementType() reflect.Type {
@@ -3133,7 +3064,6 @@ func (o FilterablePropertyResponseArrayOutput) Index(i pulumi.IntInput) Filterab
 	}).(FilterablePropertyResponseOutput)
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformation struct {
 	// Represents configuration name that uniquely identifies configuration
 	ConfigurationName *string `pulumi:"configurationName"`
@@ -3156,7 +3086,6 @@ type HierarchyInformationInput interface {
 	ToHierarchyInformationOutputWithContext(context.Context) HierarchyInformationOutput
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformationArgs struct {
 	// Represents configuration name that uniquely identifies configuration
 	ConfigurationName pulumi.StringPtrInput `pulumi:"configurationName"`
@@ -3221,7 +3150,6 @@ func (i *hierarchyInformationPtrType) ToHierarchyInformationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HierarchyInformationPtrOutput)
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformationOutput struct{ *pulumi.OutputState }
 
 func (HierarchyInformationOutput) ElementType() reflect.Type {
@@ -3330,7 +3258,6 @@ func (o HierarchyInformationPtrOutput) ProductName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformationResponse struct {
 	// Represents configuration name that uniquely identifies configuration
 	ConfigurationName *string `pulumi:"configurationName"`
@@ -3353,7 +3280,6 @@ type HierarchyInformationResponseInput interface {
 	ToHierarchyInformationResponseOutputWithContext(context.Context) HierarchyInformationResponseOutput
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformationResponseArgs struct {
 	// Represents configuration name that uniquely identifies configuration
 	ConfigurationName pulumi.StringPtrInput `pulumi:"configurationName"`
@@ -3418,7 +3344,6 @@ func (i *hierarchyInformationResponsePtrType) ToHierarchyInformationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HierarchyInformationResponsePtrOutput)
 }
 
-// Holds details about product hierarchy information
 type HierarchyInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (HierarchyInformationResponseOutput) ElementType() reflect.Type {
@@ -3527,7 +3452,6 @@ func (o HierarchyInformationResponsePtrOutput) ProductName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image for the product
 type ImageInformationResponse struct {
 	// Type of the image
 	ImageType string `pulumi:"imageType"`
@@ -3546,7 +3470,6 @@ type ImageInformationResponseInput interface {
 	ToImageInformationResponseOutputWithContext(context.Context) ImageInformationResponseOutput
 }
 
-// Image for the product
 type ImageInformationResponseArgs struct {
 	// Type of the image
 	ImageType pulumi.StringInput `pulumi:"imageType"`
@@ -3591,7 +3514,6 @@ func (i ImageInformationResponseArray) ToImageInformationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ImageInformationResponseArrayOutput)
 }
 
-// Image for the product
 type ImageInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageInformationResponseOutput) ElementType() reflect.Type {
@@ -3636,7 +3558,6 @@ func (o ImageInformationResponseArrayOutput) Index(i pulumi.IntInput) ImageInfor
 	}).(ImageInformationResponseOutput)
 }
 
-// Returns link related to the product
 type LinkResponse struct {
 	// Type of link
 	LinkType string `pulumi:"linkType"`
@@ -3655,7 +3576,6 @@ type LinkResponseInput interface {
 	ToLinkResponseOutputWithContext(context.Context) LinkResponseOutput
 }
 
-// Returns link related to the product
 type LinkResponseArgs struct {
 	// Type of link
 	LinkType pulumi.StringInput `pulumi:"linkType"`
@@ -3700,7 +3620,6 @@ func (i LinkResponseArray) ToLinkResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkResponseArrayOutput)
 }
 
-// Returns link related to the product
 type LinkResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkResponseOutput) ElementType() reflect.Type {
@@ -3745,7 +3664,6 @@ func (o LinkResponseArrayOutput) Index(i pulumi.IntInput) LinkResponseOutput {
 	}).(LinkResponseOutput)
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferences struct {
 	// Customer preferred Management resource ARM ID
 	PreferredManagementResourceId *string `pulumi:"preferredManagementResourceId"`
@@ -3762,7 +3680,6 @@ type ManagementResourcePreferencesInput interface {
 	ToManagementResourcePreferencesOutputWithContext(context.Context) ManagementResourcePreferencesOutput
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferencesArgs struct {
 	// Customer preferred Management resource ARM ID
 	PreferredManagementResourceId pulumi.StringPtrInput `pulumi:"preferredManagementResourceId"`
@@ -3821,7 +3738,6 @@ func (i *managementResourcePreferencesPtrType) ToManagementResourcePreferencesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesPtrOutput)
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferencesOutput struct{ *pulumi.OutputState }
 
 func (ManagementResourcePreferencesOutput) ElementType() reflect.Type {
@@ -3885,7 +3801,6 @@ func (o ManagementResourcePreferencesPtrOutput) PreferredManagementResourceId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferencesResponse struct {
 	// Customer preferred Management resource ARM ID
 	PreferredManagementResourceId *string `pulumi:"preferredManagementResourceId"`
@@ -3902,7 +3817,6 @@ type ManagementResourcePreferencesResponseInput interface {
 	ToManagementResourcePreferencesResponseOutputWithContext(context.Context) ManagementResourcePreferencesResponseOutput
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferencesResponseArgs struct {
 	// Customer preferred Management resource ARM ID
 	PreferredManagementResourceId pulumi.StringPtrInput `pulumi:"preferredManagementResourceId"`
@@ -3961,7 +3875,6 @@ func (i *managementResourcePreferencesResponsePtrType) ToManagementResourcePrefe
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesResponsePtrOutput)
 }
 
-// Management resource preference to link device
 type ManagementResourcePreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementResourcePreferencesResponseOutput) ElementType() reflect.Type {
@@ -4025,7 +3938,6 @@ func (o ManagementResourcePreferencesResponsePtrOutput) PreferredManagementResou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreference struct {
 	// Notification is required or not.
 	SendNotification bool `pulumi:"sendNotification"`
@@ -4044,7 +3956,6 @@ type NotificationPreferenceInput interface {
 	ToNotificationPreferenceOutputWithContext(context.Context) NotificationPreferenceOutput
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceArgs struct {
 	// Notification is required or not.
 	SendNotification pulumi.BoolInput `pulumi:"sendNotification"`
@@ -4089,7 +4000,6 @@ func (i NotificationPreferenceArray) ToNotificationPreferenceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceArrayOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceOutput struct{ *pulumi.OutputState }
 
 func (NotificationPreferenceOutput) ElementType() reflect.Type {
@@ -4134,7 +4044,6 @@ func (o NotificationPreferenceArrayOutput) Index(i pulumi.IntInput) Notification
 	}).(NotificationPreferenceOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponse struct {
 	// Notification is required or not.
 	SendNotification bool `pulumi:"sendNotification"`
@@ -4153,7 +4062,6 @@ type NotificationPreferenceResponseInput interface {
 	ToNotificationPreferenceResponseOutputWithContext(context.Context) NotificationPreferenceResponseOutput
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponseArgs struct {
 	// Notification is required or not.
 	SendNotification pulumi.BoolInput `pulumi:"sendNotification"`
@@ -4198,7 +4106,6 @@ func (i NotificationPreferenceResponseArray) ToNotificationPreferenceResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceResponseArrayOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationPreferenceResponseOutput) ElementType() reflect.Type {
@@ -4243,7 +4150,6 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 	}).(NotificationPreferenceResponseOutput)
 }
 
-// Order item details
 type OrderItemDetails struct {
 	// Additional notification email list
 	NotificationEmailList []string `pulumi:"notificationEmailList"`
@@ -4266,7 +4172,6 @@ type OrderItemDetailsInput interface {
 	ToOrderItemDetailsOutputWithContext(context.Context) OrderItemDetailsOutput
 }
 
-// Order item details
 type OrderItemDetailsArgs struct {
 	// Additional notification email list
 	NotificationEmailList pulumi.StringArrayInput `pulumi:"notificationEmailList"`
@@ -4331,7 +4236,6 @@ func (i *orderItemDetailsPtrType) ToOrderItemDetailsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsPtrOutput)
 }
 
-// Order item details
 type OrderItemDetailsOutput struct{ *pulumi.OutputState }
 
 func (OrderItemDetailsOutput) ElementType() reflect.Type {
@@ -4440,7 +4344,6 @@ func (o OrderItemDetailsPtrOutput) ProductDetails() ProductDetailsPtrOutput {
 	}).(ProductDetailsPtrOutput)
 }
 
-// Order item details
 type OrderItemDetailsResponse struct {
 	// Cancellation reason.
 	CancellationReason string `pulumi:"cancellationReason"`
@@ -4485,7 +4388,6 @@ type OrderItemDetailsResponseInput interface {
 	ToOrderItemDetailsResponseOutputWithContext(context.Context) OrderItemDetailsResponseOutput
 }
 
-// Order item details
 type OrderItemDetailsResponseArgs struct {
 	// Cancellation reason.
 	CancellationReason pulumi.StringInput `pulumi:"cancellationReason"`
@@ -4572,7 +4474,6 @@ func (i *orderItemDetailsResponsePtrType) ToOrderItemDetailsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsResponsePtrOutput)
 }
 
-// Order item details
 type OrderItemDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OrderItemDetailsResponseOutput) ElementType() reflect.Type {
@@ -4846,7 +4747,6 @@ func (o OrderItemDetailsResponsePtrOutput) ReverseShippingDetails() ShippingDeta
 	}).(ShippingDetailsResponsePtrOutput)
 }
 
-// Billing type PAV2 meter details
 type Pav2MeterDetailsResponse struct {
 	// Represents billing type.
 	// Expected value is 'Pav2'.
@@ -4870,7 +4770,6 @@ type Pav2MeterDetailsResponseInput interface {
 	ToPav2MeterDetailsResponseOutputWithContext(context.Context) Pav2MeterDetailsResponseOutput
 }
 
-// Billing type PAV2 meter details
 type Pav2MeterDetailsResponseArgs struct {
 	// Represents billing type.
 	// Expected value is 'Pav2'.
@@ -4895,7 +4794,6 @@ func (i Pav2MeterDetailsResponseArgs) ToPav2MeterDetailsResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(Pav2MeterDetailsResponseOutput)
 }
 
-// Billing type PAV2 meter details
 type Pav2MeterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (Pav2MeterDetailsResponseOutput) ElementType() reflect.Type {
@@ -4931,7 +4829,6 @@ func (o Pav2MeterDetailsResponseOutput) Multiplier() pulumi.Float64Output {
 	return o.ApplyT(func(v Pav2MeterDetailsResponse) float64 { return v.Multiplier }).(pulumi.Float64Output)
 }
 
-// Preferences related to the order
 type Preferences struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences *EncryptionPreferences `pulumi:"encryptionPreferences"`
@@ -4954,7 +4851,6 @@ type PreferencesInput interface {
 	ToPreferencesOutputWithContext(context.Context) PreferencesOutput
 }
 
-// Preferences related to the order
 type PreferencesArgs struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences EncryptionPreferencesPtrInput `pulumi:"encryptionPreferences"`
@@ -5019,7 +4915,6 @@ func (i *preferencesPtrType) ToPreferencesPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PreferencesPtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesOutput struct{ *pulumi.OutputState }
 
 func (PreferencesOutput) ElementType() reflect.Type {
@@ -5128,7 +5023,6 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 	}).(TransportPreferencesPtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesResponse struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences *EncryptionPreferencesResponse `pulumi:"encryptionPreferences"`
@@ -5151,7 +5045,6 @@ type PreferencesResponseInput interface {
 	ToPreferencesResponseOutputWithContext(context.Context) PreferencesResponseOutput
 }
 
-// Preferences related to the order
 type PreferencesResponseArgs struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences EncryptionPreferencesResponsePtrInput `pulumi:"encryptionPreferences"`
@@ -5216,7 +5109,6 @@ func (i *preferencesResponsePtrType) ToPreferencesResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PreferencesResponsePtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (PreferencesResponseOutput) ElementType() reflect.Type {
@@ -5327,7 +5219,6 @@ func (o PreferencesResponsePtrOutput) TransportPreferences() TransportPreference
 	}).(TransportPreferencesResponsePtrOutput)
 }
 
-// Represents product details
 type ProductDetails struct {
 	// Quantity of the product
 	Count *int `pulumi:"count"`
@@ -5346,7 +5237,6 @@ type ProductDetailsInput interface {
 	ToProductDetailsOutputWithContext(context.Context) ProductDetailsOutput
 }
 
-// Represents product details
 type ProductDetailsArgs struct {
 	// Quantity of the product
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -5407,7 +5297,6 @@ func (i *productDetailsPtrType) ToProductDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProductDetailsPtrOutput)
 }
 
-// Represents product details
 type ProductDetailsOutput struct{ *pulumi.OutputState }
 
 func (ProductDetailsOutput) ElementType() reflect.Type {
@@ -5486,7 +5375,6 @@ func (o ProductDetailsPtrOutput) HierarchyInformation() HierarchyInformationPtrO
 	}).(HierarchyInformationPtrOutput)
 }
 
-// Represents product details
 type ProductDetailsResponse struct {
 	// Quantity of the product
 	Count *int `pulumi:"count"`
@@ -5509,7 +5397,6 @@ type ProductDetailsResponseInput interface {
 	ToProductDetailsResponseOutputWithContext(context.Context) ProductDetailsResponseOutput
 }
 
-// Represents product details
 type ProductDetailsResponseArgs struct {
 	// Quantity of the product
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -5574,7 +5461,6 @@ func (i *productDetailsResponsePtrType) ToProductDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ProductDetailsResponsePtrOutput)
 }
 
-// Represents product details
 type ProductDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductDetailsResponseOutput) ElementType() reflect.Type {
@@ -5683,7 +5569,6 @@ func (o ProductDetailsResponsePtrOutput) HierarchyInformation() HierarchyInforma
 	}).(HierarchyInformationResponsePtrOutput)
 }
 
-// Product Family
 type ProductFamilyResponse struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponse `pulumi:"availabilityInformation"`
@@ -5714,7 +5599,6 @@ type ProductFamilyResponseInput interface {
 	ToProductFamilyResponseOutputWithContext(context.Context) ProductFamilyResponseOutput
 }
 
-// Product Family
 type ProductFamilyResponseArgs struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponseInput `pulumi:"availabilityInformation"`
@@ -5771,7 +5655,6 @@ func (i ProductFamilyResponseArray) ToProductFamilyResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProductFamilyResponseArrayOutput)
 }
 
-// Product Family
 type ProductFamilyResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductFamilyResponseOutput) ElementType() reflect.Type {
@@ -5846,7 +5729,6 @@ func (o ProductFamilyResponseArrayOutput) Index(i pulumi.IntInput) ProductFamily
 	}).(ProductFamilyResponseOutput)
 }
 
-// Product line
 type ProductLineResponse struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponse `pulumi:"availabilityInformation"`
@@ -5877,7 +5759,6 @@ type ProductLineResponseInput interface {
 	ToProductLineResponseOutputWithContext(context.Context) ProductLineResponseOutput
 }
 
-// Product line
 type ProductLineResponseArgs struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponseInput `pulumi:"availabilityInformation"`
@@ -5934,7 +5815,6 @@ func (i ProductLineResponseArray) ToProductLineResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ProductLineResponseArrayOutput)
 }
 
-// Product line
 type ProductLineResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductLineResponseOutput) ElementType() reflect.Type {
@@ -6009,7 +5889,6 @@ func (o ProductLineResponseArrayOutput) Index(i pulumi.IntInput) ProductLineResp
 	}).(ProductLineResponseOutput)
 }
 
-// List of Products
 type ProductResponse struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponse `pulumi:"availabilityInformation"`
@@ -6040,7 +5919,6 @@ type ProductResponseInput interface {
 	ToProductResponseOutputWithContext(context.Context) ProductResponseOutput
 }
 
-// List of Products
 type ProductResponseArgs struct {
 	// Availability information of the product system.
 	AvailabilityInformation AvailabilityInformationResponseInput `pulumi:"availabilityInformation"`
@@ -6097,7 +5975,6 @@ func (i ProductResponseArray) ToProductResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProductResponseArrayOutput)
 }
 
-// List of Products
 type ProductResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductResponseOutput) ElementType() reflect.Type {
@@ -6172,7 +6049,6 @@ func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutp
 	}).(ProductResponseOutput)
 }
 
-// Billing type Purchase meter details
 type PurchaseMeterDetailsResponse struct {
 	// Represents billing type.
 	// Expected value is 'Purchase'.
@@ -6200,7 +6076,6 @@ type PurchaseMeterDetailsResponseInput interface {
 	ToPurchaseMeterDetailsResponseOutputWithContext(context.Context) PurchaseMeterDetailsResponseOutput
 }
 
-// Billing type Purchase meter details
 type PurchaseMeterDetailsResponseArgs struct {
 	// Represents billing type.
 	// Expected value is 'Purchase'.
@@ -6229,7 +6104,6 @@ func (i PurchaseMeterDetailsResponseArgs) ToPurchaseMeterDetailsResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PurchaseMeterDetailsResponseOutput)
 }
 
-// Billing type Purchase meter details
 type PurchaseMeterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchaseMeterDetailsResponseOutput) ElementType() reflect.Type {
@@ -6275,7 +6149,6 @@ func (o PurchaseMeterDetailsResponseOutput) TermId() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.TermId }).(pulumi.StringOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddress struct {
 	// Type of address.
 	AddressType *string `pulumi:"addressType"`
@@ -6310,7 +6183,6 @@ type ShippingAddressInput interface {
 	ToShippingAddressOutputWithContext(context.Context) ShippingAddressOutput
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressArgs struct {
 	// Type of address.
 	AddressType pulumi.StringPtrInput `pulumi:"addressType"`
@@ -6387,7 +6259,6 @@ func (i *shippingAddressPtrType) ToShippingAddressPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressPtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressOutput struct{ *pulumi.OutputState }
 
 func (ShippingAddressOutput) ElementType() reflect.Type {
@@ -6586,7 +6457,6 @@ func (o ShippingAddressPtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponse struct {
 	// Type of address.
 	AddressType *string `pulumi:"addressType"`
@@ -6621,7 +6491,6 @@ type ShippingAddressResponseInput interface {
 	ToShippingAddressResponseOutputWithContext(context.Context) ShippingAddressResponseOutput
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponseArgs struct {
 	// Type of address.
 	AddressType pulumi.StringPtrInput `pulumi:"addressType"`
@@ -6698,7 +6567,6 @@ func (i *shippingAddressResponsePtrType) ToShippingAddressResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressResponsePtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (ShippingAddressResponseOutput) ElementType() reflect.Type {
@@ -6897,7 +6765,6 @@ func (o ShippingAddressResponsePtrOutput) ZipExtendedCode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Package shipping details
 type ShippingDetailsResponse struct {
 	// Carrier Name for display purpose. Not to be used for any processing.
 	CarrierDisplayName string `pulumi:"carrierDisplayName"`
@@ -6920,7 +6787,6 @@ type ShippingDetailsResponseInput interface {
 	ToShippingDetailsResponseOutputWithContext(context.Context) ShippingDetailsResponseOutput
 }
 
-// Package shipping details
 type ShippingDetailsResponseArgs struct {
 	// Carrier Name for display purpose. Not to be used for any processing.
 	CarrierDisplayName pulumi.StringInput `pulumi:"carrierDisplayName"`
@@ -6985,7 +6851,6 @@ func (i *shippingDetailsResponsePtrType) ToShippingDetailsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingDetailsResponsePtrOutput)
 }
 
-// Package shipping details
 type ShippingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ShippingDetailsResponseOutput) ElementType() reflect.Type {
@@ -7094,7 +6959,6 @@ func (o ShippingDetailsResponsePtrOutput) TrackingUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifications of the configurations
 type SpecificationResponse struct {
 	// Name of the specification
 	Name string `pulumi:"name"`
@@ -7113,7 +6977,6 @@ type SpecificationResponseInput interface {
 	ToSpecificationResponseOutputWithContext(context.Context) SpecificationResponseOutput
 }
 
-// Specifications of the configurations
 type SpecificationResponseArgs struct {
 	// Name of the specification
 	Name pulumi.StringInput `pulumi:"name"`
@@ -7158,7 +7021,6 @@ func (i SpecificationResponseArray) ToSpecificationResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SpecificationResponseArrayOutput)
 }
 
-// Specifications of the configurations
 type SpecificationResponseOutput struct{ *pulumi.OutputState }
 
 func (SpecificationResponseOutput) ElementType() reflect.Type {
@@ -7203,7 +7065,6 @@ func (o SpecificationResponseArrayOutput) Index(i pulumi.IntInput) Specification
 	}).(SpecificationResponseOutput)
 }
 
-// Resource stage details.
 type StageDetailsResponse struct {
 	// Display name of the resource stage.
 	DisplayName string `pulumi:"displayName"`
@@ -7226,7 +7087,6 @@ type StageDetailsResponseInput interface {
 	ToStageDetailsResponseOutputWithContext(context.Context) StageDetailsResponseOutput
 }
 
-// Resource stage details.
 type StageDetailsResponseArgs struct {
 	// Display name of the resource stage.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -7316,7 +7176,6 @@ func (i StageDetailsResponseArray) ToStageDetailsResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponseArrayOutput)
 }
 
-// Resource stage details.
 type StageDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (StageDetailsResponseOutput) ElementType() reflect.Type {
@@ -7445,7 +7304,6 @@ func (o StageDetailsResponseArrayOutput) Index(i pulumi.IntInput) StageDetailsRe
 	}).(StageDetailsResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -7472,7 +7330,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -7541,7 +7398,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -7680,7 +7536,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferences struct {
 	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType string `pulumi:"preferredShipmentType"`
@@ -7697,7 +7552,6 @@ type TransportPreferencesInput interface {
 	ToTransportPreferencesOutputWithContext(context.Context) TransportPreferencesOutput
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesArgs struct {
 	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType pulumi.StringInput `pulumi:"preferredShipmentType"`
@@ -7756,7 +7610,6 @@ func (i *transportPreferencesPtrType) ToTransportPreferencesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesPtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesOutput struct{ *pulumi.OutputState }
 
 func (TransportPreferencesOutput) ElementType() reflect.Type {
@@ -7820,7 +7673,6 @@ func (o TransportPreferencesPtrOutput) PreferredShipmentType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponse struct {
 	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType string `pulumi:"preferredShipmentType"`
@@ -7837,7 +7689,6 @@ type TransportPreferencesResponseInput interface {
 	ToTransportPreferencesResponseOutputWithContext(context.Context) TransportPreferencesResponseOutput
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponseArgs struct {
 	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType pulumi.StringInput `pulumi:"preferredShipmentType"`
@@ -7896,7 +7747,6 @@ func (i *transportPreferencesResponsePtrType) ToTransportPreferencesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesResponsePtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (TransportPreferencesResponseOutput) ElementType() reflect.Type {

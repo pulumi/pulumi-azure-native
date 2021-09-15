@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies if the IP is exposed to the public internet or private VNET.
 type ContainerGroupIpAddressType string
 
 const (
@@ -175,7 +174,6 @@ func (in *containerGroupIpAddressTypePtr) ToContainerGroupIpAddressTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupIpAddressTypePtrOutput)
 }
 
-// The protocol associated with the port.
 type ContainerGroupNetworkProtocol string
 
 const (
@@ -340,10 +338,6 @@ func (in *containerGroupNetworkProtocolPtr) ToContainerGroupNetworkProtocolPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupNetworkProtocolPtrOutput)
 }
 
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
 type ContainerGroupRestartPolicy string
 
 const (
@@ -509,7 +503,6 @@ func (in *containerGroupRestartPolicyPtr) ToContainerGroupRestartPolicyPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupRestartPolicyPtrOutput)
 }
 
-// The SKU for a container group.
 type ContainerGroupSku string
 
 const (
@@ -674,7 +667,6 @@ func (in *containerGroupSkuPtr) ToContainerGroupSkuPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupSkuPtrOutput)
 }
 
-// The protocol associated with the port.
 type ContainerNetworkProtocol string
 
 const (
@@ -839,7 +831,6 @@ func (in *containerNetworkProtocolPtr) ToContainerNetworkProtocolPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerNetworkProtocolPtrOutput)
 }
 
-// The SKU of the GPU resource.
 type GpuSku string
 
 const (
@@ -1005,7 +996,6 @@ func (in *gpuSkuPtr) ToGpuSkuPtrOutputWithContext(ctx context.Context) GpuSkuPtr
 	return pulumi.ToOutputWithContext(ctx, in).(GpuSkuPtrOutput)
 }
 
-// The log type to be used.
 type LogAnalyticsLogType string
 
 const (
@@ -1170,7 +1160,6 @@ func (in *logAnalyticsLogTypePtr) ToLogAnalyticsLogTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(LogAnalyticsLogTypePtrOutput)
 }
 
-// The operating system type required by the containers in the container group.
 type OperatingSystemTypes string
 
 const (
@@ -1335,7 +1324,6 @@ func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypesPtrOutput)
 }
 
-// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 type ResourceIdentityType string
 
 const (
@@ -1502,7 +1490,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The scheme.
 type Scheme string
 
 const (

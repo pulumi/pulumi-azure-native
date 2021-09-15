@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 type Category string
 
 const (
@@ -175,7 +174,6 @@ func (in *categoryPtr) ToCategoryPtrOutputWithContext(ctx context.Context) Categ
 	return pulumi.ToOutputWithContext(ctx, in).(CategoryPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 type PrivateEndpointServiceConnectionStatus string
 
 const (

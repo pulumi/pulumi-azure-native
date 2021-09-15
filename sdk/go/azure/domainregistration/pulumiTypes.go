@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Address information for domain registration.
 type Address struct {
 	// First line of an Address.
 	Address1 string `pulumi:"address1"`
@@ -37,7 +36,6 @@ type AddressInput interface {
 	ToAddressOutputWithContext(context.Context) AddressOutput
 }
 
-// Address information for domain registration.
 type AddressArgs struct {
 	// First line of an Address.
 	Address1 pulumi.StringInput `pulumi:"address1"`
@@ -106,7 +104,6 @@ func (i *addressPtrType) ToAddressPtrOutputWithContext(ctx context.Context) Addr
 	return pulumi.ToOutputWithContext(ctx, i).(AddressPtrOutput)
 }
 
-// Address information for domain registration.
 type AddressOutput struct{ *pulumi.OutputState }
 
 func (AddressOutput) ElementType() reflect.Type {
@@ -245,7 +242,6 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Address information for domain registration.
 type AddressResponse struct {
 	// First line of an Address.
 	Address1 string `pulumi:"address1"`
@@ -272,7 +268,6 @@ type AddressResponseInput interface {
 	ToAddressResponseOutputWithContext(context.Context) AddressResponseOutput
 }
 
-// Address information for domain registration.
 type AddressResponseArgs struct {
 	// First line of an Address.
 	Address1 pulumi.StringInput `pulumi:"address1"`
@@ -341,7 +336,6 @@ func (i *addressResponsePtrType) ToAddressResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AddressResponsePtrOutput)
 }
 
-// Address information for domain registration.
 type AddressResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressResponseOutput) ElementType() reflect.Type {
@@ -480,8 +474,6 @@ func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type Contact struct {
 	// Mailing address.
 	AddressMailing *Address `pulumi:"addressMailing"`
@@ -514,8 +506,6 @@ type ContactInput interface {
 	ToContactOutputWithContext(context.Context) ContactOutput
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactArgs struct {
 	// Mailing address.
 	AddressMailing AddressPtrInput `pulumi:"addressMailing"`
@@ -590,8 +580,6 @@ func (i *contactPtrType) ToContactPtrOutputWithContext(ctx context.Context) Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
@@ -775,8 +763,6 @@ func (o ContactPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponse struct {
 	// Mailing address.
 	AddressMailing *AddressResponse `pulumi:"addressMailing"`
@@ -809,8 +795,6 @@ type ContactResponseInput interface {
 	ToContactResponseOutputWithContext(context.Context) ContactResponseOutput
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponseArgs struct {
 	// Mailing address.
 	AddressMailing AddressResponsePtrInput `pulumi:"addressMailing"`
@@ -844,8 +828,6 @@ func (i ContactResponseArgs) ToContactResponseOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactResponseOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactResponseOutput) ElementType() reflect.Type {
@@ -905,7 +887,6 @@ func (o ContactResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsent struct {
 	// Timestamp when the agreements were accepted.
 	AgreedAt *string `pulumi:"agreedAt"`
@@ -926,7 +907,6 @@ type DomainPurchaseConsentInput interface {
 	ToDomainPurchaseConsentOutputWithContext(context.Context) DomainPurchaseConsentOutput
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentArgs struct {
 	// Timestamp when the agreements were accepted.
 	AgreedAt pulumi.StringPtrInput `pulumi:"agreedAt"`
@@ -989,7 +969,6 @@ func (i *domainPurchaseConsentPtrType) ToDomainPurchaseConsentPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentPtrOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentOutput struct{ *pulumi.OutputState }
 
 func (DomainPurchaseConsentOutput) ElementType() reflect.Type {
@@ -1083,7 +1062,6 @@ func (o DomainPurchaseConsentPtrOutput) AgreementKeys() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponse struct {
 	// Timestamp when the agreements were accepted.
 	AgreedAt *string `pulumi:"agreedAt"`
@@ -1104,7 +1082,6 @@ type DomainPurchaseConsentResponseInput interface {
 	ToDomainPurchaseConsentResponseOutputWithContext(context.Context) DomainPurchaseConsentResponseOutput
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponseArgs struct {
 	// Timestamp when the agreements were accepted.
 	AgreedAt pulumi.StringPtrInput `pulumi:"agreedAt"`
@@ -1126,7 +1103,6 @@ func (i DomainPurchaseConsentResponseArgs) ToDomainPurchaseConsentResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentResponseOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponseOutput struct{ *pulumi.OutputState }
 
 func (DomainPurchaseConsentResponseOutput) ElementType() reflect.Type {
@@ -1156,7 +1132,6 @@ func (o DomainPurchaseConsentResponseOutput) AgreementKeys() pulumi.StringArrayO
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponse struct {
 	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
 	AzureResourceName *string `pulumi:"azureResourceName"`
@@ -1183,7 +1158,6 @@ type HostNameResponseInput interface {
 	ToHostNameResponseOutputWithContext(context.Context) HostNameResponseOutput
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponseArgs struct {
 	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
 	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
@@ -1236,7 +1210,6 @@ func (i HostNameResponseArray) ToHostNameResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HostNameResponseArrayOutput)
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponseOutput struct{ *pulumi.OutputState }
 
 func (HostNameResponseOutput) ElementType() reflect.Type {
@@ -1301,7 +1274,6 @@ func (o HostNameResponseArrayOutput) Index(i pulumi.IntInput) HostNameResponseOu
 	}).(HostNameResponseOutput)
 }
 
-// Identifies an object.
 type NameIdentifierResponse struct {
 	// Name of the object.
 	Name *string `pulumi:"name"`
@@ -1318,7 +1290,6 @@ type NameIdentifierResponseInput interface {
 	ToNameIdentifierResponseOutputWithContext(context.Context) NameIdentifierResponseOutput
 }
 
-// Identifies an object.
 type NameIdentifierResponseArgs struct {
 	// Name of the object.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1361,7 +1332,6 @@ func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseArrayOutput)
 }
 
-// Identifies an object.
 type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (NameIdentifierResponseOutput) ElementType() reflect.Type {
@@ -1401,7 +1371,6 @@ func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifi
 	}).(NameIdentifierResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1428,7 +1397,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1497,7 +1465,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1636,7 +1603,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponse struct {
 	// Unique identifier for the agreement.
 	AgreementKey string `pulumi:"agreementKey"`
@@ -1659,7 +1625,6 @@ type TldLegalAgreementResponseInput interface {
 	ToTldLegalAgreementResponseOutputWithContext(context.Context) TldLegalAgreementResponseOutput
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponseArgs struct {
 	// Unique identifier for the agreement.
 	AgreementKey pulumi.StringInput `pulumi:"agreementKey"`
@@ -1708,7 +1673,6 @@ func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseArrayOutput)
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {

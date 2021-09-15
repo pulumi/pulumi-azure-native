@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the application-scoped volume kind.
 type ApplicationScopedVolumeKind string
 
 const (
@@ -175,7 +174,6 @@ func (in *applicationScopedVolumeKindPtr) ToApplicationScopedVolumeKindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationScopedVolumeKindPtrOutput)
 }
 
-// The type of auto scaling mechanism.
 type AutoScalingMechanismKind string
 
 const (
@@ -340,7 +338,6 @@ func (in *autoScalingMechanismKindPtr) ToAutoScalingMechanismKindPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingMechanismKindPtrOutput)
 }
 
-// The type of auto scaling metric
 type AutoScalingMetricKind string
 
 const (
@@ -505,7 +502,6 @@ func (in *autoScalingMetricKindPtr) ToAutoScalingMetricKindPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingMetricKindPtrOutput)
 }
 
-// Name of the resource.
 type AutoScalingResourceMetricName string
 
 const (
@@ -672,7 +668,6 @@ func (in *autoScalingResourceMetricNamePtr) ToAutoScalingResourceMetricNamePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingResourceMetricNamePtrOutput)
 }
 
-// The type of auto scaling trigger
 type AutoScalingTriggerKind string
 
 const (
@@ -837,7 +832,6 @@ func (in *autoScalingTriggerKindPtr) ToAutoScalingTriggerKindPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingTriggerKindPtrOutput)
 }
 
-// The kind of DiagnosticsSink.
 type DiagnosticsSinkKind string
 
 const (
@@ -1004,7 +998,6 @@ func (in *diagnosticsSinkKindPtr) ToDiagnosticsSinkKindPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DiagnosticsSinkKindPtrOutput)
 }
 
-// how to match header value
 type HeaderMatchType string
 
 const (
@@ -1168,7 +1161,6 @@ func (in *headerMatchTypePtr) ToHeaderMatchTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(HeaderMatchTypePtrOutput)
 }
 
-// The type of a Service Fabric container network.
 type NetworkKind string
 
 const (
@@ -1333,7 +1325,6 @@ func (in *networkKindPtr) ToNetworkKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkKindPtrOutput)
 }
 
-// The operation system required by the code in service.
 type OperatingSystemType string
 
 const (
@@ -1500,7 +1491,6 @@ func (in *operatingSystemTypePtr) ToOperatingSystemTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypePtrOutput)
 }
 
-// how to match value in the Uri
 type PathMatchType string
 
 const (
@@ -1664,7 +1654,6 @@ func (in *pathMatchTypePtr) ToPathMatchTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PathMatchTypePtrOutput)
 }
 
-// Describes the kind of secret.
 type SecretKind string
 
 const (
@@ -1829,7 +1818,6 @@ func (in *secretKindPtr) ToSecretKindPtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SecretKindPtrOutput)
 }
 
-// Volume size
 type SizeTypes string
 
 const (
@@ -1995,7 +1983,6 @@ func (in *sizeTypesPtr) ToSizeTypesPtrOutputWithContext(ctx context.Context) Siz
 	return pulumi.ToOutputWithContext(ctx, in).(SizeTypesPtrOutput)
 }
 
-// Provider of the volume.
 type VolumeProvider string
 
 const (

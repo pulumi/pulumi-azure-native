@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ExpressRoute Circuit
 type CircuitResponse struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
 	ExpressRouteID string `pulumi:"expressRouteID"`
@@ -33,7 +32,6 @@ type CircuitResponseInput interface {
 	ToCircuitResponseOutputWithContext(context.Context) CircuitResponseOutput
 }
 
-// An ExpressRoute Circuit
 type CircuitResponseArgs struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
 	ExpressRouteID pulumi.StringInput `pulumi:"expressRouteID"`
@@ -98,7 +96,6 @@ func (i *circuitResponsePtrType) ToCircuitResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CircuitResponsePtrOutput)
 }
 
-// An ExpressRoute Circuit
 type CircuitResponseOutput struct{ *pulumi.OutputState }
 
 func (CircuitResponseOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolume struct {
 	// iSCSI provider target IP address list
 	Endpoints []string `pulumi:"endpoints"`
@@ -226,7 +222,6 @@ type DiskPoolVolumeInput interface {
 	ToDiskPoolVolumeOutputWithContext(context.Context) DiskPoolVolumeOutput
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeArgs struct {
 	// iSCSI provider target IP address list
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
@@ -287,7 +282,6 @@ func (i *diskPoolVolumePtrType) ToDiskPoolVolumePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumePtrOutput)
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolVolumeOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o DiskPoolVolumePtrOutput) LunName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponse struct {
 	// iSCSI provider target IP address list
 	Endpoints []string `pulumi:"endpoints"`
@@ -385,7 +378,6 @@ type DiskPoolVolumeResponseInput interface {
 	ToDiskPoolVolumeResponseOutputWithContext(context.Context) DiskPoolVolumeResponseOutput
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponseArgs struct {
 	// iSCSI provider target IP address list
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
@@ -446,7 +438,6 @@ func (i *diskPoolVolumeResponsePtrType) ToDiskPoolVolumeResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeResponsePtrOutput)
 }
 
-// An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolVolumeResponseOutput) ElementType() reflect.Type {
@@ -525,7 +516,6 @@ func (o DiskPoolVolumeResponsePtrOutput) LunName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint addresses
 type EndpointsResponse struct {
 	// Endpoint for the HCX Cloud Manager
 	HcxCloudManager string `pulumi:"hcxCloudManager"`
@@ -546,7 +536,6 @@ type EndpointsResponseInput interface {
 	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
 }
 
-// Endpoint addresses
 type EndpointsResponseArgs struct {
 	// Endpoint for the HCX Cloud Manager
 	HcxCloudManager pulumi.StringInput `pulumi:"hcxCloudManager"`
@@ -609,7 +598,6 @@ func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
 }
 
-// Endpoint addresses
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -703,7 +691,6 @@ func (o EndpointsResponsePtrOutput) Vcsa() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySource struct {
 	// The domain's NetBIOS name
 	Alias *string `pulumi:"alias"`
@@ -738,7 +725,6 @@ type IdentitySourceInput interface {
 	ToIdentitySourceOutputWithContext(context.Context) IdentitySourceOutput
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceArgs struct {
 	// The domain's NetBIOS name
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
@@ -799,7 +785,6 @@ func (i IdentitySourceArray) ToIdentitySourceArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceArrayOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceOutput) ElementType() reflect.Type {
@@ -884,7 +869,6 @@ func (o IdentitySourceArrayOutput) Index(i pulumi.IntInput) IdentitySourceOutput
 	}).(IdentitySourceOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponse struct {
 	// The domain's NetBIOS name
 	Alias *string `pulumi:"alias"`
@@ -919,7 +903,6 @@ type IdentitySourceResponseInput interface {
 	ToIdentitySourceResponseOutputWithContext(context.Context) IdentitySourceResponseOutput
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponseArgs struct {
 	// The domain's NetBIOS name
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
@@ -980,7 +963,6 @@ func (i IdentitySourceResponseArray) ToIdentitySourceResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceResponseArrayOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceResponseOutput) ElementType() reflect.Type {
@@ -1065,7 +1047,6 @@ func (o IdentitySourceResponseArrayOutput) Index(i pulumi.IntInput) IdentitySour
 	}).(IdentitySourceResponseOutput)
 }
 
-// The properties of a default cluster
 type ManagementCluster struct {
 	// The cluster size
 	ClusterSize int `pulumi:"clusterSize"`
@@ -1082,7 +1063,6 @@ type ManagementClusterInput interface {
 	ToManagementClusterOutputWithContext(context.Context) ManagementClusterOutput
 }
 
-// The properties of a default cluster
 type ManagementClusterArgs struct {
 	// The cluster size
 	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
@@ -1141,7 +1121,6 @@ func (i *managementClusterPtrType) ToManagementClusterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterPtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterOutput) ElementType() reflect.Type {
@@ -1205,7 +1184,6 @@ func (o ManagementClusterPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterResponse struct {
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
@@ -1228,7 +1206,6 @@ type ManagementClusterResponseInput interface {
 	ToManagementClusterResponseOutputWithContext(context.Context) ManagementClusterResponseOutput
 }
 
-// The properties of a default cluster
 type ManagementClusterResponseArgs struct {
 	// The identity
 	ClusterId pulumi.IntInput `pulumi:"clusterId"`
@@ -1293,7 +1270,6 @@ func (i *managementClusterResponsePtrType) ToManagementClusterResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterResponsePtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterResponseOutput) ElementType() reflect.Type {
@@ -1402,7 +1378,6 @@ func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolume struct {
 	// File path through which the NFS volume is exposed by the provider
 	NfsFilePath *string `pulumi:"nfsFilePath"`
@@ -1421,7 +1396,6 @@ type NetAppVolumeInput interface {
 	ToNetAppVolumeOutputWithContext(context.Context) NetAppVolumeOutput
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeArgs struct {
 	// File path through which the NFS volume is exposed by the provider
 	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
@@ -1482,7 +1456,6 @@ func (i *netAppVolumePtrType) ToNetAppVolumePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumePtrOutput)
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeOutput struct{ *pulumi.OutputState }
 
 func (NetAppVolumeOutput) ElementType() reflect.Type {
@@ -1561,7 +1534,6 @@ func (o NetAppVolumePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponse struct {
 	// File path through which the NFS volume is exposed by the provider
 	NfsFilePath *string `pulumi:"nfsFilePath"`
@@ -1580,7 +1552,6 @@ type NetAppVolumeResponseInput interface {
 	ToNetAppVolumeResponseOutputWithContext(context.Context) NetAppVolumeResponseOutput
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponseArgs struct {
 	// File path through which the NFS volume is exposed by the provider
 	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
@@ -1641,7 +1612,6 @@ func (i *netAppVolumeResponsePtrType) ToNetAppVolumeResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeResponsePtrOutput)
 }
 
-// An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponseOutput struct{ *pulumi.OutputState }
 
 func (NetAppVolumeResponseOutput) ElementType() reflect.Type {
@@ -1720,7 +1690,6 @@ func (o NetAppVolumeResponsePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameter struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -1744,7 +1713,6 @@ type PSCredentialExecutionParameterInput interface {
 	ToPSCredentialExecutionParameterOutputWithContext(context.Context) PSCredentialExecutionParameterOutput
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameterArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1769,7 +1737,6 @@ func (i PSCredentialExecutionParameterArgs) ToPSCredentialExecutionParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PSCredentialExecutionParameterOutput)
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameterOutput struct{ *pulumi.OutputState }
 
 func (PSCredentialExecutionParameterOutput) ElementType() reflect.Type {
@@ -1805,7 +1772,6 @@ func (o PSCredentialExecutionParameterOutput) Username() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v PSCredentialExecutionParameter) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameterResponse struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -1829,7 +1795,6 @@ type PSCredentialExecutionParameterResponseInput interface {
 	ToPSCredentialExecutionParameterResponseOutputWithContext(context.Context) PSCredentialExecutionParameterResponseOutput
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameterResponseArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1854,7 +1819,6 @@ func (i PSCredentialExecutionParameterResponseArgs) ToPSCredentialExecutionParam
 	return pulumi.ToOutputWithContext(ctx, i).(PSCredentialExecutionParameterResponseOutput)
 }
 
-// a powershell credential object
 type PSCredentialExecutionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (PSCredentialExecutionParameterResponseOutput) ElementType() reflect.Type {
@@ -1890,7 +1854,6 @@ func (o PSCredentialExecutionParameterResponseOutput) Username() pulumi.StringPt
 	return o.ApplyT(func(v PSCredentialExecutionParameterResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameter struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -1912,7 +1875,6 @@ type ScriptSecureStringExecutionParameterInput interface {
 	ToScriptSecureStringExecutionParameterOutputWithContext(context.Context) ScriptSecureStringExecutionParameterOutput
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameterArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1935,7 +1897,6 @@ func (i ScriptSecureStringExecutionParameterArgs) ToScriptSecureStringExecutionP
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptSecureStringExecutionParameterOutput)
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameterOutput struct{ *pulumi.OutputState }
 
 func (ScriptSecureStringExecutionParameterOutput) ElementType() reflect.Type {
@@ -1966,7 +1927,6 @@ func (o ScriptSecureStringExecutionParameterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptSecureStringExecutionParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameterResponse struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -1988,7 +1948,6 @@ type ScriptSecureStringExecutionParameterResponseInput interface {
 	ToScriptSecureStringExecutionParameterResponseOutputWithContext(context.Context) ScriptSecureStringExecutionParameterResponseOutput
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameterResponseArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2011,7 +1970,6 @@ func (i ScriptSecureStringExecutionParameterResponseArgs) ToScriptSecureStringEx
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptSecureStringExecutionParameterResponseOutput)
 }
 
-// a plain text value execution parameter
 type ScriptSecureStringExecutionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ScriptSecureStringExecutionParameterResponseOutput) ElementType() reflect.Type {
@@ -2042,7 +2000,6 @@ func (o ScriptSecureStringExecutionParameterResponseOutput) Type() pulumi.String
 	return o.ApplyT(func(v ScriptSecureStringExecutionParameterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameter struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -2064,7 +2021,6 @@ type ScriptStringExecutionParameterInput interface {
 	ToScriptStringExecutionParameterOutputWithContext(context.Context) ScriptStringExecutionParameterOutput
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameterArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2087,7 +2043,6 @@ func (i ScriptStringExecutionParameterArgs) ToScriptStringExecutionParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptStringExecutionParameterOutput)
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameterOutput struct{ *pulumi.OutputState }
 
 func (ScriptStringExecutionParameterOutput) ElementType() reflect.Type {
@@ -2118,7 +2073,6 @@ func (o ScriptStringExecutionParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScriptStringExecutionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameterResponse struct {
 	// The parameter name
 	Name string `pulumi:"name"`
@@ -2140,7 +2094,6 @@ type ScriptStringExecutionParameterResponseInput interface {
 	ToScriptStringExecutionParameterResponseOutputWithContext(context.Context) ScriptStringExecutionParameterResponseOutput
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameterResponseArgs struct {
 	// The parameter name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2163,7 +2116,6 @@ func (i ScriptStringExecutionParameterResponseArgs) ToScriptStringExecutionParam
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptStringExecutionParameterResponseOutput)
 }
 
-// a plain text value execution parameter
 type ScriptStringExecutionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ScriptStringExecutionParameterResponseOutput) ElementType() reflect.Type {
@@ -2194,7 +2146,6 @@ func (o ScriptStringExecutionParameterResponseOutput) Value() pulumi.StringPtrOu
 	return o.ApplyT(func(v ScriptStringExecutionParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type Sku struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -2211,7 +2162,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The resource model definition representing SKU
 type SkuArgs struct {
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2270,7 +2220,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2334,7 +2283,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -2351,7 +2299,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The resource model definition representing SKU
 type SkuResponseArgs struct {
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2410,7 +2357,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2474,7 +2420,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ports and any VIF attached to segment.
 type WorkloadNetworkSegmentPortVifResponse struct {
 	// Name of port or VIF attached to segment.
 	PortName *string `pulumi:"portName"`
@@ -2491,7 +2436,6 @@ type WorkloadNetworkSegmentPortVifResponseInput interface {
 	ToWorkloadNetworkSegmentPortVifResponseOutputWithContext(context.Context) WorkloadNetworkSegmentPortVifResponseOutput
 }
 
-// Ports and any VIF attached to segment.
 type WorkloadNetworkSegmentPortVifResponseArgs struct {
 	// Name of port or VIF attached to segment.
 	PortName pulumi.StringPtrInput `pulumi:"portName"`
@@ -2534,7 +2478,6 @@ func (i WorkloadNetworkSegmentPortVifResponseArray) ToWorkloadNetworkSegmentPort
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentPortVifResponseArrayOutput)
 }
 
-// Ports and any VIF attached to segment.
 type WorkloadNetworkSegmentPortVifResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentPortVifResponseOutput) ElementType() reflect.Type {
@@ -2574,7 +2517,6 @@ func (o WorkloadNetworkSegmentPortVifResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(WorkloadNetworkSegmentPortVifResponseOutput)
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnet struct {
 	// DHCP Range assigned for subnet.
 	DhcpRanges []string `pulumi:"dhcpRanges"`
@@ -2593,7 +2535,6 @@ type WorkloadNetworkSegmentSubnetInput interface {
 	ToWorkloadNetworkSegmentSubnetOutputWithContext(context.Context) WorkloadNetworkSegmentSubnetOutput
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnetArgs struct {
 	// DHCP Range assigned for subnet.
 	DhcpRanges pulumi.StringArrayInput `pulumi:"dhcpRanges"`
@@ -2654,7 +2595,6 @@ func (i *workloadNetworkSegmentSubnetPtrType) ToWorkloadNetworkSegmentSubnetPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentSubnetPtrOutput)
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnetOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentSubnetOutput) ElementType() reflect.Type {
@@ -2733,7 +2673,6 @@ func (o WorkloadNetworkSegmentSubnetPtrOutput) GatewayAddress() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnetResponse struct {
 	// DHCP Range assigned for subnet.
 	DhcpRanges []string `pulumi:"dhcpRanges"`
@@ -2752,7 +2691,6 @@ type WorkloadNetworkSegmentSubnetResponseInput interface {
 	ToWorkloadNetworkSegmentSubnetResponseOutputWithContext(context.Context) WorkloadNetworkSegmentSubnetResponseOutput
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnetResponseArgs struct {
 	// DHCP Range assigned for subnet.
 	DhcpRanges pulumi.StringArrayInput `pulumi:"dhcpRanges"`
@@ -2813,7 +2751,6 @@ func (i *workloadNetworkSegmentSubnetResponsePtrType) ToWorkloadNetworkSegmentSu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentSubnetResponsePtrOutput)
 }
 
-// Subnet configuration for segment
 type WorkloadNetworkSegmentSubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentSubnetResponseOutput) ElementType() reflect.Type {

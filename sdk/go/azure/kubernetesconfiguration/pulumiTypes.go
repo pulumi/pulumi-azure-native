@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compliance Status details
 type ComplianceStatusResponse struct {
 	// The compliance state of the configuration.
 	ComplianceState string `pulumi:"complianceState"`
@@ -33,7 +32,6 @@ type ComplianceStatusResponseInput interface {
 	ToComplianceStatusResponseOutputWithContext(context.Context) ComplianceStatusResponseOutput
 }
 
-// Compliance Status details
 type ComplianceStatusResponseArgs struct {
 	// The compliance state of the configuration.
 	ComplianceState pulumi.StringInput `pulumi:"complianceState"`
@@ -98,7 +96,6 @@ func (i *complianceStatusResponsePtrType) ToComplianceStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ComplianceStatusResponsePtrOutput)
 }
 
-// Compliance Status details
 type ComplianceStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ComplianceStatusResponseOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentity struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -224,7 +220,6 @@ type ConfigurationIdentityInput interface {
 	ToConfigurationIdentityOutputWithContext(context.Context) ConfigurationIdentityOutput
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentityArgs struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -283,7 +278,6 @@ func (i *configurationIdentityPtrType) ToConfigurationIdentityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityPtrOutput)
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationIdentityOutput) ElementType() reflect.Type {
@@ -347,7 +341,6 @@ func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentityResponse struct {
 	// The principal id of the system assigned identity which is used by the configuration.
 	PrincipalId string `pulumi:"principalId"`
@@ -368,7 +361,6 @@ type ConfigurationIdentityResponseInput interface {
 	ToConfigurationIdentityResponseOutputWithContext(context.Context) ConfigurationIdentityResponseOutput
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentityResponseArgs struct {
 	// The principal id of the system assigned identity which is used by the configuration.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -431,7 +423,6 @@ func (i *configurationIdentityResponsePtrType) ToConfigurationIdentityResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityResponsePtrOutput)
 }
 
-// Identity for the managed cluster.
 type ConfigurationIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationIdentityResponseOutput) ElementType() reflect.Type {
@@ -525,7 +516,6 @@ func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error definition.
 type ErrorDefinitionResponse struct {
 	// Service specific error code which serves as the substatus for the HTTP error code.
 	Code string `pulumi:"code"`
@@ -544,7 +534,6 @@ type ErrorDefinitionResponseInput interface {
 	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
 }
 
-// Error definition.
 type ErrorDefinitionResponseArgs struct {
 	// Service specific error code which serves as the substatus for the HTTP error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -605,7 +594,6 @@ func (i *errorDefinitionResponsePtrType) ToErrorDefinitionResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponsePtrOutput)
 }
 
-// Error definition.
 type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
@@ -684,7 +672,6 @@ func (o ErrorDefinitionResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status from this instance of the extension.
 type ExtensionStatus struct {
 	// Status code provided by the Extension
 	Code *string `pulumi:"code"`
@@ -709,7 +696,6 @@ type ExtensionStatusInput interface {
 	ToExtensionStatusOutputWithContext(context.Context) ExtensionStatusOutput
 }
 
-// Status from this instance of the extension.
 type ExtensionStatusArgs struct {
 	// Status code provided by the Extension
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -760,7 +746,6 @@ func (i ExtensionStatusArray) ToExtensionStatusArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusArrayOutput)
 }
 
-// Status from this instance of the extension.
 type ExtensionStatusOutput struct{ *pulumi.OutputState }
 
 func (ExtensionStatusOutput) ElementType() reflect.Type {
@@ -820,7 +805,6 @@ func (o ExtensionStatusArrayOutput) Index(i pulumi.IntInput) ExtensionStatusOutp
 	}).(ExtensionStatusOutput)
 }
 
-// Status from this instance of the extension.
 type ExtensionStatusResponse struct {
 	// Status code provided by the Extension
 	Code *string `pulumi:"code"`
@@ -845,7 +829,6 @@ type ExtensionStatusResponseInput interface {
 	ToExtensionStatusResponseOutputWithContext(context.Context) ExtensionStatusResponseOutput
 }
 
-// Status from this instance of the extension.
 type ExtensionStatusResponseArgs struct {
 	// Status code provided by the Extension
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -896,7 +879,6 @@ func (i ExtensionStatusResponseArray) ToExtensionStatusResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusResponseArrayOutput)
 }
 
-// Status from this instance of the extension.
 type ExtensionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionStatusResponseOutput) ElementType() reflect.Type {
@@ -956,7 +938,6 @@ func (o ExtensionStatusResponseArrayOutput) Index(i pulumi.IntInput) ExtensionSt
 	}).(ExtensionStatusResponseOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorProperties struct {
 	// Values override for the operator Helm chart.
 	ChartValues *string `pulumi:"chartValues"`
@@ -975,7 +956,6 @@ type HelmOperatorPropertiesInput interface {
 	ToHelmOperatorPropertiesOutputWithContext(context.Context) HelmOperatorPropertiesOutput
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesArgs struct {
 	// Values override for the operator Helm chart.
 	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
@@ -1036,7 +1016,6 @@ func (i *helmOperatorPropertiesPtrType) ToHelmOperatorPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesPtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (HelmOperatorPropertiesOutput) ElementType() reflect.Type {
@@ -1115,7 +1094,6 @@ func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponse struct {
 	// Values override for the operator Helm chart.
 	ChartValues *string `pulumi:"chartValues"`
@@ -1134,7 +1112,6 @@ type HelmOperatorPropertiesResponseInput interface {
 	ToHelmOperatorPropertiesResponseOutputWithContext(context.Context) HelmOperatorPropertiesResponseOutput
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponseArgs struct {
 	// Values override for the operator Helm chart.
 	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
@@ -1195,7 +1172,6 @@ func (i *helmOperatorPropertiesResponsePtrType) ToHelmOperatorPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesResponsePtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HelmOperatorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1274,7 +1250,6 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type Scope struct {
 	// Specifies that the scope of the extensionInstance is Cluster
 	Cluster *ScopeCluster `pulumi:"cluster"`
@@ -1293,7 +1268,6 @@ type ScopeInput interface {
 	ToScopeOutputWithContext(context.Context) ScopeOutput
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type ScopeArgs struct {
 	// Specifies that the scope of the extensionInstance is Cluster
 	Cluster ScopeClusterPtrInput `pulumi:"cluster"`
@@ -1354,7 +1328,6 @@ func (i *scopePtrType) ToScopePtrOutputWithContext(ctx context.Context) ScopePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ScopePtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type ScopeOutput struct{ *pulumi.OutputState }
 
 func (ScopeOutput) ElementType() reflect.Type {
@@ -1433,7 +1406,6 @@ func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
 	}).(ScopeNamespacePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeCluster struct {
 	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
@@ -1450,7 +1422,6 @@ type ScopeClusterInput interface {
 	ToScopeClusterOutputWithContext(context.Context) ScopeClusterOutput
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeClusterArgs struct {
 	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
@@ -1509,7 +1480,6 @@ func (i *scopeClusterPtrType) ToScopeClusterPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeClusterOutput struct{ *pulumi.OutputState }
 
 func (ScopeClusterOutput) ElementType() reflect.Type {
@@ -1573,7 +1543,6 @@ func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeClusterResponse struct {
 	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
@@ -1590,7 +1559,6 @@ type ScopeClusterResponseInput interface {
 	ToScopeClusterResponseOutputWithContext(context.Context) ScopeClusterResponseOutput
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeClusterResponseArgs struct {
 	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
@@ -1649,7 +1617,6 @@ func (i *scopeClusterResponsePtrType) ToScopeClusterResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 type ScopeClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeClusterResponseOutput) ElementType() reflect.Type {
@@ -1713,7 +1680,6 @@ func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespace struct {
 	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
@@ -1730,7 +1696,6 @@ type ScopeNamespaceInput interface {
 	ToScopeNamespaceOutputWithContext(context.Context) ScopeNamespaceOutput
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespaceArgs struct {
 	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
@@ -1789,7 +1754,6 @@ func (i *scopeNamespacePtrType) ToScopeNamespacePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespacePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespaceOutput struct{ *pulumi.OutputState }
 
 func (ScopeNamespaceOutput) ElementType() reflect.Type {
@@ -1853,7 +1817,6 @@ func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespaceResponse struct {
 	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
@@ -1870,7 +1833,6 @@ type ScopeNamespaceResponseInput interface {
 	ToScopeNamespaceResponseOutputWithContext(context.Context) ScopeNamespaceResponseOutput
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespaceResponseArgs struct {
 	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
@@ -1929,7 +1891,6 @@ func (i *scopeNamespaceResponsePtrType) ToScopeNamespaceResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 type ScopeNamespaceResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeNamespaceResponseOutput) ElementType() reflect.Type {
@@ -1993,7 +1954,6 @@ func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type ScopeResponse struct {
 	// Specifies that the scope of the extensionInstance is Cluster
 	Cluster *ScopeClusterResponse `pulumi:"cluster"`
@@ -2012,7 +1972,6 @@ type ScopeResponseInput interface {
 	ToScopeResponseOutputWithContext(context.Context) ScopeResponseOutput
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type ScopeResponseArgs struct {
 	// Specifies that the scope of the extensionInstance is Cluster
 	Cluster ScopeClusterResponsePtrInput `pulumi:"cluster"`
@@ -2073,7 +2032,6 @@ func (i *scopeResponsePtrType) ToScopeResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponsePtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
 type ScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeResponseOutput) ElementType() reflect.Type {
@@ -2152,7 +2110,6 @@ func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 	}).(ScopeNamespaceResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2179,7 +2136,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -2248,7 +2204,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

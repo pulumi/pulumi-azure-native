@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20150301preview from "./v20150301preview";
 import * as v20180601preview from "./v20180601preview";
+import * as v20210601 from "./v20210601";
 
 export {
     v20150301preview,
     v20180601preview,
+    v20210601,
 };
 
 export const DaysOfWeek = {
@@ -61,6 +63,18 @@ export const PrivateLink = {
  * Indicates whether or not private link is enabled.
  */
 export type PrivateLink = (typeof PrivateLink)[keyof typeof PrivateLink];
+
+export const PrivateLinkServiceConnectionStatus = {
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Pending: "Pending",
+    Removed: "Removed",
+} as const;
+
+/**
+ * The concrete private link service connection.
+ */
+export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",

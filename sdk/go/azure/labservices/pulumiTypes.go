@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This represents the details about a User's environment and its state.
 type EnvironmentDetailsResponse struct {
 	// Description of the Environment
 	Description string `pulumi:"description"`
@@ -43,7 +42,6 @@ type EnvironmentDetailsResponseInput interface {
 	ToEnvironmentDetailsResponseOutputWithContext(context.Context) EnvironmentDetailsResponseOutput
 }
 
-// This represents the details about a User's environment and its state.
 type EnvironmentDetailsResponseArgs struct {
 	// Description of the Environment
 	Description pulumi.StringInput `pulumi:"description"`
@@ -102,7 +100,6 @@ func (i EnvironmentDetailsResponseArray) ToEnvironmentDetailsResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDetailsResponseArrayOutput)
 }
 
-// This represents the details about a User's environment and its state.
 type EnvironmentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDetailsResponseOutput) ElementType() reflect.Type {
@@ -182,7 +179,6 @@ func (o EnvironmentDetailsResponseArrayOutput) Index(i pulumi.IntInput) Environm
 	}).(EnvironmentDetailsResponseOutput)
 }
 
-// Represents a size category supported by this Lab Account (small, medium or large)
 type EnvironmentSizeResponse struct {
 	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
 	MaxPrice float64 `pulumi:"maxPrice"`
@@ -207,7 +203,6 @@ type EnvironmentSizeResponseInput interface {
 	ToEnvironmentSizeResponseOutputWithContext(context.Context) EnvironmentSizeResponseOutput
 }
 
-// Represents a size category supported by this Lab Account (small, medium or large)
 type EnvironmentSizeResponseArgs struct {
 	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
 	MaxPrice pulumi.Float64Input `pulumi:"maxPrice"`
@@ -258,7 +253,6 @@ func (i EnvironmentSizeResponseArray) ToEnvironmentSizeResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSizeResponseArrayOutput)
 }
 
-// Represents a size category supported by this Lab Account (small, medium or large)
 type EnvironmentSizeResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSizeResponseOutput) ElementType() reflect.Type {
@@ -318,7 +312,6 @@ func (o EnvironmentSizeResponseArrayOutput) Index(i pulumi.IntInput) Environment
 	}).(EnvironmentSizeResponseOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponse struct {
 	// The offer of the gallery image.
 	Offer *string `pulumi:"offer"`
@@ -343,7 +336,6 @@ type GalleryImageReferenceResponseInput interface {
 	ToGalleryImageReferenceResponseOutputWithContext(context.Context) GalleryImageReferenceResponseOutput
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponseArgs struct {
 	// The offer of the gallery image.
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
@@ -410,7 +402,6 @@ func (i *galleryImageReferenceResponsePtrType) ToGalleryImageReferenceResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageReferenceResponseOutput) ElementType() reflect.Type {
@@ -534,7 +525,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// This represents the details about a lab that the User is in, and its state.
 type LabDetailsResponse struct {
 	// The Id of the lab.
 	Id *string `pulumi:"id"`
@@ -557,7 +547,6 @@ type LabDetailsResponseInput interface {
 	ToLabDetailsResponseOutputWithContext(context.Context) LabDetailsResponseOutput
 }
 
-// This represents the details about a lab that the User is in, and its state.
 type LabDetailsResponseArgs struct {
 	// The Id of the lab.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -606,7 +595,6 @@ func (i LabDetailsResponseArray) ToLabDetailsResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LabDetailsResponseArrayOutput)
 }
 
-// This represents the details about a lab that the User is in, and its state.
 type LabDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (LabDetailsResponseOutput) ElementType() reflect.Type {
@@ -661,7 +649,6 @@ func (o LabDetailsResponseArrayOutput) Index(i pulumi.IntInput) LabDetailsRespon
 	}).(LabDetailsResponseOutput)
 }
 
-// Details of the status of an operation.
 type LatestOperationResultResponse struct {
 	// Error code on failure.
 	ErrorCode string `pulumi:"errorCode"`
@@ -688,7 +675,6 @@ type LatestOperationResultResponseInput interface {
 	ToLatestOperationResultResponseOutputWithContext(context.Context) LatestOperationResultResponseOutput
 }
 
-// Details of the status of an operation.
 type LatestOperationResultResponseArgs struct {
 	// Error code on failure.
 	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
@@ -757,7 +743,6 @@ func (i *latestOperationResultResponsePtrType) ToLatestOperationResultResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(LatestOperationResultResponsePtrOutput)
 }
 
-// Details of the status of an operation.
 type LatestOperationResultResponseOutput struct{ *pulumi.OutputState }
 
 func (LatestOperationResultResponseOutput) ElementType() reflect.Type {
@@ -896,7 +881,6 @@ func (o LatestOperationResultResponsePtrOutput) Status() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network details of the environment
 type NetworkInterfaceResponse struct {
 	// PrivateIp address of the Compute VM
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
@@ -919,7 +903,6 @@ type NetworkInterfaceResponseInput interface {
 	ToNetworkInterfaceResponseOutputWithContext(context.Context) NetworkInterfaceResponseOutput
 }
 
-// Network details of the environment
 type NetworkInterfaceResponseArgs struct {
 	// PrivateIp address of the Compute VM
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
@@ -984,7 +967,6 @@ func (i *networkInterfaceResponsePtrType) ToNetworkInterfaceResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResponsePtrOutput)
 }
 
-// Network details of the environment
 type NetworkInterfaceResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResponseOutput) ElementType() reflect.Type {
@@ -1093,7 +1075,6 @@ func (o NetworkInterfaceResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the status of an operation that used the batch API.
 type OperationBatchStatusResponseItemResponse struct {
 	// status of the long running operation for an environment
 	OperationUrl string `pulumi:"operationUrl"`
@@ -1112,7 +1093,6 @@ type OperationBatchStatusResponseItemResponseInput interface {
 	ToOperationBatchStatusResponseItemResponseOutputWithContext(context.Context) OperationBatchStatusResponseItemResponseOutput
 }
 
-// Represents the status of an operation that used the batch API.
 type OperationBatchStatusResponseItemResponseArgs struct {
 	// status of the long running operation for an environment
 	OperationUrl pulumi.StringInput `pulumi:"operationUrl"`
@@ -1157,7 +1137,6 @@ func (i OperationBatchStatusResponseItemResponseArray) ToOperationBatchStatusRes
 	return pulumi.ToOutputWithContext(ctx, i).(OperationBatchStatusResponseItemResponseArrayOutput)
 }
 
-// Represents the status of an operation that used the batch API.
 type OperationBatchStatusResponseItemResponseOutput struct{ *pulumi.OutputState }
 
 func (OperationBatchStatusResponseItemResponseOutput) ElementType() reflect.Type {
@@ -1202,7 +1181,6 @@ func (o OperationBatchStatusResponseItemResponseArrayOutput) Index(i pulumi.IntI
 	}).(OperationBatchStatusResponseItemResponseOutput)
 }
 
-// Details of a Reference Vm
 type ReferenceVm struct {
 	// The password of the virtual machine. This will be set to null in GET resource API
 	Password *string `pulumi:"password"`
@@ -1221,7 +1199,6 @@ type ReferenceVmInput interface {
 	ToReferenceVmOutputWithContext(context.Context) ReferenceVmOutput
 }
 
-// Details of a Reference Vm
 type ReferenceVmArgs struct {
 	// The password of the virtual machine. This will be set to null in GET resource API
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -1282,7 +1259,6 @@ func (i *referenceVmPtrType) ToReferenceVmPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceVmPtrOutput)
 }
 
-// Details of a Reference Vm
 type ReferenceVmOutput struct{ *pulumi.OutputState }
 
 func (ReferenceVmOutput) ElementType() reflect.Type {
@@ -1361,7 +1337,6 @@ func (o ReferenceVmPtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of a Reference Vm
 type ReferenceVmResponse struct {
 	// The password of the virtual machine. This will be set to null in GET resource API
 	Password *string `pulumi:"password"`
@@ -1384,7 +1359,6 @@ type ReferenceVmResponseInput interface {
 	ToReferenceVmResponseOutputWithContext(context.Context) ReferenceVmResponseOutput
 }
 
-// Details of a Reference Vm
 type ReferenceVmResponseArgs struct {
 	// The password of the virtual machine. This will be set to null in GET resource API
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -1449,7 +1423,6 @@ func (i *referenceVmResponsePtrType) ToReferenceVmResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceVmResponsePtrOutput)
 }
 
-// Details of a Reference Vm
 type ReferenceVmResponseOutput struct{ *pulumi.OutputState }
 
 func (ReferenceVmResponseOutput) ElementType() reflect.Type {
@@ -1558,7 +1531,6 @@ func (o ReferenceVmResponsePtrOutput) VmStateDetails() VmStateDetailsResponsePtr
 	}).(VmStateDetailsResponsePtrOutput)
 }
 
-// The availability information of sizes across regions
 type RegionalAvailabilityResponse struct {
 	// Corresponding region
 	Region *string `pulumi:"region"`
@@ -1577,7 +1549,6 @@ type RegionalAvailabilityResponseInput interface {
 	ToRegionalAvailabilityResponseOutputWithContext(context.Context) RegionalAvailabilityResponseOutput
 }
 
-// The availability information of sizes across regions
 type RegionalAvailabilityResponseArgs struct {
 	// Corresponding region
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -1622,7 +1593,6 @@ func (i RegionalAvailabilityResponseArray) ToRegionalAvailabilityResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RegionalAvailabilityResponseArrayOutput)
 }
 
-// The availability information of sizes across regions
 type RegionalAvailabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (RegionalAvailabilityResponseOutput) ElementType() reflect.Type {
@@ -1667,7 +1637,6 @@ func (o RegionalAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) Region
 	}).(RegionalAvailabilityResponseOutput)
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSet struct {
 	// resourceSettingId for the environment
 	ResourceSettingId *string `pulumi:"resourceSettingId"`
@@ -1686,7 +1655,6 @@ type ResourceSetInput interface {
 	ToResourceSetOutputWithContext(context.Context) ResourceSetOutput
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSetArgs struct {
 	// resourceSettingId for the environment
 	ResourceSettingId pulumi.StringPtrInput `pulumi:"resourceSettingId"`
@@ -1747,7 +1715,6 @@ func (i *resourceSetPtrType) ToResourceSetPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetPtrOutput)
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSetOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetOutput) ElementType() reflect.Type {
@@ -1826,7 +1793,6 @@ func (o ResourceSetPtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSetResponse struct {
 	// resourceSettingId for the environment
 	ResourceSettingId *string `pulumi:"resourceSettingId"`
@@ -1845,7 +1811,6 @@ type ResourceSetResponseInput interface {
 	ToResourceSetResponseOutputWithContext(context.Context) ResourceSetResponseOutput
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSetResponseArgs struct {
 	// resourceSettingId for the environment
 	ResourceSettingId pulumi.StringPtrInput `pulumi:"resourceSettingId"`
@@ -1906,7 +1871,6 @@ func (i *resourceSetResponsePtrType) ToResourceSetResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResponsePtrOutput)
 }
 
-// Represents a VM and the setting Id it was created for.
 type ResourceSetResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResponseOutput) ElementType() reflect.Type {
@@ -1985,7 +1949,6 @@ func (o ResourceSetResponsePtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents resource specific settings
 type ResourceSettings struct {
 	// The resource id of the gallery image used for creating the virtual machine
 	GalleryImageResourceId *string `pulumi:"galleryImageResourceId"`
@@ -2006,7 +1969,6 @@ type ResourceSettingsInput interface {
 	ToResourceSettingsOutputWithContext(context.Context) ResourceSettingsOutput
 }
 
-// Represents resource specific settings
 type ResourceSettingsArgs struct {
 	// The resource id of the gallery image used for creating the virtual machine
 	GalleryImageResourceId pulumi.StringPtrInput `pulumi:"galleryImageResourceId"`
@@ -2069,7 +2031,6 @@ func (i *resourceSettingsPtrType) ToResourceSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSettingsPtrOutput)
 }
 
-// Represents resource specific settings
 type ResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ResourceSettingsOutput) ElementType() reflect.Type {
@@ -2163,7 +2124,6 @@ func (o ResourceSettingsPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents resource specific settings
 type ResourceSettingsResponse struct {
 	// The translated compute cores of the virtual machine
 	Cores int `pulumi:"cores"`
@@ -2190,7 +2150,6 @@ type ResourceSettingsResponseInput interface {
 	ToResourceSettingsResponseOutputWithContext(context.Context) ResourceSettingsResponseOutput
 }
 
-// Represents resource specific settings
 type ResourceSettingsResponseArgs struct {
 	// The translated compute cores of the virtual machine
 	Cores pulumi.IntInput `pulumi:"cores"`
@@ -2259,7 +2218,6 @@ func (i *resourceSettingsResponsePtrType) ToResourceSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSettingsResponsePtrOutput)
 }
 
-// Represents resource specific settings
 type ResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -2398,7 +2356,6 @@ func (o ResourceSettingsResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the size information
 type SizeAvailabilityResponse struct {
 	// Whether or not this size category is available
 	IsAvailable *bool `pulumi:"isAvailable"`
@@ -2417,7 +2374,6 @@ type SizeAvailabilityResponseInput interface {
 	ToSizeAvailabilityResponseOutputWithContext(context.Context) SizeAvailabilityResponseOutput
 }
 
-// Represents the size information
 type SizeAvailabilityResponseArgs struct {
 	// Whether or not this size category is available
 	IsAvailable pulumi.BoolPtrInput `pulumi:"isAvailable"`
@@ -2462,7 +2418,6 @@ func (i SizeAvailabilityResponseArray) ToSizeAvailabilityResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SizeAvailabilityResponseArrayOutput)
 }
 
-// Represents the size information
 type SizeAvailabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (SizeAvailabilityResponseOutput) ElementType() reflect.Type {
@@ -2507,7 +2462,6 @@ func (o SizeAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) SizeAvaila
 	}).(SizeAvailabilityResponseOutput)
 }
 
-// Represents the size configuration under the lab account
 type SizeConfigurationPropertiesResponse struct {
 	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 	EnvironmentSizes []EnvironmentSizeResponse `pulumi:"environmentSizes"`
@@ -2524,7 +2478,6 @@ type SizeConfigurationPropertiesResponseInput interface {
 	ToSizeConfigurationPropertiesResponseOutputWithContext(context.Context) SizeConfigurationPropertiesResponseOutput
 }
 
-// Represents the size configuration under the lab account
 type SizeConfigurationPropertiesResponseArgs struct {
 	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 	EnvironmentSizes EnvironmentSizeResponseArrayInput `pulumi:"environmentSizes"`
@@ -2583,7 +2536,6 @@ func (i *sizeConfigurationPropertiesResponsePtrType) ToSizeConfigurationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConfigurationPropertiesResponsePtrOutput)
 }
 
-// Represents the size configuration under the lab account
 type SizeConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SizeConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2647,7 +2599,6 @@ func (o SizeConfigurationPropertiesResponsePtrOutput) EnvironmentSizes() Environ
 	}).(EnvironmentSizeResponseArrayOutput)
 }
 
-// Contains detailed information about a size
 type SizeInfoResponse struct {
 	// Represents the actual compute size, e.g. Standard_A2_v2.
 	ComputeSize *string `pulumi:"computeSize"`
@@ -2670,7 +2621,6 @@ type SizeInfoResponseInput interface {
 	ToSizeInfoResponseOutputWithContext(context.Context) SizeInfoResponseOutput
 }
 
-// Contains detailed information about a size
 type SizeInfoResponseArgs struct {
 	// Represents the actual compute size, e.g. Standard_A2_v2.
 	ComputeSize pulumi.StringPtrInput `pulumi:"computeSize"`
@@ -2719,7 +2669,6 @@ func (i SizeInfoResponseArray) ToSizeInfoResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SizeInfoResponseArrayOutput)
 }
 
-// Contains detailed information about a size
 type SizeInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (SizeInfoResponseOutput) ElementType() reflect.Type {
@@ -2774,7 +2723,6 @@ func (o SizeInfoResponseArrayOutput) Index(i pulumi.IntInput) SizeInfoResponseOu
 	}).(SizeInfoResponseOutput)
 }
 
-// Details of the backing virtual machine.
 type VirtualMachineDetailsResponse struct {
 	// Last known compute power state captured in DTL
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
@@ -2801,7 +2749,6 @@ type VirtualMachineDetailsResponseInput interface {
 	ToVirtualMachineDetailsResponseOutputWithContext(context.Context) VirtualMachineDetailsResponseOutput
 }
 
-// Details of the backing virtual machine.
 type VirtualMachineDetailsResponseArgs struct {
 	// Last known compute power state captured in DTL
 	LastKnownPowerState pulumi.StringInput `pulumi:"lastKnownPowerState"`
@@ -2829,7 +2776,6 @@ func (i VirtualMachineDetailsResponseArgs) ToVirtualMachineDetailsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineDetailsResponseOutput)
 }
 
-// Details of the backing virtual machine.
 type VirtualMachineDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineDetailsResponseOutput) ElementType() reflect.Type {
@@ -2874,7 +2820,6 @@ func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Details about the state of the reference virtual machine.
 type VmStateDetailsResponse struct {
 	// Last known compute power state captured in DTL
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
@@ -2897,7 +2842,6 @@ type VmStateDetailsResponseInput interface {
 	ToVmStateDetailsResponseOutputWithContext(context.Context) VmStateDetailsResponseOutput
 }
 
-// Details about the state of the reference virtual machine.
 type VmStateDetailsResponseArgs struct {
 	// Last known compute power state captured in DTL
 	LastKnownPowerState pulumi.StringInput `pulumi:"lastKnownPowerState"`
@@ -2962,7 +2906,6 @@ func (i *vmStateDetailsResponsePtrType) ToVmStateDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VmStateDetailsResponsePtrOutput)
 }
 
-// Details about the state of the reference virtual machine.
 type VmStateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmStateDetailsResponseOutput) ElementType() reflect.Type {

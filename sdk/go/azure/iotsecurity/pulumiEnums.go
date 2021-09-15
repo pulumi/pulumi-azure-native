@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Integration status
 type MdeIntegration string
 
 const (
@@ -175,7 +174,6 @@ func (in *mdeIntegrationPtr) ToMdeIntegrationPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(MdeIntegrationPtrOutput)
 }
 
-// The kind of onboarding for the subscription
 type OnboardingKind string
 
 const (
@@ -342,7 +340,6 @@ func (in *onboardingKindPtr) ToOnboardingKindPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(OnboardingKindPtrOutput)
 }
 
-// Type of sensor
 type SensorType string
 
 const (

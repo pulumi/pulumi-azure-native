@@ -135,7 +135,7 @@ export class SqlDBTableDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:SqlDBTableDataSet" }, { type: "azure-native:datashare:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20181101preview:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20191101:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20200901:SqlDBTableDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:SqlDBTableDataSet" }, { type: "azure-native:datashare:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20181101preview:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20191101:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20200901:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDBTableDataSet" }, { type: "azure-nextgen:datashare/v20210801:SqlDBTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDBTableDataSet.__pulumiType, name, inputs, opts);
     }

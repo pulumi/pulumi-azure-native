@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
 type ResourceIdentityType string
 
 const (
@@ -175,7 +174,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
 type SharedImageStorageAccountType string
 
 const (

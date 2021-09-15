@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParameters struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
@@ -31,7 +30,6 @@ type CreateFirewallRuleWithAccountParametersInput interface {
 	ToCreateFirewallRuleWithAccountParametersOutputWithContext(context.Context) CreateFirewallRuleWithAccountParametersOutput
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParametersArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
@@ -78,7 +76,6 @@ func (i CreateFirewallRuleWithAccountParametersArray) ToCreateFirewallRuleWithAc
 	return pulumi.ToOutputWithContext(ctx, i).(CreateFirewallRuleWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (CreateFirewallRuleWithAccountParametersOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 	}).(CreateFirewallRuleWithAccountParametersOutput)
 }
 
-// The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
 type CreateTrustedIdProviderWithAccountParameters struct {
 	// The URL of this trusted identity provider.
 	IdProvider string `pulumi:"idProvider"`
@@ -147,7 +143,6 @@ type CreateTrustedIdProviderWithAccountParametersInput interface {
 	ToCreateTrustedIdProviderWithAccountParametersOutputWithContext(context.Context) CreateTrustedIdProviderWithAccountParametersOutput
 }
 
-// The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
 type CreateTrustedIdProviderWithAccountParametersArgs struct {
 	// The URL of this trusted identity provider.
 	IdProvider pulumi.StringInput `pulumi:"idProvider"`
@@ -192,7 +187,6 @@ func (i CreateTrustedIdProviderWithAccountParametersArray) ToCreateTrustedIdProv
 	return pulumi.ToOutputWithContext(ctx, i).(CreateTrustedIdProviderWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
 type CreateTrustedIdProviderWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (CreateTrustedIdProviderWithAccountParametersOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o CreateTrustedIdProviderWithAccountParametersArrayOutput) Index(i pulumi.
 	}).(CreateTrustedIdProviderWithAccountParametersOutput)
 }
 
-// The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
 type CreateVirtualNetworkRuleWithAccountParameters struct {
 	// The unique name of the virtual network rule to create.
 	Name string `pulumi:"name"`
@@ -256,7 +249,6 @@ type CreateVirtualNetworkRuleWithAccountParametersInput interface {
 	ToCreateVirtualNetworkRuleWithAccountParametersOutputWithContext(context.Context) CreateVirtualNetworkRuleWithAccountParametersOutput
 }
 
-// The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
 type CreateVirtualNetworkRuleWithAccountParametersArgs struct {
 	// The unique name of the virtual network rule to create.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -301,7 +293,6 @@ func (i CreateVirtualNetworkRuleWithAccountParametersArray) ToCreateVirtualNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(CreateVirtualNetworkRuleWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
 type CreateVirtualNetworkRuleWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (CreateVirtualNetworkRuleWithAccountParametersOutput) ElementType() reflect.Type {
@@ -346,7 +337,6 @@ func (o CreateVirtualNetworkRuleWithAccountParametersArrayOutput) Index(i pulumi
 	}).(CreateVirtualNetworkRuleWithAccountParametersOutput)
 }
 
-// The encryption configuration for the account.
 type EncryptionConfig struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo *KeyVaultMetaInfo `pulumi:"keyVaultMetaInfo"`
@@ -365,7 +355,6 @@ type EncryptionConfigInput interface {
 	ToEncryptionConfigOutputWithContext(context.Context) EncryptionConfigOutput
 }
 
-// The encryption configuration for the account.
 type EncryptionConfigArgs struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo KeyVaultMetaInfoPtrInput `pulumi:"keyVaultMetaInfo"`
@@ -426,7 +415,6 @@ func (i *encryptionConfigPtrType) ToEncryptionConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPtrOutput)
 }
 
-// The encryption configuration for the account.
 type EncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigOutput) ElementType() reflect.Type {
@@ -505,7 +493,6 @@ func (o EncryptionConfigPtrOutput) Type() EncryptionConfigTypePtrOutput {
 	}).(EncryptionConfigTypePtrOutput)
 }
 
-// The encryption configuration for the account.
 type EncryptionConfigResponse struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo *KeyVaultMetaInfoResponse `pulumi:"keyVaultMetaInfo"`
@@ -524,7 +511,6 @@ type EncryptionConfigResponseInput interface {
 	ToEncryptionConfigResponseOutputWithContext(context.Context) EncryptionConfigResponseOutput
 }
 
-// The encryption configuration for the account.
 type EncryptionConfigResponseArgs struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo KeyVaultMetaInfoResponsePtrInput `pulumi:"keyVaultMetaInfo"`
@@ -585,7 +571,6 @@ func (i *encryptionConfigResponsePtrType) ToEncryptionConfigResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigResponsePtrOutput)
 }
 
-// The encryption configuration for the account.
 type EncryptionConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigResponseOutput) ElementType() reflect.Type {
@@ -664,7 +649,6 @@ func (o EncryptionConfigResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption identity properties.
 type EncryptionIdentity struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
 	Type EncryptionIdentityType `pulumi:"type"`
@@ -681,7 +665,6 @@ type EncryptionIdentityInput interface {
 	ToEncryptionIdentityOutputWithContext(context.Context) EncryptionIdentityOutput
 }
 
-// The encryption identity properties.
 type EncryptionIdentityArgs struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
 	Type EncryptionIdentityTypeInput `pulumi:"type"`
@@ -740,7 +723,6 @@ func (i *encryptionIdentityPtrType) ToEncryptionIdentityPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityPtrOutput)
 }
 
-// The encryption identity properties.
 type EncryptionIdentityOutput struct{ *pulumi.OutputState }
 
 func (EncryptionIdentityOutput) ElementType() reflect.Type {
@@ -804,7 +786,6 @@ func (o EncryptionIdentityPtrOutput) Type() EncryptionIdentityTypePtrOutput {
 	}).(EncryptionIdentityTypePtrOutput)
 }
 
-// The encryption identity properties.
 type EncryptionIdentityResponse struct {
 	// The principal identifier associated with the encryption.
 	PrincipalId string `pulumi:"principalId"`
@@ -825,7 +806,6 @@ type EncryptionIdentityResponseInput interface {
 	ToEncryptionIdentityResponseOutputWithContext(context.Context) EncryptionIdentityResponseOutput
 }
 
-// The encryption identity properties.
 type EncryptionIdentityResponseArgs struct {
 	// The principal identifier associated with the encryption.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -888,7 +868,6 @@ func (i *encryptionIdentityResponsePtrType) ToEncryptionIdentityResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponsePtrOutput)
 }
 
-// The encryption identity properties.
 type EncryptionIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionIdentityResponseOutput) ElementType() reflect.Type {
@@ -982,7 +961,6 @@ func (o EncryptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data Lake Store firewall rule information.
 type FirewallRuleResponse struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
@@ -1007,7 +985,6 @@ type FirewallRuleResponseInput interface {
 	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
 }
 
-// Data Lake Store firewall rule information.
 type FirewallRuleResponseArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
@@ -1058,7 +1035,6 @@ func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
 }
 
-// Data Lake Store firewall rule information.
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleResponseOutput) ElementType() reflect.Type {
@@ -1118,7 +1094,6 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 	}).(FirewallRuleResponseOutput)
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfo struct {
 	// The name of the user managed encryption key.
 	EncryptionKeyName string `pulumi:"encryptionKeyName"`
@@ -1139,7 +1114,6 @@ type KeyVaultMetaInfoInput interface {
 	ToKeyVaultMetaInfoOutputWithContext(context.Context) KeyVaultMetaInfoOutput
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfoArgs struct {
 	// The name of the user managed encryption key.
 	EncryptionKeyName pulumi.StringInput `pulumi:"encryptionKeyName"`
@@ -1202,7 +1176,6 @@ func (i *keyVaultMetaInfoPtrType) ToKeyVaultMetaInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoPtrOutput)
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfoOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultMetaInfoOutput) ElementType() reflect.Type {
@@ -1296,7 +1269,6 @@ func (o KeyVaultMetaInfoPtrOutput) KeyVaultResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfoResponse struct {
 	// The name of the user managed encryption key.
 	EncryptionKeyName string `pulumi:"encryptionKeyName"`
@@ -1317,7 +1289,6 @@ type KeyVaultMetaInfoResponseInput interface {
 	ToKeyVaultMetaInfoResponseOutputWithContext(context.Context) KeyVaultMetaInfoResponseOutput
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfoResponseArgs struct {
 	// The name of the user managed encryption key.
 	EncryptionKeyName pulumi.StringInput `pulumi:"encryptionKeyName"`
@@ -1380,7 +1351,6 @@ func (i *keyVaultMetaInfoResponsePtrType) ToKeyVaultMetaInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoResponsePtrOutput)
 }
 
-// Metadata information used by account encryption.
 type KeyVaultMetaInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultMetaInfoResponseOutput) ElementType() reflect.Type {
@@ -1474,7 +1444,6 @@ func (o KeyVaultMetaInfoResponsePtrOutput) KeyVaultResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data Lake Store trusted identity provider information.
 type TrustedIdProviderResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1497,7 +1466,6 @@ type TrustedIdProviderResponseInput interface {
 	ToTrustedIdProviderResponseOutputWithContext(context.Context) TrustedIdProviderResponseOutput
 }
 
-// Data Lake Store trusted identity provider information.
 type TrustedIdProviderResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1546,7 +1514,6 @@ func (i TrustedIdProviderResponseArray) ToTrustedIdProviderResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderResponseArrayOutput)
 }
 
-// Data Lake Store trusted identity provider information.
 type TrustedIdProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (TrustedIdProviderResponseOutput) ElementType() reflect.Type {
@@ -1601,7 +1568,6 @@ func (o TrustedIdProviderResponseArrayOutput) Index(i pulumi.IntInput) TrustedId
 	}).(TrustedIdProviderResponseOutput)
 }
 
-// Data Lake Store virtual network rule information.
 type VirtualNetworkRuleResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1624,7 +1590,6 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// Data Lake Store virtual network rule information.
 type VirtualNetworkRuleResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1673,7 +1638,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Data Lake Store virtual network rule information.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {

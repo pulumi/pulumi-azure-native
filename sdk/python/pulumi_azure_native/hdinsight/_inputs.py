@@ -34,6 +34,7 @@ __all__ = [
     'LinuxOperatingSystemProfileArgs',
     'NetworkPropertiesArgs',
     'OsProfileArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'RoleArgs',
     'RuntimeScriptActionArgs',
     'ScriptActionArgs',
@@ -1378,6 +1379,61 @@ class OsProfileArgs:
     @linux_operating_system_profile.setter
     def linux_operating_system_profile(self, value: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']]):
         pulumi.set(self, "linux_operating_system_profile", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The private link service connection state.
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The concrete private link service connection.
+        :param pulumi.Input[str] actions_required: Whether there is further actions.
+        :param pulumi.Input[str] description: The optional description of the status.
+        """
+        pulumi.set(__self__, "status", status)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]:
+        """
+        The concrete private link service connection.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether there is further actions.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional description of the status.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

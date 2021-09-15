@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
         public readonly ImmutableArray<Outputs.GraphAPIComputeRegionalServiceResourceResponse> Locations;
         /// <summary>
         /// ServiceType for the service.
-        /// Expected value is 'GraphAPIComputeServiceResourceProperties'.
+        /// Expected value is 'GraphAPICompute'.
         /// </summary>
         public readonly string ServiceType;
         /// <summary>

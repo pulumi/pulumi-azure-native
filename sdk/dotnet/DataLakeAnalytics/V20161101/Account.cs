@@ -243,6 +243,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20191101preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

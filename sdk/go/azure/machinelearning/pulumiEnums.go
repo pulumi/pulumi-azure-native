@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Asset's type.
 type AssetType string
 
 const (
@@ -175,7 +174,6 @@ func (in *assetTypePtr) ToAssetTypePtrOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, in).(AssetTypePtrOutput)
 }
 
-// Additional format information for the data type.
 type ColumnFormat string
 
 const (
@@ -355,7 +353,6 @@ func (in *columnFormatPtr) ToColumnFormatPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ColumnFormatPtrOutput)
 }
 
-// Data type of the column.
 type ColumnType string
 
 const (
@@ -522,7 +519,6 @@ func (in *columnTypePtr) ToColumnTypePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(ColumnTypePtrOutput)
 }
 
-// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
 type DiagnosticsLevel string
 
 const (
@@ -688,7 +684,6 @@ func (in *diagnosticsLevelPtr) ToDiagnosticsLevelPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DiagnosticsLevelPtrOutput)
 }
 
-// Port data type.
 type InputPortType string
 
 const (
@@ -852,7 +847,6 @@ func (in *inputPortTypePtr) ToInputPortTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(InputPortTypePtrOutput)
 }
 
-// Port data type.
 type OutputPortType string
 
 const (
@@ -1016,7 +1010,6 @@ func (in *outputPortTypePtr) ToOutputPortTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(OutputPortTypePtrOutput)
 }
 
-// Graph parameter's type.
 type ParameterType string
 
 const (

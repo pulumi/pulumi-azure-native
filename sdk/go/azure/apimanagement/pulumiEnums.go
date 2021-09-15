@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies for what type of messages sampling settings should not apply.
 type AlwaysLog string
 
 const (
@@ -175,7 +174,6 @@ func (in *alwaysLogPtr) ToAlwaysLogPtrOutputWithContext(ctx context.Context) Alw
 	return pulumi.ToOutputWithContext(ctx, in).(AlwaysLogPtrOutput)
 }
 
-// Type of API.
 type ApiType string
 
 const (
@@ -340,7 +338,6 @@ func (in *apiTypePtr) ToApiTypePtrOutputWithContext(ctx context.Context) ApiType
 	return pulumi.ToOutputWithContext(ctx, in).(ApiTypePtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 type ApimIdentityType string
 
 const (
@@ -507,7 +504,6 @@ func (in *apimIdentityTypePtr) ToApimIdentityTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ApimIdentityTypePtrOutput)
 }
 
-// Determines the type of application which send the create user request. Default is legacy portal.
 type AppType string
 
 const (
@@ -889,7 +885,6 @@ func (o AuthorizationMethodArrayOutput) Index(i pulumi.IntInput) AuthorizationMe
 	}).(AuthorizationMethodOutput)
 }
 
-// Backend communication protocol.
 type BackendProtocol string
 
 const (
@@ -1220,7 +1215,6 @@ func (in *bearerTokenSendingMethodPtr) ToBearerTokenSendingMethodPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(BearerTokenSendingMethodPtrOutput)
 }
 
-// Form of an authorization grant, which the client uses to request the access token.
 type BearerTokenSendingMethods string
 
 const (
@@ -1553,7 +1547,6 @@ func (in *clientAuthenticationMethodPtr) ToClientAuthenticationMethodPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ClientAuthenticationMethodPtrOutput)
 }
 
-// Determines the type of confirmation e-mail that will be sent to the newly created user.
 type Confirmation string
 
 const (
@@ -1720,7 +1713,6 @@ func (in *confirmationPtr) ToConfirmationPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ConfirmationPtrOutput)
 }
 
-// Format of the Content in which the API is getting imported.
 type ContentFormat string
 
 const (
@@ -1903,7 +1895,6 @@ func (in *contentFormatPtr) ToContentFormatPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ContentFormatPtrOutput)
 }
 
-// Data masking mode.
 type DataMaskingMode string
 
 const (
@@ -2240,7 +2231,6 @@ func (in *grantTypePtr) ToGrantTypePtrOutputWithContext(ctx context.Context) Gra
 	return pulumi.ToOutputWithContext(ctx, in).(GrantTypePtrOutput)
 }
 
-// Group type.
 type GroupType string
 
 const (
@@ -2406,7 +2396,6 @@ func (in *groupTypePtr) ToGroupTypePtrOutputWithContext(ctx context.Context) Gro
 	return pulumi.ToOutputWithContext(ctx, in).(GroupTypePtrOutput)
 }
 
-// Hostname type.
 type HostnameType string
 
 const (
@@ -2574,7 +2563,6 @@ func (in *hostnameTypePtr) ToHostnameTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HostnameTypePtrOutput)
 }
 
-// Sets correlation protocol to use for Application Insights diagnostics.
 type HttpCorrelationProtocol string
 
 const (
@@ -2743,7 +2731,6 @@ func (in *httpCorrelationProtocolPtr) ToHttpCorrelationProtocolPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(HttpCorrelationProtocolPtrOutput)
 }
 
-// Identity Provider Type identifier.
 type IdentityProviderType string
 
 const (
@@ -2918,7 +2905,6 @@ func (in *identityProviderTypePtr) ToIdentityProviderTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderTypePtrOutput)
 }
 
-// The Key to be used to generate token for user.
 type KeyType string
 
 const (
@@ -3083,7 +3069,6 @@ func (in *keyTypePtr) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyType
 	return pulumi.ToOutputWithContext(ctx, in).(KeyTypePtrOutput)
 }
 
-// Logger type.
 type LoggerType string
 
 const (
@@ -3252,7 +3237,6 @@ func (in *loggerTypePtr) ToLoggerTypePtrOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, in).(LoggerTypePtrOutput)
 }
 
-// The format of the Operation Name for Application Insights telemetries. Default is Name.
 type OperationNameFormat string
 
 const (
@@ -3419,7 +3403,6 @@ func (in *operationNameFormatPtr) ToOperationNameFormatPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(OperationNameFormatPtrOutput)
 }
 
-// Format of the policyContent.
 type PolicyContentFormat string
 
 const (
@@ -3590,7 +3573,6 @@ func (in *policyContentFormatPtr) ToPolicyContentFormatPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyContentFormatPtrOutput)
 }
 
-// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
 type ProductStateEnum string
 
 const (
@@ -3964,7 +3946,6 @@ func (o ProtocolArrayOutput) Index(i pulumi.IntInput) ProtocolOutput {
 	}).(ProtocolOutput)
 }
 
-// Provisioning state.
 type ProvisioningState string
 
 const (
@@ -4128,7 +4109,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// Sampling type.
 type SamplingType string
 
 const (
@@ -4293,7 +4273,6 @@ func (in *samplingTypePtr) ToSamplingTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(SamplingTypePtrOutput)
 }
 
-// Name of the Sku.
 type SkuType string
 
 const (
@@ -4468,9 +4447,6 @@ func (in *skuTypePtr) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuType
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTypePtrOutput)
 }
 
-// Type of Api to create.
-//  * `http` creates a SOAP to REST API
-//  * `soap` creates a SOAP pass-through API .
 type SoapApiType string
 
 const (
@@ -4637,7 +4613,6 @@ func (in *soapApiTypePtr) ToSoapApiTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SoapApiTypePtrOutput)
 }
 
-// Status of the issue.
 type State string
 
 const (
@@ -4810,7 +4785,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
 }
 
-// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 type SubscriptionStateEnum string
 
 const (
@@ -4979,7 +4953,6 @@ func (in *subscriptionStateEnumPtr) ToSubscriptionStateEnumPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionStateEnumPtrOutput)
 }
 
-// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 type UserStateEnum string
 
 const (
@@ -5150,7 +5123,6 @@ func (in *userStateEnumPtr) ToUserStateEnumPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(UserStateEnumPtrOutput)
 }
 
-// The verbosity level applied to traces emitted by trace policies.
 type Verbosity string
 
 const (
@@ -5319,7 +5291,6 @@ func (in *verbosityPtr) ToVerbosityPtrOutputWithContext(ctx context.Context) Ver
 	return pulumi.ToOutputWithContext(ctx, in).(VerbosityPtrOutput)
 }
 
-// An value that determines where the API Version identifier will be located in a HTTP request.
 type VersioningScheme string
 
 const (
@@ -5488,7 +5459,6 @@ func (in *versioningSchemePtr) ToVersioningSchemePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(VersioningSchemePtrOutput)
 }
 
-// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 type VirtualNetworkType string
 
 const (

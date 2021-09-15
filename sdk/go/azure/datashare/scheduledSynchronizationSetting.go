@@ -91,6 +91,12 @@ func NewScheduledSynchronizationSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ScheduledSynchronizationSetting"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:ScheduledSynchronizationSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:ScheduledSynchronizationSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledSynchronizationSetting

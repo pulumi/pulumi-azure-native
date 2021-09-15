@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU name.
 type AzureSkuName string
 
 const (
@@ -198,7 +197,6 @@ func (in *azureSkuNamePtr) ToAzureSkuNamePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuNamePtrOutput)
 }
 
-// SKU tier.
 type AzureSkuTier string
 
 const (
@@ -363,7 +361,6 @@ func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuTierPtrOutput)
 }
 
-// The name of blob storage event type to process.
 type BlobStorageEventType string
 
 const (
@@ -528,7 +525,6 @@ func (in *blobStorageEventTypePtr) ToBlobStorageEventTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BlobStorageEventTypePtrOutput)
 }
 
-// Cluster principal role.
 type ClusterPrincipalRole string
 
 const (
@@ -693,7 +689,6 @@ func (in *clusterPrincipalRolePtr) ToClusterPrincipalRolePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterPrincipalRolePtrOutput)
 }
 
-// The event hub messages compression type
 type Compression string
 
 const (
@@ -858,7 +853,6 @@ func (in *compressionPtr) ToCompressionPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(CompressionPtrOutput)
 }
 
-// Kind of the endpoint for the data connection
 type DataConnectionKind string
 
 const (
@@ -1024,7 +1018,6 @@ func (in *dataConnectionKindPtr) ToDataConnectionKindPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(DataConnectionKindPtrOutput)
 }
 
-// Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType string
 
 const (
@@ -1190,7 +1183,6 @@ func (in *dataFlowComputeTypePtr) ToDataFlowComputeTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DataFlowComputeTypePtrOutput)
 }
 
-// Database principal role.
 type DatabasePrincipalRole string
 
 const (
@@ -1359,7 +1351,6 @@ func (in *databasePrincipalRolePtr) ToDatabasePrincipalRolePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DatabasePrincipalRolePtrOutput)
 }
 
-// The default principals modification kind
 type DefaultPrincipalsModificationKind string
 
 const (
@@ -1525,7 +1516,6 @@ func (in *defaultPrincipalsModificationKindPtr) ToDefaultPrincipalsModificationK
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultPrincipalsModificationKindPtrOutput)
 }
 
-// The engine type
 type EngineType string
 
 const (
@@ -1690,7 +1680,6 @@ func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type EventGridDataFormat string
 
 const (
@@ -1869,7 +1858,6 @@ func (in *eventGridDataFormatPtr) ToEventGridDataFormatPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EventGridDataFormatPtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type EventHubDataFormat string
 
 const (
@@ -2048,7 +2036,6 @@ func (in *eventHubDataFormatPtr) ToEventHubDataFormatPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EventHubDataFormatPtrOutput)
 }
 
-// The edition for the SSIS Integration Runtime
 type IntegrationRuntimeEdition string
 
 const (
@@ -2213,7 +2200,6 @@ func (in *integrationRuntimeEditionPtr) ToIntegrationRuntimeEditionPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEditionPtrOutput)
 }
 
-// The type of this referenced entity.
 type IntegrationRuntimeEntityReferenceType string
 
 const (
@@ -2378,7 +2364,6 @@ func (in *integrationRuntimeEntityReferenceTypePtr) ToIntegrationRuntimeEntityRe
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEntityReferenceTypePtrOutput)
 }
 
-// License type for bringing your own license scenario.
 type IntegrationRuntimeLicenseType string
 
 const (
@@ -2543,7 +2528,6 @@ func (in *integrationRuntimeLicenseTypePtr) ToIntegrationRuntimeLicenseTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeLicenseTypePtrOutput)
 }
 
-// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
 type IntegrationRuntimeSsisCatalogPricingTier string
 
 const (
@@ -2710,7 +2694,6 @@ func (in *integrationRuntimeSsisCatalogPricingTierPtr) ToIntegrationRuntimeSsisC
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeSsisCatalogPricingTierPtrOutput)
 }
 
-// Type of integration runtime.
 type IntegrationRuntimeType string
 
 const (
@@ -2875,7 +2858,6 @@ func (in *integrationRuntimeTypePtr) ToIntegrationRuntimeTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeTypePtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type IotHubDataFormat string
 
 const (
@@ -3054,7 +3036,6 @@ func (in *iotHubDataFormatPtr) ToIotHubDataFormatPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(IotHubDataFormatPtrOutput)
 }
 
-// Kind of the database
 type Kind string
 
 const (
@@ -3219,7 +3200,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// The level of compute power that each node in the Big Data pool has.
 type NodeSize string
 
 const (
@@ -3389,7 +3369,6 @@ func (in *nodeSizePtr) ToNodeSizePtrOutputWithContext(ctx context.Context) NodeS
 	return pulumi.ToOutputWithContext(ctx, in).(NodeSizePtrOutput)
 }
 
-// The kind of nodes that the Big Data pool provides.
 type NodeSizeFamily string
 
 const (
@@ -3556,7 +3535,6 @@ func (in *nodeSizeFamilyPtr) ToNodeSizeFamilyPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(NodeSizeFamilyPtrOutput)
 }
 
-// Principal type.
 type PrincipalType string
 
 const (
@@ -3722,7 +3700,6 @@ func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PrincipalTypePtrOutput)
 }
 
-// The type of managed identity for the workspace
 type ResourceIdentityType string
 
 const (
@@ -4054,7 +4031,6 @@ func (in *sensitivityLabelRankPtr) ToSensitivityLabelRankPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SensitivityLabelRankPtrOutput)
 }
 
-// The storage account type used to store backups for this sql pool.
 type StorageAccountType string
 
 const (
@@ -4220,7 +4196,6 @@ func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
 }
 
-// The status of the database transparent data encryption.
 type TransparentDataEncryptionStatus string
 
 const (
@@ -4385,7 +4360,6 @@ func (in *transparentDataEncryptionStatusPtr) ToTransparentDataEncryptionStatusP
 	return pulumi.ToOutputWithContext(ctx, in).(TransparentDataEncryptionStatusPtrOutput)
 }
 
-// Enable or Disable public network access to workspace
 type WorkspacePublicNetworkAccess string
 
 const (

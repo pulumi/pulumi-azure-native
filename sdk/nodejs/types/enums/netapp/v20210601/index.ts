@@ -54,6 +54,22 @@ export const EndpointType = {
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
+export const NetworkFeatures = {
+    /**
+     * Basic network feature.
+     */
+    Basic: "Basic",
+    /**
+     * Standard network feature.
+     */
+    Standard: "Standard",
+} as const;
+
+/**
+ * Basic network, or Standard features available to the volume.
+ */
+export type NetworkFeatures = (typeof NetworkFeatures)[keyof typeof NetworkFeatures];
+
 export const QosType = {
     /**
      * qos type Auto

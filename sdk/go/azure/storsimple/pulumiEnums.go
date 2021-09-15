@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of backup which needs to be taken.
 type BackupType string
 
 const (
@@ -389,7 +388,6 @@ func (o DayOfWeekArrayOutput) Index(i pulumi.IntInput) DayOfWeekOutput {
 	}).(DayOfWeekOutput)
 }
 
-// The algorithm used to encrypt "Value".
 type EncryptionAlgorithm string
 
 const (
@@ -555,7 +553,6 @@ func (in *encryptionAlgorithmPtr) ToEncryptionAlgorithmPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionAlgorithmPtrOutput)
 }
 
-// The Kind of the object. Currently only Series8000 is supported
 type Kind string
 
 const (
@@ -719,7 +716,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 type ManagerSkuType string
 
 const (
@@ -883,7 +879,6 @@ func (in *managerSkuTypePtr) ToManagerSkuTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ManagerSkuTypePtrOutput)
 }
 
-// The type of StorSimple Manager.
 type ManagerType string
 
 const (
@@ -1048,7 +1043,6 @@ func (in *managerTypePtr) ToManagerTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ManagerTypePtrOutput)
 }
 
-// The monitoring status of the volume.
 type MonitoringStatus string
 
 const (
@@ -1213,7 +1207,6 @@ func (in *monitoringStatusPtr) ToMonitoringStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringStatusPtrOutput)
 }
 
-// The recurrence type.
 type RecurrenceType string
 
 const (
@@ -1380,7 +1373,6 @@ func (in *recurrenceTypePtr) ToRecurrenceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceTypePtrOutput)
 }
 
-// The schedule status.
 type ScheduleStatus string
 
 const (
@@ -1545,7 +1537,6 @@ func (in *scheduleStatusPtr) ToScheduleStatusPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleStatusPtrOutput)
 }
 
-// Signifies whether SSL needs to be enabled or not.
 type SslStatus string
 
 const (
@@ -1710,7 +1701,6 @@ func (in *sslStatusPtr) ToSslStatusPtrOutputWithContext(ctx context.Context) Ssl
 	return pulumi.ToOutputWithContext(ctx, in).(SslStatusPtrOutput)
 }
 
-// The volume status.
 type VolumeStatus string
 
 const (
@@ -1875,7 +1865,6 @@ func (in *volumeStatusPtr) ToVolumeStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeStatusPtrOutput)
 }
 
-// The type of the volume.
 type VolumeType string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type of ApplicationGroup.
 type ApplicationGroupType string
 
 const (
@@ -175,7 +174,6 @@ func (in *applicationGroupTypePtr) ToApplicationGroupTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGroupTypePtrOutput)
 }
 
-// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
 type CommandLineSetting string
 
 const (
@@ -341,7 +339,6 @@ func (in *commandLineSettingPtr) ToCommandLineSettingPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(CommandLineSettingPtrOutput)
 }
 
-// HostPool type for desktop.
 type HostPoolType string
 
 const (
@@ -510,7 +507,6 @@ func (in *hostPoolTypePtr) ToHostPoolTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HostPoolTypePtrOutput)
 }
 
-// The type of the load balancer.
 type LoadBalancerType string
 
 const (
@@ -676,7 +672,6 @@ func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerTypePtrOutput)
 }
 
-// The type of operation for migration.
 type Operation string
 
 const (
@@ -849,7 +844,6 @@ func (in *operationPtr) ToOperationPtrOutputWithContext(ctx context.Context) Ope
 	return pulumi.ToOutputWithContext(ctx, in).(OperationPtrOutput)
 }
 
-// PersonalDesktopAssignment type for HostPool.
 type PersonalDesktopAssignmentType string
 
 const (
@@ -1014,7 +1008,6 @@ func (in *personalDesktopAssignmentTypePtr) ToPersonalDesktopAssignmentTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(PersonalDesktopAssignmentTypePtrOutput)
 }
 
-// The type of preferred application group type, default to Desktop Application Group
 type PreferredAppGroupType string
 
 const (
@@ -1180,7 +1173,6 @@ func (in *preferredAppGroupTypePtr) ToPreferredAppGroupTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PreferredAppGroupTypePtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -1346,7 +1338,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// The type of resetting the token.
 type RegistrationTokenOperation string
 
 const (
@@ -1512,7 +1503,6 @@ func (in *registrationTokenOperationPtr) ToRegistrationTokenOperationPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(RegistrationTokenOperationPtrOutput)
 }
 
-// Resource Type of Application.
 type RemoteApplicationType string
 
 const (
@@ -1677,7 +1667,6 @@ func (in *remoteApplicationTypePtr) ToRemoteApplicationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RemoteApplicationTypePtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (
@@ -1841,7 +1830,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The type of single sign on Secret Type.
 type SSOSecretType string
 
 const (
@@ -2008,7 +1996,6 @@ func (in *ssosecretTypePtr) ToSSOSecretTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SSOSecretTypePtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
 type SessionHostLoadBalancingAlgorithm string
 
 const (
@@ -2173,7 +2160,6 @@ func (in *sessionHostLoadBalancingAlgorithmPtr) ToSessionHostLoadBalancingAlgori
 	return pulumi.ToOutputWithContext(ctx, in).(SessionHostLoadBalancingAlgorithmPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 type SkuTier string
 
 const (
@@ -2340,7 +2326,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
 
-// Specifies when to stop hosts during ramp down period.
 type StopHostsWhen string
 
 const (

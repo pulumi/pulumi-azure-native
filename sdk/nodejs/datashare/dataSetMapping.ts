@@ -98,7 +98,7 @@ export class DataSetMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:DataSetMapping" }, { type: "azure-native:datashare/v20181101preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20181101preview:DataSetMapping" }, { type: "azure-native:datashare/v20191101:DataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:DataSetMapping" }, { type: "azure-native:datashare/v20200901:DataSetMapping" }, { type: "azure-nextgen:datashare/v20200901:DataSetMapping" }, { type: "azure-native:datashare/v20201001preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20201001preview:DataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:DataSetMapping" }, { type: "azure-native:datashare/v20181101preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20181101preview:DataSetMapping" }, { type: "azure-native:datashare/v20191101:DataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:DataSetMapping" }, { type: "azure-native:datashare/v20200901:DataSetMapping" }, { type: "azure-nextgen:datashare/v20200901:DataSetMapping" }, { type: "azure-native:datashare/v20201001preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20201001preview:DataSetMapping" }, { type: "azure-native:datashare/v20210801:DataSetMapping" }, { type: "azure-nextgen:datashare/v20210801:DataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataSetMapping.__pulumiType, name, inputs, opts);
     }

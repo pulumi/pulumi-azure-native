@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentity struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 	Type ResourceIdentityType `pulumi:"type"`
@@ -27,7 +26,6 @@ type ConnectedClusterIdentityInput interface {
 	ToConnectedClusterIdentityOutputWithContext(context.Context) ConnectedClusterIdentityOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 	Type ResourceIdentityTypeInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *connectedClusterIdentityPtrType) ToConnectedClusterIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityPtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput 
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponse struct {
 	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -171,7 +167,6 @@ type ConnectedClusterIdentityResponseInput interface {
 	ToConnectedClusterIdentityResponseOutputWithContext(context.Context) ConnectedClusterIdentityResponseOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseArgs struct {
 	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -234,7 +229,6 @@ func (i *connectedClusterIdentityResponsePtrType) ToConnectedClusterIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponsePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credential result response.
 type CredentialResultResponse struct {
 	// The name of the credential.
 	Name string `pulumi:"name"`
@@ -347,7 +340,6 @@ type CredentialResultResponseInput interface {
 	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
 }
 
-// The credential result response.
 type CredentialResultResponseArgs struct {
 	// The name of the credential.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -392,7 +384,6 @@ func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
 }
 
-// The credential result response.
 type CredentialResultResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialResultResponseOutput) ElementType() reflect.Type {
@@ -437,7 +428,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponse struct {
 	// Timestamp when this token will be expired.
 	ExpirationTime float64 `pulumi:"expirationTime"`
@@ -460,7 +450,6 @@ type HybridConnectionConfigResponseInput interface {
 	ToHybridConnectionConfigResponseOutputWithContext(context.Context) HybridConnectionConfigResponseOutput
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponseArgs struct {
 	// Timestamp when this token will be expired.
 	ExpirationTime pulumi.Float64Input `pulumi:"expirationTime"`
@@ -484,7 +473,6 @@ func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionConfigResponseOutput)
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
@@ -519,7 +507,6 @@ func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -546,7 +533,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -615,7 +601,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Plan data for an extension resource.
 type ExtensionResourcePlan struct {
 	// Name of the plan.
 	Name *string `pulumi:"name"`
@@ -35,7 +34,6 @@ type ExtensionResourcePlanInput interface {
 	ToExtensionResourcePlanOutputWithContext(context.Context) ExtensionResourcePlanOutput
 }
 
-// Plan data for an extension resource.
 type ExtensionResourcePlanArgs struct {
 	// Name of the plan.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -102,7 +100,6 @@ func (i *extensionResourcePlanPtrType) ToExtensionResourcePlanPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanPtrOutput)
 }
 
-// Plan data for an extension resource.
 type ExtensionResourcePlanOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResourcePlanOutput) ElementType() reflect.Type {
@@ -226,7 +223,6 @@ func (o ExtensionResourcePlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan data for an extension resource.
 type ExtensionResourcePlanResponse struct {
 	// Name of the plan.
 	Name *string `pulumi:"name"`
@@ -251,7 +247,6 @@ type ExtensionResourcePlanResponseInput interface {
 	ToExtensionResourcePlanResponseOutputWithContext(context.Context) ExtensionResourcePlanResponseOutput
 }
 
-// Plan data for an extension resource.
 type ExtensionResourcePlanResponseArgs struct {
 	// Name of the plan.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -318,7 +313,6 @@ func (i *extensionResourcePlanResponsePtrType) ToExtensionResourcePlanResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanResponsePtrOutput)
 }
 
-// Plan data for an extension resource.
 type ExtensionResourcePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResourcePlanResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a summary of the alerts of the machine group
 type AdaptiveApplicationControlIssueSummaryResponse struct {
 	// An alert that machines within a group can have
 	Issue *string `pulumi:"issue"`
@@ -29,7 +28,6 @@ type AdaptiveApplicationControlIssueSummaryResponseInput interface {
 	ToAdaptiveApplicationControlIssueSummaryResponseOutputWithContext(context.Context) AdaptiveApplicationControlIssueSummaryResponseOutput
 }
 
-// Represents a summary of the alerts of the machine group
 type AdaptiveApplicationControlIssueSummaryResponseArgs struct {
 	// An alert that machines within a group can have
 	Issue pulumi.StringPtrInput `pulumi:"issue"`
@@ -74,7 +72,6 @@ func (i AdaptiveApplicationControlIssueSummaryResponseArray) ToAdaptiveApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlIssueSummaryResponseArrayOutput)
 }
 
-// Represents a summary of the alerts of the machine group
 type AdaptiveApplicationControlIssueSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (AdaptiveApplicationControlIssueSummaryResponseOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AdaptiveApplicationControlIssueSummaryResponseArrayOutput) Index(i pulum
 	}).(AdaptiveApplicationControlIssueSummaryResponseOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesProperties struct {
 	// List of data types sent to workspace
 	DataTypes []string `pulumi:"dataTypes"`
@@ -140,7 +136,6 @@ type AdditionalWorkspacesPropertiesInput interface {
 	ToAdditionalWorkspacesPropertiesOutputWithContext(context.Context) AdditionalWorkspacesPropertiesOutput
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesArgs struct {
 	// List of data types sent to workspace
 	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
@@ -187,7 +182,6 @@ func (i AdditionalWorkspacesPropertiesArray) ToAdditionalWorkspacesPropertiesArr
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesArrayOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AdditionalWorkspacesPropertiesOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o AdditionalWorkspacesPropertiesArrayOutput) Index(i pulumi.IntInput) Addi
 	}).(AdditionalWorkspacesPropertiesOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponse struct {
 	// List of data types sent to workspace
 	DataTypes []string `pulumi:"dataTypes"`
@@ -258,7 +251,6 @@ type AdditionalWorkspacesPropertiesResponseInput interface {
 	ToAdditionalWorkspacesPropertiesResponseOutputWithContext(context.Context) AdditionalWorkspacesPropertiesResponseOutput
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponseArgs struct {
 	// List of data types sent to workspace
 	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
@@ -305,7 +297,6 @@ func (i AdditionalWorkspacesPropertiesResponseArray) ToAdditionalWorkspacesPrope
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesResponseArrayOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalWorkspacesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -355,7 +346,6 @@ func (o AdditionalWorkspacesPropertiesResponseArrayOutput) Index(i pulumi.IntInp
 	}).(AdditionalWorkspacesPropertiesResponseOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRule struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
@@ -377,7 +367,6 @@ type AllowlistCustomAlertRuleInput interface {
 	ToAllowlistCustomAlertRuleOutputWithContext(context.Context) AllowlistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleArgs struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
@@ -425,7 +414,6 @@ func (i AllowlistCustomAlertRuleArray) ToAllowlistCustomAlertRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -476,7 +464,6 @@ func (o AllowlistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) AllowlistC
 	}).(AllowlistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponse struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
@@ -504,7 +491,6 @@ type AllowlistCustomAlertRuleResponseInput interface {
 	ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseArgs struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
@@ -558,7 +544,6 @@ func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -624,7 +609,6 @@ func (o AllowlistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Al
 	}).(AllowlistCustomAlertRuleResponseOutput)
 }
 
-// Links relevant to the assessment
 type AssessmentLinksResponse struct {
 	// Link to assessment in Azure Portal
 	AzurePortalUri string `pulumi:"azurePortalUri"`
@@ -641,7 +625,6 @@ type AssessmentLinksResponseInput interface {
 	ToAssessmentLinksResponseOutputWithContext(context.Context) AssessmentLinksResponseOutput
 }
 
-// Links relevant to the assessment
 type AssessmentLinksResponseArgs struct {
 	// Link to assessment in Azure Portal
 	AzurePortalUri pulumi.StringInput `pulumi:"azurePortalUri"`
@@ -700,7 +683,6 @@ func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponsePtrOutput)
 }
 
-// Links relevant to the assessment
 type AssessmentLinksResponseOutput struct{ *pulumi.OutputState }
 
 func (AssessmentLinksResponseOutput) ElementType() reflect.Type {
@@ -764,7 +746,6 @@ func (o AssessmentLinksResponsePtrOutput) AzurePortalUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatus struct {
 	// Programmatic code for the cause of the assessment status
 	Cause *string `pulumi:"cause"`
@@ -785,7 +766,6 @@ type AssessmentStatusInput interface {
 	ToAssessmentStatusOutputWithContext(context.Context) AssessmentStatusOutput
 }
 
-// The result of the assessment
 type AssessmentStatusArgs struct {
 	// Programmatic code for the cause of the assessment status
 	Cause pulumi.StringPtrInput `pulumi:"cause"`
@@ -848,7 +828,6 @@ func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusOutput) ElementType() reflect.Type {
@@ -942,7 +921,6 @@ func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusResponse struct {
 	// Programmatic code for the cause of the assessment status
 	Cause *string `pulumi:"cause"`
@@ -963,7 +941,6 @@ type AssessmentStatusResponseInput interface {
 	ToAssessmentStatusResponseOutputWithContext(context.Context) AssessmentStatusResponseOutput
 }
 
-// The result of the assessment
 type AssessmentStatusResponseArgs struct {
 	// Programmatic code for the cause of the assessment status
 	Cause pulumi.StringPtrInput `pulumi:"cause"`
@@ -1026,7 +1003,6 @@ func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponsePtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusResponseOutput) ElementType() reflect.Type {
@@ -1120,7 +1096,6 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHub struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -1142,7 +1117,6 @@ type AutomationActionEventHubInput interface {
 	ToAutomationActionEventHubOutputWithContext(context.Context) AutomationActionEventHubOutput
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -1165,7 +1139,6 @@ func (i AutomationActionEventHubArgs) ToAutomationActionEventHubOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionEventHubOutput) ElementType() reflect.Type {
@@ -1196,7 +1169,6 @@ func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOut
 	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -1220,7 +1192,6 @@ type AutomationActionEventHubResponseInput interface {
 	ToAutomationActionEventHubResponseOutputWithContext(context.Context) AutomationActionEventHubResponseOutput
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -1245,7 +1216,6 @@ func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubResponseOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionEventHubResponseOutput) ElementType() reflect.Type {
@@ -1281,7 +1251,6 @@ func (o AutomationActionEventHubResponseOutput) SasPolicyName() pulumi.StringOut
 	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.SasPolicyName }).(pulumi.StringOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicApp struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -1303,7 +1272,6 @@ type AutomationActionLogicAppInput interface {
 	ToAutomationActionLogicAppOutputWithContext(context.Context) AutomationActionLogicAppOutput
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -1326,7 +1294,6 @@ func (i AutomationActionLogicAppArgs) ToAutomationActionLogicAppOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionLogicAppOutput) ElementType() reflect.Type {
@@ -1357,7 +1324,6 @@ func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -1379,7 +1345,6 @@ type AutomationActionLogicAppResponseInput interface {
 	ToAutomationActionLogicAppResponseOutputWithContext(context.Context) AutomationActionLogicAppResponseOutput
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -1402,7 +1367,6 @@ func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppResponseOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionLogicAppResponseOutput) ElementType() reflect.Type {
@@ -1433,7 +1397,6 @@ func (o AutomationActionLogicAppResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicAppResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspace struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.
@@ -1453,7 +1416,6 @@ type AutomationActionWorkspaceInput interface {
 	ToAutomationActionWorkspaceOutputWithContext(context.Context) AutomationActionWorkspaceOutput
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.
@@ -1474,7 +1436,6 @@ func (i AutomationActionWorkspaceArgs) ToAutomationActionWorkspaceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionWorkspaceOutput) ElementType() reflect.Type {
@@ -1500,7 +1461,6 @@ func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrO
 	return o.ApplyT(func(v AutomationActionWorkspace) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.
@@ -1520,7 +1480,6 @@ type AutomationActionWorkspaceResponseInput interface {
 	ToAutomationActionWorkspaceResponseOutputWithContext(context.Context) AutomationActionWorkspaceResponseOutput
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.
@@ -1541,7 +1500,6 @@ func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceResponseOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionWorkspaceResponseOutput) ElementType() reflect.Type {
@@ -1567,7 +1525,6 @@ func (o AutomationActionWorkspaceResponseOutput) WorkspaceResourceId() pulumi.St
 	return o.ApplyT(func(v AutomationActionWorkspaceResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSet struct {
 	Rules []AutomationTriggeringRule `pulumi:"rules"`
 }
@@ -1583,7 +1540,6 @@ type AutomationRuleSetInput interface {
 	ToAutomationRuleSetOutputWithContext(context.Context) AutomationRuleSetOutput
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetArgs struct {
 	Rules AutomationTriggeringRuleArrayInput `pulumi:"rules"`
 }
@@ -1625,7 +1581,6 @@ func (i AutomationRuleSetArray) ToAutomationRuleSetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetArrayOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSetOutput) ElementType() reflect.Type {
@@ -1664,7 +1619,6 @@ func (o AutomationRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationRuleSet
 	}).(AutomationRuleSetOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponse struct {
 	Rules []AutomationTriggeringRuleResponse `pulumi:"rules"`
 }
@@ -1680,7 +1634,6 @@ type AutomationRuleSetResponseInput interface {
 	ToAutomationRuleSetResponseOutputWithContext(context.Context) AutomationRuleSetResponseOutput
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponseArgs struct {
 	Rules AutomationTriggeringRuleResponseArrayInput `pulumi:"rules"`
 }
@@ -1722,7 +1675,6 @@ func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseArrayOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSetResponseOutput) ElementType() reflect.Type {
@@ -1761,7 +1713,6 @@ func (o AutomationRuleSetResponseArrayOutput) Index(i pulumi.IntInput) Automatio
 	}).(AutomationRuleSetResponseOutput)
 }
 
-// A single automation scope.
 type AutomationScope struct {
 	// The resources scope description.
 	Description *string `pulumi:"description"`
@@ -1780,7 +1731,6 @@ type AutomationScopeInput interface {
 	ToAutomationScopeOutputWithContext(context.Context) AutomationScopeOutput
 }
 
-// A single automation scope.
 type AutomationScopeArgs struct {
 	// The resources scope description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1825,7 +1775,6 @@ func (i AutomationScopeArray) ToAutomationScopeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeArrayOutput)
 }
 
-// A single automation scope.
 type AutomationScopeOutput struct{ *pulumi.OutputState }
 
 func (AutomationScopeOutput) ElementType() reflect.Type {
@@ -1870,7 +1819,6 @@ func (o AutomationScopeArrayOutput) Index(i pulumi.IntInput) AutomationScopeOutp
 	}).(AutomationScopeOutput)
 }
 
-// A single automation scope.
 type AutomationScopeResponse struct {
 	// The resources scope description.
 	Description *string `pulumi:"description"`
@@ -1889,7 +1837,6 @@ type AutomationScopeResponseInput interface {
 	ToAutomationScopeResponseOutputWithContext(context.Context) AutomationScopeResponseOutput
 }
 
-// A single automation scope.
 type AutomationScopeResponseArgs struct {
 	// The resources scope description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1934,7 +1881,6 @@ func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseArrayOutput)
 }
 
-// A single automation scope.
 type AutomationScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationScopeResponseOutput) ElementType() reflect.Type {
@@ -1979,7 +1925,6 @@ func (o AutomationScopeResponseArrayOutput) Index(i pulumi.IntInput) AutomationS
 	}).(AutomationScopeResponseOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSource struct {
 	// A valid event source type.
 	EventSource *string `pulumi:"eventSource"`
@@ -1998,7 +1943,6 @@ type AutomationSourceInput interface {
 	ToAutomationSourceOutputWithContext(context.Context) AutomationSourceOutput
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceArgs struct {
 	// A valid event source type.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
@@ -2043,7 +1987,6 @@ func (i AutomationSourceArray) ToAutomationSourceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceArrayOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceOutput) ElementType() reflect.Type {
@@ -2088,7 +2031,6 @@ func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOu
 	}).(AutomationSourceOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponse struct {
 	// A valid event source type.
 	EventSource *string `pulumi:"eventSource"`
@@ -2107,7 +2049,6 @@ type AutomationSourceResponseInput interface {
 	ToAutomationSourceResponseOutputWithContext(context.Context) AutomationSourceResponseOutput
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponseArgs struct {
 	// A valid event source type.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
@@ -2152,7 +2093,6 @@ func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseArrayOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceResponseOutput) ElementType() reflect.Type {
@@ -2197,7 +2137,6 @@ func (o AutomationSourceResponseArrayOutput) Index(i pulumi.IntInput) Automation
 	}).(AutomationSourceResponseOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRule struct {
 	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
@@ -2220,7 +2159,6 @@ type AutomationTriggeringRuleInput interface {
 	ToAutomationTriggeringRuleOutputWithContext(context.Context) AutomationTriggeringRuleOutput
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleArgs struct {
 	// The expected value.
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
@@ -2269,7 +2207,6 @@ func (i AutomationTriggeringRuleArray) ToAutomationTriggeringRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleArrayOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationTriggeringRuleOutput) ElementType() reflect.Type {
@@ -2324,7 +2261,6 @@ func (o AutomationTriggeringRuleArrayOutput) Index(i pulumi.IntInput) Automation
 	}).(AutomationTriggeringRuleOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponse struct {
 	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
@@ -2347,7 +2283,6 @@ type AutomationTriggeringRuleResponseInput interface {
 	ToAutomationTriggeringRuleResponseOutputWithContext(context.Context) AutomationTriggeringRuleResponseOutput
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponseArgs struct {
 	// The expected value.
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
@@ -2396,7 +2331,6 @@ func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseArrayOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationTriggeringRuleResponseOutput) ElementType() reflect.Type {
@@ -2451,7 +2385,6 @@ func (o AutomationTriggeringRuleResponseArrayOutput) Index(i pulumi.IntInput) Au
 	}).(AutomationTriggeringRuleResponseOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsProperties struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	// Expected value is 'awsAssumeRole'.
@@ -2473,7 +2406,6 @@ type AwAssumeRoleAuthenticationDetailsPropertiesInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesArgs struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	// Expected value is 'awsAssumeRole'.
@@ -2496,7 +2428,6 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -2527,7 +2458,6 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulum
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsExternalId }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
 	// The ID of the cloud account
 	AccountId string `pulumi:"accountId"`
@@ -2555,7 +2485,6 @@ type AwAssumeRoleAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs struct {
 	// The ID of the cloud account
 	AccountId pulumi.StringInput `pulumi:"accountId"`
@@ -2584,7 +2513,6 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleA
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2632,7 +2560,6 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) GrantedPermis
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsProperties struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	// Expected value is 'awsCreds'.
@@ -2654,7 +2581,6 @@ type AwsCredsAuthenticationDetailsPropertiesInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesArgs struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	// Expected value is 'awsCreds'.
@@ -2677,7 +2603,6 @@ func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDet
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -2708,7 +2633,6 @@ func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulu
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponse struct {
 	// The ID of the cloud account
 	AccountId string `pulumi:"accountId"`
@@ -2736,7 +2660,6 @@ type AwsCredsAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseArgs struct {
 	// The ID of the cloud account
 	AccountId pulumi.StringInput `pulumi:"accountId"`
@@ -2765,7 +2688,6 @@ func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2813,7 +2735,6 @@ func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) GrantedPermission
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetails struct {
 	// The platform where the assessed resource resides
 	// Expected value is 'Azure'.
@@ -2831,7 +2752,6 @@ type AzureResourceDetailsInput interface {
 	ToAzureResourceDetailsOutputWithContext(context.Context) AzureResourceDetailsOutput
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsArgs struct {
 	// The platform where the assessed resource resides
 	// Expected value is 'Azure'.
@@ -2850,7 +2770,6 @@ func (i AzureResourceDetailsArgs) ToAzureResourceDetailsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceDetailsOutput) ElementType() reflect.Type {
@@ -2871,7 +2790,6 @@ func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponse struct {
 	// Azure resource Id of the assessed resource
 	Id string `pulumi:"id"`
@@ -2891,7 +2809,6 @@ type AzureResourceDetailsResponseInput interface {
 	ToAzureResourceDetailsResponseOutputWithContext(context.Context) AzureResourceDetailsResponseOutput
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponseArgs struct {
 	// Azure resource Id of the assessed resource
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2912,7 +2829,6 @@ func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsResponseOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -2938,7 +2854,6 @@ func (o AzureResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRule struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
@@ -2960,7 +2875,6 @@ type DenylistCustomAlertRuleInput interface {
 	ToDenylistCustomAlertRuleOutputWithContext(context.Context) DenylistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleArgs struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
@@ -3008,7 +2922,6 @@ func (i DenylistCustomAlertRuleArray) ToDenylistCustomAlertRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -3059,7 +2972,6 @@ func (o DenylistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) DenylistCus
 	}).(DenylistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponse struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
@@ -3087,7 +2999,6 @@ type DenylistCustomAlertRuleResponseInput interface {
 	ToDenylistCustomAlertRuleResponseOutputWithContext(context.Context) DenylistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseArgs struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
@@ -3141,7 +3052,6 @@ func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -3207,7 +3117,6 @@ func (o DenylistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Den
 	}).(DenylistCustomAlertRuleResponseOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsProperties struct {
 	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
@@ -3247,7 +3156,6 @@ type GcpCredentialsDetailsPropertiesInput interface {
 	ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesArgs struct {
 	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
@@ -3288,7 +3196,6 @@ func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -3364,7 +3271,6 @@ func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponse struct {
 	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
@@ -3408,7 +3314,6 @@ type GcpCredentialsDetailsPropertiesResponseInput interface {
 	ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesResponseOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseArgs struct {
 	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
@@ -3453,7 +3358,6 @@ func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsProp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesResponseOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3539,7 +3443,6 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsProperties struct {
 	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 	AutoProvision string `pulumi:"autoProvision"`
@@ -3564,7 +3467,6 @@ type HybridComputeSettingsPropertiesInput interface {
 	ToHybridComputeSettingsPropertiesOutputWithContext(context.Context) HybridComputeSettingsPropertiesOutput
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesArgs struct {
 	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
@@ -3631,7 +3533,6 @@ func (i *hybridComputeSettingsPropertiesPtrType) ToHybridComputeSettingsProperti
 	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesPtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (HybridComputeSettingsPropertiesOutput) ElementType() reflect.Type {
@@ -3755,7 +3656,6 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ServicePrincipal() ServicePrin
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponse struct {
 	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 	AutoProvision string `pulumi:"autoProvision"`
@@ -3782,7 +3682,6 @@ type HybridComputeSettingsPropertiesResponseInput interface {
 	ToHybridComputeSettingsPropertiesResponseOutputWithContext(context.Context) HybridComputeSettingsPropertiesResponseOutput
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponseArgs struct {
 	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
@@ -3851,7 +3750,6 @@ func (i *hybridComputeSettingsPropertiesResponsePtrType) ToHybridComputeSettings
 	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesResponsePtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridComputeSettingsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3992,7 +3890,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ServicePrincipal() Ser
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponse struct {
 	// The region where ingested logs and data resides
 	Location string `pulumi:"location"`
@@ -4011,7 +3908,6 @@ type IngestionConnectionStringResponseInput interface {
 	ToIngestionConnectionStringResponseOutputWithContext(context.Context) IngestionConnectionStringResponseOutput
 }
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponseArgs struct {
 	// The region where ingested logs and data resides
 	Location pulumi.StringInput `pulumi:"location"`
@@ -4056,7 +3952,6 @@ func (i IngestionConnectionStringResponseArray) ToIngestionConnectionStringRespo
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionConnectionStringResponseArrayOutput)
 }
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponseOutput struct{ *pulumi.OutputState }
 
 func (IngestionConnectionStringResponseOutput) ElementType() reflect.Type {
@@ -5341,7 +5236,6 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetails struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
@@ -5367,7 +5261,6 @@ type OnPremiseResourceDetailsInput interface {
 	ToOnPremiseResourceDetailsOutputWithContext(context.Context) OnPremiseResourceDetailsOutput
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
@@ -5394,7 +5287,6 @@ func (i OnPremiseResourceDetailsArgs) ToOnPremiseResourceDetailsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseResourceDetailsOutput) ElementType() reflect.Type {
@@ -5435,7 +5327,6 @@ func (o OnPremiseResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponse struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
@@ -5461,7 +5352,6 @@ type OnPremiseResourceDetailsResponseInput interface {
 	ToOnPremiseResourceDetailsResponseOutputWithContext(context.Context) OnPremiseResourceDetailsResponseOutput
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponseArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
@@ -5488,7 +5378,6 @@ func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsResponseOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -5529,7 +5418,6 @@ func (o OnPremiseResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutpu
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetails struct {
 	// The Sql database name installed on the machine
 	DatabaseName string `pulumi:"databaseName"`
@@ -5559,7 +5447,6 @@ type OnPremiseSqlResourceDetailsInput interface {
 	ToOnPremiseSqlResourceDetailsOutputWithContext(context.Context) OnPremiseSqlResourceDetailsOutput
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsArgs struct {
 	// The Sql database name installed on the machine
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
@@ -5590,7 +5477,6 @@ func (i OnPremiseSqlResourceDetailsArgs) ToOnPremiseSqlResourceDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSqlResourceDetailsOutput) ElementType() reflect.Type {
@@ -5641,7 +5527,6 @@ func (o OnPremiseSqlResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponse struct {
 	// The Sql database name installed on the machine
 	DatabaseName string `pulumi:"databaseName"`
@@ -5671,7 +5556,6 @@ type OnPremiseSqlResourceDetailsResponseInput interface {
 	ToOnPremiseSqlResourceDetailsResponseOutputWithContext(context.Context) OnPremiseSqlResourceDetailsResponseOutput
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponseArgs struct {
 	// The Sql database name installed on the machine
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
@@ -5702,7 +5586,6 @@ func (i OnPremiseSqlResourceDetailsResponseArgs) ToOnPremiseSqlResourceDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsResponseOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSqlResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -5753,7 +5636,6 @@ func (o OnPremiseSqlResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOu
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendation struct {
 	// The recommendation action of the machine or rule
 	Action *string `pulumi:"action"`
@@ -5784,7 +5666,6 @@ type PathRecommendationInput interface {
 	ToPathRecommendationOutputWithContext(context.Context) PathRecommendationOutput
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationArgs struct {
 	// The recommendation action of the machine or rule
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -5841,7 +5722,6 @@ func (i PathRecommendationArray) ToPathRecommendationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationArrayOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationOutput struct{ *pulumi.OutputState }
 
 func (PathRecommendationOutput) ElementType() reflect.Type {
@@ -5919,7 +5799,6 @@ func (o PathRecommendationArrayOutput) Index(i pulumi.IntInput) PathRecommendati
 	}).(PathRecommendationOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponse struct {
 	// The recommendation action of the machine or rule
 	Action *string `pulumi:"action"`
@@ -5950,7 +5829,6 @@ type PathRecommendationResponseInput interface {
 	ToPathRecommendationResponseOutputWithContext(context.Context) PathRecommendationResponseOutput
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponseArgs struct {
 	// The recommendation action of the machine or rule
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -6007,7 +5885,6 @@ func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseArrayOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (PathRecommendationResponseOutput) ElementType() reflect.Type {
@@ -6085,7 +5962,6 @@ func (o PathRecommendationResponseArrayOutput) Index(i pulumi.IntInput) PathReco
 	}).(PathRecommendationResponseOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionMode struct {
 	// The application control policy enforcement/protection mode of the machine group
 	Exe *string `pulumi:"exe"`
@@ -6108,7 +5984,6 @@ type ProtectionModeInput interface {
 	ToProtectionModeOutputWithContext(context.Context) ProtectionModeOutput
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeArgs struct {
 	// The application control policy enforcement/protection mode of the machine group
 	Exe pulumi.StringPtrInput `pulumi:"exe"`
@@ -6173,7 +6048,6 @@ func (i *protectionModePtrType) ToProtectionModePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModePtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeOutput struct{ *pulumi.OutputState }
 
 func (ProtectionModeOutput) ElementType() reflect.Type {
@@ -6282,7 +6156,6 @@ func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponse struct {
 	// The application control policy enforcement/protection mode of the machine group
 	Exe *string `pulumi:"exe"`
@@ -6305,7 +6178,6 @@ type ProtectionModeResponseInput interface {
 	ToProtectionModeResponseOutputWithContext(context.Context) ProtectionModeResponseOutput
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponseArgs struct {
 	// The application control policy enforcement/protection mode of the machine group
 	Exe pulumi.StringPtrInput `pulumi:"exe"`
@@ -6370,7 +6242,6 @@ func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponsePtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionModeResponseOutput) ElementType() reflect.Type {
@@ -6479,7 +6350,6 @@ func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerProperties struct {
 	// Proxy server IP
 	Ip *string `pulumi:"ip"`
@@ -6498,7 +6368,6 @@ type ProxyServerPropertiesInput interface {
 	ToProxyServerPropertiesOutputWithContext(context.Context) ProxyServerPropertiesOutput
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesArgs struct {
 	// Proxy server IP
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -6559,7 +6428,6 @@ func (i *proxyServerPropertiesPtrType) ToProxyServerPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ProxyServerPropertiesOutput) ElementType() reflect.Type {
@@ -6638,7 +6506,6 @@ func (o ProxyServerPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponse struct {
 	// Proxy server IP
 	Ip *string `pulumi:"ip"`
@@ -6657,7 +6524,6 @@ type ProxyServerPropertiesResponseInput interface {
 	ToProxyServerPropertiesResponseOutputWithContext(context.Context) ProxyServerPropertiesResponseOutput
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponseArgs struct {
 	// Proxy server IP
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -6718,7 +6584,6 @@ func (i *proxyServerPropertiesResponsePtrType) ToProxyServerPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProxyServerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6797,7 +6662,6 @@ func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfo struct {
 	// The "OriginalName" field taken from the file's version resource
 	BinaryName *string `pulumi:"binaryName"`
@@ -6820,7 +6684,6 @@ type PublisherInfoInput interface {
 	ToPublisherInfoOutputWithContext(context.Context) PublisherInfoOutput
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoArgs struct {
 	// The "OriginalName" field taken from the file's version resource
 	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
@@ -6885,7 +6748,6 @@ func (i *publisherInfoPtrType) ToPublisherInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoOutput struct{ *pulumi.OutputState }
 
 func (PublisherInfoOutput) ElementType() reflect.Type {
@@ -6994,7 +6856,6 @@ func (o PublisherInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponse struct {
 	// The "OriginalName" field taken from the file's version resource
 	BinaryName *string `pulumi:"binaryName"`
@@ -7017,7 +6878,6 @@ type PublisherInfoResponseInput interface {
 	ToPublisherInfoResponseOutputWithContext(context.Context) PublisherInfoResponseOutput
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponseArgs struct {
 	// The "OriginalName" field taken from the file's version resource
 	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
@@ -7082,7 +6942,6 @@ func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponsePtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PublisherInfoResponseOutput) ElementType() reflect.Type {
@@ -7191,7 +7050,6 @@ func (o PublisherInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationProperties struct {
 	// The type of IoT Security recommendation.
 	RecommendationType string `pulumi:"recommendationType"`
@@ -7210,7 +7068,6 @@ type RecommendationConfigurationPropertiesInput interface {
 	ToRecommendationConfigurationPropertiesOutputWithContext(context.Context) RecommendationConfigurationPropertiesOutput
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesArgs struct {
 	// The type of IoT Security recommendation.
 	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
@@ -7255,7 +7112,6 @@ func (i RecommendationConfigurationPropertiesArray) ToRecommendationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesArrayOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RecommendationConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -7300,7 +7156,6 @@ func (o RecommendationConfigurationPropertiesArrayOutput) Index(i pulumi.IntInpu
 	}).(RecommendationConfigurationPropertiesOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponse struct {
 	Name string `pulumi:"name"`
 	// The type of IoT Security recommendation.
@@ -7320,7 +7175,6 @@ type RecommendationConfigurationPropertiesResponseInput interface {
 	ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseOutput
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The type of IoT Security recommendation.
@@ -7366,7 +7220,6 @@ func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConf
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseArrayOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecommendationConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7415,7 +7268,6 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 	}).(RecommendationConfigurationPropertiesResponseOutput)
 }
 
-// Rule results properties.
 type RuleResultsPropertiesResponse struct {
 	// Expected results in the baseline.
 	Results [][]string `pulumi:"results"`
@@ -7432,7 +7284,6 @@ type RuleResultsPropertiesResponseInput interface {
 	ToRuleResultsPropertiesResponseOutputWithContext(context.Context) RuleResultsPropertiesResponseOutput
 }
 
-// Rule results properties.
 type RuleResultsPropertiesResponseArgs struct {
 	// Expected results in the baseline.
 	Results pulumi.StringArrayArrayInput `pulumi:"results"`
@@ -7491,7 +7342,6 @@ func (i *ruleResultsPropertiesResponsePtrType) ToRuleResultsPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesResponsePtrOutput)
 }
 
-// Rule results properties.
 type RuleResultsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RuleResultsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7555,7 +7405,6 @@ func (o RuleResultsPropertiesResponsePtrOutput) Results() pulumi.StringArrayArra
 	}).(pulumi.StringArrayArrayOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElement struct {
 	// The alert entity type to suppress by.
 	Field *string `pulumi:"field"`
@@ -7572,7 +7421,6 @@ type ScopeElementInput interface {
 	ToScopeElementOutputWithContext(context.Context) ScopeElementOutput
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementArgs struct {
 	// The alert entity type to suppress by.
 	Field pulumi.StringPtrInput `pulumi:"field"`
@@ -7615,7 +7463,6 @@ func (i ScopeElementArray) ToScopeElementArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementArrayOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementOutput struct{ *pulumi.OutputState }
 
 func (ScopeElementOutput) ElementType() reflect.Type {
@@ -7655,7 +7502,6 @@ func (o ScopeElementArrayOutput) Index(i pulumi.IntInput) ScopeElementOutput {
 	}).(ScopeElementOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponse struct {
 	// The alert entity type to suppress by.
 	Field *string `pulumi:"field"`
@@ -7672,7 +7518,6 @@ type ScopeElementResponseInput interface {
 	ToScopeElementResponseOutputWithContext(context.Context) ScopeElementResponseOutput
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponseArgs struct {
 	// The alert entity type to suppress by.
 	Field pulumi.StringPtrInput `pulumi:"field"`
@@ -7715,7 +7560,6 @@ func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseArrayOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeElementResponseOutput) ElementType() reflect.Type {
@@ -7755,7 +7599,6 @@ func (o ScopeElementResponseArrayOutput) Index(i pulumi.IntInput) ScopeElementRe
 	}).(ScopeElementResponseOutput)
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerData struct {
 	// Name of the company of the partner
 	PartnerName string `pulumi:"partnerName"`
@@ -7776,7 +7619,6 @@ type SecurityAssessmentMetadataPartnerDataInput interface {
 	ToSecurityAssessmentMetadataPartnerDataOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataOutput
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerDataArgs struct {
 	// Name of the company of the partner
 	PartnerName pulumi.StringInput `pulumi:"partnerName"`
@@ -7839,7 +7681,6 @@ func (i *securityAssessmentMetadataPartnerDataPtrType) ToSecurityAssessmentMetad
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataPtrOutput)
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerDataOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentMetadataPartnerDataOutput) ElementType() reflect.Type {
@@ -7933,7 +7774,6 @@ func (o SecurityAssessmentMetadataPartnerDataPtrOutput) Secret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerDataResponse struct {
 	// Name of the company of the partner
 	PartnerName string `pulumi:"partnerName"`
@@ -7954,7 +7794,6 @@ type SecurityAssessmentMetadataPartnerDataResponseInput interface {
 	ToSecurityAssessmentMetadataPartnerDataResponseOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataResponseOutput
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerDataResponseArgs struct {
 	// Name of the company of the partner
 	PartnerName pulumi.StringInput `pulumi:"partnerName"`
@@ -8017,7 +7856,6 @@ func (i *securityAssessmentMetadataPartnerDataResponsePtrType) ToSecurityAssessm
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
 }
 
-// Describes the partner that created the assessment
 type SecurityAssessmentMetadataPartnerDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentMetadataPartnerDataResponseOutput) ElementType() reflect.Type {
@@ -8111,7 +7949,6 @@ func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Secret() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataProperties struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
@@ -8146,7 +7983,6 @@ type SecurityAssessmentMetadataPropertiesInput interface {
 	ToSecurityAssessmentMetadataPropertiesOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesOutput
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataPropertiesArgs struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
@@ -8223,7 +8059,6 @@ func (i *securityAssessmentMetadataPropertiesPtrType) ToSecurityAssessmentMetada
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesPtrOutput)
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentMetadataPropertiesOutput) ElementType() reflect.Type {
@@ -8435,7 +8270,6 @@ func (o SecurityAssessmentMetadataPropertiesPtrOutput) UserImpact() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataPropertiesResponse struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
@@ -8472,7 +8306,6 @@ type SecurityAssessmentMetadataPropertiesResponseInput interface {
 	ToSecurityAssessmentMetadataPropertiesResponseOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponseOutput
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataPropertiesResponseArgs struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
@@ -8551,7 +8384,6 @@ func (i *securityAssessmentMetadataPropertiesResponsePtrType) ToSecurityAssessme
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
 }
 
-// Describes properties of an assessment metadata.
 type SecurityAssessmentMetadataPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentMetadataPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8778,7 +8610,6 @@ func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) UserImpact() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerData struct {
 	// Name of the company of the partner
 	PartnerName string `pulumi:"partnerName"`
@@ -8797,7 +8628,6 @@ type SecurityAssessmentPartnerDataInput interface {
 	ToSecurityAssessmentPartnerDataOutputWithContext(context.Context) SecurityAssessmentPartnerDataOutput
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerDataArgs struct {
 	// Name of the company of the partner
 	PartnerName pulumi.StringInput `pulumi:"partnerName"`
@@ -8858,7 +8688,6 @@ func (i *securityAssessmentPartnerDataPtrType) ToSecurityAssessmentPartnerDataPt
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataPtrOutput)
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerDataOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentPartnerDataOutput) ElementType() reflect.Type {
@@ -8937,7 +8766,6 @@ func (o SecurityAssessmentPartnerDataPtrOutput) Secret() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerDataResponse struct {
 	// Name of the company of the partner
 	PartnerName string `pulumi:"partnerName"`
@@ -8956,7 +8784,6 @@ type SecurityAssessmentPartnerDataResponseInput interface {
 	ToSecurityAssessmentPartnerDataResponseOutputWithContext(context.Context) SecurityAssessmentPartnerDataResponseOutput
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerDataResponseArgs struct {
 	// Name of the company of the partner
 	PartnerName pulumi.StringInput `pulumi:"partnerName"`
@@ -9017,7 +8844,6 @@ func (i *securityAssessmentPartnerDataResponsePtrType) ToSecurityAssessmentPartn
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataResponsePtrOutput)
 }
 
-// Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SecurityAssessmentPartnerDataResponseOutput) ElementType() reflect.Type {
@@ -9096,7 +8922,6 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) Secret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotifications struct {
 	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity *string `pulumi:"minimalSeverity"`
@@ -9115,7 +8940,6 @@ type SecurityContactPropertiesAlertNotificationsInput interface {
 	ToSecurityContactPropertiesAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesAlertNotificationsOutput
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotificationsArgs struct {
 	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
@@ -9176,7 +9000,6 @@ func (i *securityContactPropertiesAlertNotificationsPtrType) ToSecurityContactPr
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesAlertNotificationsPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotificationsOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesAlertNotificationsOutput) ElementType() reflect.Type {
@@ -9255,7 +9078,6 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) State() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRole struct {
 	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
@@ -9274,7 +9096,6 @@ type SecurityContactPropertiesNotificationsByRoleInput interface {
 	ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesNotificationsByRoleOutput
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleArgs struct {
 	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
@@ -9335,7 +9156,6 @@ func (i *securityContactPropertiesNotificationsByRolePtrType) ToSecurityContactP
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -9414,7 +9234,6 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) State() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotifications struct {
 	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity *string `pulumi:"minimalSeverity"`
@@ -9433,7 +9252,6 @@ type SecurityContactPropertiesResponseAlertNotificationsInput interface {
 	ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesResponseAlertNotificationsOutput
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotificationsArgs struct {
 	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
@@ -9494,7 +9312,6 @@ func (i *securityContactPropertiesResponseAlertNotificationsPtrType) ToSecurityC
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotificationsOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesResponseAlertNotificationsOutput) ElementType() reflect.Type {
@@ -9573,7 +9390,6 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) State() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRole struct {
 	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
@@ -9592,7 +9408,6 @@ type SecurityContactPropertiesResponseNotificationsByRoleInput interface {
 	ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesResponseNotificationsByRoleOutput
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRoleArgs struct {
 	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
@@ -9653,7 +9468,6 @@ func (i *securityContactPropertiesResponseNotificationsByRolePtrType) ToSecurity
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesResponseNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -9732,7 +9546,6 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalProperties struct {
 	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -9751,7 +9564,6 @@ type ServicePrincipalPropertiesInput interface {
 	ToServicePrincipalPropertiesOutputWithContext(context.Context) ServicePrincipalPropertiesOutput
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesArgs struct {
 	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -9812,7 +9624,6 @@ func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesOutput) ElementType() reflect.Type {
@@ -9891,7 +9702,6 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponse struct {
 	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -9910,7 +9720,6 @@ type ServicePrincipalPropertiesResponseInput interface {
 	ToServicePrincipalPropertiesResponseOutputWithContext(context.Context) ServicePrincipalPropertiesResponseOutput
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponseArgs struct {
 	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -9971,7 +9780,6 @@ func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesResponseOutput) ElementType() reflect.Type {
@@ -10324,7 +10132,6 @@ func (o SuppressionAlertsScopeResponsePtrOutput) AllOf() ScopeElementResponseArr
 	}).(ScopeElementResponseArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -10351,7 +10158,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -10420,7 +10226,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -10559,7 +10364,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRule struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -10583,7 +10387,6 @@ type ThresholdCustomAlertRuleInput interface {
 	ToThresholdCustomAlertRuleOutputWithContext(context.Context) ThresholdCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -10633,7 +10436,6 @@ func (i ThresholdCustomAlertRuleArray) ToThresholdCustomAlertRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ThresholdCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -10689,7 +10491,6 @@ func (o ThresholdCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) ThresholdC
 	}).(ThresholdCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponse struct {
 	// The description of the custom alert.
 	Description string `pulumi:"description"`
@@ -10717,7 +10518,6 @@ type ThresholdCustomAlertRuleResponseInput interface {
 	ToThresholdCustomAlertRuleResponseOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponseArgs struct {
 	// The description of the custom alert.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -10771,7 +10571,6 @@ func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ThresholdCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -10837,7 +10636,6 @@ func (o ThresholdCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Th
 	}).(ThresholdCustomAlertRuleResponseOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRule struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -10863,7 +10661,6 @@ type TimeWindowCustomAlertRuleInput interface {
 	ToTimeWindowCustomAlertRuleOutputWithContext(context.Context) TimeWindowCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -10915,7 +10712,6 @@ func (i TimeWindowCustomAlertRuleArray) ToTimeWindowCustomAlertRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (TimeWindowCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -10976,7 +10772,6 @@ func (o TimeWindowCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) TimeWindo
 	}).(TimeWindowCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponse struct {
 	// The description of the custom alert.
 	Description string `pulumi:"description"`
@@ -11006,7 +10801,6 @@ type TimeWindowCustomAlertRuleResponseInput interface {
 	ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponseArgs struct {
 	// The description of the custom alert.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -11062,7 +10856,6 @@ func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleRespo
 	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeWindowCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -11133,7 +10926,6 @@ func (o TimeWindowCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) T
 	}).(TimeWindowCustomAlertRuleResponseOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesProperties struct {
 	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 	Query string `pulumi:"query"`
@@ -11152,7 +10944,6 @@ type UserDefinedResourcesPropertiesInput interface {
 	ToUserDefinedResourcesPropertiesOutputWithContext(context.Context) UserDefinedResourcesPropertiesOutput
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesArgs struct {
 	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 	Query pulumi.StringInput `pulumi:"query"`
@@ -11213,7 +11004,6 @@ func (i *userDefinedResourcesPropertiesPtrType) ToUserDefinedResourcesProperties
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesPtrOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedResourcesPropertiesOutput) ElementType() reflect.Type {
@@ -11292,7 +11082,6 @@ func (o UserDefinedResourcesPropertiesPtrOutput) QuerySubscriptions() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponse struct {
 	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 	Query string `pulumi:"query"`
@@ -11311,7 +11100,6 @@ type UserDefinedResourcesPropertiesResponseInput interface {
 	ToUserDefinedResourcesPropertiesResponseOutputWithContext(context.Context) UserDefinedResourcesPropertiesResponseOutput
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponseArgs struct {
 	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 	Query pulumi.StringInput `pulumi:"query"`
@@ -11372,7 +11160,6 @@ func (i *userDefinedResourcesPropertiesResponsePtrType) ToUserDefinedResourcesPr
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedResourcesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11451,7 +11238,6 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) QuerySubscriptions() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendation struct {
 	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
@@ -11470,7 +11256,6 @@ type UserRecommendationInput interface {
 	ToUserRecommendationOutputWithContext(context.Context) UserRecommendationOutput
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationArgs struct {
 	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
@@ -11515,7 +11300,6 @@ func (i UserRecommendationArray) ToUserRecommendationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationArrayOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationOutput struct{ *pulumi.OutputState }
 
 func (UserRecommendationOutput) ElementType() reflect.Type {
@@ -11560,7 +11344,6 @@ func (o UserRecommendationArrayOutput) Index(i pulumi.IntInput) UserRecommendati
 	}).(UserRecommendationOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponse struct {
 	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
@@ -11579,7 +11362,6 @@ type UserRecommendationResponseInput interface {
 	ToUserRecommendationResponseOutputWithContext(context.Context) UserRecommendationResponseOutput
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponseArgs struct {
 	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
@@ -11624,7 +11406,6 @@ func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseArrayOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (UserRecommendationResponseOutput) ElementType() reflect.Type {
@@ -11669,7 +11450,6 @@ func (o UserRecommendationResponseArrayOutput) Index(i pulumi.IntInput) UserReco
 	}).(UserRecommendationResponseOutput)
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendation struct {
 	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
@@ -11692,7 +11472,6 @@ type VmRecommendationInput interface {
 	ToVmRecommendationOutputWithContext(context.Context) VmRecommendationOutput
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendationArgs struct {
 	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
@@ -11741,7 +11520,6 @@ func (i VmRecommendationArray) ToVmRecommendationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationArrayOutput)
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendationOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationOutput) ElementType() reflect.Type {
@@ -11796,7 +11574,6 @@ func (o VmRecommendationArrayOutput) Index(i pulumi.IntInput) VmRecommendationOu
 	}).(VmRecommendationOutput)
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendationResponse struct {
 	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
@@ -11819,7 +11596,6 @@ type VmRecommendationResponseInput interface {
 	ToVmRecommendationResponseOutputWithContext(context.Context) VmRecommendationResponseOutput
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendationResponseArgs struct {
 	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
@@ -11868,7 +11644,6 @@ func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseArrayOutput)
 }
 
-// Represents a machine that is part of a machine group
 type VmRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationResponseOutput) ElementType() reflect.Type {

@@ -734,7 +734,6 @@ func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationProperties struct {
 	// Api key associated to the Datadog organization.
 	ApiKey *string `pulumi:"apiKey"`
@@ -761,7 +760,6 @@ type DatadogOrganizationPropertiesInput interface {
 	ToDatadogOrganizationPropertiesOutputWithContext(context.Context) DatadogOrganizationPropertiesOutput
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesArgs struct {
 	// Api key associated to the Datadog organization.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
@@ -830,7 +828,6 @@ func (i *datadogOrganizationPropertiesPtrType) ToDatadogOrganizationPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesOutput) ElementType() reflect.Type {
@@ -969,7 +966,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) RedirectUri() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponse struct {
 	// Id of the Datadog organization.
 	Id string `pulumi:"id"`
@@ -988,7 +984,6 @@ type DatadogOrganizationPropertiesResponseInput interface {
 	ToDatadogOrganizationPropertiesResponseOutputWithContext(context.Context) DatadogOrganizationPropertiesResponseOutput
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponseArgs struct {
 	// Id of the Datadog organization.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1049,7 +1044,6 @@ func (i *datadogOrganizationPropertiesResponsePtrType) ToDatadogOrganizationProp
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1440,7 +1434,6 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponse struct {
 	// The ARM id of the linked resource.
 	Id *string `pulumi:"id"`
@@ -1457,7 +1450,6 @@ type LinkedResourceResponseInput interface {
 	ToLinkedResourceResponseOutputWithContext(context.Context) LinkedResourceResponseOutput
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponseArgs struct {
 	// The ARM id of the linked resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1500,7 +1492,6 @@ func (i LinkedResourceResponseArray) ToLinkedResourceResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceResponseArrayOutput)
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedResourceResponseOutput) ElementType() reflect.Type {
@@ -1540,7 +1531,6 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 	}).(LinkedResourceResponseOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorProperties struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
@@ -1561,7 +1551,6 @@ type MonitorPropertiesInput interface {
 	ToMonitorPropertiesOutputWithContext(context.Context) MonitorPropertiesOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesArgs struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
@@ -1624,7 +1613,6 @@ func (i *monitorPropertiesPtrType) ToMonitorPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesOutput) ElementType() reflect.Type {
@@ -1718,7 +1706,6 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	}).(UserInfoPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationPropertiesResponse `pulumi:"datadogOrganizationProperties"`
@@ -1745,7 +1732,6 @@ type MonitorPropertiesResponseInput interface {
 	ToMonitorPropertiesResponseOutputWithContext(context.Context) MonitorPropertiesResponseOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseArgs struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesResponsePtrInput `pulumi:"datadogOrganizationProperties"`
@@ -1814,7 +1800,6 @@ func (i *monitorPropertiesResponsePtrType) ToMonitorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1966,7 +1951,6 @@ func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput
 	}).(UserInfoResponsePtrOutput)
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponse struct {
 	// The ARM id of the resource.
 	Id *string `pulumi:"id"`
@@ -1991,7 +1975,6 @@ type MonitoredResourceResponseInput interface {
 	ToMonitoredResourceResponseOutputWithContext(context.Context) MonitoredResourceResponseOutput
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponseArgs struct {
 	// The ARM id of the resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2042,7 +2025,6 @@ func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseArrayOutput)
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
@@ -2376,7 +2358,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2403,7 +2384,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -2472,7 +2452,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2611,7 +2590,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 type UserInfo struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2632,7 +2610,6 @@ type UserInfoInput interface {
 	ToUserInfoOutputWithContext(context.Context) UserInfoOutput
 }
 
-// User info
 type UserInfoArgs struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -2695,7 +2672,6 @@ func (i *userInfoPtrType) ToUserInfoPtrOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoPtrOutput)
 }
 
-// User info
 type UserInfoOutput struct{ *pulumi.OutputState }
 
 func (UserInfoOutput) ElementType() reflect.Type {
@@ -2789,7 +2765,6 @@ func (o UserInfoPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 type UserInfoResponse struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2810,7 +2785,6 @@ type UserInfoResponseInput interface {
 	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
 }
 
-// User info
 type UserInfoResponseArgs struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -2873,7 +2847,6 @@ func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
 }
 
-// User info
 type UserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserInfoResponseOutput) ElementType() reflect.Type {

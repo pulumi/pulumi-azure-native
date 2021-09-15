@@ -220,7 +220,6 @@ func (o AccessRightsArrayOutput) Index(i pulumi.IntInput) AccessRightsOutput {
 	}).(AccessRightsOutput)
 }
 
-// Default Action for Network Rule Set
 type DefaultAction string
 
 const (
@@ -385,7 +384,6 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
-// Provisioning state of the Private Endpoint Connection.
 type EndPointProvisioningState string
 
 const (
@@ -554,7 +552,6 @@ func (in *endPointProvisioningStatePtr) ToEndPointProvisioningStatePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(EndPointProvisioningStatePtrOutput)
 }
 
-// Enumerates the possible values for the status of a messaging entity.
 type EntityStatus string
 
 const (
@@ -726,7 +723,6 @@ func (in *entityStatusPtr) ToEntityStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusPtrOutput)
 }
 
-// Filter type that is evaluated against a BrokeredMessage.
 type FilterType string
 
 const (
@@ -891,7 +887,6 @@ func (in *filterTypePtr) ToFilterTypePtrOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, in).(FilterTypePtrOutput)
 }
 
-// The IP Filter Action
 type IPAction string
 
 const (
@@ -1056,7 +1051,6 @@ func (in *ipactionPtr) ToIPActionPtrOutputWithContext(ctx context.Context) IPAct
 	return pulumi.ToOutputWithContext(ctx, in).(IPActionPtrOutput)
 }
 
-// The IP Filter Action
 type NetworkRuleIPAction string
 
 const (
@@ -1220,7 +1214,6 @@ func (in *networkRuleIPActionPtr) ToNetworkRuleIPActionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkRuleIPActionPtrOutput)
 }
 
-// Status of the connection.
 type PrivateLinkConnectionStatus string
 
 const (
@@ -1387,7 +1380,6 @@ func (in *privateLinkConnectionStatusPtr) ToPrivateLinkConnectionStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkConnectionStatusPtrOutput)
 }
 
-// Name of this SKU.
 type SkuName string
 
 const (
@@ -1553,7 +1545,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The billing tier of this particular SKU.
 type SkuTier string
 
 const (

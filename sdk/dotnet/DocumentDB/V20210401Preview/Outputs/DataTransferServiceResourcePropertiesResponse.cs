@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
         public readonly ImmutableArray<Outputs.DataTransferRegionalServiceResourceResponse> Locations;
         /// <summary>
         /// ServiceType for the service.
-        /// Expected value is 'DataTransferServiceResourceProperties'.
+        /// Expected value is 'DataTransfer'.
         /// </summary>
         public readonly string ServiceType;
         /// <summary>

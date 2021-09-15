@@ -124,6 +124,8 @@ namespace Pulumi.AzureNative.DataShare
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:SqlDWTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SqlDWTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDWTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:SqlDWTableDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

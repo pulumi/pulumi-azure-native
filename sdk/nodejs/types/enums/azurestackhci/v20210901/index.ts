@@ -16,8 +16,8 @@ export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
 
 export const DiagnosticLevel = {
     Off: "Off",
-    Required: "Required",
-    RequiredAndOptional: "RequiredAndOptional",
+    Basic: "Basic",
+    Enhanced: "Enhanced",
 } as const;
 
 /**

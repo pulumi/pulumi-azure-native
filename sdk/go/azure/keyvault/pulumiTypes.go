@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntry struct {
 	//  Application ID of the client making request on behalf of a principal
 	ApplicationId *string `pulumi:"applicationId"`
@@ -33,7 +32,6 @@ type AccessPolicyEntryInput interface {
 	ToAccessPolicyEntryOutputWithContext(context.Context) AccessPolicyEntryOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryArgs struct {
 	//  Application ID of the client making request on behalf of a principal
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -82,7 +80,6 @@ func (i AccessPolicyEntryArray) ToAccessPolicyEntryArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryOutput) ElementType() reflect.Type {
@@ -137,7 +134,6 @@ func (o AccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) AccessPolicyEntry
 	}).(AccessPolicyEntryOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponse struct {
 	//  Application ID of the client making request on behalf of a principal
 	ApplicationId *string `pulumi:"applicationId"`
@@ -160,7 +156,6 @@ type AccessPolicyEntryResponseInput interface {
 	ToAccessPolicyEntryResponseOutputWithContext(context.Context) AccessPolicyEntryResponseOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseArgs struct {
 	//  Application ID of the client making request on behalf of a principal
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -209,7 +204,6 @@ func (i AccessPolicyEntryResponseArray) ToAccessPolicyEntryResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryResponseOutput) ElementType() reflect.Type {
@@ -264,7 +258,6 @@ func (o AccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) AccessPol
 	}).(AccessPolicyEntryResponseOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRule struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -281,7 +274,6 @@ type IPRuleInput interface {
 	ToIPRuleOutputWithContext(context.Context) IPRuleOutput
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -324,7 +316,6 @@ func (i IPRuleArray) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleOutput struct{ *pulumi.OutputState }
 
 func (IPRuleOutput) ElementType() reflect.Type {
@@ -364,7 +355,6 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 	}).(IPRuleOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponse struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -381,7 +371,6 @@ type IPRuleResponseInput interface {
 	ToIPRuleResponseOutputWithContext(context.Context) IPRuleResponseOutput
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponseArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -424,7 +413,6 @@ func (i IPRuleResponseArray) ToIPRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRuleResponseOutput) ElementType() reflect.Type {
@@ -464,7 +452,6 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
-// The attributes of the key.
 type KeyAttributes struct {
 	// Determines whether or not the object is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -485,7 +472,6 @@ type KeyAttributesInput interface {
 	ToKeyAttributesOutputWithContext(context.Context) KeyAttributesOutput
 }
 
-// The attributes of the key.
 type KeyAttributesArgs struct {
 	// Determines whether or not the object is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -548,7 +534,6 @@ func (i *keyAttributesPtrType) ToKeyAttributesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesPtrOutput)
 }
 
-// The attributes of the key.
 type KeyAttributesOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesOutput) ElementType() reflect.Type {
@@ -642,7 +627,6 @@ func (o KeyAttributesPtrOutput) NotBefore() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The attributes of the key.
 type KeyAttributesResponse struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
 	Created float64 `pulumi:"created"`
@@ -669,7 +653,6 @@ type KeyAttributesResponseInput interface {
 	ToKeyAttributesResponseOutputWithContext(context.Context) KeyAttributesResponseOutput
 }
 
-// The attributes of the key.
 type KeyAttributesResponseArgs struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
 	Created pulumi.Float64Input `pulumi:"created"`
@@ -738,7 +721,6 @@ func (i *keyAttributesResponsePtrType) ToKeyAttributesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesResponsePtrOutput)
 }
 
-// The attributes of the key.
 type KeyAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesResponseOutput) ElementType() reflect.Type {
@@ -877,7 +859,6 @@ func (o KeyAttributesResponsePtrOutput) Updated() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The properties of the key.
 type KeyProperties struct {
 	// The attributes of the key.
 	Attributes *KeyAttributes `pulumi:"attributes"`
@@ -901,7 +882,6 @@ type KeyPropertiesInput interface {
 	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
 }
 
-// The properties of the key.
 type KeyPropertiesArgs struct {
 	// The attributes of the key.
 	Attributes KeyAttributesPtrInput `pulumi:"attributes"`
@@ -967,7 +947,6 @@ func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
 }
 
-// The properties of the key.
 type KeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesOutput) ElementType() reflect.Type {
@@ -1089,7 +1068,6 @@ func (o KeyPropertiesPtrOutput) Kty() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRule struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -1106,7 +1084,6 @@ type MHSMIPRuleInput interface {
 	ToMHSMIPRuleOutputWithContext(context.Context) MHSMIPRuleOutput
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRuleArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1149,7 +1126,6 @@ func (i MHSMIPRuleArray) ToMHSMIPRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRuleOutput struct{ *pulumi.OutputState }
 
 func (MHSMIPRuleOutput) ElementType() reflect.Type {
@@ -1189,7 +1165,6 @@ func (o MHSMIPRuleArrayOutput) Index(i pulumi.IntInput) MHSMIPRuleOutput {
 	}).(MHSMIPRuleOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRuleResponse struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -1206,7 +1181,6 @@ type MHSMIPRuleResponseInput interface {
 	ToMHSMIPRuleResponseOutputWithContext(context.Context) MHSMIPRuleResponseOutput
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRuleResponseArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1249,7 +1223,6 @@ func (i MHSMIPRuleResponseArray) ToMHSMIPRuleResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
 type MHSMIPRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMIPRuleResponseOutput) ElementType() reflect.Type {
@@ -1289,7 +1262,6 @@ func (o MHSMIPRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSMIPRuleRespon
 	}).(MHSMIPRuleResponseOutput)
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSet struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass *string `pulumi:"bypass"`
@@ -1312,7 +1284,6 @@ type MHSMNetworkRuleSetInput interface {
 	ToMHSMNetworkRuleSetOutputWithContext(context.Context) MHSMNetworkRuleSetOutput
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSetArgs struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
@@ -1377,7 +1348,6 @@ func (i *mhsmnetworkRuleSetPtrType) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetPtrOutput)
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (MHSMNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -1486,7 +1456,6 @@ func (o MHSMNetworkRuleSetPtrOutput) VirtualNetworkRules() MHSMVirtualNetworkRul
 	}).(MHSMVirtualNetworkRuleArrayOutput)
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSetResponse struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass *string `pulumi:"bypass"`
@@ -1509,7 +1478,6 @@ type MHSMNetworkRuleSetResponseInput interface {
 	ToMHSMNetworkRuleSetResponseOutputWithContext(context.Context) MHSMNetworkRuleSetResponseOutput
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSetResponseArgs struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
@@ -1574,7 +1542,6 @@ func (i *mhsmnetworkRuleSetResponsePtrType) ToMHSMNetworkRuleSetResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetResponsePtrOutput)
 }
 
-// A set of rules governing the network accessibility of a managed hsm pool.
 type MHSMNetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMNetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -1683,7 +1650,6 @@ func (o MHSMNetworkRuleSetResponsePtrOutput) VirtualNetworkRules() MHSMVirtualNe
 	}).(MHSMVirtualNetworkRuleResponseArrayOutput)
 }
 
-// Private endpoint connection item.
 type MHSMPrivateEndpointConnectionItemResponse struct {
 	// Properties of the private endpoint object.
 	PrivateEndpoint *MHSMPrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -1704,7 +1670,6 @@ type MHSMPrivateEndpointConnectionItemResponseInput interface {
 	ToMHSMPrivateEndpointConnectionItemResponseOutputWithContext(context.Context) MHSMPrivateEndpointConnectionItemResponseOutput
 }
 
-// Private endpoint connection item.
 type MHSMPrivateEndpointConnectionItemResponseArgs struct {
 	// Properties of the private endpoint object.
 	PrivateEndpoint MHSMPrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
@@ -1751,7 +1716,6 @@ func (i MHSMPrivateEndpointConnectionItemResponseArray) ToMHSMPrivateEndpointCon
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointConnectionItemResponseArrayOutput)
 }
 
-// Private endpoint connection item.
 type MHSMPrivateEndpointConnectionItemResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMPrivateEndpointConnectionItemResponseOutput) ElementType() reflect.Type {
@@ -1805,7 +1769,6 @@ func (o MHSMPrivateEndpointConnectionItemResponseArrayOutput) Index(i pulumi.Int
 	}).(MHSMPrivateEndpointConnectionItemResponseOutput)
 }
 
-// Private endpoint object properties.
 type MHSMPrivateEndpointResponse struct {
 	// Full identifier of the private endpoint resource.
 	Id string `pulumi:"id"`
@@ -1822,7 +1785,6 @@ type MHSMPrivateEndpointResponseInput interface {
 	ToMHSMPrivateEndpointResponseOutputWithContext(context.Context) MHSMPrivateEndpointResponseOutput
 }
 
-// Private endpoint object properties.
 type MHSMPrivateEndpointResponseArgs struct {
 	// Full identifier of the private endpoint resource.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1881,7 +1843,6 @@ func (i *mhsmprivateEndpointResponsePtrType) ToMHSMPrivateEndpointResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint object properties.
 type MHSMPrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMPrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1945,7 +1906,6 @@ func (o MHSMPrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1966,7 +1926,6 @@ type MHSMPrivateLinkServiceConnectionStateInput interface {
 	ToMHSMPrivateLinkServiceConnectionStateOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStateOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -2029,7 +1988,6 @@ func (i *mhsmprivateLinkServiceConnectionStatePtrType) ToMHSMPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (MHSMPrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -2123,7 +2081,6 @@ func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -2144,7 +2101,6 @@ type MHSMPrivateLinkServiceConnectionStateResponseInput interface {
 	ToMHSMPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStateResponseOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -2207,7 +2163,6 @@ func (i *mhsmprivateLinkServiceConnectionStateResponsePtrType) ToMHSMPrivateLink
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type MHSMPrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMPrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -2301,7 +2256,6 @@ func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRule struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -2318,7 +2272,6 @@ type MHSMVirtualNetworkRuleInput interface {
 	ToMHSMVirtualNetworkRuleOutputWithContext(context.Context) MHSMVirtualNetworkRuleOutput
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRuleArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2361,7 +2314,6 @@ func (i MHSMVirtualNetworkRuleArray) ToMHSMVirtualNetworkRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (MHSMVirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -2401,7 +2353,6 @@ func (o MHSMVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) MHSMVirtualN
 	}).(MHSMVirtualNetworkRuleOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRuleResponse struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -2418,7 +2369,6 @@ type MHSMVirtualNetworkRuleResponseInput interface {
 	ToMHSMVirtualNetworkRuleResponseOutputWithContext(context.Context) MHSMVirtualNetworkRuleResponseOutput
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRuleResponseArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2461,7 +2411,6 @@ func (i MHSMVirtualNetworkRuleResponseArray) ToMHSMVirtualNetworkRuleResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
 type MHSMVirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (MHSMVirtualNetworkRuleResponseOutput) ElementType() reflect.Type {
@@ -2501,7 +2450,6 @@ func (o MHSMVirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSM
 	}).(MHSMVirtualNetworkRuleResponseOutput)
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmProperties struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
 	CreateMode *CreateMode `pulumi:"createMode"`
@@ -2532,7 +2480,6 @@ type ManagedHsmPropertiesInput interface {
 	ToManagedHsmPropertiesOutputWithContext(context.Context) ManagedHsmPropertiesOutput
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmPropertiesArgs struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
 	CreateMode CreateModePtrInput `pulumi:"createMode"`
@@ -2605,7 +2552,6 @@ func (i *managedHsmPropertiesPtrType) ToManagedHsmPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesPtrOutput)
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmPropertiesOutput) ElementType() reflect.Type {
@@ -2774,7 +2720,6 @@ func (o ManagedHsmPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmPropertiesResponse struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
 	CreateMode *string `pulumi:"createMode"`
@@ -2815,7 +2760,6 @@ type ManagedHsmPropertiesResponseInput interface {
 	ToManagedHsmPropertiesResponseOutputWithContext(context.Context) ManagedHsmPropertiesResponseOutput
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmPropertiesResponseArgs struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
 	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
@@ -2898,7 +2842,6 @@ func (i *managedHsmPropertiesResponsePtrType) ToManagedHsmPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesResponsePtrOutput)
 }
 
-// Properties of the managed HSM Pool
 type ManagedHsmPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3144,7 +3087,6 @@ func (o ManagedHsmPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU details
 type ManagedHsmSku struct {
 	// SKU Family of the managed HSM Pool
 	Family string `pulumi:"family"`
@@ -3163,7 +3105,6 @@ type ManagedHsmSkuInput interface {
 	ToManagedHsmSkuOutputWithContext(context.Context) ManagedHsmSkuOutput
 }
 
-// SKU details
 type ManagedHsmSkuArgs struct {
 	// SKU Family of the managed HSM Pool
 	Family pulumi.StringInput `pulumi:"family"`
@@ -3224,7 +3165,6 @@ func (i *managedHsmSkuPtrType) ToManagedHsmSkuPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuPtrOutput)
 }
 
-// SKU details
 type ManagedHsmSkuOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmSkuOutput) ElementType() reflect.Type {
@@ -3303,7 +3243,6 @@ func (o ManagedHsmSkuPtrOutput) Name() ManagedHsmSkuNamePtrOutput {
 	}).(ManagedHsmSkuNamePtrOutput)
 }
 
-// SKU details
 type ManagedHsmSkuResponse struct {
 	// SKU Family of the managed HSM Pool
 	Family string `pulumi:"family"`
@@ -3322,7 +3261,6 @@ type ManagedHsmSkuResponseInput interface {
 	ToManagedHsmSkuResponseOutputWithContext(context.Context) ManagedHsmSkuResponseOutput
 }
 
-// SKU details
 type ManagedHsmSkuResponseArgs struct {
 	// SKU Family of the managed HSM Pool
 	Family pulumi.StringInput `pulumi:"family"`
@@ -3383,7 +3321,6 @@ func (i *managedHsmSkuResponsePtrType) ToManagedHsmSkuResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuResponsePtrOutput)
 }
 
-// SKU details
 type ManagedHsmSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmSkuResponseOutput) ElementType() reflect.Type {
@@ -3462,7 +3399,6 @@ func (o ManagedHsmSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSet struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass *string `pulumi:"bypass"`
@@ -3485,7 +3421,6 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetArgs struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
@@ -3550,7 +3485,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -3659,7 +3593,6 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 	}).(VirtualNetworkRuleArrayOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponse struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass *string `pulumi:"bypass"`
@@ -3682,7 +3615,6 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponseArgs struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
@@ -3747,7 +3679,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -3856,7 +3787,6 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type Permissions struct {
 	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
@@ -3879,7 +3809,6 @@ type PermissionsInput interface {
 	ToPermissionsOutputWithContext(context.Context) PermissionsOutput
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsArgs struct {
 	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
@@ -3903,7 +3832,6 @@ func (i PermissionsArgs) ToPermissionsOutputWithContext(ctx context.Context) Per
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -3938,7 +3866,6 @@ func (o PermissionsOutput) Storage() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Storage }).(pulumi.StringArrayOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponse struct {
 	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
@@ -3961,7 +3888,6 @@ type PermissionsResponseInput interface {
 	ToPermissionsResponseOutputWithContext(context.Context) PermissionsResponseOutput
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponseArgs struct {
 	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
@@ -3985,7 +3911,6 @@ func (i PermissionsResponseArgs) ToPermissionsResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsResponseOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionsResponseOutput) ElementType() reflect.Type {
@@ -4020,7 +3945,6 @@ func (o PermissionsResponseOutput) Storage() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Storage }).(pulumi.StringArrayOutput)
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponse struct {
 	// Modified whenever there is a change in the state of private endpoint connection.
 	Etag *string `pulumi:"etag"`
@@ -4045,7 +3969,6 @@ type PrivateEndpointConnectionItemResponseInput interface {
 	ToPrivateEndpointConnectionItemResponseOutputWithContext(context.Context) PrivateEndpointConnectionItemResponseOutput
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseArgs struct {
 	// Modified whenever there is a change in the state of private endpoint connection.
 	Etag pulumi.StringPtrInput `pulumi:"etag"`
@@ -4096,7 +4019,6 @@ func (i PrivateEndpointConnectionItemResponseArray) ToPrivateEndpointConnectionI
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionItemResponseArrayOutput)
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionItemResponseOutput) ElementType() reflect.Type {
@@ -4158,7 +4080,6 @@ func (o PrivateEndpointConnectionItemResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(PrivateEndpointConnectionItemResponseOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponse struct {
 	// Full identifier of the private endpoint resource.
 	Id string `pulumi:"id"`
@@ -4175,7 +4096,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseArgs struct {
 	// Full identifier of the private endpoint resource.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -4234,7 +4154,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -4298,7 +4217,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -4319,7 +4237,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -4382,7 +4299,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -4476,7 +4392,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -4497,7 +4412,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -4560,7 +4474,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -4654,7 +4567,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributes struct {
 	// Determines whether the object is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -4675,7 +4587,6 @@ type SecretAttributesInput interface {
 	ToSecretAttributesOutputWithContext(context.Context) SecretAttributesOutput
 }
 
-// The secret management attributes.
 type SecretAttributesArgs struct {
 	// Determines whether the object is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -4738,7 +4649,6 @@ func (i *secretAttributesPtrType) ToSecretAttributesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesOutput struct{ *pulumi.OutputState }
 
 func (SecretAttributesOutput) ElementType() reflect.Type {
@@ -4832,7 +4742,6 @@ func (o SecretAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesResponse struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
 	Created int `pulumi:"created"`
@@ -4857,7 +4766,6 @@ type SecretAttributesResponseInput interface {
 	ToSecretAttributesResponseOutputWithContext(context.Context) SecretAttributesResponseOutput
 }
 
-// The secret management attributes.
 type SecretAttributesResponseArgs struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
 	Created pulumi.IntInput `pulumi:"created"`
@@ -4924,7 +4832,6 @@ func (i *secretAttributesResponsePtrType) ToSecretAttributesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesResponsePtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretAttributesResponseOutput) ElementType() reflect.Type {
@@ -5048,7 +4955,6 @@ func (o SecretAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of the secret
 type SecretProperties struct {
 	// The attributes of the secret.
 	Attributes *SecretAttributes `pulumi:"attributes"`
@@ -5069,7 +4975,6 @@ type SecretPropertiesInput interface {
 	ToSecretPropertiesOutputWithContext(context.Context) SecretPropertiesOutput
 }
 
-// Properties of the secret
 type SecretPropertiesArgs struct {
 	// The attributes of the secret.
 	Attributes SecretAttributesPtrInput `pulumi:"attributes"`
@@ -5132,7 +5037,6 @@ func (i *secretPropertiesPtrType) ToSecretPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesPtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SecretPropertiesOutput) ElementType() reflect.Type {
@@ -5226,7 +5130,6 @@ func (o SecretPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesResponse struct {
 	// The attributes of the secret.
 	Attributes *SecretAttributesResponse `pulumi:"attributes"`
@@ -5251,7 +5154,6 @@ type SecretPropertiesResponseInput interface {
 	ToSecretPropertiesResponseOutputWithContext(context.Context) SecretPropertiesResponseOutput
 }
 
-// Properties of the secret
 type SecretPropertiesResponseArgs struct {
 	// The attributes of the secret.
 	Attributes SecretAttributesResponsePtrInput `pulumi:"attributes"`
@@ -5318,7 +5220,6 @@ func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponsePtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5442,7 +5343,6 @@ func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU details
 type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
@@ -5461,7 +5361,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU details
 type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
@@ -5522,7 +5421,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU details
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -5601,7 +5499,6 @@ func (o SkuPtrOutput) Name() SkuNamePtrOutput {
 	}).(SkuNamePtrOutput)
 }
 
-// SKU details
 type SkuResponse struct {
 	// SKU family name
 	Family string `pulumi:"family"`
@@ -5620,7 +5517,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU details
 type SkuResponseArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
@@ -5681,7 +5577,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU details
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -5760,7 +5655,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the key vault resource.
 type SystemDataResponse struct {
 	// The timestamp of the key vault resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -5787,7 +5681,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the key vault resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of the key vault resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -5856,7 +5749,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the key vault resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -5995,7 +5887,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultProperties struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
@@ -6038,7 +5929,6 @@ type VaultPropertiesInput interface {
 	ToVaultPropertiesOutputWithContext(context.Context) VaultPropertiesOutput
 }
 
-// Properties of the vault
 type VaultPropertiesArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
@@ -6123,7 +6013,6 @@ func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesOutput) ElementType() reflect.Type {
@@ -6382,7 +6271,6 @@ func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponse struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntryResponse `pulumi:"accessPolicies"`
@@ -6427,7 +6315,6 @@ type VaultPropertiesResponseInput interface {
 	ToVaultPropertiesResponseOutputWithContext(context.Context) VaultPropertiesResponseOutput
 }
 
-// Properties of the vault
 type VaultPropertiesResponseArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
@@ -6514,7 +6401,6 @@ func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponsePtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6790,7 +6676,6 @@ func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRule struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -6809,7 +6694,6 @@ type VirtualNetworkRuleInput interface {
 	ToVirtualNetworkRuleOutputWithContext(context.Context) VirtualNetworkRuleOutput
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6854,7 +6738,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -6899,7 +6782,6 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 	}).(VirtualNetworkRuleOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponse struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -6918,7 +6800,6 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponseArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6963,7 +6844,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {

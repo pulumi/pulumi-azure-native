@@ -26,8 +26,8 @@ class DiagnosticLevel(str, Enum):
     Desired level of diagnostic data emitted by the cluster.
     """
     OFF = "Off"
-    REQUIRED = "Required"
-    REQUIRED_AND_OPTIONAL = "RequiredAndOptional"
+    BASIC = "Basic"
+    ENHANCED = "Enhanced"
 
 
 class WindowsServerSubscription(str, Enum):

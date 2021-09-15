@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provision states for FluidRelay RP
 type ProvisioningState string
 
 const (

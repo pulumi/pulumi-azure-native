@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
 type AutoUserScope string
 
 const (
@@ -177,13 +176,6 @@ func (in *autoUserScopePtr) ToAutoUserScopePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AutoUserScopePtrOutput)
 }
 
-// Values are:
-//
-//  none - The caching mode for the disk is not enabled.
-//  readOnly - The caching mode for the disk is read only.
-//  readWrite - The caching mode for the disk is read and write.
-//
-//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 type CachingType string
 
 const (
@@ -352,7 +344,6 @@ func (in *cachingTypePtr) ToCachingTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(CachingTypePtrOutput)
 }
 
-// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
 type CertificateFormat string
 
 const (
@@ -519,7 +510,6 @@ func (in *certificateFormatPtr) ToCertificateFormatPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateFormatPtrOutput)
 }
 
-// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
 type CertificateStoreLocation string
 
 const (
@@ -899,7 +889,6 @@ func (o CertificateVisibilityArrayOutput) Index(i pulumi.IntInput) CertificateVi
 	}).(CertificateVisibilityOutput)
 }
 
-// If omitted, the default value is Requeue.
 type ComputeNodeDeallocationOption string
 
 const (
@@ -1566,7 +1555,6 @@ func (in *containerWorkingDirectoryPtr) ToContainerWorkingDirectoryPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerWorkingDirectoryPtrOutput)
 }
 
-// If omitted, no disks on the compute nodes in the pool will be encrypted.
 type DiskEncryptionTarget string
 
 const (
@@ -1778,7 +1766,6 @@ func (o DiskEncryptionTargetArrayOutput) Index(i pulumi.IntInput) DiskEncryption
 	}).(DiskEncryptionTargetOutput)
 }
 
-// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
 type ElevationLevel string
 
 const (
@@ -1945,7 +1932,6 @@ func (in *elevationLevelPtr) ToElevationLevelPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ElevationLevelPtrOutput)
 }
 
-// The default value is BatchManaged
 type IPAddressProvisioningType string
 
 const (
@@ -2280,7 +2266,6 @@ func (in *inboundEndpointProtocolPtr) ToInboundEndpointProtocolPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(InboundEndpointProtocolPtrOutput)
 }
 
-// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 type InterNodeCommunicationState string
 
 const (
@@ -2447,7 +2432,6 @@ func (in *interNodeCommunicationStatePtr) ToInterNodeCommunicationStatePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(InterNodeCommunicationStatePtrOutput)
 }
 
-// Type of the key source.
 type KeySource string
 
 const (
@@ -2614,7 +2598,6 @@ func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) Key
 	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
 }
 
-// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
 type LoginMode string
 
 const (
@@ -2947,7 +2930,6 @@ func (in *networkSecurityGroupRuleAccessPtr) ToNetworkSecurityGroupRuleAccessPtr
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkSecurityGroupRuleAccessPtrOutput)
 }
 
-// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
 type NodePlacementPolicyType string
 
 const (
@@ -3114,7 +3096,6 @@ func (in *nodePlacementPolicyTypePtr) ToNodePlacementPolicyTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(NodePlacementPolicyTypePtrOutput)
 }
 
-// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 type PoolAllocationMode string
 
 const (
@@ -3281,7 +3262,6 @@ func (in *poolAllocationModePtr) ToPoolAllocationModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PoolAllocationModePtrOutput)
 }
 
-// The type of identity used for the Batch Pool.
 type PoolIdentityType string
 
 const (
@@ -3448,7 +3428,6 @@ func (in *poolIdentityTypePtr) ToPoolIdentityTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(PoolIdentityTypePtrOutput)
 }
 
-// If not specified, the default value is 'enabled'.
 type PublicNetworkAccessType string
 
 const (
@@ -3615,7 +3594,6 @@ func (in *publicNetworkAccessTypePtr) ToPublicNetworkAccessTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessTypePtrOutput)
 }
 
-// The type of identity used for the Batch account.
 type ResourceIdentityType string
 
 const (
@@ -3784,10 +3762,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// If omitted, the default is "Standard_LRS". Values are:
-//
-//  Standard_LRS - The data disk should use standard locally redundant storage.
-//  Premium_LRS - The data disk should use premium locally redundant storage.
 type StorageAccountType string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity of resource
 type Identity struct {
 	// Identity Type
 	Type *string `pulumi:"type"`
@@ -27,7 +26,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity of resource
 type IdentityArgs struct {
 	// Identity Type
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity of resource
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity of resource
 type IdentityResponse struct {
 	// service principal Id
 	PrincipalId string `pulumi:"principalId"`
@@ -171,7 +167,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity of resource
 type IdentityResponseArgs struct {
 	// service principal Id
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -234,7 +229,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity of resource
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponse struct {
 	// Kind of synchronization setting on share.
 	// Expected value is 'ScheduleBased'.
@@ -350,7 +343,6 @@ type ScheduledSourceSynchronizationSettingResponseInput interface {
 	ToScheduledSourceSynchronizationSettingResponseOutputWithContext(context.Context) ScheduledSourceSynchronizationSettingResponseOutput
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponseArgs struct {
 	// Kind of synchronization setting on share.
 	// Expected value is 'ScheduleBased'.
@@ -398,7 +390,6 @@ func (i ScheduledSourceSynchronizationSettingResponseArray) ToScheduledSourceSyn
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSourceSynchronizationSettingResponseArrayOutput)
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduledSourceSynchronizationSettingResponseOutput) ElementType() reflect.Type {
@@ -449,7 +440,6 @@ func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) Index(i pulumi
 	}).(ScheduledSourceSynchronizationSettingResponseOutput)
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponse struct {
 	// Synchronization duration
 	DurationMs int `pulumi:"durationMs"`
@@ -478,7 +468,6 @@ type ShareSubscriptionSynchronizationResponseInput interface {
 	ToShareSubscriptionSynchronizationResponseOutputWithContext(context.Context) ShareSubscriptionSynchronizationResponseOutput
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponseArgs struct {
 	// Synchronization duration
 	DurationMs pulumi.IntInput `pulumi:"durationMs"`
@@ -533,7 +522,6 @@ func (i ShareSubscriptionSynchronizationResponseArray) ToShareSubscriptionSynchr
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionSynchronizationResponseArrayOutput)
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareSubscriptionSynchronizationResponseOutput) ElementType() reflect.Type {
@@ -603,7 +591,6 @@ func (o ShareSubscriptionSynchronizationResponseArrayOutput) Index(i pulumi.IntI
 	}).(ShareSubscriptionSynchronizationResponseOutput)
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponse struct {
 	// Email of the user who created the synchronization
 	ConsumerEmail *string `pulumi:"consumerEmail"`
@@ -638,7 +625,6 @@ type ShareSynchronizationResponseInput interface {
 	ToShareSynchronizationResponseOutputWithContext(context.Context) ShareSynchronizationResponseOutput
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponseArgs struct {
 	// Email of the user who created the synchronization
 	ConsumerEmail pulumi.StringPtrInput `pulumi:"consumerEmail"`
@@ -699,7 +685,6 @@ func (i ShareSynchronizationResponseArray) ToShareSynchronizationResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSynchronizationResponseArrayOutput)
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareSynchronizationResponseOutput) ElementType() reflect.Type {
@@ -784,7 +769,6 @@ func (o ShareSynchronizationResponseArrayOutput) Index(i pulumi.IntInput) ShareS
 	}).(ShareSynchronizationResponseOutput)
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponse struct {
 	// Id of data set
 	DataSetId string `pulumi:"dataSetId"`
@@ -829,7 +813,6 @@ type SynchronizationDetailsResponseInput interface {
 	ToSynchronizationDetailsResponseOutputWithContext(context.Context) SynchronizationDetailsResponseOutput
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponseArgs struct {
 	// Id of data set
 	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
@@ -900,7 +883,6 @@ func (i SynchronizationDetailsResponseArray) ToSynchronizationDetailsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationDetailsResponseArrayOutput)
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SynchronizationDetailsResponseOutput) ElementType() reflect.Type {
@@ -1010,7 +992,6 @@ func (o SynchronizationDetailsResponseArrayOutput) Index(i pulumi.IntInput) Sync
 	}).(SynchronizationDetailsResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1037,7 +1018,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1106,7 +1086,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

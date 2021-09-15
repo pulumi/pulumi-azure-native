@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AgentPoolMode represents mode of an agent pool
 type AgentPoolMode string
 
 const (
@@ -175,7 +174,6 @@ func (in *agentPoolModePtr) ToAgentPoolModePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AgentPoolModePtrOutput)
 }
 
-// AgentPoolType represents types of an agent pool
 type AgentPoolType string
 
 const (
@@ -340,7 +338,6 @@ func (in *agentPoolTypePtr) ToAgentPoolTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AgentPoolTypePtrOutput)
 }
 
-// The private link service connection status.
 type ConnectionStatus string
 
 const (
@@ -673,7 +670,6 @@ func (in *expanderPtr) ToExpanderPtrOutputWithContext(ctx context.Context) Expan
 	return pulumi.ToOutputWithContext(ctx, in).(ExpanderPtrOutput)
 }
 
-// The type of the extended location.
 type ExtendedLocationTypes string
 
 const (
@@ -837,7 +833,6 @@ func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
 }
 
-// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 type GPUInstanceProfile string
 
 const (
@@ -1005,7 +1000,6 @@ func (in *gpuinstanceProfilePtr) ToGPUInstanceProfilePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(GPUInstanceProfilePtrOutput)
 }
 
-// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
 type KubeletDiskType string
 
 const (
@@ -1170,7 +1164,6 @@ func (in *kubeletDiskTypePtr) ToKubeletDiskTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(KubeletDiskTypePtrOutput)
 }
 
-// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 type LicenseType string
 
 const (
@@ -1335,7 +1328,6 @@ func (in *licenseTypePtr) ToLicenseTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(LicenseTypePtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 type LoadBalancerSku string
 
 const (
@@ -1500,7 +1492,6 @@ func (in *loadBalancerSkuPtr) ToLoadBalancerSkuPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerSkuPtrOutput)
 }
 
-// Name of a managed cluster SKU.
 type ManagedClusterSKUName string
 
 const (
@@ -1664,7 +1655,6 @@ func (in *managedClusterSKUNamePtr) ToManagedClusterSKUNamePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedClusterSKUNamePtrOutput)
 }
 
-// Tier of a managed cluster SKU.
 type ManagedClusterSKUTier string
 
 const (
@@ -1829,7 +1819,6 @@ func (in *managedClusterSKUTierPtr) ToManagedClusterSKUTierPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedClusterSKUTierPtrOutput)
 }
 
-// Network mode used for building Kubernetes network.
 type NetworkMode string
 
 const (
@@ -1994,7 +1983,6 @@ func (in *networkModePtr) ToNetworkModePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkModePtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 type NetworkPlugin string
 
 const (
@@ -2159,7 +2147,6 @@ func (in *networkPluginPtr) ToNetworkPluginPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkPluginPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 type NetworkPolicy string
 
 const (
@@ -2324,7 +2311,6 @@ func (in *networkPolicyPtr) ToNetworkPolicyPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkPolicyPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 type OSDiskType string
 
 const (
@@ -2489,7 +2475,6 @@ func (in *osdiskTypePtr) ToOSDiskTypePtrOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, in).(OSDiskTypePtrOutput)
 }
 
-// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
 type OSSKU string
 
 const (
@@ -2654,7 +2639,6 @@ func (in *osskuPtr) ToOSSKUPtrOutputWithContext(ctx context.Context) OSSKUPtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(OSSKUPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 type OSType string
 
 const (
@@ -2819,7 +2803,6 @@ func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
 }
 
-// Define the role of the AgentPoolProfile.
 type OpenShiftAgentPoolProfileRole string
 
 const (
@@ -2984,7 +2967,6 @@ func (in *openShiftAgentPoolProfileRolePtr) ToOpenShiftAgentPoolProfileRolePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(OpenShiftAgentPoolProfileRolePtrOutput)
 }
 
-// Size of agent VMs.
 type OpenShiftContainerServiceVMSize string
 
 const (
@@ -3180,7 +3162,6 @@ func (in *openShiftContainerServiceVMSizePtr) ToOpenShiftContainerServiceVMSizeP
 	return pulumi.ToOutputWithContext(ctx, in).(OpenShiftContainerServiceVMSizePtrOutput)
 }
 
-// The outbound (egress) routing method.
 type OutboundType string
 
 const (
@@ -3345,7 +3326,6 @@ func (in *outboundTypePtr) ToOutboundTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(OutboundTypePtrOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 type ResourceIdentityType string
 
 const (
@@ -3511,7 +3491,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
 type ScaleSetEvictionPolicy string
 
 const (
@@ -3676,7 +3655,6 @@ func (in *scaleSetEvictionPolicyPtr) ToScaleSetEvictionPolicyPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleSetEvictionPolicyPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 type ScaleSetPriority string
 
 const (
@@ -3841,7 +3819,6 @@ func (in *scaleSetPriorityPtr) ToScaleSetPriorityPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleSetPriorityPtrOutput)
 }
 
-// The type of a snapshot. The default is NodePool.
 type SnapshotType string
 
 const (
@@ -4006,7 +3983,6 @@ func (in *snapshotTypePtr) ToSnapshotTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(SnapshotTypePtrOutput)
 }
 
-// upgrade channel for auto upgrade.
 type UpgradeChannel string
 
 const (
@@ -4174,7 +4150,6 @@ func (in *upgradeChannelPtr) ToUpgradeChannelPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(UpgradeChannelPtrOutput)
 }
 
-// A day in a week.
 type WeekDay string
 
 const (

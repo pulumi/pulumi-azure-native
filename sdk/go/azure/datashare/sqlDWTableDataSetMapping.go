@@ -104,6 +104,12 @@ func NewSqlDWTableDataSetMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SqlDWTableDataSetMapping"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:SqlDWTableDataSetMapping"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:SqlDWTableDataSetMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlDWTableDataSetMapping

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
         public readonly ImmutableArray<Outputs.SqlDedicatedGatewayRegionalServiceResourceResponse> Locations;
         /// <summary>
         /// ServiceType for the service.
-        /// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+        /// Expected value is 'SqlDedicatedGateway'.
         /// </summary>
         public readonly string ServiceType;
         /// <summary>

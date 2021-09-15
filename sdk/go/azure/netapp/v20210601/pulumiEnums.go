@@ -670,6 +670,172 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointTypePtrOutput)
 }
 
+type NetworkFeatures string
+
+const (
+	// Basic network feature.
+	NetworkFeaturesBasic = NetworkFeatures("Basic")
+	// Standard network feature.
+	NetworkFeaturesStandard = NetworkFeatures("Standard")
+)
+
+func (NetworkFeatures) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFeatures)(nil)).Elem()
+}
+
+func (e NetworkFeatures) ToNetworkFeaturesOutput() NetworkFeaturesOutput {
+	return pulumi.ToOutput(e).(NetworkFeaturesOutput)
+}
+
+func (e NetworkFeatures) ToNetworkFeaturesOutputWithContext(ctx context.Context) NetworkFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkFeaturesOutput)
+}
+
+func (e NetworkFeatures) ToNetworkFeaturesPtrOutput() NetworkFeaturesPtrOutput {
+	return e.ToNetworkFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkFeatures) ToNetworkFeaturesPtrOutputWithContext(ctx context.Context) NetworkFeaturesPtrOutput {
+	return NetworkFeatures(e).ToNetworkFeaturesOutputWithContext(ctx).ToNetworkFeaturesPtrOutputWithContext(ctx)
+}
+
+func (e NetworkFeatures) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkFeatures) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkFeatures) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkFeatures) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkFeaturesOutput struct{ *pulumi.OutputState }
+
+func (NetworkFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFeatures)(nil)).Elem()
+}
+
+func (o NetworkFeaturesOutput) ToNetworkFeaturesOutput() NetworkFeaturesOutput {
+	return o
+}
+
+func (o NetworkFeaturesOutput) ToNetworkFeaturesOutputWithContext(ctx context.Context) NetworkFeaturesOutput {
+	return o
+}
+
+func (o NetworkFeaturesOutput) ToNetworkFeaturesPtrOutput() NetworkFeaturesPtrOutput {
+	return o.ToNetworkFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkFeaturesOutput) ToNetworkFeaturesPtrOutputWithContext(ctx context.Context) NetworkFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkFeatures) *NetworkFeatures {
+		return &v
+	}).(NetworkFeaturesPtrOutput)
+}
+
+func (o NetworkFeaturesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkFeaturesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkFeatures) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkFeaturesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkFeaturesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkFeatures) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkFeatures)(nil)).Elem()
+}
+
+func (o NetworkFeaturesPtrOutput) ToNetworkFeaturesPtrOutput() NetworkFeaturesPtrOutput {
+	return o
+}
+
+func (o NetworkFeaturesPtrOutput) ToNetworkFeaturesPtrOutputWithContext(ctx context.Context) NetworkFeaturesPtrOutput {
+	return o
+}
+
+func (o NetworkFeaturesPtrOutput) Elem() NetworkFeaturesOutput {
+	return o.ApplyT(func(v *NetworkFeatures) NetworkFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkFeatures
+		return ret
+	}).(NetworkFeaturesOutput)
+}
+
+func (o NetworkFeaturesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkFeaturesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkFeatures) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkFeaturesInput is an input type that accepts NetworkFeaturesArgs and NetworkFeaturesOutput values.
+// You can construct a concrete instance of `NetworkFeaturesInput` via:
+//
+//          NetworkFeaturesArgs{...}
+type NetworkFeaturesInput interface {
+	pulumi.Input
+
+	ToNetworkFeaturesOutput() NetworkFeaturesOutput
+	ToNetworkFeaturesOutputWithContext(context.Context) NetworkFeaturesOutput
+}
+
+var networkFeaturesPtrType = reflect.TypeOf((**NetworkFeatures)(nil)).Elem()
+
+type NetworkFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkFeaturesPtrOutput() NetworkFeaturesPtrOutput
+	ToNetworkFeaturesPtrOutputWithContext(context.Context) NetworkFeaturesPtrOutput
+}
+
+type networkFeaturesPtr string
+
+func NetworkFeaturesPtr(v string) NetworkFeaturesPtrInput {
+	return (*networkFeaturesPtr)(&v)
+}
+
+func (*networkFeaturesPtr) ElementType() reflect.Type {
+	return networkFeaturesPtrType
+}
+
+func (in *networkFeaturesPtr) ToNetworkFeaturesPtrOutput() NetworkFeaturesPtrOutput {
+	return pulumi.ToOutput(in).(NetworkFeaturesPtrOutput)
+}
+
+func (in *networkFeaturesPtr) ToNetworkFeaturesPtrOutputWithContext(ctx context.Context) NetworkFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkFeaturesPtrOutput)
+}
+
 type QosType string
 
 const (
@@ -1344,6 +1510,8 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(NetworkFeaturesOutput{})
+	pulumi.RegisterOutputType(NetworkFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(QosTypeOutput{})
 	pulumi.RegisterOutputType(QosTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationScheduleOutput{})

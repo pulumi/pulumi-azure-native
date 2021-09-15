@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of the operation.
 type AccountResourceRequestOperationType string
 
 const (

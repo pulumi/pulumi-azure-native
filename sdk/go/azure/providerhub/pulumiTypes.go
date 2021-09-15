@@ -210,7 +210,6 @@ func (o AuthorizationActionMappingResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(AuthorizationActionMappingResponseOutput)
 }
 
-// Properties of the rollout.
 type DefaultRolloutProperties struct {
 	ProvisioningState *string                                `pulumi:"provisioningState"`
 	Specification     *DefaultRolloutPropertiesSpecification `pulumi:"specification"`
@@ -228,7 +227,6 @@ type DefaultRolloutPropertiesInput interface {
 	ToDefaultRolloutPropertiesOutputWithContext(context.Context) DefaultRolloutPropertiesOutput
 }
 
-// Properties of the rollout.
 type DefaultRolloutPropertiesArgs struct {
 	ProvisioningState pulumi.StringPtrInput                         `pulumi:"provisioningState"`
 	Specification     DefaultRolloutPropertiesSpecificationPtrInput `pulumi:"specification"`
@@ -288,7 +286,6 @@ func (i *defaultRolloutPropertiesPtrType) ToDefaultRolloutPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesPtrOutput)
 }
 
-// Properties of the rollout.
 type DefaultRolloutPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DefaultRolloutPropertiesOutput) ElementType() reflect.Type {
@@ -1270,7 +1267,6 @@ func (o DefaultRolloutPropertiesStatusPtrOutput) SubscriptionReregistrationResul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the rollout.
 type DefaultRolloutResponseProperties struct {
 	ProvisioningState *string                                        `pulumi:"provisioningState"`
 	Specification     *DefaultRolloutPropertiesResponseSpecification `pulumi:"specification"`
@@ -1288,7 +1284,6 @@ type DefaultRolloutResponsePropertiesInput interface {
 	ToDefaultRolloutResponsePropertiesOutputWithContext(context.Context) DefaultRolloutResponsePropertiesOutput
 }
 
-// Properties of the rollout.
 type DefaultRolloutResponsePropertiesArgs struct {
 	ProvisioningState pulumi.StringPtrInput                                 `pulumi:"provisioningState"`
 	Specification     DefaultRolloutPropertiesResponseSpecificationPtrInput `pulumi:"specification"`
@@ -1348,7 +1343,6 @@ func (i *defaultRolloutResponsePropertiesPtrType) ToDefaultRolloutResponseProper
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutResponsePropertiesPtrOutput)
 }
 
-// Properties of the rollout.
 type DefaultRolloutResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (DefaultRolloutResponsePropertiesOutput) ElementType() reflect.Type {
@@ -5611,7 +5605,6 @@ func (o NotificationRegistrationResponsePropertiesPtrOutput) ProvisioningState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of an Operation.
 type OperationsDefinition struct {
 	ActionType *string `pulumi:"actionType"`
 	// Display information of the operation.
@@ -5635,7 +5628,6 @@ type OperationsDefinitionInput interface {
 	ToOperationsDefinitionOutputWithContext(context.Context) OperationsDefinitionOutput
 }
 
-// Properties of an Operation.
 type OperationsDefinitionArgs struct {
 	ActionType pulumi.StringPtrInput `pulumi:"actionType"`
 	// Display information of the operation.
@@ -5685,7 +5677,6 @@ func (i OperationsDefinitionArray) ToOperationsDefinitionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OperationsDefinitionArrayOutput)
 }
 
-// Properties of an Operation.
 type OperationsDefinitionOutput struct{ *pulumi.OutputState }
 
 func (OperationsDefinitionOutput) ElementType() reflect.Type {
@@ -5747,7 +5738,6 @@ func (o OperationsDefinitionArrayOutput) Index(i pulumi.IntInput) OperationsDefi
 	}).(OperationsDefinitionOutput)
 }
 
-// Display information of the operation.
 type OperationsDefinitionDisplay struct {
 	Description string `pulumi:"description"`
 	Operation   string `pulumi:"operation"`
@@ -5766,7 +5756,6 @@ type OperationsDefinitionDisplayInput interface {
 	ToOperationsDefinitionDisplayOutputWithContext(context.Context) OperationsDefinitionDisplayOutput
 }
 
-// Display information of the operation.
 type OperationsDefinitionDisplayArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Operation   pulumi.StringInput `pulumi:"operation"`
@@ -5786,7 +5775,6 @@ func (i OperationsDefinitionDisplayArgs) ToOperationsDefinitionDisplayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OperationsDefinitionDisplayOutput)
 }
 
-// Display information of the operation.
 type OperationsDefinitionDisplayOutput struct{ *pulumi.OutputState }
 
 func (OperationsDefinitionDisplayOutput) ElementType() reflect.Type {
@@ -5817,7 +5805,6 @@ func (o OperationsDefinitionDisplayOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v OperationsDefinitionDisplay) string { return v.Resource }).(pulumi.StringOutput)
 }
 
-// Display information of the operation.
 type OperationsDefinitionResponseDisplay struct {
 	Description string `pulumi:"description"`
 	Operation   string `pulumi:"operation"`
@@ -5836,7 +5823,6 @@ type OperationsDefinitionResponseDisplayInput interface {
 	ToOperationsDefinitionResponseDisplayOutputWithContext(context.Context) OperationsDefinitionResponseDisplayOutput
 }
 
-// Display information of the operation.
 type OperationsDefinitionResponseDisplayArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Operation   pulumi.StringInput `pulumi:"operation"`
@@ -5897,7 +5883,6 @@ func (i *operationsDefinitionResponseDisplayPtrType) ToOperationsDefinitionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(OperationsDefinitionResponseDisplayPtrOutput)
 }
 
-// Display information of the operation.
 type OperationsDefinitionResponseDisplayOutput struct{ *pulumi.OutputState }
 
 func (OperationsDefinitionResponseDisplayOutput) ElementType() reflect.Type {

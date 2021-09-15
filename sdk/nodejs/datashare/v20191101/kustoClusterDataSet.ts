@@ -113,7 +113,7 @@ export class KustoClusterDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20191101:KustoClusterDataSet" }, { type: "azure-native:datashare:KustoClusterDataSet" }, { type: "azure-nextgen:datashare:KustoClusterDataSet" }, { type: "azure-native:datashare/v20181101preview:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:KustoClusterDataSet" }, { type: "azure-native:datashare/v20200901:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20200901:KustoClusterDataSet" }, { type: "azure-native:datashare/v20201001preview:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:KustoClusterDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20191101:KustoClusterDataSet" }, { type: "azure-native:datashare:KustoClusterDataSet" }, { type: "azure-nextgen:datashare:KustoClusterDataSet" }, { type: "azure-native:datashare/v20181101preview:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:KustoClusterDataSet" }, { type: "azure-native:datashare/v20200901:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20200901:KustoClusterDataSet" }, { type: "azure-native:datashare/v20201001preview:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:KustoClusterDataSet" }, { type: "azure-native:datashare/v20210801:KustoClusterDataSet" }, { type: "azure-nextgen:datashare/v20210801:KustoClusterDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoClusterDataSet.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountProperties struct {
 	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
@@ -29,7 +28,6 @@ type StorageAccountPropertiesInput interface {
 	ToStorageAccountPropertiesOutputWithContext(context.Context) StorageAccountPropertiesOutput
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesArgs struct {
 	// The access key to the storage account.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
@@ -90,7 +88,6 @@ func (i *storageAccountPropertiesPtrType) ToStorageAccountPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesPtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponse struct {
 	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
@@ -188,7 +184,6 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponseArgs struct {
 	// The access key to the storage account.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
@@ -249,7 +244,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {

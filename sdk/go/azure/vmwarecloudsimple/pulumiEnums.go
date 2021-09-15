@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Disk's independence mode type
 type DiskIndependenceMode string
 
 const (
@@ -176,7 +175,6 @@ func (in *diskIndependenceModePtr) ToDiskIndependenceModePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(DiskIndependenceModePtrOutput)
 }
 
-// NIC type
 type NICType string
 
 const (

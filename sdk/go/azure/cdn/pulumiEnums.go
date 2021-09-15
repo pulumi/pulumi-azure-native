@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Supported protocols for the customer's endpoint.
 type AFDEndpointProtocols string
 
 const (
@@ -175,7 +174,6 @@ func (in *afdendpointProtocolsPtr) ToAFDEndpointProtocolsPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AFDEndpointProtocolsPtrOutput)
 }
 
-// Describes what action to be applied when rule matches
 type ActionType string
 
 const (
@@ -342,7 +340,6 @@ func (in *actionTypePtr) ToActionTypePtrOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, in).(ActionTypePtrOutput)
 }
 
-// Defines the source of the SSL certificate.
 type AfdCertificateType string
 
 const (
@@ -507,7 +504,6 @@ func (in *afdCertificateTypePtr) ToAfdCertificateTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AfdCertificateTypePtrOutput)
 }
 
-// TLS protocol version that will be used for Https
 type AfdMinimumTlsVersion string
 
 const (
@@ -672,7 +668,6 @@ func (in *afdMinimumTlsVersionPtr) ToAfdMinimumTlsVersionPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AfdMinimumTlsVersionPtrOutput)
 }
 
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 type AfdQueryStringCachingBehavior string
 
 const (
@@ -838,7 +833,6 @@ func (in *afdQueryStringCachingBehaviorPtr) ToAfdQueryStringCachingBehaviorPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(AfdQueryStringCachingBehaviorPtrOutput)
 }
 
-// Algorithm to use for URL signing
 type Algorithm string
 
 const (
@@ -1002,7 +996,6 @@ func (in *algorithmPtr) ToAlgorithmPtrOutputWithContext(ctx context.Context) Alg
 	return pulumi.ToOutputWithContext(ctx, in).(AlgorithmPtrOutput)
 }
 
-// Caching behavior for the requests
 type CacheBehavior string
 
 const (
@@ -1168,7 +1161,6 @@ func (in *cacheBehaviorPtr) ToCacheBehaviorPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(CacheBehaviorPtrOutput)
 }
 
-// The level at which the content needs to be cached.
 type CacheType string
 
 const (
@@ -1332,7 +1324,6 @@ func (in *cacheTypePtr) ToCacheTypePtrOutputWithContext(ctx context.Context) Cac
 	return pulumi.ToOutputWithContext(ctx, in).(CacheTypePtrOutput)
 }
 
-// Describes operator to be matched
 type CookiesOperator string
 
 const (
@@ -1505,7 +1496,6 @@ func (in *cookiesOperatorPtr) ToCookiesOperatorPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(CookiesOperatorPtrOutput)
 }
 
-// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
 type CustomRuleEnabledState string
 
 const (
@@ -1670,7 +1660,6 @@ func (in *customRuleEnabledStatePtr) ToCustomRuleEnabledStatePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CustomRuleEnabledStatePtrOutput)
 }
 
-// The name of the action for the delivery rule.
 type DeliveryRuleAction string
 
 const (
@@ -1841,7 +1830,6 @@ func (in *deliveryRuleActionPtr) ToDeliveryRuleActionPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryRuleActionPtrOutput)
 }
 
-// Protocol to use for the redirect. The default value is MatchRequest
 type DestinationProtocol string
 
 const (
@@ -2007,7 +1995,6 @@ func (in *destinationProtocolPtr) ToDestinationProtocolPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DestinationProtocolPtrOutput)
 }
 
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 type EnabledState string
 
 const (
@@ -2172,7 +2159,6 @@ func (in *enabledStatePtr) ToEnabledStatePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EnabledStatePtrOutput)
 }
 
-// Protocol this rule will use when forwarding traffic to backends.
 type ForwardingProtocol string
 
 const (
@@ -2338,7 +2324,6 @@ func (in *forwardingProtocolPtr) ToForwardingProtocolPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ForwardingProtocolPtrOutput)
 }
 
-// Action of the geo filter, i.e. allow or block access.
 type GeoFilterActions string
 
 const (
@@ -2503,7 +2488,6 @@ func (in *geoFilterActionsPtr) ToGeoFilterActionsPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(GeoFilterActionsPtrOutput)
 }
 
-// Action to perform
 type HeaderAction string
 
 const (
@@ -2669,7 +2653,6 @@ func (in *headerActionPtr) ToHeaderActionPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HeaderActionPtrOutput)
 }
 
-// The type of health probe request that is made.
 type HealthProbeRequestType string
 
 const (
@@ -2835,7 +2818,6 @@ func (in *healthProbeRequestTypePtr) ToHealthProbeRequestTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(HealthProbeRequestTypePtrOutput)
 }
 
-// Describes operator to be matched
 type HttpVersionOperator string
 
 const (
@@ -2999,7 +2981,6 @@ func (in *httpVersionOperatorPtr) ToHttpVersionOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(HttpVersionOperatorPtrOutput)
 }
 
-// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
 type HttpsRedirect string
 
 const (
@@ -3164,7 +3145,6 @@ func (in *httpsRedirectPtr) ToHttpsRedirectPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(HttpsRedirectPtrOutput)
 }
 
-// Describes operator to be matched
 type IsDeviceOperator string
 
 const (
@@ -3328,7 +3308,6 @@ func (in *isDeviceOperatorPtr) ToIsDeviceOperatorPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(IsDeviceOperatorPtrOutput)
 }
 
-// whether this route will be linked to the default endpoint domain.
 type LinkToDefaultDomain string
 
 const (
@@ -3493,7 +3472,6 @@ func (in *linkToDefaultDomainPtr) ToLinkToDefaultDomainPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(LinkToDefaultDomainPtrOutput)
 }
 
-// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
 type ManagedRuleEnabledState string
 
 const (
@@ -3658,7 +3636,6 @@ func (in *managedRuleEnabledStatePtr) ToManagedRuleEnabledStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleEnabledStatePtrOutput)
 }
 
-// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 type MatchProcessingBehavior string
 
 const (
@@ -3823,7 +3800,6 @@ func (in *matchProcessingBehaviorPtr) ToMatchProcessingBehaviorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(MatchProcessingBehaviorPtrOutput)
 }
 
-// The name of the condition for the delivery rule.
 type MatchVariable string
 
 const (
@@ -4000,7 +3976,6 @@ func (in *matchVariablePtr) ToMatchVariablePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(MatchVariablePtrOutput)
 }
 
-// Describes operator to be matched
 type Operator string
 
 const (
@@ -4175,7 +4150,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
 type OptimizationType string
 
 const (
@@ -4343,7 +4317,6 @@ func (in *optimizationTypePtr) ToOptimizationTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(OptimizationTypePtrOutput)
 }
 
-// Indicates the purpose of the parameter
 type ParamIndicator string
 
 const (
@@ -4509,7 +4482,6 @@ func (in *paramIndicatorPtr) ToParamIndicatorPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ParamIndicatorPtrOutput)
 }
 
-// describes if the policy is in enabled state or disabled state
 type PolicyEnabledState string
 
 const (
@@ -4674,7 +4646,6 @@ func (in *policyEnabledStatePtr) ToPolicyEnabledStatePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyEnabledStatePtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 type PolicyMode string
 
 const (
@@ -4839,7 +4810,6 @@ func (in *policyModePtr) ToPolicyModePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyModePtrOutput)
 }
 
-// Describes operator to be matched
 type PostArgsOperator string
 
 const (
@@ -5012,7 +4982,6 @@ func (in *postArgsOperatorPtr) ToPostArgsOperatorPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(PostArgsOperatorPtrOutput)
 }
 
-// Protocol to use for health probe.
 type ProbeProtocol string
 
 const (
@@ -5178,7 +5147,6 @@ func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
 }
 
-// Caching behavior for the requests
 type QueryStringBehavior string
 
 const (
@@ -5345,7 +5313,6 @@ func (in *queryStringBehaviorPtr) ToQueryStringBehaviorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(QueryStringBehaviorPtrOutput)
 }
 
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 type QueryStringCachingBehavior string
 
 const (
@@ -5512,7 +5479,6 @@ func (in *queryStringCachingBehaviorPtr) ToQueryStringCachingBehaviorPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(QueryStringCachingBehaviorPtrOutput)
 }
 
-// Describes operator to be matched
 type QueryStringOperator string
 
 const (
@@ -5685,7 +5651,6 @@ func (in *queryStringOperatorPtr) ToQueryStringOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(QueryStringOperatorPtrOutput)
 }
 
-// The redirect type the rule will use when redirecting traffic.
 type RedirectType string
 
 const (
@@ -5852,7 +5817,6 @@ func (in *redirectTypePtr) ToRedirectTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(RedirectTypePtrOutput)
 }
 
-// Describes operator to be matched
 type RemoteAddressOperator string
 
 const (
@@ -6018,7 +5982,6 @@ func (in *remoteAddressOperatorPtr) ToRemoteAddressOperatorPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RemoteAddressOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type RequestBodyOperator string
 
 const (
@@ -6191,7 +6154,6 @@ func (in *requestBodyOperatorPtr) ToRequestBodyOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RequestBodyOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type RequestHeaderOperator string
 
 const (
@@ -6364,7 +6326,6 @@ func (in *requestHeaderOperatorPtr) ToRequestHeaderOperatorPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RequestHeaderOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type RequestMethodOperator string
 
 const (
@@ -6528,7 +6489,6 @@ func (in *requestMethodOperatorPtr) ToRequestMethodOperatorPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RequestMethodOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type RequestUriOperator string
 
 const (
@@ -6701,7 +6661,6 @@ func (in *requestUriOperatorPtr) ToRequestUriOperatorPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(RequestUriOperatorPtrOutput)
 }
 
-// Type of response errors for real user requests for which origin will be deemed unhealthy
 type ResponseBasedDetectedErrorTypes string
 
 const (
@@ -6867,7 +6826,6 @@ func (in *responseBasedDetectedErrorTypesPtr) ToResponseBasedDetectedErrorTypesP
 	return pulumi.ToOutputWithContext(ctx, in).(ResponseBasedDetectedErrorTypesPtrOutput)
 }
 
-// The type of the Secret to create.
 type SecretType string
 
 const (
@@ -7033,7 +6991,6 @@ func (in *secretTypePtr) ToSecretTypePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SecretTypePtrOutput)
 }
 
-// The type of the Security policy to create.
 type SecurityPolicyType string
 
 const (
@@ -7197,7 +7154,6 @@ func (in *securityPolicyTypePtr) ToSecurityPolicyTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityPolicyTypePtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
 type SharedPrivateLinkResourceStatus string
 
 const (
@@ -7365,7 +7321,6 @@ func (in *sharedPrivateLinkResourceStatusPtr) ToSharedPrivateLinkResourceStatusP
 	return pulumi.ToOutputWithContext(ctx, in).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
-// Name of the pricing tier.
 type SkuName string
 
 const (
@@ -7542,7 +7497,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// Describes what transforms are applied before matching
 type Transform string
 
 const (
@@ -7707,7 +7661,6 @@ func (in *transformPtr) ToTransformPtrOutputWithContext(ctx context.Context) Tra
 	return pulumi.ToOutputWithContext(ctx, in).(TransformPtrOutput)
 }
 
-// Describes what transforms were applied before matching.
 type TransformType string
 
 const (
@@ -7876,7 +7829,6 @@ func (in *transformTypePtr) ToTransformTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(TransformTypePtrOutput)
 }
 
-// Describes operator to be matched
 type UrlFileExtensionOperator string
 
 const (
@@ -8049,7 +8001,6 @@ func (in *urlFileExtensionOperatorPtr) ToUrlFileExtensionOperatorPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(UrlFileExtensionOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type UrlFileNameOperator string
 
 const (
@@ -8222,7 +8173,6 @@ func (in *urlFileNameOperatorPtr) ToUrlFileNameOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(UrlFileNameOperatorPtrOutput)
 }
 
-// Describes operator to be matched
 type UrlPathOperator string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API key payload which is exposed in the request/response of the resource provider.
 type ApiKeyResponse struct {
 	// Gets or sets the API key name.
 	KeyName *string `pulumi:"keyName"`
@@ -29,7 +28,6 @@ type ApiKeyResponseInput interface {
 	ToApiKeyResponseOutputWithContext(context.Context) ApiKeyResponseOutput
 }
 
-// API key payload which is exposed in the request/response of the resource provider.
 type ApiKeyResponseArgs struct {
 	// Gets or sets the API key name.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
@@ -74,7 +72,6 @@ func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseArrayOutput)
 }
 
-// API key payload which is exposed in the request/response of the resource provider.
 type ApiKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyResponseOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput
 	}).(ApiKeyResponseOutput)
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSku struct {
 	// Gets or sets the nodes capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -136,7 +132,6 @@ type BlockchainMemberNodesSkuInput interface {
 	ToBlockchainMemberNodesSkuOutputWithContext(context.Context) BlockchainMemberNodesSkuOutput
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuArgs struct {
 	// Gets or sets the nodes capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -195,7 +190,6 @@ func (i *blockchainMemberNodesSkuPtrType) ToBlockchainMemberNodesSkuPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberNodesSkuPtrOutput)
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuOutput struct{ *pulumi.OutputState }
 
 func (BlockchainMemberNodesSkuOutput) ElementType() reflect.Type {
@@ -259,7 +253,6 @@ func (o BlockchainMemberNodesSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuResponse struct {
 	// Gets or sets the nodes capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -276,7 +269,6 @@ type BlockchainMemberNodesSkuResponseInput interface {
 	ToBlockchainMemberNodesSkuResponseOutputWithContext(context.Context) BlockchainMemberNodesSkuResponseOutput
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuResponseArgs struct {
 	// Gets or sets the nodes capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -335,7 +327,6 @@ func (i *blockchainMemberNodesSkuResponsePtrType) ToBlockchainMemberNodesSkuResp
 	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberNodesSkuResponsePtrOutput)
 }
 
-// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (BlockchainMemberNodesSkuResponseOutput) ElementType() reflect.Type {
@@ -399,7 +390,6 @@ func (o BlockchainMemberNodesSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Consortium payload
 type ConsortiumResponse struct {
 	// Gets or sets the blockchain member name.
 	Name *string `pulumi:"name"`
@@ -418,7 +408,6 @@ type ConsortiumResponseInput interface {
 	ToConsortiumResponseOutputWithContext(context.Context) ConsortiumResponseOutput
 }
 
-// Consortium payload
 type ConsortiumResponseArgs struct {
 	// Gets or sets the blockchain member name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -463,7 +452,6 @@ func (i ConsortiumResponseArray) ToConsortiumResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConsortiumResponseArrayOutput)
 }
 
-// Consortium payload
 type ConsortiumResponseOutput struct{ *pulumi.OutputState }
 
 func (ConsortiumResponseOutput) ElementType() reflect.Type {
@@ -508,7 +496,6 @@ func (o ConsortiumResponseArrayOutput) Index(i pulumi.IntInput) ConsortiumRespon
 	}).(ConsortiumResponseOutput)
 }
 
-// Ip range for firewall rules
 type FirewallRule struct {
 	// Gets or sets the end IP address of the firewall rule range.
 	EndIpAddress *string `pulumi:"endIpAddress"`
@@ -529,7 +516,6 @@ type FirewallRuleInput interface {
 	ToFirewallRuleOutputWithContext(context.Context) FirewallRuleOutput
 }
 
-// Ip range for firewall rules
 type FirewallRuleArgs struct {
 	// Gets or sets the end IP address of the firewall rule range.
 	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
@@ -576,7 +562,6 @@ func (i FirewallRuleArray) ToFirewallRuleArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleArrayOutput)
 }
 
-// Ip range for firewall rules
 type FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleOutput) ElementType() reflect.Type {
@@ -626,7 +611,6 @@ func (o FirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleOutput {
 	}).(FirewallRuleOutput)
 }
 
-// Ip range for firewall rules
 type FirewallRuleResponse struct {
 	// Gets or sets the end IP address of the firewall rule range.
 	EndIpAddress *string `pulumi:"endIpAddress"`
@@ -647,7 +631,6 @@ type FirewallRuleResponseInput interface {
 	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
 }
 
-// Ip range for firewall rules
 type FirewallRuleResponseArgs struct {
 	// Gets or sets the end IP address of the firewall rule range.
 	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
@@ -694,7 +677,6 @@ func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
 }
 
-// Ip range for firewall rules
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleResponseOutput) ElementType() reflect.Type {
@@ -744,7 +726,6 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 	}).(FirewallRuleResponseOutput)
 }
 
-// Blockchain member Sku in payload
 type Sku struct {
 	// Gets or sets Sku name
 	Name *string `pulumi:"name"`
@@ -763,7 +744,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Blockchain member Sku in payload
 type SkuArgs struct {
 	// Gets or sets Sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -824,7 +804,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Blockchain member Sku in payload
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -903,7 +882,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Blockchain member Sku in payload
 type SkuResponse struct {
 	// Gets or sets Sku name
 	Name *string `pulumi:"name"`
@@ -922,7 +900,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Blockchain member Sku in payload
 type SkuResponseArgs struct {
 	// Gets or sets Sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -983,7 +960,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Blockchain member Sku in payload
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

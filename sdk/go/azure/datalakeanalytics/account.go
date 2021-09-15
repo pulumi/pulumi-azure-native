@@ -137,6 +137,12 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20161101:Account"),
 		},
+		{
+			Type: pulumi.String("azure-native:datalakeanalytics/v20191101preview:Account"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20191101preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

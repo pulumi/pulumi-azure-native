@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// LedgerRole associated with the Security Principal of Ledger
 type LedgerRoleName string
 
 const (
@@ -176,7 +175,6 @@ func (in *ledgerRoleNamePtr) ToLedgerRoleNamePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(LedgerRoleNamePtrOutput)
 }
 
-// Type of Confidential Ledger
 type LedgerType string
 
 const (

@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.IoTCentral
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20180901:App"},
+                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20210601:App"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

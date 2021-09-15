@@ -220,7 +220,6 @@ func (o AccessRightsArrayOutput) Index(i pulumi.IntInput) AccessRightsOutput {
 	}).(AccessRightsOutput)
 }
 
-// The namespace type.
 type NamespaceType string
 
 const (
@@ -385,7 +384,6 @@ func (in *namespaceTypePtr) ToNamespaceTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(NamespaceTypePtrOutput)
 }
 
-// Name of the notification hub sku
 type SkuName string
 
 const (

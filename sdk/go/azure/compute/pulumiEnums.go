@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 type CachingTypes string
 
 const (
@@ -176,9 +175,6 @@ func (in *cachingTypesPtr) ToCachingTypesPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(CachingTypesPtrOutput)
 }
 
-// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
 type CloudServiceUpgradeMode string
 
 const (
@@ -344,7 +340,6 @@ func (in *cloudServiceUpgradeModePtr) ToCloudServiceUpgradeModePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(CloudServiceUpgradeModePtrOutput)
 }
 
-// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
 type ComponentNames string
 
 const (
@@ -508,7 +503,6 @@ func (in *componentNamesPtr) ToComponentNamesPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentNamesPtrOutput)
 }
 
-// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
 type DedicatedHostLicenseTypes string
 
 const (
@@ -674,7 +668,6 @@ func (in *dedicatedHostLicenseTypesPtr) ToDedicatedHostLicenseTypesPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DedicatedHostLicenseTypesPtrOutput)
 }
 
-// Specify what happens to the public IP when the VM is deleted
 type DeleteOptions string
 
 const (
@@ -839,7 +832,6 @@ func (in *deleteOptionsPtr) ToDeleteOptionsPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DeleteOptionsPtrOutput)
 }
 
-// Specifies the ephemeral disk settings for operating system disk.
 type DiffDiskOptions string
 
 const (
@@ -1003,7 +995,6 @@ func (in *diffDiskOptionsPtr) ToDiffDiskOptionsPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DiffDiskOptionsPtrOutput)
 }
 
-// Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
 type DiffDiskPlacement string
 
 const (
@@ -1168,7 +1159,6 @@ func (in *diffDiskPlacementPtr) ToDiffDiskPlacementPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DiffDiskPlacementPtrOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 type DiskCreateOption string
 
 const (
@@ -1345,7 +1335,6 @@ func (in *diskCreateOptionPtr) ToDiskCreateOptionPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DiskCreateOptionPtrOutput)
 }
 
-// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 type DiskCreateOptionTypes string
 
 const (
@@ -1511,7 +1500,6 @@ func (in *diskCreateOptionTypesPtr) ToDiskCreateOptionTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskCreateOptionTypesPtrOutput)
 }
 
-// Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
 type DiskDeleteOptionTypes string
 
 const (
@@ -1676,7 +1664,6 @@ func (in *diskDeleteOptionTypesPtr) ToDiskDeleteOptionTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskDeleteOptionTypesPtrOutput)
 }
 
-// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
 type DiskDetachOptionTypes string
 
 const (
@@ -1840,7 +1827,6 @@ func (in *diskDetachOptionTypesPtr) ToDiskDetachOptionTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskDetachOptionTypesPtrOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 type DiskEncryptionSetIdentityType string
 
 const (
@@ -2005,7 +1991,6 @@ func (in *diskEncryptionSetIdentityTypePtr) ToDiskEncryptionSetIdentityTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DiskEncryptionSetIdentityTypePtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 type DiskEncryptionSetType string
 
 const (
@@ -2172,7 +2157,6 @@ func (in *diskEncryptionSetTypePtr) ToDiskEncryptionSetTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskEncryptionSetTypePtrOutput)
 }
 
-// Specifies the SecurityType of the VM. Applicable for OS disks only.
 type DiskSecurityTypes string
 
 const (
@@ -2337,7 +2321,6 @@ func (in *diskSecurityTypesPtr) ToDiskSecurityTypesPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DiskSecurityTypesPtrOutput)
 }
 
-// The sku name.
 type DiskStorageAccountTypes string
 
 const (
@@ -2512,7 +2495,6 @@ func (in *diskStorageAccountTypesPtr) ToDiskStorageAccountTypesPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DiskStorageAccountTypesPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 type EncryptionType string
 
 const (
@@ -2681,7 +2663,6 @@ func (in *encryptionTypePtr) ToEncryptionTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionTypePtrOutput)
 }
 
-// The type of the extended location.
 type ExtendedLocationTypes string
 
 const (
@@ -2845,7 +2826,6 @@ func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
 }
 
-// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 type GallerySharingPermissionTypes string
 
 const (
@@ -3010,7 +2990,6 @@ func (in *gallerySharingPermissionTypesPtr) ToGallerySharingPermissionTypesPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(GallerySharingPermissionTypesPtrOutput)
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 type HostCaching string
 
 const (
@@ -3176,7 +3155,6 @@ func (in *hostCachingPtr) ToHostCachingPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(HostCachingPtrOutput)
 }
 
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 type HyperVGeneration string
 
 const (
@@ -3341,7 +3319,6 @@ func (in *hyperVGenerationPtr) ToHyperVGenerationPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(HyperVGenerationPtrOutput)
 }
 
-// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 type HyperVGenerationTypes string
 
 const (
@@ -3506,7 +3483,6 @@ func (in *hyperVGenerationTypesPtr) ToHyperVGenerationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(HyperVGenerationTypesPtrOutput)
 }
 
-// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
 type IPVersion string
 
 const (
@@ -3671,7 +3647,6 @@ func (in *ipversionPtr) ToIPVersionPtrOutputWithContext(ctx context.Context) IPV
 	return pulumi.ToOutputWithContext(ctx, in).(IPVersionPtrOutput)
 }
 
-// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
 type IPVersions string
 
 const (
@@ -3836,7 +3811,6 @@ func (in *ipversionsPtr) ToIPVersionsPtrOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, in).(IPVersionsPtrOutput)
 }
 
-// Interval value in minutes used to create LogAnalytics call rate logs.
 type IntervalInMins string
 
 const (
@@ -4003,7 +3977,6 @@ func (in *intervalInMinsPtr) ToIntervalInMinsPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(IntervalInMinsPtrOutput)
 }
 
-// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 type LinuxPatchAssessmentMode string
 
 const (
@@ -4168,7 +4141,6 @@ func (in *linuxPatchAssessmentModePtr) ToLinuxPatchAssessmentModePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(LinuxPatchAssessmentModePtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
 type LinuxVMGuestPatchMode string
 
 const (
@@ -4333,7 +4305,6 @@ func (in *linuxVMGuestPatchModePtr) ToLinuxVMGuestPatchModePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(LinuxVMGuestPatchModePtrOutput)
 }
 
-// Policy for accessing the disk via network.
 type NetworkAccessPolicy string
 
 const (
@@ -4502,7 +4473,6 @@ func (in *networkAccessPolicyPtr) ToNetworkAccessPolicyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkAccessPolicyPtrOutput)
 }
 
-// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
 type NetworkApiVersion string
 
 const (
@@ -4666,7 +4636,6 @@ func (in *networkApiVersionPtr) ToNetworkApiVersionPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkApiVersionPtrOutput)
 }
 
-// The OS State.
 type OperatingSystemStateTypes string
 
 const (
@@ -4833,7 +4802,6 @@ func (in *operatingSystemStateTypesPtr) ToOperatingSystemStateTypesPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemStateTypesPtrOutput)
 }
 
-// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
 type OperatingSystemTypes string
 
 const (
@@ -4998,7 +4966,6 @@ func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypesPtrOutput)
 }
 
-// Specifies the orchestration mode for the virtual machine scale set.
 type OrchestrationMode string
 
 const (
@@ -5163,7 +5130,6 @@ func (in *orchestrationModePtr) ToOrchestrationModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(OrchestrationModePtrOutput)
 }
 
-// The pass name. Currently, the only allowable value is OobeSystem.
 type PassNames string
 
 const (
@@ -5327,7 +5293,6 @@ func (in *passNamesPtr) ToPassNamesPtrOutputWithContext(ctx context.Context) Pas
 	return pulumi.ToOutputWithContext(ctx, in).(PassNamesPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -5493,7 +5458,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
 type ProtocolTypes string
 
 const (
@@ -5658,7 +5622,6 @@ func (in *protocolTypesPtr) ToProtocolTypesPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolTypesPtrOutput)
 }
 
-// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
 type ProximityPlacementGroupType string
 
 const (
@@ -5823,7 +5786,6 @@ func (in *proximityPlacementGroupTypePtr) ToProximityPlacementGroupTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ProximityPlacementGroupTypePtrOutput)
 }
 
-// Specify public IP sku name
 type PublicIPAddressSkuName string
 
 const (
@@ -5988,7 +5950,6 @@ func (in *publicIPAddressSkuNamePtr) ToPublicIPAddressSkuNamePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAddressSkuNamePtrOutput)
 }
 
-// Specify public IP sku tier
 type PublicIPAddressSkuTier string
 
 const (
@@ -6153,7 +6114,6 @@ func (in *publicIPAddressSkuTierPtr) ToPublicIPAddressSkuTierPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAddressSkuTierPtrOutput)
 }
 
-// Specify the public IP allocation type
 type PublicIPAllocationMethod string
 
 const (
@@ -6318,7 +6278,6 @@ func (in *publicIPAllocationMethodPtr) ToPublicIPAllocationMethodPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAllocationMethodPtrOutput)
 }
 
-// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 type ResourceIdentityType string
 
 const (
@@ -6485,7 +6444,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
 type SecurityTypes string
 
 const (
@@ -6649,7 +6607,6 @@ func (in *securityTypesPtr) ToSecurityTypesPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityTypesPtrOutput)
 }
 
-// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
 type SettingNames string
 
 const (
@@ -6814,7 +6771,6 @@ func (in *settingNamesPtr) ToSettingNamesPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(SettingNamesPtrOutput)
 }
 
-// The sku name.
 type SnapshotStorageAccountTypes string
 
 const (
@@ -6983,7 +6939,6 @@ func (in *snapshotStorageAccountTypesPtr) ToSnapshotStorageAccountTypesPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(SnapshotStorageAccountTypesPtrOutput)
 }
 
-// The level code.
 type StatusLevelTypes string
 
 const (
@@ -7149,7 +7104,6 @@ func (in *statusLevelTypesPtr) ToStatusLevelTypesPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(StatusLevelTypesPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 type StorageAccountType string
 
 const (
@@ -7315,7 +7269,6 @@ func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 type StorageAccountTypes string
 
 const (
@@ -7484,7 +7437,6 @@ func (in *storageAccountTypesPtr) ToStorageAccountTypesPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypesPtrOutput)
 }
 
-// Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
 type UpgradeMode string
 
 const (
@@ -7650,7 +7602,6 @@ func (in *upgradeModePtr) ToUpgradeModePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(UpgradeModePtrOutput)
 }
 
-// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
 type VirtualMachineEvictionPolicyTypes string
 
 const (
@@ -7815,7 +7766,6 @@ func (in *virtualMachineEvictionPolicyTypesPtr) ToVirtualMachineEvictionPolicyTy
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachineEvictionPolicyTypesPtrOutput)
 }
 
-// Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
 type VirtualMachinePriorityTypes string
 
 const (
@@ -8146,7 +8096,6 @@ func (in *virtualMachineScaleSetScaleInRulesPtr) ToVirtualMachineScaleSetScaleIn
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachineScaleSetScaleInRulesPtrOutput)
 }
 
-// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 type VirtualMachineSizeTypes string
 
 const (
@@ -8475,7 +8424,6 @@ func (in *virtualMachineSizeTypesPtr) ToVirtualMachineSizeTypesPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachineSizeTypesPtrOutput)
 }
 
-// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 type WindowsPatchAssessmentMode string
 
 const (
@@ -8640,7 +8588,6 @@ func (in *windowsPatchAssessmentModePtr) ToWindowsPatchAssessmentModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(WindowsPatchAssessmentModePtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 type WindowsVMGuestPatchMode string
 
 const (

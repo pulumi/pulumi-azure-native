@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User principals.
 type Principals struct {
 	// Object Id for the user
 	ObjectId *string `pulumi:"objectId"`
@@ -29,7 +28,6 @@ type PrincipalsInput interface {
 	ToPrincipalsOutputWithContext(context.Context) PrincipalsOutput
 }
 
-// User principals.
 type PrincipalsArgs struct {
 	// Object Id for the user
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
@@ -74,7 +72,6 @@ func (i PrincipalsArray) ToPrincipalsArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsArrayOutput)
 }
 
-// User principals.
 type PrincipalsOutput struct{ *pulumi.OutputState }
 
 func (PrincipalsOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o PrincipalsArrayOutput) Index(i pulumi.IntInput) PrincipalsOutput {
 	}).(PrincipalsOutput)
 }
 
-// User principals.
 type PrincipalsResponse struct {
 	// Object Id for the user
 	ObjectId *string `pulumi:"objectId"`
@@ -138,7 +134,6 @@ type PrincipalsResponseInput interface {
 	ToPrincipalsResponseOutputWithContext(context.Context) PrincipalsResponseOutput
 }
 
-// User principals.
 type PrincipalsResponseArgs struct {
 	// Object Id for the user
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
@@ -183,7 +178,6 @@ func (i PrincipalsResponseArray) ToPrincipalsResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsResponseArrayOutput)
 }
 
-// User principals.
 type PrincipalsResponseOutput struct{ *pulumi.OutputState }
 
 func (PrincipalsResponseOutput) ElementType() reflect.Type {

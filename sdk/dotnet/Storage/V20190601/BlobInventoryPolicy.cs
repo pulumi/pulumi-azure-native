@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.Storage.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:BlobInventoryPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 type PublicNetworkAccessType string
 
 const (

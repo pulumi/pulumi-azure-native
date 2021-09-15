@@ -94,10 +94,16 @@ namespace Pulumi.AzureNative.DocumentDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Services response resource.
+        /// Instance count for the service.
         /// </summary>
-        [Input("properties")]
-        public InputUnion<Inputs.DataTransferServiceResourcePropertiesArgs, Inputs.SqlDedicatedGatewayServiceResourcePropertiesArgs>? Properties { get; set; }
+        [Input("instanceCount")]
+        public Input<int>? InstanceCount { get; set; }
+
+        /// <summary>
+        /// Instance type for the service.
+        /// </summary>
+        [Input("instanceSize")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.ServiceSize>? InstanceSize { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -110,6 +116,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// ServiceType for the service.
+        /// </summary>
+        [Input("serviceType")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.ServiceType>? ServiceType { get; set; }
 
         public ServiceArgs()
         {

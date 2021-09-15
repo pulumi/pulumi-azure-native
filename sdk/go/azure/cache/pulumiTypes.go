@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSku struct {
 	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity *int `pulumi:"capacity"`
@@ -29,7 +28,6 @@ type EnterpriseSkuInput interface {
 	ToEnterpriseSkuOutputWithContext(context.Context) EnterpriseSkuOutput
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuArgs struct {
 	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -90,7 +88,6 @@ func (i *enterpriseSkuPtrType) ToEnterpriseSkuPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuPtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseSkuOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponse struct {
 	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity *int `pulumi:"capacity"`
@@ -188,7 +184,6 @@ type EnterpriseSkuResponseInput interface {
 	ToEnterpriseSkuResponseOutputWithContext(context.Context) EnterpriseSkuResponseOutput
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponseArgs struct {
 	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -249,7 +244,6 @@ func (i *enterpriseSkuResponsePtrType) ToEnterpriseSkuResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseSkuResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration of a redis module
 type Module struct {
 	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
@@ -347,7 +340,6 @@ type ModuleInput interface {
 	ToModuleOutputWithContext(context.Context) ModuleOutput
 }
 
-// Specifies configuration of a redis module
 type ModuleArgs struct {
 	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
@@ -392,7 +384,6 @@ func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleA
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleArrayOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
@@ -437,7 +428,6 @@ func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 	}).(ModuleOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleResponse struct {
 	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
@@ -458,7 +448,6 @@ type ModuleResponseInput interface {
 	ToModuleResponseOutputWithContext(context.Context) ModuleResponseOutput
 }
 
-// Specifies configuration of a redis module
 type ModuleResponseArgs struct {
 	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
@@ -505,7 +494,6 @@ func (i ModuleResponseArray) ToModuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleResponseArrayOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ModuleResponseOutput) ElementType() reflect.Type {
@@ -555,7 +543,6 @@ func (o ModuleResponseArrayOutput) Index(i pulumi.IntInput) ModuleResponseOutput
 	}).(ModuleResponseOutput)
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type Persistence struct {
 	// Sets whether AOF is enabled.
 	AofEnabled *bool `pulumi:"aofEnabled"`
@@ -578,7 +565,6 @@ type PersistenceInput interface {
 	ToPersistenceOutputWithContext(context.Context) PersistenceOutput
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type PersistenceArgs struct {
 	// Sets whether AOF is enabled.
 	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
@@ -643,7 +629,6 @@ func (i *persistencePtrType) ToPersistencePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PersistencePtrOutput)
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type PersistenceOutput struct{ *pulumi.OutputState }
 
 func (PersistenceOutput) ElementType() reflect.Type {
@@ -752,7 +737,6 @@ func (o PersistencePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type PersistenceResponse struct {
 	// Sets whether AOF is enabled.
 	AofEnabled *bool `pulumi:"aofEnabled"`
@@ -775,7 +759,6 @@ type PersistenceResponseInput interface {
 	ToPersistenceResponseOutputWithContext(context.Context) PersistenceResponseOutput
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type PersistenceResponseArgs struct {
 	// Sets whether AOF is enabled.
 	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
@@ -840,7 +823,6 @@ func (i *persistenceResponsePtrType) ToPersistenceResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponsePtrOutput)
 }
 
-// Persistence-related configuration for the RedisEnterprise database
 type PersistenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PersistenceResponseOutput) ElementType() reflect.Type {
@@ -949,7 +931,6 @@ func (o PersistenceResponsePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -976,7 +957,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1029,7 +1009,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1096,7 +1075,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -1113,7 +1091,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1172,7 +1149,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1236,7 +1212,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1257,7 +1232,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1320,7 +1294,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1414,7 +1387,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1435,7 +1407,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1498,7 +1469,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1592,7 +1562,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponse struct {
 	// The current primary key that clients can use to authenticate with Redis cache.
 	PrimaryKey string `pulumi:"primaryKey"`
@@ -1611,7 +1580,6 @@ type RedisAccessKeysResponseInput interface {
 	ToRedisAccessKeysResponseOutputWithContext(context.Context) RedisAccessKeysResponseOutput
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseArgs struct {
 	// The current primary key that clients can use to authenticate with Redis cache.
 	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
@@ -1672,7 +1640,6 @@ func (i *redisAccessKeysResponsePtrType) ToRedisAccessKeysResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponsePtrOutput)
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisAccessKeysResponseOutput) ElementType() reflect.Type {
@@ -1751,7 +1718,6 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponse struct {
 	// Specifies whether the instance is a master node.
 	IsMaster bool `pulumi:"isMaster"`
@@ -1776,7 +1742,6 @@ type RedisInstanceDetailsResponseInput interface {
 	ToRedisInstanceDetailsResponseOutputWithContext(context.Context) RedisInstanceDetailsResponseOutput
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponseArgs struct {
 	// Specifies whether the instance is a master node.
 	IsMaster pulumi.BoolInput `pulumi:"isMaster"`
@@ -1827,7 +1792,6 @@ func (i RedisInstanceDetailsResponseArray) ToRedisInstanceDetailsResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RedisInstanceDetailsResponseArrayOutput)
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisInstanceDetailsResponseOutput) ElementType() reflect.Type {
@@ -1887,7 +1851,6 @@ func (o RedisInstanceDetailsResponseArrayOutput) Index(i pulumi.IntInput) RedisI
 	}).(RedisInstanceDetailsResponseOutput)
 }
 
-// Linked server Id
 type RedisLinkedServerResponse struct {
 	// Linked server Id.
 	Id string `pulumi:"id"`
@@ -1904,7 +1867,6 @@ type RedisLinkedServerResponseInput interface {
 	ToRedisLinkedServerResponseOutputWithContext(context.Context) RedisLinkedServerResponseOutput
 }
 
-// Linked server Id
 type RedisLinkedServerResponseArgs struct {
 	// Linked server Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1947,7 +1909,6 @@ func (i RedisLinkedServerResponseArray) ToRedisLinkedServerResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerResponseArrayOutput)
 }
 
-// Linked server Id
 type RedisLinkedServerResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisLinkedServerResponseOutput) ElementType() reflect.Type {
@@ -1987,7 +1948,6 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 	}).(RedisLinkedServerResponseOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
@@ -2008,7 +1968,6 @@ type ScheduleEntryInput interface {
 	ToScheduleEntryOutputWithContext(context.Context) ScheduleEntryOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek DayOfWeekInput `pulumi:"dayOfWeek"`
@@ -2055,7 +2014,6 @@ func (i ScheduleEntryArray) ToScheduleEntryArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryOutput) ElementType() reflect.Type {
@@ -2105,7 +2063,6 @@ func (o ScheduleEntryArrayOutput) Index(i pulumi.IntInput) ScheduleEntryOutput {
 	}).(ScheduleEntryOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponse struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -2126,7 +2083,6 @@ type ScheduleEntryResponseInput interface {
 	ToScheduleEntryResponseOutputWithContext(context.Context) ScheduleEntryResponseOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
@@ -2173,7 +2129,6 @@ func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryResponseOutput) ElementType() reflect.Type {
@@ -2223,7 +2178,6 @@ func (o ScheduleEntryResponseArrayOutput) Index(i pulumi.IntInput) ScheduleEntry
 	}).(ScheduleEntryResponseOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type Sku struct {
 	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 	Capacity int `pulumi:"capacity"`
@@ -2244,7 +2198,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuArgs struct {
 	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
@@ -2307,7 +2260,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2401,7 +2353,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponse struct {
 	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 	Capacity int `pulumi:"capacity"`
@@ -2422,7 +2373,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseArgs struct {
 	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
@@ -2485,7 +2435,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

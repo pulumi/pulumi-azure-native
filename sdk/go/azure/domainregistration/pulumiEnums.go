@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Target DNS type (would be used for migration)
 type DnsType string
 
 const (

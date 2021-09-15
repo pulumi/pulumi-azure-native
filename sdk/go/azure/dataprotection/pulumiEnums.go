@@ -177,7 +177,6 @@ func (in *absoluteMarkerPtr) ToAbsoluteMarkerPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AbsoluteMarkerPtrOutput)
 }
 
-// type of datastore; Operational/Vault/Archive
 type DataStoreTypes string
 
 const (
@@ -686,7 +685,6 @@ func (in *monthPtr) ToMonthPtrOutputWithContext(ctx context.Context) MonthPtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(MonthPtrOutput)
 }
 
-// Gets or sets the type of the datastore.
 type StorageSettingStoreTypes string
 
 const (
@@ -852,7 +850,6 @@ func (in *storageSettingStoreTypesPtr) ToStorageSettingStoreTypesPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(StorageSettingStoreTypesPtrOutput)
 }
 
-// Gets or sets the type.
 type StorageSettingTypes string
 
 const (

@@ -143,6 +143,14 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Basic network, or Standard features available to the volume.
+        /// </summary>
+        public readonly string? NetworkFeatures;
+        /// <summary>
+        /// Network Sibling Set ID for the the group of volumes sharing networking resources.
+        /// </summary>
+        public readonly string NetworkSiblingSetId;
+        /// <summary>
         /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
@@ -175,6 +183,10 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
+        /// Provides storage to network proximity information for the volume.
+        /// </summary>
+        public readonly string StorageToNetworkProximity;
+        /// <summary>
         /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         /// </summary>
         public readonly string SubnetId;
@@ -196,7 +208,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         public readonly string? VolumeType;
 
@@ -246,6 +258,10 @@ namespace Pulumi.AzureNative.NetApp.V20210601
 
             string name,
 
+            string? networkFeatures,
+
+            string networkSiblingSetId,
+
             ImmutableArray<string> protocolTypes,
 
             string provisioningState,
@@ -261,6 +277,8 @@ namespace Pulumi.AzureNative.NetApp.V20210601
             bool? snapshotDirectoryVisible,
 
             string? snapshotId,
+
+            string storageToNetworkProximity,
 
             string subnetId,
 
@@ -298,6 +316,8 @@ namespace Pulumi.AzureNative.NetApp.V20210601
             Location = location;
             MountTargets = mountTargets;
             Name = name;
+            NetworkFeatures = networkFeatures;
+            NetworkSiblingSetId = networkSiblingSetId;
             ProtocolTypes = protocolTypes;
             ProvisioningState = provisioningState;
             SecurityStyle = securityStyle;
@@ -306,6 +326,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601
             SmbEncryption = smbEncryption;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
             SnapshotId = snapshotId;
+            StorageToNetworkProximity = storageToNetworkProximity;
             SubnetId = subnetId;
             Tags = tags;
             ThroughputMibps = throughputMibps;

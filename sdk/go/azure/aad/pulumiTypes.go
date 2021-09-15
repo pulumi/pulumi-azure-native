@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Container Account Description
 type ContainerAccountResponse struct {
 	// The account name
 	AccountName *string `pulumi:"accountName"`
@@ -31,7 +30,6 @@ type ContainerAccountResponseInput interface {
 	ToContainerAccountResponseOutputWithContext(context.Context) ContainerAccountResponseOutput
 }
 
-// Container Account Description
 type ContainerAccountResponseArgs struct {
 	// The account name
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
@@ -78,7 +76,6 @@ func (i ContainerAccountResponseArray) ToContainerAccountResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerAccountResponseArrayOutput)
 }
 
-// Container Account Description
 type ContainerAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerAccountResponseOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o ContainerAccountResponseArrayOutput) Index(i pulumi.IntInput) ContainerA
 	}).(ContainerAccountResponseOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettings struct {
 	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
 	KerberosArmoring *string `pulumi:"kerberosArmoring"`
@@ -157,7 +153,6 @@ type DomainSecuritySettingsInput interface {
 	ToDomainSecuritySettingsOutputWithContext(context.Context) DomainSecuritySettingsOutput
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsArgs struct {
 	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
 	KerberosArmoring pulumi.StringPtrInput `pulumi:"kerberosArmoring"`
@@ -228,7 +223,6 @@ func (i *domainSecuritySettingsPtrType) ToDomainSecuritySettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsPtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainSecuritySettingsOutput) ElementType() reflect.Type {
@@ -382,7 +376,6 @@ func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponse struct {
 	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
 	KerberosArmoring *string `pulumi:"kerberosArmoring"`
@@ -411,7 +404,6 @@ type DomainSecuritySettingsResponseInput interface {
 	ToDomainSecuritySettingsResponseOutputWithContext(context.Context) DomainSecuritySettingsResponseOutput
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponseArgs struct {
 	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
 	KerberosArmoring pulumi.StringPtrInput `pulumi:"kerberosArmoring"`
@@ -482,7 +474,6 @@ func (i *domainSecuritySettingsResponsePtrType) ToDomainSecuritySettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsResponsePtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DomainSecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -636,7 +627,6 @@ func (o DomainSecuritySettingsResponsePtrOutput) TlsV1() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Forest Trust Setting
 type ForestTrust struct {
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -661,7 +651,6 @@ type ForestTrustInput interface {
 	ToForestTrustOutputWithContext(context.Context) ForestTrustOutput
 }
 
-// Forest Trust Setting
 type ForestTrustArgs struct {
 	// Friendly Name
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -712,7 +701,6 @@ func (i ForestTrustArray) ToForestTrustArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustArrayOutput)
 }
 
-// Forest Trust Setting
 type ForestTrustOutput struct{ *pulumi.OutputState }
 
 func (ForestTrustOutput) ElementType() reflect.Type {
@@ -772,7 +760,6 @@ func (o ForestTrustArrayOutput) Index(i pulumi.IntInput) ForestTrustOutput {
 	}).(ForestTrustOutput)
 }
 
-// Forest Trust Setting
 type ForestTrustResponse struct {
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -797,7 +784,6 @@ type ForestTrustResponseInput interface {
 	ToForestTrustResponseOutputWithContext(context.Context) ForestTrustResponseOutput
 }
 
-// Forest Trust Setting
 type ForestTrustResponseArgs struct {
 	// Friendly Name
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -848,7 +834,6 @@ func (i ForestTrustResponseArray) ToForestTrustResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustResponseArrayOutput)
 }
 
-// Forest Trust Setting
 type ForestTrustResponseOutput struct{ *pulumi.OutputState }
 
 func (ForestTrustResponseOutput) ElementType() reflect.Type {
@@ -908,7 +893,6 @@ func (o ForestTrustResponseArrayOutput) Index(i pulumi.IntInput) ForestTrustResp
 	}).(ForestTrustResponseOutput)
 }
 
-// Health Alert Description
 type HealthAlertResponse struct {
 	// Health Alert Id
 	Id string `pulumi:"id"`
@@ -937,7 +921,6 @@ type HealthAlertResponseInput interface {
 	ToHealthAlertResponseOutputWithContext(context.Context) HealthAlertResponseOutput
 }
 
-// Health Alert Description
 type HealthAlertResponseArgs struct {
 	// Health Alert Id
 	Id pulumi.StringInput `pulumi:"id"`
@@ -992,7 +975,6 @@ func (i HealthAlertResponseArray) ToHealthAlertResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertResponseArrayOutput)
 }
 
-// Health Alert Description
 type HealthAlertResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertResponseOutput) ElementType() reflect.Type {
@@ -1062,7 +1044,6 @@ func (o HealthAlertResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertResp
 	}).(HealthAlertResponseOutput)
 }
 
-// Health Monitor Description
 type HealthMonitorResponse struct {
 	// Health Monitor Details
 	Details string `pulumi:"details"`
@@ -1083,7 +1064,6 @@ type HealthMonitorResponseInput interface {
 	ToHealthMonitorResponseOutputWithContext(context.Context) HealthMonitorResponseOutput
 }
 
-// Health Monitor Description
 type HealthMonitorResponseArgs struct {
 	// Health Monitor Details
 	Details pulumi.StringInput `pulumi:"details"`
@@ -1130,7 +1110,6 @@ func (i HealthMonitorResponseArray) ToHealthMonitorResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorResponseArrayOutput)
 }
 
-// Health Monitor Description
 type HealthMonitorResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthMonitorResponseOutput) ElementType() reflect.Type {
@@ -1180,7 +1159,6 @@ func (o HealthMonitorResponseArrayOutput) Index(i pulumi.IntInput) HealthMonitor
 	}).(HealthMonitorResponseOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettings struct {
 	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 	ExternalAccess *string `pulumi:"externalAccess"`
@@ -1203,7 +1181,6 @@ type LdapsSettingsInput interface {
 	ToLdapsSettingsOutputWithContext(context.Context) LdapsSettingsOutput
 }
 
-// Secure LDAP Settings
 type LdapsSettingsArgs struct {
 	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 	ExternalAccess pulumi.StringPtrInput `pulumi:"externalAccess"`
@@ -1268,7 +1245,6 @@ func (i *ldapsSettingsPtrType) ToLdapsSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsPtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsOutput struct{ *pulumi.OutputState }
 
 func (LdapsSettingsOutput) ElementType() reflect.Type {
@@ -1377,7 +1353,6 @@ func (o LdapsSettingsPtrOutput) PfxCertificatePassword() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponse struct {
 	// NotAfter DateTime of configure ldaps certificate.
 	CertificateNotAfter string `pulumi:"certificateNotAfter"`
@@ -1406,7 +1381,6 @@ type LdapsSettingsResponseInput interface {
 	ToLdapsSettingsResponseOutputWithContext(context.Context) LdapsSettingsResponseOutput
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponseArgs struct {
 	// NotAfter DateTime of configure ldaps certificate.
 	CertificateNotAfter pulumi.StringInput `pulumi:"certificateNotAfter"`
@@ -1477,7 +1451,6 @@ func (i *ldapsSettingsResponsePtrType) ToLdapsSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsResponsePtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LdapsSettingsResponseOutput) ElementType() reflect.Type {
@@ -1631,7 +1604,6 @@ func (o LdapsSettingsResponsePtrOutput) PublicCertificate() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration Progress
 type MigrationProgressResponse struct {
 	// Completion Percentage
 	CompletionPercentage *float64 `pulumi:"completionPercentage"`
@@ -1650,7 +1622,6 @@ type MigrationProgressResponseInput interface {
 	ToMigrationProgressResponseOutputWithContext(context.Context) MigrationProgressResponseOutput
 }
 
-// Migration Progress
 type MigrationProgressResponseArgs struct {
 	// Completion Percentage
 	CompletionPercentage pulumi.Float64PtrInput `pulumi:"completionPercentage"`
@@ -1711,7 +1682,6 @@ func (i *migrationProgressResponsePtrType) ToMigrationProgressResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProgressResponsePtrOutput)
 }
 
-// Migration Progress
 type MigrationProgressResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationProgressResponseOutput) ElementType() reflect.Type {
@@ -1790,7 +1760,6 @@ func (o MigrationProgressResponsePtrOutput) ProgressMessage() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration Properties
 type MigrationPropertiesResponse struct {
 	// Migration Progress
 	MigrationProgress MigrationProgressResponse `pulumi:"migrationProgress"`
@@ -1811,7 +1780,6 @@ type MigrationPropertiesResponseInput interface {
 	ToMigrationPropertiesResponseOutputWithContext(context.Context) MigrationPropertiesResponseOutput
 }
 
-// Migration Properties
 type MigrationPropertiesResponseArgs struct {
 	// Migration Progress
 	MigrationProgress MigrationProgressResponseInput `pulumi:"migrationProgress"`
@@ -1874,7 +1842,6 @@ func (i *migrationPropertiesResponsePtrType) ToMigrationPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationPropertiesResponsePtrOutput)
 }
 
-// Migration Properties
 type MigrationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1968,7 +1935,6 @@ func (o MigrationPropertiesResponsePtrOutput) OldVnetSiteId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettings struct {
 	// The list of additional recipients
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
@@ -1989,7 +1955,6 @@ type NotificationSettingsInput interface {
 	ToNotificationSettingsOutputWithContext(context.Context) NotificationSettingsOutput
 }
 
-// Settings for notification
 type NotificationSettingsArgs struct {
 	// The list of additional recipients
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
@@ -2052,7 +2017,6 @@ func (i *notificationSettingsPtrType) ToNotificationSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsOutput) ElementType() reflect.Type {
@@ -2146,7 +2110,6 @@ func (o NotificationSettingsPtrOutput) NotifyGlobalAdmins() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsResponse struct {
 	// The list of additional recipients
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
@@ -2167,7 +2130,6 @@ type NotificationSettingsResponseInput interface {
 	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
 }
 
-// Settings for notification
 type NotificationSettingsResponseArgs struct {
 	// The list of additional recipients
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
@@ -2230,7 +2192,6 @@ func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -2324,7 +2285,6 @@ func (o NotificationSettingsResponsePtrOutput) NotifyGlobalAdmins() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replica Set Definition
 type ReplicaSet struct {
 	// Virtual network location
 	Location *string `pulumi:"location"`
@@ -2343,7 +2303,6 @@ type ReplicaSetInput interface {
 	ToReplicaSetOutputWithContext(context.Context) ReplicaSetOutput
 }
 
-// Replica Set Definition
 type ReplicaSetArgs struct {
 	// Virtual network location
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -2388,7 +2347,6 @@ func (i ReplicaSetArray) ToReplicaSetArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaSetArrayOutput)
 }
 
-// Replica Set Definition
 type ReplicaSetOutput struct{ *pulumi.OutputState }
 
 func (ReplicaSetOutput) ElementType() reflect.Type {
@@ -2433,7 +2391,6 @@ func (o ReplicaSetArrayOutput) Index(i pulumi.IntInput) ReplicaSetOutput {
 	}).(ReplicaSetOutput)
 }
 
-// Replica Set Definition
 type ReplicaSetResponse struct {
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
@@ -2468,7 +2425,6 @@ type ReplicaSetResponseInput interface {
 	ToReplicaSetResponseOutputWithContext(context.Context) ReplicaSetResponseOutput
 }
 
-// Replica Set Definition
 type ReplicaSetResponseArgs struct {
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress pulumi.StringArrayInput `pulumi:"domainControllerIpAddress"`
@@ -2529,7 +2485,6 @@ func (i ReplicaSetResponseArray) ToReplicaSetResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaSetResponseArrayOutput)
 }
 
-// Replica Set Definition
 type ReplicaSetResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicaSetResponseOutput) ElementType() reflect.Type {
@@ -2614,7 +2569,6 @@ func (o ReplicaSetResponseArrayOutput) Index(i pulumi.IntInput) ReplicaSetRespon
 	}).(ReplicaSetResponseOutput)
 }
 
-// Settings for Resource Forest
 type ResourceForestSettings struct {
 	// Resource Forest
 	ResourceForest *string `pulumi:"resourceForest"`
@@ -2633,7 +2587,6 @@ type ResourceForestSettingsInput interface {
 	ToResourceForestSettingsOutputWithContext(context.Context) ResourceForestSettingsOutput
 }
 
-// Settings for Resource Forest
 type ResourceForestSettingsArgs struct {
 	// Resource Forest
 	ResourceForest pulumi.StringPtrInput `pulumi:"resourceForest"`
@@ -2694,7 +2647,6 @@ func (i *resourceForestSettingsPtrType) ToResourceForestSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsPtrOutput)
 }
 
-// Settings for Resource Forest
 type ResourceForestSettingsOutput struct{ *pulumi.OutputState }
 
 func (ResourceForestSettingsOutput) ElementType() reflect.Type {
@@ -2773,7 +2725,6 @@ func (o ResourceForestSettingsPtrOutput) Settings() ForestTrustArrayOutput {
 	}).(ForestTrustArrayOutput)
 }
 
-// Settings for Resource Forest
 type ResourceForestSettingsResponse struct {
 	// Resource Forest
 	ResourceForest *string `pulumi:"resourceForest"`
@@ -2792,7 +2743,6 @@ type ResourceForestSettingsResponseInput interface {
 	ToResourceForestSettingsResponseOutputWithContext(context.Context) ResourceForestSettingsResponseOutput
 }
 
-// Settings for Resource Forest
 type ResourceForestSettingsResponseArgs struct {
 	// Resource Forest
 	ResourceForest pulumi.StringPtrInput `pulumi:"resourceForest"`
@@ -2853,7 +2803,6 @@ func (i *resourceForestSettingsResponsePtrType) ToResourceForestSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsResponsePtrOutput)
 }
 
-// Settings for Resource Forest
 type ResourceForestSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceForestSettingsResponseOutput) ElementType() reflect.Type {
@@ -2932,7 +2881,6 @@ func (o ResourceForestSettingsResponsePtrOutput) Settings() ForestTrustResponseA
 	}).(ForestTrustResponseArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2959,7 +2907,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -3028,7 +2975,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

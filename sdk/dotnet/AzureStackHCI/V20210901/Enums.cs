@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901
         }
 
         public static DiagnosticLevel Off { get; } = new DiagnosticLevel("Off");
-        public static DiagnosticLevel Required { get; } = new DiagnosticLevel("Required");
-        public static DiagnosticLevel RequiredAndOptional { get; } = new DiagnosticLevel("RequiredAndOptional");
+        public static DiagnosticLevel Basic { get; } = new DiagnosticLevel("Basic");
+        public static DiagnosticLevel Enhanced { get; } = new DiagnosticLevel("Enhanced");
 
         public static bool operator ==(DiagnosticLevel left, DiagnosticLevel right) => left.Equals(right);
         public static bool operator !=(DiagnosticLevel left, DiagnosticLevel right) => !left.Equals(right);

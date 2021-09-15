@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegration struct {
 	// Integration status
 	Status string `pulumi:"status"`
@@ -27,7 +26,6 @@ type DefenderSettingsPropertiesMdeIntegrationInput interface {
 	ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesMdeIntegrationOutput
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegrationArgs struct {
 	// Integration status
 	Status pulumi.StringInput `pulumi:"status"`
@@ -86,7 +84,6 @@ func (i *defenderSettingsPropertiesMdeIntegrationPtrType) ToDefenderSettingsProp
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingsPropertiesMdeIntegrationOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Status() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegration struct {
 	// Integration status
 	Status string `pulumi:"status"`
@@ -167,7 +163,6 @@ type DefenderSettingsPropertiesResponseMdeIntegrationInput interface {
 	ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesResponseMdeIntegrationOutput
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegrationArgs struct {
 	// Integration status
 	Status pulumi.StringInput `pulumi:"status"`
@@ -226,7 +221,6 @@ func (i *defenderSettingsPropertiesResponseMdeIntegrationPtrType) ToDefenderSett
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingsPropertiesResponseMdeIntegrationOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Status() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -317,7 +310,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -386,7 +378,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

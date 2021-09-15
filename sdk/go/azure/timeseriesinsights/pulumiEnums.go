@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A role defining the data plane operations that a principal can perform on a Time Series Insights client.
 type AccessPolicyRole string
 
 const (
@@ -175,7 +174,6 @@ func (in *accessPolicyRolePtr) ToAccessPolicyRolePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyRolePtrOutput)
 }
 
-// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
 type DataStringComparisonBehavior string
 
 const (
@@ -340,7 +338,6 @@ func (in *dataStringComparisonBehaviorPtr) ToDataStringComparisonBehaviorPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(DataStringComparisonBehaviorPtrOutput)
 }
 
-// The kind of the environment.
 type EnvironmentKind string
 
 const (
@@ -505,7 +502,6 @@ func (in *environmentKindPtr) ToEnvironmentKindPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentKindPtrOutput)
 }
 
-// The kind of the event source.
 type EventSourceKind string
 
 const (
@@ -670,7 +666,6 @@ func (in *eventSourceKindPtr) ToEventSourceKindPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceKindPtrOutput)
 }
 
-// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
 type IngressStartAtType string
 
 const (
@@ -836,7 +831,6 @@ func (in *ingressStartAtTypePtr) ToIngressStartAtTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IngressStartAtTypePtrOutput)
 }
 
-// An enum that represents the format of the local timestamp property that needs to be set.
 type LocalTimestampFormat string
 
 const (
@@ -1000,7 +994,6 @@ func (in *localTimestampFormatPtr) ToLocalTimestampFormatPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(LocalTimestampFormatPtrOutput)
 }
 
-// The type of the property.
 type PropertyType string
 
 const (
@@ -1164,7 +1157,6 @@ func (in *propertyTypePtr) ToPropertyTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PropertyTypePtrOutput)
 }
 
-// The type of the key property.
 type ReferenceDataKeyPropertyType string
 
 const (
@@ -1331,7 +1323,6 @@ func (in *referenceDataKeyPropertyTypePtr) ToReferenceDataKeyPropertyTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ReferenceDataKeyPropertyTypePtrOutput)
 }
 
-// The name of this SKU.
 type SkuName string
 
 const (
@@ -1498,7 +1489,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 type StorageLimitExceededBehavior string
 
 const (

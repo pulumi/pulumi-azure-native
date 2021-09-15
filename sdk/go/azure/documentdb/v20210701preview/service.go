@@ -82,18 +82,22 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	AccountName       string      `pulumi:"accountName"`
-	Properties        interface{} `pulumi:"properties"`
-	ResourceGroupName string      `pulumi:"resourceGroupName"`
-	ServiceName       *string     `pulumi:"serviceName"`
+	AccountName       string  `pulumi:"accountName"`
+	InstanceCount     *int    `pulumi:"instanceCount"`
+	InstanceSize      *string `pulumi:"instanceSize"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       *string `pulumi:"serviceName"`
+	ServiceType       *string `pulumi:"serviceType"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	AccountName       pulumi.StringInput
-	Properties        pulumi.Input
+	InstanceCount     pulumi.IntPtrInput
+	InstanceSize      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 	ServiceName       pulumi.StringPtrInput
+	ServiceType       pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

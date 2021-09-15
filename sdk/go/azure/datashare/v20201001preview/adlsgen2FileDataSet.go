@@ -89,6 +89,12 @@ func NewADLSGen2FileDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:ADLSGen2FileDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20210801:ADLSGen2FileDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20210801:ADLSGen2FileDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ADLSGen2FileDataSet

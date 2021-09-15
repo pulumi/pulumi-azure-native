@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The calculation window.
 type CalculationWindowTypes string
 
 const (
@@ -178,7 +177,6 @@ func (in *calculationWindowTypesPtr) ToCalculationWindowTypesPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CalculationWindowTypesPtrOutput)
 }
 
-// The Relationship Cardinality.
 type CardinalityTypes string
 
 const (
@@ -344,7 +342,6 @@ func (in *cardinalityTypesPtr) ToCardinalityTypesPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(CardinalityTypesPtrOutput)
 }
 
-// The type of completion operation.
 type CompletionOperationTypes string
 
 const (
@@ -510,7 +507,6 @@ func (in *completionOperationTypesPtr) ToCompletionOperationTypesPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(CompletionOperationTypesPtrOutput)
 }
 
-// Type of connector.
 type ConnectorTypes string
 
 const (
@@ -679,7 +675,6 @@ func (in *connectorTypesPtr) ToConnectorTypesPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorTypesPtrOutput)
 }
 
-// Type of target entity.
 type EntityType string
 
 const (
@@ -846,7 +841,6 @@ func (in *entityTypePtr) ToEntityTypePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypePtrOutput)
 }
 
-// Type of entity.
 type EntityTypes string
 
 const (
@@ -1013,7 +1007,6 @@ func (in *entityTypesPtr) ToEntityTypesPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypesPtrOutput)
 }
 
-// The type of error management to use for the mapping.
 type ErrorManagementTypes string
 
 const (
@@ -1179,7 +1172,6 @@ func (in *errorManagementTypesPtr) ToErrorManagementTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ErrorManagementTypesPtrOutput)
 }
 
-// The type mapping format.
 type FormatTypes string
 
 const (
@@ -1343,7 +1335,6 @@ func (in *formatTypesPtr) ToFormatTypesPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(FormatTypesPtrOutput)
 }
 
-// The frequency to update.
 type FrequencyTypes string
 
 const (
@@ -1511,7 +1502,6 @@ func (in *frequencyTypesPtr) ToFrequencyTypesPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(FrequencyTypesPtrOutput)
 }
 
-// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
 type InstanceOperationType string
 
 const (
@@ -1676,7 +1666,6 @@ func (in *instanceOperationTypePtr) ToInstanceOperationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceOperationTypePtrOutput)
 }
 
-// The computation function for the KPI.
 type KpiFunctions string
 
 const (
@@ -1847,7 +1836,6 @@ func (in *kpiFunctionsPtr) ToKpiFunctionsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(KpiFunctionsPtrOutput)
 }
 
-// Link type.
 type LinkTypes string
 
 const (
@@ -2012,7 +2000,6 @@ func (in *linkTypesPtr) ToLinkTypesPtrOutputWithContext(ctx context.Context) Lin
 	return pulumi.ToOutputWithContext(ctx, in).(LinkTypesPtrOutput)
 }
 
-// Type of roles.
 type RoleTypes string
 
 const (

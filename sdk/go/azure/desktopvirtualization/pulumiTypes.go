@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for arm migration.
 type MigrationRequestProperties struct {
 	// The path to the legacy object to migrate.
 	MigrationPath *string `pulumi:"migrationPath"`
@@ -29,7 +28,6 @@ type MigrationRequestPropertiesInput interface {
 	ToMigrationRequestPropertiesOutputWithContext(context.Context) MigrationRequestPropertiesOutput
 }
 
-// Properties for arm migration.
 type MigrationRequestPropertiesArgs struct {
 	// The path to the legacy object to migrate.
 	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
@@ -90,7 +88,6 @@ func (i *migrationRequestPropertiesPtrType) ToMigrationRequestPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesPtrOutput)
 }
 
-// Properties for arm migration.
 type MigrationRequestPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MigrationRequestPropertiesOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o MigrationRequestPropertiesPtrOutput) Operation() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for arm migration.
 type MigrationRequestPropertiesResponse struct {
 	// The path to the legacy object to migrate.
 	MigrationPath *string `pulumi:"migrationPath"`
@@ -188,7 +184,6 @@ type MigrationRequestPropertiesResponseInput interface {
 	ToMigrationRequestPropertiesResponseOutputWithContext(context.Context) MigrationRequestPropertiesResponseOutput
 }
 
-// Properties for arm migration.
 type MigrationRequestPropertiesResponseArgs struct {
 	// The path to the legacy object to migrate.
 	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
@@ -249,7 +244,6 @@ func (i *migrationRequestPropertiesResponsePtrType) ToMigrationRequestProperties
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesResponsePtrOutput)
 }
 
-// Properties for arm migration.
 type MigrationRequestPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationRequestPropertiesResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o MigrationRequestPropertiesResponsePtrOutput) Operation() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplications struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId *string `pulumi:"appId"`
@@ -357,7 +350,6 @@ type MsixPackageApplicationsInput interface {
 	ToMsixPackageApplicationsOutputWithContext(context.Context) MsixPackageApplicationsOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsArgs struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
@@ -412,7 +404,6 @@ func (i MsixPackageApplicationsArray) ToMsixPackageApplicationsArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsOutput) ElementType() reflect.Type {
@@ -482,7 +473,6 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageApplicationsOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponse struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId *string `pulumi:"appId"`
@@ -511,7 +501,6 @@ type MsixPackageApplicationsResponseInput interface {
 	ToMsixPackageApplicationsResponseOutputWithContext(context.Context) MsixPackageApplicationsResponseOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseArgs struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
@@ -566,7 +555,6 @@ func (i MsixPackageApplicationsResponseArray) ToMsixPackageApplicationsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsResponseArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsResponseOutput) ElementType() reflect.Type {
@@ -636,7 +624,6 @@ func (o MsixPackageApplicationsResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageApplicationsResponseOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependencies struct {
 	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
@@ -657,7 +644,6 @@ type MsixPackageDependenciesInput interface {
 	ToMsixPackageDependenciesOutputWithContext(context.Context) MsixPackageDependenciesOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesArgs struct {
 	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
@@ -704,7 +690,6 @@ func (i MsixPackageDependenciesArray) ToMsixPackageDependenciesArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesOutput) ElementType() reflect.Type {
@@ -754,7 +739,6 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageDependenciesOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponse struct {
 	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
@@ -775,7 +759,6 @@ type MsixPackageDependenciesResponseInput interface {
 	ToMsixPackageDependenciesResponseOutputWithContext(context.Context) MsixPackageDependenciesResponseOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseArgs struct {
 	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
@@ -822,7 +805,6 @@ func (i MsixPackageDependenciesResponseArray) ToMsixPackageDependenciesResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesResponseArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesResponseOutput) ElementType() reflect.Type {
@@ -872,7 +854,6 @@ func (o MsixPackageDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageDependenciesResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -889,7 +870,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -948,7 +928,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1012,7 +991,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1033,7 +1011,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1096,7 +1073,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1190,7 +1166,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1211,7 +1186,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1274,7 +1248,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1368,7 +1341,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfo struct {
 	// Expiration time of registration token.
 	ExpirationTime *string `pulumi:"expirationTime"`
@@ -1389,7 +1361,6 @@ type RegistrationInfoInput interface {
 	ToRegistrationInfoOutputWithContext(context.Context) RegistrationInfoOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoArgs struct {
 	// Expiration time of registration token.
 	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
@@ -1452,7 +1423,6 @@ func (i *registrationInfoPtrType) ToRegistrationInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoOutput) ElementType() reflect.Type {
@@ -1546,7 +1516,6 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
 	// Expiration time of registration token.
 	ExpirationTime *string `pulumi:"expirationTime"`
@@ -1567,7 +1536,6 @@ type RegistrationInfoResponseInput interface {
 	ToRegistrationInfoResponseOutputWithContext(context.Context) RegistrationInfoResponseOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseArgs struct {
 	// Expiration time of registration token.
 	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
@@ -1630,7 +1598,6 @@ func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponsePtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoResponseOutput) ElementType() reflect.Type {
@@ -2888,7 +2855,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput
 	}).(SkuTierPtrOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReference struct {
 	// Arm path of referenced hostpool.
 	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
@@ -2907,7 +2873,6 @@ type ScalingHostPoolReferenceInput interface {
 	ToScalingHostPoolReferenceOutputWithContext(context.Context) ScalingHostPoolReferenceOutput
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceArgs struct {
 	// Arm path of referenced hostpool.
 	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
@@ -2952,7 +2917,6 @@ func (i ScalingHostPoolReferenceArray) ToScalingHostPoolReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceArrayOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceOutput struct{ *pulumi.OutputState }
 
 func (ScalingHostPoolReferenceOutput) ElementType() reflect.Type {
@@ -2997,7 +2961,6 @@ func (o ScalingHostPoolReferenceArrayOutput) Index(i pulumi.IntInput) ScalingHos
 	}).(ScalingHostPoolReferenceOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponse struct {
 	// Arm path of referenced hostpool.
 	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
@@ -3016,7 +2979,6 @@ type ScalingHostPoolReferenceResponseInput interface {
 	ToScalingHostPoolReferenceResponseOutputWithContext(context.Context) ScalingHostPoolReferenceResponseOutput
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponseArgs struct {
 	// Arm path of referenced hostpool.
 	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
@@ -3061,7 +3023,6 @@ func (i ScalingHostPoolReferenceResponseArray) ToScalingHostPoolReferenceRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceResponseArrayOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ScalingHostPoolReferenceResponseOutput) ElementType() reflect.Type {
@@ -3106,7 +3067,6 @@ func (o ScalingHostPoolReferenceResponseArrayOutput) Index(i pulumi.IntInput) Sc
 	}).(ScalingHostPoolReferenceResponseOutput)
 }
 
-// Scaling plan schedule.
 type ScalingSchedule struct {
 	// Set of days of the week on which this schedule is active.
 	DaysOfWeek []string `pulumi:"daysOfWeek"`
@@ -3157,7 +3117,6 @@ type ScalingScheduleInput interface {
 	ToScalingScheduleOutputWithContext(context.Context) ScalingScheduleOutput
 }
 
-// Scaling plan schedule.
 type ScalingScheduleArgs struct {
 	// Set of days of the week on which this schedule is active.
 	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
@@ -3234,7 +3193,6 @@ func (i ScalingScheduleArray) ToScalingScheduleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleArrayOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScalingScheduleOutput) ElementType() reflect.Type {
@@ -3359,7 +3317,6 @@ func (o ScalingScheduleArrayOutput) Index(i pulumi.IntInput) ScalingScheduleOutp
 	}).(ScalingScheduleOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponse struct {
 	// Set of days of the week on which this schedule is active.
 	DaysOfWeek []string `pulumi:"daysOfWeek"`
@@ -3410,7 +3367,6 @@ type ScalingScheduleResponseInput interface {
 	ToScalingScheduleResponseOutputWithContext(context.Context) ScalingScheduleResponseOutput
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponseArgs struct {
 	// Set of days of the week on which this schedule is active.
 	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
@@ -3487,7 +3443,6 @@ func (i ScalingScheduleResponseArray) ToScalingScheduleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleResponseArrayOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScalingScheduleResponseOutput) ElementType() reflect.Type {
@@ -3612,7 +3567,6 @@ func (o ScalingScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScalingSche
 	}).(ScalingScheduleResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -3639,7 +3593,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -3708,7 +3661,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

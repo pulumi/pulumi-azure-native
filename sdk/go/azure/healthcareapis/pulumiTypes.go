@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authentication configuration information
 type DicomServiceAuthenticationConfigurationResponse struct {
 	// The audiences for the service
 	Audiences []string `pulumi:"audiences"`
@@ -29,7 +28,6 @@ type DicomServiceAuthenticationConfigurationResponseInput interface {
 	ToDicomServiceAuthenticationConfigurationResponseOutputWithContext(context.Context) DicomServiceAuthenticationConfigurationResponseOutput
 }
 
-// Authentication configuration information
 type DicomServiceAuthenticationConfigurationResponseArgs struct {
 	// The audiences for the service
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
@@ -90,7 +88,6 @@ func (i *dicomServiceAuthenticationConfigurationResponsePtrType) ToDicomServiceA
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
 }
 
-// Authentication configuration information
 type DicomServiceAuthenticationConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceAuthenticationConfigurationResponseOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) Authority() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntry struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId string `pulumi:"objectId"`
@@ -186,7 +182,6 @@ type FhirServiceAccessPolicyEntryInput interface {
 	ToFhirServiceAccessPolicyEntryOutputWithContext(context.Context) FhirServiceAccessPolicyEntryOutput
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntryArgs struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
@@ -229,7 +224,6 @@ func (i FhirServiceAccessPolicyEntryArray) ToFhirServiceAccessPolicyEntryArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryArrayOutput)
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntryOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAccessPolicyEntryOutput) ElementType() reflect.Type {
@@ -269,7 +263,6 @@ func (o FhirServiceAccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) FhirSe
 	}).(FhirServiceAccessPolicyEntryOutput)
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntryResponse struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId string `pulumi:"objectId"`
@@ -286,7 +279,6 @@ type FhirServiceAccessPolicyEntryResponseInput interface {
 	ToFhirServiceAccessPolicyEntryResponseOutputWithContext(context.Context) FhirServiceAccessPolicyEntryResponseOutput
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntryResponseArgs struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
@@ -329,7 +321,6 @@ func (i FhirServiceAccessPolicyEntryResponseArray) ToFhirServiceAccessPolicyEntr
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryResponseArrayOutput)
 }
 
-// An access policy entry.
 type FhirServiceAccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAccessPolicyEntryResponseOutput) ElementType() reflect.Type {
@@ -369,7 +360,6 @@ func (o FhirServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput
 	}).(FhirServiceAccessPolicyEntryResponseOutput)
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfiguration struct {
 	// The list of the Azure container registry login servers.
 	LoginServers []string `pulumi:"loginServers"`
@@ -386,7 +376,6 @@ type FhirServiceAcrConfigurationInput interface {
 	ToFhirServiceAcrConfigurationOutputWithContext(context.Context) FhirServiceAcrConfigurationOutput
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfigurationArgs struct {
 	// The list of the Azure container registry login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
@@ -445,7 +434,6 @@ func (i *fhirServiceAcrConfigurationPtrType) ToFhirServiceAcrConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationPtrOutput)
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAcrConfigurationOutput) ElementType() reflect.Type {
@@ -509,7 +497,6 @@ func (o FhirServiceAcrConfigurationPtrOutput) LoginServers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfigurationResponse struct {
 	// The list of the Azure container registry login servers.
 	LoginServers []string `pulumi:"loginServers"`
@@ -526,7 +513,6 @@ type FhirServiceAcrConfigurationResponseInput interface {
 	ToFhirServiceAcrConfigurationResponseOutputWithContext(context.Context) FhirServiceAcrConfigurationResponseOutput
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfigurationResponseArgs struct {
 	// The list of the Azure container registry login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
@@ -585,7 +571,6 @@ func (i *fhirServiceAcrConfigurationResponsePtrType) ToFhirServiceAcrConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationResponsePtrOutput)
 }
 
-// Azure container registry configuration information
 type FhirServiceAcrConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAcrConfigurationResponseOutput) ElementType() reflect.Type {
@@ -649,7 +634,6 @@ func (o FhirServiceAcrConfigurationResponsePtrOutput) LoginServers() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfiguration struct {
 	// The audience url for the service
 	Audience *string `pulumi:"audience"`
@@ -670,7 +654,6 @@ type FhirServiceAuthenticationConfigurationInput interface {
 	ToFhirServiceAuthenticationConfigurationOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationOutput
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfigurationArgs struct {
 	// The audience url for the service
 	Audience pulumi.StringPtrInput `pulumi:"audience"`
@@ -733,7 +716,6 @@ func (i *fhirServiceAuthenticationConfigurationPtrType) ToFhirServiceAuthenticat
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationPtrOutput)
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -827,7 +809,6 @@ func (o FhirServiceAuthenticationConfigurationPtrOutput) SmartProxyEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfigurationResponse struct {
 	// The audience url for the service
 	Audience *string `pulumi:"audience"`
@@ -848,7 +829,6 @@ type FhirServiceAuthenticationConfigurationResponseInput interface {
 	ToFhirServiceAuthenticationConfigurationResponseOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationResponseOutput
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfigurationResponseArgs struct {
 	// The audience url for the service
 	Audience pulumi.StringPtrInput `pulumi:"audience"`
@@ -911,7 +891,6 @@ func (i *fhirServiceAuthenticationConfigurationResponsePtrType) ToFhirServiceAut
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationResponsePtrOutput)
 }
 
-// Authentication configuration information
 type FhirServiceAuthenticationConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAuthenticationConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1005,7 +984,6 @@ func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) SmartProxyEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfiguration struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
@@ -1030,7 +1008,6 @@ type FhirServiceCorsConfigurationInput interface {
 	ToFhirServiceCorsConfigurationOutputWithContext(context.Context) FhirServiceCorsConfigurationOutput
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfigurationArgs struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
@@ -1097,7 +1074,6 @@ func (i *fhirServiceCorsConfigurationPtrType) ToFhirServiceCorsConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationPtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceCorsConfigurationOutput) ElementType() reflect.Type {
@@ -1221,7 +1197,6 @@ func (o FhirServiceCorsConfigurationPtrOutput) Origins() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfigurationResponse struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
@@ -1246,7 +1221,6 @@ type FhirServiceCorsConfigurationResponseInput interface {
 	ToFhirServiceCorsConfigurationResponseOutputWithContext(context.Context) FhirServiceCorsConfigurationResponseOutput
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfigurationResponseArgs struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
@@ -1313,7 +1287,6 @@ func (i *fhirServiceCorsConfigurationResponsePtrType) ToFhirServiceCorsConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationResponsePtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type FhirServiceCorsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceCorsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1437,7 +1410,6 @@ func (o FhirServiceCorsConfigurationResponsePtrOutput) Origins() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Export operation configuration information
 type FhirServiceExportConfiguration struct {
 	// The name of the default export storage account.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -1454,7 +1426,6 @@ type FhirServiceExportConfigurationInput interface {
 	ToFhirServiceExportConfigurationOutputWithContext(context.Context) FhirServiceExportConfigurationOutput
 }
 
-// Export operation configuration information
 type FhirServiceExportConfigurationArgs struct {
 	// The name of the default export storage account.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
@@ -1513,7 +1484,6 @@ func (i *fhirServiceExportConfigurationPtrType) ToFhirServiceExportConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationPtrOutput)
 }
 
-// Export operation configuration information
 type FhirServiceExportConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceExportConfigurationOutput) ElementType() reflect.Type {
@@ -1577,7 +1547,6 @@ func (o FhirServiceExportConfigurationPtrOutput) StorageAccountName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Export operation configuration information
 type FhirServiceExportConfigurationResponse struct {
 	// The name of the default export storage account.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -1594,7 +1563,6 @@ type FhirServiceExportConfigurationResponseInput interface {
 	ToFhirServiceExportConfigurationResponseOutputWithContext(context.Context) FhirServiceExportConfigurationResponseOutput
 }
 
-// Export operation configuration information
 type FhirServiceExportConfigurationResponseArgs struct {
 	// The name of the default export storage account.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
@@ -1653,7 +1621,6 @@ func (i *fhirServiceExportConfigurationResponsePtrType) ToFhirServiceExportConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationResponsePtrOutput)
 }
 
-// Export operation configuration information
 type FhirServiceExportConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceExportConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1717,7 +1684,6 @@ func (o FhirServiceExportConfigurationResponsePtrOutput) StorageAccountName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfiguration struct {
 	// Consumer group of the event hub to connected to.
 	ConsumerGroup *string `pulumi:"consumerGroup"`
@@ -1738,7 +1704,6 @@ type IotEventHubIngestionEndpointConfigurationInput interface {
 	ToIotEventHubIngestionEndpointConfigurationOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationOutput
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfigurationArgs struct {
 	// Consumer group of the event hub to connected to.
 	ConsumerGroup pulumi.StringPtrInput `pulumi:"consumerGroup"`
@@ -1801,7 +1766,6 @@ func (i *iotEventHubIngestionEndpointConfigurationPtrType) ToIotEventHubIngestio
 	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationPtrOutput)
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IotEventHubIngestionEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -1895,7 +1859,6 @@ func (o IotEventHubIngestionEndpointConfigurationPtrOutput) FullyQualifiedEventH
 	}).(pulumi.StringPtrOutput)
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfigurationResponse struct {
 	// Consumer group of the event hub to connected to.
 	ConsumerGroup *string `pulumi:"consumerGroup"`
@@ -1916,7 +1879,6 @@ type IotEventHubIngestionEndpointConfigurationResponseInput interface {
 	ToIotEventHubIngestionEndpointConfigurationResponseOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationResponseOutput
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfigurationResponseArgs struct {
 	// Consumer group of the event hub to connected to.
 	ConsumerGroup pulumi.StringPtrInput `pulumi:"consumerGroup"`
@@ -1979,7 +1941,6 @@ func (i *iotEventHubIngestionEndpointConfigurationResponsePtrType) ToIotEventHub
 	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
 }
 
-// Event Hub ingestion endpoint configuration
 type IotEventHubIngestionEndpointConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (IotEventHubIngestionEndpointConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2075,7 +2036,6 @@ func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) FullyQualifi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mapping content.
 type IotMappingProperties struct {
 	// The mapping.
 	Content interface{} `pulumi:"content"`
@@ -2092,7 +2052,6 @@ type IotMappingPropertiesInput interface {
 	ToIotMappingPropertiesOutputWithContext(context.Context) IotMappingPropertiesOutput
 }
 
-// The mapping content.
 type IotMappingPropertiesArgs struct {
 	// The mapping.
 	Content pulumi.Input `pulumi:"content"`
@@ -2151,7 +2110,6 @@ func (i *iotMappingPropertiesPtrType) ToIotMappingPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesPtrOutput)
 }
 
-// The mapping content.
 type IotMappingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IotMappingPropertiesOutput) ElementType() reflect.Type {
@@ -2215,7 +2173,6 @@ func (o IotMappingPropertiesPtrOutput) Content() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The mapping content.
 type IotMappingPropertiesResponse struct {
 	// The mapping.
 	Content interface{} `pulumi:"content"`
@@ -2232,7 +2189,6 @@ type IotMappingPropertiesResponseInput interface {
 	ToIotMappingPropertiesResponseOutputWithContext(context.Context) IotMappingPropertiesResponseOutput
 }
 
-// The mapping content.
 type IotMappingPropertiesResponseArgs struct {
 	// The mapping.
 	Content pulumi.Input `pulumi:"content"`
@@ -2291,7 +2247,6 @@ func (i *iotMappingPropertiesResponsePtrType) ToIotMappingPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesResponsePtrOutput)
 }
 
-// The mapping content.
 type IotMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IotMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2355,7 +2310,6 @@ func (o IotMappingPropertiesResponsePtrOutput) Content() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionType struct {
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
@@ -2372,7 +2326,6 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionTypeArgs struct {
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
@@ -2415,7 +2368,6 @@ func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -2457,7 +2409,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	}).(PrivateEndpointConnectionTypeOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -2484,7 +2435,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2537,7 +2487,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -2604,7 +2553,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -2621,7 +2569,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2680,7 +2627,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -2744,7 +2690,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -2765,7 +2710,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -2828,7 +2772,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -2922,7 +2865,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -2943,7 +2885,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -3006,7 +2947,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -3100,7 +3040,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntry struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId string `pulumi:"objectId"`
@@ -3117,7 +3056,6 @@ type ServiceAccessPolicyEntryInput interface {
 	ToServiceAccessPolicyEntryOutputWithContext(context.Context) ServiceAccessPolicyEntryOutput
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntryArgs struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
@@ -3160,7 +3098,6 @@ func (i ServiceAccessPolicyEntryArray) ToServiceAccessPolicyEntryArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryArrayOutput)
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntryOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccessPolicyEntryOutput) ElementType() reflect.Type {
@@ -3200,7 +3137,6 @@ func (o ServiceAccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) ServiceAcc
 	}).(ServiceAccessPolicyEntryOutput)
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntryResponse struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId string `pulumi:"objectId"`
@@ -3217,7 +3153,6 @@ type ServiceAccessPolicyEntryResponseInput interface {
 	ToServiceAccessPolicyEntryResponseOutputWithContext(context.Context) ServiceAccessPolicyEntryResponseOutput
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntryResponseArgs struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
@@ -3260,7 +3195,6 @@ func (i ServiceAccessPolicyEntryResponseArray) ToServiceAccessPolicyEntryRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryResponseArrayOutput)
 }
 
-// An access policy entry.
 type ServiceAccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccessPolicyEntryResponseOutput) ElementType() reflect.Type {
@@ -3300,7 +3234,6 @@ func (o ServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) Se
 	}).(ServiceAccessPolicyEntryResponseOutput)
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfo struct {
 	// The list of the ACR login servers.
 	LoginServers []string `pulumi:"loginServers"`
@@ -3317,7 +3250,6 @@ type ServiceAcrConfigurationInfoInput interface {
 	ToServiceAcrConfigurationInfoOutputWithContext(context.Context) ServiceAcrConfigurationInfoOutput
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfoArgs struct {
 	// The list of the ACR login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
@@ -3376,7 +3308,6 @@ func (i *serviceAcrConfigurationInfoPtrType) ToServiceAcrConfigurationInfoPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoPtrOutput)
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ServiceAcrConfigurationInfoOutput) ElementType() reflect.Type {
@@ -3440,7 +3371,6 @@ func (o ServiceAcrConfigurationInfoPtrOutput) LoginServers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfoResponse struct {
 	// The list of the ACR login servers.
 	LoginServers []string `pulumi:"loginServers"`
@@ -3457,7 +3387,6 @@ type ServiceAcrConfigurationInfoResponseInput interface {
 	ToServiceAcrConfigurationInfoResponseOutputWithContext(context.Context) ServiceAcrConfigurationInfoResponseOutput
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfoResponseArgs struct {
 	// The list of the ACR login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
@@ -3516,7 +3445,6 @@ func (i *serviceAcrConfigurationInfoResponsePtrType) ToServiceAcrConfigurationIn
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoResponsePtrOutput)
 }
 
-// Azure container registry configuration information
 type ServiceAcrConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceAcrConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -3580,7 +3508,6 @@ func (o ServiceAcrConfigurationInfoResponsePtrOutput) LoginServers() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfo struct {
 	// The audience url for the service
 	Audience *string `pulumi:"audience"`
@@ -3601,7 +3528,6 @@ type ServiceAuthenticationConfigurationInfoInput interface {
 	ToServiceAuthenticationConfigurationInfoOutputWithContext(context.Context) ServiceAuthenticationConfigurationInfoOutput
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfoArgs struct {
 	// The audience url for the service
 	Audience pulumi.StringPtrInput `pulumi:"audience"`
@@ -3664,7 +3590,6 @@ func (i *serviceAuthenticationConfigurationInfoPtrType) ToServiceAuthenticationC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationInfoPtrOutput)
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthenticationConfigurationInfoOutput) ElementType() reflect.Type {
@@ -3758,7 +3683,6 @@ func (o ServiceAuthenticationConfigurationInfoPtrOutput) SmartProxyEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfoResponse struct {
 	// The audience url for the service
 	Audience *string `pulumi:"audience"`
@@ -3779,7 +3703,6 @@ type ServiceAuthenticationConfigurationInfoResponseInput interface {
 	ToServiceAuthenticationConfigurationInfoResponseOutputWithContext(context.Context) ServiceAuthenticationConfigurationInfoResponseOutput
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfoResponseArgs struct {
 	// The audience url for the service
 	Audience pulumi.StringPtrInput `pulumi:"audience"`
@@ -3842,7 +3765,6 @@ func (i *serviceAuthenticationConfigurationInfoResponsePtrType) ToServiceAuthent
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationInfoResponsePtrOutput)
 }
 
-// Authentication configuration information
 type ServiceAuthenticationConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthenticationConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -3936,7 +3858,6 @@ func (o ServiceAuthenticationConfigurationInfoResponsePtrOutput) SmartProxyEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfo struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
@@ -3961,7 +3882,6 @@ type ServiceCorsConfigurationInfoInput interface {
 	ToServiceCorsConfigurationInfoOutputWithContext(context.Context) ServiceCorsConfigurationInfoOutput
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoArgs struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
@@ -4028,7 +3948,6 @@ func (i *serviceCorsConfigurationInfoPtrType) ToServiceCorsConfigurationInfoPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationInfoPtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorsConfigurationInfoOutput) ElementType() reflect.Type {
@@ -4152,7 +4071,6 @@ func (o ServiceCorsConfigurationInfoPtrOutput) Origins() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoResponse struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
@@ -4177,7 +4095,6 @@ type ServiceCorsConfigurationInfoResponseInput interface {
 	ToServiceCorsConfigurationInfoResponseOutputWithContext(context.Context) ServiceCorsConfigurationInfoResponseOutput
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoResponseArgs struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
@@ -4244,7 +4161,6 @@ func (i *serviceCorsConfigurationInfoResponsePtrType) ToServiceCorsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationInfoResponsePtrOutput)
 }
 
-// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorsConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -4368,7 +4284,6 @@ func (o ServiceCorsConfigurationInfoResponsePtrOutput) Origins() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfo struct {
 	// The URI of the customer-managed key for the backing database.
 	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
@@ -4387,7 +4302,6 @@ type ServiceCosmosDbConfigurationInfoInput interface {
 	ToServiceCosmosDbConfigurationInfoOutputWithContext(context.Context) ServiceCosmosDbConfigurationInfoOutput
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoArgs struct {
 	// The URI of the customer-managed key for the backing database.
 	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
@@ -4448,7 +4362,6 @@ func (i *serviceCosmosDbConfigurationInfoPtrType) ToServiceCosmosDbConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCosmosDbConfigurationInfoPtrOutput)
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ServiceCosmosDbConfigurationInfoOutput) ElementType() reflect.Type {
@@ -4527,7 +4440,6 @@ func (o ServiceCosmosDbConfigurationInfoPtrOutput) OfferThroughput() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponse struct {
 	// The URI of the customer-managed key for the backing database.
 	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
@@ -4546,7 +4458,6 @@ type ServiceCosmosDbConfigurationInfoResponseInput interface {
 	ToServiceCosmosDbConfigurationInfoResponseOutputWithContext(context.Context) ServiceCosmosDbConfigurationInfoResponseOutput
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponseArgs struct {
 	// The URI of the customer-managed key for the backing database.
 	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
@@ -4607,7 +4518,6 @@ func (i *serviceCosmosDbConfigurationInfoResponsePtrType) ToServiceCosmosDbConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCosmosDbConfigurationInfoResponsePtrOutput)
 }
 
-// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceCosmosDbConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -4686,7 +4596,6 @@ func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) OfferThroughput() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfo struct {
 	// The name of the default export storage account.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -4703,7 +4612,6 @@ type ServiceExportConfigurationInfoInput interface {
 	ToServiceExportConfigurationInfoOutputWithContext(context.Context) ServiceExportConfigurationInfoOutput
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfoArgs struct {
 	// The name of the default export storage account.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
@@ -4762,7 +4670,6 @@ func (i *serviceExportConfigurationInfoPtrType) ToServiceExportConfigurationInfo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceExportConfigurationInfoPtrOutput)
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ServiceExportConfigurationInfoOutput) ElementType() reflect.Type {
@@ -4826,7 +4733,6 @@ func (o ServiceExportConfigurationInfoPtrOutput) StorageAccountName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfoResponse struct {
 	// The name of the default export storage account.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -4843,7 +4749,6 @@ type ServiceExportConfigurationInfoResponseInput interface {
 	ToServiceExportConfigurationInfoResponseOutputWithContext(context.Context) ServiceExportConfigurationInfoResponseOutput
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfoResponseArgs struct {
 	// The name of the default export storage account.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
@@ -4902,7 +4807,6 @@ func (i *serviceExportConfigurationInfoResponsePtrType) ToServiceExportConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceExportConfigurationInfoResponsePtrOutput)
 }
 
-// Export operation configuration information
 type ServiceExportConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceExportConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -4966,7 +4870,6 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) StorageAccountName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityIdentity struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type *string `pulumi:"type"`
@@ -4983,7 +4886,6 @@ type ServiceManagedIdentityIdentityInput interface {
 	ToServiceManagedIdentityIdentityOutputWithContext(context.Context) ServiceManagedIdentityIdentityOutput
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityIdentityArgs struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -5042,7 +4944,6 @@ func (i *serviceManagedIdentityIdentityPtrType) ToServiceManagedIdentityIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityIdentityPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceManagedIdentityIdentityOutput) ElementType() reflect.Type {
@@ -5106,7 +5007,6 @@ func (o ServiceManagedIdentityIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityResponseIdentity struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type *string `pulumi:"type"`
@@ -5123,7 +5023,6 @@ type ServiceManagedIdentityResponseIdentityInput interface {
 	ToServiceManagedIdentityResponseIdentityOutputWithContext(context.Context) ServiceManagedIdentityResponseIdentityOutput
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityResponseIdentityArgs struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -5182,7 +5081,6 @@ func (i *serviceManagedIdentityResponseIdentityPtrType) ToServiceManagedIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityResponseIdentityPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityResponseIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceManagedIdentityResponseIdentityOutput) ElementType() reflect.Type {
@@ -5246,7 +5144,6 @@ func (o ServiceManagedIdentityResponseIdentityPtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a service instance.
 type ServicesProperties struct {
 	// The access policies of the service instance.
 	AccessPolicies []ServiceAccessPolicyEntry `pulumi:"accessPolicies"`
@@ -5277,7 +5174,6 @@ type ServicesPropertiesInput interface {
 	ToServicesPropertiesOutputWithContext(context.Context) ServicesPropertiesOutput
 }
 
-// The properties of a service instance.
 type ServicesPropertiesArgs struct {
 	// The access policies of the service instance.
 	AccessPolicies ServiceAccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
@@ -5350,7 +5246,6 @@ func (i *servicesPropertiesPtrType) ToServicesPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesPropertiesPtrOutput)
 }
 
-// The properties of a service instance.
 type ServicesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServicesPropertiesOutput) ElementType() reflect.Type {
@@ -5521,7 +5416,6 @@ func (o ServicesPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a service instance.
 type ServicesPropertiesResponse struct {
 	// The access policies of the service instance.
 	AccessPolicies []ServiceAccessPolicyEntryResponse `pulumi:"accessPolicies"`
@@ -5554,7 +5448,6 @@ type ServicesPropertiesResponseInput interface {
 	ToServicesPropertiesResponseOutputWithContext(context.Context) ServicesPropertiesResponseOutput
 }
 
-// The properties of a service instance.
 type ServicesPropertiesResponseArgs struct {
 	// The access policies of the service instance.
 	AccessPolicies ServiceAccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
@@ -5629,7 +5522,6 @@ func (i *servicesPropertiesResponsePtrType) ToServicesPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesPropertiesResponsePtrOutput)
 }
 
-// The properties of a service instance.
 type ServicesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5821,7 +5713,6 @@ func (o ServicesPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceIdentity struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type *string `pulumi:"type"`
@@ -5838,7 +5729,6 @@ type ServicesResourceIdentityInput interface {
 	ToServicesResourceIdentityOutputWithContext(context.Context) ServicesResourceIdentityOutput
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceIdentityArgs struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -5897,7 +5787,6 @@ func (i *servicesResourceIdentityPtrType) ToServicesResourceIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesResourceIdentityPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServicesResourceIdentityOutput) ElementType() reflect.Type {
@@ -5961,7 +5850,6 @@ func (o ServicesResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceResponseIdentity struct {
 	// The principal ID of the resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -5982,7 +5870,6 @@ type ServicesResourceResponseIdentityInput interface {
 	ToServicesResourceResponseIdentityOutputWithContext(context.Context) ServicesResourceResponseIdentityOutput
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceResponseIdentityArgs struct {
 	// The principal ID of the resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -6045,7 +5932,6 @@ func (i *servicesResourceResponseIdentityPtrType) ToServicesResourceResponseIden
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesResourceResponseIdentityPtrOutput)
 }
 
-// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceResponseIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServicesResourceResponseIdentityOutput) ElementType() reflect.Type {
@@ -6139,7 +6025,6 @@ func (o ServicesResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -6166,7 +6051,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -6235,7 +6119,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -6374,7 +6257,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Workspaces resource specific properties.
 type WorkspaceResponseProperties struct {
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -6391,7 +6273,6 @@ type WorkspaceResponsePropertiesInput interface {
 	ToWorkspaceResponsePropertiesOutputWithContext(context.Context) WorkspaceResponsePropertiesOutput
 }
 
-// Workspaces resource specific properties.
 type WorkspaceResponsePropertiesArgs struct {
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -6450,7 +6331,6 @@ func (i *workspaceResponsePropertiesPtrType) ToWorkspaceResponsePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceResponsePropertiesPtrOutput)
 }
 
-// Workspaces resource specific properties.
 type WorkspaceResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceResponsePropertiesOutput) ElementType() reflect.Type {

@@ -903,7 +903,6 @@ func (o AutoScaleSettingsResponsePtrOutput) Formula() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBaseProperties struct {
 	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -920,7 +919,6 @@ type AutoStorageBasePropertiesInput interface {
 	ToAutoStorageBasePropertiesOutputWithContext(context.Context) AutoStorageBasePropertiesOutput
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBasePropertiesArgs struct {
 	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
@@ -979,7 +977,6 @@ func (i *autoStorageBasePropertiesPtrType) ToAutoStorageBasePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStorageBasePropertiesPtrOutput)
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBasePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AutoStorageBasePropertiesOutput) ElementType() reflect.Type {
@@ -1043,7 +1040,6 @@ func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponse struct {
 	// The UTC time at which storage keys were last synchronized with the Batch account.
 	LastKeySync string `pulumi:"lastKeySync"`
@@ -1062,7 +1058,6 @@ type AutoStoragePropertiesResponseInput interface {
 	ToAutoStoragePropertiesResponseOutputWithContext(context.Context) AutoStoragePropertiesResponseOutput
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponseArgs struct {
 	// The UTC time at which storage keys were last synchronized with the Batch account.
 	LastKeySync pulumi.StringInput `pulumi:"lastKeySync"`
@@ -1123,7 +1118,6 @@ func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponsePtrOutput)
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoStoragePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2372,7 +2366,6 @@ func (o AzureFileShareConfigurationResponsePtrOutput) RelativeMountPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentity struct {
 	// The type of identity used for the Batch account.
 	Type ResourceIdentityType `pulumi:"type"`
@@ -2391,7 +2384,6 @@ type BatchAccountIdentityInput interface {
 	ToBatchAccountIdentityOutputWithContext(context.Context) BatchAccountIdentityOutput
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityArgs struct {
 	// The type of identity used for the Batch account.
 	Type ResourceIdentityTypeInput `pulumi:"type"`
@@ -2452,7 +2444,6 @@ func (i *batchAccountIdentityPtrType) ToBatchAccountIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountIdentityPtrOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityOutput) ElementType() reflect.Type {
@@ -2531,7 +2522,6 @@ func (o BatchAccountIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput
 	}).(pulumi.MapOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityResponse struct {
 	// The principal id of the Batch account. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -2554,7 +2544,6 @@ type BatchAccountIdentityResponseInput interface {
 	ToBatchAccountIdentityResponseOutputWithContext(context.Context) BatchAccountIdentityResponseOutput
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityResponseArgs struct {
 	// The principal id of the Batch account. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -2619,7 +2608,6 @@ func (i *batchAccountIdentityResponsePtrType) ToBatchAccountIdentityResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountIdentityResponsePtrOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityResponseOutput) ElementType() reflect.Type {
@@ -2836,7 +2824,6 @@ func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k 
 	}).(BatchAccountIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentity struct {
 	// The type of identity used for the Batch Pool.
 	Type PoolIdentityType `pulumi:"type"`
@@ -2855,7 +2842,6 @@ type BatchPoolIdentityInput interface {
 	ToBatchPoolIdentityOutputWithContext(context.Context) BatchPoolIdentityOutput
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityArgs struct {
 	// The type of identity used for the Batch Pool.
 	Type PoolIdentityTypeInput `pulumi:"type"`
@@ -2916,7 +2902,6 @@ func (i *batchPoolIdentityPtrType) ToBatchPoolIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityPtrOutput)
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityOutput struct{ *pulumi.OutputState }
 
 func (BatchPoolIdentityOutput) ElementType() reflect.Type {
@@ -2995,7 +2980,6 @@ func (o BatchPoolIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityResponse struct {
 	// The type of identity used for the Batch Pool.
 	Type string `pulumi:"type"`
@@ -3014,7 +2998,6 @@ type BatchPoolIdentityResponseInput interface {
 	ToBatchPoolIdentityResponseOutputWithContext(context.Context) BatchPoolIdentityResponseOutput
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityResponseArgs struct {
 	// The type of identity used for the Batch Pool.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3075,7 +3058,6 @@ func (i *batchPoolIdentityResponsePtrType) ToBatchPoolIdentityResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponsePtrOutput)
 }
 
-// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchPoolIdentityResponseOutput) ElementType() reflect.Type {
@@ -4978,7 +4960,6 @@ func (o ContainerRegistryResponseArrayOutput) Index(i pulumi.IntInput) Container
 	}).(ContainerRegistryResponseOutput)
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDisk struct {
 	// Values are:
 	//
@@ -5009,7 +4990,6 @@ type DataDiskInput interface {
 	ToDataDiskOutputWithContext(context.Context) DataDiskOutput
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDiskArgs struct {
 	// Values are:
 	//
@@ -5066,7 +5046,6 @@ func (i DataDiskArray) ToDataDiskArrayOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskArrayOutput)
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDiskOutput struct{ *pulumi.OutputState }
 
 func (DataDiskOutput) ElementType() reflect.Type {
@@ -5129,7 +5108,6 @@ func (o DataDiskArrayOutput) Index(i pulumi.IntInput) DataDiskOutput {
 	}).(DataDiskOutput)
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDiskResponse struct {
 	// Values are:
 	//
@@ -5160,7 +5138,6 @@ type DataDiskResponseInput interface {
 	ToDataDiskResponseOutputWithContext(context.Context) DataDiskResponseOutput
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDiskResponseArgs struct {
 	// Values are:
 	//
@@ -5217,7 +5194,6 @@ func (i DataDiskResponseArray) ToDataDiskResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskResponseArrayOutput)
 }
 
-// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
 type DataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskResponseOutput) ElementType() reflect.Type {
@@ -5280,7 +5256,6 @@ func (o DataDiskResponseArrayOutput) Index(i pulumi.IntInput) DataDiskResponseOu
 	}).(DataDiskResponseOutput)
 }
 
-// An error response from the Batch service.
 type DeleteCertificateErrorResponse struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code string `pulumi:"code"`
@@ -5303,7 +5278,6 @@ type DeleteCertificateErrorResponseInput interface {
 	ToDeleteCertificateErrorResponseOutputWithContext(context.Context) DeleteCertificateErrorResponseOutput
 }
 
-// An error response from the Batch service.
 type DeleteCertificateErrorResponseArgs struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -5393,7 +5367,6 @@ func (i DeleteCertificateErrorResponseArray) ToDeleteCertificateErrorResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(DeleteCertificateErrorResponseArrayOutput)
 }
 
-// An error response from the Batch service.
 type DeleteCertificateErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (DeleteCertificateErrorResponseOutput) ElementType() reflect.Type {
@@ -5838,7 +5811,6 @@ func (o DeploymentConfigurationResponsePtrOutput) VirtualMachineConfiguration() 
 	}).(VirtualMachineConfigurationResponsePtrOutput)
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfiguration struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
 	Targets []DiskEncryptionTarget `pulumi:"targets"`
@@ -5855,7 +5827,6 @@ type DiskEncryptionConfigurationInput interface {
 	ToDiskEncryptionConfigurationOutputWithContext(context.Context) DiskEncryptionConfigurationOutput
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfigurationArgs struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
 	Targets DiskEncryptionTargetArrayInput `pulumi:"targets"`
@@ -5914,7 +5885,6 @@ func (i *diskEncryptionConfigurationPtrType) ToDiskEncryptionConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionConfigurationPtrOutput)
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -5978,7 +5948,6 @@ func (o DiskEncryptionConfigurationPtrOutput) Targets() DiskEncryptionTargetArra
 	}).(DiskEncryptionTargetArrayOutput)
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfigurationResponse struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
 	Targets []string `pulumi:"targets"`
@@ -5995,7 +5964,6 @@ type DiskEncryptionConfigurationResponseInput interface {
 	ToDiskEncryptionConfigurationResponseOutputWithContext(context.Context) DiskEncryptionConfigurationResponseOutput
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfigurationResponseArgs struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
 	Targets pulumi.StringArrayInput `pulumi:"targets"`
@@ -6054,7 +6022,6 @@ func (i *diskEncryptionConfigurationResponsePtrType) ToDiskEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionConfigurationResponsePtrOutput)
 }
 
-// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionConfigurationResponseOutput) ElementType() reflect.Type {
@@ -6118,7 +6085,6 @@ func (o DiskEncryptionConfigurationResponsePtrOutput) Targets() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionProperties struct {
 	// Type of the key source.
 	KeySource *KeySource `pulumi:"keySource"`
@@ -6137,7 +6103,6 @@ type EncryptionPropertiesInput interface {
 	ToEncryptionPropertiesOutputWithContext(context.Context) EncryptionPropertiesOutput
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesArgs struct {
 	// Type of the key source.
 	KeySource KeySourcePtrInput `pulumi:"keySource"`
@@ -6198,7 +6163,6 @@ func (i *encryptionPropertiesPtrType) ToEncryptionPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesPtrOutput)
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesOutput) ElementType() reflect.Type {
@@ -6277,7 +6241,6 @@ func (o EncryptionPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPt
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesResponse struct {
 	// Type of the key source.
 	KeySource *string `pulumi:"keySource"`
@@ -6296,7 +6259,6 @@ type EncryptionPropertiesResponseInput interface {
 	ToEncryptionPropertiesResponseOutputWithContext(context.Context) EncryptionPropertiesResponseOutput
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesResponseArgs struct {
 	// Type of the key source.
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
@@ -6357,7 +6319,6 @@ func (i *encryptionPropertiesResponsePtrType) ToEncryptionPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesResponsePtrOutput)
 }
 
-// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7728,7 +7689,6 @@ func (o InboundNatPoolResponseArrayOutput) Index(i pulumi.IntInput) InboundNatPo
 	}).(InboundNatPoolResponseOutput)
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultProperties struct {
 	// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 	//
@@ -7749,7 +7709,6 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultPropertiesArgs struct {
 	// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 	//
@@ -7812,7 +7771,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -7884,7 +7842,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultPropertiesResponse struct {
 	// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 	//
@@ -7905,7 +7862,6 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultPropertiesResponseArgs struct {
 	// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 	//
@@ -7968,7 +7924,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8040,7 +7995,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReference struct {
 	// The resource ID of the Azure key vault associated with the Batch account.
 	Id string `pulumi:"id"`
@@ -8059,7 +8013,6 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceArgs struct {
 	// The resource ID of the Azure key vault associated with the Batch account.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -8120,7 +8073,6 @@ func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -8199,7 +8151,6 @@ func (o KeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponse struct {
 	// The resource ID of the Azure key vault associated with the Batch account.
 	Id string `pulumi:"id"`
@@ -8218,7 +8169,6 @@ type KeyVaultReferenceResponseInput interface {
 	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponseArgs struct {
 	// The resource ID of the Azure key vault associated with the Batch account.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -8279,7 +8229,6 @@ func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
@@ -8708,7 +8657,6 @@ func (o LinuxUserConfigurationResponsePtrOutput) Uid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItem struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
@@ -8725,7 +8673,6 @@ type MetadataItemInput interface {
 	ToMetadataItemOutputWithContext(context.Context) MetadataItemOutput
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItemArgs struct {
 	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -8768,7 +8715,6 @@ func (i MetadataItemArray) ToMetadataItemArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataItemArrayOutput)
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItemOutput struct{ *pulumi.OutputState }
 
 func (MetadataItemOutput) ElementType() reflect.Type {
@@ -8811,7 +8757,6 @@ func (o MetadataItemArrayOutput) Index(i pulumi.IntInput) MetadataItemOutput {
 	}).(MetadataItemOutput)
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItemResponse struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
@@ -8828,7 +8773,6 @@ type MetadataItemResponseInput interface {
 	ToMetadataItemResponseOutputWithContext(context.Context) MetadataItemResponseOutput
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItemResponseArgs struct {
 	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -8871,7 +8815,6 @@ func (i MetadataItemResponseArray) ToMetadataItemResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataItemResponseArrayOutput)
 }
 
-// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
 type MetadataItemResponseOutput struct{ *pulumi.OutputState }
 
 func (MetadataItemResponseOutput) ElementType() reflect.Type {
@@ -9510,7 +9453,6 @@ func (o NFSMountConfigurationResponsePtrOutput) Source() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network configuration for a pool.
 type NetworkConfiguration struct {
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration *PoolEndpointConfiguration `pulumi:"endpointConfiguration"`
@@ -9531,7 +9473,6 @@ type NetworkConfigurationInput interface {
 	ToNetworkConfigurationOutputWithContext(context.Context) NetworkConfigurationOutput
 }
 
-// The network configuration for a pool.
 type NetworkConfigurationArgs struct {
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration PoolEndpointConfigurationPtrInput `pulumi:"endpointConfiguration"`
@@ -9594,7 +9535,6 @@ func (i *networkConfigurationPtrType) ToNetworkConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationPtrOutput)
 }
 
-// The network configuration for a pool.
 type NetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkConfigurationOutput) ElementType() reflect.Type {
@@ -9688,7 +9628,6 @@ func (o NetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network configuration for a pool.
 type NetworkConfigurationResponse struct {
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration *PoolEndpointConfigurationResponse `pulumi:"endpointConfiguration"`
@@ -9709,7 +9648,6 @@ type NetworkConfigurationResponseInput interface {
 	ToNetworkConfigurationResponseOutputWithContext(context.Context) NetworkConfigurationResponseOutput
 }
 
-// The network configuration for a pool.
 type NetworkConfigurationResponseArgs struct {
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration PoolEndpointConfigurationResponsePtrInput `pulumi:"endpointConfiguration"`
@@ -9772,7 +9710,6 @@ func (i *networkConfigurationResponsePtrType) ToNetworkConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationResponsePtrOutput)
 }
 
-// The network configuration for a pool.
 type NetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -10112,7 +10049,6 @@ func (o NetworkSecurityGroupRuleResponseArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkSecurityGroupRuleResponseOutput)
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfiguration struct {
 	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
 	Policy *NodePlacementPolicyType `pulumi:"policy"`
@@ -10129,7 +10065,6 @@ type NodePlacementConfigurationInput interface {
 	ToNodePlacementConfigurationOutputWithContext(context.Context) NodePlacementConfigurationOutput
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationArgs struct {
 	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
 	Policy NodePlacementPolicyTypePtrInput `pulumi:"policy"`
@@ -10188,7 +10123,6 @@ func (i *nodePlacementConfigurationPtrType) ToNodePlacementConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationPtrOutput)
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NodePlacementConfigurationOutput) ElementType() reflect.Type {
@@ -10252,7 +10186,6 @@ func (o NodePlacementConfigurationPtrOutput) Policy() NodePlacementPolicyTypePtr
 	}).(NodePlacementPolicyTypePtrOutput)
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationResponse struct {
 	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
 	Policy *string `pulumi:"policy"`
@@ -10269,7 +10202,6 @@ type NodePlacementConfigurationResponseInput interface {
 	ToNodePlacementConfigurationResponseOutputWithContext(context.Context) NodePlacementConfigurationResponseOutput
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationResponseArgs struct {
 	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
@@ -10328,7 +10260,6 @@ func (i *nodePlacementConfigurationResponsePtrType) ToNodePlacementConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationResponsePtrOutput)
 }
 
-// Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NodePlacementConfigurationResponseOutput) ElementType() reflect.Type {
@@ -10666,7 +10597,6 @@ func (o PoolEndpointConfigurationResponsePtrOutput) InboundNatPools() InboundNat
 	}).(InboundNatPoolResponseArrayOutput)
 }
 
-// Contains information about a private link resource.
 type PrivateEndpointConnectionResponse struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
@@ -10694,7 +10624,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Contains information about a private link resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringInput `pulumi:"etag"`
@@ -10748,7 +10677,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Contains information about a private link resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -10819,7 +10747,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The private endpoint of the private endpoint connection.
 type PrivateEndpointResponse struct {
 	Id string `pulumi:"id"`
 }
@@ -10835,7 +10762,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The private endpoint of the private endpoint connection.
 type PrivateEndpointResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -10893,7 +10819,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The private endpoint of the private endpoint connection.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -10955,7 +10880,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponse struct {
 	ActionRequired string  `pulumi:"actionRequired"`
 	Description    *string `pulumi:"description"`
@@ -10973,7 +10897,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The private link service connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	ActionRequired pulumi.StringInput    `pulumi:"actionRequired"`
 	Description    pulumi.StringPtrInput `pulumi:"description"`
@@ -11033,7 +10956,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The private link service connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -11121,7 +11043,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfiguration struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
@@ -11140,7 +11061,6 @@ type PublicIPAddressConfigurationInput interface {
 	ToPublicIPAddressConfigurationOutputWithContext(context.Context) PublicIPAddressConfigurationOutput
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationArgs struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
@@ -11201,7 +11121,6 @@ func (i *publicIPAddressConfigurationPtrType) ToPublicIPAddressConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressConfigurationPtrOutput)
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressConfigurationOutput) ElementType() reflect.Type {
@@ -11280,7 +11199,6 @@ func (o PublicIPAddressConfigurationPtrOutput) Provision() IPAddressProvisioning
 	}).(IPAddressProvisioningTypePtrOutput)
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponse struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
@@ -11299,7 +11217,6 @@ type PublicIPAddressConfigurationResponseInput interface {
 	ToPublicIPAddressConfigurationResponseOutputWithContext(context.Context) PublicIPAddressConfigurationResponseOutput
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponseArgs struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
@@ -11360,7 +11277,6 @@ func (i *publicIPAddressConfigurationResponsePtrType) ToPublicIPAddressConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressConfigurationResponsePtrOutput)
 }
 
-// The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressConfigurationResponseOutput) ElementType() reflect.Type {
@@ -11551,7 +11467,6 @@ func (o ResizeErrorResponseArrayOutput) Index(i pulumi.IntInput) ResizeErrorResp
 	}).(ResizeErrorResponseOutput)
 }
 
-// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
 type ResizeOperationStatusResponse struct {
 	// This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
 	Errors []ResizeErrorResponse `pulumi:"errors"`
@@ -11575,7 +11490,6 @@ type ResizeOperationStatusResponseInput interface {
 	ToResizeOperationStatusResponseOutputWithContext(context.Context) ResizeOperationStatusResponseOutput
 }
 
-// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
 type ResizeOperationStatusResponseArgs struct {
 	// This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
 	Errors ResizeErrorResponseArrayInput `pulumi:"errors"`
@@ -11641,7 +11555,6 @@ func (i *resizeOperationStatusResponsePtrType) ToResizeOperationStatusResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ResizeOperationStatusResponsePtrOutput)
 }
 
-// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
 type ResizeOperationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ResizeOperationStatusResponseOutput) ElementType() reflect.Type {
@@ -12058,7 +11971,6 @@ func (o ResourceFileResponseArrayOutput) Index(i pulumi.IntInput) ResourceFileRe
 	}).(ResourceFileResponseOutput)
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettings struct {
 	// This property and fixedScale are mutually exclusive and one of the properties must be specified.
 	AutoScale *AutoScaleSettings `pulumi:"autoScale"`
@@ -12077,7 +11989,6 @@ type ScaleSettingsInput interface {
 	ToScaleSettingsOutputWithContext(context.Context) ScaleSettingsOutput
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettingsArgs struct {
 	// This property and fixedScale are mutually exclusive and one of the properties must be specified.
 	AutoScale AutoScaleSettingsPtrInput `pulumi:"autoScale"`
@@ -12138,7 +12049,6 @@ func (i *scaleSettingsPtrType) ToScaleSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSettingsPtrOutput)
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSettingsOutput) ElementType() reflect.Type {
@@ -12217,7 +12127,6 @@ func (o ScaleSettingsPtrOutput) FixedScale() FixedScaleSettingsPtrOutput {
 	}).(FixedScaleSettingsPtrOutput)
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettingsResponse struct {
 	// This property and fixedScale are mutually exclusive and one of the properties must be specified.
 	AutoScale *AutoScaleSettingsResponse `pulumi:"autoScale"`
@@ -12236,7 +12145,6 @@ type ScaleSettingsResponseInput interface {
 	ToScaleSettingsResponseOutputWithContext(context.Context) ScaleSettingsResponseOutput
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettingsResponseArgs struct {
 	// This property and fixedScale are mutually exclusive and one of the properties must be specified.
 	AutoScale AutoScaleSettingsResponsePtrInput `pulumi:"autoScale"`
@@ -12297,7 +12205,6 @@ func (i *scaleSettingsResponsePtrType) ToScaleSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSettingsResponsePtrOutput)
 }
 
-// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
 type ScaleSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ScaleSettingsResponseOutput) ElementType() reflect.Type {
@@ -12376,7 +12283,6 @@ func (o ScaleSettingsResponsePtrOutput) FixedScale() FixedScaleSettingsResponseP
 	}).(FixedScaleSettingsResponsePtrOutput)
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTask struct {
 	// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
 	CommandLine *string `pulumi:"commandLine"`
@@ -12403,7 +12309,6 @@ type StartTaskInput interface {
 	ToStartTaskOutputWithContext(context.Context) StartTaskOutput
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTaskArgs struct {
 	// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
 	CommandLine pulumi.StringPtrInput `pulumi:"commandLine"`
@@ -12472,7 +12377,6 @@ func (i *startTaskPtrType) ToStartTaskPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StartTaskPtrOutput)
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTaskOutput struct{ *pulumi.OutputState }
 
 func (StartTaskOutput) ElementType() reflect.Type {
@@ -12622,7 +12526,6 @@ func (o StartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTaskResponse struct {
 	// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
 	CommandLine *string `pulumi:"commandLine"`
@@ -12649,7 +12552,6 @@ type StartTaskResponseInput interface {
 	ToStartTaskResponseOutputWithContext(context.Context) StartTaskResponseOutput
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTaskResponseArgs struct {
 	// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
 	CommandLine pulumi.StringPtrInput `pulumi:"commandLine"`
@@ -12718,7 +12620,6 @@ func (i *startTaskResponsePtrType) ToStartTaskResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StartTaskResponsePtrOutput)
 }
 
-// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
 type StartTaskResponseOutput struct{ *pulumi.OutputState }
 
 func (StartTaskResponseOutput) ElementType() reflect.Type {
@@ -13768,7 +13669,6 @@ func (o UserAccountResponseArrayOutput) Index(i pulumi.IntInput) UserAccountResp
 	}).(UserAccountResponseOutput)
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentity struct {
 	// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
 	AutoUser *AutoUserSpecification `pulumi:"autoUser"`
@@ -13787,7 +13687,6 @@ type UserIdentityInput interface {
 	ToUserIdentityOutputWithContext(context.Context) UserIdentityOutput
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentityArgs struct {
 	// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
 	AutoUser AutoUserSpecificationPtrInput `pulumi:"autoUser"`
@@ -13848,7 +13747,6 @@ func (i *userIdentityPtrType) ToUserIdentityPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPtrOutput)
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityOutput) ElementType() reflect.Type {
@@ -13927,7 +13825,6 @@ func (o UserIdentityPtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentityResponse struct {
 	// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
 	AutoUser *AutoUserSpecificationResponse `pulumi:"autoUser"`
@@ -13946,7 +13843,6 @@ type UserIdentityResponseInput interface {
 	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentityResponseArgs struct {
 	// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
 	AutoUser AutoUserSpecificationResponsePtrInput `pulumi:"autoUser"`
@@ -14007,7 +13903,6 @@ func (i *userIdentityResponsePtrType) ToUserIdentityResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponsePtrOutput)
 }
 
-// Specify either the userName or autoUser property, but not both.
 type UserIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityResponseOutput) ElementType() reflect.Type {
@@ -14978,7 +14873,6 @@ func (o VirtualMachineConfigurationResponsePtrOutput) WindowsConfiguration() Win
 	}).(WindowsConfigurationResponsePtrOutput)
 }
 
-// A VM Family and its associated core quota for the Batch account.
 type VirtualMachineFamilyCoreQuotaResponse struct {
 	// The core quota for the VM family for the Batch account.
 	CoreQuota int `pulumi:"coreQuota"`
@@ -14997,7 +14891,6 @@ type VirtualMachineFamilyCoreQuotaResponseInput interface {
 	ToVirtualMachineFamilyCoreQuotaResponseOutputWithContext(context.Context) VirtualMachineFamilyCoreQuotaResponseOutput
 }
 
-// A VM Family and its associated core quota for the Batch account.
 type VirtualMachineFamilyCoreQuotaResponseArgs struct {
 	// The core quota for the VM family for the Batch account.
 	CoreQuota pulumi.IntInput `pulumi:"coreQuota"`
@@ -15042,7 +14935,6 @@ func (i VirtualMachineFamilyCoreQuotaResponseArray) ToVirtualMachineFamilyCoreQu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineFamilyCoreQuotaResponseArrayOutput)
 }
 
-// A VM Family and its associated core quota for the Batch account.
 type VirtualMachineFamilyCoreQuotaResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineFamilyCoreQuotaResponseOutput) ElementType() reflect.Type {
