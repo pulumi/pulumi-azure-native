@@ -175,7 +175,6 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessRightsPtrOutput)
 }
 
-// Name of this SKU.
 type ClusterSkuName string
 
 const (
@@ -339,7 +338,6 @@ func (in *clusterSkuNamePtr) ToClusterSkuNamePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterSkuNamePtrOutput)
 }
 
-// Default Action for Network Rule Set
 type DefaultAction string
 
 const (
@@ -504,7 +502,6 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
-// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
 type EncodingCaptureDescription string
 
 const (
@@ -669,7 +666,6 @@ func (in *encodingCaptureDescriptionPtr) ToEncodingCaptureDescriptionPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(EncodingCaptureDescriptionPtrOutput)
 }
 
-// Provisioning state of the Private Endpoint Connection.
 type EndPointProvisioningState string
 
 const (
@@ -838,7 +834,6 @@ func (in *endPointProvisioningStatePtr) ToEndPointProvisioningStatePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(EndPointProvisioningStatePtrOutput)
 }
 
-// Enumerates the possible values for the status of the Event Hub.
 type EntityStatus string
 
 const (
@@ -1010,7 +1005,6 @@ func (in *entityStatusPtr) ToEntityStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusPtrOutput)
 }
 
-// The IP Filter Action
 type IPAction string
 
 const (
@@ -1175,7 +1169,6 @@ func (in *ipactionPtr) ToIPActionPtrOutputWithContext(ctx context.Context) IPAct
 	return pulumi.ToOutputWithContext(ctx, in).(IPActionPtrOutput)
 }
 
-// The IP Filter Action
 type NetworkRuleIPAction string
 
 const (
@@ -1339,7 +1332,6 @@ func (in *networkRuleIPActionPtr) ToNetworkRuleIPActionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkRuleIPActionPtrOutput)
 }
 
-// Status of the connection.
 type PrivateLinkConnectionStatus string
 
 const (
@@ -1506,7 +1498,6 @@ func (in *privateLinkConnectionStatusPtr) ToPrivateLinkConnectionStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkConnectionStatusPtrOutput)
 }
 
-// Name of this SKU.
 type SkuName string
 
 const (
@@ -1671,7 +1662,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The billing tier of this particular SKU.
 type SkuTier string
 
 const (

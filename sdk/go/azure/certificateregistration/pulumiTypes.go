@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificate struct {
 	// Key Vault resource Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -29,7 +28,6 @@ type AppServiceCertificateInput interface {
 	ToAppServiceCertificateOutputWithContext(context.Context) AppServiceCertificateOutput
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateArgs struct {
 	// Key Vault resource Id.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
@@ -74,7 +72,6 @@ func (i AppServiceCertificateMap) ToAppServiceCertificateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateMapOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AppServiceCertificateMapOutput) MapIndex(k pulumi.StringInput) AppServic
 	}).(AppServiceCertificateOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponse struct {
 	// Key Vault resource Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -140,7 +136,6 @@ type AppServiceCertificateResponseInput interface {
 	ToAppServiceCertificateResponseOutputWithContext(context.Context) AppServiceCertificateResponseOutput
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponseArgs struct {
 	// Key Vault resource Id.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
@@ -187,7 +182,6 @@ func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseMapOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateResponseOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o AppServiceCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) A
 	}).(AppServiceCertificateResponseOutput)
 }
 
-// SSL certificate details.
 type CertificateDetailsResponse struct {
 	// Certificate Issuer.
 	Issuer string `pulumi:"issuer"`
@@ -270,7 +263,6 @@ type CertificateDetailsResponseInput interface {
 	ToCertificateDetailsResponseOutputWithContext(context.Context) CertificateDetailsResponseOutput
 }
 
-// SSL certificate details.
 type CertificateDetailsResponseArgs struct {
 	// Certificate Issuer.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
@@ -345,7 +337,6 @@ func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponsePtrOutput)
 }
 
-// SSL certificate details.
 type CertificateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateDetailsResponseOutput) ElementType() reflect.Type {
@@ -529,7 +520,6 @@ func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -556,7 +546,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -625,7 +614,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU name.
 type AzureSkuName string
 
 const (
@@ -198,7 +197,6 @@ func (in *azureSkuNamePtr) ToAzureSkuNamePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuNamePtrOutput)
 }
 
-// SKU tier.
 type AzureSkuTier string
 
 const (
@@ -363,7 +361,6 @@ func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuTierPtrOutput)
 }
 
-// The name of blob storage event type to process.
 type BlobStorageEventType string
 
 const (
@@ -528,7 +525,6 @@ func (in *blobStorageEventTypePtr) ToBlobStorageEventTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BlobStorageEventTypePtrOutput)
 }
 
-// Cluster principal role.
 type ClusterPrincipalRole string
 
 const (
@@ -693,7 +689,6 @@ func (in *clusterPrincipalRolePtr) ToClusterPrincipalRolePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterPrincipalRolePtrOutput)
 }
 
-// The event hub messages compression type
 type Compression string
 
 const (
@@ -858,7 +853,6 @@ func (in *compressionPtr) ToCompressionPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(CompressionPtrOutput)
 }
 
-// Kind of the endpoint for the data connection
 type DataConnectionKind string
 
 const (
@@ -1024,7 +1018,6 @@ func (in *dataConnectionKindPtr) ToDataConnectionKindPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(DataConnectionKindPtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type DataFormat string
 
 const (
@@ -1190,7 +1183,6 @@ func (in *dataFormatPtr) ToDataFormatPtrOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, in).(DataFormatPtrOutput)
 }
 
-// Database principal role.
 type DatabasePrincipalRole string
 
 const (
@@ -1359,7 +1351,6 @@ func (in *databasePrincipalRolePtr) ToDatabasePrincipalRolePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DatabasePrincipalRolePtrOutput)
 }
 
-// The default principals modification kind
 type DefaultPrincipalsModificationKind string
 
 const (
@@ -1525,7 +1516,6 @@ func (in *defaultPrincipalsModificationKindPtr) ToDefaultPrincipalsModificationK
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultPrincipalsModificationKindPtrOutput)
 }
 
-// The engine type
 type EngineType string
 
 const (
@@ -1690,7 +1680,6 @@ func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type EventGridDataFormat string
 
 const (
@@ -1869,7 +1858,6 @@ func (in *eventGridDataFormatPtr) ToEventGridDataFormatPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EventGridDataFormatPtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type EventHubDataFormat string
 
 const (
@@ -2048,7 +2036,6 @@ func (in *eventHubDataFormatPtr) ToEventHubDataFormatPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EventHubDataFormatPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 type IdentityType string
 
 const (
@@ -2215,7 +2202,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// The data format of the message. Optionally the data format can be added to each message.
 type IotHubDataFormat string
 
 const (
@@ -2394,7 +2380,6 @@ func (in *iotHubDataFormatPtr) ToIotHubDataFormatPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(IotHubDataFormatPtrOutput)
 }
 
-// Kind of the database
 type Kind string
 
 const (
@@ -2559,7 +2544,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Principal type.
 type PrincipalType string
 
 const (

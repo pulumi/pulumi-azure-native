@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// APIServerProfile represents an API server profile.
 type APIServerProfile struct {
 	// The IP of the cluster API server (immutable).
 	Ip *string `pulumi:"ip"`
@@ -31,7 +30,6 @@ type APIServerProfileInput interface {
 	ToAPIServerProfileOutputWithContext(context.Context) APIServerProfileOutput
 }
 
-// APIServerProfile represents an API server profile.
 type APIServerProfileArgs struct {
 	// The IP of the cluster API server (immutable).
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -94,7 +92,6 @@ func (i *apiserverProfilePtrType) ToAPIServerProfilePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(APIServerProfilePtrOutput)
 }
 
-// APIServerProfile represents an API server profile.
 type APIServerProfileOutput struct{ *pulumi.OutputState }
 
 func (APIServerProfileOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o APIServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// APIServerProfile represents an API server profile.
 type APIServerProfileResponse struct {
 	// The IP of the cluster API server (immutable).
 	Ip *string `pulumi:"ip"`
@@ -209,7 +205,6 @@ type APIServerProfileResponseInput interface {
 	ToAPIServerProfileResponseOutputWithContext(context.Context) APIServerProfileResponseOutput
 }
 
-// APIServerProfile represents an API server profile.
 type APIServerProfileResponseArgs struct {
 	// The IP of the cluster API server (immutable).
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -272,7 +267,6 @@ func (i *apiserverProfileResponsePtrType) ToAPIServerProfileResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(APIServerProfileResponsePtrOutput)
 }
 
-// APIServerProfile represents an API server profile.
 type APIServerProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (APIServerProfileResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o APIServerProfileResponsePtrOutput) Visibility() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfile struct {
 	// The domain for the cluster (immutable).
 	Domain *string `pulumi:"domain"`
@@ -389,7 +382,6 @@ type ClusterProfileInput interface {
 	ToClusterProfileOutputWithContext(context.Context) ClusterProfileOutput
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfileArgs struct {
 	// The domain for the cluster (immutable).
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
@@ -454,7 +446,6 @@ func (i *clusterProfilePtrType) ToClusterProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterProfilePtrOutput)
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfileOutput struct{ *pulumi.OutputState }
 
 func (ClusterProfileOutput) ElementType() reflect.Type {
@@ -563,7 +554,6 @@ func (o ClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfileResponse struct {
 	// The domain for the cluster (immutable).
 	Domain *string `pulumi:"domain"`
@@ -586,7 +576,6 @@ type ClusterProfileResponseInput interface {
 	ToClusterProfileResponseOutputWithContext(context.Context) ClusterProfileResponseOutput
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfileResponseArgs struct {
 	// The domain for the cluster (immutable).
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
@@ -651,7 +640,6 @@ func (i *clusterProfileResponsePtrType) ToClusterProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterProfileResponsePtrOutput)
 }
 
-// ClusterProfile represents a cluster profile.
 type ClusterProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterProfileResponseOutput) ElementType() reflect.Type {
@@ -760,7 +748,6 @@ func (o ClusterProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfile struct {
 	// The URL to access the cluster console (immutable).
 	Url *string `pulumi:"url"`
@@ -777,7 +764,6 @@ type ConsoleProfileInput interface {
 	ToConsoleProfileOutputWithContext(context.Context) ConsoleProfileOutput
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfileArgs struct {
 	// The URL to access the cluster console (immutable).
 	Url pulumi.StringPtrInput `pulumi:"url"`
@@ -836,7 +822,6 @@ func (i *consoleProfilePtrType) ToConsoleProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleProfilePtrOutput)
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfileOutput struct{ *pulumi.OutputState }
 
 func (ConsoleProfileOutput) ElementType() reflect.Type {
@@ -900,7 +885,6 @@ func (o ConsoleProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfileResponse struct {
 	// The URL to access the cluster console (immutable).
 	Url *string `pulumi:"url"`
@@ -917,7 +901,6 @@ type ConsoleProfileResponseInput interface {
 	ToConsoleProfileResponseOutputWithContext(context.Context) ConsoleProfileResponseOutput
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfileResponseArgs struct {
 	// The URL to access the cluster console (immutable).
 	Url pulumi.StringPtrInput `pulumi:"url"`
@@ -976,7 +959,6 @@ func (i *consoleProfileResponsePtrType) ToConsoleProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleProfileResponsePtrOutput)
 }
 
-// ConsoleProfile represents a console profile.
 type ConsoleProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ConsoleProfileResponseOutput) ElementType() reflect.Type {
@@ -1040,7 +1022,6 @@ func (o ConsoleProfileResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfile struct {
 	// The IP of the ingress (immutable).
 	Ip *string `pulumi:"ip"`
@@ -1061,7 +1042,6 @@ type IngressProfileInput interface {
 	ToIngressProfileOutputWithContext(context.Context) IngressProfileOutput
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfileArgs struct {
 	// The IP of the ingress (immutable).
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -1108,7 +1088,6 @@ func (i IngressProfileArray) ToIngressProfileArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IngressProfileArrayOutput)
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfileOutput struct{ *pulumi.OutputState }
 
 func (IngressProfileOutput) ElementType() reflect.Type {
@@ -1158,7 +1137,6 @@ func (o IngressProfileArrayOutput) Index(i pulumi.IntInput) IngressProfileOutput
 	}).(IngressProfileOutput)
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfileResponse struct {
 	// The IP of the ingress (immutable).
 	Ip *string `pulumi:"ip"`
@@ -1179,7 +1157,6 @@ type IngressProfileResponseInput interface {
 	ToIngressProfileResponseOutputWithContext(context.Context) IngressProfileResponseOutput
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfileResponseArgs struct {
 	// The IP of the ingress (immutable).
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -1226,7 +1203,6 @@ func (i IngressProfileResponseArray) ToIngressProfileResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IngressProfileResponseArrayOutput)
 }
 
-// IngressProfile represents an ingress profile.
 type IngressProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (IngressProfileResponseOutput) ElementType() reflect.Type {
@@ -1276,7 +1252,6 @@ func (o IngressProfileResponseArrayOutput) Index(i pulumi.IntInput) IngressProfi
 	}).(IngressProfileResponseOutput)
 }
 
-// MasterProfile represents a master profile.
 type MasterProfile struct {
 	// The Azure resource ID of the master subnet (immutable).
 	SubnetId *string `pulumi:"subnetId"`
@@ -1295,7 +1270,6 @@ type MasterProfileInput interface {
 	ToMasterProfileOutputWithContext(context.Context) MasterProfileOutput
 }
 
-// MasterProfile represents a master profile.
 type MasterProfileArgs struct {
 	// The Azure resource ID of the master subnet (immutable).
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -1356,7 +1330,6 @@ func (i *masterProfilePtrType) ToMasterProfilePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MasterProfilePtrOutput)
 }
 
-// MasterProfile represents a master profile.
 type MasterProfileOutput struct{ *pulumi.OutputState }
 
 func (MasterProfileOutput) ElementType() reflect.Type {
@@ -1435,7 +1408,6 @@ func (o MasterProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// MasterProfile represents a master profile.
 type MasterProfileResponse struct {
 	// The Azure resource ID of the master subnet (immutable).
 	SubnetId *string `pulumi:"subnetId"`
@@ -1454,7 +1426,6 @@ type MasterProfileResponseInput interface {
 	ToMasterProfileResponseOutputWithContext(context.Context) MasterProfileResponseOutput
 }
 
-// MasterProfile represents a master profile.
 type MasterProfileResponseArgs struct {
 	// The Azure resource ID of the master subnet (immutable).
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -1515,7 +1486,6 @@ func (i *masterProfileResponsePtrType) ToMasterProfileResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MasterProfileResponsePtrOutput)
 }
 
-// MasterProfile represents a master profile.
 type MasterProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (MasterProfileResponseOutput) ElementType() reflect.Type {
@@ -1594,7 +1564,6 @@ func (o MasterProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfile struct {
 	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
 	PodCidr *string `pulumi:"podCidr"`
@@ -1613,7 +1582,6 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfileArgs struct {
 	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -1674,7 +1642,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -1753,7 +1720,6 @@ func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfileResponse struct {
 	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
 	PodCidr *string `pulumi:"podCidr"`
@@ -1772,7 +1738,6 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfileResponseArgs struct {
 	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -1833,7 +1798,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// NetworkProfile represents a network profile.
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -1912,7 +1876,6 @@ func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfile struct {
 	// The client ID used for the cluster (immutable).
 	ClientId *string `pulumi:"clientId"`
@@ -1931,7 +1894,6 @@ type ServicePrincipalProfileInput interface {
 	ToServicePrincipalProfileOutputWithContext(context.Context) ServicePrincipalProfileOutput
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileArgs struct {
 	// The client ID used for the cluster (immutable).
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -1992,7 +1954,6 @@ func (i *servicePrincipalProfilePtrType) ToServicePrincipalProfilePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalProfilePtrOutput)
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalProfileOutput) ElementType() reflect.Type {
@@ -2071,7 +2032,6 @@ func (o ServicePrincipalProfilePtrOutput) ClientSecret() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileResponse struct {
 	// The client ID used for the cluster (immutable).
 	ClientId *string `pulumi:"clientId"`
@@ -2090,7 +2050,6 @@ type ServicePrincipalProfileResponseInput interface {
 	ToServicePrincipalProfileResponseOutputWithContext(context.Context) ServicePrincipalProfileResponseOutput
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileResponseArgs struct {
 	// The client ID used for the cluster (immutable).
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -2151,7 +2110,6 @@ func (i *servicePrincipalProfileResponsePtrType) ToServicePrincipalProfileRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalProfileResponsePtrOutput)
 }
 
-// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalProfileResponseOutput) ElementType() reflect.Type {
@@ -2230,7 +2188,6 @@ func (o ServicePrincipalProfileResponsePtrOutput) ClientSecret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfile struct {
 	// The number of worker VMs.  Must be between 3 and 20 (immutable).
 	Count *int `pulumi:"count"`
@@ -2255,7 +2212,6 @@ type WorkerProfileInput interface {
 	ToWorkerProfileOutputWithContext(context.Context) WorkerProfileOutput
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfileArgs struct {
 	// The number of worker VMs.  Must be between 3 and 20 (immutable).
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -2306,7 +2262,6 @@ func (i WorkerProfileArray) ToWorkerProfileArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerProfileArrayOutput)
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfileOutput struct{ *pulumi.OutputState }
 
 func (WorkerProfileOutput) ElementType() reflect.Type {
@@ -2366,7 +2321,6 @@ func (o WorkerProfileArrayOutput) Index(i pulumi.IntInput) WorkerProfileOutput {
 	}).(WorkerProfileOutput)
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfileResponse struct {
 	// The number of worker VMs.  Must be between 3 and 20 (immutable).
 	Count *int `pulumi:"count"`
@@ -2391,7 +2345,6 @@ type WorkerProfileResponseInput interface {
 	ToWorkerProfileResponseOutputWithContext(context.Context) WorkerProfileResponseOutput
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfileResponseArgs struct {
 	// The number of worker VMs.  Must be between 3 and 20 (immutable).
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -2442,7 +2395,6 @@ func (i WorkerProfileResponseArray) ToWorkerProfileResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerProfileResponseArrayOutput)
 }
 
-// WorkerProfile represents a worker profile.
 type WorkerProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkerProfileResponseOutput) ElementType() reflect.Type {

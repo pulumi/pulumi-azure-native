@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The kind (type) of Enterprise Policy.
 type EnterprisePolicyKind string
 
 const (
@@ -177,7 +176,6 @@ func (in *enterprisePolicyKindPtr) ToEnterprisePolicyKindPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(EnterprisePolicyKindPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -343,7 +341,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 type ResourceIdentityType string
 
 const (
@@ -508,7 +505,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// lockbox configuration
 type State string
 
 const (

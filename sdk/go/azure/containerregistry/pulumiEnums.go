@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The action of virtual network rule.
 type Action string
 
 const (
@@ -174,7 +173,6 @@ func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 type ActionsRequired string
 
 const (
@@ -339,7 +337,6 @@ func (in *actionsRequiredPtr) ToActionsRequiredPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ActionsRequiredPtrOutput)
 }
 
-// The OS architecture.
 type Architecture string
 
 const (
@@ -507,7 +504,6 @@ func (in *architecturePtr) ToArchitecturePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ArchitecturePtrOutput)
 }
 
-// Indicates whether audit logs are enabled on the connected registry.
 type AuditLogStatus string
 
 const (
@@ -672,7 +668,6 @@ func (in *auditLogStatusPtr) ToAuditLogStatusPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogStatusPtrOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 type BaseImageTriggerType string
 
 const (
@@ -837,7 +832,6 @@ func (in *baseImageTriggerTypePtr) ToBaseImageTriggerTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BaseImageTriggerTypePtrOutput)
 }
 
-// The mode of the connected registry resource that indicates the permissions of the registry.
 type ConnectedRegistryMode string
 
 const (
@@ -1002,7 +996,6 @@ func (in *connectedRegistryModePtr) ToConnectedRegistryModePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectedRegistryModePtrOutput)
 }
 
-// The private link service connection status.
 type ConnectionStatus string
 
 const (
@@ -1169,7 +1162,6 @@ func (in *connectionStatusPtr) ToConnectionStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionStatusPtrOutput)
 }
 
-// The default action of allow or deny when no other rules match.
 type DefaultAction string
 
 const (
@@ -1334,7 +1326,6 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
-// The verbosity of logs persisted on the connected registry.
 type LogLevel string
 
 const (
@@ -1502,7 +1493,6 @@ func (in *logLevelPtr) ToLogLevelPtrOutputWithContext(ctx context.Context) LogLe
 	return pulumi.ToOutputWithContext(ctx, in).(LogLevelPtrOutput)
 }
 
-// The operating system type required for the run.
 type OS string
 
 const (
@@ -1833,7 +1823,6 @@ func (in *pipelineOptionsPtr) ToPipelineOptionsPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineOptionsPtrOutput)
 }
 
-// The type of the source.
 type PipelineRunSourceType string
 
 const (
@@ -1997,7 +1986,6 @@ func (in *pipelineRunSourceTypePtr) ToPipelineRunSourceTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineRunSourceTypePtrOutput)
 }
 
-// The type of the target.
 type PipelineRunTargetType string
 
 const (
@@ -2161,7 +2149,6 @@ func (in *pipelineRunTargetTypePtr) ToPipelineRunTargetTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineRunTargetTypePtrOutput)
 }
 
-// The type of source for the import pipeline.
 type PipelineSourceType string
 
 const (
@@ -2325,7 +2312,6 @@ func (in *pipelineSourceTypePtr) ToPipelineSourceTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineSourceTypePtrOutput)
 }
 
-// The value that indicates whether the policy is enabled or not.
 type PolicyStatus string
 
 const (
@@ -2490,7 +2476,6 @@ func (in *policyStatusPtr) ToPolicyStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyStatusPtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (
@@ -2657,8 +2642,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The type of the secret object which determines how the value of the secret object has to be
-// interpreted.
 type SecretObjectType string
 
 const (
@@ -2823,7 +2806,6 @@ func (in *secretObjectTypePtr) ToSecretObjectTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(SecretObjectTypePtrOutput)
 }
 
-// The SKU name of the container registry. Required for registry creation.
 type SkuName string
 
 const (
@@ -2990,7 +2972,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The type of source control service.
 type SourceControlType string
 
 const (
@@ -3155,9 +3136,6 @@ func (in *sourceControlTypePtr) ToSourceControlTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SourceControlTypePtrOutput)
 }
 
-// The authentication mode which determines the source registry login scope. The credentials for the source registry
-// will be generated using the given scope. These credentials will be used to login to
-// the source registry during the run.
 type SourceRegistryLoginMode string
 
 const (
@@ -3486,7 +3464,6 @@ func (in *sourceTriggerEventPtr) ToSourceTriggerEventPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SourceTriggerEventPtrOutput)
 }
 
-// The type of the step.
 type StepType string
 
 const (
@@ -3652,7 +3629,6 @@ func (in *stepTypePtr) ToStepTypePtrOutputWithContext(ctx context.Context) StepT
 	return pulumi.ToOutputWithContext(ctx, in).(StepTypePtrOutput)
 }
 
-// The current status of task.
 type TaskStatus string
 
 const (
@@ -3981,7 +3957,6 @@ func (in *tokenCertificateNamePtr) ToTokenCertificateNamePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(TokenCertificateNamePtrOutput)
 }
 
-// The password name "password1" or "password2"
 type TokenPasswordName string
 
 const (
@@ -4146,7 +4121,6 @@ func (in *tokenPasswordNamePtr) ToTokenPasswordNamePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(TokenPasswordNamePtrOutput)
 }
 
-// The status of the token example enabled or disabled.
 type TokenStatus string
 
 const (
@@ -4311,7 +4285,6 @@ func (in *tokenStatusPtr) ToTokenStatusPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(TokenStatusPtrOutput)
 }
 
-// The type of Auth token.
 type TokenType string
 
 const (
@@ -4476,7 +4449,6 @@ func (in *tokenTypePtr) ToTokenTypePtrOutputWithContext(ctx context.Context) Tok
 	return pulumi.ToOutputWithContext(ctx, in).(TokenTypePtrOutput)
 }
 
-// The current status of trigger.
 type TriggerStatus string
 
 const (
@@ -4641,7 +4613,6 @@ func (in *triggerStatusPtr) ToTriggerStatusPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(TriggerStatusPtrOutput)
 }
 
-// The type of trust policy.
 type TrustPolicyType string
 
 const (
@@ -4805,7 +4776,6 @@ func (in *trustPolicyTypePtr) ToTrustPolicyTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(TrustPolicyTypePtrOutput)
 }
 
-// Type of Payload body for Base image update triggers.
 type UpdateTriggerPayloadType string
 
 const (
@@ -4970,7 +4940,6 @@ func (in *updateTriggerPayloadTypePtr) ToUpdateTriggerPayloadTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(UpdateTriggerPayloadTypePtrOutput)
 }
 
-// Variant of the CPU.
 type Variant string
 
 const (
@@ -5303,7 +5272,6 @@ func (in *webhookActionPtr) ToWebhookActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(WebhookActionPtrOutput)
 }
 
-// The status of the webhook at the time the operation was called.
 type WebhookStatus string
 
 const (

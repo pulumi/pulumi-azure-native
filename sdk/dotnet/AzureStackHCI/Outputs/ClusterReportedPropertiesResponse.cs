@@ -29,14 +29,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string ClusterVersion;
         /// <summary>
-        /// Level of diagnostic data emitted by the cluster.
-        /// </summary>
-        public readonly string? DiagnosticLevel;
-        /// <summary>
-        /// IMDS attestation status of the cluster.
-        /// </summary>
-        public readonly string ImdsAttestation;
-        /// <summary>
         /// Last time the cluster reported the data.
         /// </summary>
         public readonly string LastUpdated;
@@ -53,10 +45,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string clusterVersion,
 
-            string? diagnosticLevel,
-
-            string imdsAttestation,
-
             string lastUpdated,
 
             ImmutableArray<Outputs.ClusterNodeResponse> nodes)
@@ -64,8 +52,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             ClusterId = clusterId;
             ClusterName = clusterName;
             ClusterVersion = clusterVersion;
-            DiagnosticLevel = diagnosticLevel;
-            ImdsAttestation = imdsAttestation;
             LastUpdated = lastUpdated;
             Nodes = nodes;
         }

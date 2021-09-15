@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access type of the rule.
 type Access string
 
 const (
@@ -175,7 +174,6 @@ func (in *accessPtr) ToAccessPtrOutputWithContext(ctx context.Context) AccessPtr
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPtrOutput)
 }
 
-// Describes the override action to be applied when rule matches.
 type ActionType string
 
 const (
@@ -342,7 +340,6 @@ func (in *actionTypePtr) ToActionTypePtrOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, in).(ActionTypePtrOutput)
 }
 
-// Address prefix type.
 type AddressPrefixType string
 
 const (
@@ -507,7 +504,6 @@ func (in *addressPrefixTypePtr) ToAddressPrefixTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AddressPrefixTypePtrOutput)
 }
 
-// Whether the rule is custom or default.
 type AdminRuleKind string
 
 const (
@@ -672,7 +668,6 @@ func (in *adminRuleKindPtr) ToAdminRuleKindPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AdminRuleKindPtrOutput)
 }
 
-// The allowed type DNS record types for this profile.
 type AllowedEndpointRecordType string
 
 const (
@@ -839,7 +834,6 @@ func (in *allowedEndpointRecordTypePtr) ToAllowedEndpointRecordTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AllowedEndpointRecordTypePtrOutput)
 }
 
-// Cookie based affinity.
 type ApplicationGatewayCookieBasedAffinity string
 
 const (
@@ -1004,7 +998,6 @@ func (in *applicationGatewayCookieBasedAffinityPtr) ToApplicationGatewayCookieBa
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayCookieBasedAffinityPtrOutput)
 }
 
-// Status code of the application gateway customer error.
 type ApplicationGatewayCustomErrorStatusCode string
 
 const (
@@ -1169,7 +1162,6 @@ func (in *applicationGatewayCustomErrorStatusCodePtr) ToApplicationGatewayCustom
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayCustomErrorStatusCodePtrOutput)
 }
 
-// Web application firewall mode.
 type ApplicationGatewayFirewallMode string
 
 const (
@@ -1334,7 +1326,6 @@ func (in *applicationGatewayFirewallModePtr) ToApplicationGatewayFirewallModePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayFirewallModePtrOutput)
 }
 
-// The protocol used for the probe.
 type ApplicationGatewayProtocol string
 
 const (
@@ -1499,7 +1490,6 @@ func (in *applicationGatewayProtocolPtr) ToApplicationGatewayProtocolPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayProtocolPtrOutput)
 }
 
-// HTTP redirection type.
 type ApplicationGatewayRedirectType string
 
 const (
@@ -1666,7 +1656,6 @@ func (in *applicationGatewayRedirectTypePtr) ToApplicationGatewayRedirectTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayRedirectTypePtrOutput)
 }
 
-// Rule type.
 type ApplicationGatewayRequestRoutingRuleType string
 
 const (
@@ -1831,7 +1820,6 @@ func (in *applicationGatewayRequestRoutingRuleTypePtr) ToApplicationGatewayReque
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayRequestRoutingRuleTypePtrOutput)
 }
 
-// Name of an application gateway SKU.
 type ApplicationGatewaySkuName string
 
 const (
@@ -2001,7 +1989,6 @@ func (in *applicationGatewaySkuNamePtr) ToApplicationGatewaySkuNamePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewaySkuNamePtrOutput)
 }
 
-// Ssl cipher suites enums.
 type ApplicationGatewaySslCipherSuite string
 
 const (
@@ -2192,7 +2179,6 @@ func (in *applicationGatewaySslCipherSuitePtr) ToApplicationGatewaySslCipherSuit
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewaySslCipherSuitePtrOutput)
 }
 
-// Name of Ssl predefined policy.
 type ApplicationGatewaySslPolicyName string
 
 const (
@@ -2358,7 +2344,6 @@ func (in *applicationGatewaySslPolicyNamePtr) ToApplicationGatewaySslPolicyNameP
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewaySslPolicyNamePtrOutput)
 }
 
-// Type of Ssl Policy.
 type ApplicationGatewaySslPolicyType string
 
 const (
@@ -2523,7 +2508,6 @@ func (in *applicationGatewaySslPolicyTypePtr) ToApplicationGatewaySslPolicyTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewaySslPolicyTypePtrOutput)
 }
 
-// Minimum version of Ssl protocol to be supported on application gateway.
 type ApplicationGatewaySslProtocol string
 
 const (
@@ -2689,7 +2673,6 @@ func (in *applicationGatewaySslProtocolPtr) ToApplicationGatewaySslProtocolPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewaySslProtocolPtrOutput)
 }
 
-// Tier of an application gateway.
 type ApplicationGatewayTier string
 
 const (
@@ -2856,7 +2839,6 @@ func (in *applicationGatewayTierPtr) ToApplicationGatewayTierPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGatewayTierPtrOutput)
 }
 
-// The authorization use status.
 type AuthorizationUseStatus string
 
 const (
@@ -3021,7 +3003,6 @@ func (in *authorizationUseStatusPtr) ToAuthorizationUseStatusPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizationUseStatusPtrOutput)
 }
 
-// Protocol type.
 type AzureFirewallApplicationRuleProtocolType string
 
 const (
@@ -3187,7 +3168,6 @@ func (in *azureFirewallApplicationRuleProtocolTypePtr) ToAzureFirewallApplicatio
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallApplicationRuleProtocolTypePtrOutput)
 }
 
-// The type of action.
 type AzureFirewallNatRCActionType string
 
 const (
@@ -3352,7 +3332,6 @@ func (in *azureFirewallNatRCActionTypePtr) ToAzureFirewallNatRCActionTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallNatRCActionTypePtrOutput)
 }
 
-// The protocol of a Network Rule resource.
 type AzureFirewallNetworkRuleProtocol string
 
 const (
@@ -3519,7 +3498,6 @@ func (in *azureFirewallNetworkRuleProtocolPtr) ToAzureFirewallNetworkRuleProtoco
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallNetworkRuleProtocolPtrOutput)
 }
 
-// The type of action.
 type AzureFirewallRCActionType string
 
 const (
@@ -3684,7 +3662,6 @@ func (in *azureFirewallRCActionTypePtr) ToAzureFirewallRCActionTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallRCActionTypePtrOutput)
 }
 
-// Name of an Azure Firewall SKU.
 type AzureFirewallSkuName string
 
 const (
@@ -3849,7 +3826,6 @@ func (in *azureFirewallSkuNamePtr) ToAzureFirewallSkuNamePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallSkuNamePtrOutput)
 }
 
-// Tier of an Azure Firewall.
 type AzureFirewallSkuTier string
 
 const (
@@ -4014,7 +3990,6 @@ func (in *azureFirewallSkuTierPtr) ToAzureFirewallSkuTierPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallSkuTierPtrOutput)
 }
 
-// The operation mode for Threat Intelligence.
 type AzureFirewallThreatIntelMode string
 
 const (
@@ -4180,7 +4155,6 @@ func (in *azureFirewallThreatIntelModePtr) ToAzureFirewallThreatIntelModePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AzureFirewallThreatIntelModePtrOutput)
 }
 
-// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
 type BackendEnabledState string
 
 const (
@@ -4345,7 +4319,6 @@ func (in *backendEnabledStatePtr) ToBackendEnabledStatePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BackendEnabledStatePtrOutput)
 }
 
-// The commissioned state of the Custom IP Prefix.
 type CommissionedState string
 
 const (
@@ -4514,7 +4487,6 @@ func (in *commissionedStatePtr) ToCommissionedStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CommissionedStatePtrOutput)
 }
 
-// Configuration Deployment Type.
 type ConfigurationType string
 
 const (
@@ -4680,7 +4652,6 @@ func (in *configurationTypePtr) ToConfigurationTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationTypePtrOutput)
 }
 
-// The type of item included in the filter. Currently only 'AgentAddress' is supported.
 type ConnectionMonitorEndpointFilterItemType string
 
 const (
@@ -4844,7 +4815,6 @@ func (in *connectionMonitorEndpointFilterItemTypePtr) ToConnectionMonitorEndpoin
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionMonitorEndpointFilterItemTypePtrOutput)
 }
 
-// The behavior of the endpoint filter. Currently only 'Include' is supported.
 type ConnectionMonitorEndpointFilterType string
 
 const (
@@ -5008,7 +4978,6 @@ func (in *connectionMonitorEndpointFilterTypePtr) ToConnectionMonitorEndpointFil
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionMonitorEndpointFilterTypePtrOutput)
 }
 
-// The protocol to use in test evaluation.
 type ConnectionMonitorTestConfigurationProtocol string
 
 const (
@@ -5174,7 +5143,6 @@ func (in *connectionMonitorTestConfigurationProtocolPtr) ToConnectionMonitorTest
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionMonitorTestConfigurationProtocolPtrOutput)
 }
 
-// Connectivity topology type.
 type ConnectivityTopology string
 
 const (
@@ -5339,7 +5307,6 @@ func (in *connectivityTopologyPtr) ToConnectivityTopologyPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectivityTopologyPtrOutput)
 }
 
-// Test coverage for the endpoint.
 type CoverageLevel string
 
 const (
@@ -5508,7 +5475,6 @@ func (in *coverageLevelPtr) ToCoverageLevelPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(CoverageLevelPtrOutput)
 }
 
-// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
 type CustomRuleEnabledState string
 
 const (
@@ -5673,7 +5639,6 @@ func (in *customRuleEnabledStatePtr) ToCustomRuleEnabledStatePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(CustomRuleEnabledStatePtrOutput)
 }
 
-// The protocol for which the DDoS protection policy is being customized.
 type DdosCustomPolicyProtocol string
 
 const (
@@ -5839,7 +5804,6 @@ func (in *ddosCustomPolicyProtocolPtr) ToDdosCustomPolicyProtocolPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(DdosCustomPolicyProtocolPtrOutput)
 }
 
-// The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
 type DdosCustomPolicyTriggerSensitivityOverride string
 
 const (
@@ -6006,7 +5970,6 @@ func (in *ddosCustomPolicyTriggerSensitivityOverridePtr) ToDdosCustomPolicyTrigg
 	return pulumi.ToOutputWithContext(ctx, in).(DdosCustomPolicyTriggerSensitivityOverridePtrOutput)
 }
 
-// The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
 type DdosSettingsProtectionCoverage string
 
 const (
@@ -6171,7 +6134,6 @@ func (in *ddosSettingsProtectionCoveragePtr) ToDdosSettingsProtectionCoveragePtr
 	return pulumi.ToOutputWithContext(ctx, in).(DdosSettingsProtectionCoveragePtrOutput)
 }
 
-// Flag if need to delete existing network security groups.
 type DeleteExistingNSGs string
 
 const (
@@ -6336,7 +6298,6 @@ func (in *deleteExistingNSGsPtr) ToDeleteExistingNSGsPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(DeleteExistingNSGsPtrOutput)
 }
 
-// Flag if need to remove current existing peerings.
 type DeleteExistingPeering string
 
 const (
@@ -6501,7 +6462,6 @@ func (in *deleteExistingPeeringPtr) ToDeleteExistingPeeringPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DeleteExistingPeeringPtrOutput)
 }
 
-// Destination port behavior.
 type DestinationPortBehavior string
 
 const (
@@ -6666,7 +6626,6 @@ func (in *destinationPortBehaviorPtr) ToDestinationPortBehaviorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DestinationPortBehaviorPtrOutput)
 }
 
-// The DH Group used in IKE Phase 1 for initial SA.
 type DhGroup string
 
 const (
@@ -6837,7 +6796,6 @@ func (in *dhGroupPtr) ToDhGroupPtrOutputWithContext(ctx context.Context) DhGroup
 	return pulumi.ToOutputWithContext(ctx, in).(DhGroupPtrOutput)
 }
 
-// Whether to use dynamic compression for cached content
 type DynamicCompressionEnabled string
 
 const (
@@ -7002,7 +6960,6 @@ func (in *dynamicCompressionEnabledPtr) ToDynamicCompressionEnabledPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DynamicCompressionEnabledPtrOutput)
 }
 
-// The monitoring status of the endpoint.
 type EndpointMonitorStatus string
 
 const (
@@ -7171,7 +7128,6 @@ func (in *endpointMonitorStatusPtr) ToEndpointMonitorStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointMonitorStatusPtrOutput)
 }
 
-// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
 type EndpointStatus string
 
 const (
@@ -7336,7 +7292,6 @@ func (in *endpointStatusPtr) ToEndpointStatusPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointStatusPtrOutput)
 }
 
-// The endpoint type.
 type EndpointTypeEnum string
 
 const (
@@ -7505,7 +7460,6 @@ func (in *endpointTypeEnumPtr) ToEndpointTypeEnumPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointTypeEnumPtrOutput)
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 type EnforceCertificateNameCheckEnabledState string
 
 const (
@@ -7670,7 +7624,6 @@ func (in *enforceCertificateNameCheckEnabledStatePtr) ToEnforceCertificateNameCh
 	return pulumi.ToOutputWithContext(ctx, in).(EnforceCertificateNameCheckEnabledStatePtrOutput)
 }
 
-// The state of peering.
 type ExpressRouteCircuitPeeringStateEnum string
 
 const (
@@ -7835,7 +7788,6 @@ func (in *expressRouteCircuitPeeringStateEnumPtr) ToExpressRouteCircuitPeeringSt
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteCircuitPeeringStateEnumPtrOutput)
 }
 
-// The family of the SKU.
 type ExpressRouteCircuitSkuFamily string
 
 const (
@@ -8000,7 +7952,6 @@ func (in *expressRouteCircuitSkuFamilyPtr) ToExpressRouteCircuitSkuFamilyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteCircuitSkuFamilyPtrOutput)
 }
 
-// The tier of the SKU.
 type ExpressRouteCircuitSkuTier string
 
 const (
@@ -8167,7 +8118,6 @@ func (in *expressRouteCircuitSkuTierPtr) ToExpressRouteCircuitSkuTierPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteCircuitSkuTierPtrOutput)
 }
 
-// Administrative state of the physical port.
 type ExpressRouteLinkAdminState string
 
 const (
@@ -8332,7 +8282,6 @@ func (in *expressRouteLinkAdminStatePtr) ToExpressRouteLinkAdminStatePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteLinkAdminStatePtrOutput)
 }
 
-// Mac security cipher.
 type ExpressRouteLinkMacSecCipher string
 
 const (
@@ -8499,7 +8448,6 @@ func (in *expressRouteLinkMacSecCipherPtr) ToExpressRouteLinkMacSecCipherPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteLinkMacSecCipherPtrOutput)
 }
 
-// Sci mode enabled/disabled.
 type ExpressRouteLinkMacSecSciState string
 
 const (
@@ -8664,7 +8612,6 @@ func (in *expressRouteLinkMacSecSciStatePtr) ToExpressRouteLinkMacSecSciStatePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRouteLinkMacSecSciStatePtrOutput)
 }
 
-// The peering state.
 type ExpressRoutePeeringState string
 
 const (
@@ -8829,7 +8776,6 @@ func (in *expressRoutePeeringStatePtr) ToExpressRoutePeeringStatePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRoutePeeringStatePtrOutput)
 }
 
-// The peering type.
 type ExpressRoutePeeringType string
 
 const (
@@ -8995,7 +8941,6 @@ func (in *expressRoutePeeringTypePtr) ToExpressRoutePeeringTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRoutePeeringTypePtrOutput)
 }
 
-// Encapsulation method on physical ports.
 type ExpressRoutePortsEncapsulation string
 
 const (
@@ -9160,7 +9105,6 @@ func (in *expressRoutePortsEncapsulationPtr) ToExpressRoutePortsEncapsulationPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressRoutePortsEncapsulationPtrOutput)
 }
 
-// The type of the extended location.
 type ExtendedLocationTypes string
 
 const (
@@ -9324,7 +9268,6 @@ func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
 }
 
-// The type of action.
 type FirewallPolicyFilterRuleActionType string
 
 const (
@@ -9489,7 +9432,6 @@ func (in *firewallPolicyFilterRuleActionTypePtr) ToFirewallPolicyFilterRuleActio
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyFilterRuleActionTypePtrOutput)
 }
 
-// The type of action.
 type FirewallPolicyFilterRuleCollectionActionType string
 
 const (
@@ -9654,7 +9596,6 @@ func (in *firewallPolicyFilterRuleCollectionActionTypePtr) ToFirewallPolicyFilte
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyFilterRuleCollectionActionTypePtrOutput)
 }
 
-// The rule bypass protocol.
 type FirewallPolicyIntrusionDetectionProtocol string
 
 const (
@@ -9821,7 +9762,6 @@ func (in *firewallPolicyIntrusionDetectionProtocolPtr) ToFirewallPolicyIntrusion
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyIntrusionDetectionProtocolPtrOutput)
 }
 
-// Intrusion detection general state.
 type FirewallPolicyIntrusionDetectionStateType string
 
 const (
@@ -9987,7 +9927,6 @@ func (in *firewallPolicyIntrusionDetectionStateTypePtr) ToFirewallPolicyIntrusio
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyIntrusionDetectionStateTypePtrOutput)
 }
 
-// The type of action.
 type FirewallPolicyNatRuleActionType string
 
 const (
@@ -10151,7 +10090,6 @@ func (in *firewallPolicyNatRuleActionTypePtr) ToFirewallPolicyNatRuleActionTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyNatRuleActionTypePtrOutput)
 }
 
-// The type of action.
 type FirewallPolicyNatRuleCollectionActionType string
 
 const (
@@ -10315,7 +10253,6 @@ func (in *firewallPolicyNatRuleCollectionActionTypePtr) ToFirewallPolicyNatRuleC
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyNatRuleCollectionActionTypePtrOutput)
 }
 
-// Protocol type.
 type FirewallPolicyRuleApplicationProtocolType string
 
 const (
@@ -10480,7 +10417,6 @@ func (in *firewallPolicyRuleApplicationProtocolTypePtr) ToFirewallPolicyRuleAppl
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleApplicationProtocolTypePtrOutput)
 }
 
-// The type of the rule collection.
 type FirewallPolicyRuleCollectionType string
 
 const (
@@ -10645,7 +10581,6 @@ func (in *firewallPolicyRuleCollectionTypePtr) ToFirewallPolicyRuleCollectionTyp
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleCollectionTypePtrOutput)
 }
 
-// Protocol type.
 type FirewallPolicyRuleConditionApplicationProtocolType string
 
 const (
@@ -10810,7 +10745,6 @@ func (in *firewallPolicyRuleConditionApplicationProtocolTypePtr) ToFirewallPolic
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleConditionApplicationProtocolTypePtrOutput)
 }
 
-// The Network protocol of a Rule condition.
 type FirewallPolicyRuleConditionNetworkProtocol string
 
 const (
@@ -10977,7 +10911,6 @@ func (in *firewallPolicyRuleConditionNetworkProtocolPtr) ToFirewallPolicyRuleCon
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleConditionNetworkProtocolPtrOutput)
 }
 
-// Rule Condition Type.
 type FirewallPolicyRuleConditionType string
 
 const (
@@ -11143,7 +11076,6 @@ func (in *firewallPolicyRuleConditionTypePtr) ToFirewallPolicyRuleConditionTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleConditionTypePtrOutput)
 }
 
-// The Network protocol of a Rule.
 type FirewallPolicyRuleNetworkProtocol string
 
 const (
@@ -11310,7 +11242,6 @@ func (in *firewallPolicyRuleNetworkProtocolPtr) ToFirewallPolicyRuleNetworkProto
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleNetworkProtocolPtrOutput)
 }
 
-// The type of the rule.
 type FirewallPolicyRuleType string
 
 const (
@@ -11475,7 +11406,6 @@ func (in *firewallPolicyRuleTypePtr) ToFirewallPolicyRuleTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleTypePtrOutput)
 }
 
-// Tier of Firewall Policy.
 type FirewallPolicySkuTier string
 
 const (
@@ -11640,7 +11570,6 @@ func (in *firewallPolicySkuTierPtr) ToFirewallPolicySkuTierPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicySkuTierPtrOutput)
 }
 
-// The file type of flow log.
 type FlowLogFormatType string
 
 const (
@@ -11804,7 +11733,6 @@ func (in *flowLogFormatTypePtr) ToFlowLogFormatTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogFormatTypePtrOutput)
 }
 
-// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
 type FrontDoorEnabledState string
 
 const (
@@ -11969,7 +11897,6 @@ func (in *frontDoorEnabledStatePtr) ToFrontDoorEnabledStatePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorEnabledStatePtrOutput)
 }
 
-// Protocol this rule will use when forwarding traffic to backends.
 type FrontDoorForwardingProtocol string
 
 const (
@@ -12135,7 +12062,6 @@ func (in *frontDoorForwardingProtocolPtr) ToFrontDoorForwardingProtocolPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorForwardingProtocolPtrOutput)
 }
 
-// Configures which HTTP method to use to probe the backends defined under backendPools.
 type FrontDoorHealthProbeMethod string
 
 const (
@@ -12300,7 +12226,6 @@ func (in *frontDoorHealthProbeMethodPtr) ToFrontDoorHealthProbeMethodPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorHealthProbeMethodPtrOutput)
 }
 
-// Request variable to compare with.
 type FrontDoorMatchVariable string
 
 const (
@@ -12472,7 +12397,6 @@ func (in *frontDoorMatchVariablePtr) ToFrontDoorMatchVariablePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorMatchVariablePtrOutput)
 }
 
-// Accepted protocol schemes.
 type FrontDoorProtocol string
 
 const (
@@ -12637,7 +12561,6 @@ func (in *frontDoorProtocolPtr) ToFrontDoorProtocolPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorProtocolPtrOutput)
 }
 
-// Treatment of URL query terms when forming the cache key.
 type FrontDoorQuery string
 
 const (
@@ -12804,7 +12727,6 @@ func (in *frontDoorQueryPtr) ToFrontDoorQueryPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorQueryPtrOutput)
 }
 
-// The protocol of the destination to where the traffic is redirected
 type FrontDoorRedirectProtocol string
 
 const (
@@ -12970,7 +12892,6 @@ func (in *frontDoorRedirectProtocolPtr) ToFrontDoorRedirectProtocolPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorRedirectProtocolPtrOutput)
 }
 
-// The redirect type the rule will use when redirecting traffic.
 type FrontDoorRedirectType string
 
 const (
@@ -13137,7 +13058,6 @@ func (in *frontDoorRedirectTypePtr) ToFrontDoorRedirectTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorRedirectTypePtrOutput)
 }
 
-// Group connectivity type.
 type GroupConnectivity string
 
 const (
@@ -13302,7 +13222,6 @@ func (in *groupConnectivityPtr) ToGroupConnectivityPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(GroupConnectivityPtrOutput)
 }
 
-// The HTTP method to use.
 type HTTPConfigurationMethod string
 
 const (
@@ -13467,7 +13386,6 @@ func (in *httpconfigurationMethodPtr) ToHTTPConfigurationMethodPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(HTTPConfigurationMethodPtrOutput)
 }
 
-// Which type of manipulation to apply to the header.
 type HeaderActionType string
 
 const (
@@ -13633,7 +13551,6 @@ func (in *headerActionTypePtr) ToHeaderActionTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(HeaderActionTypePtrOutput)
 }
 
-// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
 type HealthProbeEnabled string
 
 const (
@@ -13798,7 +13715,6 @@ func (in *healthProbeEnabledPtr) ToHealthProbeEnabledPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(HealthProbeEnabledPtrOutput)
 }
 
-// The private IP address allocation method.
 type IPAllocationMethod string
 
 const (
@@ -13963,7 +13879,6 @@ func (in *ipallocationMethodPtr) ToIPAllocationMethodPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IPAllocationMethodPtrOutput)
 }
 
-// Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
 type IPVersion string
 
 const (
@@ -14128,7 +14043,6 @@ func (in *ipversionPtr) ToIPVersionPtrOutputWithContext(ctx context.Context) IPV
 	return pulumi.ToOutputWithContext(ctx, in).(IPVersionPtrOutput)
 }
 
-// The IKE encryption algorithm (IKE phase 2).
 type IkeEncryption string
 
 const (
@@ -14298,7 +14212,6 @@ func (in *ikeEncryptionPtr) ToIkeEncryptionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(IkeEncryptionPtrOutput)
 }
 
-// The IKE integrity algorithm (IKE phase 2).
 type IkeIntegrity string
 
 const (
@@ -14467,7 +14380,6 @@ func (in *ikeIntegrityPtr) ToIkeIntegrityPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IkeIntegrityPtrOutput)
 }
 
-// The type for the IpAllocation.
 type IpAllocationType string
 
 const (
@@ -14632,7 +14544,6 @@ func (in *ipAllocationTypePtr) ToIpAllocationTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(IpAllocationTypePtrOutput)
 }
 
-// The IPSec encryption algorithm (IKE phase 1).
 type IpsecEncryption string
 
 const (
@@ -14804,7 +14715,6 @@ func (in *ipsecEncryptionPtr) ToIpsecEncryptionPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(IpsecEncryptionPtrOutput)
 }
 
-// The IPSec integrity algorithm (IKE phase 1).
 type IpsecIntegrity string
 
 const (
@@ -14973,7 +14883,6 @@ func (in *ipsecIntegrityPtr) ToIpsecIntegrityPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(IpsecIntegrityPtrOutput)
 }
 
-// Flag if global mesh is supported.
 type IsGlobal string
 
 const (
@@ -15138,7 +15047,6 @@ func (in *isGlobalPtr) ToIsGlobalPtrOutputWithContext(ctx context.Context) IsGlo
 	return pulumi.ToOutputWithContext(ctx, in).(IsGlobalPtrOutput)
 }
 
-// The protocol for the outbound rule in load balancer.
 type LoadBalancerOutboundRuleProtocol string
 
 const (
@@ -15304,7 +15212,6 @@ func (in *loadBalancerOutboundRuleProtocolPtr) ToLoadBalancerOutboundRuleProtoco
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerOutboundRuleProtocolPtrOutput)
 }
 
-// Name of a load balancer SKU.
 type LoadBalancerSkuName string
 
 const (
@@ -15469,7 +15376,6 @@ func (in *loadBalancerSkuNamePtr) ToLoadBalancerSkuNamePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerSkuNamePtrOutput)
 }
 
-// Tier of a load balancer SKU.
 type LoadBalancerSkuTier string
 
 const (
@@ -15634,7 +15540,6 @@ func (in *loadBalancerSkuTierPtr) ToLoadBalancerSkuTierPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerSkuTierPtrOutput)
 }
 
-// The load distribution policy for this rule.
 type LoadDistribution string
 
 const (
@@ -15800,7 +15705,6 @@ func (in *loadDistributionPtr) ToLoadDistributionPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(LoadDistributionPtrOutput)
 }
 
-// The state of the managed rule. Defaults to Disabled if not specified.
 type ManagedRuleEnabledState string
 
 const (
@@ -15964,7 +15868,6 @@ func (in *managedRuleEnabledStatePtr) ToManagedRuleEnabledStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleEnabledStatePtrOutput)
 }
 
-// The variable type to be excluded.
 type ManagedRuleExclusionMatchVariable string
 
 const (
@@ -16132,7 +16035,6 @@ func (in *managedRuleExclusionMatchVariablePtr) ToManagedRuleExclusionMatchVaria
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleExclusionMatchVariablePtrOutput)
 }
 
-// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
 type ManagedRuleExclusionSelectorMatchOperator string
 
 const (
@@ -16300,7 +16202,6 @@ func (in *managedRuleExclusionSelectorMatchOperatorPtr) ToManagedRuleExclusionSe
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleExclusionSelectorMatchOperatorPtrOutput)
 }
 
-// Defines the action to take when a managed rule set score threshold is met.
 type ManagedRuleSetActionType string
 
 const (
@@ -16466,7 +16367,6 @@ func (in *managedRuleSetActionTypePtr) ToManagedRuleSetActionTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleSetActionTypePtrOutput)
 }
 
-// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 type MatchProcessingBehavior string
 
 const (
@@ -16631,7 +16531,6 @@ func (in *matchProcessingBehaviorPtr) ToMatchProcessingBehaviorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(MatchProcessingBehaviorPtrOutput)
 }
 
-// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 type MonitorProtocol string
 
 const (
@@ -16797,7 +16696,6 @@ func (in *monitorProtocolPtr) ToMonitorProtocolPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(MonitorProtocolPtrOutput)
 }
 
-// Name of Nat Gateway SKU.
 type NatGatewaySkuName string
 
 const (
@@ -16961,7 +16859,6 @@ func (in *natGatewaySkuNamePtr) ToNatGatewaySkuNamePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(NatGatewaySkuNamePtrOutput)
 }
 
-// Migration phase of Network Interface resource.
 type NetworkInterfaceMigrationPhase string
 
 const (
@@ -17129,7 +17026,6 @@ func (in *networkInterfaceMigrationPhasePtr) ToNetworkInterfaceMigrationPhasePtr
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInterfaceMigrationPhasePtrOutput)
 }
 
-// Type of Network Interface resource.
 type NetworkInterfaceNicType string
 
 const (
@@ -17294,7 +17190,6 @@ func (in *networkInterfaceNicTypePtr) ToNetworkInterfaceNicTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInterfaceNicTypePtrOutput)
 }
 
-// Comparison type to use for matching with the variable value.
 type Operator string
 
 const (
@@ -17469,7 +17364,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// Connection monitor output destination type. Currently, only "Workspace" is supported.
 type OutputType string
 
 const (
@@ -17633,7 +17527,6 @@ func (in *outputTypePtr) ToOutputTypePtrOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, in).(OutputTypePtrOutput)
 }
 
-// The variable to be excluded.
 type OwaspCrsExclusionEntryMatchVariable string
 
 const (
@@ -17799,7 +17692,6 @@ func (in *owaspCrsExclusionEntryMatchVariablePtr) ToOwaspCrsExclusionEntryMatchV
 	return pulumi.ToOutputWithContext(ctx, in).(OwaspCrsExclusionEntryMatchVariablePtrOutput)
 }
 
-// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
 type OwaspCrsExclusionEntrySelectorMatchOperator string
 
 const (
@@ -17967,7 +17859,6 @@ func (in *owaspCrsExclusionEntrySelectorMatchOperatorPtr) ToOwaspCrsExclusionEnt
 	return pulumi.ToOutputWithContext(ctx, in).(OwaspCrsExclusionEntrySelectorMatchOperatorPtrOutput)
 }
 
-// Protocol to be filtered on.
 type PcProtocol string
 
 const (
@@ -18133,7 +18024,6 @@ func (in *pcProtocolPtr) ToPcProtocolPtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PcProtocolPtrOutput)
 }
 
-// The Pfs Group used in IKE Phase 2 for new child SA.
 type PfsGroup string
 
 const (
@@ -18305,7 +18195,6 @@ func (in *pfsGroupPtr) ToPfsGroupPtrOutputWithContext(ctx context.Context) PfsGr
 	return pulumi.ToOutputWithContext(ctx, in).(PfsGroupPtrOutput)
 }
 
-// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
 type PolicyEnabledState string
 
 const (
@@ -18470,7 +18359,6 @@ func (in *policyEnabledStatePtr) ToPolicyEnabledStatePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyEnabledStatePtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 type PolicyMode string
 
 const (
@@ -18635,7 +18523,6 @@ func (in *policyModePtr) ToPolicyModePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyModePtrOutput)
 }
 
-// Describes if policy managed rules will inspect the request body content.
 type PolicyRequestBodyCheck string
 
 const (
@@ -18800,7 +18687,6 @@ func (in *policyRequestBodyCheckPtr) ToPolicyRequestBodyCheckPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyRequestBodyCheckPtrOutput)
 }
 
-// The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
 type PreferredIPVersion string
 
 const (
@@ -18965,7 +18851,6 @@ func (in *preferredIPVersionPtr) ToPreferredIPVersionPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PreferredIPVersionPtrOutput)
 }
 
-// The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
 type ProbeProtocol string
 
 const (
@@ -19131,7 +19016,6 @@ func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
 }
 
-// The profile-level monitoring status of the Traffic Manager profile.
 type ProfileMonitorStatus string
 
 const (
@@ -19299,7 +19183,6 @@ func (in *profileMonitorStatusPtr) ToProfileMonitorStatusPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ProfileMonitorStatusPtrOutput)
 }
 
-// The status of the Traffic Manager profile.
 type ProfileStatus string
 
 const (
@@ -19464,7 +19347,6 @@ func (in *profileStatusPtr) ToProfileStatusPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProfileStatusPtrOutput)
 }
 
-// RNM supported protocol types.
 type ProtocolType string
 
 const (
@@ -19636,7 +19518,6 @@ func (in *protocolTypePtr) ToProtocolTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolTypePtrOutput)
 }
 
-// Migration phase of Public IP Address.
 type PublicIPAddressMigrationPhase string
 
 const (
@@ -19804,7 +19685,6 @@ func (in *publicIPAddressMigrationPhasePtr) ToPublicIPAddressMigrationPhasePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAddressMigrationPhasePtrOutput)
 }
 
-// Name of a public IP address SKU.
 type PublicIPAddressSkuName string
 
 const (
@@ -19969,7 +19849,6 @@ func (in *publicIPAddressSkuNamePtr) ToPublicIPAddressSkuNamePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAddressSkuNamePtrOutput)
 }
 
-// Tier of a public IP address SKU.
 type PublicIPAddressSkuTier string
 
 const (
@@ -20134,7 +20013,6 @@ func (in *publicIPAddressSkuTierPtr) ToPublicIPAddressSkuTierPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPAddressSkuTierPtrOutput)
 }
 
-// Name of a public IP prefix SKU.
 type PublicIPPrefixSkuName string
 
 const (
@@ -20298,7 +20176,6 @@ func (in *publicIPPrefixSkuNamePtr) ToPublicIPPrefixSkuNamePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPPrefixSkuNamePtrOutput)
 }
 
-// Tier of a public IP prefix SKU.
 type PublicIPPrefixSkuTier string
 
 const (
@@ -20463,7 +20340,6 @@ func (in *publicIPPrefixSkuTierPtr) ToPublicIPPrefixSkuTierPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PublicIPPrefixSkuTierPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 type ResourceIdentityType string
 
 const (
@@ -20630,7 +20506,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The rule type of the rule.
 type RouteFilterRuleTypeEnum string
 
 const (
@@ -20794,7 +20669,6 @@ func (in *routeFilterRuleTypeEnumPtr) ToRouteFilterRuleTypeEnumPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(RouteFilterRuleTypeEnumPtrOutput)
 }
 
-// The type of Azure hop the packet should be sent to.
 type RouteNextHopType string
 
 const (
@@ -20962,7 +20836,6 @@ func (in *routeNextHopTypePtr) ToRouteNextHopTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(RouteNextHopTypePtrOutput)
 }
 
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 type RoutingRuleEnabledState string
 
 const (
@@ -21127,7 +21000,6 @@ func (in *routingRuleEnabledStatePtr) ToRoutingRuleEnabledStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingRuleEnabledStatePtrOutput)
 }
 
-// Describes type of rule.
 type RuleType string
 
 const (
@@ -21292,7 +21164,6 @@ func (in *ruleTypePtr) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleT
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTypePtrOutput)
 }
 
-// Match Variable
 type RulesEngineMatchVariable string
 
 const (
@@ -21467,7 +21338,6 @@ func (in *rulesEngineMatchVariablePtr) ToRulesEngineMatchVariablePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(RulesEngineMatchVariablePtrOutput)
 }
 
-// Describes operator to apply to the match condition.
 type RulesEngineOperator string
 
 const (
@@ -21641,7 +21511,6 @@ func (in *rulesEngineOperatorPtr) ToRulesEngineOperatorPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RulesEngineOperatorPtrOutput)
 }
 
-// Indicates the access allowed for this particular rule
 type SecurityConfigurationRuleAccess string
 
 const (
@@ -21807,7 +21676,6 @@ func (in *securityConfigurationRuleAccessPtr) ToSecurityConfigurationRuleAccessP
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityConfigurationRuleAccessPtrOutput)
 }
 
-// Indicates if the traffic matched against the rule in inbound or outbound.
 type SecurityConfigurationRuleDirection string
 
 const (
@@ -21972,7 +21840,6 @@ func (in *securityConfigurationRuleDirectionPtr) ToSecurityConfigurationRuleDire
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityConfigurationRuleDirectionPtrOutput)
 }
 
-// Network protocol this rule applies to.
 type SecurityConfigurationRuleProtocol string
 
 const (
@@ -22141,7 +22008,6 @@ func (in *securityConfigurationRuleProtocolPtr) ToSecurityConfigurationRuleProto
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityConfigurationRuleProtocolPtrOutput)
 }
 
-// The security provider name.
 type SecurityProviderName string
 
 const (
@@ -22307,7 +22173,6 @@ func (in *securityProviderNamePtr) ToSecurityProviderNamePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityProviderNamePtrOutput)
 }
 
-// The network traffic is allowed or denied.
 type SecurityRuleAccess string
 
 const (
@@ -22472,7 +22337,6 @@ func (in *securityRuleAccessPtr) ToSecurityRuleAccessPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityRuleAccessPtrOutput)
 }
 
-// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
 type SecurityRuleDirection string
 
 const (
@@ -22637,7 +22501,6 @@ func (in *securityRuleDirectionPtr) ToSecurityRuleDirectionPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityRuleDirectionPtrOutput)
 }
 
-// Network protocol this rule applies to.
 type SecurityRuleProtocol string
 
 const (
@@ -22806,7 +22669,6 @@ func (in *securityRuleProtocolPtr) ToSecurityRuleProtocolPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityRuleProtocolPtrOutput)
 }
 
-// Security Type.
 type SecurityType string
 
 const (
@@ -22971,7 +22833,6 @@ func (in *securityTypePtr) ToSecurityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityTypePtrOutput)
 }
 
-// The ServiceProviderProvisioningState state of the resource.
 type ServiceProviderProvisioningState string
 
 const (
@@ -23138,7 +22999,6 @@ func (in *serviceProviderProvisioningStatePtr) ToServiceProviderProvisioningStat
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceProviderProvisioningStatePtrOutput)
 }
 
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 type SessionAffinityEnabledState string
 
 const (
@@ -23303,7 +23163,6 @@ func (in *sessionAffinityEnabledStatePtr) ToSessionAffinityEnabledStatePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(SessionAffinityEnabledStatePtrOutput)
 }
 
-// Name of the pricing tier.
 type SkuName string
 
 const (
@@ -23469,7 +23328,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The state of the Experiment
 type State string
 
 const (
@@ -23634,7 +23492,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
 }
 
-// The traffic routing method of the Traffic Manager profile.
 type TrafficRoutingMethod string
 
 const (
@@ -23803,7 +23660,6 @@ func (in *trafficRoutingMethodPtr) ToTrafficRoutingMethodPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(TrafficRoutingMethodPtrOutput)
 }
 
-// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
 type TrafficViewEnrollmentStatus string
 
 const (
@@ -23968,7 +23824,6 @@ func (in *trafficViewEnrollmentStatusPtr) ToTrafficViewEnrollmentStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(TrafficViewEnrollmentStatusPtrOutput)
 }
 
-// Describes what transforms are applied before matching
 type Transform string
 
 const (
@@ -24137,7 +23992,6 @@ func (in *transformPtr) ToTransformPtrOutputWithContext(ctx context.Context) Tra
 	return pulumi.ToOutputWithContext(ctx, in).(TransformPtrOutput)
 }
 
-// Describes what transforms applied before matching.
 type TransformType string
 
 const (
@@ -24306,7 +24160,6 @@ func (in *transformTypePtr) ToTransformTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(TransformTypePtrOutput)
 }
 
-// The reference to the transport protocol used by the load balancing rule.
 type TransportProtocol string
 
 const (
@@ -24472,7 +24325,6 @@ func (in *transportProtocolPtr) ToTransportProtocolPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(TransportProtocolPtrOutput)
 }
 
-// Flag if need to use hub gateway.
 type UseHubGateway string
 
 const (
@@ -24637,7 +24489,6 @@ func (in *useHubGatewayPtr) ToUseHubGatewayPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(UseHubGatewayPtrOutput)
 }
 
-// Whether the rule is custom or default.
 type UserRuleKind string
 
 const (
@@ -24802,7 +24653,6 @@ func (in *userRuleKindPtr) ToUserRuleKindPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(UserRuleKindPtrOutput)
 }
 
-// The connection mode for this connection.
 type VirtualNetworkGatewayConnectionMode string
 
 const (
@@ -24968,7 +24818,6 @@ func (in *virtualNetworkGatewayConnectionModePtr) ToVirtualNetworkGatewayConnect
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewayConnectionModePtrOutput)
 }
 
-// Connection protocol used for this connection.
 type VirtualNetworkGatewayConnectionProtocol string
 
 const (
@@ -25133,7 +24982,6 @@ func (in *virtualNetworkGatewayConnectionProtocolPtr) ToVirtualNetworkGatewayCon
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewayConnectionProtocolPtrOutput)
 }
 
-// Gateway connection type.
 type VirtualNetworkGatewayConnectionType string
 
 const (
@@ -25300,7 +25148,6 @@ func (in *virtualNetworkGatewayConnectionTypePtr) ToVirtualNetworkGatewayConnect
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewayConnectionTypePtrOutput)
 }
 
-// Gateway SKU name.
 type VirtualNetworkGatewaySkuName string
 
 const (
@@ -25480,7 +25327,6 @@ func (in *virtualNetworkGatewaySkuNamePtr) ToVirtualNetworkGatewaySkuNamePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewaySkuNamePtrOutput)
 }
 
-// Gateway SKU tier.
 type VirtualNetworkGatewaySkuTier string
 
 const (
@@ -25660,7 +25506,6 @@ func (in *virtualNetworkGatewaySkuTierPtr) ToVirtualNetworkGatewaySkuTierPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewaySkuTierPtrOutput)
 }
 
-// The type of this virtual network gateway.
 type VirtualNetworkGatewayTypeEnum string
 
 const (
@@ -25826,7 +25671,6 @@ func (in *virtualNetworkGatewayTypeEnumPtr) ToVirtualNetworkGatewayTypeEnumPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkGatewayTypeEnumPtrOutput)
 }
 
-// The status of the virtual network peering.
 type VirtualNetworkPeeringStateEnum string
 
 const (
@@ -25992,7 +25836,6 @@ func (in *virtualNetworkPeeringStateEnumPtr) ToVirtualNetworkPeeringStateEnumPtr
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkPeeringStateEnumPtrOutput)
 }
 
-// Enable or Disable apply network policies on private end point in the subnet.
 type VirtualNetworkPrivateEndpointNetworkPolicies string
 
 const (
@@ -26157,7 +26000,6 @@ func (in *virtualNetworkPrivateEndpointNetworkPoliciesPtr) ToVirtualNetworkPriva
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkPrivateEndpointNetworkPoliciesPtrOutput)
 }
 
-// Enable or Disable apply network policies on private link service in the subnet.
 type VirtualNetworkPrivateLinkServiceNetworkPolicies string
 
 const (
@@ -26322,7 +26164,6 @@ func (in *virtualNetworkPrivateLinkServiceNetworkPoliciesPtr) ToVirtualNetworkPr
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkPrivateLinkServiceNetworkPoliciesPtrOutput)
 }
 
-// VPN authentication types enabled for the VpnServerConfiguration.
 type VpnAuthenticationType string
 
 const (
@@ -26488,7 +26329,6 @@ func (in *vpnAuthenticationTypePtr) ToVpnAuthenticationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(VpnAuthenticationTypePtrOutput)
 }
 
-// VPN client protocol enabled for the virtual network gateway.
 type VpnClientProtocol string
 
 const (
@@ -26654,7 +26494,6 @@ func (in *vpnClientProtocolPtr) ToVpnClientProtocolPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(VpnClientProtocolPtrOutput)
 }
 
-// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
 type VpnGatewayGeneration string
 
 const (
@@ -26820,7 +26659,6 @@ func (in *vpnGatewayGenerationPtr) ToVpnGatewayGenerationPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(VpnGatewayGenerationPtrOutput)
 }
 
-// VPN protocol enabled for the VpnServerConfiguration.
 type VpnGatewayTunnelingProtocol string
 
 const (
@@ -26985,7 +26823,6 @@ func (in *vpnGatewayTunnelingProtocolPtr) ToVpnGatewayTunnelingProtocolPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(VpnGatewayTunnelingProtocolPtrOutput)
 }
 
-// Vpn link connection mode.
 type VpnLinkConnectionMode string
 
 const (
@@ -27151,7 +26988,6 @@ func (in *vpnLinkConnectionModePtr) ToVpnLinkConnectionModePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(VpnLinkConnectionModePtrOutput)
 }
 
-// The Source NAT direction of a VPN NAT.
 type VpnNatRuleMode string
 
 const (
@@ -27316,7 +27152,6 @@ func (in *vpnNatRuleModePtr) ToVpnNatRuleModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(VpnNatRuleModePtrOutput)
 }
 
-// The type of NAT rule for VPN NAT.
 type VpnNatRuleType string
 
 const (
@@ -27481,7 +27316,6 @@ func (in *vpnNatRuleTypePtr) ToVpnNatRuleTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(VpnNatRuleTypePtrOutput)
 }
 
-// The type of this virtual network gateway.
 type VpnType string
 
 const (
@@ -27646,7 +27480,6 @@ func (in *vpnTypePtr) ToVpnTypePtrOutputWithContext(ctx context.Context) VpnType
 	return pulumi.ToOutputWithContext(ctx, in).(VpnTypePtrOutput)
 }
 
-// Type of Actions.
 type WebApplicationFirewallAction string
 
 const (
@@ -27812,7 +27645,6 @@ func (in *webApplicationFirewallActionPtr) ToWebApplicationFirewallActionPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallActionPtrOutput)
 }
 
-// The state of the policy.
 type WebApplicationFirewallEnabledState string
 
 const (
@@ -27977,7 +27809,6 @@ func (in *webApplicationFirewallEnabledStatePtr) ToWebApplicationFirewallEnabled
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallEnabledStatePtrOutput)
 }
 
-// Match Variable.
 type WebApplicationFirewallMatchVariable string
 
 const (
@@ -28148,7 +27979,6 @@ func (in *webApplicationFirewallMatchVariablePtr) ToWebApplicationFirewallMatchV
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallMatchVariablePtrOutput)
 }
 
-// The mode of the policy.
 type WebApplicationFirewallMode string
 
 const (
@@ -28313,7 +28143,6 @@ func (in *webApplicationFirewallModePtr) ToWebApplicationFirewallModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallModePtrOutput)
 }
 
-// The operator to be matched.
 type WebApplicationFirewallOperator string
 
 const (
@@ -28487,7 +28316,6 @@ func (in *webApplicationFirewallOperatorPtr) ToWebApplicationFirewallOperatorPtr
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallOperatorPtrOutput)
 }
 
-// The rule type.
 type WebApplicationFirewallRuleType string
 
 const (
@@ -28652,7 +28480,6 @@ func (in *webApplicationFirewallRuleTypePtr) ToWebApplicationFirewallRuleTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallRuleTypePtrOutput)
 }
 
-// Transforms applied before matching.
 type WebApplicationFirewallTransform string
 
 const (
@@ -28821,7 +28648,6 @@ func (in *webApplicationFirewallTransformPtr) ToWebApplicationFirewallTransformP
 	return pulumi.ToOutputWithContext(ctx, in).(WebApplicationFirewallTransformPtrOutput)
 }
 
-// The type of this DNS zone (Public or Private).
 type ZoneType string
 
 const (

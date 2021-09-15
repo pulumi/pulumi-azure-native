@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The name of the Azure pricing tier to which the SKU applies.
 type CapacitySkuTier string
 
 const (
@@ -176,7 +175,6 @@ func (in *capacitySkuTierPtr) ToCapacitySkuTierPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(CapacitySkuTierPtrOutput)
 }
 
-// The type of identity that last modified the resource
 type IdentityType string
 
 const (
@@ -343,7 +341,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// The capacity mode.
 type Mode string
 
 const (
@@ -508,7 +505,6 @@ func (in *modePtr) ToModePtrOutputWithContext(ctx context.Context) ModePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ModePtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 type VCoreSkuTier string
 
 const (

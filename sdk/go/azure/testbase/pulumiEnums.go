@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The action of the command.
 type Action string
 
 const (
@@ -178,7 +177,6 @@ func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
 }
 
-// The type of command content.
 type ContentType string
 
 const (
@@ -344,7 +342,6 @@ func (in *contentTypePtr) ToContentTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ContentTypePtrOutput)
 }
 
-// The type of the test.
 type TestType string
 
 const (
@@ -509,7 +506,6 @@ func (in *testTypePtr) ToTestTypePtrOutputWithContext(ctx context.Context) TestT
 	return pulumi.ToOutputWithContext(ctx, in).(TestTypePtrOutput)
 }
 
-// The tier of this particular SKU.
 type Tier string
 
 const (

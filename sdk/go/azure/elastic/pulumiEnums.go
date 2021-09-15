@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed identity type.
 type ManagedIdentityTypes string
 
 const (
@@ -174,7 +173,6 @@ func (in *managedIdentityTypesPtr) ToManagedIdentityTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypesPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 type MonitoringStatus string
 
 const (
@@ -339,7 +337,6 @@ func (in *monitoringStatusPtr) ToMonitoringStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringStatusPtrOutput)
 }
 
-// Provisioning state of the monitoring tag rules.
 type ProvisioningState string
 
 const (
@@ -511,7 +508,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// Valid actions for a filtering tag.
 type TagAction string
 
 const (

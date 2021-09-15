@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EngagementFabric channel description
 type ChannelTypeDescriptionResponse struct {
 	// Text description for the channel
 	ChannelDescription *string `pulumi:"channelDescription"`
@@ -31,7 +30,6 @@ type ChannelTypeDescriptionResponseInput interface {
 	ToChannelTypeDescriptionResponseOutputWithContext(context.Context) ChannelTypeDescriptionResponseOutput
 }
 
-// EngagementFabric channel description
 type ChannelTypeDescriptionResponseArgs struct {
 	// Text description for the channel
 	ChannelDescription pulumi.StringPtrInput `pulumi:"channelDescription"`
@@ -78,7 +76,6 @@ func (i ChannelTypeDescriptionResponseArray) ToChannelTypeDescriptionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionResponseArrayOutput)
 }
 
-// EngagementFabric channel description
 type ChannelTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ChannelTypeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o ChannelTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) Chan
 	}).(ChannelTypeDescriptionResponseOutput)
 }
 
-// The description of the EngagementFabric account key
 type KeyDescriptionResponse struct {
 	// The name of the key
 	Name string `pulumi:"name"`
@@ -149,7 +145,6 @@ type KeyDescriptionResponseInput interface {
 	ToKeyDescriptionResponseOutputWithContext(context.Context) KeyDescriptionResponseOutput
 }
 
-// The description of the EngagementFabric account key
 type KeyDescriptionResponseArgs struct {
 	// The name of the key
 	Name pulumi.StringInput `pulumi:"name"`
@@ -196,7 +191,6 @@ func (i KeyDescriptionResponseArray) ToKeyDescriptionResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionResponseArrayOutput)
 }
 
-// The description of the EngagementFabric account key
 type KeyDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyDescriptionResponseOutput) ElementType() reflect.Type {
@@ -246,7 +240,6 @@ func (o KeyDescriptionResponseArrayOutput) Index(i pulumi.IntInput) KeyDescripti
 	}).(KeyDescriptionResponseOutput)
 }
 
-// The EngagementFabric SKU
 type SKU struct {
 	// The name of the SKU
 	Name string `pulumi:"name"`
@@ -265,7 +258,6 @@ type SKUInput interface {
 	ToSKUOutputWithContext(context.Context) SKUOutput
 }
 
-// The EngagementFabric SKU
 type SKUArgs struct {
 	// The name of the SKU
 	Name pulumi.StringInput `pulumi:"name"`
@@ -326,7 +318,6 @@ func (i *skuPtrType) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SKUPtrOutput)
 }
 
-// The EngagementFabric SKU
 type SKUOutput struct{ *pulumi.OutputState }
 
 func (SKUOutput) ElementType() reflect.Type {
@@ -405,7 +396,6 @@ func (o SKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The EngagementFabric SKU
 type SKUResponse struct {
 	// The name of the SKU
 	Name string `pulumi:"name"`
@@ -424,7 +414,6 @@ type SKUResponseInput interface {
 	ToSKUResponseOutputWithContext(context.Context) SKUResponseOutput
 }
 
-// The EngagementFabric SKU
 type SKUResponseArgs struct {
 	// The name of the SKU
 	Name pulumi.StringInput `pulumi:"name"`
@@ -485,7 +474,6 @@ func (i *skuresponsePtrType) ToSKUResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SKUResponsePtrOutput)
 }
 
-// The EngagementFabric SKU
 type SKUResponseOutput struct{ *pulumi.OutputState }
 
 func (SKUResponseOutput) ElementType() reflect.Type {

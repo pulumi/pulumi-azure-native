@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
 type AgentVMSizeTypes string
 
 const (
@@ -220,7 +219,6 @@ func (in *agentVMSizeTypesPtr) ToAgentVMSizeTypesPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AgentVMSizeTypesPtrOutput)
 }
 
-// The cluster type.
 type ClusterType string
 
 const (
@@ -385,7 +383,6 @@ func (in *clusterTypePtr) ToClusterTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterTypePtrOutput)
 }
 
-// Type of orchestrator. It cannot be changed once the cluster is created.
 type OrchestratorType string
 
 const (
@@ -550,7 +547,6 @@ func (in *orchestratorTypePtr) ToOrchestratorTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(OrchestratorTypePtrOutput)
 }
 
-// SSL status. Allowed values are Enabled and Disabled.
 type Status string
 
 const (
@@ -715,7 +711,6 @@ func (in *statusPtr) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtr
 	return pulumi.ToOutputWithContext(ctx, in).(StatusPtrOutput)
 }
 
-// The system service type
 type SystemServiceType string
 
 const (

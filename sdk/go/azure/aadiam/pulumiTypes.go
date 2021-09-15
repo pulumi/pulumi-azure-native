@@ -147,7 +147,6 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettings struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 	Category *string `pulumi:"category"`
@@ -168,7 +167,6 @@ type LogSettingsInput interface {
 	ToLogSettingsOutputWithContext(context.Context) LogSettingsOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsArgs struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 	Category pulumi.StringPtrInput `pulumi:"category"`
@@ -215,7 +213,6 @@ func (i LogSettingsArray) ToLogSettingsArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsOutput) ElementType() reflect.Type {
@@ -265,7 +262,6 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 	}).(LogSettingsOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponse struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 	Category *string `pulumi:"category"`
@@ -286,7 +282,6 @@ type LogSettingsResponseInput interface {
 	ToLogSettingsResponseOutputWithContext(context.Context) LogSettingsResponseOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseArgs struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 	Category pulumi.StringPtrInput `pulumi:"category"`
@@ -333,7 +328,6 @@ func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsResponseOutput) ElementType() reflect.Type {
@@ -383,7 +377,6 @@ func (o LogSettingsResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsResp
 	}).(LogSettingsResponseOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpoint struct {
 	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
@@ -400,7 +393,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointArgs struct {
 	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -459,7 +451,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -523,7 +514,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponse struct {
 	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
@@ -540,7 +530,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseArgs struct {
 	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -599,7 +588,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -663,7 +651,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -684,7 +671,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -747,7 +733,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -841,7 +826,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -862,7 +846,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -925,7 +908,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1019,7 +1001,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicy struct {
 	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days int `pulumi:"days"`
@@ -1038,7 +1019,6 @@ type RetentionPolicyInput interface {
 	ToRetentionPolicyOutputWithContext(context.Context) RetentionPolicyOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyArgs struct {
 	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days pulumi.IntInput `pulumi:"days"`
@@ -1099,7 +1079,6 @@ func (i *retentionPolicyPtrType) ToRetentionPolicyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyOutput) ElementType() reflect.Type {
@@ -1178,7 +1157,6 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponse struct {
 	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days int `pulumi:"days"`
@@ -1197,7 +1175,6 @@ type RetentionPolicyResponseInput interface {
 	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseArgs struct {
 	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days pulumi.IntInput `pulumi:"days"`
@@ -1258,7 +1235,6 @@ func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -1337,7 +1313,6 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResource struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -1354,7 +1329,6 @@ type TagsResourceInput interface {
 	ToTagsResourceOutputWithContext(context.Context) TagsResourceOutput
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceArgs struct {
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -1413,7 +1387,6 @@ func (i *tagsResourcePtrType) ToTagsResourcePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TagsResourcePtrOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceOutput struct{ *pulumi.OutputState }
 
 func (TagsResourceOutput) ElementType() reflect.Type {
@@ -1477,7 +1450,6 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponse struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -1494,7 +1466,6 @@ type TagsResourceResponseInput interface {
 	ToTagsResourceResponseOutputWithContext(context.Context) TagsResourceResponseOutput
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponseArgs struct {
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -1512,7 +1483,6 @@ func (i TagsResourceResponseArgs) ToTagsResourceResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TagsResourceResponseOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (TagsResourceResponseOutput) ElementType() reflect.Type {

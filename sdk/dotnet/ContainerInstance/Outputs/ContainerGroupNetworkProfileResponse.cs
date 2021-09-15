@@ -11,28 +11,20 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
     /// <summary>
-    /// The HTTP header.
+    /// Container group network profile information.
     /// </summary>
     [OutputType]
-    public sealed class HttpHeaderResponse
+    public sealed class ContainerGroupNetworkProfileResponse
     {
         /// <summary>
-        /// The header name.
+        /// The identifier for a network profile.
         /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// The header value.
-        /// </summary>
-        public readonly string? Value;
+        public readonly string Id;
 
         [OutputConstructor]
-        private HttpHeaderResponse(
-            string? name,
-
-            string? value)
+        private ContainerGroupNetworkProfileResponse(string id)
         {
-            Name = name;
-            Value = value;
+            Id = id;
         }
     }
 }

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 type EndpointType string
 
 const (
@@ -175,7 +174,6 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointTypePtrOutput)
 }
 
-// The qos type of the pool
 type QosType string
 
 const (
@@ -342,7 +340,6 @@ func (in *qosTypePtr) ToQosTypePtrOutputWithContext(ctx context.Context) QosType
 	return pulumi.ToOutputWithContext(ctx, in).(QosTypePtrOutput)
 }
 
-// Schedule
 type ReplicationSchedule string
 
 const (
@@ -508,7 +505,6 @@ func (in *replicationSchedulePtr) ToReplicationSchedulePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationSchedulePtrOutput)
 }
 
-// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 type SecurityStyle string
 
 const (
@@ -673,7 +669,6 @@ func (in *securityStylePtr) ToSecurityStylePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityStylePtrOutput)
 }
 
-// The service level of the file system
 type ServiceLevel string
 
 const (

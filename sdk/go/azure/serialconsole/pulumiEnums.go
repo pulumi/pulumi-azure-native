@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies whether the port is enabled for a serial console connection.
 type SerialPortStateEnum string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Show costs accumulated over time.
 type AccumulatedType string
 
 const (
@@ -175,7 +174,6 @@ func (in *accumulatedTypePtr) ToAccumulatedTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(AccumulatedTypePtrOutput)
 }
 
-// Chart type of the main view in Cost Analysis. Required.
 type ChartType string
 
 const (
@@ -343,7 +341,6 @@ func (in *chartTypePtr) ToChartTypePtrOutputWithContext(ctx context.Context) Cha
 	return pulumi.ToOutputWithContext(ctx, in).(ChartTypePtrOutput)
 }
 
-// Connector billing model
 type ConnectorBillingModel string
 
 const (
@@ -510,7 +507,6 @@ func (in *connectorBillingModelPtr) ToConnectorBillingModelPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorBillingModelPtrOutput)
 }
 
-// Method of cost allocation for the rule
 type CostAllocationPolicyType string
 
 const (
@@ -674,7 +670,6 @@ func (in *costAllocationPolicyTypePtr) ToCostAllocationPolicyTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(CostAllocationPolicyTypePtrOutput)
 }
 
-// Type of resources contained in this cost allocation rule
 type CostAllocationResourceType string
 
 const (
@@ -841,7 +836,6 @@ func (in *costAllocationResourceTypePtr) ToCostAllocationResourceTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(CostAllocationResourceTypePtrOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 type ExportType string
 
 const (
@@ -1007,7 +1001,6 @@ func (in *exportTypePtr) ToExportTypePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(ExportTypePtrOutput)
 }
 
-// The format of the report being delivered.
 type FormatType string
 
 const (
@@ -1171,7 +1164,6 @@ func (in *formatTypePtr) ToFormatTypePtrOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, in).(FormatTypePtrOutput)
 }
 
-// The name of the aggregation function to use.
 type FunctionType string
 
 const (
@@ -1338,7 +1330,6 @@ func (in *functionTypePtr) ToFunctionTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTypePtrOutput)
 }
 
-// The granularity of rows in the report.
 type GranularityType string
 
 const (
@@ -1503,7 +1494,6 @@ func (in *granularityTypePtr) ToGranularityTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(GranularityTypePtrOutput)
 }
 
-// KPI type (Forecast, Budget).
 type KpiTypeType string
 
 const (
@@ -1668,7 +1658,6 @@ func (in *kpiTypeTypePtr) ToKpiTypeTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(KpiTypeTypePtrOutput)
 }
 
-// Metric to use when displaying costs.
 type MetricType string
 
 const (
@@ -1834,7 +1823,6 @@ func (in *metricTypePtr) ToMetricTypePtrOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, in).(MetricTypePtrOutput)
 }
 
-// The operator to use for comparison.
 type OperatorType string
 
 const (
@@ -1999,7 +1987,6 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorTypePtrOutput)
 }
 
-// Data type to show in view.
 type PivotTypeType string
 
 const (
@@ -2164,7 +2151,6 @@ func (in *pivotTypeTypePtr) ToPivotTypeTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PivotTypeTypePtrOutput)
 }
 
-// The schedule recurrence.
 type RecurrenceType string
 
 const (
@@ -2331,7 +2317,6 @@ func (in *recurrenceTypePtr) ToRecurrenceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceTypePtrOutput)
 }
 
-// Has type of the column to group.
 type ReportColumnType string
 
 const (
@@ -2496,7 +2481,6 @@ func (in *reportColumnTypePtr) ToReportColumnTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ReportColumnTypePtrOutput)
 }
 
-// Has type of the column to group.
 type ReportConfigColumnType string
 
 const (
@@ -2661,7 +2645,6 @@ func (in *reportConfigColumnTypePtr) ToReportConfigColumnTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ReportConfigColumnTypePtrOutput)
 }
 
-// The granularity of rows in the report.
 type ReportGranularityType string
 
 const (
@@ -2826,7 +2809,6 @@ func (in *reportGranularityTypePtr) ToReportGranularityTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ReportGranularityTypePtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 type ReportTimeframeType string
 
 const (
@@ -2993,7 +2975,6 @@ func (in *reportTimeframeTypePtr) ToReportTimeframeTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ReportTimeframeTypePtrOutput)
 }
 
-// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 type ReportType string
 
 const (
@@ -3157,7 +3138,6 @@ func (in *reportTypePtr) ToReportTypePtrOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, in).(ReportTypePtrOutput)
 }
 
-// Status of the rule
 type RuleStatus string
 
 const (
@@ -3326,7 +3306,6 @@ func (in *ruleStatusPtr) ToRuleStatusPtrOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, in).(RuleStatusPtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 type StatusType string
 
 const (
@@ -3491,7 +3470,6 @@ func (in *statusTypePtr) ToStatusTypePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(StatusTypePtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 type TimeframeType string
 
 const (

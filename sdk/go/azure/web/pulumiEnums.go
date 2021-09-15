@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The API type
 type ApiType string
 
 const (
@@ -176,7 +175,6 @@ func (in *apiTypePtr) ToApiTypePtrOutputWithContext(ctx context.Context) ApiType
 	return pulumi.ToOutputWithContext(ctx, in).(ApiTypePtrOutput)
 }
 
-// Predefined action to be taken.
 type AutoHealActionType string
 
 const (
@@ -342,7 +340,6 @@ func (in *autoHealActionTypePtr) ToAutoHealActionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AutoHealActionTypePtrOutput)
 }
 
-// Azure resource type.
 type AzureResourceType string
 
 const (
@@ -507,7 +504,6 @@ func (in *azureResourceTypePtr) ToAzureResourceTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AzureResourceTypePtrOutput)
 }
 
-// Type of storage.
 type AzureStorageType string
 
 const (
@@ -672,9 +668,6 @@ func (in *azureStorageTypePtr) ToAzureStorageTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureStorageTypePtrOutput)
 }
 
-// The default authentication provider to use when multiple providers are configured.
-// This setting is only needed if multiple providers are configured and the unauthenticated client
-// action is set to "RedirectToLoginPage".
 type BuiltInAuthenticationProvider string
 
 const (
@@ -843,10 +836,6 @@ func (in *builtInAuthenticationProviderPtr) ToBuiltInAuthenticationProviderPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(BuiltInAuthenticationProviderPtrOutput)
 }
 
-// This composes with ClientCertEnabled setting.
-// - ClientCertEnabled: false means ClientCert is ignored.
-// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
-// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
 type ClientCertMode string
 
 const (
@@ -1012,7 +1001,6 @@ func (in *clientCertModePtr) ToClientCertModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ClientCertModePtrOutput)
 }
 
-// The method that should be used to authenticate the user.
 type ClientCredentialMethod string
 
 const (
@@ -1176,7 +1164,6 @@ func (in *clientCredentialMethodPtr) ToClientCredentialMethodPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ClientCredentialMethodPtrOutput)
 }
 
-// Type of the parameter
 type ConnectionParameterType string
 
 const (
@@ -1348,7 +1335,6 @@ func (in *connectionParameterTypePtr) ToConnectionParameterTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionParameterTypePtrOutput)
 }
 
-// Type of database.
 type ConnectionStringType string
 
 const (
@@ -1522,7 +1508,6 @@ func (in *connectionStringTypePtr) ToConnectionStringTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionStringTypePtrOutput)
 }
 
-// The convention used when determining the session cookie's expiration.
 type CookieExpirationConvention string
 
 const (
@@ -1687,7 +1672,6 @@ func (in *cookieExpirationConventionPtr) ToCookieExpirationConventionPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(CookieExpirationConventionPtrOutput)
 }
 
-// Custom DNS record type.
 type CustomHostNameDnsRecordType string
 
 const (
@@ -1852,7 +1836,6 @@ func (in *customHostNameDnsRecordTypePtr) ToCustomHostNameDnsRecordTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CustomHostNameDnsRecordTypePtrOutput)
 }
 
-// Database type (e.g. SqlAzure / MySql).
 type DatabaseType string
 
 const (
@@ -2019,7 +2002,6 @@ func (in *databaseTypePtr) ToDatabaseTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseTypePtrOutput)
 }
 
-// The convention used to determine the url of the request made.
 type ForwardProxyConvention string
 
 const (
@@ -2185,7 +2167,6 @@ func (in *forwardProxyConventionPtr) ToForwardProxyConventionPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ForwardProxyConventionPtrOutput)
 }
 
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
 type FrequencyUnit string
 
 const (
@@ -2514,7 +2495,6 @@ func (in *frontEndServiceTypePtr) ToFrontEndServiceTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(FrontEndServiceTypePtrOutput)
 }
 
-// State of FTP / FTPS service
 type FtpsState string
 
 const (
@@ -2680,7 +2660,6 @@ func (in *ftpsStatePtr) ToFtpsStatePtrOutputWithContext(ctx context.Context) Ftp
 	return pulumi.ToOutputWithContext(ctx, in).(FtpsStatePtrOutput)
 }
 
-// Hostname type.
 type HostNameType string
 
 const (
@@ -2845,7 +2824,6 @@ func (in *hostNameTypePtr) ToHostNameTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HostNameTypePtrOutput)
 }
 
-// Indicates whether the hostname is a standard or repository hostname.
 type HostType string
 
 const (
@@ -3010,7 +2988,6 @@ func (in *hostTypePtr) ToHostTypePtrOutputWithContext(ctx context.Context) HostT
 	return pulumi.ToOutputWithContext(ctx, in).(HostTypePtrOutput)
 }
 
-// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
 type IpFilterTag string
 
 const (
@@ -3176,7 +3153,6 @@ func (in *ipFilterTagPtr) ToIpFilterTagPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(IpFilterTagPtrOutput)
 }
 
-// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
 type LoadBalancingMode string
 
 const (
@@ -3343,7 +3319,6 @@ func (in *loadBalancingModePtr) ToLoadBalancingModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancingModePtrOutput)
 }
 
-// Log level.
 type LogLevel string
 
 const (
@@ -3511,7 +3486,6 @@ func (in *logLevelPtr) ToLogLevelPtrOutputWithContext(ctx context.Context) LogLe
 	return pulumi.ToOutputWithContext(ctx, in).(LogLevelPtrOutput)
 }
 
-// Managed pipeline mode.
 type ManagedPipelineMode string
 
 const (
@@ -3676,7 +3650,6 @@ func (in *managedPipelineModePtr) ToManagedPipelineModePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedPipelineModePtrOutput)
 }
 
-// Type of managed service identity.
 type ManagedServiceIdentityType string
 
 const (
@@ -3843,7 +3816,6 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// Public Certificate Location
 type PublicCertificateLocation string
 
 const (
@@ -4009,7 +3981,6 @@ func (in *publicCertificateLocationPtr) ToPublicCertificateLocationPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(PublicCertificateLocationPtrOutput)
 }
 
-// Site redundancy mode
 type RedundancyMode string
 
 const (
@@ -4177,12 +4148,6 @@ func (in *redundancyModePtr) ToRedundancyModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RedundancyModePtrOutput)
 }
 
-// The type of route this is:
-// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-// INHERITED - Routes inherited from the real Virtual Network routes
-// STATIC - Static route set on the app only
-//
-// These values will be used for syncing an app's routes with those from a Virtual Network.
 type RouteType string
 
 const (
@@ -4348,7 +4313,6 @@ func (in *routeTypePtr) ToRouteTypePtrOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, in).(RouteTypePtrOutput)
 }
 
-// SCM type.
 type ScmType string
 
 const (
@@ -4525,7 +4489,6 @@ func (in *scmTypePtr) ToScmTypePtrOutputWithContext(ctx context.Context) ScmType
 	return pulumi.ToOutputWithContext(ctx, in).(ScmTypePtrOutput)
 }
 
-// Site load balancing.
 type SiteLoadBalancing string
 
 const (
@@ -4694,7 +4657,6 @@ func (in *siteLoadBalancingPtr) ToSiteLoadBalancingPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SiteLoadBalancingPtrOutput)
 }
 
-// SSL type.
 type SslState string
 
 const (
@@ -4860,7 +4822,6 @@ func (in *sslStatePtr) ToSslStatePtrOutputWithContext(ctx context.Context) SslSt
 	return pulumi.ToOutputWithContext(ctx, in).(SslStatePtrOutput)
 }
 
-// State indicating whether staging environments are allowed or not allowed for a static web app.
 type StagingEnvironmentPolicy string
 
 const (
@@ -5189,7 +5150,6 @@ func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(StorageTypePtrOutput)
 }
 
-// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
 type SupportedTlsVersions string
 
 const (
@@ -5355,7 +5315,6 @@ func (in *supportedTlsVersionsPtr) ToSupportedTlsVersionsPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SupportedTlsVersionsPtrOutput)
 }
 
-// The action to take when an unauthenticated client attempts to access the app.
 type UnauthenticatedClientAction string
 
 const (
@@ -5520,7 +5479,6 @@ func (in *unauthenticatedClientActionPtr) ToUnauthenticatedClientActionPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(UnauthenticatedClientActionPtrOutput)
 }
 
-// The action to take when an unauthenticated client attempts to access the app.
 type UnauthenticatedClientActionV2 string
 
 const (
@@ -5687,7 +5645,6 @@ func (in *unauthenticatedClientActionV2Ptr) ToUnauthenticatedClientActionV2PtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(UnauthenticatedClientActionV2PtrOutput)
 }
 
-// The WSDL import method
 type WsdlImportMethod string
 
 const (

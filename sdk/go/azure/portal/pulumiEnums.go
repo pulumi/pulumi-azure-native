@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Size of terminal font.
 type FontSize string
 
 const (
@@ -177,7 +176,6 @@ func (in *fontSizePtr) ToFontSizePtrOutputWithContext(ctx context.Context) FontS
 	return pulumi.ToOutputWithContext(ctx, in).(FontSizePtrOutput)
 }
 
-// Style of terminal font.
 type FontStyle string
 
 const (
@@ -343,7 +341,6 @@ func (in *fontStylePtr) ToFontStylePtrOutputWithContext(ctx context.Context) Fon
 	return pulumi.ToOutputWithContext(ctx, in).(FontStylePtrOutput)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
 type OsType string
 
 const (
@@ -508,7 +505,6 @@ func (in *osTypePtr) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(OsTypePtrOutput)
 }
 
-// Provisioning state of the console.
 type ProvisioningState string
 
 const (
@@ -680,7 +676,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// The shell type of the cloud shell.
 type ShellType string
 
 const (

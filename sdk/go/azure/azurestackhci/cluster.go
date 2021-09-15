@@ -12,7 +12,7 @@ import (
 )
 
 // Cluster details.
-// API Version: 2021-09-01.
+// API Version: 2020-10-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -24,16 +24,12 @@ type Cluster struct {
 	BillingModel pulumi.StringOutput `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId pulumi.StringOutput `pulumi:"cloudId"`
-	// Endpoint configured for management from the Azure portal.
-	CloudManagementEndpoint pulumi.StringPtrOutput `pulumi:"cloudManagementEndpoint"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType pulumi.StringPtrOutput `pulumi:"createdByType"`
-	// Desired properties of the cluster.
-	DesiredProperties ClusterDesiredPropertiesResponsePtrOutput `pulumi:"desiredProperties"`
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp pulumi.StringOutput `pulumi:"lastBillingTimestamp"`
 	// The timestamp of resource last modification (UTC)
@@ -53,7 +49,7 @@ type Cluster struct {
 	// First cluster sync timestamp.
 	RegistrationTimestamp pulumi.StringOutput `pulumi:"registrationTimestamp"`
 	// Properties reported by cluster agent.
-	ReportedProperties ClusterReportedPropertiesResponseOutput `pulumi:"reportedProperties"`
+	ReportedProperties ClusterReportedPropertiesResponsePtrOutput `pulumi:"reportedProperties"`
 	// Status of the cluster agent.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
@@ -146,8 +142,6 @@ type clusterArgs struct {
 	AadClientId string `pulumi:"aadClientId"`
 	// Tenant id of cluster AAD identity.
 	AadTenantId string `pulumi:"aadTenantId"`
-	// Endpoint configured for management from the Azure portal.
-	CloudManagementEndpoint *string `pulumi:"cloudManagementEndpoint"`
 	// The name of the cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// The timestamp of resource creation (UTC).
@@ -156,8 +150,6 @@ type clusterArgs struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
-	// Desired properties of the cluster.
-	DesiredProperties *ClusterDesiredProperties `pulumi:"desiredProperties"`
 	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
@@ -178,8 +170,6 @@ type ClusterArgs struct {
 	AadClientId pulumi.StringInput
 	// Tenant id of cluster AAD identity.
 	AadTenantId pulumi.StringInput
-	// Endpoint configured for management from the Azure portal.
-	CloudManagementEndpoint pulumi.StringPtrInput
 	// The name of the cluster.
 	ClusterName pulumi.StringPtrInput
 	// The timestamp of resource creation (UTC).
@@ -188,8 +178,6 @@ type ClusterArgs struct {
 	CreatedBy pulumi.StringPtrInput
 	// The type of identity that created the resource.
 	CreatedByType pulumi.StringPtrInput
-	// Desired properties of the cluster.
-	DesiredProperties ClusterDesiredPropertiesPtrInput
 	// The timestamp of resource last modification (UTC)
 	LastModifiedAt pulumi.StringPtrInput
 	// The identity that last modified the resource.

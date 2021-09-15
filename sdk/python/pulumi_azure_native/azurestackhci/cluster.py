@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
 
@@ -19,12 +18,10 @@ class ClusterArgs:
                  aad_client_id: pulumi.Input[str],
                  aad_tenant_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 desired_properties: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -35,12 +32,10 @@ class ClusterArgs:
         :param pulumi.Input[str] aad_client_id: App id of cluster AAD identity.
         :param pulumi.Input[str] aad_tenant_id: Tenant id of cluster AAD identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] cloud_management_endpoint: Endpoint configured for management from the Azure portal.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input['ClusterDesiredPropertiesArgs'] desired_properties: Desired properties of the cluster.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
@@ -50,8 +45,6 @@ class ClusterArgs:
         pulumi.set(__self__, "aad_client_id", aad_client_id)
         pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cloud_management_endpoint is not None:
-            pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if created_at is not None:
@@ -60,8 +53,6 @@ class ClusterArgs:
             pulumi.set(__self__, "created_by", created_by)
         if created_by_type is not None:
             pulumi.set(__self__, "created_by_type", created_by_type)
-        if desired_properties is not None:
-            pulumi.set(__self__, "desired_properties", desired_properties)
         if last_modified_at is not None:
             pulumi.set(__self__, "last_modified_at", last_modified_at)
         if last_modified_by is not None:
@@ -110,18 +101,6 @@ class ClusterArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="cloudManagementEndpoint")
-    def cloud_management_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Endpoint configured for management from the Azure portal.
-        """
-        return pulumi.get(self, "cloud_management_endpoint")
-
-    @cloud_management_endpoint.setter
-    def cloud_management_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cloud_management_endpoint", value)
-
-    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -168,18 +147,6 @@ class ClusterArgs:
     @created_by_type.setter
     def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
         pulumi.set(self, "created_by_type", value)
-
-    @property
-    @pulumi.getter(name="desiredProperties")
-    def desired_properties(self) -> Optional[pulumi.Input['ClusterDesiredPropertiesArgs']]:
-        """
-        Desired properties of the cluster.
-        """
-        return pulumi.get(self, "desired_properties")
-
-    @desired_properties.setter
-    def desired_properties(self, value: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']]):
-        pulumi.set(self, "desired_properties", value)
 
     @property
     @pulumi.getter(name="lastModifiedAt")
@@ -249,12 +216,10 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_client_id: Optional[pulumi.Input[str]] = None,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
-                 cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -264,18 +229,16 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Cluster details.
-        API Version: 2021-09-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aad_client_id: App id of cluster AAD identity.
         :param pulumi.Input[str] aad_tenant_id: Tenant id of cluster AAD identity.
-        :param pulumi.Input[str] cloud_management_endpoint: Endpoint configured for management from the Azure portal.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']] desired_properties: Desired properties of the cluster.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
@@ -291,7 +254,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cluster details.
-        API Version: 2021-09-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -310,12 +273,10 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_client_id: Optional[pulumi.Input[str]] = None,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
-                 cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -340,12 +301,10 @@ class Cluster(pulumi.CustomResource):
             if aad_tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aad_tenant_id'")
             __props__.__dict__["aad_tenant_id"] = aad_tenant_id
-            __props__.__dict__["cloud_management_endpoint"] = cloud_management_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["created_at"] = created_at
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["created_by_type"] = created_by_type
-            __props__.__dict__["desired_properties"] = desired_properties
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
@@ -393,11 +352,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["aad_tenant_id"] = None
         __props__.__dict__["billing_model"] = None
         __props__.__dict__["cloud_id"] = None
-        __props__.__dict__["cloud_management_endpoint"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_type"] = None
-        __props__.__dict__["desired_properties"] = None
         __props__.__dict__["last_billing_timestamp"] = None
         __props__.__dict__["last_modified_at"] = None
         __props__.__dict__["last_modified_by"] = None
@@ -447,14 +404,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cloud_id")
 
     @property
-    @pulumi.getter(name="cloudManagementEndpoint")
-    def cloud_management_endpoint(self) -> pulumi.Output[Optional[str]]:
-        """
-        Endpoint configured for management from the Azure portal.
-        """
-        return pulumi.get(self, "cloud_management_endpoint")
-
-    @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[Optional[str]]:
         """
@@ -477,14 +426,6 @@ class Cluster(pulumi.CustomResource):
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="desiredProperties")
-    def desired_properties(self) -> pulumi.Output[Optional['outputs.ClusterDesiredPropertiesResponse']]:
-        """
-        Desired properties of the cluster.
-        """
-        return pulumi.get(self, "desired_properties")
 
     @property
     @pulumi.getter(name="lastBillingTimestamp")
@@ -560,7 +501,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> pulumi.Output['outputs.ClusterReportedPropertiesResponse']:
+    def reported_properties(self) -> pulumi.Output[Optional['outputs.ClusterReportedPropertiesResponse']]:
         """
         Properties reported by cluster agent.
         """

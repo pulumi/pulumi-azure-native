@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The cluster's billing type.
 type BillingType string
 
 const (
@@ -175,7 +174,6 @@ func (in *billingTypePtr) ToBillingTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(BillingTypePtrOutput)
 }
 
-// The name of the SKU.
 type ClusterSkuNameEnum string
 
 const (
@@ -339,7 +337,6 @@ func (in *clusterSkuNameEnumPtr) ToClusterSkuNameEnumPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterSkuNameEnumPtrOutput)
 }
 
-// The kind of the DataSource.
 type DataSourceKind string
 
 const (
@@ -535,7 +532,6 @@ func (in *dataSourceKindPtr) ToDataSourceKindPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceKindPtrOutput)
 }
 
-// Type of managed service identity.
 type IdentityType string
 
 const (
@@ -701,7 +697,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// The provisioning state of the linked service.
 type LinkedServiceEntityStatus string
 
 const (
@@ -868,7 +863,6 @@ func (in *linkedServiceEntityStatusPtr) ToLinkedServiceEntityStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(LinkedServiceEntityStatusPtrOutput)
 }
 
-// Type of the machine group
 type MachineGroupType string
 
 const (
@@ -1036,7 +1030,6 @@ func (in *machineGroupTypePtr) ToMachineGroupTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(MachineGroupTypePtrOutput)
 }
 
-// The network access type for accessing Log Analytics query.
 type PublicNetworkAccessType string
 
 const (
@@ -1203,7 +1196,6 @@ func (in *publicNetworkAccessTypePtr) ToPublicNetworkAccessTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessTypePtrOutput)
 }
 
-// The provisioning state of the workspace.
 type WorkspaceEntityStatus string
 
 const (
@@ -1373,7 +1365,6 @@ func (in *workspaceEntityStatusPtr) ToWorkspaceEntityStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(WorkspaceEntityStatusPtrOutput)
 }
 
-// The name of the SKU.
 type WorkspaceSkuNameEnum string
 
 const (

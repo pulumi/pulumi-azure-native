@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
 type CleanupOptions string
 
 const (
@@ -176,7 +175,6 @@ func (in *cleanupOptionsPtr) ToCleanupOptionsPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(CleanupOptionsPtrOutput)
 }
 
-// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 type DeploymentMode string
 
 const (
@@ -341,7 +339,6 @@ func (in *deploymentModePtr) ToDeploymentModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentModePtrOutput)
 }
 
-// The scope to be used for evaluation of parameters, variables and functions in a nested template.
 type ExpressionEvaluationOptionsScopeType string
 
 const (
@@ -507,7 +504,6 @@ func (in *expressionEvaluationOptionsScopeTypePtr) ToExpressionEvaluationOptions
 	return pulumi.ToOutputWithContext(ctx, in).(ExpressionEvaluationOptionsScopeTypePtrOutput)
 }
 
-// Type of the managed identity.
 type ManagedServiceIdentityType string
 
 const (
@@ -671,7 +667,6 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
 type OnErrorDeploymentType string
 
 const (
@@ -836,7 +831,6 @@ func (in *onErrorDeploymentTypePtr) ToOnErrorDeploymentTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(OnErrorDeploymentTypePtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (
@@ -1003,7 +997,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Type of the script.
 type ScriptType string
 
 const (

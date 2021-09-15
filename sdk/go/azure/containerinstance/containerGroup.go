@@ -12,7 +12,7 @@ import (
 )
 
 // A container group.
-// API Version: 2021-07-01.
+// API Version: 2021-03-01.
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type ContainerGroup struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The network profile information for a container group.
+	NetworkProfile ContainerGroupNetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The provisioning state of the container group. This only appears in the response.
@@ -49,8 +51,6 @@ type ContainerGroup struct {
 	RestartPolicy pulumi.StringPtrOutput `pulumi:"restartPolicy"`
 	// The SKU for a container group.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// The subnet resource IDs for a container group.
-	SubnetIds ContainerGroupSubnetIdResponseArrayOutput `pulumi:"subnetIds"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
@@ -205,6 +205,8 @@ type containerGroupArgs struct {
 	IpAddress *IpAddress `pulumi:"ipAddress"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The network profile information for a container group.
+	NetworkProfile *ContainerGroupNetworkProfile `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
 	OsType string `pulumi:"osType"`
 	// The name of the resource group.
@@ -216,8 +218,6 @@ type containerGroupArgs struct {
 	RestartPolicy *string `pulumi:"restartPolicy"`
 	// The SKU for a container group.
 	Sku *string `pulumi:"sku"`
-	// The subnet resource IDs for a container group.
-	SubnetIds []ContainerGroupSubnetId `pulumi:"subnetIds"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The list of volumes that can be mounted by containers in this container group.
@@ -246,6 +246,8 @@ type ContainerGroupArgs struct {
 	IpAddress IpAddressPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The network profile information for a container group.
+	NetworkProfile ContainerGroupNetworkProfilePtrInput
 	// The operating system type required by the containers in the container group.
 	OsType pulumi.StringInput
 	// The name of the resource group.
@@ -257,8 +259,6 @@ type ContainerGroupArgs struct {
 	RestartPolicy pulumi.StringPtrInput
 	// The SKU for a container group.
 	Sku pulumi.StringPtrInput
-	// The subnet resource IDs for a container group.
-	SubnetIds ContainerGroupSubnetIdArrayInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The list of volumes that can be mounted by containers in this container group.

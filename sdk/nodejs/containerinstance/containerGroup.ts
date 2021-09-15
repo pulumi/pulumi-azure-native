@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2021-07-01.
+ * API Version: 2021-03-01.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -81,6 +81,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The network profile information for a container group.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.containerinstance.ContainerGroupNetworkProfileResponse | undefined>;
+    /**
      * The operating system type required by the containers in the container group.
      */
     public readonly osType!: pulumi.Output<string>;
@@ -99,10 +103,6 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The SKU for a container group.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
-    /**
-     * The subnet resource IDs for a container group.
-     */
-    public readonly subnetIds!: pulumi.Output<outputs.containerinstance.ContainerGroupSubnetIdResponse[] | undefined>;
     /**
      * The resource tags.
      */
@@ -146,11 +146,11 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["initContainers"] = args ? args.initContainers : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
             inputs["instanceView"] = undefined /*out*/;
@@ -169,11 +169,11 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["restartPolicy"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumes"] = undefined /*out*/;
@@ -232,6 +232,10 @@ export interface ContainerGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The network profile information for a container group.
+     */
+    networkProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupNetworkProfileArgs>;
+    /**
      * The operating system type required by the containers in the container group.
      */
     osType: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
@@ -250,10 +254,6 @@ export interface ContainerGroupArgs {
      * The SKU for a container group.
      */
     sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
-    /**
-     * The subnet resource IDs for a container group.
-     */
-    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupSubnetIdArgs>[]>;
     /**
      * The resource tags.
      */

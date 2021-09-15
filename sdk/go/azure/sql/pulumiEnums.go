@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of the sever administrator.
 type AdministratorType string
 
 const (
@@ -174,7 +173,6 @@ func (in *administratorTypePtr) ToAdministratorTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AdministratorTypePtrOutput)
 }
 
-// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
 type AutoExecuteStatus string
 
 const (
@@ -340,7 +338,6 @@ func (in *autoExecuteStatusPtr) ToAutoExecuteStatusPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AutoExecuteStatusPtrOutput)
 }
 
-// Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
 type BlobAuditingPolicyState string
 
 const (
@@ -505,7 +502,6 @@ func (in *blobAuditingPolicyStatePtr) ToBlobAuditingPolicyStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(BlobAuditingPolicyStatePtrOutput)
 }
 
-// Collation of the metadata catalog.
 type CatalogCollationType string
 
 const (
@@ -670,23 +666,6 @@ func (in *catalogCollationTypePtr) ToCatalogCollationTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(CatalogCollationTypePtrOutput)
 }
 
-// Specifies the mode of database creation.
-//
-// Default: regular database creation.
-//
-// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-//
-// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-//
-// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-//
-// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-//
-// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-//
-// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-//
-// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 type CreateMode string
 
 const (
@@ -859,7 +838,6 @@ func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
 }
 
-// The state of the data masking policy.
 type DataMaskingState string
 
 const (
@@ -1024,7 +1002,6 @@ func (in *dataMaskingStatePtr) ToDataMaskingStatePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DataMaskingStatePtrOutput)
 }
 
-// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 type DatabaseLicenseType string
 
 const (
@@ -1189,7 +1166,6 @@ func (in *databaseLicenseTypePtr) ToDatabaseLicenseTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseLicenseTypePtrOutput)
 }
 
-// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
 type DatabaseReadScale string
 
 const (
@@ -1354,7 +1330,6 @@ func (in *databaseReadScalePtr) ToDatabaseReadScalePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseReadScalePtrOutput)
 }
 
-// The license type to apply for this elastic pool.
 type ElasticPoolLicenseType string
 
 const (
@@ -1519,7 +1494,6 @@ func (in *elasticPoolLicenseTypePtr) ToElasticPoolLicenseTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ElasticPoolLicenseTypePtrOutput)
 }
 
-// The state of the geo backup policy.
 type GeoBackupPolicyStateEnum string
 
 const (
@@ -1684,7 +1658,6 @@ func (in *geoBackupPolicyStateEnumPtr) ToGeoBackupPolicyStateEnumPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(GeoBackupPolicyStateEnumPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 type IdentityType string
 
 const (
@@ -1851,7 +1824,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
 type InstancePoolLicenseType string
 
 const (
@@ -2016,7 +1988,6 @@ func (in *instancePoolLicenseTypePtr) ToInstancePoolLicenseTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePoolLicenseTypePtrOutput)
 }
 
-// Schedule interval type
 type JobScheduleType string
 
 const (
@@ -2181,7 +2152,6 @@ func (in *jobScheduleTypePtr) ToJobScheduleTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(JobScheduleTypePtrOutput)
 }
 
-// The source of the action to execute.
 type JobStepActionSource string
 
 const (
@@ -2345,7 +2315,6 @@ func (in *jobStepActionSourcePtr) ToJobStepActionSourcePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(JobStepActionSourcePtrOutput)
 }
 
-// Type of action being executed by the job step.
 type JobStepActionType string
 
 const (
@@ -2509,7 +2478,6 @@ func (in *jobStepActionTypePtr) ToJobStepActionTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(JobStepActionTypePtrOutput)
 }
 
-// The output destination type.
 type JobStepOutputTypeEnum string
 
 const (
@@ -2673,7 +2641,6 @@ func (in *jobStepOutputTypeEnumPtr) ToJobStepOutputTypeEnumPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(JobStepOutputTypeEnumPtrOutput)
 }
 
-// Whether the target is included or excluded from the group.
 type JobTargetGroupMembershipType string
 
 const (
@@ -2838,7 +2805,6 @@ func (in *jobTargetGroupMembershipTypePtr) ToJobTargetGroupMembershipTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(JobTargetGroupMembershipTypePtrOutput)
 }
 
-// The target type.
 type JobTargetType string
 
 const (
@@ -3006,7 +2972,6 @@ func (in *jobTargetTypePtr) ToJobTargetTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(JobTargetTypePtrOutput)
 }
 
-// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
 type ManagedDatabaseCreateMode string
 
 const (
@@ -3174,7 +3139,6 @@ func (in *managedDatabaseCreateModePtr) ToManagedDatabaseCreateModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedDatabaseCreateModePtrOutput)
 }
 
-// Type of the managed instance administrator.
 type ManagedInstanceAdministratorType string
 
 const (
@@ -3338,7 +3302,6 @@ func (in *managedInstanceAdministratorTypePtr) ToManagedInstanceAdministratorTyp
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedInstanceAdministratorTypePtrOutput)
 }
 
-// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 type ManagedInstanceLicenseType string
 
 const (
@@ -3503,7 +3466,6 @@ func (in *managedInstanceLicenseTypePtr) ToManagedInstanceLicenseTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedInstanceLicenseTypePtrOutput)
 }
 
-// Connection type used for connecting to the instance.
 type ManagedInstanceProxyOverride string
 
 const (
@@ -3669,11 +3631,6 @@ func (in *managedInstanceProxyOverridePtr) ToManagedInstanceProxyOverridePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedInstanceProxyOverridePtrOutput)
 }
 
-// Specifies the mode of database creation.
-//
-// Default: Regular instance creation.
-//
-// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
 type ManagedServerCreateMode string
 
 const (
@@ -3838,7 +3795,6 @@ func (in *managedServerCreateModePtr) ToManagedServerCreateModePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedServerCreateModePtrOutput)
 }
 
-// Principal Type of the sever administrator.
 type PrincipalType string
 
 const (
@@ -4004,7 +3960,6 @@ func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PrincipalTypePtrOutput)
 }
 
-// The private link service connection status.
 type PrivateLinkServiceConnectionStateStatus string
 
 const (
@@ -4171,7 +4126,6 @@ func (in *privateLinkServiceConnectionStateStatusPtr) ToPrivateLinkServiceConnec
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStateStatusPtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 type ReadOnlyEndpointFailoverPolicy string
 
 const (
@@ -4336,7 +4290,6 @@ func (in *readOnlyEndpointFailoverPolicyPtr) ToReadOnlyEndpointFailoverPolicyPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ReadOnlyEndpointFailoverPolicyPtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 type ReadWriteEndpointFailoverPolicy string
 
 const (
@@ -4501,7 +4454,6 @@ func (in *readWriteEndpointFailoverPolicyPtr) ToReadWriteEndpointFailoverPolicyP
 	return pulumi.ToOutputWithContext(ctx, in).(ReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-// The storage account type to be used to store backups for this database.
 type RequestedBackupStorageRedundancy string
 
 const (
@@ -4667,7 +4619,6 @@ func (in *requestedBackupStorageRedundancyPtr) ToRequestedBackupStorageRedundanc
 	return pulumi.ToOutputWithContext(ctx, in).(RequestedBackupStorageRedundancyPtrOutput)
 }
 
-// The name of the sample schema to apply when creating this database.
 type SampleName string
 
 const (
@@ -4833,7 +4784,6 @@ func (in *sampleNamePtr) ToSampleNamePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SampleNamePtrOutput)
 }
 
-// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
 type SecondaryType string
 
 const (
@@ -4998,7 +4948,6 @@ func (in *secondaryTypePtr) ToSecondaryTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SecondaryTypePtrOutput)
 }
 
-// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
 type SecurityAlertsPolicyState string
 
 const (
@@ -5330,7 +5279,6 @@ func (in *sensitivityLabelRankPtr) ToSensitivityLabelRankPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SensitivityLabelRankPtrOutput)
 }
 
-// The server key type like 'ServiceManaged', 'AzureKeyVault'.
 type ServerKeyType string
 
 const (
@@ -5495,7 +5443,6 @@ func (in *serverKeyTypePtr) ToServerKeyTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServerKeyTypePtrOutput)
 }
 
-// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 type ServerPublicNetworkAccess string
 
 const (
@@ -5660,7 +5607,6 @@ func (in *serverPublicNetworkAccessPtr) ToServerPublicNetworkAccessPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ServerPublicNetworkAccessPtrOutput)
 }
 
-// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
 type StorageAccountType string
 
 const (
@@ -5826,7 +5772,6 @@ func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
 }
 
-// Conflict resolution policy of the sync group.
 type SyncConflictResolutionPolicy string
 
 const (
@@ -5991,7 +5936,6 @@ func (in *syncConflictResolutionPolicyPtr) ToSyncConflictResolutionPolicyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(SyncConflictResolutionPolicyPtrOutput)
 }
 
-// Sync direction of the sync member.
 type SyncDirection string
 
 const (
@@ -6157,7 +6101,6 @@ func (in *syncDirectionPtr) ToSyncDirectionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SyncDirectionPtrOutput)
 }
 
-// Database type of the sync member.
 type SyncMemberDbType string
 
 const (
@@ -6322,7 +6265,6 @@ func (in *syncMemberDbTypePtr) ToSyncMemberDbTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(SyncMemberDbTypePtrOutput)
 }
 
-// The status of the database transparent data encryption.
 type TransparentDataEncryptionStatus string
 
 const (

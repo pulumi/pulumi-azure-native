@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest OS Customization properties
 type GuestOSCustomization struct {
 	// List of dns servers to use
 	DnsServers []string `pulumi:"dnsServers"`
@@ -35,7 +34,6 @@ type GuestOSCustomizationInput interface {
 	ToGuestOSCustomizationOutputWithContext(context.Context) GuestOSCustomizationOutput
 }
 
-// Guest OS Customization properties
 type GuestOSCustomizationArgs struct {
 	// List of dns servers to use
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -102,7 +100,6 @@ func (i *guestOSCustomizationPtrType) ToGuestOSCustomizationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GuestOSCustomizationPtrOutput)
 }
 
-// Guest OS Customization properties
 type GuestOSCustomizationOutput struct{ *pulumi.OutputState }
 
 func (GuestOSCustomizationOutput) ElementType() reflect.Type {
@@ -226,7 +223,6 @@ func (o GuestOSCustomizationPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest OS Customization properties
 type GuestOSCustomizationResponse struct {
 	// List of dns servers to use
 	DnsServers []string `pulumi:"dnsServers"`
@@ -251,7 +247,6 @@ type GuestOSCustomizationResponseInput interface {
 	ToGuestOSCustomizationResponseOutputWithContext(context.Context) GuestOSCustomizationResponseOutput
 }
 
-// Guest OS Customization properties
 type GuestOSCustomizationResponseArgs struct {
 	// List of dns servers to use
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -318,7 +313,6 @@ func (i *guestOSCustomizationResponsePtrType) ToGuestOSCustomizationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GuestOSCustomizationResponsePtrOutput)
 }
 
-// Guest OS Customization properties
 type GuestOSCustomizationResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestOSCustomizationResponseOutput) ElementType() reflect.Type {
@@ -442,7 +436,6 @@ func (o GuestOSCustomizationResponsePtrOutput) Username() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomization struct {
 	// IP address allocation method
 	Allocation *string `pulumi:"allocation"`
@@ -471,7 +464,6 @@ type GuestOSNICCustomizationInput interface {
 	ToGuestOSNICCustomizationOutputWithContext(context.Context) GuestOSNICCustomizationOutput
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomizationArgs struct {
 	// IP address allocation method
 	Allocation pulumi.StringPtrInput `pulumi:"allocation"`
@@ -542,7 +534,6 @@ func (i *guestOSNICCustomizationPtrType) ToGuestOSNICCustomizationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GuestOSNICCustomizationPtrOutput)
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomizationOutput struct{ *pulumi.OutputState }
 
 func (GuestOSNICCustomizationOutput) ElementType() reflect.Type {
@@ -696,7 +687,6 @@ func (o GuestOSNICCustomizationPtrOutput) SecondaryWinsServer() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomizationResponse struct {
 	// IP address allocation method
 	Allocation *string `pulumi:"allocation"`
@@ -725,7 +715,6 @@ type GuestOSNICCustomizationResponseInput interface {
 	ToGuestOSNICCustomizationResponseOutputWithContext(context.Context) GuestOSNICCustomizationResponseOutput
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomizationResponseArgs struct {
 	// IP address allocation method
 	Allocation pulumi.StringPtrInput `pulumi:"allocation"`
@@ -796,7 +785,6 @@ func (i *guestOSNICCustomizationResponsePtrType) ToGuestOSNICCustomizationRespon
 	return pulumi.ToOutputWithContext(ctx, i).(GuestOSNICCustomizationResponsePtrOutput)
 }
 
-// Guest OS nic customization
 type GuestOSNICCustomizationResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestOSNICCustomizationResponseOutput) ElementType() reflect.Type {
@@ -950,7 +938,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) SecondaryWinsServer() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource pool model
 type ResourcePool struct {
 	// resource pool id (privateCloudId:vsphereId)
 	Id string `pulumi:"id"`
@@ -967,7 +954,6 @@ type ResourcePoolInput interface {
 	ToResourcePoolOutputWithContext(context.Context) ResourcePoolOutput
 }
 
-// Resource pool model
 type ResourcePoolArgs struct {
 	// resource pool id (privateCloudId:vsphereId)
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1026,7 +1012,6 @@ func (i *resourcePoolPtrType) ToResourcePoolPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePoolPtrOutput)
 }
 
-// Resource pool model
 type ResourcePoolOutput struct{ *pulumi.OutputState }
 
 func (ResourcePoolOutput) ElementType() reflect.Type {
@@ -1090,7 +1075,6 @@ func (o ResourcePoolPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource pool model
 type ResourcePoolResponse struct {
 	// Hierarchical resource pool name
 	FullName string `pulumi:"fullName"`
@@ -1117,7 +1101,6 @@ type ResourcePoolResponseInput interface {
 	ToResourcePoolResponseOutputWithContext(context.Context) ResourcePoolResponseOutput
 }
 
-// Resource pool model
 type ResourcePoolResponseArgs struct {
 	// Hierarchical resource pool name
 	FullName pulumi.StringInput `pulumi:"fullName"`
@@ -1186,7 +1169,6 @@ func (i *resourcePoolResponsePtrType) ToResourcePoolResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePoolResponsePtrOutput)
 }
 
-// Resource pool model
 type ResourcePoolResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourcePoolResponseOutput) ElementType() reflect.Type {
@@ -1325,7 +1307,6 @@ func (o ResourcePoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The purchase SKU for CloudSimple paid resources
 type Sku struct {
 	// The capacity of the SKU
 	Capacity *string `pulumi:"capacity"`
@@ -1350,7 +1331,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The purchase SKU for CloudSimple paid resources
 type SkuArgs struct {
 	// The capacity of the SKU
 	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
@@ -1417,7 +1397,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The purchase SKU for CloudSimple paid resources
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1541,7 +1520,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The purchase SKU for CloudSimple paid resources
 type SkuResponse struct {
 	// The capacity of the SKU
 	Capacity *string `pulumi:"capacity"`
@@ -1566,7 +1544,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The purchase SKU for CloudSimple paid resources
 type SkuResponseArgs struct {
 	// The capacity of the SKU
 	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
@@ -1633,7 +1610,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The purchase SKU for CloudSimple paid resources
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1757,7 +1733,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Virtual disk model
 type VirtualDisk struct {
 	// Disk's Controller id
 	ControllerId string `pulumi:"controllerId"`
@@ -1780,7 +1755,6 @@ type VirtualDiskInput interface {
 	ToVirtualDiskOutputWithContext(context.Context) VirtualDiskOutput
 }
 
-// Virtual disk model
 type VirtualDiskArgs struct {
 	// Disk's Controller id
 	ControllerId pulumi.StringInput `pulumi:"controllerId"`
@@ -1829,7 +1803,6 @@ func (i VirtualDiskArray) ToVirtualDiskArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskArrayOutput)
 }
 
-// Virtual disk model
 type VirtualDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualDiskOutput) ElementType() reflect.Type {
@@ -1884,7 +1857,6 @@ func (o VirtualDiskArrayOutput) Index(i pulumi.IntInput) VirtualDiskOutput {
 	}).(VirtualDiskOutput)
 }
 
-// Virtual disk controller model
 type VirtualDiskControllerResponse struct {
 	// Controller's id
 	Id string `pulumi:"id"`
@@ -1907,7 +1879,6 @@ type VirtualDiskControllerResponseInput interface {
 	ToVirtualDiskControllerResponseOutputWithContext(context.Context) VirtualDiskControllerResponseOutput
 }
 
-// Virtual disk controller model
 type VirtualDiskControllerResponseArgs struct {
 	// Controller's id
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1956,7 +1927,6 @@ func (i VirtualDiskControllerResponseArray) ToVirtualDiskControllerResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskControllerResponseArrayOutput)
 }
 
-// Virtual disk controller model
 type VirtualDiskControllerResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualDiskControllerResponseOutput) ElementType() reflect.Type {
@@ -2011,7 +1981,6 @@ func (o VirtualDiskControllerResponseArrayOutput) Index(i pulumi.IntInput) Virtu
 	}).(VirtualDiskControllerResponseOutput)
 }
 
-// Virtual disk model
 type VirtualDiskResponse struct {
 	// Disk's Controller id
 	ControllerId string `pulumi:"controllerId"`
@@ -2036,7 +2005,6 @@ type VirtualDiskResponseInput interface {
 	ToVirtualDiskResponseOutputWithContext(context.Context) VirtualDiskResponseOutput
 }
 
-// Virtual disk model
 type VirtualDiskResponseArgs struct {
 	// Disk's Controller id
 	ControllerId pulumi.StringInput `pulumi:"controllerId"`
@@ -2087,7 +2055,6 @@ func (i VirtualDiskResponseArray) ToVirtualDiskResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskResponseArrayOutput)
 }
 
-// Virtual disk model
 type VirtualDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualDiskResponseOutput) ElementType() reflect.Type {
@@ -2147,7 +2114,6 @@ func (o VirtualDiskResponseArrayOutput) Index(i pulumi.IntInput) VirtualDiskResp
 	}).(VirtualDiskResponseOutput)
 }
 
-// Virtual network model
 type VirtualNetwork struct {
 	// virtual network id (privateCloudId:vsphereId)
 	Id string `pulumi:"id"`
@@ -2164,7 +2130,6 @@ type VirtualNetworkInput interface {
 	ToVirtualNetworkOutputWithContext(context.Context) VirtualNetworkOutput
 }
 
-// Virtual network model
 type VirtualNetworkArgs struct {
 	// virtual network id (privateCloudId:vsphereId)
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2182,7 +2147,6 @@ func (i VirtualNetworkArgs) ToVirtualNetworkOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-// Virtual network model
 type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
@@ -2202,7 +2166,6 @@ func (o VirtualNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Virtual network model
 type VirtualNetworkResponse struct {
 	// can be used in vm creation/deletion
 	Assignable bool `pulumi:"assignable"`
@@ -2229,7 +2192,6 @@ type VirtualNetworkResponseInput interface {
 	ToVirtualNetworkResponseOutputWithContext(context.Context) VirtualNetworkResponseOutput
 }
 
-// Virtual network model
 type VirtualNetworkResponseArgs struct {
 	// can be used in vm creation/deletion
 	Assignable pulumi.BoolInput `pulumi:"assignable"`
@@ -2257,7 +2219,6 @@ func (i VirtualNetworkResponseArgs) ToVirtualNetworkResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResponseOutput)
 }
 
-// Virtual network model
 type VirtualNetworkResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkResponseOutput) ElementType() reflect.Type {
@@ -2302,7 +2263,6 @@ func (o VirtualNetworkResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Virtual NIC model
 type VirtualNic struct {
 	// guest OS customization for nic
 	Customization *GuestOSNICCustomization `pulumi:"customization"`
@@ -2331,7 +2291,6 @@ type VirtualNicInput interface {
 	ToVirtualNicOutputWithContext(context.Context) VirtualNicOutput
 }
 
-// Virtual NIC model
 type VirtualNicArgs struct {
 	// guest OS customization for nic
 	Customization GuestOSNICCustomizationPtrInput `pulumi:"customization"`
@@ -2386,7 +2345,6 @@ func (i VirtualNicArray) ToVirtualNicArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNicArrayOutput)
 }
 
-// Virtual NIC model
 type VirtualNicOutput struct{ *pulumi.OutputState }
 
 func (VirtualNicOutput) ElementType() reflect.Type {
@@ -2456,7 +2414,6 @@ func (o VirtualNicArrayOutput) Index(i pulumi.IntInput) VirtualNicOutput {
 	}).(VirtualNicOutput)
 }
 
-// Virtual NIC model
 type VirtualNicResponse struct {
 	// guest OS customization for nic
 	Customization *GuestOSNICCustomizationResponse `pulumi:"customization"`
@@ -2487,7 +2444,6 @@ type VirtualNicResponseInput interface {
 	ToVirtualNicResponseOutputWithContext(context.Context) VirtualNicResponseOutput
 }
 
-// Virtual NIC model
 type VirtualNicResponseArgs struct {
 	// guest OS customization for nic
 	Customization GuestOSNICCustomizationResponsePtrInput `pulumi:"customization"`
@@ -2544,7 +2500,6 @@ func (i VirtualNicResponseArray) ToVirtualNicResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNicResponseArrayOutput)
 }
 
-// Virtual NIC model
 type VirtualNicResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNicResponseOutput) ElementType() reflect.Type {

@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'CreatedByType',
-    'DiagnosticLevel',
-    'WindowsServerSubscription',
 ]
 
 
@@ -19,20 +17,3 @@ class CreatedByType(str, Enum):
     APPLICATION = "Application"
     MANAGED_IDENTITY = "ManagedIdentity"
     KEY = "Key"
-
-
-class DiagnosticLevel(str, Enum):
-    """
-    Desired level of diagnostic data emitted by the cluster.
-    """
-    OFF = "Off"
-    BASIC = "Basic"
-    ENHANCED = "Enhanced"
-
-
-class WindowsServerSubscription(str, Enum):
-    """
-    Desired state of Windows Server Subscription.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"

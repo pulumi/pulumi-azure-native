@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creator resource properties
 type CreatorPropertiesResponse struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -27,7 +26,6 @@ type CreatorPropertiesResponseInput interface {
 	ToCreatorPropertiesResponseOutputWithContext(context.Context) CreatorPropertiesResponseOutput
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseArgs struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
@@ -86,7 +84,6 @@ func (i *creatorPropertiesResponsePtrType) ToCreatorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponsePtrOutput)
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CreatorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
 	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
@@ -167,7 +163,6 @@ type MapsAccountPropertiesResponseInput interface {
 	ToMapsAccountPropertiesResponseOutputWithContext(context.Context) MapsAccountPropertiesResponseOutput
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseArgs struct {
 	// A unique identifier for the maps account
 	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
@@ -226,7 +221,6 @@ func (i *mapsAccountPropertiesResponsePtrType) ToMapsAccountPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MapsAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponse struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -307,7 +300,6 @@ type PrivateAtlasPropertiesResponseInput interface {
 	ToPrivateAtlasPropertiesResponseOutputWithContext(context.Context) PrivateAtlasPropertiesResponseOutput
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponseArgs struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
@@ -366,7 +358,6 @@ func (i *privateAtlasPropertiesResponsePtrType) ToPrivateAtlasPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesResponsePtrOutput)
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateAtlasPropertiesResponseOutput) ElementType() reflect.Type {
@@ -430,7 +421,6 @@ func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type Sku struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
@@ -447,7 +437,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the Maps Account.
 type SkuArgs struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
@@ -506,7 +495,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -570,7 +558,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponse struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
@@ -589,7 +576,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the Maps Account.
 type SkuResponseArgs struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
@@ -650,7 +636,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

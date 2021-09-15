@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An array of administrator user identities
 type DFPInstanceAdministrators struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -27,7 +26,6 @@ type DFPInstanceAdministratorsInput interface {
 	ToDFPInstanceAdministratorsOutputWithContext(context.Context) DFPInstanceAdministratorsOutput
 }
 
-// An array of administrator user identities
 type DFPInstanceAdministratorsArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -86,7 +84,6 @@ func (i *dfpinstanceAdministratorsPtrType) ToDFPInstanceAdministratorsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DFPInstanceAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities
 type DFPInstanceAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (DFPInstanceAdministratorsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o DFPInstanceAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of administrator user identities
 type DFPInstanceAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -167,7 +163,6 @@ type DFPInstanceAdministratorsResponseInput interface {
 	ToDFPInstanceAdministratorsResponseOutputWithContext(context.Context) DFPInstanceAdministratorsResponseOutput
 }
 
-// An array of administrator user identities
 type DFPInstanceAdministratorsResponseArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -226,7 +221,6 @@ func (i *dfpinstanceAdministratorsResponsePtrType) ToDFPInstanceAdministratorsRe
 	return pulumi.ToOutputWithContext(ctx, i).(DFPInstanceAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities
 type DFPInstanceAdministratorsResponseOutput struct{ *pulumi.OutputState }
 
 func (DFPInstanceAdministratorsResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o DFPInstanceAdministratorsResponsePtrOutput) Members() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -317,7 +310,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -386,7 +378,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

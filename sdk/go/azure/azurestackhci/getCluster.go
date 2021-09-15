@@ -8,7 +8,7 @@ import (
 )
 
 // Cluster details.
-// API Version: 2021-09-01.
+// API Version: 2020-10-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:azurestackhci:getCluster", args, &rv, opts...)
@@ -35,16 +35,12 @@ type LookupClusterResult struct {
 	BillingModel string `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId string `pulumi:"cloudId"`
-	// Endpoint configured for management from the Azure portal.
-	CloudManagementEndpoint *string `pulumi:"cloudManagementEndpoint"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
-	// Desired properties of the cluster.
-	DesiredProperties *ClusterDesiredPropertiesResponse `pulumi:"desiredProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Most recent billing meter timestamp.
@@ -66,7 +62,7 @@ type LookupClusterResult struct {
 	// First cluster sync timestamp.
 	RegistrationTimestamp string `pulumi:"registrationTimestamp"`
 	// Properties reported by cluster agent.
-	ReportedProperties ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	ReportedProperties *ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
 	// Status of the cluster agent.
 	Status string `pulumi:"status"`
 	// Resource tags.

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The workload type of the subscription. It can be either Production or DevTest.
 type Workload string
 
 const (

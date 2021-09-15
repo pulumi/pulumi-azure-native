@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiProperties struct {
 	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 	AadClientId *string `pulumi:"aadClientId"`
@@ -45,7 +44,6 @@ type CognitiveServicesAccountApiPropertiesInput interface {
 	ToCognitiveServicesAccountApiPropertiesOutputWithContext(context.Context) CognitiveServicesAccountApiPropertiesOutput
 }
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesArgs struct {
 	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
@@ -122,7 +120,6 @@ func (i *cognitiveServicesAccountApiPropertiesPtrType) ToCognitiveServicesAccoun
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountApiPropertiesPtrOutput)
 }
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountApiPropertiesOutput) ElementType() reflect.Type {
@@ -321,7 +318,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) WebsiteName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesResponse struct {
 	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 	AadClientId *string `pulumi:"aadClientId"`
@@ -356,7 +352,6 @@ type CognitiveServicesAccountApiPropertiesResponseInput interface {
 	ToCognitiveServicesAccountApiPropertiesResponseOutputWithContext(context.Context) CognitiveServicesAccountApiPropertiesResponseOutput
 }
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesResponseArgs struct {
 	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
@@ -433,7 +428,6 @@ func (i *cognitiveServicesAccountApiPropertiesResponsePtrType) ToCognitiveServic
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountApiPropertiesResponsePtrOutput)
 }
 
-// The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountApiPropertiesResponseOutput) ElementType() reflect.Type {
@@ -632,7 +626,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) WebsiteName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountProperties struct {
 	// The api properties for special APIs.
 	ApiProperties *CognitiveServicesAccountApiProperties `pulumi:"apiProperties"`
@@ -661,7 +654,6 @@ type CognitiveServicesAccountPropertiesInput interface {
 	ToCognitiveServicesAccountPropertiesOutputWithContext(context.Context) CognitiveServicesAccountPropertiesOutput
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountPropertiesArgs struct {
 	// The api properties for special APIs.
 	ApiProperties CognitiveServicesAccountApiPropertiesPtrInput `pulumi:"apiProperties"`
@@ -732,7 +724,6 @@ func (i *cognitiveServicesAccountPropertiesPtrType) ToCognitiveServicesAccountPr
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountPropertiesPtrOutput)
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountPropertiesOutput) ElementType() reflect.Type {
@@ -890,7 +881,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) UserOwnedStorage() UserOwne
 	}).(UserOwnedStorageArrayOutput)
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountPropertiesResponse struct {
 	// The api properties for special APIs.
 	ApiProperties *CognitiveServicesAccountApiPropertiesResponse `pulumi:"apiProperties"`
@@ -933,7 +923,6 @@ type CognitiveServicesAccountPropertiesResponseInput interface {
 	ToCognitiveServicesAccountPropertiesResponseOutputWithContext(context.Context) CognitiveServicesAccountPropertiesResponseOutput
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountPropertiesResponseArgs struct {
 	// The api properties for special APIs.
 	ApiProperties CognitiveServicesAccountApiPropertiesResponsePtrInput `pulumi:"apiProperties"`
@@ -1018,7 +1007,6 @@ func (i *cognitiveServicesAccountPropertiesResponsePtrType) ToCognitiveServicesA
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountPropertiesResponsePtrOutput)
 }
 
-// Properties of Cognitive Services account.
 type CognitiveServicesAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1285,7 +1273,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) UserOwnedStorage() 
 	}).(UserOwnedStorageResponseArrayOutput)
 }
 
-// Sku change info of account.
 type CognitiveServicesAccountSkuChangeInfoResponse struct {
 	// Gets the count of downgrades.
 	CountOfDowngrades float64 `pulumi:"countOfDowngrades"`
@@ -1306,7 +1293,6 @@ type CognitiveServicesAccountSkuChangeInfoResponseInput interface {
 	ToCognitiveServicesAccountSkuChangeInfoResponseOutputWithContext(context.Context) CognitiveServicesAccountSkuChangeInfoResponseOutput
 }
 
-// Sku change info of account.
 type CognitiveServicesAccountSkuChangeInfoResponseArgs struct {
 	// Gets the count of downgrades.
 	CountOfDowngrades pulumi.Float64Input `pulumi:"countOfDowngrades"`
@@ -1369,7 +1355,6 @@ func (i *cognitiveServicesAccountSkuChangeInfoResponsePtrType) ToCognitiveServic
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountSkuChangeInfoResponsePtrOutput)
 }
 
-// Sku change info of account.
 type CognitiveServicesAccountSkuChangeInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountSkuChangeInfoResponseOutput) ElementType() reflect.Type {
@@ -1463,7 +1448,6 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) LastChangeDate()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties to configure Encryption
 type Encryption struct {
 	// Enumerates the possible value of keySource for Encryption
 	KeySource *string `pulumi:"keySource"`
@@ -1482,7 +1466,6 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
@@ -1543,7 +1526,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -1622,7 +1604,6 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionResponse struct {
 	// Enumerates the possible value of keySource for Encryption
 	KeySource *string `pulumi:"keySource"`
@@ -1641,7 +1622,6 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// Properties to configure Encryption
 type EncryptionResponseArgs struct {
 	// Enumerates the possible value of keySource for Encryption
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
@@ -1702,7 +1682,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -1781,7 +1760,6 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Managed service identity.
 type Identity struct {
 	// Type of managed service identity.
 	Type *IdentityType `pulumi:"type"`
@@ -1800,7 +1778,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Managed service identity.
 type IdentityArgs struct {
 	// Type of managed service identity.
 	Type IdentityTypePtrInput `pulumi:"type"`
@@ -1861,7 +1838,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Managed service identity.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1940,7 +1916,6 @@ func (o IdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutpu
 	}).(UserAssignedIdentityMapOutput)
 }
 
-// Managed service identity.
 type IdentityResponse struct {
 	// Principal Id of managed service identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1963,7 +1938,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Managed service identity.
 type IdentityResponseArgs struct {
 	// Principal Id of managed service identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -2028,7 +2002,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Managed service identity.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -2137,7 +2110,6 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentity
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRule struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -2154,7 +2126,6 @@ type IpRuleInput interface {
 	ToIpRuleOutputWithContext(context.Context) IpRuleOutput
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRuleArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -2197,7 +2168,6 @@ func (i IpRuleArray) ToIpRuleArrayOutputWithContext(ctx context.Context) IpRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleArrayOutput)
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRuleOutput struct{ *pulumi.OutputState }
 
 func (IpRuleOutput) ElementType() reflect.Type {
@@ -2237,7 +2207,6 @@ func (o IpRuleArrayOutput) Index(i pulumi.IntInput) IpRuleOutput {
 	}).(IpRuleOutput)
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRuleResponse struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
@@ -2254,7 +2223,6 @@ type IpRuleResponseInput interface {
 	ToIpRuleResponseOutputWithContext(context.Context) IpRuleResponseOutput
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRuleResponseArgs struct {
 	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -2297,7 +2265,6 @@ func (i IpRuleResponseArray) ToIpRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility from a specific ip address or ip range.
 type IpRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IpRuleResponseOutput) ElementType() reflect.Type {
@@ -2337,7 +2304,6 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 	}).(IpRuleResponseOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultProperties struct {
 	// Name of the Key from KeyVault
 	KeyName *string `pulumi:"keyName"`
@@ -2358,7 +2324,6 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesArgs struct {
 	// Name of the Key from KeyVault
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
@@ -2421,7 +2386,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -2515,7 +2479,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponse struct {
 	// Name of the Key from KeyVault
 	KeyName *string `pulumi:"keyName"`
@@ -2536,7 +2499,6 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponseArgs struct {
 	// Name of the Key from KeyVault
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
@@ -2599,7 +2561,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2693,7 +2654,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSet struct {
 	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -2714,7 +2674,6 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSetArgs struct {
 	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -2777,7 +2736,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -2871,7 +2829,6 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 	}).(VirtualNetworkRuleArrayOutput)
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSetResponse struct {
 	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -2892,7 +2849,6 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSetResponseArgs struct {
 	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -2955,7 +2911,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// A set of rules governing the network accessibility.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -3049,7 +3004,6 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionType struct {
 	// The location of the private endpoint connection
 	Location *string `pulumi:"location"`
@@ -3068,7 +3022,6 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionTypeArgs struct {
 	// The location of the private endpoint connection
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -3113,7 +3066,6 @@ func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -3158,7 +3110,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	}).(PrivateEndpointConnectionTypeOutput)
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionProperties struct {
 	// The private link resource group ids.
 	GroupIds []string `pulumi:"groupIds"`
@@ -3177,7 +3128,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesArgs struct {
 	// The private link resource group ids.
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
@@ -3238,7 +3188,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -3319,7 +3268,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// The private link resource group ids.
 	GroupIds []string `pulumi:"groupIds"`
@@ -3340,7 +3288,6 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
 	// The private link resource group ids.
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
@@ -3403,7 +3350,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3499,7 +3445,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Entity Tag
 	Etag string `pulumi:"etag"`
@@ -3526,7 +3471,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// Entity Tag
 	Etag pulumi.StringInput `pulumi:"etag"`
@@ -3579,7 +3523,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -3646,7 +3589,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -3663,7 +3605,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3722,7 +3663,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -3786,7 +3726,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -3807,7 +3746,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -3870,7 +3808,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -3964,7 +3901,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -3985,7 +3921,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -4048,7 +3983,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -4142,7 +4076,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type Sku struct {
 	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
@@ -4159,7 +4092,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuArgs struct {
 	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4218,7 +4150,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -4282,7 +4213,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SkuCapability indicates the capability of a certain feature.
 type SkuCapabilityResponse struct {
 	// The name of the SkuCapability.
 	Name *string `pulumi:"name"`
@@ -4301,7 +4231,6 @@ type SkuCapabilityResponseInput interface {
 	ToSkuCapabilityResponseOutputWithContext(context.Context) SkuCapabilityResponseOutput
 }
 
-// SkuCapability indicates the capability of a certain feature.
 type SkuCapabilityResponseArgs struct {
 	// The name of the SkuCapability.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4346,7 +4275,6 @@ func (i SkuCapabilityResponseArray) ToSkuCapabilityResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SkuCapabilityResponseArrayOutput)
 }
 
-// SkuCapability indicates the capability of a certain feature.
 type SkuCapabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuCapabilityResponseOutput) ElementType() reflect.Type {
@@ -4391,7 +4319,6 @@ func (o SkuCapabilityResponseArrayOutput) Index(i pulumi.IntInput) SkuCapability
 	}).(SkuCapabilityResponseOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponse struct {
 	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
@@ -4410,7 +4337,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseArgs struct {
 	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4471,7 +4397,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -4550,7 +4475,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentity struct {
 	// Client App Id associated with this identity.
 	ClientId *string `pulumi:"clientId"`
@@ -4569,7 +4493,6 @@ type UserAssignedIdentityInput interface {
 	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityArgs struct {
 	// Client App Id associated with this identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -4614,7 +4537,6 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
@@ -4659,7 +4581,6 @@ func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssign
 	}).(UserAssignedIdentityOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponse struct {
 	// Client App Id associated with this identity.
 	ClientId *string `pulumi:"clientId"`
@@ -4678,7 +4599,6 @@ type UserAssignedIdentityResponseInput interface {
 	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseArgs struct {
 	// Client App Id associated with this identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -4723,7 +4643,6 @@ func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
@@ -4768,7 +4687,6 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorage struct {
 	// Full resource id of a Microsoft.Storage resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -4785,7 +4703,6 @@ type UserOwnedStorageInput interface {
 	ToUserOwnedStorageOutputWithContext(context.Context) UserOwnedStorageOutput
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorageArgs struct {
 	// Full resource id of a Microsoft.Storage resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -4828,7 +4745,6 @@ func (i UserOwnedStorageArray) ToUserOwnedStorageArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserOwnedStorageArrayOutput)
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorageOutput struct{ *pulumi.OutputState }
 
 func (UserOwnedStorageOutput) ElementType() reflect.Type {
@@ -4868,7 +4784,6 @@ func (o UserOwnedStorageArrayOutput) Index(i pulumi.IntInput) UserOwnedStorageOu
 	}).(UserOwnedStorageOutput)
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorageResponse struct {
 	// Full resource id of a Microsoft.Storage resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -4885,7 +4800,6 @@ type UserOwnedStorageResponseInput interface {
 	ToUserOwnedStorageResponseOutputWithContext(context.Context) UserOwnedStorageResponseOutput
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorageResponseArgs struct {
 	// Full resource id of a Microsoft.Storage resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -4928,7 +4842,6 @@ func (i UserOwnedStorageResponseArray) ToUserOwnedStorageResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(UserOwnedStorageResponseArrayOutput)
 }
 
-// The user owned storage for Cognitive Services account.
 type UserOwnedStorageResponseOutput struct{ *pulumi.OutputState }
 
 func (UserOwnedStorageResponseOutput) ElementType() reflect.Type {
@@ -4968,7 +4881,6 @@ func (o UserOwnedStorageResponseArrayOutput) Index(i pulumi.IntInput) UserOwnedS
 	}).(UserOwnedStorageResponseOutput)
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRule struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -4989,7 +4901,6 @@ type VirtualNetworkRuleInput interface {
 	ToVirtualNetworkRuleOutputWithContext(context.Context) VirtualNetworkRuleOutput
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRuleArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5036,7 +4947,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -5086,7 +4996,6 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 	}).(VirtualNetworkRuleOutput)
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRuleResponse struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
@@ -5107,7 +5016,6 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRuleResponseArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5154,7 +5062,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility from a specific virtual network.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {

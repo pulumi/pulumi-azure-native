@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup schedule type.
 type BackupScheduleType string
 
 const (
@@ -175,7 +174,6 @@ func (in *backupScheduleTypePtr) ToBackupScheduleTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(BackupScheduleTypePtrOutput)
 }
 
-// SQL Server connectivity option.
 type ConnectivityType string
 
 const (
@@ -341,7 +339,6 @@ func (in *connectivityTypePtr) ToConnectivityTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectivityTypePtrOutput)
 }
 
-// Day of week to apply the patch on.
 type DayOfWeek string
 
 const (
@@ -511,7 +508,6 @@ func (in *dayOfWeekPtr) ToDayOfWeekPtrOutputWithContext(ctx context.Context) Day
 	return pulumi.ToOutputWithContext(ctx, in).(DayOfWeekPtrOutput)
 }
 
-// Disk configuration to apply to SQL Server.
 type DiskConfigurationType string
 
 const (
@@ -677,7 +673,6 @@ func (in *diskConfigurationTypePtr) ToDiskConfigurationTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskConfigurationTypePtrOutput)
 }
 
-// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
 type FullBackupFrequencyType string
 
 const (
@@ -842,7 +837,6 @@ func (in *fullBackupFrequencyTypePtr) ToFullBackupFrequencyTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FullBackupFrequencyTypePtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 type IdentityType string
 
 const (
@@ -1006,7 +1000,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// SQL Server edition type.
 type SqlImageSku string
 
 const (
@@ -1174,7 +1167,6 @@ func (in *sqlImageSkuPtr) ToSqlImageSkuPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SqlImageSkuPtrOutput)
 }
 
-// SQL Server Management type.
 type SqlManagementMode string
 
 const (
@@ -1340,7 +1332,6 @@ func (in *sqlManagementModePtr) ToSqlManagementModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SqlManagementModePtrOutput)
 }
 
-// SQL Server license type.
 type SqlServerLicenseType string
 
 const (
@@ -1506,7 +1497,6 @@ func (in *sqlServerLicenseTypePtr) ToSqlServerLicenseTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SqlServerLicenseTypePtrOutput)
 }
 
-// SQL image sku.
 type SqlVmGroupImageSku string
 
 const (
@@ -1671,7 +1661,6 @@ func (in *sqlVmGroupImageSkuPtr) ToSqlVmGroupImageSkuPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SqlVmGroupImageSkuPtrOutput)
 }
 
-// SQL Server workload type.
 type SqlWorkloadType string
 
 const (
@@ -1837,7 +1826,6 @@ func (in *sqlWorkloadTypePtr) ToSqlWorkloadTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(SqlWorkloadTypePtrOutput)
 }
 
-// Storage workload type.
 type StorageWorkloadType string
 
 const (

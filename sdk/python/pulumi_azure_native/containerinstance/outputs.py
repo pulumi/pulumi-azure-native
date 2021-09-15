@@ -16,8 +16,8 @@ __all__ = [
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
     'ContainerGroupIdentityResponseUserAssignedIdentities',
+    'ContainerGroupNetworkProfileResponse',
     'ContainerGroupResponseInstanceView',
-    'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
     'ContainerPortResponse',
     'ContainerProbeResponse',
@@ -30,7 +30,7 @@ __all__ = [
     'EventResponse',
     'GitRepoVolumeResponse',
     'GpuResourceResponse',
-    'HttpHeaderResponse',
+    'HttpHeadersResponse',
     'ImageRegistryCredentialResponse',
     'InitContainerDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
@@ -314,6 +314,28 @@ class ContainerGroupIdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class ContainerGroupNetworkProfileResponse(dict):
+    """
+    Container group network profile information.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Container group network profile information.
+        :param str id: The identifier for a network profile.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier for a network profile.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ContainerGroupResponseInstanceView(dict):
     """
     The instance view of the container group. Only valid in response.
@@ -347,40 +369,6 @@ class ContainerGroupResponseInstanceView(dict):
 
 
 @pulumi.output_type
-class ContainerGroupSubnetIdResponse(dict):
-    """
-    Container group subnet information.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 name: Optional[str] = None):
-        """
-        Container group subnet information.
-        :param str id: Resource ID of virtual network and subnet.
-        :param str name: Friendly name for the subnet.
-        """
-        pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource ID of virtual network and subnet.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Friendly name for the subnet.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
 class ContainerHttpGetResponse(dict):
     """
     The container Http Get settings, for liveness or readiness probe
@@ -404,13 +392,13 @@ class ContainerHttpGetResponse(dict):
 
     def __init__(__self__, *,
                  port: int,
-                 http_headers: Optional[Sequence['outputs.HttpHeaderResponse']] = None,
+                 http_headers: Optional['outputs.HttpHeadersResponse'] = None,
                  path: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param int port: The port number to probe.
-        :param Sequence['HttpHeaderResponse'] http_headers: The HTTP headers.
+        :param 'HttpHeadersResponse' http_headers: The HTTP headers.
         :param str path: The path to probe.
         :param str scheme: The scheme.
         """
@@ -432,7 +420,7 @@ class ContainerHttpGetResponse(dict):
 
     @property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[Sequence['outputs.HttpHeaderResponse']]:
+    def http_headers(self) -> Optional['outputs.HttpHeadersResponse']:
         """
         The HTTP headers.
         """
@@ -1299,15 +1287,15 @@ class GpuResourceResponse(dict):
 
 
 @pulumi.output_type
-class HttpHeaderResponse(dict):
+class HttpHeadersResponse(dict):
     """
-    The HTTP header.
+    The HTTP headers.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        The HTTP header.
+        The HTTP headers.
         :param str name: The header name.
         :param str value: The header value.
         """
@@ -1338,43 +1326,18 @@ class ImageRegistryCredentialResponse(dict):
     """
     Image registry credential.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "identityUrl":
-            suggest = "identity_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageRegistryCredentialResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageRegistryCredentialResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  server: str,
                  username: str,
-                 identity: Optional[str] = None,
-                 identity_url: Optional[str] = None,
                  password: Optional[str] = None):
         """
         Image registry credential.
         :param str server: The Docker image registry server without a protocol such as "http" and "https".
         :param str username: The username for the private registry.
-        :param str identity: The identity for the private registry.
-        :param str identity_url: The identity URL for the private registry.
         :param str password: The password for the private registry.
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "username", username)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if identity_url is not None:
-            pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
 
@@ -1393,22 +1356,6 @@ class ImageRegistryCredentialResponse(dict):
         The username for the private registry.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[str]:
-        """
-        The identity for the private registry.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="identityUrl")
-    def identity_url(self) -> Optional[str]:
-        """
-        The identity URL for the private registry.
-        """
-        return pulumi.get(self, "identity_url")
 
     @property
     @pulumi.getter
@@ -1715,14 +1662,14 @@ class LogAnalyticsResponse(dict):
                  workspace_key: str,
                  log_type: Optional[str] = None,
                  metadata: Optional[Mapping[str, str]] = None,
-                 workspace_resource_id: Optional[str] = None):
+                 workspace_resource_id: Optional[Mapping[str, str]] = None):
         """
         Container group log analytics information.
         :param str workspace_id: The workspace id for log analytics
         :param str workspace_key: The workspace key for log analytics
         :param str log_type: The log type to be used.
         :param Mapping[str, str] metadata: Metadata for log analytics.
-        :param str workspace_resource_id: The workspace resource id for log analytics
+        :param Mapping[str, str] workspace_resource_id: The workspace resource id for log analytics
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         pulumi.set(__self__, "workspace_key", workspace_key)
@@ -1767,7 +1714,7 @@ class LogAnalyticsResponse(dict):
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[str]:
+    def workspace_resource_id(self) -> Optional[Mapping[str, str]]:
         """
         The workspace resource id for log analytics
         """

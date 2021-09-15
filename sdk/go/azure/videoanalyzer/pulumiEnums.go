@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
 type AccessPolicyEccAlgo string
 
 const (
@@ -179,7 +178,6 @@ func (in *accessPolicyEccAlgoPtr) ToAccessPolicyEccAlgoPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyEccAlgoPtrOutput)
 }
 
-// Defines the access level granted by this policy.
 type AccessPolicyRole string
 
 const (
@@ -344,7 +342,6 @@ func (in *accessPolicyRolePtr) ToAccessPolicyRolePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyRolePtrOutput)
 }
 
-// RSA algorithm to be used: RS256, RS384 or RS512.
 type AccessPolicyRsaAlgo string
 
 const (
@@ -513,7 +510,6 @@ func (in *accessPolicyRsaAlgoPtr) ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyRsaAlgoPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 type AccountEncryptionKeyType string
 
 const (

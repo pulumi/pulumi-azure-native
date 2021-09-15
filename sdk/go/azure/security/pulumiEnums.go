@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of the action that will be triggered by the Automation
 type ActionType string
 
 const (
@@ -176,7 +175,6 @@ func (in *actionTypePtr) ToActionTypePtrOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, in).(ActionTypePtrOutput)
 }
 
-// Data types sent to workspace.
 type AdditionalWorkspaceDataType string
 
 const (
@@ -341,7 +339,6 @@ func (in *additionalWorkspaceDataTypePtr) ToAdditionalWorkspaceDataTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(AdditionalWorkspaceDataTypePtrOutput)
 }
 
-// Workspace type.
 type AdditionalWorkspaceType string
 
 const (
@@ -505,7 +502,6 @@ func (in *additionalWorkspaceTypePtr) ToAdditionalWorkspaceTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(AdditionalWorkspaceTypePtrOutput)
 }
 
-// Programmatic code for the status of the assessment
 type AssessmentStatusCode string
 
 const (
@@ -674,7 +670,6 @@ func (in *assessmentStatusCodePtr) ToAssessmentStatusCodePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentStatusCodePtrOutput)
 }
 
-// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 type AssessmentType string
 
 const (
@@ -845,7 +840,6 @@ func (in *assessmentTypePtr) ToAssessmentTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentTypePtrOutput)
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 type AuthenticationType string
 
 const (
@@ -1014,7 +1008,6 @@ func (in *authenticationTypePtr) ToAuthenticationTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationTypePtrOutput)
 }
 
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 type AutoProvision string
 
 const (
@@ -1181,7 +1174,6 @@ func (in *autoProvisionPtr) ToAutoProvisionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AutoProvisionPtrOutput)
 }
 
-// The categories of resource that is at risk when the assessment is unhealthy
 type Categories string
 
 const (
@@ -1513,7 +1505,6 @@ func (in *dataSourcePtr) ToDataSourcePtrOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourcePtrOutput)
 }
 
-// A valid event source type.
 type EventSource string
 
 const (
@@ -1849,7 +1840,6 @@ func (in *exportDataPtr) ToExportDataPtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(ExportDataPtrOutput)
 }
 
-// The implementation effort required to remediate this assessment
 type ImplementationEffort string
 
 const (
@@ -2015,7 +2005,6 @@ func (in *implementationEffortPtr) ToImplementationEffortPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ImplementationEffortPtrOutput)
 }
 
-// Defines the minimal alert severity which will be sent as email notifications
 type MinimalSeverity string
 
 const (
@@ -2184,7 +2173,6 @@ func (in *minimalSeverityPtr) ToMinimalSeverityPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(MinimalSeverityPtrOutput)
 }
 
-// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
 type Operator string
 
 const (
@@ -2365,7 +2353,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
 type PropertyType string
 
 const (
@@ -2697,7 +2684,6 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
 }
 
-// Recommendation status. When the recommendation status is disabled recommendations are not generated.
 type RecommendationConfigStatus string
 
 const (
@@ -2862,7 +2848,6 @@ func (in *recommendationConfigStatusPtr) ToRecommendationConfigStatusPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(RecommendationConfigStatusPtrOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationType string
 
 const (
@@ -3057,7 +3042,6 @@ func (in *recommendationTypePtr) ToRecommendationTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(RecommendationTypePtrOutput)
 }
 
-// A possible role to configure sending security notification alerts to
 type Roles string
 
 const (
@@ -3228,7 +3212,6 @@ func (in *rolesPtr) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(RolesPtrOutput)
 }
 
-// Possible states of the rule
 type RuleState string
 
 const (
@@ -3394,7 +3377,6 @@ func (in *ruleStatePtr) ToRuleStatePtrOutputWithContext(ctx context.Context) Rul
 	return pulumi.ToOutputWithContext(ctx, in).(RuleStatePtrOutput)
 }
 
-// Status of the IoT Security solution.
 type SecuritySolutionStatus string
 
 const (
@@ -3559,7 +3541,6 @@ func (in *securitySolutionStatusPtr) ToSecuritySolutionStatusPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(SecuritySolutionStatusPtrOutput)
 }
 
-// The severity level of the assessment
 type Severity string
 
 const (
@@ -3725,7 +3706,6 @@ func (in *severityPtr) ToSeverityPtrOutputWithContext(ctx context.Context) Sever
 	return pulumi.ToOutputWithContext(ctx, in).(SeverityPtrOutput)
 }
 
-// The platform where the assessed resource resides
 type Source string
 
 const (
@@ -3894,7 +3874,6 @@ func (in *sourcePtr) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtr
 	return pulumi.ToOutputWithContext(ctx, in).(SourcePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type State string
 
 const (
@@ -4061,7 +4040,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
 }
 
-// The status of the port
 type Status string
 
 const (
@@ -4226,7 +4204,6 @@ func (in *statusPtr) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtr
 	return pulumi.ToOutputWithContext(ctx, in).(StatusPtrOutput)
 }
 
-// A description of why the `status` has its value
 type StatusReason string
 
 const (
@@ -4392,7 +4369,6 @@ func (in *statusReasonPtr) ToStatusReasonPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(StatusReasonPtrOutput)
 }
 
-// Threats impact of the assessment
 type Threats string
 
 const (
@@ -4563,7 +4539,6 @@ func (in *threatsPtr) ToThreatsPtrOutputWithContext(ctx context.Context) Threats
 	return pulumi.ToOutputWithContext(ctx, in).(ThreatsPtrOutput)
 }
 
-// Unmasked IP address logging status
 type UnmaskedIpLoggingStatus string
 
 const (
@@ -4730,7 +4705,6 @@ func (in *unmaskedIpLoggingStatusPtr) ToUnmaskedIpLoggingStatusPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(UnmaskedIpLoggingStatusPtrOutput)
 }
 
-// The user impact of the assessment
 type UserImpact string
 
 const (

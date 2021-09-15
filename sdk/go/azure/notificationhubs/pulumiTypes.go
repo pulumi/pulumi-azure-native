@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredential struct {
 	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
@@ -31,7 +30,6 @@ type AdmCredentialInput interface {
 	ToAdmCredentialOutputWithContext(context.Context) AdmCredentialOutput
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialArgs struct {
 	// The URL of the authorization token.
 	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
@@ -94,7 +92,6 @@ func (i *admCredentialPtrType) ToAdmCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o AdmCredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponse struct {
 	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
@@ -209,7 +205,6 @@ type AdmCredentialResponseInput interface {
 	ToAdmCredentialResponseOutputWithContext(context.Context) AdmCredentialResponseOutput
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponseArgs struct {
 	// The URL of the authorization token.
 	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
@@ -272,7 +267,6 @@ func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o AdmCredentialResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredential struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
@@ -397,7 +390,6 @@ type ApnsCredentialInput interface {
 	ToApnsCredentialOutputWithContext(context.Context) ApnsCredentialOutput
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialArgs struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
@@ -470,7 +462,6 @@ func (i *apnsCredentialPtrType) ToApnsCredentialPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialOutput) ElementType() reflect.Type {
@@ -639,7 +630,6 @@ func (o ApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponse struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
@@ -670,7 +660,6 @@ type ApnsCredentialResponseInput interface {
 	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponseArgs struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
@@ -743,7 +732,6 @@ func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -912,7 +900,6 @@ func (o ApnsCredentialResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredential struct {
 	// Baidu Api Key.
 	BaiduApiKey *string `pulumi:"baiduApiKey"`
@@ -933,7 +920,6 @@ type BaiduCredentialInput interface {
 	ToBaiduCredentialOutputWithContext(context.Context) BaiduCredentialOutput
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialArgs struct {
 	// Baidu Api Key.
 	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
@@ -996,7 +982,6 @@ func (i *baiduCredentialPtrType) ToBaiduCredentialPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialOutput) ElementType() reflect.Type {
@@ -1090,7 +1075,6 @@ func (o BaiduCredentialPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponse struct {
 	// Baidu Api Key.
 	BaiduApiKey *string `pulumi:"baiduApiKey"`
@@ -1111,7 +1095,6 @@ type BaiduCredentialResponseInput interface {
 	ToBaiduCredentialResponseOutputWithContext(context.Context) BaiduCredentialResponseOutput
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponseArgs struct {
 	// Baidu Api Key.
 	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
@@ -1174,7 +1157,6 @@ func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialResponseOutput) ElementType() reflect.Type {
@@ -1268,7 +1250,6 @@ func (o BaiduCredentialResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredential struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint *string `pulumi:"gcmEndpoint"`
@@ -1287,7 +1268,6 @@ type GcmCredentialInput interface {
 	ToGcmCredentialOutputWithContext(context.Context) GcmCredentialOutput
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialArgs struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
@@ -1348,7 +1328,6 @@ func (i *gcmCredentialPtrType) ToGcmCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialOutput) ElementType() reflect.Type {
@@ -1427,7 +1406,6 @@ func (o GcmCredentialPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponse struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint *string `pulumi:"gcmEndpoint"`
@@ -1446,7 +1424,6 @@ type GcmCredentialResponseInput interface {
 	ToGcmCredentialResponseOutputWithContext(context.Context) GcmCredentialResponseOutput
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponseArgs struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
@@ -1507,7 +1484,6 @@ func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialResponseOutput) ElementType() reflect.Type {
@@ -1586,7 +1562,6 @@ func (o GcmCredentialResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredential struct {
 	// The certificate key for this credential.
 	CertificateKey *string `pulumi:"certificateKey"`
@@ -1607,7 +1582,6 @@ type MpnsCredentialInput interface {
 	ToMpnsCredentialOutputWithContext(context.Context) MpnsCredentialOutput
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialArgs struct {
 	// The certificate key for this credential.
 	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
@@ -1670,7 +1644,6 @@ func (i *mpnsCredentialPtrType) ToMpnsCredentialPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialOutput) ElementType() reflect.Type {
@@ -1764,7 +1737,6 @@ func (o MpnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponse struct {
 	// The certificate key for this credential.
 	CertificateKey *string `pulumi:"certificateKey"`
@@ -1785,7 +1757,6 @@ type MpnsCredentialResponseInput interface {
 	ToMpnsCredentialResponseOutputWithContext(context.Context) MpnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponseArgs struct {
 	// The certificate key for this credential.
 	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
@@ -1848,7 +1819,6 @@ func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -1942,7 +1912,6 @@ func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRuleProperties struct {
 	// The rights associated with the rule.
 	Rights []AccessRights `pulumi:"rights"`
@@ -1959,7 +1928,6 @@ type SharedAccessAuthorizationRulePropertiesInput interface {
 	ToSharedAccessAuthorizationRulePropertiesOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesOutput
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesArgs struct {
 	// The rights associated with the rule.
 	Rights AccessRightsArrayInput `pulumi:"rights"`
@@ -2043,7 +2011,6 @@ func (i SharedAccessAuthorizationRulePropertiesArray) ToSharedAccessAuthorizatio
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesArrayOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRulePropertiesOutput) ElementType() reflect.Type {
@@ -2127,7 +2094,6 @@ func (o SharedAccessAuthorizationRulePropertiesArrayOutput) Index(i pulumi.IntIn
 	}).(SharedAccessAuthorizationRulePropertiesOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponse struct {
 	// A string that describes the claim type
 	ClaimType string `pulumi:"claimType"`
@@ -2160,7 +2126,6 @@ type SharedAccessAuthorizationRulePropertiesResponseInput interface {
 	ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponseArgs struct {
 	// A string that describes the claim type
 	ClaimType pulumi.StringInput `pulumi:"claimType"`
@@ -2219,7 +2184,6 @@ func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuth
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRulePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2299,7 +2263,6 @@ func (o SharedAccessAuthorizationRulePropertiesResponseArrayOutput) Index(i pulu
 	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponse struct {
 	// A string that describes the claim type
 	ClaimType string `pulumi:"claimType"`
@@ -2344,7 +2307,6 @@ type SharedAccessAuthorizationRuleResourceResponseInput interface {
 	ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseOutput
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponseArgs struct {
 	// A string that describes the claim type
 	ClaimType pulumi.StringInput `pulumi:"claimType"`
@@ -2415,7 +2377,6 @@ func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseArrayOutput)
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRuleResourceResponseOutput) ElementType() reflect.Type {
@@ -2525,7 +2486,6 @@ func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) Index(i pulumi
 	}).(SharedAccessAuthorizationRuleResourceResponseOutput)
 }
 
-// The Sku description for a namespace
 type Sku struct {
 	// The capacity of the resource
 	Capacity *int `pulumi:"capacity"`
@@ -2550,7 +2510,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The Sku description for a namespace
 type SkuArgs struct {
 	// The capacity of the resource
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2617,7 +2576,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2741,7 +2699,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuResponse struct {
 	// The capacity of the resource
 	Capacity *int `pulumi:"capacity"`
@@ -2766,7 +2723,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The Sku description for a namespace
 type SkuResponseArgs struct {
 	// The capacity of the resource
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2833,7 +2789,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2957,7 +2912,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredential struct {
 	// The package ID for this credential.
 	PackageSid *string `pulumi:"packageSid"`
@@ -2978,7 +2932,6 @@ type WnsCredentialInput interface {
 	ToWnsCredentialOutputWithContext(context.Context) WnsCredentialOutput
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialArgs struct {
 	// The package ID for this credential.
 	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
@@ -3041,7 +2994,6 @@ func (i *wnsCredentialPtrType) ToWnsCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialOutput) ElementType() reflect.Type {
@@ -3135,7 +3087,6 @@ func (o WnsCredentialPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponse struct {
 	// The package ID for this credential.
 	PackageSid *string `pulumi:"packageSid"`
@@ -3156,7 +3107,6 @@ type WnsCredentialResponseInput interface {
 	ToWnsCredentialResponseOutputWithContext(context.Context) WnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponseArgs struct {
 	// The package ID for this credential.
 	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
@@ -3219,7 +3169,6 @@ func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialResponseOutput) ElementType() reflect.Type {

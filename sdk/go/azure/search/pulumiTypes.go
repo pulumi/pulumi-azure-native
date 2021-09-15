@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type IdentityType `pulumi:"type"`
@@ -27,7 +26,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
 	Type IdentityTypeInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
 	}).(IdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -171,7 +167,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -234,7 +229,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRule struct {
 	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value *string `pulumi:"value"`
@@ -345,7 +338,6 @@ type IpRuleInput interface {
 	ToIpRuleOutputWithContext(context.Context) IpRuleOutput
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleArgs struct {
 	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -388,7 +380,6 @@ func (i IpRuleArray) ToIpRuleArrayOutputWithContext(ctx context.Context) IpRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleArrayOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleOutput struct{ *pulumi.OutputState }
 
 func (IpRuleOutput) ElementType() reflect.Type {
@@ -428,7 +419,6 @@ func (o IpRuleArrayOutput) Index(i pulumi.IntInput) IpRuleOutput {
 	}).(IpRuleOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponse struct {
 	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value *string `pulumi:"value"`
@@ -445,7 +435,6 @@ type IpRuleResponseInput interface {
 	ToIpRuleResponseOutputWithContext(context.Context) IpRuleResponseOutput
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponseArgs struct {
 	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -488,7 +477,6 @@ func (i IpRuleResponseArray) ToIpRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleResponseArrayOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IpRuleResponseOutput) ElementType() reflect.Type {
@@ -528,7 +516,6 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 	}).(IpRuleResponseOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSet struct {
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules []IpRule `pulumi:"ipRules"`
@@ -545,7 +532,6 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetArgs struct {
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules IpRuleArrayInput `pulumi:"ipRules"`
@@ -604,7 +590,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -668,7 +653,6 @@ func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 	}).(IpRuleArrayOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponse struct {
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules []IpRuleResponse `pulumi:"ipRules"`
@@ -685,7 +669,6 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponseArgs struct {
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules IpRuleResponseArrayInput `pulumi:"ipRules"`
@@ -744,7 +727,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -808,7 +790,6 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 	}).(IpRuleResponseArrayOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionProperties struct {
 	// The private endpoint resource from Microsoft.Network provider.
 	PrivateEndpoint *PrivateEndpointConnectionPropertiesPrivateEndpoint `pulumi:"privateEndpoint"`
@@ -827,7 +808,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesArgs struct {
 	// The private endpoint resource from Microsoft.Network provider.
 	PrivateEndpoint PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
@@ -888,7 +868,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -971,7 +950,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpoint struct {
 	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id *string `pulumi:"id"`
@@ -988,7 +966,6 @@ type PrivateEndpointConnectionPropertiesPrivateEndpointInput interface {
 	ToPrivateEndpointConnectionPropertiesPrivateEndpointOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPrivateEndpointOutput
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpointArgs struct {
 	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1047,7 +1024,6 @@ func (i *privateEndpointConnectionPropertiesPrivateEndpointPtrType) ToPrivateEnd
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ElementType() reflect.Type {
@@ -1111,7 +1087,6 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) Id() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct {
 	// A description of any extra actions that may be required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1132,7 +1107,6 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput i
 	ToPrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs struct {
 	// A description of any extra actions that may be required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1195,7 +1169,6 @@ func (i *privateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtr
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1295,7 +1268,6 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 	}).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// The private endpoint resource from Microsoft.Network provider.
 	PrivateEndpoint *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint `pulumi:"privateEndpoint"`
@@ -1314,7 +1286,6 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
 	// The private endpoint resource from Microsoft.Network provider.
 	PrivateEndpoint PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrInput `pulumi:"privateEndpoint"`
@@ -1375,7 +1346,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1458,7 +1428,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpoint struct {
 	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id *string `pulumi:"id"`
@@ -1475,7 +1444,6 @@ type PrivateEndpointConnectionPropertiesResponsePrivateEndpointInput interface {
 	ToPrivateEndpointConnectionPropertiesResponsePrivateEndpointOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpointArgs struct {
 	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1534,7 +1502,6 @@ func (i *privateEndpointConnectionPropertiesResponsePrivateEndpointPtrType) ToPr
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ElementType() reflect.Type {
@@ -1598,7 +1565,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) Id(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState struct {
 	// A description of any extra actions that may be required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1619,7 +1585,6 @@ type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStat
 	ToPrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs struct {
 	// A description of any extra actions that may be required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1682,7 +1647,6 @@ func (i *privateEndpointConnectionPropertiesResponsePrivateLinkServiceConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1782,7 +1746,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -1805,7 +1768,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1854,7 +1816,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1911,7 +1872,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponse struct {
 	// The value of the query API key.
 	Key string `pulumi:"key"`
@@ -1930,7 +1890,6 @@ type QueryKeyResponseInput interface {
 	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseArgs struct {
 	// The value of the query API key.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -1975,7 +1934,6 @@ func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryKeyResponseOutput) ElementType() reflect.Type {
@@ -2020,7 +1978,6 @@ func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOu
 	}).(QueryKeyResponseOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceProperties struct {
 	// The group id from the provider of resource the shared private link resource is for.
 	GroupId *string `pulumi:"groupId"`
@@ -2047,7 +2004,6 @@ type SharedPrivateLinkResourcePropertiesInput interface {
 	ToSharedPrivateLinkResourcePropertiesOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesOutput
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesArgs struct {
 	// The group id from the provider of resource the shared private link resource is for.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
@@ -2116,7 +2072,6 @@ func (i *sharedPrivateLinkResourcePropertiesPtrType) ToSharedPrivateLinkResource
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourcePropertiesOutput) ElementType() reflect.Type {
@@ -2257,7 +2212,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() SharedPrivateLink
 	}).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponse struct {
 	// The group id from the provider of resource the shared private link resource is for.
 	GroupId *string `pulumi:"groupId"`
@@ -2284,7 +2238,6 @@ type SharedPrivateLinkResourcePropertiesResponseInput interface {
 	ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesResponseOutput
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponseArgs struct {
 	// The group id from the provider of resource the shared private link resource is for.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
@@ -2353,7 +2306,6 @@ func (i *sharedPrivateLinkResourcePropertiesResponsePtrType) ToSharedPrivateLink
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2492,7 +2444,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Status() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -2515,7 +2466,6 @@ type SharedPrivateLinkResourceResponseInput interface {
 	ToSharedPrivateLinkResourceResponseOutputWithContext(context.Context) SharedPrivateLinkResourceResponseOutput
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2564,7 +2514,6 @@ func (i SharedPrivateLinkResourceResponseArray) ToSharedPrivateLinkResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceResponseArrayOutput)
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceResponseOutput) ElementType() reflect.Type {
@@ -2621,7 +2570,6 @@ func (o SharedPrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(SharedPrivateLinkResourceResponseOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name *SkuName `pulumi:"name"`
@@ -2638,7 +2586,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name SkuNamePtrInput `pulumi:"name"`
@@ -2697,7 +2644,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2761,7 +2707,6 @@ func (o SkuPtrOutput) Name() SkuNamePtrOutput {
 	}).(SkuNamePtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponse struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name *string `pulumi:"name"`
@@ -2778,7 +2723,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseArgs struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2837,7 +2781,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

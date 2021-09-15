@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The name of the SKU for Azure Dev Spaces Controller.
 type SkuName string
 
 const (
@@ -174,7 +173,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The tier of the SKU for Azure Dev Spaces Controller.
 type SkuTier string
 
 const (

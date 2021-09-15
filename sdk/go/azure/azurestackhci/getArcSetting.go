@@ -8,7 +8,7 @@ import (
 )
 
 // ArcSetting details.
-// API Version: 2021-09-01.
+// API Version: 2021-01-01-preview.
 func LookupArcSetting(ctx *pulumi.Context, args *LookupArcSettingArgs, opts ...pulumi.InvokeOption) (*LookupArcSettingResult, error) {
 	var rv LookupArcSettingResult
 	err := ctx.Invoke("azure-native:azurestackhci:getArcSetting", args, &rv, opts...)

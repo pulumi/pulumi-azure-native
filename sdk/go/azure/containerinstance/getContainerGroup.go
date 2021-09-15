@@ -8,7 +8,7 @@ import (
 )
 
 // A container group.
-// API Version: 2021-07-01.
+// API Version: 2021-03-01.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
 	err := ctx.Invoke("azure-native:containerinstance:getContainerGroup", args, &rv, opts...)
@@ -51,6 +51,8 @@ type LookupContainerGroupResult struct {
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
+	// The network profile information for a container group.
+	NetworkProfile *ContainerGroupNetworkProfileResponse `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
 	OsType string `pulumi:"osType"`
 	// The provisioning state of the container group. This only appears in the response.
@@ -62,8 +64,6 @@ type LookupContainerGroupResult struct {
 	RestartPolicy *string `pulumi:"restartPolicy"`
 	// The SKU for a container group.
 	Sku *string `pulumi:"sku"`
-	// The subnet resource IDs for a container group.
-	SubnetIds []ContainerGroupSubnetIdResponse `pulumi:"subnetIds"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

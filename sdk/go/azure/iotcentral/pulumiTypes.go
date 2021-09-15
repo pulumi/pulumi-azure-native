@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfo struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -27,7 +26,6 @@ type AppSkuInfoInput interface {
 	ToAppSkuInfoOutputWithContext(context.Context) AppSkuInfoOutput
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoArgs struct {
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -86,7 +84,6 @@ func (i *appSkuInfoPtrType) ToAppSkuInfoPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoPtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoOutput struct{ *pulumi.OutputState }
 
 func (AppSkuInfoOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -167,7 +163,6 @@ type AppSkuInfoResponseInput interface {
 	ToAppSkuInfoResponseOutputWithContext(context.Context) AppSkuInfoResponseOutput
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponseArgs struct {
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -226,7 +221,6 @@ func (i *appSkuInfoResponsePtrType) ToAppSkuInfoResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoResponsePtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AppSkuInfoResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 type ChangeDetailsMode string
 
 const (
@@ -176,7 +175,6 @@ func (in *changeDetailsModePtr) ToChangeDetailsModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ChangeDetailsModePtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 type ManagedIdentityTypes string
 
 const (
@@ -341,7 +339,6 @@ func (in *managedIdentityTypesPtr) ToManagedIdentityTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypesPtrOutput)
 }
 
-// The state of notifications feature.
 type NotificationsState string
 
 const (

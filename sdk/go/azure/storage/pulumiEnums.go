@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 type AccessTier string
 
 const (
@@ -175,7 +174,6 @@ func (in *accessTierPtr) ToAccessTierPtrOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, in).(AccessTierPtrOutput)
 }
 
-// The action of virtual network rule.
 type Action string
 
 const (
@@ -339,7 +337,6 @@ func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
 }
 
-// The access tier of a storage blob.
 type BlobAccessTier string
 
 const (
@@ -508,7 +505,6 @@ func (in *blobAccessTierPtr) ToBlobAccessTierPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(BlobAccessTierPtrOutput)
 }
 
-// The type of a storage blob to be created.
 type BlobType string
 
 const (
@@ -675,7 +671,6 @@ func (in *blobTypePtr) ToBlobTypePtrOutputWithContext(ctx context.Context) BlobT
 	return pulumi.ToOutputWithContext(ctx, in).(BlobTypePtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 type Bypass string
 
 const (
@@ -842,7 +837,6 @@ func (in *bypassPtr) ToBypassPtrOutputWithContext(ctx context.Context) BypassPtr
 	return pulumi.ToOutputWithContext(ctx, in).(BypassPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 type DefaultAction string
 
 const (
@@ -1007,7 +1001,6 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
-// Indicates the directory service used.
 type DirectoryServiceOptions string
 
 const (
@@ -1173,7 +1166,6 @@ func (in *directoryServiceOptionsPtr) ToDirectoryServiceOptionsPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryServiceOptionsPtrOutput)
 }
 
-// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 type EnabledProtocols string
 
 const (
@@ -1338,7 +1330,6 @@ func (in *enabledProtocolsPtr) ToEnabledProtocolsPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(EnabledProtocolsPtrOutput)
 }
 
-// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
 type EncryptionScopeSource string
 
 const (
@@ -1503,7 +1494,6 @@ func (in *encryptionScopeSourcePtr) ToEncryptionScopeSourcePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionScopeSourcePtrOutput)
 }
 
-// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
 type EncryptionScopeStateEnum string
 
 const (
@@ -1668,7 +1658,6 @@ func (in *encryptionScopeStateEnumPtr) ToEncryptionScopeStateEnumPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionScopeStateEnumPtrOutput)
 }
 
-// The SAS expiration action. Can only be Log.
 type ExpirationAction string
 
 const (
@@ -1832,7 +1821,6 @@ func (in *expirationActionPtr) ToExpirationActionPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ExpirationActionPtrOutput)
 }
 
-// The type of the extended location.
 type ExtendedLocationTypes string
 
 const (
@@ -1996,7 +1984,6 @@ func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
 }
 
-// The protocol permitted for a request made with the account SAS.
 type HttpProtocol string
 
 const (
@@ -2161,7 +2148,6 @@ func (in *httpProtocolPtr) ToHttpProtocolPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(HttpProtocolPtrOutput)
 }
 
-// The identity type.
 type IdentityType string
 
 const (
@@ -2328,7 +2314,6 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
 }
 
-// The valid value is Inventory
 type InventoryRuleType string
 
 const (
@@ -2492,7 +2477,6 @@ func (in *inventoryRuleTypePtr) ToInventoryRuleTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(InventoryRuleTypePtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 type KeySource string
 
 const (
@@ -2657,7 +2641,6 @@ func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) Key
 	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
 }
 
-// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 type KeyType string
 
 const (
@@ -2822,7 +2805,6 @@ func (in *keyTypePtr) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyType
 	return pulumi.ToOutputWithContext(ctx, in).(KeyTypePtrOutput)
 }
 
-// Required. Indicates the type of storage account.
 type Kind string
 
 const (
@@ -2990,7 +2972,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
 type LargeFileSharesState string
 
 const (
@@ -3155,7 +3136,6 @@ func (in *largeFileSharesStatePtr) ToLargeFileSharesStatePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(LargeFileSharesStatePtrOutput)
 }
 
-// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
 type MinimumTlsVersion string
 
 const (
@@ -3321,7 +3301,6 @@ func (in *minimumTlsVersionPtr) ToMinimumTlsVersionPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(MinimumTlsVersionPtrOutput)
 }
 
-// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
 type Name string
 
 const (
@@ -3485,7 +3464,6 @@ func (in *namePtr) ToNamePtrOutputWithContext(ctx context.Context) NamePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(NamePtrOutput)
 }
 
-// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
 type Permissions string
 
 const (
@@ -3656,7 +3634,6 @@ func (in *permissionsPtr) ToPermissionsPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(PermissionsPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -3822,7 +3799,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Specifies whether data in the container may be accessed publicly and the level of access.
 type PublicAccess string
 
 const (
@@ -3988,7 +3964,6 @@ func (in *publicAccessPtr) ToPublicAccessPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicAccessPtrOutput)
 }
 
-// The property is for NFS share only. The default is NoRootSquash.
 type RootSquashType string
 
 const (
@@ -4154,7 +4129,6 @@ func (in *rootSquashTypePtr) ToRootSquashTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RootSquashTypePtrOutput)
 }
 
-// Routing Choice defines the kind of network routing opted by the user.
 type RoutingChoice string
 
 const (
@@ -4319,7 +4293,6 @@ func (in *routingChoicePtr) ToRoutingChoicePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingChoicePtrOutput)
 }
 
-// The valid value is Lifecycle
 type RuleType string
 
 const (
@@ -4483,7 +4456,6 @@ func (in *ruleTypePtr) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleT
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTypePtrOutput)
 }
 
-// The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
 type Services string
 
 const (
@@ -4650,7 +4622,6 @@ func (in *servicesPtr) ToServicesPtrOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, in).(ServicesPtrOutput)
 }
 
-// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
 type ShareAccessTier string
 
 const (
@@ -4817,7 +4788,6 @@ func (in *shareAccessTierPtr) ToShareAccessTierPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ShareAccessTierPtrOutput)
 }
 
-// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
 type SignedResource string
 
 const (
@@ -4984,7 +4954,6 @@ func (in *signedResourcePtr) ToSignedResourcePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(SignedResourcePtrOutput)
 }
 
-// The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
 type SignedResourceTypes string
 
 const (
@@ -5150,7 +5119,6 @@ func (in *signedResourceTypesPtr) ToSignedResourceTypesPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(SignedResourceTypesPtrOutput)
 }
 
-// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 type SkuName string
 
 const (
@@ -5321,7 +5289,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// Gets the state of virtual network rule.
 type State string
 
 const (

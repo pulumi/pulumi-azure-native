@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class for site properties.
 type MasterSiteProperties struct {
 	// Value indicating whether multiple sites per site type are allowed.
 	AllowMultipleSites *bool `pulumi:"allowMultipleSites"`
@@ -31,7 +30,6 @@ type MasterSitePropertiesInput interface {
 	ToMasterSitePropertiesOutputWithContext(context.Context) MasterSitePropertiesOutput
 }
 
-// Class for site properties.
 type MasterSitePropertiesArgs struct {
 	// Value indicating whether multiple sites per site type are allowed.
 	AllowMultipleSites pulumi.BoolPtrInput `pulumi:"allowMultipleSites"`
@@ -94,7 +92,6 @@ func (i *masterSitePropertiesPtrType) ToMasterSitePropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesPtrOutput)
 }
 
-// Class for site properties.
 type MasterSitePropertiesOutput struct{ *pulumi.OutputState }
 
 func (MasterSitePropertiesOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o MasterSitePropertiesPtrOutput) Sites() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Class for site properties.
 type MasterSitePropertiesResponse struct {
 	// Value indicating whether multiple sites per site type are allowed.
 	AllowMultipleSites *bool `pulumi:"allowMultipleSites"`
@@ -209,7 +205,6 @@ type MasterSitePropertiesResponseInput interface {
 	ToMasterSitePropertiesResponseOutputWithContext(context.Context) MasterSitePropertiesResponseOutput
 }
 
-// Class for site properties.
 type MasterSitePropertiesResponseArgs struct {
 	// Value indicating whether multiple sites per site type are allowed.
 	AllowMultipleSites pulumi.BoolPtrInput `pulumi:"allowMultipleSites"`
@@ -272,7 +267,6 @@ func (i *masterSitePropertiesResponsePtrType) ToMasterSitePropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type MasterSitePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MasterSitePropertiesResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o MasterSitePropertiesResponsePtrOutput) Sites() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentProperties struct {
 	// Key vault ARM Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -385,7 +378,6 @@ type SiteAgentPropertiesInput interface {
 	ToSiteAgentPropertiesOutputWithContext(context.Context) SiteAgentPropertiesOutput
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesArgs struct {
 	// Key vault ARM Id.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
@@ -446,7 +438,6 @@ func (i *siteAgentPropertiesPtrType) ToSiteAgentPropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesPtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SiteAgentPropertiesOutput) ElementType() reflect.Type {
@@ -525,7 +516,6 @@ func (o SiteAgentPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponse struct {
 	// ID of the agent.
 	Id string `pulumi:"id"`
@@ -550,7 +540,6 @@ type SiteAgentPropertiesResponseInput interface {
 	ToSiteAgentPropertiesResponseOutputWithContext(context.Context) SiteAgentPropertiesResponseOutput
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponseArgs struct {
 	// ID of the agent.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -617,7 +606,6 @@ func (i *siteAgentPropertiesResponsePtrType) ToSiteAgentPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesResponsePtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteAgentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -741,7 +729,6 @@ func (o SiteAgentPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site properties.
 type SiteProperties struct {
 	// On-premises agent details.
 	AgentDetails *SiteAgentProperties `pulumi:"agentDetails"`
@@ -764,7 +751,6 @@ type SitePropertiesInput interface {
 	ToSitePropertiesOutputWithContext(context.Context) SitePropertiesOutput
 }
 
-// Class for site properties.
 type SitePropertiesArgs struct {
 	// On-premises agent details.
 	AgentDetails SiteAgentPropertiesPtrInput `pulumi:"agentDetails"`
@@ -829,7 +815,6 @@ func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SitePropertiesOutput) ElementType() reflect.Type {
@@ -938,7 +923,6 @@ func (o SitePropertiesPtrOutput) ServicePrincipalIdentityDetails() SiteSpnProper
 	}).(SiteSpnPropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesResponse struct {
 	// On-premises agent details.
 	AgentDetails *SiteAgentPropertiesResponse `pulumi:"agentDetails"`
@@ -963,7 +947,6 @@ type SitePropertiesResponseInput interface {
 	ToSitePropertiesResponseOutputWithContext(context.Context) SitePropertiesResponseOutput
 }
 
-// Class for site properties.
 type SitePropertiesResponseArgs struct {
 	// On-premises agent details.
 	AgentDetails SiteAgentPropertiesResponsePtrInput `pulumi:"agentDetails"`
@@ -1030,7 +1013,6 @@ func (i *sitePropertiesResponsePtrType) ToSitePropertiesResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SitePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1154,7 +1136,6 @@ func (o SitePropertiesResponsePtrOutput) ServicePrincipalIdentityDetails() SiteS
 	}).(SiteSpnPropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnProperties struct {
 	// AAD Authority URL which was used to request the token for the service principal.
 	AadAuthority *string `pulumi:"aadAuthority"`
@@ -1181,7 +1162,6 @@ type SiteSpnPropertiesInput interface {
 	ToSiteSpnPropertiesOutputWithContext(context.Context) SiteSpnPropertiesOutput
 }
 
-// Class for site properties.
 type SiteSpnPropertiesArgs struct {
 	// AAD Authority URL which was used to request the token for the service principal.
 	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
@@ -1250,7 +1230,6 @@ func (i *siteSpnPropertiesPtrType) ToSiteSpnPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SiteSpnPropertiesOutput) ElementType() reflect.Type {
@@ -1389,7 +1368,6 @@ func (o SiteSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponse struct {
 	// AAD Authority URL which was used to request the token for the service principal.
 	AadAuthority *string `pulumi:"aadAuthority"`
@@ -1416,7 +1394,6 @@ type SiteSpnPropertiesResponseInput interface {
 	ToSiteSpnPropertiesResponseOutputWithContext(context.Context) SiteSpnPropertiesResponseOutput
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponseArgs struct {
 	// AAD Authority URL which was used to request the token for the service principal.
 	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
@@ -1485,7 +1462,6 @@ func (i *siteSpnPropertiesResponsePtrType) ToSiteSpnPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteSpnPropertiesResponseOutput) ElementType() reflect.Type {

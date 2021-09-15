@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The permissions assigned to the shared access policy.
 type AccessRights string
 
 const (
@@ -188,7 +187,6 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessRightsPtrOutput)
 }
 
-// Rights that this key has.
 type AccessRightsDescription string
 
 const (
@@ -357,7 +355,6 @@ func (in *accessRightsDescriptionPtr) ToAccessRightsDescriptionPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(AccessRightsDescriptionPtrOutput)
 }
 
-// Allocation policy to be used by this provisioning service.
 type AllocationPolicy string
 
 const (
@@ -523,7 +520,6 @@ func (in *allocationPolicyPtr) ToAllocationPolicyPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AllocationPolicyPtrOutput)
 }
 
-// Specifies authentication type being used for connecting to the storage account.
 type AuthenticationType string
 
 const (
@@ -688,7 +684,6 @@ func (in *authenticationTypePtr) ToAuthenticationTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationTypePtrOutput)
 }
 
-// The capabilities and features enabled for the IoT hub.
 type Capabilities string
 
 const (
@@ -853,7 +848,6 @@ func (in *capabilitiesPtr) ToCapabilitiesPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(CapabilitiesPtrOutput)
 }
 
-// Default Action for Network Rule Set
 type DefaultAction string
 
 const (
@@ -1018,7 +1012,6 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
-// Sku name.
 type IotDpsSku string
 
 const (
@@ -1182,7 +1175,6 @@ func (in *iotDpsSkuPtr) ToIotDpsSkuPtrOutputWithContext(ctx context.Context) Iot
 	return pulumi.ToOutputWithContext(ctx, in).(IotDpsSkuPtrOutput)
 }
 
-// The name of the SKU.
 type IotHubSku string
 
 const (
@@ -1352,7 +1344,6 @@ func (in *iotHubSkuPtr) ToIotHubSkuPtrOutputWithContext(ctx context.Context) Iot
 	return pulumi.ToOutputWithContext(ctx, in).(IotHubSkuPtrOutput)
 }
 
-// The desired action for requests captured by this rule.
 type IpFilterActionType string
 
 const (
@@ -1517,7 +1508,6 @@ func (in *ipFilterActionTypePtr) ToIpFilterActionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IpFilterActionTypePtrOutput)
 }
 
-// Target for requests captured by this rule.
 type IpFilterTargetType string
 
 const (
@@ -1683,7 +1673,6 @@ func (in *ipFilterTargetTypePtr) ToIpFilterTargetTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IpFilterTargetTypePtrOutput)
 }
 
-// IP Filter Action
 type NetworkRuleIPAction string
 
 const (
@@ -1847,7 +1836,6 @@ func (in *networkRuleIPActionPtr) ToNetworkRuleIPActionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkRuleIPActionPtrOutput)
 }
 
-// The status of a private endpoint connection
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -2014,7 +2002,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 type PublicNetworkAccess string
 
 const (
@@ -2179,7 +2166,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
 }
 
-// The source that the routing rule is to be applied to, such as DeviceMessages.
 type RoutingSource string
 
 const (
@@ -2347,7 +2333,6 @@ func (in *routingSourcePtr) ToRoutingSourcePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingSourcePtrOutput)
 }
 
-// Current state of the provisioning service.
 type State string
 
 const (

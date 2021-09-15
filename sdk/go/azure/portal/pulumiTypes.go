@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell properties for creating a console.
 type ConsoleCreateProperties struct {
 	// The operating system type of the cloud shell.
 	OsType string `pulumi:"osType"`
@@ -31,7 +30,6 @@ type ConsoleCreatePropertiesInput interface {
 	ToConsoleCreatePropertiesOutputWithContext(context.Context) ConsoleCreatePropertiesOutput
 }
 
-// Cloud shell properties for creating a console.
 type ConsoleCreatePropertiesArgs struct {
 	// The operating system type of the cloud shell.
 	OsType pulumi.StringInput `pulumi:"osType"`
@@ -94,7 +92,6 @@ func (i *consoleCreatePropertiesPtrType) ToConsoleCreatePropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleCreatePropertiesPtrOutput)
 }
 
-// Cloud shell properties for creating a console.
 type ConsoleCreatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConsoleCreatePropertiesOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o ConsoleCreatePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponse struct {
 	// The operating system type of the cloud shell.
 	OsType string `pulumi:"osType"`
@@ -209,7 +205,6 @@ type ConsolePropertiesResponseInput interface {
 	ToConsolePropertiesResponseOutputWithContext(context.Context) ConsolePropertiesResponseOutput
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponseArgs struct {
 	// The operating system type of the cloud shell.
 	OsType pulumi.StringInput `pulumi:"osType"`
@@ -272,7 +267,6 @@ func (i *consolePropertiesResponsePtrType) ToConsolePropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConsolePropertiesResponsePtrOutput)
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConsolePropertiesResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o ConsolePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A dashboard lens.
 type DashboardLens struct {
 	// The dashboard len's metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
@@ -387,7 +380,6 @@ type DashboardLensInput interface {
 	ToDashboardLensOutputWithContext(context.Context) DashboardLensOutput
 }
 
-// A dashboard lens.
 type DashboardLensArgs struct {
 	// The dashboard len's metadata.
 	Metadata pulumi.MapInput `pulumi:"metadata"`
@@ -434,7 +426,6 @@ func (i DashboardLensArray) ToDashboardLensArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensArrayOutput)
 }
 
-// A dashboard lens.
 type DashboardLensOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensOutput) ElementType() reflect.Type {
@@ -484,7 +475,6 @@ func (o DashboardLensArrayOutput) Index(i pulumi.IntInput) DashboardLensOutput {
 	}).(DashboardLensOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponse struct {
 	// The dashboard len's metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
@@ -505,7 +495,6 @@ type DashboardLensResponseInput interface {
 	ToDashboardLensResponseOutputWithContext(context.Context) DashboardLensResponseOutput
 }
 
-// A dashboard lens.
 type DashboardLensResponseArgs struct {
 	// The dashboard len's metadata.
 	Metadata pulumi.MapInput `pulumi:"metadata"`
@@ -552,7 +541,6 @@ func (i DashboardLensResponseArray) ToDashboardLensResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseArrayOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensResponseOutput) ElementType() reflect.Type {
@@ -602,7 +590,6 @@ func (o DashboardLensResponseArrayOutput) Index(i pulumi.IntInput) DashboardLens
 	}).(DashboardLensResponseOutput)
 }
 
-// A dashboard part.
 type DashboardParts struct {
 	// The dashboard part's metadata.
 	Metadata *MarkdownPartMetadata `pulumi:"metadata"`
@@ -621,7 +608,6 @@ type DashboardPartsInput interface {
 	ToDashboardPartsOutputWithContext(context.Context) DashboardPartsOutput
 }
 
-// A dashboard part.
 type DashboardPartsArgs struct {
 	// The dashboard part's metadata.
 	Metadata MarkdownPartMetadataPtrInput `pulumi:"metadata"`
@@ -666,7 +652,6 @@ func (i DashboardPartsArray) ToDashboardPartsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsArrayOutput)
 }
 
-// A dashboard part.
 type DashboardPartsOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsOutput) ElementType() reflect.Type {
@@ -711,7 +696,6 @@ func (o DashboardPartsArrayOutput) Index(i pulumi.IntInput) DashboardPartsOutput
 	}).(DashboardPartsOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
@@ -736,7 +720,6 @@ type DashboardPartsPositionInput interface {
 	ToDashboardPartsPositionOutputWithContext(context.Context) DashboardPartsPositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
@@ -762,7 +745,6 @@ func (i DashboardPartsPositionArgs) ToDashboardPartsPositionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsPositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsPositionOutput) ElementType() reflect.Type {
@@ -802,7 +784,6 @@ func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponse struct {
 	// The dashboard part's metadata.
 	Metadata *MarkdownPartMetadataResponse `pulumi:"metadata"`
@@ -821,7 +802,6 @@ type DashboardPartsResponseInput interface {
 	ToDashboardPartsResponseOutputWithContext(context.Context) DashboardPartsResponseOutput
 }
 
-// A dashboard part.
 type DashboardPartsResponseArgs struct {
 	// The dashboard part's metadata.
 	Metadata MarkdownPartMetadataResponsePtrInput `pulumi:"metadata"`
@@ -866,7 +846,6 @@ func (i DashboardPartsResponseArray) ToDashboardPartsResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseArrayOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponseOutput) ElementType() reflect.Type {
@@ -911,7 +890,6 @@ func (o DashboardPartsResponseArrayOutput) Index(i pulumi.IntInput) DashboardPar
 	}).(DashboardPartsResponseOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
@@ -936,7 +914,6 @@ type DashboardPartsResponsePositionInput interface {
 	ToDashboardPartsResponsePositionOutputWithContext(context.Context) DashboardPartsResponsePositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
@@ -962,7 +939,6 @@ func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponsePositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponsePositionOutput) ElementType() reflect.Type {
@@ -1002,7 +978,6 @@ func (o DashboardPartsResponsePositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadata struct {
 	// Input to dashboard part.
 	Inputs []interface{} `pulumi:"inputs"`
@@ -1024,7 +999,6 @@ type MarkdownPartMetadataInput interface {
 	ToMarkdownPartMetadataOutputWithContext(context.Context) MarkdownPartMetadataOutput
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataArgs struct {
 	// Input to dashboard part.
 	Inputs pulumi.ArrayInput `pulumi:"inputs"`
@@ -1088,7 +1062,6 @@ func (i *markdownPartMetadataPtrType) ToMarkdownPartMetadataPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataPtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataOutput) ElementType() reflect.Type {
@@ -1184,7 +1157,6 @@ func (o MarkdownPartMetadataPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContent struct {
 	// The setting of the content of markdown part.
 	Settings *MarkdownPartMetadataSettingsSettings `pulumi:"settings"`
@@ -1201,7 +1173,6 @@ type MarkdownPartMetadataContentInput interface {
 	ToMarkdownPartMetadataContentOutputWithContext(context.Context) MarkdownPartMetadataContentOutput
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContentArgs struct {
 	// The setting of the content of markdown part.
 	Settings MarkdownPartMetadataSettingsSettingsPtrInput `pulumi:"settings"`
@@ -1260,7 +1231,6 @@ func (i *markdownPartMetadataContentPtrType) ToMarkdownPartMetadataContentPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataContentPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContentOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataContentOutput) ElementType() reflect.Type {
@@ -1324,7 +1294,6 @@ func (o MarkdownPartMetadataContentPtrOutput) Settings() MarkdownPartMetadataSet
 	}).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponse struct {
 	// Input to dashboard part.
 	Inputs []interface{} `pulumi:"inputs"`
@@ -1346,7 +1315,6 @@ type MarkdownPartMetadataResponseInput interface {
 	ToMarkdownPartMetadataResponseOutputWithContext(context.Context) MarkdownPartMetadataResponseOutput
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponseArgs struct {
 	// Input to dashboard part.
 	Inputs pulumi.ArrayInput `pulumi:"inputs"`
@@ -1410,7 +1378,6 @@ func (i *markdownPartMetadataResponsePtrType) ToMarkdownPartMetadataResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponsePtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseOutput) ElementType() reflect.Type {
@@ -1506,7 +1473,6 @@ func (o MarkdownPartMetadataResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContent struct {
 	// The setting of the content of markdown part.
 	Settings *MarkdownPartMetadataResponseSettingsSettings `pulumi:"settings"`
@@ -1523,7 +1489,6 @@ type MarkdownPartMetadataResponseContentInput interface {
 	ToMarkdownPartMetadataResponseContentOutputWithContext(context.Context) MarkdownPartMetadataResponseContentOutput
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContentArgs struct {
 	// The setting of the content of markdown part.
 	Settings MarkdownPartMetadataResponseSettingsSettingsPtrInput `pulumi:"settings"`
@@ -1582,7 +1547,6 @@ func (i *markdownPartMetadataResponseContentPtrType) ToMarkdownPartMetadataRespo
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseContentPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContentOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseContentOutput) ElementType() reflect.Type {
@@ -1648,7 +1612,6 @@ func (o MarkdownPartMetadataResponseContentPtrOutput) Settings() MarkdownPartMet
 	}).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettings struct {
 	// The content of markdown part.
 	Content *MarkdownPartMetadataResponseContent `pulumi:"content"`
@@ -1665,7 +1628,6 @@ type MarkdownPartMetadataResponseSettingsInput interface {
 	ToMarkdownPartMetadataResponseSettingsOutputWithContext(context.Context) MarkdownPartMetadataResponseSettingsOutput
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettingsArgs struct {
 	// The content of markdown part.
 	Content MarkdownPartMetadataResponseContentPtrInput `pulumi:"content"`
@@ -1724,7 +1686,6 @@ func (i *markdownPartMetadataResponseSettingsPtrType) ToMarkdownPartMetadataResp
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseSettingsOutput) ElementType() reflect.Type {
@@ -1788,7 +1749,6 @@ func (o MarkdownPartMetadataResponseSettingsPtrOutput) Content() MarkdownPartMet
 	}).(MarkdownPartMetadataResponseContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettings struct {
 	// The content of the markdown part.
 	Content *string `pulumi:"content"`
@@ -1813,7 +1773,6 @@ type MarkdownPartMetadataResponseSettingsSettingsInput interface {
 	ToMarkdownPartMetadataResponseSettingsSettingsOutputWithContext(context.Context) MarkdownPartMetadataResponseSettingsSettingsOutput
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettingsArgs struct {
 	// The content of the markdown part.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -1880,7 +1839,6 @@ func (i *markdownPartMetadataResponseSettingsSettingsPtrType) ToMarkdownPartMeta
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseSettingsSettingsOutput) ElementType() reflect.Type {
@@ -2004,7 +1962,6 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Title() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettings struct {
 	// The content of markdown part.
 	Content *MarkdownPartMetadataContent `pulumi:"content"`
@@ -2021,7 +1978,6 @@ type MarkdownPartMetadataSettingsInput interface {
 	ToMarkdownPartMetadataSettingsOutputWithContext(context.Context) MarkdownPartMetadataSettingsOutput
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettingsArgs struct {
 	// The content of markdown part.
 	Content MarkdownPartMetadataContentPtrInput `pulumi:"content"`
@@ -2080,7 +2036,6 @@ func (i *markdownPartMetadataSettingsPtrType) ToMarkdownPartMetadataSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataSettingsOutput) ElementType() reflect.Type {
@@ -2144,7 +2099,6 @@ func (o MarkdownPartMetadataSettingsPtrOutput) Content() MarkdownPartMetadataCon
 	}).(MarkdownPartMetadataContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettings struct {
 	// The content of the markdown part.
 	Content *string `pulumi:"content"`
@@ -2169,7 +2123,6 @@ type MarkdownPartMetadataSettingsSettingsInput interface {
 	ToMarkdownPartMetadataSettingsSettingsOutputWithContext(context.Context) MarkdownPartMetadataSettingsSettingsOutput
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettingsArgs struct {
 	// The content of the markdown part.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -2236,7 +2189,6 @@ func (i *markdownPartMetadataSettingsSettingsPtrType) ToMarkdownPartMetadataSett
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataSettingsSettingsOutput) ElementType() reflect.Type {
@@ -2360,7 +2312,6 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Title() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfile struct {
 	// Size of file share
 	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
@@ -2381,7 +2332,6 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// The storage profile of the user settings.
 type StorageProfileArgs struct {
 	// Size of file share
 	DiskSizeInGB pulumi.IntPtrInput `pulumi:"diskSizeInGB"`
@@ -2444,7 +2394,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -2538,7 +2487,6 @@ func (o StorageProfilePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponse struct {
 	// Size of file share
 	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
@@ -2559,7 +2507,6 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponseArgs struct {
 	// Size of file share
 	DiskSizeInGB pulumi.IntPtrInput `pulumi:"diskSizeInGB"`
@@ -2622,7 +2569,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {
@@ -2716,7 +2662,6 @@ func (o StorageProfileResponsePtrOutput) StorageAccountResourceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettings struct {
 	// Size of terminal font.
 	FontSize *string `pulumi:"fontSize"`
@@ -2735,7 +2680,6 @@ type TerminalSettingsInput interface {
 	ToTerminalSettingsOutputWithContext(context.Context) TerminalSettingsOutput
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsArgs struct {
 	// Size of terminal font.
 	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
@@ -2796,7 +2740,6 @@ func (i *terminalSettingsPtrType) ToTerminalSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TerminalSettingsPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsOutput struct{ *pulumi.OutputState }
 
 func (TerminalSettingsOutput) ElementType() reflect.Type {
@@ -2875,7 +2818,6 @@ func (o TerminalSettingsPtrOutput) FontStyle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponse struct {
 	// Size of terminal font.
 	FontSize *string `pulumi:"fontSize"`
@@ -2894,7 +2836,6 @@ type TerminalSettingsResponseInput interface {
 	ToTerminalSettingsResponseOutputWithContext(context.Context) TerminalSettingsResponseOutput
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponseArgs struct {
 	// Size of terminal font.
 	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
@@ -2955,7 +2896,6 @@ func (i *terminalSettingsResponsePtrType) ToTerminalSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TerminalSettingsResponsePtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (TerminalSettingsResponseOutput) ElementType() reflect.Type {
@@ -3034,7 +2974,6 @@ func (o TerminalSettingsResponsePtrOutput) FontStyle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserProperties struct {
 	// The preferred location of the cloud shell.
 	PreferredLocation string `pulumi:"preferredLocation"`
@@ -3059,7 +2998,6 @@ type UserPropertiesInput interface {
 	ToUserPropertiesOutputWithContext(context.Context) UserPropertiesOutput
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesArgs struct {
 	// The preferred location of the cloud shell.
 	PreferredLocation pulumi.StringInput `pulumi:"preferredLocation"`
@@ -3126,7 +3064,6 @@ func (i *userPropertiesPtrType) ToUserPropertiesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesOutput struct{ *pulumi.OutputState }
 
 func (UserPropertiesOutput) ElementType() reflect.Type {
@@ -3250,7 +3187,6 @@ func (o UserPropertiesPtrOutput) TerminalSettings() TerminalSettingsPtrOutput {
 	}).(TerminalSettingsPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponse struct {
 	// The preferred location of the cloud shell.
 	PreferredLocation string `pulumi:"preferredLocation"`
@@ -3275,7 +3211,6 @@ type UserPropertiesResponseInput interface {
 	ToUserPropertiesResponseOutputWithContext(context.Context) UserPropertiesResponseOutput
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponseArgs struct {
 	// The preferred location of the cloud shell.
 	PreferredLocation pulumi.StringInput `pulumi:"preferredLocation"`
@@ -3342,7 +3277,6 @@ func (i *userPropertiesResponsePtrType) ToUserPropertiesResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesResponsePtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3466,7 +3400,6 @@ func (o UserPropertiesResponsePtrOutput) TerminalSettings() TerminalSettingsResp
 	}).(TerminalSettingsResponsePtrOutput)
 }
 
-// Violation information.
 type ViolationResponse struct {
 	// Error message.
 	ErrorMessage string `pulumi:"errorMessage"`
@@ -3487,7 +3420,6 @@ type ViolationResponseInput interface {
 	ToViolationResponseOutputWithContext(context.Context) ViolationResponseOutput
 }
 
-// Violation information.
 type ViolationResponseArgs struct {
 	// Error message.
 	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
@@ -3534,7 +3466,6 @@ func (i ViolationResponseArray) ToViolationResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseArrayOutput)
 }
 
-// Violation information.
 type ViolationResponseOutput struct{ *pulumi.OutputState }
 
 func (ViolationResponseOutput) ElementType() reflect.Type {

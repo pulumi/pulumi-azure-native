@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster details.
- * API Version: 2021-09-01.
+ * API Version: 2020-10-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -53,10 +53,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudId!: pulumi.Output<string>;
     /**
-     * Endpoint configured for management from the Azure portal.
-     */
-    public readonly cloudManagementEndpoint!: pulumi.Output<string | undefined>;
-    /**
      * The timestamp of resource creation (UTC).
      */
     public readonly createdAt!: pulumi.Output<string | undefined>;
@@ -68,10 +64,6 @@ export class Cluster extends pulumi.CustomResource {
      * The type of identity that created the resource.
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
-     * Desired properties of the cluster.
-     */
-    public readonly desiredProperties!: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
     /**
      * Most recent billing meter timestamp.
      */
@@ -111,7 +103,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Properties reported by cluster agent.
      */
-    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse>;
+    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse | undefined>;
     /**
      * Status of the cluster agent.
      */
@@ -151,12 +143,10 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["aadClientId"] = args ? args.aadClientId : undefined;
             inputs["aadTenantId"] = args ? args.aadTenantId : undefined;
-            inputs["cloudManagementEndpoint"] = args ? args.cloudManagementEndpoint : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["createdAt"] = args ? args.createdAt : undefined;
             inputs["createdBy"] = args ? args.createdBy : undefined;
             inputs["createdByType"] = args ? args.createdByType : undefined;
-            inputs["desiredProperties"] = args ? args.desiredProperties : undefined;
             inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
@@ -179,11 +169,9 @@ export class Cluster extends pulumi.CustomResource {
             inputs["aadTenantId"] = undefined /*out*/;
             inputs["billingModel"] = undefined /*out*/;
             inputs["cloudId"] = undefined /*out*/;
-            inputs["cloudManagementEndpoint"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["createdBy"] = undefined /*out*/;
             inputs["createdByType"] = undefined /*out*/;
-            inputs["desiredProperties"] = undefined /*out*/;
             inputs["lastBillingTimestamp"] = undefined /*out*/;
             inputs["lastModifiedAt"] = undefined /*out*/;
             inputs["lastModifiedBy"] = undefined /*out*/;
@@ -221,10 +209,6 @@ export interface ClusterArgs {
      */
     aadTenantId: pulumi.Input<string>;
     /**
-     * Endpoint configured for management from the Azure portal.
-     */
-    cloudManagementEndpoint?: pulumi.Input<string>;
-    /**
      * The name of the cluster.
      */
     clusterName?: pulumi.Input<string>;
@@ -240,10 +224,6 @@ export interface ClusterArgs {
      * The type of identity that created the resource.
      */
     createdByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
-    /**
-     * Desired properties of the cluster.
-     */
-    desiredProperties?: pulumi.Input<inputs.azurestackhci.ClusterDesiredPropertiesArgs>;
     /**
      * The timestamp of resource last modification (UTC)
      */

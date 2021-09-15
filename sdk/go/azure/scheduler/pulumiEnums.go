@@ -224,7 +224,6 @@ func (o DayOfWeekArrayOutput) Index(i pulumi.IntInput) DayOfWeekOutput {
 	}).(DayOfWeekOutput)
 }
 
-// Gets or sets the HTTP authentication type.
 type HttpAuthenticationType string
 
 const (
@@ -391,7 +390,6 @@ func (in *httpAuthenticationTypePtr) ToHttpAuthenticationTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(HttpAuthenticationTypePtrOutput)
 }
 
-// Gets or sets the job action type.
 type JobActionType string
 
 const (
@@ -559,7 +557,6 @@ func (in *jobActionTypePtr) ToJobActionTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(JobActionTypePtrOutput)
 }
 
-// Gets or sets the state.
 type JobCollectionStateEnum string
 
 const (
@@ -726,7 +723,6 @@ func (in *jobCollectionStateEnumPtr) ToJobCollectionStateEnumPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(JobCollectionStateEnumPtrOutput)
 }
 
-// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 type JobScheduleDay string
 
 const (
@@ -896,7 +892,6 @@ func (in *jobScheduleDayPtr) ToJobScheduleDayPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(JobScheduleDayPtrOutput)
 }
 
-// Gets or set the job state.
 type JobStateEnum string
 
 const (
@@ -1063,7 +1058,6 @@ func (in *jobStateEnumPtr) ToJobStateEnumPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(JobStateEnumPtrOutput)
 }
 
-// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
 type RecurrenceFrequency string
 
 const (
@@ -1231,7 +1225,6 @@ func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceFrequencyPtrOutput)
 }
 
-// Gets or sets the retry strategy to be used.
 type RetryType string
 
 const (
@@ -1396,7 +1389,6 @@ func (in *retryTypePtr) ToRetryTypePtrOutputWithContext(ctx context.Context) Ret
 	return pulumi.ToOutputWithContext(ctx, in).(RetryTypePtrOutput)
 }
 
-// Gets or sets the authentication type.
 type ServiceBusAuthenticationType string
 
 const (
@@ -1561,7 +1553,6 @@ func (in *serviceBusAuthenticationTypePtr) ToServiceBusAuthenticationTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceBusAuthenticationTypePtrOutput)
 }
 
-// Gets or sets the transport type.
 type ServiceBusTransportType string
 
 const (
@@ -1727,7 +1718,6 @@ func (in *serviceBusTransportTypePtr) ToServiceBusTransportTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceBusTransportTypePtrOutput)
 }
 
-// Gets or set the SKU.
 type SkuDefinition string
 
 const (

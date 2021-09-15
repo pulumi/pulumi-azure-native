@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The alert rule kind
 type AlertRuleKind string
 
 const (
@@ -176,7 +175,6 @@ func (in *alertRuleKindPtr) ToAlertRuleKindPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AlertRuleKindPtrOutput)
 }
 
-// The severity for alerts created by this alert rule.
 type AlertSeverity string
 
 const (
@@ -347,7 +345,6 @@ func (in *alertSeverityPtr) ToAlertSeverityPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AlertSeverityPtrOutput)
 }
 
-// The severity for alerts created by this alert rule.
 type AttackTactic string
 
 const (
@@ -522,7 +519,6 @@ func (in *attackTacticPtr) ToAttackTacticPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AttackTacticPtrOutput)
 }
 
-// The type of the automation rule action
 type AutomationRuleActionType string
 
 const (
@@ -689,7 +685,6 @@ func (in *automationRuleActionTypePtr) ToAutomationRuleActionTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleActionTypePtrOutput)
 }
 
-// The type of the automation rule condition
 type AutomationRuleConditionType string
 
 const (
@@ -854,7 +849,6 @@ func (in *automationRuleConditionTypePtr) ToAutomationRuleConditionTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleConditionTypePtrOutput)
 }
 
-// The operator to use for evaluation the condition
 type AutomationRulePropertyConditionSupportedOperator string
 
 const (
@@ -1033,7 +1027,6 @@ func (in *automationRulePropertyConditionSupportedOperatorPtr) ToAutomationRuleP
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulePropertyConditionSupportedOperatorPtrOutput)
 }
 
-// The property to evaluate
 type AutomationRulePropertyConditionSupportedProperty string
 
 const (
@@ -1300,7 +1293,6 @@ func (in *automationRulePropertyConditionSupportedPropertyPtr) ToAutomationRuleP
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulePropertyConditionSupportedPropertyPtrOutput)
 }
 
-// Content type.
 type ContentType string
 
 const (
@@ -1465,7 +1457,6 @@ func (in *contentTypePtr) ToContentTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ContentTypePtrOutput)
 }
 
-// the entity query kind
 type CustomEntityQueryKind string
 
 const (
@@ -1629,7 +1620,6 @@ func (in *customEntityQueryKindPtr) ToCustomEntityQueryKindPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(CustomEntityQueryKindPtrOutput)
 }
 
-// The data connector kind
 type DataConnectorKind string
 
 const (
@@ -1800,7 +1790,6 @@ func (in *dataConnectorKindPtr) ToDataConnectorKindPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DataConnectorKindPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 type DataTypeState string
 
 const (
@@ -1965,7 +1954,6 @@ func (in *dataTypeStatePtr) ToDataTypeStatePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DataTypeStatePtrOutput)
 }
 
-// The entity query kind
 type EntityTimelineKind string
 
 const (
@@ -2134,7 +2122,6 @@ func (in *entityTimelineKindPtr) ToEntityTimelineKindPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTimelineKindPtrOutput)
 }
 
-// The type of the query's source entity
 type EntityType string
 
 const (
@@ -2339,7 +2326,6 @@ func (in *entityTypePtr) ToEntityTypePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypePtrOutput)
 }
 
-// The reason the incident was closed
 type IncidentClassification string
 
 const (
@@ -2510,7 +2496,6 @@ func (in *incidentClassificationPtr) ToIncidentClassificationPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(IncidentClassificationPtrOutput)
 }
 
-// The classification reason the incident was closed with
 type IncidentClassificationReason string
 
 const (
@@ -2681,7 +2666,6 @@ func (in *incidentClassificationReasonPtr) ToIncidentClassificationReasonPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(IncidentClassificationReasonPtrOutput)
 }
 
-// The severity of the incident
 type IncidentSeverity string
 
 const (
@@ -2852,7 +2836,6 @@ func (in *incidentSeverityPtr) ToIncidentSeverityPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(IncidentSeverityPtrOutput)
 }
 
-// The status of the incident
 type IncidentStatus string
 
 const (
@@ -3021,7 +3004,6 @@ func (in *incidentStatusPtr) ToIncidentStatusPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(IncidentStatusPtrOutput)
 }
 
-// The kind of content the metadata is for.
 type Kind string
 
 const (
@@ -3198,7 +3180,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// The alerts' productName on which the cases will be generated
 type MicrosoftSecurityProductName string
 
 const (
@@ -3366,7 +3347,6 @@ func (in *microsoftSecurityProductNamePtr) ToMicrosoftSecurityProductNamePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(MicrosoftSecurityProductNamePtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 type Operator string
 
 const (
@@ -3531,7 +3511,6 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
 }
 
-// The repository type of the source control
 type RepoType string
 
 const (
@@ -3696,7 +3675,6 @@ func (in *repoTypePtr) ToRepoTypePtrOutputWithContext(ctx context.Context) RepoT
 	return pulumi.ToOutputWithContext(ctx, in).(RepoTypePtrOutput)
 }
 
-// The kind of the setting
 type SettingKind string
 
 const (
@@ -3863,7 +3841,6 @@ func (in *settingKindPtr) ToSettingKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SettingKindPtrOutput)
 }
 
-// The source of the watchlist
 type Source string
 
 const (
@@ -4028,7 +4005,6 @@ func (in *sourcePtr) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtr
 	return pulumi.ToOutputWithContext(ctx, in).(SourcePtrOutput)
 }
 
-// Source type of the content
 type SourceKind string
 
 const (
@@ -4195,7 +4171,6 @@ func (in *sourceKindPtr) ToSourceKindPtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SourceKindPtrOutput)
 }
 
-// Type of support for content item
 type SupportTier string
 
 const (
@@ -4361,7 +4336,6 @@ func (in *supportTierPtr) ToSupportTierPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SupportTierPtrOutput)
 }
 
-// The kind of the entity.
 type ThreatIntelligenceResourceKind string
 
 const (
@@ -4526,7 +4500,6 @@ func (in *threatIntelligenceResourceKindPtr) ToThreatIntelligenceResourceKindPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ThreatIntelligenceResourceKindPtrOutput)
 }
 
-// The operation against the threshold that triggers alert rule.
 type TriggerOperator string
 
 const (
@@ -4693,7 +4666,6 @@ func (in *triggerOperatorPtr) ToTriggerOperatorPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(TriggerOperatorPtrOutput)
 }
 
-// The type of object the automation rule triggers on
 type TriggersOn string
 
 const (
@@ -4858,7 +4830,6 @@ func (in *triggersOnPtr) ToTriggersOnPtrOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, in).(TriggersOnPtrOutput)
 }
 
-// The type of event the automation rule triggers on
 type TriggersWhen string
 
 const (
@@ -5023,7 +4994,6 @@ func (in *triggersWhenPtr) ToTriggersWhenPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(TriggersWhenPtrOutput)
 }
 
-// The data source that enriched by ueba.
 type UebaDataSources string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -27,7 +26,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -86,7 +84,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -171,7 +167,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -234,7 +229,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettings struct {
 	// EventHub connection string.
 	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
@@ -349,7 +342,6 @@ type IotHubSettingsInput interface {
 	ToIotHubSettingsOutputWithContext(context.Context) IotHubSettingsOutput
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettingsArgs struct {
 	// EventHub connection string.
 	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
@@ -396,7 +388,6 @@ func (i IotHubSettingsArray) ToIotHubSettingsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubSettingsArrayOutput)
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettingsOutput struct{ *pulumi.OutputState }
 
 func (IotHubSettingsOutput) ElementType() reflect.Type {
@@ -446,7 +437,6 @@ func (o IotHubSettingsArrayOutput) Index(i pulumi.IntInput) IotHubSettingsOutput
 	}).(IotHubSettingsOutput)
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettingsResponse struct {
 	// EventHub connection string.
 	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
@@ -467,7 +457,6 @@ type IotHubSettingsResponseInput interface {
 	ToIotHubSettingsResponseOutputWithContext(context.Context) IotHubSettingsResponseOutput
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettingsResponseArgs struct {
 	// EventHub connection string.
 	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
@@ -514,7 +503,6 @@ func (i IotHubSettingsResponseArray) ToIotHubSettingsResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubSettingsResponseArrayOutput)
 }
 
-// Device Update account integration with IoT Hub settings.
 type IotHubSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (IotHubSettingsResponseOutput) ElementType() reflect.Type {
@@ -564,7 +552,6 @@ func (o IotHubSettingsResponseArrayOutput) Index(i pulumi.IntInput) IotHubSettin
 	}).(IotHubSettingsResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -591,7 +578,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -660,7 +646,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

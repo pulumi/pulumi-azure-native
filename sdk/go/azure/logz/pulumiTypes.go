@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTag struct {
 	// Valid actions for a filtering tag. Exclusion takes priority over inclusion.
 	Action *string `pulumi:"action"`
@@ -31,7 +30,6 @@ type FilteringTagInput interface {
 	ToFilteringTagOutputWithContext(context.Context) FilteringTagOutput
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagArgs struct {
 	// Valid actions for a filtering tag. Exclusion takes priority over inclusion.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -78,7 +76,6 @@ func (i FilteringTagArray) ToFilteringTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilteringTagArrayOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagOutput struct{ *pulumi.OutputState }
 
 func (FilteringTagOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o FilteringTagArrayOutput) Index(i pulumi.IntInput) FilteringTagOutput {
 	}).(FilteringTagOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponse struct {
 	// Valid actions for a filtering tag. Exclusion takes priority over inclusion.
 	Action *string `pulumi:"action"`
@@ -149,7 +145,6 @@ type FilteringTagResponseInput interface {
 	ToFilteringTagResponseOutputWithContext(context.Context) FilteringTagResponseOutput
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponseArgs struct {
 	// Valid actions for a filtering tag. Exclusion takes priority over inclusion.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -196,7 +191,6 @@ func (i FilteringTagResponseArray) ToFilteringTagResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FilteringTagResponseArrayOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponseOutput struct{ *pulumi.OutputState }
 
 func (FilteringTagResponseOutput) ElementType() reflect.Type {
@@ -550,7 +544,6 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRules struct {
 	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	FilteringTags []FilteringTag `pulumi:"filteringTags"`
@@ -573,7 +566,6 @@ type LogRulesInput interface {
 	ToLogRulesOutputWithContext(context.Context) LogRulesOutput
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesArgs struct {
 	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	FilteringTags FilteringTagArrayInput `pulumi:"filteringTags"`
@@ -638,7 +630,6 @@ func (i *logRulesPtrType) ToLogRulesPtrOutputWithContext(ctx context.Context) Lo
 	return pulumi.ToOutputWithContext(ctx, i).(LogRulesPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesOutput struct{ *pulumi.OutputState }
 
 func (LogRulesOutput) ElementType() reflect.Type {
@@ -747,7 +738,6 @@ func (o LogRulesPtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponse struct {
 	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	FilteringTags []FilteringTagResponse `pulumi:"filteringTags"`
@@ -770,7 +760,6 @@ type LogRulesResponseInput interface {
 	ToLogRulesResponseOutputWithContext(context.Context) LogRulesResponseOutput
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponseArgs struct {
 	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	FilteringTags FilteringTagResponseArrayInput `pulumi:"filteringTags"`
@@ -835,7 +824,6 @@ func (i *logRulesResponsePtrType) ToLogRulesResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LogRulesResponsePtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (LogRulesResponseOutput) ElementType() reflect.Type {
@@ -1313,7 +1301,6 @@ func (o LogzOrganizationPropertiesResponsePtrOutput) SingleSignOnUrl() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorProperties struct {
 	LogzOrganizationProperties *LogzOrganizationProperties `pulumi:"logzOrganizationProperties"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
@@ -1335,7 +1322,6 @@ type MonitorPropertiesInput interface {
 	ToMonitorPropertiesOutputWithContext(context.Context) MonitorPropertiesOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesArgs struct {
 	LogzOrganizationProperties LogzOrganizationPropertiesPtrInput `pulumi:"logzOrganizationProperties"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
@@ -1399,7 +1385,6 @@ func (i *monitorPropertiesPtrType) ToMonitorPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesOutput) ElementType() reflect.Type {
@@ -1517,7 +1502,6 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	}).(UserInfoPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
 	LiftrResourceCategory string `pulumi:"liftrResourceCategory"`
 	// The priority of the resource.
@@ -1544,7 +1528,6 @@ type MonitorPropertiesResponseInput interface {
 	ToMonitorPropertiesResponseOutputWithContext(context.Context) MonitorPropertiesResponseOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseArgs struct {
 	LiftrResourceCategory pulumi.StringInput `pulumi:"liftrResourceCategory"`
 	// The priority of the resource.
@@ -1613,7 +1596,6 @@ func (i *monitorPropertiesResponsePtrType) ToMonitorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1776,7 +1758,6 @@ func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput
 	}).(UserInfoResponsePtrOutput)
 }
 
-// The properties of a resource currently being monitored by the Logz monitor resource.
 type MonitoredResourceResponse struct {
 	// The ARM id of the resource.
 	Id *string `pulumi:"id"`
@@ -1803,7 +1784,6 @@ type MonitoredResourceResponseInput interface {
 	ToMonitoredResourceResponseOutputWithContext(context.Context) MonitoredResourceResponseOutput
 }
 
-// The properties of a resource currently being monitored by the Logz monitor resource.
 type MonitoredResourceResponseArgs struct {
 	// The ARM id of the resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1856,7 +1836,6 @@ func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseArrayOutput)
 }
 
-// The properties of a resource currently being monitored by the Logz monitor resource.
 type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
@@ -1921,7 +1900,6 @@ func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) Monitored
 	}).(MonitoredResourceResponseOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesProperties struct {
 	// Set of rules for sending logs for the Monitor resource.
 	LogRules *LogRules `pulumi:"logRules"`
@@ -1938,7 +1916,6 @@ type MonitoringTagRulesPropertiesInput interface {
 	ToMonitoringTagRulesPropertiesOutputWithContext(context.Context) MonitoringTagRulesPropertiesOutput
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesArgs struct {
 	// Set of rules for sending logs for the Monitor resource.
 	LogRules LogRulesPtrInput `pulumi:"logRules"`
@@ -1997,7 +1974,6 @@ func (i *monitoringTagRulesPropertiesPtrType) ToMonitoringTagRulesPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringTagRulesPropertiesPtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitoringTagRulesPropertiesOutput) ElementType() reflect.Type {
@@ -2061,7 +2037,6 @@ func (o MonitoringTagRulesPropertiesPtrOutput) LogRules() LogRulesPtrOutput {
 	}).(LogRulesPtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponse struct {
 	// Set of rules for sending logs for the Monitor resource.
 	LogRules *LogRulesResponse `pulumi:"logRules"`
@@ -2082,7 +2057,6 @@ type MonitoringTagRulesPropertiesResponseInput interface {
 	ToMonitoringTagRulesPropertiesResponseOutputWithContext(context.Context) MonitoringTagRulesPropertiesResponseOutput
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponseArgs struct {
 	// Set of rules for sending logs for the Monitor resource.
 	LogRules LogRulesResponsePtrInput `pulumi:"logRules"`
@@ -2145,7 +2119,6 @@ func (i *monitoringTagRulesPropertiesResponsePtrType) ToMonitoringTagRulesProper
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringTagRulesPropertiesResponsePtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoringTagRulesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2627,7 +2600,6 @@ func (o PlanDataResponsePtrOutput) UsageType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2654,7 +2626,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -2723,7 +2694,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -3250,7 +3220,6 @@ func (o UserInfoResponsePtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Response for checking user's role for Logz.io account.
 type UserRoleResponseResponse struct {
 	// User roles on configured in Logz.io account.
 	Role *string `pulumi:"role"`
@@ -3267,7 +3236,6 @@ type UserRoleResponseResponseInput interface {
 	ToUserRoleResponseResponseOutputWithContext(context.Context) UserRoleResponseResponseOutput
 }
 
-// Response for checking user's role for Logz.io account.
 type UserRoleResponseResponseArgs struct {
 	// User roles on configured in Logz.io account.
 	Role pulumi.StringPtrInput `pulumi:"role"`
@@ -3310,7 +3278,6 @@ func (i UserRoleResponseResponseArray) ToUserRoleResponseResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(UserRoleResponseResponseArrayOutput)
 }
 
-// Response for checking user's role for Logz.io account.
 type UserRoleResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (UserRoleResponseResponseOutput) ElementType() reflect.Type {
@@ -3350,7 +3317,6 @@ func (o UserRoleResponseResponseArrayOutput) Index(i pulumi.IntInput) UserRoleRe
 	}).(UserRoleResponseResponseOutput)
 }
 
-// VM Resource Ids
 type VMResourcesResponse struct {
 	// Version of the Logz agent installed on the VM.
 	AgentVersion *string `pulumi:"agentVersion"`
@@ -3369,7 +3335,6 @@ type VMResourcesResponseInput interface {
 	ToVMResourcesResponseOutputWithContext(context.Context) VMResourcesResponseOutput
 }
 
-// VM Resource Ids
 type VMResourcesResponseArgs struct {
 	// Version of the Logz agent installed on the VM.
 	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
@@ -3414,7 +3379,6 @@ func (i VMResourcesResponseArray) ToVMResourcesResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VMResourcesResponseArrayOutput)
 }
 
-// VM Resource Ids
 type VMResourcesResponseOutput struct{ *pulumi.OutputState }
 
 func (VMResourcesResponseOutput) ElementType() reflect.Type {

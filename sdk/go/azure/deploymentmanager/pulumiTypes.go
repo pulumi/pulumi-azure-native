@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthentication struct {
 	// The location of the authentication key/value pair in the request.
 	In RestAuthLocation `pulumi:"in"`
@@ -34,7 +33,6 @@ type ApiKeyAuthenticationInput interface {
 	ToApiKeyAuthenticationOutputWithContext(context.Context) ApiKeyAuthenticationOutput
 }
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationArgs struct {
 	// The location of the authentication key/value pair in the request.
 	In RestAuthLocationInput `pulumi:"in"`
@@ -59,7 +57,6 @@ func (i ApiKeyAuthenticationArgs) ToApiKeyAuthenticationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAuthenticationOutput)
 }
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyAuthenticationOutput) ElementType() reflect.Type {
@@ -95,7 +92,6 @@ func (o ApiKeyAuthenticationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationResponse struct {
 	// The location of the authentication key/value pair in the request.
 	In string `pulumi:"in"`
@@ -119,7 +115,6 @@ type ApiKeyAuthenticationResponseInput interface {
 	ToApiKeyAuthenticationResponseOutputWithContext(context.Context) ApiKeyAuthenticationResponseOutput
 }
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationResponseArgs struct {
 	// The location of the authentication key/value pair in the request.
 	In pulumi.StringInput `pulumi:"in"`
@@ -144,7 +139,6 @@ func (i ApiKeyAuthenticationResponseArgs) ToApiKeyAuthenticationResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAuthenticationResponseOutput)
 }
 
-// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyAuthenticationResponseOutput) ElementType() reflect.Type {
@@ -180,7 +174,6 @@ func (o ApiKeyAuthenticationResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Detailed error information of any failure.
 type CloudErrorBodyResponse struct {
 	// Error code string.
 	Code string `pulumi:"code"`
@@ -203,7 +196,6 @@ type CloudErrorBodyResponseInput interface {
 	ToCloudErrorBodyResponseOutputWithContext(context.Context) CloudErrorBodyResponseOutput
 }
 
-// Detailed error information of any failure.
 type CloudErrorBodyResponseArgs struct {
 	// Error code string.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -293,7 +285,6 @@ func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseArrayOutput)
 }
 
-// Detailed error information of any failure.
 type CloudErrorBodyResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudErrorBodyResponseOutput) ElementType() reflect.Type {
@@ -422,7 +413,6 @@ func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBo
 	}).(CloudErrorBodyResponseOutput)
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepProperties struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributes `pulumi:"attributes"`
@@ -442,7 +432,6 @@ type HealthCheckStepPropertiesInput interface {
 	ToHealthCheckStepPropertiesOutputWithContext(context.Context) HealthCheckStepPropertiesOutput
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepPropertiesArgs struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesInput `pulumi:"attributes"`
@@ -463,7 +452,6 @@ func (i HealthCheckStepPropertiesArgs) ToHealthCheckStepPropertiesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckStepPropertiesOutput)
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepPropertiesOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckStepPropertiesOutput) ElementType() reflect.Type {
@@ -489,7 +477,6 @@ func (o HealthCheckStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepPropertiesResponse struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponse `pulumi:"attributes"`
@@ -509,7 +496,6 @@ type HealthCheckStepPropertiesResponseInput interface {
 	ToHealthCheckStepPropertiesResponseOutputWithContext(context.Context) HealthCheckStepPropertiesResponseOutput
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepPropertiesResponseArgs struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponseInput `pulumi:"attributes"`
@@ -530,7 +516,6 @@ func (i HealthCheckStepPropertiesResponseArgs) ToHealthCheckStepPropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckStepPropertiesResponseOutput)
 }
 
-// Defines the properties of a health check step.
 type HealthCheckStepPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckStepPropertiesResponseOutput) ElementType() reflect.Type {
@@ -556,7 +541,6 @@ func (o HealthCheckStepPropertiesResponseOutput) StepType() pulumi.StringOutput 
 	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
 	// The list of identities.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -575,7 +559,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
 	// The list of identities.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -636,7 +619,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -715,7 +697,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
 	// The list of identities.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -734,7 +715,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
 	// The list of identities.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -795,7 +775,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -874,7 +853,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Supplementary contextual messages during a rollout.
 type MessageResponse struct {
 	// The actual message text.
 	Message string `pulumi:"message"`
@@ -893,7 +871,6 @@ type MessageResponseInput interface {
 	ToMessageResponseOutputWithContext(context.Context) MessageResponseOutput
 }
 
-// Supplementary contextual messages during a rollout.
 type MessageResponseArgs struct {
 	// The actual message text.
 	Message pulumi.StringInput `pulumi:"message"`
@@ -938,7 +915,6 @@ func (i MessageResponseArray) ToMessageResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MessageResponseArrayOutput)
 }
 
-// Supplementary contextual messages during a rollout.
 type MessageResponseOutput struct{ *pulumi.OutputState }
 
 func (MessageResponseOutput) ElementType() reflect.Type {
@@ -983,7 +959,6 @@ func (o MessageResponseArrayOutput) Index(i pulumi.IntInput) MessageResponseOutp
 	}).(MessageResponseOutput)
 }
 
-// The properties that define a step.
 type PrePostStep struct {
 	// The resource Id of the step to be run.
 	StepId string `pulumi:"stepId"`
@@ -1000,7 +975,6 @@ type PrePostStepInput interface {
 	ToPrePostStepOutputWithContext(context.Context) PrePostStepOutput
 }
 
-// The properties that define a step.
 type PrePostStepArgs struct {
 	// The resource Id of the step to be run.
 	StepId pulumi.StringInput `pulumi:"stepId"`
@@ -1043,7 +1017,6 @@ func (i PrePostStepArray) ToPrePostStepArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PrePostStepArrayOutput)
 }
 
-// The properties that define a step.
 type PrePostStepOutput struct{ *pulumi.OutputState }
 
 func (PrePostStepOutput) ElementType() reflect.Type {
@@ -1083,7 +1056,6 @@ func (o PrePostStepArrayOutput) Index(i pulumi.IntInput) PrePostStepOutput {
 	}).(PrePostStepOutput)
 }
 
-// The properties that define a step.
 type PrePostStepResponse struct {
 	// The resource Id of the step to be run.
 	StepId string `pulumi:"stepId"`
@@ -1100,7 +1072,6 @@ type PrePostStepResponseInput interface {
 	ToPrePostStepResponseOutputWithContext(context.Context) PrePostStepResponseOutput
 }
 
-// The properties that define a step.
 type PrePostStepResponseArgs struct {
 	// The resource Id of the step to be run.
 	StepId pulumi.StringInput `pulumi:"stepId"`
@@ -1143,7 +1114,6 @@ func (i PrePostStepResponseArray) ToPrePostStepResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrePostStepResponseArrayOutput)
 }
 
-// The properties that define a step.
 type PrePostStepResponseOutput struct{ *pulumi.OutputState }
 
 func (PrePostStepResponseOutput) ElementType() reflect.Type {
@@ -1183,7 +1153,6 @@ func (o PrePostStepResponseArrayOutput) Index(i pulumi.IntInput) PrePostStepResp
 	}).(PrePostStepResponseOutput)
 }
 
-// Individual resource operation information.
 type ResourceOperationResponse struct {
 	// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
 	OperationId string `pulumi:"operationId"`
@@ -1210,7 +1179,6 @@ type ResourceOperationResponseInput interface {
 	ToResourceOperationResponseOutputWithContext(context.Context) ResourceOperationResponseOutput
 }
 
-// Individual resource operation information.
 type ResourceOperationResponseArgs struct {
 	// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
 	OperationId pulumi.StringInput `pulumi:"operationId"`
@@ -1263,7 +1231,6 @@ func (i ResourceOperationResponseArray) ToResourceOperationResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOperationResponseArrayOutput)
 }
 
-// Individual resource operation information.
 type ResourceOperationResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceOperationResponseOutput) ElementType() reflect.Type {
@@ -1328,7 +1295,6 @@ func (o ResourceOperationResponseArrayOutput) Index(i pulumi.IntInput) ResourceO
 	}).(ResourceOperationResponseOutput)
 }
 
-// A REST based health check
 type RestHealthCheck struct {
 	// A unique name for this check.
 	Name string `pulumi:"name"`
@@ -1349,7 +1315,6 @@ type RestHealthCheckInput interface {
 	ToRestHealthCheckOutputWithContext(context.Context) RestHealthCheckOutput
 }
 
-// A REST based health check
 type RestHealthCheckArgs struct {
 	// A unique name for this check.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1396,7 +1361,6 @@ func (i RestHealthCheckArray) ToRestHealthCheckArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckArrayOutput)
 }
 
-// A REST based health check
 type RestHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (RestHealthCheckOutput) ElementType() reflect.Type {
@@ -1446,7 +1410,6 @@ func (o RestHealthCheckArrayOutput) Index(i pulumi.IntInput) RestHealthCheckOutp
 	}).(RestHealthCheckOutput)
 }
 
-// A REST based health check
 type RestHealthCheckResponse struct {
 	// A unique name for this check.
 	Name string `pulumi:"name"`
@@ -1467,7 +1430,6 @@ type RestHealthCheckResponseInput interface {
 	ToRestHealthCheckResponseOutputWithContext(context.Context) RestHealthCheckResponseOutput
 }
 
-// A REST based health check
 type RestHealthCheckResponseArgs struct {
 	// A unique name for this check.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1514,7 +1476,6 @@ func (i RestHealthCheckResponseArray) ToRestHealthCheckResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckResponseArrayOutput)
 }
 
-// A REST based health check
 type RestHealthCheckResponseOutput struct{ *pulumi.OutputState }
 
 func (RestHealthCheckResponseOutput) ElementType() reflect.Type {
@@ -1564,7 +1525,6 @@ func (o RestHealthCheckResponseArrayOutput) Index(i pulumi.IntInput) RestHealthC
 	}).(RestHealthCheckResponseOutput)
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributes struct {
 	// The list of checks that form the health check step.
 	HealthChecks []RestHealthCheck `pulumi:"healthChecks"`
@@ -1590,7 +1550,6 @@ type RestHealthCheckStepAttributesInput interface {
 	ToRestHealthCheckStepAttributesOutputWithContext(context.Context) RestHealthCheckStepAttributesOutput
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributesArgs struct {
 	// The list of checks that form the health check step.
 	HealthChecks RestHealthCheckArrayInput `pulumi:"healthChecks"`
@@ -1617,7 +1576,6 @@ func (i RestHealthCheckStepAttributesArgs) ToRestHealthCheckStepAttributesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckStepAttributesOutput)
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributesOutput struct{ *pulumi.OutputState }
 
 func (RestHealthCheckStepAttributesOutput) ElementType() reflect.Type {
@@ -1658,7 +1616,6 @@ func (o RestHealthCheckStepAttributesOutput) WaitDuration() pulumi.StringPtrOutp
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributesResponse struct {
 	// The list of checks that form the health check step.
 	HealthChecks []RestHealthCheckResponse `pulumi:"healthChecks"`
@@ -1684,7 +1641,6 @@ type RestHealthCheckStepAttributesResponseInput interface {
 	ToRestHealthCheckStepAttributesResponseOutputWithContext(context.Context) RestHealthCheckStepAttributesResponseOutput
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributesResponseArgs struct {
 	// The list of checks that form the health check step.
 	HealthChecks RestHealthCheckResponseArrayInput `pulumi:"healthChecks"`
@@ -1711,7 +1667,6 @@ func (i RestHealthCheckStepAttributesResponseArgs) ToRestHealthCheckStepAttribut
 	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckStepAttributesResponseOutput)
 }
 
-// Defines the REST health check step properties.
 type RestHealthCheckStepAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (RestHealthCheckStepAttributesResponseOutput) ElementType() reflect.Type {
@@ -1752,7 +1707,6 @@ func (o RestHealthCheckStepAttributesResponseOutput) WaitDuration() pulumi.Strin
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
 }
 
-// The properties that make up a REST request
 type RestRequest struct {
 	// The authentication information required in the request to the health provider.
 	Authentication interface{} `pulumi:"authentication"`
@@ -1773,7 +1727,6 @@ type RestRequestInput interface {
 	ToRestRequestOutputWithContext(context.Context) RestRequestOutput
 }
 
-// The properties that make up a REST request
 type RestRequestArgs struct {
 	// The authentication information required in the request to the health provider.
 	Authentication pulumi.Input `pulumi:"authentication"`
@@ -1795,7 +1748,6 @@ func (i RestRequestArgs) ToRestRequestOutputWithContext(ctx context.Context) Res
 	return pulumi.ToOutputWithContext(ctx, i).(RestRequestOutput)
 }
 
-// The properties that make up a REST request
 type RestRequestOutput struct{ *pulumi.OutputState }
 
 func (RestRequestOutput) ElementType() reflect.Type {
@@ -1825,7 +1777,6 @@ func (o RestRequestOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RestRequest) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// The properties that make up a REST request
 type RestRequestResponse struct {
 	// The authentication information required in the request to the health provider.
 	Authentication interface{} `pulumi:"authentication"`
@@ -1846,7 +1797,6 @@ type RestRequestResponseInput interface {
 	ToRestRequestResponseOutputWithContext(context.Context) RestRequestResponseOutput
 }
 
-// The properties that make up a REST request
 type RestRequestResponseArgs struct {
 	// The authentication information required in the request to the health provider.
 	Authentication pulumi.Input `pulumi:"authentication"`
@@ -1868,7 +1818,6 @@ func (i RestRequestResponseArgs) ToRestRequestResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RestRequestResponseOutput)
 }
 
-// The properties that make up a REST request
 type RestRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (RestRequestResponseOutput) ElementType() reflect.Type {
@@ -1898,7 +1847,6 @@ func (o RestRequestResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RestRequestResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// The properties that make up the expected REST response
 type RestResponse struct {
 	// The regular expressions to match the response content with.
 	Regex *RestResponseRegex `pulumi:"regex"`
@@ -1917,7 +1865,6 @@ type RestResponseInput interface {
 	ToRestResponseOutputWithContext(context.Context) RestResponseOutput
 }
 
-// The properties that make up the expected REST response
 type RestResponseArgs struct {
 	// The regular expressions to match the response content with.
 	Regex RestResponseRegexPtrInput `pulumi:"regex"`
@@ -1978,7 +1925,6 @@ func (i *restResponsePtrType) ToRestResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RestResponsePtrOutput)
 }
 
-// The properties that make up the expected REST response
 type RestResponseOutput struct{ *pulumi.OutputState }
 
 func (RestResponseOutput) ElementType() reflect.Type {
@@ -2057,7 +2003,6 @@ func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The regular expressions to match the response content with.
 type RestResponseRegex struct {
 	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
@@ -2076,7 +2021,6 @@ type RestResponseRegexInput interface {
 	ToRestResponseRegexOutputWithContext(context.Context) RestResponseRegexOutput
 }
 
-// The regular expressions to match the response content with.
 type RestResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier RestMatchQuantifierPtrInput `pulumi:"matchQuantifier"`
@@ -2137,7 +2081,6 @@ func (i *restResponseRegexPtrType) ToRestResponseRegexPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RestResponseRegexPtrOutput)
 }
 
-// The regular expressions to match the response content with.
 type RestResponseRegexOutput struct{ *pulumi.OutputState }
 
 func (RestResponseRegexOutput) ElementType() reflect.Type {
@@ -2216,7 +2159,6 @@ func (o RestResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The properties that make up the expected REST response
 type RestResponseResponse struct {
 	// The regular expressions to match the response content with.
 	Regex *RestResponseResponseRegex `pulumi:"regex"`
@@ -2235,7 +2177,6 @@ type RestResponseResponseInput interface {
 	ToRestResponseResponseOutputWithContext(context.Context) RestResponseResponseOutput
 }
 
-// The properties that make up the expected REST response
 type RestResponseResponseArgs struct {
 	// The regular expressions to match the response content with.
 	Regex RestResponseResponseRegexPtrInput `pulumi:"regex"`
@@ -2296,7 +2237,6 @@ func (i *restResponseResponsePtrType) ToRestResponseResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponsePtrOutput)
 }
 
-// The properties that make up the expected REST response
 type RestResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (RestResponseResponseOutput) ElementType() reflect.Type {
@@ -2375,7 +2315,6 @@ func (o RestResponseResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The regular expressions to match the response content with.
 type RestResponseResponseRegex struct {
 	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier *string `pulumi:"matchQuantifier"`
@@ -2394,7 +2333,6 @@ type RestResponseResponseRegexInput interface {
 	ToRestResponseResponseRegexOutputWithContext(context.Context) RestResponseResponseRegexOutput
 }
 
-// The regular expressions to match the response content with.
 type RestResponseResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier pulumi.StringPtrInput `pulumi:"matchQuantifier"`
@@ -2455,7 +2393,6 @@ func (i *restResponseResponseRegexPtrType) ToRestResponseResponseRegexPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseRegexPtrOutput)
 }
 
-// The regular expressions to match the response content with.
 type RestResponseResponseRegexOutput struct{ *pulumi.OutputState }
 
 func (RestResponseResponseRegexOutput) ElementType() reflect.Type {
@@ -2534,7 +2471,6 @@ func (o RestResponseResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthentication struct {
 	// The authentication type.
 	// Expected value is 'RolloutIdentity'.
@@ -2552,7 +2488,6 @@ type RolloutIdentityAuthenticationInput interface {
 	ToRolloutIdentityAuthenticationOutputWithContext(context.Context) RolloutIdentityAuthenticationOutput
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationArgs struct {
 	// The authentication type.
 	// Expected value is 'RolloutIdentity'.
@@ -2571,7 +2506,6 @@ func (i RolloutIdentityAuthenticationArgs) ToRolloutIdentityAuthenticationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutIdentityAuthenticationOutput)
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (RolloutIdentityAuthenticationOutput) ElementType() reflect.Type {
@@ -2592,7 +2526,6 @@ func (o RolloutIdentityAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutIdentityAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationResponse struct {
 	// The authentication type.
 	// Expected value is 'RolloutIdentity'.
@@ -2610,7 +2543,6 @@ type RolloutIdentityAuthenticationResponseInput interface {
 	ToRolloutIdentityAuthenticationResponseOutputWithContext(context.Context) RolloutIdentityAuthenticationResponseOutput
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationResponseArgs struct {
 	// The authentication type.
 	// Expected value is 'RolloutIdentity'.
@@ -2629,7 +2561,6 @@ func (i RolloutIdentityAuthenticationResponseArgs) ToRolloutIdentityAuthenticati
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutIdentityAuthenticationResponseOutput)
 }
 
-// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationResponseOutput struct{ *pulumi.OutputState }
 
 func (RolloutIdentityAuthenticationResponseOutput) ElementType() reflect.Type {
@@ -2650,7 +2581,6 @@ func (o RolloutIdentityAuthenticationResponseOutput) Type() pulumi.StringOutput 
 	return o.ApplyT(func(v RolloutIdentityAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Detailed runtime information of the rollout.
 type RolloutOperationInfoResponse struct {
 	// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
 	EndTime string `pulumi:"endTime"`
@@ -2675,7 +2605,6 @@ type RolloutOperationInfoResponseInput interface {
 	ToRolloutOperationInfoResponseOutputWithContext(context.Context) RolloutOperationInfoResponseOutput
 }
 
-// Detailed runtime information of the rollout.
 type RolloutOperationInfoResponseArgs struct {
 	// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
 	EndTime pulumi.StringInput `pulumi:"endTime"`
@@ -2701,7 +2630,6 @@ func (i RolloutOperationInfoResponseArgs) ToRolloutOperationInfoResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutOperationInfoResponseOutput)
 }
 
-// Detailed runtime information of the rollout.
 type RolloutOperationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RolloutOperationInfoResponseOutput) ElementType() reflect.Type {
@@ -2741,7 +2669,6 @@ func (o RolloutOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Defines a specific step on a target service unit.
 type RolloutStepResponse struct {
 	// Supplementary informative messages during rollout.
 	Messages []MessageResponse `pulumi:"messages"`
@@ -2768,7 +2695,6 @@ type RolloutStepResponseInput interface {
 	ToRolloutStepResponseOutputWithContext(context.Context) RolloutStepResponseOutput
 }
 
-// Defines a specific step on a target service unit.
 type RolloutStepResponseArgs struct {
 	// Supplementary informative messages during rollout.
 	Messages MessageResponseArrayInput `pulumi:"messages"`
@@ -2821,7 +2747,6 @@ func (i RolloutStepResponseArray) ToRolloutStepResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutStepResponseArrayOutput)
 }
 
-// Defines a specific step on a target service unit.
 type RolloutStepResponseOutput struct{ *pulumi.OutputState }
 
 func (RolloutStepResponseOutput) ElementType() reflect.Type {
@@ -2886,7 +2811,6 @@ func (o RolloutStepResponseArrayOutput) Index(i pulumi.IntInput) RolloutStepResp
 	}).(RolloutStepResponseOutput)
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthentication struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
@@ -2906,7 +2830,6 @@ type SasAuthenticationInput interface {
 	ToSasAuthenticationOutputWithContext(context.Context) SasAuthenticationOutput
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthenticationArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
@@ -2968,7 +2891,6 @@ func (i *sasAuthenticationPtrType) ToSasAuthenticationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationPtrOutput)
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (SasAuthenticationOutput) ElementType() reflect.Type {
@@ -3049,7 +2971,6 @@ func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthenticationResponse struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
@@ -3069,7 +2990,6 @@ type SasAuthenticationResponseInput interface {
 	ToSasAuthenticationResponseOutputWithContext(context.Context) SasAuthenticationResponseOutput
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthenticationResponseArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
@@ -3131,7 +3051,6 @@ func (i *sasAuthenticationResponsePtrType) ToSasAuthenticationResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponsePtrOutput)
 }
 
-// Defines the properties to access the artifacts using an Azure Storage SAS URI.
 type SasAuthenticationResponseOutput struct{ *pulumi.OutputState }
 
 func (SasAuthenticationResponseOutput) ElementType() reflect.Type {
@@ -3212,7 +3131,6 @@ func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines a service.
 type ServiceResponse struct {
 	// Name of the service.
 	Name *string `pulumi:"name"`
@@ -3235,7 +3153,6 @@ type ServiceResponseInput interface {
 	ToServiceResponseOutputWithContext(context.Context) ServiceResponseOutput
 }
 
-// Defines a service.
 type ServiceResponseArgs struct {
 	// Name of the service.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -3284,7 +3201,6 @@ func (i ServiceResponseArray) ToServiceResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceResponseArrayOutput)
 }
 
-// Defines a service.
 type ServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceResponseOutput) ElementType() reflect.Type {
@@ -3339,7 +3255,6 @@ func (o ServiceResponseArrayOutput) Index(i pulumi.IntInput) ServiceResponseOutp
 	}).(ServiceResponseOutput)
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifacts struct {
 	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath *string `pulumi:"parametersArtifactSourceRelativePath"`
@@ -3362,7 +3277,6 @@ type ServiceUnitArtifactsInput interface {
 	ToServiceUnitArtifactsOutputWithContext(context.Context) ServiceUnitArtifactsOutput
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifactsArgs struct {
 	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"parametersArtifactSourceRelativePath"`
@@ -3427,7 +3341,6 @@ func (i *serviceUnitArtifactsPtrType) ToServiceUnitArtifactsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitArtifactsPtrOutput)
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifactsOutput struct{ *pulumi.OutputState }
 
 func (ServiceUnitArtifactsOutput) ElementType() reflect.Type {
@@ -3536,7 +3449,6 @@ func (o ServiceUnitArtifactsPtrOutput) TemplateUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifactsResponse struct {
 	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath *string `pulumi:"parametersArtifactSourceRelativePath"`
@@ -3559,7 +3471,6 @@ type ServiceUnitArtifactsResponseInput interface {
 	ToServiceUnitArtifactsResponseOutputWithContext(context.Context) ServiceUnitArtifactsResponseOutput
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifactsResponseArgs struct {
 	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"parametersArtifactSourceRelativePath"`
@@ -3624,7 +3535,6 @@ func (i *serviceUnitArtifactsResponsePtrType) ToServiceUnitArtifactsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitArtifactsResponsePtrOutput)
 }
 
-// Defines the artifacts of a service unit.
 type ServiceUnitArtifactsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceUnitArtifactsResponseOutput) ElementType() reflect.Type {
@@ -3733,7 +3643,6 @@ func (o ServiceUnitArtifactsResponsePtrOutput) TemplateUri() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines a service unit.
 type ServiceUnitResponse struct {
 	// The artifacts for the service unit.
 	Artifacts *ServiceUnitArtifactsResponse `pulumi:"artifacts"`
@@ -3758,7 +3667,6 @@ type ServiceUnitResponseInput interface {
 	ToServiceUnitResponseOutputWithContext(context.Context) ServiceUnitResponseOutput
 }
 
-// Defines a service unit.
 type ServiceUnitResponseArgs struct {
 	// The artifacts for the service unit.
 	Artifacts ServiceUnitArtifactsResponsePtrInput `pulumi:"artifacts"`
@@ -3809,7 +3717,6 @@ func (i ServiceUnitResponseArray) ToServiceUnitResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitResponseArrayOutput)
 }
 
-// Defines a service unit.
 type ServiceUnitResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceUnitResponseOutput) ElementType() reflect.Type {
@@ -3869,7 +3776,6 @@ func (o ServiceUnitResponseArrayOutput) Index(i pulumi.IntInput) ServiceUnitResp
 	}).(ServiceUnitResponseOutput)
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroup struct {
 	// The list of step group names on which this step group depends on.
 	DependsOnStepGroups []string `pulumi:"dependsOnStepGroups"`
@@ -3894,7 +3800,6 @@ type StepGroupInput interface {
 	ToStepGroupOutputWithContext(context.Context) StepGroupOutput
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroupArgs struct {
 	// The list of step group names on which this step group depends on.
 	DependsOnStepGroups pulumi.StringArrayInput `pulumi:"dependsOnStepGroups"`
@@ -3945,7 +3850,6 @@ func (i StepGroupArray) ToStepGroupArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StepGroupArrayOutput)
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroupOutput struct{ *pulumi.OutputState }
 
 func (StepGroupOutput) ElementType() reflect.Type {
@@ -4005,7 +3909,6 @@ func (o StepGroupArrayOutput) Index(i pulumi.IntInput) StepGroupOutput {
 	}).(StepGroupOutput)
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroupResponse struct {
 	// The list of step group names on which this step group depends on.
 	DependsOnStepGroups []string `pulumi:"dependsOnStepGroups"`
@@ -4030,7 +3933,6 @@ type StepGroupResponseInput interface {
 	ToStepGroupResponseOutputWithContext(context.Context) StepGroupResponseOutput
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroupResponseArgs struct {
 	// The list of step group names on which this step group depends on.
 	DependsOnStepGroups pulumi.StringArrayInput `pulumi:"dependsOnStepGroups"`
@@ -4081,7 +3983,6 @@ func (i StepGroupResponseArray) ToStepGroupResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StepGroupResponseArrayOutput)
 }
 
-// The properties that define a Step group in a rollout.
 type StepGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (StepGroupResponseOutput) ElementType() reflect.Type {
@@ -4141,7 +4042,6 @@ func (o StepGroupResponseArrayOutput) Index(i pulumi.IntInput) StepGroupResponse
 	}).(StepGroupResponseOutput)
 }
 
-// Detailed information of a specific step run.
 type StepOperationInfoResponse struct {
 	// Unique identifier to track the request for ARM-based resources.
 	CorrelationId string `pulumi:"correlationId"`
@@ -4168,7 +4068,6 @@ type StepOperationInfoResponseInput interface {
 	ToStepOperationInfoResponseOutputWithContext(context.Context) StepOperationInfoResponseOutput
 }
 
-// Detailed information of a specific step run.
 type StepOperationInfoResponseArgs struct {
 	// Unique identifier to track the request for ARM-based resources.
 	CorrelationId pulumi.StringInput `pulumi:"correlationId"`
@@ -4196,7 +4095,6 @@ func (i StepOperationInfoResponseArgs) ToStepOperationInfoResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StepOperationInfoResponseOutput)
 }
 
-// Detailed information of a specific step run.
 type StepOperationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (StepOperationInfoResponseOutput) ElementType() reflect.Type {
@@ -4241,7 +4139,6 @@ func (o StepOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The parameters for the wait step.
 type WaitStepAttributes struct {
 	// The duration in ISO 8601 format of how long the wait should be.
 	Duration string `pulumi:"duration"`
@@ -4258,7 +4155,6 @@ type WaitStepAttributesInput interface {
 	ToWaitStepAttributesOutputWithContext(context.Context) WaitStepAttributesOutput
 }
 
-// The parameters for the wait step.
 type WaitStepAttributesArgs struct {
 	// The duration in ISO 8601 format of how long the wait should be.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -4276,7 +4172,6 @@ func (i WaitStepAttributesArgs) ToWaitStepAttributesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesOutput)
 }
 
-// The parameters for the wait step.
 type WaitStepAttributesOutput struct{ *pulumi.OutputState }
 
 func (WaitStepAttributesOutput) ElementType() reflect.Type {
@@ -4296,7 +4191,6 @@ func (o WaitStepAttributesOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepAttributes) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// The parameters for the wait step.
 type WaitStepAttributesResponse struct {
 	// The duration in ISO 8601 format of how long the wait should be.
 	Duration string `pulumi:"duration"`
@@ -4313,7 +4207,6 @@ type WaitStepAttributesResponseInput interface {
 	ToWaitStepAttributesResponseOutputWithContext(context.Context) WaitStepAttributesResponseOutput
 }
 
-// The parameters for the wait step.
 type WaitStepAttributesResponseArgs struct {
 	// The duration in ISO 8601 format of how long the wait should be.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -4331,7 +4224,6 @@ func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesResponseOutput)
 }
 
-// The parameters for the wait step.
 type WaitStepAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (WaitStepAttributesResponseOutput) ElementType() reflect.Type {
@@ -4351,7 +4243,6 @@ func (o WaitStepAttributesResponseOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepAttributesResponse) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// Defines the properties of a Wait step.
 type WaitStepProperties struct {
 	// The Wait attributes
 	Attributes WaitStepAttributes `pulumi:"attributes"`
@@ -4371,7 +4262,6 @@ type WaitStepPropertiesInput interface {
 	ToWaitStepPropertiesOutputWithContext(context.Context) WaitStepPropertiesOutput
 }
 
-// Defines the properties of a Wait step.
 type WaitStepPropertiesArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesInput `pulumi:"attributes"`
@@ -4392,7 +4282,6 @@ func (i WaitStepPropertiesArgs) ToWaitStepPropertiesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesOutput)
 }
 
-// Defines the properties of a Wait step.
 type WaitStepPropertiesOutput struct{ *pulumi.OutputState }
 
 func (WaitStepPropertiesOutput) ElementType() reflect.Type {
@@ -4418,7 +4307,6 @@ func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
 
-// Defines the properties of a Wait step.
 type WaitStepPropertiesResponse struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesResponse `pulumi:"attributes"`
@@ -4438,7 +4326,6 @@ type WaitStepPropertiesResponseInput interface {
 	ToWaitStepPropertiesResponseOutputWithContext(context.Context) WaitStepPropertiesResponseOutput
 }
 
-// Defines the properties of a Wait step.
 type WaitStepPropertiesResponseArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesResponseInput `pulumi:"attributes"`
@@ -4459,7 +4346,6 @@ func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesResponseOutput)
 }
 
-// Defines the properties of a Wait step.
 type WaitStepPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WaitStepPropertiesResponseOutput) ElementType() reflect.Type {

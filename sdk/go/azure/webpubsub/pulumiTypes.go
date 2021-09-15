@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettings struct {
 	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
 	Items map[string][]EventHandlerTemplate `pulumi:"items"`
@@ -27,7 +26,6 @@ type EventHandlerSettingsInput interface {
 	ToEventHandlerSettingsOutputWithContext(context.Context) EventHandlerSettingsOutput
 }
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettingsArgs struct {
 	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
 	Items EventHandlerTemplateArrayMapInput `pulumi:"items"`
@@ -86,7 +84,6 @@ func (i *eventHandlerSettingsPtrType) ToEventHandlerSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerSettingsPtrOutput)
 }
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettingsOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerSettingsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o EventHandlerSettingsPtrOutput) Items() EventHandlerTemplateArrayMapOutpu
 	}).(EventHandlerTemplateArrayMapOutput)
 }
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettingsResponse struct {
 	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
 	Items map[string][]EventHandlerTemplateResponse `pulumi:"items"`
@@ -167,7 +163,6 @@ type EventHandlerSettingsResponseInput interface {
 	ToEventHandlerSettingsResponseOutputWithContext(context.Context) EventHandlerSettingsResponseOutput
 }
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettingsResponseArgs struct {
 	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
 	Items EventHandlerTemplateResponseArrayMapInput `pulumi:"items"`
@@ -226,7 +221,6 @@ func (i *eventHandlerSettingsResponsePtrType) ToEventHandlerSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerSettingsResponsePtrOutput)
 }
 
-// The settings for event handler in webpubsub service
 type EventHandlerSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerSettingsResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o EventHandlerSettingsResponsePtrOutput) Items() EventHandlerTemplateRespo
 	}).(EventHandlerTemplateResponseArrayMapOutput)
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplate struct {
 	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
 	Auth *UpstreamAuthSettings `pulumi:"auth"`
@@ -321,7 +314,6 @@ type EventHandlerTemplateInput interface {
 	ToEventHandlerTemplateOutputWithContext(context.Context) EventHandlerTemplateOutput
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplateArgs struct {
 	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
 	Auth UpstreamAuthSettingsPtrInput `pulumi:"auth"`
@@ -378,7 +370,6 @@ func (i EventHandlerTemplateArray) ToEventHandlerTemplateArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerTemplateArrayOutput)
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplateOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateOutput) ElementType() reflect.Type {
@@ -441,7 +432,6 @@ func (o EventHandlerTemplateArrayOutput) Index(i pulumi.IntInput) EventHandlerTe
 	}).(EventHandlerTemplateOutput)
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplateResponse struct {
 	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
 	Auth *UpstreamAuthSettingsResponse `pulumi:"auth"`
@@ -472,7 +462,6 @@ type EventHandlerTemplateResponseInput interface {
 	ToEventHandlerTemplateResponseOutputWithContext(context.Context) EventHandlerTemplateResponseOutput
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplateResponseArgs struct {
 	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
 	Auth UpstreamAuthSettingsResponsePtrInput `pulumi:"auth"`
@@ -529,7 +518,6 @@ func (i EventHandlerTemplateResponseArray) ToEventHandlerTemplateResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerTemplateResponseArrayOutput)
 }
 
-// EventHandler template item settings.
 type EventHandlerTemplateResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateResponseOutput) ElementType() reflect.Type {
@@ -592,7 +580,6 @@ func (o EventHandlerTemplateResponseArrayOutput) Index(i pulumi.IntInput) EventH
 	}).(EventHandlerTemplateResponseOutput)
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentity struct {
 	// Represent the identity type: systemAssigned, userAssigned, None
 	Type *string `pulumi:"type"`
@@ -611,7 +598,6 @@ type ManagedIdentityInput interface {
 	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentityArgs struct {
 	// Represent the identity type: systemAssigned, userAssigned, None
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -672,7 +658,6 @@ func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityOutput) ElementType() reflect.Type {
@@ -751,7 +736,6 @@ func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentityResponse struct {
 	// Get the principal id for the system assigned identity.
 	// Only be used in response.
@@ -776,7 +760,6 @@ type ManagedIdentityResponseInput interface {
 	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentityResponseArgs struct {
 	// Get the principal id for the system assigned identity.
 	// Only be used in response.
@@ -843,7 +826,6 @@ func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
 }
 
-// A class represent managed identities used for request and response
 type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -958,7 +940,6 @@ func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedI
 	}).(UserAssignedIdentityPropertyResponseMapOutput)
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettings struct {
 	// The Resource indicating the App ID URI of the target resource.
 	// It also appears in the aud (audience) claim of the issued token.
@@ -976,7 +957,6 @@ type ManagedIdentitySettingsInput interface {
 	ToManagedIdentitySettingsOutputWithContext(context.Context) ManagedIdentitySettingsOutput
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettingsArgs struct {
 	// The Resource indicating the App ID URI of the target resource.
 	// It also appears in the aud (audience) claim of the issued token.
@@ -1036,7 +1016,6 @@ func (i *managedIdentitySettingsPtrType) ToManagedIdentitySettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsPtrOutput)
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentitySettingsOutput) ElementType() reflect.Type {
@@ -1102,7 +1081,6 @@ func (o ManagedIdentitySettingsPtrOutput) Resource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettingsResponse struct {
 	// The Resource indicating the App ID URI of the target resource.
 	// It also appears in the aud (audience) claim of the issued token.
@@ -1120,7 +1098,6 @@ type ManagedIdentitySettingsResponseInput interface {
 	ToManagedIdentitySettingsResponseOutputWithContext(context.Context) ManagedIdentitySettingsResponseOutput
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettingsResponseArgs struct {
 	// The Resource indicating the App ID URI of the target resource.
 	// It also appears in the aud (audience) claim of the issued token.
@@ -1180,7 +1157,6 @@ func (i *managedIdentitySettingsResponsePtrType) ToManagedIdentitySettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsResponsePtrOutput)
 }
 
-// Managed identity settings for upstream.
 type ManagedIdentitySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentitySettingsResponseOutput) ElementType() reflect.Type {
@@ -1246,7 +1222,6 @@ func (o ManagedIdentitySettingsResponsePtrOutput) Resource() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network ACL
 type NetworkACL struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -1265,7 +1240,6 @@ type NetworkACLInput interface {
 	ToNetworkACLOutputWithContext(context.Context) NetworkACLOutput
 }
 
-// Network ACL
 type NetworkACLArgs struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
@@ -1326,7 +1300,6 @@ func (i *networkACLPtrType) ToNetworkACLPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkACLPtrOutput)
 }
 
-// Network ACL
 type NetworkACLOutput struct{ *pulumi.OutputState }
 
 func (NetworkACLOutput) ElementType() reflect.Type {
@@ -1405,7 +1378,6 @@ func (o NetworkACLPtrOutput) Deny() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Network ACL
 type NetworkACLResponse struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -1424,7 +1396,6 @@ type NetworkACLResponseInput interface {
 	ToNetworkACLResponseOutputWithContext(context.Context) NetworkACLResponseOutput
 }
 
-// Network ACL
 type NetworkACLResponseArgs struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
@@ -1485,7 +1456,6 @@ func (i *networkACLResponsePtrType) ToNetworkACLResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkACLResponsePtrOutput)
 }
 
-// Network ACL
 type NetworkACLResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkACLResponseOutput) ElementType() reflect.Type {
@@ -1564,7 +1534,6 @@ func (o NetworkACLResponsePtrOutput) Deny() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Private endpoint
 type PrivateEndpoint struct {
 	// Full qualified Id of the private endpoint
 	Id *string `pulumi:"id"`
@@ -1581,7 +1550,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// Private endpoint
 type PrivateEndpointArgs struct {
 	// Full qualified Id of the private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1640,7 +1608,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// Private endpoint
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -1704,7 +1671,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACL struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -1725,7 +1691,6 @@ type PrivateEndpointACLInput interface {
 	ToPrivateEndpointACLOutputWithContext(context.Context) PrivateEndpointACLOutput
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACLArgs struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
@@ -1772,7 +1737,6 @@ func (i PrivateEndpointACLArray) ToPrivateEndpointACLArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointACLArrayOutput)
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACLOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointACLOutput) ElementType() reflect.Type {
@@ -1822,7 +1786,6 @@ func (o PrivateEndpointACLArrayOutput) Index(i pulumi.IntInput) PrivateEndpointA
 	}).(PrivateEndpointACLOutput)
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACLResponse struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -1843,7 +1806,6 @@ type PrivateEndpointACLResponseInput interface {
 	ToPrivateEndpointACLResponseOutputWithContext(context.Context) PrivateEndpointACLResponseOutput
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACLResponseArgs struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
@@ -1890,7 +1852,6 @@ func (i PrivateEndpointACLResponseArray) ToPrivateEndpointACLResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointACLResponseArrayOutput)
 }
 
-// ACL for a private endpoint
 type PrivateEndpointACLResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointACLResponseOutput) ElementType() reflect.Type {
@@ -1940,7 +1901,6 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 	}).(PrivateEndpointACLResponseOutput)
 }
 
-// A private endpoint connection to an azure resource
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
@@ -1969,7 +1929,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// A private endpoint connection to an azure resource
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource Id for the resource.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2024,7 +1983,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// A private endpoint connection to an azure resource
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -2096,7 +2054,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Private endpoint
 type PrivateEndpointResponse struct {
 	// Full qualified Id of the private endpoint
 	Id *string `pulumi:"id"`
@@ -2113,7 +2070,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint
 type PrivateEndpointResponseArgs struct {
 	// Full qualified Id of the private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2172,7 +2128,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -2236,7 +2191,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -2257,7 +2211,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -2320,7 +2273,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -2414,7 +2366,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -2435,7 +2386,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -2498,7 +2448,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -2592,7 +2541,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing information of the resource.
 type ResourceSku struct {
 	// Optional, integer. The unit count of the resource. 1 by default.
 	//
@@ -2621,7 +2569,6 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// The billing information of the resource.
 type ResourceSkuArgs struct {
 	// Optional, integer. The unit count of the resource. 1 by default.
 	//
@@ -2692,7 +2639,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// The billing information of the resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -2802,7 +2748,6 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing information of the resource.
 type ResourceSkuResponse struct {
 	// Optional, integer. The unit count of the resource. 1 by default.
 	//
@@ -2835,7 +2780,6 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// The billing information of the resource.
 type ResourceSkuResponseArgs struct {
 	// Optional, integer. The unit count of the resource. 1 by default.
 	//
@@ -2910,7 +2854,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// The billing information of the resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -3050,7 +2993,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Shared Private Link Resource
 type SharedPrivateLinkResourceResponse struct {
 	// The group id from the provider of resource the shared private link resource is for
 	GroupId string `pulumi:"groupId"`
@@ -3083,7 +3025,6 @@ type SharedPrivateLinkResourceResponseInput interface {
 	ToSharedPrivateLinkResourceResponseOutputWithContext(context.Context) SharedPrivateLinkResourceResponseOutput
 }
 
-// Describes a Shared Private Link Resource
 type SharedPrivateLinkResourceResponseArgs struct {
 	// The group id from the provider of resource the shared private link resource is for
 	GroupId pulumi.StringInput `pulumi:"groupId"`
@@ -3142,7 +3083,6 @@ func (i SharedPrivateLinkResourceResponseArray) ToSharedPrivateLinkResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceResponseArrayOutput)
 }
 
-// Describes a Shared Private Link Resource
 type SharedPrivateLinkResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceResponseOutput) ElementType() reflect.Type {
@@ -3222,7 +3162,6 @@ func (o SharedPrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(SharedPrivateLinkResourceResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -3249,7 +3188,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -3318,7 +3256,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -3457,7 +3394,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettings struct {
 	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
 	ManagedIdentity *ManagedIdentitySettings `pulumi:"managedIdentity"`
@@ -3476,7 +3412,6 @@ type UpstreamAuthSettingsInput interface {
 	ToUpstreamAuthSettingsOutputWithContext(context.Context) UpstreamAuthSettingsOutput
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettingsArgs struct {
 	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
 	ManagedIdentity ManagedIdentitySettingsPtrInput `pulumi:"managedIdentity"`
@@ -3537,7 +3472,6 @@ func (i *upstreamAuthSettingsPtrType) ToUpstreamAuthSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsPtrOutput)
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettingsOutput struct{ *pulumi.OutputState }
 
 func (UpstreamAuthSettingsOutput) ElementType() reflect.Type {
@@ -3616,7 +3550,6 @@ func (o UpstreamAuthSettingsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettingsResponse struct {
 	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
 	ManagedIdentity *ManagedIdentitySettingsResponse `pulumi:"managedIdentity"`
@@ -3635,7 +3568,6 @@ type UpstreamAuthSettingsResponseInput interface {
 	ToUpstreamAuthSettingsResponseOutputWithContext(context.Context) UpstreamAuthSettingsResponseOutput
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettingsResponseArgs struct {
 	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
 	ManagedIdentity ManagedIdentitySettingsResponsePtrInput `pulumi:"managedIdentity"`
@@ -3696,7 +3628,6 @@ func (i *upstreamAuthSettingsResponsePtrType) ToUpstreamAuthSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsResponsePtrOutput)
 }
 
-// Upstream auth settings.
 type UpstreamAuthSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (UpstreamAuthSettingsResponseOutput) ElementType() reflect.Type {
@@ -3775,7 +3706,6 @@ func (o UpstreamAuthSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of user assigned identity.
 type UserAssignedIdentityPropertyResponse struct {
 	// Get the client id for the user assigned identity
 	ClientId string `pulumi:"clientId"`
@@ -3794,7 +3724,6 @@ type UserAssignedIdentityPropertyResponseInput interface {
 	ToUserAssignedIdentityPropertyResponseOutputWithContext(context.Context) UserAssignedIdentityPropertyResponseOutput
 }
 
-// Properties of user assigned identity.
 type UserAssignedIdentityPropertyResponseArgs struct {
 	// Get the client id for the user assigned identity
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -3839,7 +3768,6 @@ func (i UserAssignedIdentityPropertyResponseMap) ToUserAssignedIdentityPropertyR
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertyResponseMapOutput)
 }
 
-// Properties of user assigned identity.
 type UserAssignedIdentityPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityPropertyResponseOutput) ElementType() reflect.Type {
@@ -3884,7 +3812,6 @@ func (o UserAssignedIdentityPropertyResponseMapOutput) MapIndex(k pulumi.StringI
 	}).(UserAssignedIdentityPropertyResponseOutput)
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeature struct {
 	// FeatureFlags is the supported features of Azure SignalR service.
 	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
@@ -3908,7 +3835,6 @@ type WebPubSubFeatureInput interface {
 	ToWebPubSubFeatureOutputWithContext(context.Context) WebPubSubFeatureOutput
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeatureArgs struct {
 	// FeatureFlags is the supported features of Azure SignalR service.
 	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
@@ -3958,7 +3884,6 @@ func (i WebPubSubFeatureArray) ToWebPubSubFeatureArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureArrayOutput)
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeatureOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubFeatureOutput) ElementType() reflect.Type {
@@ -4011,7 +3936,6 @@ func (o WebPubSubFeatureArrayOutput) Index(i pulumi.IntInput) WebPubSubFeatureOu
 	}).(WebPubSubFeatureOutput)
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeatureResponse struct {
 	// FeatureFlags is the supported features of Azure SignalR service.
 	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
@@ -4035,7 +3959,6 @@ type WebPubSubFeatureResponseInput interface {
 	ToWebPubSubFeatureResponseOutputWithContext(context.Context) WebPubSubFeatureResponseOutput
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeatureResponseArgs struct {
 	// FeatureFlags is the supported features of Azure SignalR service.
 	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
@@ -4085,7 +4008,6 @@ func (i WebPubSubFeatureResponseArray) ToWebPubSubFeatureResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureResponseArrayOutput)
 }
 
-// Feature of a resource, which controls the runtime behavior.
 type WebPubSubFeatureResponseOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubFeatureResponseOutput) ElementType() reflect.Type {
@@ -4138,7 +4060,6 @@ func (o WebPubSubFeatureResponseArrayOutput) Index(i pulumi.IntInput) WebPubSubF
 	}).(WebPubSubFeatureResponseOutput)
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLs struct {
 	// Default action when no other rule matches
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -4159,7 +4080,6 @@ type WebPubSubNetworkACLsInput interface {
 	ToWebPubSubNetworkACLsOutputWithContext(context.Context) WebPubSubNetworkACLsOutput
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLsArgs struct {
 	// Default action when no other rule matches
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -4222,7 +4142,6 @@ func (i *webPubSubNetworkACLsPtrType) ToWebPubSubNetworkACLsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubNetworkACLsPtrOutput)
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLsOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubNetworkACLsOutput) ElementType() reflect.Type {
@@ -4316,7 +4235,6 @@ func (o WebPubSubNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 	}).(NetworkACLPtrOutput)
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLsResponse struct {
 	// Default action when no other rule matches
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -4337,7 +4255,6 @@ type WebPubSubNetworkACLsResponseInput interface {
 	ToWebPubSubNetworkACLsResponseOutputWithContext(context.Context) WebPubSubNetworkACLsResponseOutput
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLsResponseArgs struct {
 	// Default action when no other rule matches
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -4400,7 +4317,6 @@ func (i *webPubSubNetworkACLsResponsePtrType) ToWebPubSubNetworkACLsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubNetworkACLsResponsePtrOutput)
 }
 
-// Network ACLs for the resource
 type WebPubSubNetworkACLsResponseOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubNetworkACLsResponseOutput) ElementType() reflect.Type {
@@ -4494,7 +4410,6 @@ func (o WebPubSubNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLRespons
 	}).(NetworkACLResponsePtrOutput)
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettings struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
@@ -4511,7 +4426,6 @@ type WebPubSubTlsSettingsInput interface {
 	ToWebPubSubTlsSettingsOutputWithContext(context.Context) WebPubSubTlsSettingsOutput
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettingsArgs struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
@@ -4570,7 +4484,6 @@ func (i *webPubSubTlsSettingsPtrType) ToWebPubSubTlsSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubTlsSettingsPtrOutput)
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubTlsSettingsOutput) ElementType() reflect.Type {
@@ -4634,7 +4547,6 @@ func (o WebPubSubTlsSettingsPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettingsResponse struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
@@ -4651,7 +4563,6 @@ type WebPubSubTlsSettingsResponseInput interface {
 	ToWebPubSubTlsSettingsResponseOutputWithContext(context.Context) WebPubSubTlsSettingsResponseOutput
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettingsResponseArgs struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
@@ -4710,7 +4621,6 @@ func (i *webPubSubTlsSettingsResponsePtrType) ToWebPubSubTlsSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubTlsSettingsResponsePtrOutput)
 }
 
-// TLS settings for the resource
 type WebPubSubTlsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubTlsSettingsResponseOutput) ElementType() reflect.Type {

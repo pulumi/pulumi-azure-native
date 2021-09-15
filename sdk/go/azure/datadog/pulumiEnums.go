@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity type
 type ManagedIdentityTypes string
 
 const (
@@ -175,7 +174,6 @@ func (in *managedIdentityTypesPtr) ToManagedIdentityTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypesPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 type MonitoringStatus string
 
 const (

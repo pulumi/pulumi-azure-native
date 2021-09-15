@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The activation properties of the connected registry.
 type ActivationPropertiesResponse struct {
 	// The activation status of the connected registry.
 	Status string `pulumi:"status"`
@@ -27,7 +26,6 @@ type ActivationPropertiesResponseInput interface {
 	ToActivationPropertiesResponseOutputWithContext(context.Context) ActivationPropertiesResponseOutput
 }
 
-// The activation properties of the connected registry.
 type ActivationPropertiesResponseArgs struct {
 	// The activation status of the connected registry.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -86,7 +84,6 @@ func (i *activationPropertiesResponsePtrType) ToActivationPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationPropertiesResponsePtrOutput)
 }
 
-// The activation properties of the connected registry.
 type ActivationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o ActivationPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
 type ActorResponse struct {
 	// The subject or username associated with the request context that generated the event.
 	Name *string `pulumi:"name"`
@@ -167,7 +163,6 @@ type ActorResponseInput interface {
 	ToActorResponseOutputWithContext(context.Context) ActorResponseOutput
 }
 
-// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
 type ActorResponseArgs struct {
 	// The subject or username associated with the request context that generated the event.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -226,7 +221,6 @@ func (i *actorResponsePtrType) ToActorResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ActorResponsePtrOutput)
 }
 
-// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
 type ActorResponseOutput struct{ *pulumi.OutputState }
 
 func (ActorResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o ActorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentProperties struct {
 	// The CPU configuration in terms of number of cores required for the run.
 	Cpu *int `pulumi:"cpu"`
@@ -307,7 +300,6 @@ type AgentPropertiesInput interface {
 	ToAgentPropertiesOutputWithContext(context.Context) AgentPropertiesOutput
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesArgs struct {
 	// The CPU configuration in terms of number of cores required for the run.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
@@ -366,7 +358,6 @@ func (i *agentPropertiesPtrType) ToAgentPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPropertiesPtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AgentPropertiesOutput) ElementType() reflect.Type {
@@ -430,7 +421,6 @@ func (o AgentPropertiesPtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponse struct {
 	// The CPU configuration in terms of number of cores required for the run.
 	Cpu *int `pulumi:"cpu"`
@@ -447,7 +437,6 @@ type AgentPropertiesResponseInput interface {
 	ToAgentPropertiesResponseOutputWithContext(context.Context) AgentPropertiesResponseOutput
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponseArgs struct {
 	// The CPU configuration in terms of number of cores required for the run.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
@@ -506,7 +495,6 @@ func (i *agentPropertiesResponsePtrType) ToAgentPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPropertiesResponsePtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -570,7 +558,6 @@ func (o AgentPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of a run argument.
 type Argument struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -591,7 +578,6 @@ type ArgumentInput interface {
 	ToArgumentOutputWithContext(context.Context) ArgumentOutput
 }
 
-// The properties of a run argument.
 type ArgumentArgs struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -638,7 +624,6 @@ func (i ArgumentArray) ToArgumentArrayOutputWithContext(ctx context.Context) Arg
 	return pulumi.ToOutputWithContext(ctx, i).(ArgumentArrayOutput)
 }
 
-// The properties of a run argument.
 type ArgumentOutput struct{ *pulumi.OutputState }
 
 func (ArgumentOutput) ElementType() reflect.Type {
@@ -688,7 +673,6 @@ func (o ArgumentArrayOutput) Index(i pulumi.IntInput) ArgumentOutput {
 	}).(ArgumentOutput)
 }
 
-// The properties of a run argument.
 type ArgumentResponse struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -709,7 +693,6 @@ type ArgumentResponseInput interface {
 	ToArgumentResponseOutputWithContext(context.Context) ArgumentResponseOutput
 }
 
-// The properties of a run argument.
 type ArgumentResponseArgs struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -756,7 +739,6 @@ func (i ArgumentResponseArray) ToArgumentResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ArgumentResponseArrayOutput)
 }
 
-// The properties of a run argument.
 type ArgumentResponseOutput struct{ *pulumi.OutputState }
 
 func (ArgumentResponseOutput) ElementType() reflect.Type {
@@ -806,7 +788,6 @@ func (o ArgumentResponseArrayOutput) Index(i pulumi.IntInput) ArgumentResponseOu
 	}).(ArgumentResponseOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfo struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn *int `pulumi:"expiresIn"`
@@ -831,7 +812,6 @@ type AuthInfoInput interface {
 	ToAuthInfoOutputWithContext(context.Context) AuthInfoOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoArgs struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
@@ -898,7 +878,6 @@ func (i *authInfoPtrType) ToAuthInfoPtrOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthInfoPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoOutput struct{ *pulumi.OutputState }
 
 func (AuthInfoOutput) ElementType() reflect.Type {
@@ -1022,7 +1001,6 @@ func (o AuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponse struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn *int `pulumi:"expiresIn"`
@@ -1047,7 +1025,6 @@ type AuthInfoResponseInput interface {
 	ToAuthInfoResponseOutputWithContext(context.Context) AuthInfoResponseOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponseArgs struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
@@ -1114,7 +1091,6 @@ func (i *authInfoResponsePtrType) ToAuthInfoResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthInfoResponsePtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthInfoResponseOutput) ElementType() reflect.Type {
@@ -1238,7 +1214,6 @@ func (o AuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponse struct {
 	// The sha256-based digest of the image manifest.
 	Digest *string `pulumi:"digest"`
@@ -1263,7 +1238,6 @@ type BaseImageDependencyResponseInput interface {
 	ToBaseImageDependencyResponseOutputWithContext(context.Context) BaseImageDependencyResponseOutput
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseArgs struct {
 	// The sha256-based digest of the image manifest.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
@@ -1314,7 +1288,6 @@ func (i BaseImageDependencyResponseArray) ToBaseImageDependencyResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyResponseArrayOutput)
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (BaseImageDependencyResponseOutput) ElementType() reflect.Type {
@@ -1374,7 +1347,6 @@ func (o BaseImageDependencyResponseArrayOutput) Index(i pulumi.IntInput) BaseIma
 	}).(BaseImageDependencyResponseOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTrigger struct {
 	// The type of the auto trigger for base image dependency updates.
 	BaseImageTriggerType string `pulumi:"baseImageTriggerType"`
@@ -1399,7 +1371,6 @@ type BaseImageTriggerInput interface {
 	ToBaseImageTriggerOutputWithContext(context.Context) BaseImageTriggerOutput
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerArgs struct {
 	// The type of the auto trigger for base image dependency updates.
 	BaseImageTriggerType pulumi.StringInput `pulumi:"baseImageTriggerType"`
@@ -1466,7 +1437,6 @@ func (i *baseImageTriggerPtrType) ToBaseImageTriggerPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageTriggerPtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerOutput) ElementType() reflect.Type {
@@ -1590,7 +1560,6 @@ func (o BaseImageTriggerPtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponse struct {
 	// The type of the auto trigger for base image dependency updates.
 	BaseImageTriggerType string `pulumi:"baseImageTriggerType"`
@@ -1615,7 +1584,6 @@ type BaseImageTriggerResponseInput interface {
 	ToBaseImageTriggerResponseOutputWithContext(context.Context) BaseImageTriggerResponseOutput
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponseArgs struct {
 	// The type of the auto trigger for base image dependency updates.
 	BaseImageTriggerType pulumi.StringInput `pulumi:"baseImageTriggerType"`
@@ -1682,7 +1650,6 @@ func (i *baseImageTriggerResponsePtrType) ToBaseImageTriggerResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageTriggerResponsePtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerResponseOutput) ElementType() reflect.Type {
@@ -1806,7 +1773,6 @@ func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerPayloadType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a build argument.
 type BuildArgumentResponse struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -1829,7 +1795,6 @@ type BuildArgumentResponseInput interface {
 	ToBuildArgumentResponseOutputWithContext(context.Context) BuildArgumentResponseOutput
 }
 
-// Properties of a build argument.
 type BuildArgumentResponseArgs struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -1878,7 +1843,6 @@ func (i BuildArgumentResponseArray) ToBuildArgumentResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentResponseArrayOutput)
 }
 
-// Properties of a build argument.
 type BuildArgumentResponseOutput struct{ *pulumi.OutputState }
 
 func (BuildArgumentResponseOutput) ElementType() reflect.Type {
@@ -1933,7 +1897,6 @@ func (o BuildArgumentResponseArrayOutput) Index(i pulumi.IntInput) BuildArgument
 	}).(BuildArgumentResponseOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type Credentials struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
@@ -1954,7 +1917,6 @@ type CredentialsInput interface {
 	ToCredentialsOutputWithContext(context.Context) CredentialsOutput
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsArgs struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
@@ -2017,7 +1979,6 @@ func (i *credentialsPtrType) ToCredentialsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsOutput struct{ *pulumi.OutputState }
 
 func (CredentialsOutput) ElementType() reflect.Type {
@@ -2100,7 +2061,6 @@ func (o CredentialsPtrOutput) SourceRegistry() SourceRegistryCredentialsPtrOutpu
 	}).(SourceRegistryCredentialsPtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponse struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
@@ -2121,7 +2081,6 @@ type CredentialsResponseInput interface {
 	ToCredentialsResponseOutputWithContext(context.Context) CredentialsResponseOutput
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponseArgs struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
@@ -2184,7 +2143,6 @@ func (i *credentialsResponsePtrType) ToCredentialsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialsResponsePtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialsResponseOutput) ElementType() reflect.Type {
@@ -2267,7 +2225,6 @@ func (o CredentialsResponsePtrOutput) SourceRegistry() SourceRegistryCredentials
 	}).(SourceRegistryCredentialsResponsePtrOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentials struct {
 	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
 	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
@@ -2293,7 +2250,6 @@ type CustomRegistryCredentialsInput interface {
 	ToCustomRegistryCredentialsOutputWithContext(context.Context) CustomRegistryCredentialsOutput
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsArgs struct {
 	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
 	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
@@ -2345,7 +2301,6 @@ func (i CustomRegistryCredentialsMap) ToCustomRegistryCredentialsMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsMapOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CustomRegistryCredentialsOutput) ElementType() reflect.Type {
@@ -2400,7 +2355,6 @@ func (o CustomRegistryCredentialsMapOutput) MapIndex(k pulumi.StringInput) Custo
 	}).(CustomRegistryCredentialsOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponse struct {
 	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
 	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
@@ -2426,7 +2380,6 @@ type CustomRegistryCredentialsResponseInput interface {
 	ToCustomRegistryCredentialsResponseOutputWithContext(context.Context) CustomRegistryCredentialsResponseOutput
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponseArgs struct {
 	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
 	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
@@ -2478,7 +2431,6 @@ func (i CustomRegistryCredentialsResponseMap) ToCustomRegistryCredentialsRespons
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsResponseMapOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -2533,7 +2485,6 @@ func (o CustomRegistryCredentialsResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(CustomRegistryCredentialsResponseOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequest struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
@@ -2580,7 +2531,6 @@ type DockerBuildRequestInput interface {
 	ToDockerBuildRequestOutputWithContext(context.Context) DockerBuildRequestOutput
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
@@ -2628,7 +2578,6 @@ func (i DockerBuildRequestArgs) ToDockerBuildRequestOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildRequestOutput) ElementType() reflect.Type {
@@ -2720,7 +2669,6 @@ func (o DockerBuildRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponse struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
@@ -2767,7 +2715,6 @@ type DockerBuildRequestResponseInput interface {
 	ToDockerBuildRequestResponseOutputWithContext(context.Context) DockerBuildRequestResponseOutput
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponseArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
@@ -2815,7 +2762,6 @@ func (i DockerBuildRequestResponseArgs) ToDockerBuildRequestResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestResponseOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildRequestResponseOutput) ElementType() reflect.Type {
@@ -2907,7 +2853,6 @@ func (o DockerBuildRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Docker build step.
 type DockerBuildStep struct {
 	// The collection of override arguments to be used when executing this build step.
 	Arguments []Argument `pulumi:"arguments"`
@@ -2941,7 +2886,6 @@ type DockerBuildStepInput interface {
 	ToDockerBuildStepOutputWithContext(context.Context) DockerBuildStepOutput
 }
 
-// The Docker build step.
 type DockerBuildStepArgs struct {
 	// The collection of override arguments to be used when executing this build step.
 	Arguments ArgumentArrayInput `pulumi:"arguments"`
@@ -2976,7 +2920,6 @@ func (i DockerBuildStepArgs) ToDockerBuildStepOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildStepOutput) ElementType() reflect.Type {
@@ -3037,7 +2980,6 @@ func (o DockerBuildStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStep) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponse struct {
 	// The collection of override arguments to be used when executing this build step.
 	Arguments []ArgumentResponse `pulumi:"arguments"`
@@ -3073,7 +3015,6 @@ type DockerBuildStepResponseInput interface {
 	ToDockerBuildStepResponseOutputWithContext(context.Context) DockerBuildStepResponseOutput
 }
 
-// The Docker build step.
 type DockerBuildStepResponseArgs struct {
 	// The collection of override arguments to be used when executing this build step.
 	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
@@ -3110,7 +3051,6 @@ func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponseOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildStepResponseOutput) ElementType() reflect.Type {
@@ -3176,7 +3116,6 @@ func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequest struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
@@ -3217,7 +3156,6 @@ type EncodedTaskRunRequestInput interface {
 	ToEncodedTaskRunRequestOutputWithContext(context.Context) EncodedTaskRunRequestOutput
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
@@ -3259,7 +3197,6 @@ func (i EncodedTaskRunRequestArgs) ToEncodedTaskRunRequestOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskRunRequestOutput) ElementType() reflect.Type {
@@ -3336,7 +3273,6 @@ func (o EncodedTaskRunRequestOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponse struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
@@ -3377,7 +3313,6 @@ type EncodedTaskRunRequestResponseInput interface {
 	ToEncodedTaskRunRequestResponseOutputWithContext(context.Context) EncodedTaskRunRequestResponseOutput
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponseArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
@@ -3419,7 +3354,6 @@ func (i EncodedTaskRunRequestResponseArgs) ToEncodedTaskRunRequestResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestResponseOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -3496,7 +3430,6 @@ func (o EncodedTaskRunRequestResponseOutput) Values() SetValueResponseArrayOutpu
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStep struct {
 	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 	ContextAccessToken *string `pulumi:"contextAccessToken"`
@@ -3524,7 +3457,6 @@ type EncodedTaskStepInput interface {
 	ToEncodedTaskStepOutputWithContext(context.Context) EncodedTaskStepOutput
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepArgs struct {
 	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
@@ -3553,7 +3485,6 @@ func (i EncodedTaskStepArgs) ToEncodedTaskStepOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskStepOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskStepOutput) ElementType() reflect.Type {
@@ -3599,7 +3530,6 @@ func (o EncodedTaskStepOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStep) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponse struct {
 	// List of base image dependencies for a step.
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
@@ -3629,7 +3559,6 @@ type EncodedTaskStepResponseInput interface {
 	ToEncodedTaskStepResponseOutputWithContext(context.Context) EncodedTaskStepResponseOutput
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponseArgs struct {
 	// List of base image dependencies for a step.
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
@@ -3660,7 +3589,6 @@ func (i EncodedTaskStepResponseArgs) ToEncodedTaskStepResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskStepResponseOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponseOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskStepResponseOutput) ElementType() reflect.Type {
@@ -3711,7 +3639,6 @@ func (o EncodedTaskStepResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The content of the event request message.
 type EventContentResponse struct {
 	// The action that encompasses the provided event.
 	Action *string `pulumi:"action"`
@@ -3740,7 +3667,6 @@ type EventContentResponseInput interface {
 	ToEventContentResponseOutputWithContext(context.Context) EventContentResponseOutput
 }
 
-// The content of the event request message.
 type EventContentResponseArgs struct {
 	// The action that encompasses the provided event.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -3811,7 +3737,6 @@ func (i *eventContentResponsePtrType) ToEventContentResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventContentResponsePtrOutput)
 }
 
-// The content of the event request message.
 type EventContentResponseOutput struct{ *pulumi.OutputState }
 
 func (EventContentResponseOutput) ElementType() reflect.Type {
@@ -3965,7 +3890,6 @@ func (o EventContentResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event request message sent to the service URI.
 type EventRequestMessageResponse struct {
 	// The content of the event request message.
 	Content *EventContentResponse `pulumi:"content"`
@@ -3990,7 +3914,6 @@ type EventRequestMessageResponseInput interface {
 	ToEventRequestMessageResponseOutputWithContext(context.Context) EventRequestMessageResponseOutput
 }
 
-// The event request message sent to the service URI.
 type EventRequestMessageResponseArgs struct {
 	// The content of the event request message.
 	Content EventContentResponsePtrInput `pulumi:"content"`
@@ -4057,7 +3980,6 @@ func (i *eventRequestMessageResponsePtrType) ToEventRequestMessageResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageResponsePtrOutput)
 }
 
-// The event request message sent to the service URI.
 type EventRequestMessageResponseOutput struct{ *pulumi.OutputState }
 
 func (EventRequestMessageResponseOutput) ElementType() reflect.Type {
@@ -4181,7 +4103,6 @@ func (o EventRequestMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event for a webhook.
 type EventResponse struct {
 	// The event request message sent to the service URI.
 	EventRequestMessage *EventRequestMessageResponse `pulumi:"eventRequestMessage"`
@@ -4202,7 +4123,6 @@ type EventResponseInput interface {
 	ToEventResponseOutputWithContext(context.Context) EventResponseOutput
 }
 
-// The event for a webhook.
 type EventResponseArgs struct {
 	// The event request message sent to the service URI.
 	EventRequestMessage EventRequestMessageResponsePtrInput `pulumi:"eventRequestMessage"`
@@ -4249,7 +4169,6 @@ func (i EventResponseArray) ToEventResponseArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventResponseArrayOutput)
 }
 
-// The event for a webhook.
 type EventResponseOutput struct{ *pulumi.OutputState }
 
 func (EventResponseOutput) ElementType() reflect.Type {
@@ -4299,7 +4218,6 @@ func (o EventResponseArrayOutput) Index(i pulumi.IntInput) EventResponseOutput {
 	}).(EventResponseOutput)
 }
 
-// The event response message received from the service URI.
 type EventResponseMessageResponse struct {
 	// The content of the event response message.
 	Content *string `pulumi:"content"`
@@ -4324,7 +4242,6 @@ type EventResponseMessageResponseInput interface {
 	ToEventResponseMessageResponseOutputWithContext(context.Context) EventResponseMessageResponseOutput
 }
 
-// The event response message received from the service URI.
 type EventResponseMessageResponseArgs struct {
 	// The content of the event response message.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -4391,7 +4308,6 @@ func (i *eventResponseMessageResponsePtrType) ToEventResponseMessageResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageResponsePtrOutput)
 }
 
-// The event response message received from the service URI.
 type EventResponseMessageResponseOutput struct{ *pulumi.OutputState }
 
 func (EventResponseMessageResponseOutput) ElementType() reflect.Type {
@@ -4515,7 +4431,6 @@ func (o EventResponseMessageResponsePtrOutput) Version() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetProperties struct {
 	// They key vault secret uri to obtain the target storage SAS token.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
@@ -4538,7 +4453,6 @@ type ExportPipelineTargetPropertiesInput interface {
 	ToExportPipelineTargetPropertiesOutputWithContext(context.Context) ExportPipelineTargetPropertiesOutput
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetPropertiesArgs struct {
 	// They key vault secret uri to obtain the target storage SAS token.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
@@ -4603,7 +4517,6 @@ func (i *exportPipelineTargetPropertiesPtrType) ToExportPipelineTargetProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesPtrOutput)
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExportPipelineTargetPropertiesOutput) ElementType() reflect.Type {
@@ -4701,7 +4614,6 @@ func (o ExportPipelineTargetPropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetPropertiesResponse struct {
 	// They key vault secret uri to obtain the target storage SAS token.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
@@ -4724,7 +4636,6 @@ type ExportPipelineTargetPropertiesResponseInput interface {
 	ToExportPipelineTargetPropertiesResponseOutputWithContext(context.Context) ExportPipelineTargetPropertiesResponseOutput
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetPropertiesResponseArgs struct {
 	// They key vault secret uri to obtain the target storage SAS token.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
@@ -4789,7 +4700,6 @@ func (i *exportPipelineTargetPropertiesResponsePtrType) ToExportPipelineTargetPr
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesResponsePtrOutput)
 }
 
-// The properties of the export pipeline target.
 type ExportPipelineTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPipelineTargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4887,7 +4797,6 @@ func (o ExportPipelineTargetPropertiesResponsePtrOutput) Uri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequest struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
@@ -4928,7 +4837,6 @@ type FileTaskRunRequestInput interface {
 	ToFileTaskRunRequestOutputWithContext(context.Context) FileTaskRunRequestOutput
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
@@ -4970,7 +4878,6 @@ func (i FileTaskRunRequestArgs) ToFileTaskRunRequestOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (FileTaskRunRequestOutput) ElementType() reflect.Type {
@@ -5047,7 +4954,6 @@ func (o FileTaskRunRequestOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponse struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
@@ -5088,7 +4994,6 @@ type FileTaskRunRequestResponseInput interface {
 	ToFileTaskRunRequestResponseOutputWithContext(context.Context) FileTaskRunRequestResponseOutput
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponseArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
@@ -5130,7 +5035,6 @@ func (i FileTaskRunRequestResponseArgs) ToFileTaskRunRequestResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestResponseOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (FileTaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -5207,7 +5111,6 @@ func (o FileTaskRunRequestResponseOutput) ValuesFilePath() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a task step.
 type FileTaskStep struct {
 	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 	ContextAccessToken *string `pulumi:"contextAccessToken"`
@@ -5235,7 +5138,6 @@ type FileTaskStepInput interface {
 	ToFileTaskStepOutputWithContext(context.Context) FileTaskStepOutput
 }
 
-// The properties of a task step.
 type FileTaskStepArgs struct {
 	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
@@ -5264,7 +5166,6 @@ func (i FileTaskStepArgs) ToFileTaskStepOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskStepOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepOutput struct{ *pulumi.OutputState }
 
 func (FileTaskStepOutput) ElementType() reflect.Type {
@@ -5310,7 +5211,6 @@ func (o FileTaskStepOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStep) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepResponse struct {
 	// List of base image dependencies for a step.
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
@@ -5340,7 +5240,6 @@ type FileTaskStepResponseInput interface {
 	ToFileTaskStepResponseOutputWithContext(context.Context) FileTaskStepResponseOutput
 }
 
-// The properties of a task step.
 type FileTaskStepResponseArgs struct {
 	// List of base image dependencies for a step.
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
@@ -5371,7 +5270,6 @@ func (i FileTaskStepResponseArgs) ToFileTaskStepResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskStepResponseOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepResponseOutput struct{ *pulumi.OutputState }
 
 func (FileTaskStepResponseOutput) ElementType() reflect.Type {
@@ -5422,7 +5320,6 @@ func (o FileTaskStepResponseOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRule struct {
 	// The action of IP ACL rule.
 	Action *string `pulumi:"action"`
@@ -5441,7 +5338,6 @@ type IPRuleInput interface {
 	ToIPRuleOutputWithContext(context.Context) IPRuleOutput
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
 	// The action of IP ACL rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -5486,7 +5382,6 @@ func (i IPRuleArray) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleArrayOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleOutput struct{ *pulumi.OutputState }
 
 func (IPRuleOutput) ElementType() reflect.Type {
@@ -5531,7 +5426,6 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 	}).(IPRuleOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponse struct {
 	// The action of IP ACL rule.
 	Action *string `pulumi:"action"`
@@ -5550,7 +5444,6 @@ type IPRuleResponseInput interface {
 	ToIPRuleResponseOutputWithContext(context.Context) IPRuleResponseOutput
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponseArgs struct {
 	// The action of IP ACL rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -5595,7 +5488,6 @@ func (i IPRuleResponseArray) ToIPRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleResponseArrayOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRuleResponseOutput) ElementType() reflect.Type {
@@ -5640,7 +5532,6 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
-// Managed identity for the resource.
 type IdentityProperties struct {
 	// The principal ID of resource identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -5666,7 +5557,6 @@ type IdentityPropertiesInput interface {
 	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -5734,7 +5624,6 @@ func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesPtrOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesOutput) ElementType() reflect.Type {
@@ -5849,7 +5738,6 @@ func (o IdentityPropertiesPtrOutput) UserAssignedIdentities() UserIdentityProper
 	}).(UserIdentityPropertiesMapOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -5875,7 +5763,6 @@ type IdentityPropertiesResponseInput interface {
 	ToIdentityPropertiesResponseOutputWithContext(context.Context) IdentityPropertiesResponseOutput
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -5943,7 +5830,6 @@ func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponsePtrOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6060,7 +5946,6 @@ func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdenti
 	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponse struct {
 	// The sha256-based digest of the image manifest.
 	Digest *string `pulumi:"digest"`
@@ -6083,7 +5968,6 @@ type ImageDescriptorResponseInput interface {
 	ToImageDescriptorResponseOutputWithContext(context.Context) ImageDescriptorResponseOutput
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponseArgs struct {
 	// The sha256-based digest of the image manifest.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
@@ -6173,7 +6057,6 @@ func (i ImageDescriptorResponseArray) ToImageDescriptorResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseArrayOutput)
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDescriptorResponseOutput) ElementType() reflect.Type {
@@ -6302,7 +6185,6 @@ func (o ImageDescriptorResponseArrayOutput) Index(i pulumi.IntInput) ImageDescri
 	}).(ImageDescriptorResponseOutput)
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponse struct {
 	// The unique ID of the trigger.
 	Id *string `pulumi:"id"`
@@ -6323,7 +6205,6 @@ type ImageUpdateTriggerResponseInput interface {
 	ToImageUpdateTriggerResponseOutputWithContext(context.Context) ImageUpdateTriggerResponseOutput
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponseArgs struct {
 	// The unique ID of the trigger.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -6386,7 +6267,6 @@ func (i *imageUpdateTriggerResponsePtrType) ToImageUpdateTriggerResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageUpdateTriggerResponsePtrOutput)
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageUpdateTriggerResponseOutput) ElementType() reflect.Type {
@@ -6480,7 +6360,6 @@ func (o ImageUpdateTriggerResponsePtrOutput) Timestamp() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourceProperties struct {
 	// They key vault secret uri to obtain the source storage SAS token.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
@@ -6503,7 +6382,6 @@ type ImportPipelineSourcePropertiesInput interface {
 	ToImportPipelineSourcePropertiesOutputWithContext(context.Context) ImportPipelineSourcePropertiesOutput
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourcePropertiesArgs struct {
 	// They key vault secret uri to obtain the source storage SAS token.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
@@ -6568,7 +6446,6 @@ func (i *importPipelineSourcePropertiesPtrType) ToImportPipelineSourceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesPtrOutput)
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ImportPipelineSourcePropertiesOutput) ElementType() reflect.Type {
@@ -6666,7 +6543,6 @@ func (o ImportPipelineSourcePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourcePropertiesResponse struct {
 	// They key vault secret uri to obtain the source storage SAS token.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
@@ -6689,7 +6565,6 @@ type ImportPipelineSourcePropertiesResponseInput interface {
 	ToImportPipelineSourcePropertiesResponseOutputWithContext(context.Context) ImportPipelineSourcePropertiesResponseOutput
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourcePropertiesResponseArgs struct {
 	// They key vault secret uri to obtain the source storage SAS token.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
@@ -6754,7 +6629,6 @@ func (i *importPipelineSourcePropertiesResponsePtrType) ToImportPipelineSourcePr
 	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesResponsePtrOutput)
 }
 
-// The properties of the import pipeline source.
 type ImportPipelineSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ImportPipelineSourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6852,7 +6726,6 @@ func (o ImportPipelineSourcePropertiesResponsePtrOutput) Uri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The logging properties of the connected registry.
 type LoggingProperties struct {
 	// Indicates whether audit logs are enabled on the connected registry.
 	AuditLogStatus *string `pulumi:"auditLogStatus"`
@@ -6871,7 +6744,6 @@ type LoggingPropertiesInput interface {
 	ToLoggingPropertiesOutputWithContext(context.Context) LoggingPropertiesOutput
 }
 
-// The logging properties of the connected registry.
 type LoggingPropertiesArgs struct {
 	// Indicates whether audit logs are enabled on the connected registry.
 	AuditLogStatus pulumi.StringPtrInput `pulumi:"auditLogStatus"`
@@ -6932,7 +6804,6 @@ func (i *loggingPropertiesPtrType) ToLoggingPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingPropertiesPtrOutput)
 }
 
-// The logging properties of the connected registry.
 type LoggingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LoggingPropertiesOutput) ElementType() reflect.Type {
@@ -7011,7 +6882,6 @@ func (o LoggingPropertiesPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The logging properties of the connected registry.
 type LoggingPropertiesResponse struct {
 	// Indicates whether audit logs are enabled on the connected registry.
 	AuditLogStatus *string `pulumi:"auditLogStatus"`
@@ -7030,7 +6900,6 @@ type LoggingPropertiesResponseInput interface {
 	ToLoggingPropertiesResponseOutputWithContext(context.Context) LoggingPropertiesResponseOutput
 }
 
-// The logging properties of the connected registry.
 type LoggingPropertiesResponseArgs struct {
 	// Indicates whether audit logs are enabled on the connected registry.
 	AuditLogStatus pulumi.StringPtrInput `pulumi:"auditLogStatus"`
@@ -7091,7 +6960,6 @@ func (i *loggingPropertiesResponsePtrType) ToLoggingPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingPropertiesResponsePtrOutput)
 }
 
-// The logging properties of the connected registry.
 type LoggingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoggingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7170,7 +7038,6 @@ func (o LoggingPropertiesResponsePtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The login server properties of the connected registry.
 type LoginServerPropertiesResponse struct {
 	// The host of the connected registry. Can be FQDN or IP.
 	Host string `pulumi:"host"`
@@ -7189,7 +7056,6 @@ type LoginServerPropertiesResponseInput interface {
 	ToLoginServerPropertiesResponseOutputWithContext(context.Context) LoginServerPropertiesResponseOutput
 }
 
-// The login server properties of the connected registry.
 type LoginServerPropertiesResponseArgs struct {
 	// The host of the connected registry. Can be FQDN or IP.
 	Host pulumi.StringInput `pulumi:"host"`
@@ -7250,7 +7116,6 @@ func (i *loginServerPropertiesResponsePtrType) ToLoginServerPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(LoginServerPropertiesResponsePtrOutput)
 }
 
-// The login server properties of the connected registry.
 type LoginServerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoginServerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7329,7 +7194,6 @@ func (o LoginServerPropertiesResponsePtrOutput) Tls() TlsPropertiesResponsePtrOu
 	}).(TlsPropertiesResponsePtrOutput)
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSet struct {
 	// The default action of allow or deny when no other rules match.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -7350,7 +7214,6 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSetArgs struct {
 	// The default action of allow or deny when no other rules match.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -7413,7 +7276,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -7507,7 +7369,6 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 	}).(VirtualNetworkRuleArrayOutput)
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSetResponse struct {
 	// The default action of allow or deny when no other rules match.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -7528,7 +7389,6 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSetResponseArgs struct {
 	// The default action of allow or deny when no other rules match.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -7591,7 +7451,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// The network rule set for a container registry.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -8157,7 +8016,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) Values() SetValueResponseAr
 	}).(SetValueResponseArrayOutput)
 }
 
-// The properties of the connected registry parent.
 type ParentProperties struct {
 	// The resource ID of the parent to which the connected registry will be associated.
 	Id *string `pulumi:"id"`
@@ -8176,7 +8034,6 @@ type ParentPropertiesInput interface {
 	ToParentPropertiesOutputWithContext(context.Context) ParentPropertiesOutput
 }
 
-// The properties of the connected registry parent.
 type ParentPropertiesArgs struct {
 	// The resource ID of the parent to which the connected registry will be associated.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -8237,7 +8094,6 @@ func (i *parentPropertiesPtrType) ToParentPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ParentPropertiesPtrOutput)
 }
 
-// The properties of the connected registry parent.
 type ParentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ParentPropertiesOutput) ElementType() reflect.Type {
@@ -8316,7 +8172,6 @@ func (o ParentPropertiesPtrOutput) SyncProperties() SyncPropertiesPtrOutput {
 	}).(SyncPropertiesPtrOutput)
 }
 
-// The properties of the connected registry parent.
 type ParentPropertiesResponse struct {
 	// The resource ID of the parent to which the connected registry will be associated.
 	Id *string `pulumi:"id"`
@@ -8335,7 +8190,6 @@ type ParentPropertiesResponseInput interface {
 	ToParentPropertiesResponseOutputWithContext(context.Context) ParentPropertiesResponseOutput
 }
 
-// The properties of the connected registry parent.
 type ParentPropertiesResponseArgs struct {
 	// The resource ID of the parent to which the connected registry will be associated.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -8396,7 +8250,6 @@ func (i *parentPropertiesResponsePtrType) ToParentPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ParentPropertiesResponsePtrOutput)
 }
 
-// The properties of the connected registry parent.
 type ParentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ParentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8475,7 +8328,6 @@ func (o ParentPropertiesResponsePtrOutput) SyncProperties() SyncPropertiesRespon
 	}).(SyncPropertiesResponsePtrOutput)
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequest struct {
 	// List of source artifacts to be transferred by the pipeline.
 	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
@@ -8503,7 +8355,6 @@ type PipelineRunRequestInput interface {
 	ToPipelineRunRequestOutputWithContext(context.Context) PipelineRunRequestOutput
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequestArgs struct {
 	// List of source artifacts to be transferred by the pipeline.
 	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
@@ -8573,7 +8424,6 @@ func (i *pipelineRunRequestPtrType) ToPipelineRunRequestPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestPtrOutput)
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequestOutput struct{ *pulumi.OutputState }
 
 func (PipelineRunRequestOutput) ElementType() reflect.Type {
@@ -8703,7 +8553,6 @@ func (o PipelineRunRequestPtrOutput) Target() PipelineRunTargetPropertiesPtrOutp
 	}).(PipelineRunTargetPropertiesPtrOutput)
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequestResponse struct {
 	// List of source artifacts to be transferred by the pipeline.
 	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
@@ -8731,7 +8580,6 @@ type PipelineRunRequestResponseInput interface {
 	ToPipelineRunRequestResponseOutputWithContext(context.Context) PipelineRunRequestResponseOutput
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequestResponseArgs struct {
 	// List of source artifacts to be transferred by the pipeline.
 	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
@@ -8801,7 +8649,6 @@ func (i *pipelineRunRequestResponsePtrType) ToPipelineRunRequestResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestResponsePtrOutput)
 }
 
-// The request properties provided for a pipeline run.
 type PipelineRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (PipelineRunRequestResponseOutput) ElementType() reflect.Type {
@@ -8931,7 +8778,6 @@ func (o PipelineRunRequestResponsePtrOutput) Target() PipelineRunTargetPropertie
 	}).(PipelineRunTargetPropertiesResponsePtrOutput)
 }
 
-// The response properties returned for a pipeline run.
 type PipelineRunResponseResponse struct {
 	// The digest of the tar used to transfer the artifacts.
 	CatalogDigest *string `pulumi:"catalogDigest"`
@@ -8966,7 +8812,6 @@ type PipelineRunResponseResponseInput interface {
 	ToPipelineRunResponseResponseOutputWithContext(context.Context) PipelineRunResponseResponseOutput
 }
 
-// The response properties returned for a pipeline run.
 type PipelineRunResponseResponseArgs struct {
 	// The digest of the tar used to transfer the artifacts.
 	CatalogDigest pulumi.StringPtrInput `pulumi:"catalogDigest"`
@@ -9043,7 +8888,6 @@ func (i *pipelineRunResponseResponsePtrType) ToPipelineRunResponseResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunResponseResponsePtrOutput)
 }
 
-// The response properties returned for a pipeline run.
 type PipelineRunResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (PipelineRunResponseResponseOutput) ElementType() reflect.Type {
@@ -10692,7 +10536,6 @@ func (o PipelineTriggerPropertiesResponsePtrOutput) SourceTrigger() PipelineSour
 	}).(PipelineSourceTriggerPropertiesResponsePtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformProperties struct {
 	// The OS architecture.
 	Architecture *string `pulumi:"architecture"`
@@ -10713,7 +10556,6 @@ type PlatformPropertiesInput interface {
 	ToPlatformPropertiesOutputWithContext(context.Context) PlatformPropertiesOutput
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesArgs struct {
 	// The OS architecture.
 	Architecture pulumi.StringPtrInput `pulumi:"architecture"`
@@ -10776,7 +10618,6 @@ func (i *platformPropertiesPtrType) ToPlatformPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesOutput) ElementType() reflect.Type {
@@ -10870,7 +10711,6 @@ func (o PlatformPropertiesPtrOutput) Variant() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponse struct {
 	// The OS architecture.
 	Architecture *string `pulumi:"architecture"`
@@ -10891,7 +10731,6 @@ type PlatformPropertiesResponseInput interface {
 	ToPlatformPropertiesResponseOutputWithContext(context.Context) PlatformPropertiesResponseOutput
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponseArgs struct {
 	// The OS architecture.
 	Architecture pulumi.StringPtrInput `pulumi:"architecture"`
@@ -10954,7 +10793,6 @@ func (i *platformPropertiesResponsePtrType) ToPlatformPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11048,7 +10886,6 @@ func (o PlatformPropertiesResponsePtrOutput) Variant() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policies for a container registry.
 type Policies struct {
 	// The quarantine policy for a container registry.
 	QuarantinePolicy *QuarantinePolicy `pulumi:"quarantinePolicy"`
@@ -11069,7 +10906,6 @@ type PoliciesInput interface {
 	ToPoliciesOutputWithContext(context.Context) PoliciesOutput
 }
 
-// The policies for a container registry.
 type PoliciesArgs struct {
 	// The quarantine policy for a container registry.
 	QuarantinePolicy QuarantinePolicyPtrInput `pulumi:"quarantinePolicy"`
@@ -11132,7 +10968,6 @@ func (i *policiesPtrType) ToPoliciesPtrOutputWithContext(ctx context.Context) Po
 	return pulumi.ToOutputWithContext(ctx, i).(PoliciesPtrOutput)
 }
 
-// The policies for a container registry.
 type PoliciesOutput struct{ *pulumi.OutputState }
 
 func (PoliciesOutput) ElementType() reflect.Type {
@@ -11226,7 +11061,6 @@ func (o PoliciesPtrOutput) TrustPolicy() TrustPolicyPtrOutput {
 	}).(TrustPolicyPtrOutput)
 }
 
-// The policies for a container registry.
 type PoliciesResponse struct {
 	// The quarantine policy for a container registry.
 	QuarantinePolicy *QuarantinePolicyResponse `pulumi:"quarantinePolicy"`
@@ -11247,7 +11081,6 @@ type PoliciesResponseInput interface {
 	ToPoliciesResponseOutputWithContext(context.Context) PoliciesResponseOutput
 }
 
-// The policies for a container registry.
 type PoliciesResponseArgs struct {
 	// The quarantine policy for a container registry.
 	QuarantinePolicy QuarantinePolicyResponsePtrInput `pulumi:"quarantinePolicy"`
@@ -11310,7 +11143,6 @@ func (i *policiesResponsePtrType) ToPoliciesResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PoliciesResponsePtrOutput)
 }
 
-// The policies for a container registry.
 type PoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (PoliciesResponseOutput) ElementType() reflect.Type {
@@ -11404,7 +11236,6 @@ func (o PoliciesResponsePtrOutput) TrustPolicy() TrustPolicyResponsePtrOutput {
 	}).(TrustPolicyResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpoint struct {
 	// This is private endpoint resource created with Microsoft.Network resource provider.
 	Id *string `pulumi:"id"`
@@ -11421,7 +11252,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointArgs struct {
 	// This is private endpoint resource created with Microsoft.Network resource provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -11480,7 +11310,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -11544,7 +11373,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// This is private endpoint resource created with Microsoft.Network resource provider.
 	Id *string `pulumi:"id"`
@@ -11561,7 +11389,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// This is private endpoint resource created with Microsoft.Network resource provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -11620,7 +11447,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -11684,7 +11510,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -11705,7 +11530,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -11768,7 +11592,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -11862,7 +11685,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -11883,7 +11705,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -11946,7 +11767,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -12177,7 +11997,6 @@ func (o ProgressPropertiesResponsePtrOutput) Percentage() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicy struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status *string `pulumi:"status"`
@@ -12194,7 +12013,6 @@ type QuarantinePolicyInput interface {
 	ToQuarantinePolicyOutputWithContext(context.Context) QuarantinePolicyOutput
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicyArgs struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -12253,7 +12071,6 @@ func (i *quarantinePolicyPtrType) ToQuarantinePolicyPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(QuarantinePolicyPtrOutput)
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicyOutput struct{ *pulumi.OutputState }
 
 func (QuarantinePolicyOutput) ElementType() reflect.Type {
@@ -12317,7 +12134,6 @@ func (o QuarantinePolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicyResponse struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status *string `pulumi:"status"`
@@ -12334,7 +12150,6 @@ type QuarantinePolicyResponseInput interface {
 	ToQuarantinePolicyResponseOutputWithContext(context.Context) QuarantinePolicyResponseOutput
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicyResponseArgs struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -12393,7 +12208,6 @@ func (i *quarantinePolicyResponsePtrType) ToQuarantinePolicyResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(QuarantinePolicyResponsePtrOutput)
 }
 
-// The quarantine policy for a container registry.
 type QuarantinePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (QuarantinePolicyResponseOutput) ElementType() reflect.Type {
@@ -12457,7 +12271,6 @@ func (o QuarantinePolicyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The login password for the container registry.
 type RegistryPasswordResponse struct {
 	// The password name.
 	Name *string `pulumi:"name"`
@@ -12476,7 +12289,6 @@ type RegistryPasswordResponseInput interface {
 	ToRegistryPasswordResponseOutputWithContext(context.Context) RegistryPasswordResponseOutput
 }
 
-// The login password for the container registry.
 type RegistryPasswordResponseArgs struct {
 	// The password name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -12521,7 +12333,6 @@ func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseArrayOutput)
 }
 
-// The login password for the container registry.
 type RegistryPasswordResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistryPasswordResponseOutput) ElementType() reflect.Type {
@@ -12566,7 +12377,6 @@ func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPa
 	}).(RegistryPasswordResponseOutput)
 }
 
-// The request that generated the event.
 type RequestResponse struct {
 	// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
 	Addr *string `pulumi:"addr"`
@@ -12591,7 +12401,6 @@ type RequestResponseInput interface {
 	ToRequestResponseOutputWithContext(context.Context) RequestResponseOutput
 }
 
-// The request that generated the event.
 type RequestResponseArgs struct {
 	// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
 	Addr pulumi.StringPtrInput `pulumi:"addr"`
@@ -12658,7 +12467,6 @@ func (i *requestResponsePtrType) ToRequestResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RequestResponsePtrOutput)
 }
 
-// The request that generated the event.
 type RequestResponseOutput struct{ *pulumi.OutputState }
 
 func (RequestResponseOutput) ElementType() reflect.Type {
@@ -12782,7 +12590,6 @@ func (o RequestResponsePtrOutput) Useragent() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention policy for a container registry.
 type RetentionPolicy struct {
 	// The number of days to retain an untagged manifest after which it gets purged.
 	Days *int `pulumi:"days"`
@@ -12801,7 +12608,6 @@ type RetentionPolicyInput interface {
 	ToRetentionPolicyOutputWithContext(context.Context) RetentionPolicyOutput
 }
 
-// The retention policy for a container registry.
 type RetentionPolicyArgs struct {
 	// The number of days to retain an untagged manifest after which it gets purged.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -12862,7 +12668,6 @@ func (i *retentionPolicyPtrType) ToRetentionPolicyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyPtrOutput)
 }
 
-// The retention policy for a container registry.
 type RetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyOutput) ElementType() reflect.Type {
@@ -12941,7 +12746,6 @@ func (o RetentionPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention policy for a container registry.
 type RetentionPolicyResponse struct {
 	// The number of days to retain an untagged manifest after which it gets purged.
 	Days *int `pulumi:"days"`
@@ -12962,7 +12766,6 @@ type RetentionPolicyResponseInput interface {
 	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
 }
 
-// The retention policy for a container registry.
 type RetentionPolicyResponseArgs struct {
 	// The number of days to retain an untagged manifest after which it gets purged.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -13025,7 +12828,6 @@ func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
 }
 
-// The retention policy for a container registry.
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -13119,7 +12921,6 @@ func (o RetentionPolicyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Run resource properties
 type RunResponse struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
@@ -13186,7 +12987,6 @@ type RunResponseInput interface {
 	ToRunResponseOutputWithContext(context.Context) RunResponseOutput
 }
 
-// Run resource properties
 type RunResponseArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
@@ -13295,7 +13095,6 @@ func (i *runResponsePtrType) ToRunResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RunResponsePtrOutput)
 }
 
-// Run resource properties
 type RunResponseOutput struct{ *pulumi.OutputState }
 
 func (RunResponseOutput) ElementType() reflect.Type {
@@ -13734,7 +13533,6 @@ func (o RunResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObject struct {
 	// The type of the secret object which determines how the value of the secret object has to be
 	// interpreted.
@@ -13756,7 +13554,6 @@ type SecretObjectInput interface {
 	ToSecretObjectOutputWithContext(context.Context) SecretObjectOutput
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectArgs struct {
 	// The type of the secret object which determines how the value of the secret object has to be
 	// interpreted.
@@ -13820,7 +13617,6 @@ func (i *secretObjectPtrType) ToSecretObjectPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectOutput struct{ *pulumi.OutputState }
 
 func (SecretObjectOutput) ElementType() reflect.Type {
@@ -13905,7 +13701,6 @@ func (o SecretObjectPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponse struct {
 	// The type of the secret object which determines how the value of the secret object has to be
 	// interpreted.
@@ -13927,7 +13722,6 @@ type SecretObjectResponseInput interface {
 	ToSecretObjectResponseOutputWithContext(context.Context) SecretObjectResponseOutput
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponseArgs struct {
 	// The type of the secret object which determines how the value of the secret object has to be
 	// interpreted.
@@ -13991,7 +13785,6 @@ func (i *secretObjectResponsePtrType) ToSecretObjectResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectResponsePtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretObjectResponseOutput) ElementType() reflect.Type {
@@ -14076,7 +13869,6 @@ func (o SecretObjectResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValue struct {
 	// Flag to indicate whether the value represents a secret or not.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -14097,7 +13889,6 @@ type SetValueInput interface {
 	ToSetValueOutputWithContext(context.Context) SetValueOutput
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueArgs struct {
 	// Flag to indicate whether the value represents a secret or not.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -14144,7 +13935,6 @@ func (i SetValueArray) ToSetValueArrayOutputWithContext(ctx context.Context) Set
 	return pulumi.ToOutputWithContext(ctx, i).(SetValueArrayOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueOutput struct{ *pulumi.OutputState }
 
 func (SetValueOutput) ElementType() reflect.Type {
@@ -14194,7 +13984,6 @@ func (o SetValueArrayOutput) Index(i pulumi.IntInput) SetValueOutput {
 	}).(SetValueOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponse struct {
 	// Flag to indicate whether the value represents a secret or not.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -14215,7 +14004,6 @@ type SetValueResponseInput interface {
 	ToSetValueResponseOutputWithContext(context.Context) SetValueResponseOutput
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponseArgs struct {
 	// Flag to indicate whether the value represents a secret or not.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -14262,7 +14050,6 @@ func (i SetValueResponseArray) ToSetValueResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SetValueResponseArrayOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponseOutput struct{ *pulumi.OutputState }
 
 func (SetValueResponseOutput) ElementType() reflect.Type {
@@ -14312,7 +14099,6 @@ func (o SetValueResponseArrayOutput) Index(i pulumi.IntInput) SetValueResponseOu
 	}).(SetValueResponseOutput)
 }
 
-// The SKU of a container registry.
 type Sku struct {
 	// The SKU name of the container registry. Required for registry creation.
 	Name string `pulumi:"name"`
@@ -14329,7 +14115,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of a container registry.
 type SkuArgs struct {
 	// The SKU name of the container registry. Required for registry creation.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -14388,7 +14173,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -14452,7 +14236,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuResponse struct {
 	// The SKU name of the container registry. Required for registry creation.
 	Name string `pulumi:"name"`
@@ -14471,7 +14254,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of a container registry.
 type SkuResponseArgs struct {
 	// The SKU name of the container registry. Required for registry creation.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -14532,7 +14314,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -14611,7 +14392,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponse struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn *int `pulumi:"expiresIn"`
@@ -14636,7 +14416,6 @@ type SourceControlAuthInfoResponseInput interface {
 	ToSourceControlAuthInfoResponseOutputWithContext(context.Context) SourceControlAuthInfoResponseOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponseArgs struct {
 	// Time in seconds that the token remains valid
 	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
@@ -14662,7 +14441,6 @@ func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponseOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceControlAuthInfoResponseOutput) ElementType() reflect.Type {
@@ -14702,7 +14480,6 @@ func (o SourceControlAuthInfoResponseOutput) TokenType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the source code repository.
 type SourceProperties struct {
 	// The branch name of the source code.
 	Branch *string `pulumi:"branch"`
@@ -14726,7 +14503,6 @@ type SourcePropertiesInput interface {
 	ToSourcePropertiesOutputWithContext(context.Context) SourcePropertiesOutput
 }
 
-// The properties of the source code repository.
 type SourcePropertiesArgs struct {
 	// The branch name of the source code.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
@@ -14751,7 +14527,6 @@ func (i SourcePropertiesArgs) ToSourcePropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourcePropertiesOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SourcePropertiesOutput) ElementType() reflect.Type {
@@ -14787,7 +14562,6 @@ func (o SourcePropertiesOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceProperties) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponse struct {
 	// The branch name of the source code.
 	Branch *string `pulumi:"branch"`
@@ -14811,7 +14585,6 @@ type SourcePropertiesResponseInput interface {
 	ToSourcePropertiesResponseOutputWithContext(context.Context) SourcePropertiesResponseOutput
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponseArgs struct {
 	// The branch name of the source code.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
@@ -14836,7 +14609,6 @@ func (i SourcePropertiesResponseArgs) ToSourcePropertiesResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SourcePropertiesResponseOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -14872,7 +14644,6 @@ func (o SourcePropertiesResponseOutput) SourceControlType() pulumi.StringOutput 
 	return o.ApplyT(func(v SourcePropertiesResponse) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentials struct {
 	// The authentication mode which determines the source registry login scope. The credentials for the source registry
 	// will be generated using the given scope. These credentials will be used to login to
@@ -14891,7 +14662,6 @@ type SourceRegistryCredentialsInput interface {
 	ToSourceRegistryCredentialsOutputWithContext(context.Context) SourceRegistryCredentialsOutput
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsArgs struct {
 	// The authentication mode which determines the source registry login scope. The credentials for the source registry
 	// will be generated using the given scope. These credentials will be used to login to
@@ -14952,7 +14722,6 @@ func (i *sourceRegistryCredentialsPtrType) ToSourceRegistryCredentialsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRegistryCredentialsPtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SourceRegistryCredentialsOutput) ElementType() reflect.Type {
@@ -15020,7 +14789,6 @@ func (o SourceRegistryCredentialsPtrOutput) LoginMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponse struct {
 	// The authentication mode which determines the source registry login scope. The credentials for the source registry
 	// will be generated using the given scope. These credentials will be used to login to
@@ -15039,7 +14807,6 @@ type SourceRegistryCredentialsResponseInput interface {
 	ToSourceRegistryCredentialsResponseOutputWithContext(context.Context) SourceRegistryCredentialsResponseOutput
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponseArgs struct {
 	// The authentication mode which determines the source registry login scope. The credentials for the source registry
 	// will be generated using the given scope. These credentials will be used to login to
@@ -15100,7 +14867,6 @@ func (i *sourceRegistryCredentialsResponsePtrType) ToSourceRegistryCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRegistryCredentialsResponsePtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -15168,7 +14934,6 @@ func (o SourceRegistryCredentialsResponsePtrOutput) LoginMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
 type SourceResponse struct {
 	// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
 	Addr *string `pulumi:"addr"`
@@ -15187,7 +14952,6 @@ type SourceResponseInput interface {
 	ToSourceResponseOutputWithContext(context.Context) SourceResponseOutput
 }
 
-// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
 type SourceResponseArgs struct {
 	// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
 	Addr pulumi.StringPtrInput `pulumi:"addr"`
@@ -15248,7 +15012,6 @@ func (i *sourceResponsePtrType) ToSourceResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SourceResponsePtrOutput)
 }
 
-// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
 type SourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceResponseOutput) ElementType() reflect.Type {
@@ -15327,7 +15090,6 @@ func (o SourceResponsePtrOutput) InstanceID() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTrigger struct {
 	// The name of the trigger.
 	Name string `pulumi:"name"`
@@ -15350,7 +15112,6 @@ type SourceTriggerInput interface {
 	ToSourceTriggerOutputWithContext(context.Context) SourceTriggerOutput
 }
 
-// The properties of a source based trigger.
 type SourceTriggerArgs struct {
 	// The name of the trigger.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -15399,7 +15160,6 @@ func (i SourceTriggerArray) ToSourceTriggerArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerArrayOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerOutput) ElementType() reflect.Type {
@@ -15454,7 +15214,6 @@ func (o SourceTriggerArrayOutput) Index(i pulumi.IntInput) SourceTriggerOutput {
 	}).(SourceTriggerOutput)
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponse struct {
 	// The branch name in the repository.
 	BranchName *string `pulumi:"branchName"`
@@ -15483,7 +15242,6 @@ type SourceTriggerDescriptorResponseInput interface {
 	ToSourceTriggerDescriptorResponseOutputWithContext(context.Context) SourceTriggerDescriptorResponseOutput
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponseArgs struct {
 	// The branch name in the repository.
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
@@ -15554,7 +15312,6 @@ func (i *sourceTriggerDescriptorResponsePtrType) ToSourceTriggerDescriptorRespon
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerDescriptorResponsePtrOutput)
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerDescriptorResponseOutput) ElementType() reflect.Type {
@@ -15708,7 +15465,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) RepositoryUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponse struct {
 	// The name of the trigger.
 	Name string `pulumi:"name"`
@@ -15731,7 +15487,6 @@ type SourceTriggerResponseInput interface {
 	ToSourceTriggerResponseOutputWithContext(context.Context) SourceTriggerResponseOutput
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponseArgs struct {
 	// The name of the trigger.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -15780,7 +15535,6 @@ func (i SourceTriggerResponseArray) ToSourceTriggerResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerResponseArrayOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerResponseOutput) ElementType() reflect.Type {
@@ -15835,7 +15589,6 @@ func (o SourceTriggerResponseArrayOutput) Index(i pulumi.IntInput) SourceTrigger
 	}).(SourceTriggerResponseOutput)
 }
 
-// The status detail properties of the connected registry.
 type StatusDetailPropertiesResponse struct {
 	// The code of the status.
 	Code string `pulumi:"code"`
@@ -15860,7 +15613,6 @@ type StatusDetailPropertiesResponseInput interface {
 	ToStatusDetailPropertiesResponseOutputWithContext(context.Context) StatusDetailPropertiesResponseOutput
 }
 
-// The status detail properties of the connected registry.
 type StatusDetailPropertiesResponseArgs struct {
 	// The code of the status.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -15911,7 +15663,6 @@ func (i StatusDetailPropertiesResponseArray) ToStatusDetailPropertiesResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(StatusDetailPropertiesResponseArrayOutput)
 }
 
-// The status detail properties of the connected registry.
 type StatusDetailPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StatusDetailPropertiesResponseOutput) ElementType() reflect.Type {
@@ -15971,7 +15722,6 @@ func (o StatusDetailPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Stat
 	}).(StatusDetailPropertiesResponseOutput)
 }
 
-// The status of an Azure resource at the time the operation was called.
 type StatusResponse struct {
 	// The short label for the status.
 	DisplayStatus string `pulumi:"displayStatus"`
@@ -15992,7 +15742,6 @@ type StatusResponseInput interface {
 	ToStatusResponseOutputWithContext(context.Context) StatusResponseOutput
 }
 
-// The status of an Azure resource at the time the operation was called.
 type StatusResponseArgs struct {
 	// The short label for the status.
 	DisplayStatus pulumi.StringInput `pulumi:"displayStatus"`
@@ -16055,7 +15804,6 @@ func (i *statusResponsePtrType) ToStatusResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StatusResponsePtrOutput)
 }
 
-// The status of an Azure resource at the time the operation was called.
 type StatusResponseOutput struct{ *pulumi.OutputState }
 
 func (StatusResponseOutput) ElementType() reflect.Type {
@@ -16149,7 +15897,6 @@ func (o StatusResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountProperties struct {
 	// The resource ID of the storage account.
 	Id string `pulumi:"id"`
@@ -16166,7 +15913,6 @@ type StorageAccountPropertiesInput interface {
 	ToStorageAccountPropertiesOutputWithContext(context.Context) StorageAccountPropertiesOutput
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesArgs struct {
 	// The resource ID of the storage account.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -16225,7 +15971,6 @@ func (i *storageAccountPropertiesPtrType) ToStorageAccountPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesPtrOutput)
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesOutput) ElementType() reflect.Type {
@@ -16289,7 +16034,6 @@ func (o StorageAccountPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesResponse struct {
 	// The resource ID of the storage account.
 	Id string `pulumi:"id"`
@@ -16306,7 +16050,6 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesResponseArgs struct {
 	// The resource ID of the storage account.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -16365,7 +16108,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -16429,7 +16171,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncProperties struct {
 	// The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
 	MessageTtl string `pulumi:"messageTtl"`
@@ -16452,7 +16193,6 @@ type SyncPropertiesInput interface {
 	ToSyncPropertiesOutputWithContext(context.Context) SyncPropertiesOutput
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncPropertiesArgs struct {
 	// The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
 	MessageTtl pulumi.StringInput `pulumi:"messageTtl"`
@@ -16517,7 +16257,6 @@ func (i *syncPropertiesPtrType) ToSyncPropertiesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SyncPropertiesPtrOutput)
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SyncPropertiesOutput) ElementType() reflect.Type {
@@ -16626,7 +16365,6 @@ func (o SyncPropertiesPtrOutput) TokenId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncPropertiesResponse struct {
 	// The gateway endpoint used by the connected registry to communicate with its parent.
 	GatewayEndpoint string `pulumi:"gatewayEndpoint"`
@@ -16653,7 +16391,6 @@ type SyncPropertiesResponseInput interface {
 	ToSyncPropertiesResponseOutputWithContext(context.Context) SyncPropertiesResponseOutput
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncPropertiesResponseArgs struct {
 	// The gateway endpoint used by the connected registry to communicate with its parent.
 	GatewayEndpoint pulumi.StringInput `pulumi:"gatewayEndpoint"`
@@ -16722,7 +16459,6 @@ func (i *syncPropertiesResponsePtrType) ToSyncPropertiesResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SyncPropertiesResponsePtrOutput)
 }
 
-// The sync properties of the connected registry with its parent.
 type SyncPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncPropertiesResponseOutput) ElementType() reflect.Type {
@@ -16861,7 +16597,6 @@ func (o SyncPropertiesResponsePtrOutput) TokenId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -16888,7 +16623,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -16957,7 +16691,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -17096,7 +16829,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target of the event.
 type TargetResponse struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest *string `pulumi:"digest"`
@@ -17129,7 +16861,6 @@ type TargetResponseInput interface {
 	ToTargetResponseOutputWithContext(context.Context) TargetResponseOutput
 }
 
-// The target of the event.
 type TargetResponseArgs struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
@@ -17204,7 +16935,6 @@ func (i *targetResponsePtrType) ToTargetResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TargetResponsePtrOutput)
 }
 
-// The target of the event.
 type TargetResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetResponseOutput) ElementType() reflect.Type {
@@ -17388,7 +17118,6 @@ func (o TargetResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequest struct {
 	// The dedicated agent pool for the run.
 	AgentPoolName *string `pulumi:"agentPoolName"`
@@ -17416,7 +17145,6 @@ type TaskRunRequestInput interface {
 	ToTaskRunRequestOutputWithContext(context.Context) TaskRunRequestOutput
 }
 
-// The parameters for a task run request.
 type TaskRunRequestArgs struct {
 	// The dedicated agent pool for the run.
 	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
@@ -17445,7 +17173,6 @@ func (i TaskRunRequestArgs) ToTaskRunRequestOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (TaskRunRequestOutput) ElementType() reflect.Type {
@@ -17491,7 +17218,6 @@ func (o TaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponse struct {
 	// The dedicated agent pool for the run.
 	AgentPoolName *string `pulumi:"agentPoolName"`
@@ -17519,7 +17245,6 @@ type TaskRunRequestResponseInput interface {
 	ToTaskRunRequestResponseOutputWithContext(context.Context) TaskRunRequestResponseOutput
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponseArgs struct {
 	// The dedicated agent pool for the run.
 	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
@@ -17548,7 +17273,6 @@ func (i TaskRunRequestResponseArgs) ToTaskRunRequestResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestResponseOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (TaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -17596,7 +17320,6 @@ func (o TaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTrigger struct {
 	// The name of the trigger.
 	Name string `pulumi:"name"`
@@ -17617,7 +17340,6 @@ type TimerTriggerInput interface {
 	ToTimerTriggerOutputWithContext(context.Context) TimerTriggerOutput
 }
 
-// The properties of a timer trigger.
 type TimerTriggerArgs struct {
 	// The name of the trigger.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -17664,7 +17386,6 @@ func (i TimerTriggerArray) ToTimerTriggerArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerArrayOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerOutput struct{ *pulumi.OutputState }
 
 func (TimerTriggerOutput) ElementType() reflect.Type {
@@ -17870,7 +17591,6 @@ func (o TimerTriggerDescriptorResponsePtrOutput) TimerTriggerName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponse struct {
 	// The name of the trigger.
 	Name string `pulumi:"name"`
@@ -17891,7 +17611,6 @@ type TimerTriggerResponseInput interface {
 	ToTimerTriggerResponseOutputWithContext(context.Context) TimerTriggerResponseOutput
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponseArgs struct {
 	// The name of the trigger.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -17938,7 +17657,6 @@ func (i TimerTriggerResponseArray) ToTimerTriggerResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerResponseArrayOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (TimerTriggerResponseOutput) ElementType() reflect.Type {
@@ -17988,7 +17706,6 @@ func (o TimerTriggerResponseArrayOutput) Index(i pulumi.IntInput) TimerTriggerRe
 	}).(TimerTriggerResponseOutput)
 }
 
-// The TLS certificate properties of the connected registry login server.
 type TlsCertificatePropertiesResponse struct {
 	// Indicates the location of the certificates.
 	Location string `pulumi:"location"`
@@ -18007,7 +17724,6 @@ type TlsCertificatePropertiesResponseInput interface {
 	ToTlsCertificatePropertiesResponseOutputWithContext(context.Context) TlsCertificatePropertiesResponseOutput
 }
 
-// The TLS certificate properties of the connected registry login server.
 type TlsCertificatePropertiesResponseArgs struct {
 	// Indicates the location of the certificates.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -18068,7 +17784,6 @@ func (i *tlsCertificatePropertiesResponsePtrType) ToTlsCertificatePropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(TlsCertificatePropertiesResponsePtrOutput)
 }
 
-// The TLS certificate properties of the connected registry login server.
 type TlsCertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TlsCertificatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -18147,7 +17862,6 @@ func (o TlsCertificatePropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TLS properties of the connected registry login server.
 type TlsPropertiesResponse struct {
 	// The certificate used to configure HTTPS for the login server.
 	Certificate TlsCertificatePropertiesResponse `pulumi:"certificate"`
@@ -18166,7 +17880,6 @@ type TlsPropertiesResponseInput interface {
 	ToTlsPropertiesResponseOutputWithContext(context.Context) TlsPropertiesResponseOutput
 }
 
-// The TLS properties of the connected registry login server.
 type TlsPropertiesResponseArgs struct {
 	// The certificate used to configure HTTPS for the login server.
 	Certificate TlsCertificatePropertiesResponseInput `pulumi:"certificate"`
@@ -18227,7 +17940,6 @@ func (i *tlsPropertiesResponsePtrType) ToTlsPropertiesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TlsPropertiesResponsePtrOutput)
 }
 
-// The TLS properties of the connected registry login server.
 type TlsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TlsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -18306,7 +18018,6 @@ func (o TlsPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificate struct {
 	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
@@ -18328,7 +18039,6 @@ type TokenCertificateInput interface {
 	ToTokenCertificateOutputWithContext(context.Context) TokenCertificateOutput
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateArgs struct {
 	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
@@ -18376,7 +18086,6 @@ func (i TokenCertificateArray) ToTokenCertificateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateArrayOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateOutput struct{ *pulumi.OutputState }
 
 func (TokenCertificateOutput) ElementType() reflect.Type {
@@ -18430,7 +18139,6 @@ func (o TokenCertificateArrayOutput) Index(i pulumi.IntInput) TokenCertificateOu
 	}).(TokenCertificateOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponse struct {
 	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
@@ -18452,7 +18160,6 @@ type TokenCertificateResponseInput interface {
 	ToTokenCertificateResponseOutputWithContext(context.Context) TokenCertificateResponseOutput
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponseArgs struct {
 	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
@@ -18500,7 +18207,6 @@ func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseArrayOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenCertificateResponseOutput) ElementType() reflect.Type {
@@ -18554,7 +18260,6 @@ func (o TokenCertificateResponseArrayOutput) Index(i pulumi.IntInput) TokenCerti
 	}).(TokenCertificateResponseOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsProperties struct {
 	Certificates []TokenCertificate `pulumi:"certificates"`
 	Passwords    []TokenPassword    `pulumi:"passwords"`
@@ -18571,7 +18276,6 @@ type TokenCredentialsPropertiesInput interface {
 	ToTokenCredentialsPropertiesOutputWithContext(context.Context) TokenCredentialsPropertiesOutput
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesArgs struct {
 	Certificates TokenCertificateArrayInput `pulumi:"certificates"`
 	Passwords    TokenPasswordArrayInput    `pulumi:"passwords"`
@@ -18630,7 +18334,6 @@ func (i *tokenCredentialsPropertiesPtrType) ToTokenCredentialsPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesPtrOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TokenCredentialsPropertiesOutput) ElementType() reflect.Type {
@@ -18705,7 +18408,6 @@ func (o TokenCredentialsPropertiesPtrOutput) Passwords() TokenPasswordArrayOutpu
 	}).(TokenPasswordArrayOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponse struct {
 	Certificates []TokenCertificateResponse `pulumi:"certificates"`
 	Passwords    []TokenPasswordResponse    `pulumi:"passwords"`
@@ -18722,7 +18424,6 @@ type TokenCredentialsPropertiesResponseInput interface {
 	ToTokenCredentialsPropertiesResponseOutputWithContext(context.Context) TokenCredentialsPropertiesResponseOutput
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponseArgs struct {
 	Certificates TokenCertificateResponseArrayInput `pulumi:"certificates"`
 	Passwords    TokenPasswordResponseArrayInput    `pulumi:"passwords"`
@@ -18781,7 +18482,6 @@ func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsProperties
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponsePtrOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenCredentialsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -18856,7 +18556,6 @@ func (o TokenCredentialsPropertiesResponsePtrOutput) Passwords() TokenPasswordRe
 	}).(TokenPasswordResponseArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPassword struct {
 	// The creation datetime of the password.
 	CreationTime *string `pulumi:"creationTime"`
@@ -18877,7 +18576,6 @@ type TokenPasswordInput interface {
 	ToTokenPasswordOutputWithContext(context.Context) TokenPasswordOutput
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordArgs struct {
 	// The creation datetime of the password.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
@@ -18924,7 +18622,6 @@ func (i TokenPasswordArray) ToTokenPasswordArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordOutput) ElementType() reflect.Type {
@@ -18974,7 +18671,6 @@ func (o TokenPasswordArrayOutput) Index(i pulumi.IntInput) TokenPasswordOutput {
 	}).(TokenPasswordOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponse struct {
 	// The creation datetime of the password.
 	CreationTime *string `pulumi:"creationTime"`
@@ -18997,7 +18693,6 @@ type TokenPasswordResponseInput interface {
 	ToTokenPasswordResponseOutputWithContext(context.Context) TokenPasswordResponseOutput
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponseArgs struct {
 	// The creation datetime of the password.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
@@ -19046,7 +18741,6 @@ func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordResponseOutput) ElementType() reflect.Type {
@@ -19101,7 +18795,6 @@ func (o TokenPasswordResponseArrayOutput) Index(i pulumi.IntInput) TokenPassword
 	}).(TokenPasswordResponseOutput)
 }
 
-// The properties of a trigger.
 type TriggerProperties struct {
 	// The trigger based on base image dependencies.
 	BaseImageTrigger *BaseImageTrigger `pulumi:"baseImageTrigger"`
@@ -19122,7 +18815,6 @@ type TriggerPropertiesInput interface {
 	ToTriggerPropertiesOutputWithContext(context.Context) TriggerPropertiesOutput
 }
 
-// The properties of a trigger.
 type TriggerPropertiesArgs struct {
 	// The trigger based on base image dependencies.
 	BaseImageTrigger BaseImageTriggerPtrInput `pulumi:"baseImageTrigger"`
@@ -19185,7 +18877,6 @@ func (i *triggerPropertiesPtrType) ToTriggerPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPropertiesPtrOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TriggerPropertiesOutput) ElementType() reflect.Type {
@@ -19279,7 +18970,6 @@ func (o TriggerPropertiesPtrOutput) TimerTriggers() TimerTriggerArrayOutput {
 	}).(TimerTriggerArrayOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponse struct {
 	// The trigger based on base image dependencies.
 	BaseImageTrigger *BaseImageTriggerResponse `pulumi:"baseImageTrigger"`
@@ -19300,7 +18990,6 @@ type TriggerPropertiesResponseInput interface {
 	ToTriggerPropertiesResponseOutputWithContext(context.Context) TriggerPropertiesResponseOutput
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponseArgs struct {
 	// The trigger based on base image dependencies.
 	BaseImageTrigger BaseImageTriggerResponsePtrInput `pulumi:"baseImageTrigger"`
@@ -19363,7 +19052,6 @@ func (i *triggerPropertiesResponsePtrType) ToTriggerPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPropertiesResponsePtrOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TriggerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -19457,7 +19145,6 @@ func (o TriggerPropertiesResponsePtrOutput) TimerTriggers() TimerTriggerResponse
 	}).(TimerTriggerResponseArrayOutput)
 }
 
-// The content trust policy for a container registry.
 type TrustPolicy struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status *string `pulumi:"status"`
@@ -19476,7 +19163,6 @@ type TrustPolicyInput interface {
 	ToTrustPolicyOutputWithContext(context.Context) TrustPolicyOutput
 }
 
-// The content trust policy for a container registry.
 type TrustPolicyArgs struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -19537,7 +19223,6 @@ func (i *trustPolicyPtrType) ToTrustPolicyPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TrustPolicyPtrOutput)
 }
 
-// The content trust policy for a container registry.
 type TrustPolicyOutput struct{ *pulumi.OutputState }
 
 func (TrustPolicyOutput) ElementType() reflect.Type {
@@ -19616,7 +19301,6 @@ func (o TrustPolicyPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content trust policy for a container registry.
 type TrustPolicyResponse struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status *string `pulumi:"status"`
@@ -19635,7 +19319,6 @@ type TrustPolicyResponseInput interface {
 	ToTrustPolicyResponseOutputWithContext(context.Context) TrustPolicyResponseOutput
 }
 
-// The content trust policy for a container registry.
 type TrustPolicyResponseArgs struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -19696,7 +19379,6 @@ func (i *trustPolicyResponsePtrType) ToTrustPolicyResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TrustPolicyResponsePtrOutput)
 }
 
-// The content trust policy for a container registry.
 type TrustPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (TrustPolicyResponseOutput) ElementType() reflect.Type {
@@ -19987,7 +19669,6 @@ func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) 
 	}).(UserIdentityPropertiesResponseOutput)
 }
 
-// Virtual network rule.
 type VirtualNetworkRule struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
@@ -20006,7 +19687,6 @@ type VirtualNetworkRuleInput interface {
 	ToVirtualNetworkRuleOutputWithContext(context.Context) VirtualNetworkRuleOutput
 }
 
-// Virtual network rule.
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -20051,7 +19731,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
 }
 
-// Virtual network rule.
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -20096,7 +19775,6 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 	}).(VirtualNetworkRuleOutput)
 }
 
-// Virtual network rule.
 type VirtualNetworkRuleResponse struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
@@ -20115,7 +19793,6 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// Virtual network rule.
 type VirtualNetworkRuleResponseArgs struct {
 	// The action of virtual network rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -20160,7 +19837,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Virtual network rule.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {

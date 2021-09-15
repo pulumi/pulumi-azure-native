@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the disk information for the HANA instance
 type Disk struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -29,7 +28,6 @@ type DiskInput interface {
 	ToDiskOutputWithContext(context.Context) DiskOutput
 }
 
-// Specifies the disk information for the HANA instance
 type DiskArgs struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -74,7 +72,6 @@ func (i DiskArray) ToDiskArrayOutputWithContext(ctx context.Context) DiskArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DiskArrayOutput)
 }
 
-// Specifies the disk information for the HANA instance
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 	}).(DiskOutput)
 }
 
-// Specifies the disk information for the HANA instance
 type DiskResponse struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -140,7 +136,6 @@ type DiskResponseInput interface {
 	ToDiskResponseOutputWithContext(context.Context) DiskResponseOutput
 }
 
-// Specifies the disk information for the HANA instance
 type DiskResponseArgs struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -187,7 +182,6 @@ func (i DiskResponseArray) ToDiskResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseArrayOutput)
 }
 
-// Specifies the disk information for the HANA instance
 type DiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskResponseOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o DiskResponseArrayOutput) Index(i pulumi.IntInput) DiskResponseOutput {
 	}).(DiskResponseOutput)
 }
 
-// Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponse struct {
 	// Specifies the HANA instance SKU.
 	HanaInstanceSize string `pulumi:"hanaInstanceSize"`
@@ -256,7 +249,6 @@ type HardwareProfileResponseInput interface {
 	ToHardwareProfileResponseOutputWithContext(context.Context) HardwareProfileResponseOutput
 }
 
-// Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponseArgs struct {
 	// Specifies the HANA instance SKU.
 	HanaInstanceSize pulumi.StringInput `pulumi:"hanaInstanceSize"`
@@ -317,7 +309,6 @@ func (i *hardwareProfileResponsePtrType) ToHardwareProfileResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfileResponsePtrOutput)
 }
 
-// Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (HardwareProfileResponseOutput) ElementType() reflect.Type {
@@ -396,7 +387,6 @@ func (o HardwareProfileResponsePtrOutput) HardwareType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IP address of the network interface.
 type IpAddress struct {
 	// Specifies the IP address of the network interface.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -413,7 +403,6 @@ type IpAddressInput interface {
 	ToIpAddressOutputWithContext(context.Context) IpAddressOutput
 }
 
-// Specifies the IP address of the network interface.
 type IpAddressArgs struct {
 	// Specifies the IP address of the network interface.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -456,7 +445,6 @@ func (i IpAddressArray) ToIpAddressArrayOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressArrayOutput)
 }
 
-// Specifies the IP address of the network interface.
 type IpAddressOutput struct{ *pulumi.OutputState }
 
 func (IpAddressOutput) ElementType() reflect.Type {
@@ -496,7 +484,6 @@ func (o IpAddressArrayOutput) Index(i pulumi.IntInput) IpAddressOutput {
 	}).(IpAddressOutput)
 }
 
-// Specifies the IP address of the network interface.
 type IpAddressResponse struct {
 	// Specifies the IP address of the network interface.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -513,7 +500,6 @@ type IpAddressResponseInput interface {
 	ToIpAddressResponseOutputWithContext(context.Context) IpAddressResponseOutput
 }
 
-// Specifies the IP address of the network interface.
 type IpAddressResponseArgs struct {
 	// Specifies the IP address of the network interface.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -556,7 +542,6 @@ func (i IpAddressResponseArray) ToIpAddressResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressResponseArrayOutput)
 }
 
-// Specifies the IP address of the network interface.
 type IpAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (IpAddressResponseOutput) ElementType() reflect.Type {
@@ -596,7 +581,6 @@ func (o IpAddressResponseArrayOutput) Index(i pulumi.IntInput) IpAddressResponse
 	}).(IpAddressResponseOutput)
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfile struct {
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces []IpAddress `pulumi:"networkInterfaces"`
@@ -613,7 +597,6 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfileArgs struct {
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces IpAddressArrayInput `pulumi:"networkInterfaces"`
@@ -672,7 +655,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -736,7 +718,6 @@ func (o NetworkProfilePtrOutput) NetworkInterfaces() IpAddressArrayOutput {
 	}).(IpAddressArrayOutput)
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfileResponse struct {
 	// Specifies the circuit id for connecting to express route.
 	CircuitId string `pulumi:"circuitId"`
@@ -755,7 +736,6 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfileResponseArgs struct {
 	// Specifies the circuit id for connecting to express route.
 	CircuitId pulumi.StringInput `pulumi:"circuitId"`
@@ -816,7 +796,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Specifies the network settings for the HANA instance disks.
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -895,7 +874,6 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() IpAddressResponseAr
 	}).(IpAddressResponseArrayOutput)
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfile struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName *string `pulumi:"computerName"`
@@ -914,7 +892,6 @@ type OSProfileInput interface {
 	ToOSProfileOutputWithContext(context.Context) OSProfileOutput
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfileArgs struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
@@ -975,7 +952,6 @@ func (i *osprofilePtrType) ToOSProfilePtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OSProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfileOutput struct{ *pulumi.OutputState }
 
 func (OSProfileOutput) ElementType() reflect.Type {
@@ -1054,7 +1030,6 @@ func (o OSProfilePtrOutput) SshPublicKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfileResponse struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName *string `pulumi:"computerName"`
@@ -1077,7 +1052,6 @@ type OSProfileResponseInput interface {
 	ToOSProfileResponseOutputWithContext(context.Context) OSProfileResponseOutput
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfileResponseArgs struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
@@ -1142,7 +1116,6 @@ func (i *osprofileResponsePtrType) ToOSProfileResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OSProfileResponsePtrOutput)
 }
 
-// Specifies the operating system settings for the HANA instance.
 type OSProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OSProfileResponseOutput) ElementType() reflect.Type {
@@ -1251,7 +1224,6 @@ func (o OSProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemID struct {
 	// Group ID of the HANA database user.
 	Gid *string `pulumi:"gid"`
@@ -1274,7 +1246,6 @@ type SAPSystemIDInput interface {
 	ToSAPSystemIDOutputWithContext(context.Context) SAPSystemIDOutput
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemIDArgs struct {
 	// Group ID of the HANA database user.
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
@@ -1323,7 +1294,6 @@ func (i SAPSystemIDArray) ToSAPSystemIDArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDArrayOutput)
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemIDOutput struct{ *pulumi.OutputState }
 
 func (SAPSystemIDOutput) ElementType() reflect.Type {
@@ -1378,7 +1348,6 @@ func (o SAPSystemIDArrayOutput) Index(i pulumi.IntInput) SAPSystemIDOutput {
 	}).(SAPSystemIDOutput)
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemIDResponse struct {
 	// Group ID of the HANA database user.
 	Gid *string `pulumi:"gid"`
@@ -1403,7 +1372,6 @@ type SAPSystemIDResponseInput interface {
 	ToSAPSystemIDResponseOutputWithContext(context.Context) SAPSystemIDResponseOutput
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemIDResponseArgs struct {
 	// Group ID of the HANA database user.
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
@@ -1454,7 +1422,6 @@ func (i SAPSystemIDResponseArray) ToSAPSystemIDResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDResponseArrayOutput)
 }
 
-// Specifies information related to a SAP system ID
 type SAPSystemIDResponseOutput struct{ *pulumi.OutputState }
 
 func (SAPSystemIDResponseOutput) ElementType() reflect.Type {
@@ -1514,7 +1481,6 @@ func (o SAPSystemIDResponseArrayOutput) Index(i pulumi.IntInput) SAPSystemIDResp
 	}).(SAPSystemIDResponseOutput)
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfile struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids []SAPSystemID `pulumi:"hanaSids"`
@@ -1533,7 +1499,6 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfileArgs struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids SAPSystemIDArrayInput `pulumi:"hanaSids"`
@@ -1594,7 +1559,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -1673,7 +1637,6 @@ func (o StorageProfilePtrOutput) OsDisks() DiskArrayOutput {
 	}).(DiskArrayOutput)
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponse struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids []SAPSystemIDResponse `pulumi:"hanaSids"`
@@ -1694,7 +1657,6 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponseArgs struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids SAPSystemIDResponseArrayInput `pulumi:"hanaSids"`
@@ -1757,7 +1719,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {

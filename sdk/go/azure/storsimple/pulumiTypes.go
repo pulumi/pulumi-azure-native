@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecret struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
@@ -31,7 +30,6 @@ type AsymmetricEncryptedSecretInput interface {
 	ToAsymmetricEncryptedSecretOutputWithContext(context.Context) AsymmetricEncryptedSecretOutput
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretArgs struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
@@ -94,7 +92,6 @@ func (i *asymmetricEncryptedSecretPtrType) ToAsymmetricEncryptedSecretPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponse struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
@@ -209,7 +205,6 @@ type AsymmetricEncryptedSecretResponseInput interface {
 	ToAsymmetricEncryptedSecretResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretResponseOutput
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponseArgs struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
@@ -272,7 +267,6 @@ func (i *asymmetricEncryptedSecretResponsePtrType) ToAsymmetricEncryptedSecretRe
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule for bandwidth setting.
 type BandwidthSchedule struct {
 	// The days of the week when this schedule is applicable.
 	Days []DayOfWeek `pulumi:"days"`
@@ -389,7 +382,6 @@ type BandwidthScheduleInput interface {
 	ToBandwidthScheduleOutputWithContext(context.Context) BandwidthScheduleOutput
 }
 
-// The schedule for bandwidth setting.
 type BandwidthScheduleArgs struct {
 	// The days of the week when this schedule is applicable.
 	Days DayOfWeekArrayInput `pulumi:"days"`
@@ -438,7 +430,6 @@ func (i BandwidthScheduleArray) ToBandwidthScheduleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleArrayOutput)
 }
 
-// The schedule for bandwidth setting.
 type BandwidthScheduleOutput struct{ *pulumi.OutputState }
 
 func (BandwidthScheduleOutput) ElementType() reflect.Type {
@@ -493,7 +484,6 @@ func (o BandwidthScheduleArrayOutput) Index(i pulumi.IntInput) BandwidthSchedule
 	}).(BandwidthScheduleOutput)
 }
 
-// The schedule for bandwidth setting.
 type BandwidthScheduleResponse struct {
 	// The days of the week when this schedule is applicable.
 	Days []string `pulumi:"days"`
@@ -516,7 +506,6 @@ type BandwidthScheduleResponseInput interface {
 	ToBandwidthScheduleResponseOutputWithContext(context.Context) BandwidthScheduleResponseOutput
 }
 
-// The schedule for bandwidth setting.
 type BandwidthScheduleResponseArgs struct {
 	// The days of the week when this schedule is applicable.
 	Days pulumi.StringArrayInput `pulumi:"days"`
@@ -565,7 +554,6 @@ func (i BandwidthScheduleResponseArray) ToBandwidthScheduleResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleResponseArrayOutput)
 }
 
-// The schedule for bandwidth setting.
 type BandwidthScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (BandwidthScheduleResponseOutput) ElementType() reflect.Type {
@@ -620,7 +608,6 @@ func (o BandwidthScheduleResponseArrayOutput) Index(i pulumi.IntInput) Bandwidth
 	}).(BandwidthScheduleResponseOutput)
 }
 
-// The eligibility result of failover set, for failover.
 type FailoverSetEligibilityResultResponse struct {
 	// The error message, if the failover set is not eligible for failover.
 	ErrorMessage *string `pulumi:"errorMessage"`
@@ -639,7 +626,6 @@ type FailoverSetEligibilityResultResponseInput interface {
 	ToFailoverSetEligibilityResultResponseOutputWithContext(context.Context) FailoverSetEligibilityResultResponseOutput
 }
 
-// The eligibility result of failover set, for failover.
 type FailoverSetEligibilityResultResponseArgs struct {
 	// The error message, if the failover set is not eligible for failover.
 	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
@@ -700,7 +686,6 @@ func (i *failoverSetEligibilityResultResponsePtrType) ToFailoverSetEligibilityRe
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultResponsePtrOutput)
 }
 
-// The eligibility result of failover set, for failover.
 type FailoverSetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
 
 func (FailoverSetEligibilityResultResponseOutput) ElementType() reflect.Type {
@@ -779,7 +764,6 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The failover set on a device.
 type FailoverSetResponse struct {
 	// The eligibility result of the failover set, for failover.
 	EligibilityResult *FailoverSetEligibilityResultResponse `pulumi:"eligibilityResult"`
@@ -798,7 +782,6 @@ type FailoverSetResponseInput interface {
 	ToFailoverSetResponseOutputWithContext(context.Context) FailoverSetResponseOutput
 }
 
-// The failover set on a device.
 type FailoverSetResponseArgs struct {
 	// The eligibility result of the failover set, for failover.
 	EligibilityResult FailoverSetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
@@ -843,7 +826,6 @@ func (i FailoverSetResponseArray) ToFailoverSetResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetResponseArrayOutput)
 }
 
-// The failover set on a device.
 type FailoverSetResponseOutput struct{ *pulumi.OutputState }
 
 func (FailoverSetResponseOutput) ElementType() reflect.Type {
@@ -888,7 +870,6 @@ func (o FailoverSetResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetResp
 	}).(FailoverSetResponseOutput)
 }
 
-// Represents the eligibility of a device as a failover target device.
 type FailoverTargetResponse struct {
 	// The amount of free local storage available on the device in bytes.
 	AvailableLocalStorageInBytes *float64 `pulumi:"availableLocalStorageInBytes"`
@@ -925,7 +906,6 @@ type FailoverTargetResponseInput interface {
 	ToFailoverTargetResponseOutputWithContext(context.Context) FailoverTargetResponseOutput
 }
 
-// Represents the eligibility of a device as a failover target device.
 type FailoverTargetResponseArgs struct {
 	// The amount of free local storage available on the device in bytes.
 	AvailableLocalStorageInBytes pulumi.Float64PtrInput `pulumi:"availableLocalStorageInBytes"`
@@ -988,7 +968,6 @@ func (i FailoverTargetResponseArray) ToFailoverTargetResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverTargetResponseArrayOutput)
 }
 
-// Represents the eligibility of a device as a failover target device.
 type FailoverTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (FailoverTargetResponseOutput) ElementType() reflect.Type {
@@ -1078,7 +1057,6 @@ func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTarg
 	}).(FailoverTargetResponseOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettings struct {
 	// The type of StorSimple Manager.
 	Type ManagerType `pulumi:"type"`
@@ -1095,7 +1073,6 @@ type ManagerIntrinsicSettingsInput interface {
 	ToManagerIntrinsicSettingsOutputWithContext(context.Context) ManagerIntrinsicSettingsOutput
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsArgs struct {
 	// The type of StorSimple Manager.
 	Type ManagerTypeInput `pulumi:"type"`
@@ -1154,7 +1131,6 @@ func (i *managerIntrinsicSettingsPtrType) ToManagerIntrinsicSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsPtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagerIntrinsicSettingsOutput) ElementType() reflect.Type {
@@ -1218,7 +1194,6 @@ func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
 	}).(ManagerTypePtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsResponse struct {
 	// The type of StorSimple Manager.
 	Type string `pulumi:"type"`
@@ -1235,7 +1210,6 @@ type ManagerIntrinsicSettingsResponseInput interface {
 	ToManagerIntrinsicSettingsResponseOutputWithContext(context.Context) ManagerIntrinsicSettingsResponseOutput
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsResponseArgs struct {
 	// The type of StorSimple Manager.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1294,7 +1268,6 @@ func (i *managerIntrinsicSettingsResponsePtrType) ToManagerIntrinsicSettingsResp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerIntrinsicSettingsResponseOutput) ElementType() reflect.Type {
@@ -1358,7 +1331,6 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku.
 type ManagerSku struct {
 	// Refers to the sku name which should be "Standard"
 	Name ManagerSkuType `pulumi:"name"`
@@ -1375,7 +1347,6 @@ type ManagerSkuInput interface {
 	ToManagerSkuOutputWithContext(context.Context) ManagerSkuOutput
 }
 
-// The Sku.
 type ManagerSkuArgs struct {
 	// Refers to the sku name which should be "Standard"
 	Name ManagerSkuTypeInput `pulumi:"name"`
@@ -1434,7 +1405,6 @@ func (i *managerSkuPtrType) ToManagerSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuPtrOutput)
 }
 
-// The Sku.
 type ManagerSkuOutput struct{ *pulumi.OutputState }
 
 func (ManagerSkuOutput) ElementType() reflect.Type {
@@ -1498,7 +1468,6 @@ func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
 	}).(ManagerSkuTypePtrOutput)
 }
 
-// The Sku.
 type ManagerSkuResponse struct {
 	// Refers to the sku name which should be "Standard"
 	Name string `pulumi:"name"`
@@ -1515,7 +1484,6 @@ type ManagerSkuResponseInput interface {
 	ToManagerSkuResponseOutputWithContext(context.Context) ManagerSkuResponseOutput
 }
 
-// The Sku.
 type ManagerSkuResponseArgs struct {
 	// Refers to the sku name which should be "Standard"
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1574,7 +1542,6 @@ func (i *managerSkuResponsePtrType) ToManagerSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuResponsePtrOutput)
 }
 
-// The Sku.
 type ManagerSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerSkuResponseOutput) ElementType() reflect.Type {
@@ -1638,7 +1605,6 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule recurrence.
 type ScheduleRecurrence struct {
 	// The recurrence type.
 	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
@@ -1659,7 +1625,6 @@ type ScheduleRecurrenceInput interface {
 	ToScheduleRecurrenceOutputWithContext(context.Context) ScheduleRecurrenceOutput
 }
 
-// The schedule recurrence.
 type ScheduleRecurrenceArgs struct {
 	// The recurrence type.
 	RecurrenceType RecurrenceTypeInput `pulumi:"recurrenceType"`
@@ -1722,7 +1687,6 @@ func (i *scheduleRecurrencePtrType) ToScheduleRecurrencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrencePtrOutput)
 }
 
-// The schedule recurrence.
 type ScheduleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRecurrenceOutput) ElementType() reflect.Type {
@@ -1816,7 +1780,6 @@ func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() DayOfWeekArrayOutput {
 	}).(DayOfWeekArrayOutput)
 }
 
-// The schedule recurrence.
 type ScheduleRecurrenceResponse struct {
 	// The recurrence type.
 	RecurrenceType string `pulumi:"recurrenceType"`
@@ -1837,7 +1800,6 @@ type ScheduleRecurrenceResponseInput interface {
 	ToScheduleRecurrenceResponseOutputWithContext(context.Context) ScheduleRecurrenceResponseOutput
 }
 
-// The schedule recurrence.
 type ScheduleRecurrenceResponseArgs struct {
 	// The recurrence type.
 	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
@@ -1900,7 +1862,6 @@ func (i *scheduleRecurrenceResponsePtrType) ToScheduleRecurrenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrenceResponsePtrOutput)
 }
 
-// The schedule recurrence.
 type ScheduleRecurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRecurrenceResponseOutput) ElementType() reflect.Type {
@@ -1994,7 +1955,6 @@ func (o ScheduleRecurrenceResponsePtrOutput) WeeklyDaysList() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The error/warning message due to which the device is ineligible as a failover target device.
 type TargetEligibilityErrorMessageResponse struct {
 	// The localized error message stating the reason why the device is not eligible as a target device.
 	Message *string `pulumi:"message"`
@@ -2015,7 +1975,6 @@ type TargetEligibilityErrorMessageResponseInput interface {
 	ToTargetEligibilityErrorMessageResponseOutputWithContext(context.Context) TargetEligibilityErrorMessageResponseOutput
 }
 
-// The error/warning message due to which the device is ineligible as a failover target device.
 type TargetEligibilityErrorMessageResponseArgs struct {
 	// The localized error message stating the reason why the device is not eligible as a target device.
 	Message pulumi.StringPtrInput `pulumi:"message"`
@@ -2062,7 +2021,6 @@ func (i TargetEligibilityErrorMessageResponseArray) ToTargetEligibilityErrorMess
 	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityErrorMessageResponseArrayOutput)
 }
 
-// The error/warning message due to which the device is ineligible as a failover target device.
 type TargetEligibilityErrorMessageResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetEligibilityErrorMessageResponseOutput) ElementType() reflect.Type {
@@ -2112,7 +2070,6 @@ func (o TargetEligibilityErrorMessageResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(TargetEligibilityErrorMessageResponseOutput)
 }
 
-// The eligibility result of device, as a failover target device.
 type TargetEligibilityResultResponse struct {
 	// The eligibility status of device, as a failover target device.
 	EligibilityStatus *string `pulumi:"eligibilityStatus"`
@@ -2131,7 +2088,6 @@ type TargetEligibilityResultResponseInput interface {
 	ToTargetEligibilityResultResponseOutputWithContext(context.Context) TargetEligibilityResultResponseOutput
 }
 
-// The eligibility result of device, as a failover target device.
 type TargetEligibilityResultResponseArgs struct {
 	// The eligibility status of device, as a failover target device.
 	EligibilityStatus pulumi.StringPtrInput `pulumi:"eligibilityStatus"`
@@ -2192,7 +2148,6 @@ func (i *targetEligibilityResultResponsePtrType) ToTargetEligibilityResultRespon
 	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultResponsePtrOutput)
 }
 
-// The eligibility result of device, as a failover target device.
 type TargetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetEligibilityResultResponseOutput) ElementType() reflect.Type {
@@ -2271,7 +2226,6 @@ func (o TargetEligibilityResultResponsePtrOutput) Messages() TargetEligibilityEr
 	}).(TargetEligibilityErrorMessageResponseArrayOutput)
 }
 
-// The time.
 type Time struct {
 	// The hour.
 	Hours int `pulumi:"hours"`
@@ -2292,7 +2246,6 @@ type TimeInput interface {
 	ToTimeOutputWithContext(context.Context) TimeOutput
 }
 
-// The time.
 type TimeArgs struct {
 	// The hour.
 	Hours pulumi.IntInput `pulumi:"hours"`
@@ -2314,7 +2267,6 @@ func (i TimeArgs) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput)
 }
 
-// The time.
 type TimeOutput struct{ *pulumi.OutputState }
 
 func (TimeOutput) ElementType() reflect.Type {
@@ -2344,7 +2296,6 @@ func (o TimeOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Seconds }).(pulumi.IntOutput)
 }
 
-// The time.
 type TimeResponse struct {
 	// The hour.
 	Hours int `pulumi:"hours"`
@@ -2365,7 +2316,6 @@ type TimeResponseInput interface {
 	ToTimeResponseOutputWithContext(context.Context) TimeResponseOutput
 }
 
-// The time.
 type TimeResponseArgs struct {
 	// The hour.
 	Hours pulumi.IntInput `pulumi:"hours"`
@@ -2387,7 +2337,6 @@ func (i TimeResponseArgs) ToTimeResponseOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TimeResponseOutput)
 }
 
-// The time.
 type TimeResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeResponseOutput) ElementType() reflect.Type {
@@ -2417,7 +2366,6 @@ func (o TimeResponseOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Seconds }).(pulumi.IntOutput)
 }
 
-// The metadata of the volume container, that is being considered as part of a failover set.
 type VolumeContainerFailoverMetadataResponse struct {
 	// The path ID of the volume container.
 	VolumeContainerId *string `pulumi:"volumeContainerId"`
@@ -2436,7 +2384,6 @@ type VolumeContainerFailoverMetadataResponseInput interface {
 	ToVolumeContainerFailoverMetadataResponseOutputWithContext(context.Context) VolumeContainerFailoverMetadataResponseOutput
 }
 
-// The metadata of the volume container, that is being considered as part of a failover set.
 type VolumeContainerFailoverMetadataResponseArgs struct {
 	// The path ID of the volume container.
 	VolumeContainerId pulumi.StringPtrInput `pulumi:"volumeContainerId"`
@@ -2481,7 +2428,6 @@ func (i VolumeContainerFailoverMetadataResponseArray) ToVolumeContainerFailoverM
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerFailoverMetadataResponseArrayOutput)
 }
 
-// The metadata of the volume container, that is being considered as part of a failover set.
 type VolumeContainerFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeContainerFailoverMetadataResponseOutput) ElementType() reflect.Type {
@@ -2526,7 +2472,6 @@ func (o VolumeContainerFailoverMetadataResponseArrayOutput) Index(i pulumi.IntIn
 	}).(VolumeContainerFailoverMetadataResponseOutput)
 }
 
-// The metadata of a volume that has valid cloud snapshot.
 type VolumeFailoverMetadataResponse struct {
 	// The date at which the snapshot was taken.
 	BackupCreatedDate *string `pulumi:"backupCreatedDate"`
@@ -2555,7 +2500,6 @@ type VolumeFailoverMetadataResponseInput interface {
 	ToVolumeFailoverMetadataResponseOutputWithContext(context.Context) VolumeFailoverMetadataResponseOutput
 }
 
-// The metadata of a volume that has valid cloud snapshot.
 type VolumeFailoverMetadataResponseArgs struct {
 	// The date at which the snapshot was taken.
 	BackupCreatedDate pulumi.StringPtrInput `pulumi:"backupCreatedDate"`
@@ -2610,7 +2554,6 @@ func (i VolumeFailoverMetadataResponseArray) ToVolumeFailoverMetadataResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeFailoverMetadataResponseArrayOutput)
 }
 
-// The metadata of a volume that has valid cloud snapshot.
 type VolumeFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeFailoverMetadataResponseOutput) ElementType() reflect.Type {

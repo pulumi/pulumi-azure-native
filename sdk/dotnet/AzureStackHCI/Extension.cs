@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Details of a particular extension in HCI Cluster.
-    /// API Version: 2021-09-01.
+    /// API Version: 2021-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Extension")]
     public partial class Extension : Pulumi.CustomResource

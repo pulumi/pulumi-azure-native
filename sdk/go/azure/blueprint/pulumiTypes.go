@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettings struct {
 	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 	ExcludedActions []string `pulumi:"excludedActions"`
@@ -31,7 +30,6 @@ type AssignmentLockSettingsInput interface {
 	ToAssignmentLockSettingsOutputWithContext(context.Context) AssignmentLockSettingsOutput
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsArgs struct {
 	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 	ExcludedActions pulumi.StringArrayInput `pulumi:"excludedActions"`
@@ -94,7 +92,6 @@ func (i *assignmentLockSettingsPtrType) ToAssignmentLockSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentLockSettingsPtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsOutput struct{ *pulumi.OutputState }
 
 func (AssignmentLockSettingsOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o AssignmentLockSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponse struct {
 	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 	ExcludedActions []string `pulumi:"excludedActions"`
@@ -209,7 +205,6 @@ type AssignmentLockSettingsResponseInput interface {
 	ToAssignmentLockSettingsResponseOutputWithContext(context.Context) AssignmentLockSettingsResponseOutput
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponseArgs struct {
 	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 	ExcludedActions pulumi.StringArrayInput `pulumi:"excludedActions"`
@@ -272,7 +267,6 @@ func (i *assignmentLockSettingsResponsePtrType) ToAssignmentLockSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentLockSettingsResponsePtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentLockSettingsResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o AssignmentLockSettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponse struct {
 	// Last modified time of this blueprint definition.
 	LastModified string `pulumi:"lastModified"`
@@ -387,7 +380,6 @@ type AssignmentStatusResponseInput interface {
 	ToAssignmentStatusResponseOutputWithContext(context.Context) AssignmentStatusResponseOutput
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponseArgs struct {
 	// Last modified time of this blueprint definition.
 	LastModified pulumi.StringInput `pulumi:"lastModified"`
@@ -450,7 +442,6 @@ func (i *assignmentStatusResponsePtrType) ToAssignmentStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentStatusResponsePtrOutput)
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentStatusResponseOutput) ElementType() reflect.Type {
@@ -544,7 +535,6 @@ func (o AssignmentStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponse struct {
 	// Last modified time of this blueprint definition.
 	LastModified string `pulumi:"lastModified"`
@@ -563,7 +553,6 @@ type BlueprintStatusResponseInput interface {
 	ToBlueprintStatusResponseOutputWithContext(context.Context) BlueprintStatusResponseOutput
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponseArgs struct {
 	// Last modified time of this blueprint definition.
 	LastModified pulumi.StringInput `pulumi:"lastModified"`
@@ -624,7 +613,6 @@ func (i *blueprintStatusResponsePtrType) ToBlueprintStatusResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintStatusResponsePtrOutput)
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (BlueprintStatusResponseOutput) ElementType() reflect.Type {
@@ -703,7 +691,6 @@ func (o BlueprintStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReference struct {
 	// Azure resource ID of the Key Vault.
 	Id string `pulumi:"id"`
@@ -720,7 +707,6 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceArgs struct {
 	// Azure resource ID of the Key Vault.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -779,7 +765,6 @@ func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -843,7 +828,6 @@ func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponse struct {
 	// Azure resource ID of the Key Vault.
 	Id string `pulumi:"id"`
@@ -860,7 +844,6 @@ type KeyVaultReferenceResponseInput interface {
 	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponseArgs struct {
 	// Azure resource ID of the Key Vault.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -919,7 +902,6 @@ func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
@@ -983,7 +965,6 @@ func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentity struct {
 	// Azure Active Directory principal ID associated with this Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1006,7 +987,6 @@ type ManagedServiceIdentityInput interface {
 	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityArgs struct {
 	// Azure Active Directory principal ID associated with this Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1071,7 +1051,6 @@ func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
@@ -1180,7 +1159,6 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() UserAssignedId
 	}).(UserAssignedIdentityMapOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
 	// Azure Active Directory principal ID associated with this Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1203,7 +1181,6 @@ type ManagedServiceIdentityResponseInput interface {
 	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseArgs struct {
 	// Azure Active Directory principal ID associated with this Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1268,7 +1245,6 @@ func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1379,7 +1355,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAs
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinition struct {
 	// Array of allowed values for this parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
@@ -1406,7 +1381,6 @@ type ParameterDefinitionInput interface {
 	ToParameterDefinitionOutputWithContext(context.Context) ParameterDefinitionOutput
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionArgs struct {
 	// Array of allowed values for this parameter.
 	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
@@ -1459,7 +1433,6 @@ func (i ParameterDefinitionMap) ToParameterDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionOutput) ElementType() reflect.Type {
@@ -1524,7 +1497,6 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 	}).(ParameterDefinitionOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
 	// Array of allowed values for this parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
@@ -1551,7 +1523,6 @@ type ParameterDefinitionResponseInput interface {
 	ToParameterDefinitionResponseOutputWithContext(context.Context) ParameterDefinitionResponseOutput
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseArgs struct {
 	// Array of allowed values for this parameter.
 	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
@@ -1604,7 +1575,6 @@ func (i ParameterDefinitionResponseMap) ToParameterDefinitionResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionResponseMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1669,7 +1639,6 @@ func (o ParameterDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) Par
 	}).(ParameterDefinitionResponseOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValue struct {
 	// Parameter value as reference type.
 	Reference *SecretValueReference `pulumi:"reference"`
@@ -1688,7 +1657,6 @@ type ParameterValueInput interface {
 	ToParameterValueOutputWithContext(context.Context) ParameterValueOutput
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueArgs struct {
 	// Parameter value as reference type.
 	Reference SecretValueReferencePtrInput `pulumi:"reference"`
@@ -1733,7 +1701,6 @@ func (i ParameterValueMap) ToParameterValueMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueMapOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueOutput struct{ *pulumi.OutputState }
 
 func (ParameterValueOutput) ElementType() reflect.Type {
@@ -1778,7 +1745,6 @@ func (o ParameterValueMapOutput) MapIndex(k pulumi.StringInput) ParameterValueOu
 	}).(ParameterValueOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponse struct {
 	// Parameter value as reference type.
 	Reference *SecretValueReferenceResponse `pulumi:"reference"`
@@ -1797,7 +1763,6 @@ type ParameterValueResponseInput interface {
 	ToParameterValueResponseOutputWithContext(context.Context) ParameterValueResponseOutput
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponseArgs struct {
 	// Parameter value as reference type.
 	Reference SecretValueReferenceResponsePtrInput `pulumi:"reference"`
@@ -1842,7 +1807,6 @@ func (i ParameterValueResponseMap) ToParameterValueResponseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueResponseMapOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterValueResponseOutput) ElementType() reflect.Type {
@@ -1887,7 +1851,6 @@ func (o ParameterValueResponseMapOutput) MapIndex(k pulumi.StringInput) Paramete
 	}).(ParameterValueResponseOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinition struct {
 	// Artifacts which need to be deployed before this resource group.
 	DependsOn []string `pulumi:"dependsOn"`
@@ -1916,7 +1879,6 @@ type ResourceGroupDefinitionInput interface {
 	ToResourceGroupDefinitionOutputWithContext(context.Context) ResourceGroupDefinitionOutput
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionArgs struct {
 	// Artifacts which need to be deployed before this resource group.
 	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
@@ -1971,7 +1933,6 @@ func (i ResourceGroupDefinitionMap) ToResourceGroupDefinitionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionMapOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupDefinitionOutput) ElementType() reflect.Type {
@@ -2041,7 +2002,6 @@ func (o ResourceGroupDefinitionMapOutput) MapIndex(k pulumi.StringInput) Resourc
 	}).(ResourceGroupDefinitionOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponse struct {
 	// Artifacts which need to be deployed before this resource group.
 	DependsOn []string `pulumi:"dependsOn"`
@@ -2070,7 +2030,6 @@ type ResourceGroupDefinitionResponseInput interface {
 	ToResourceGroupDefinitionResponseOutputWithContext(context.Context) ResourceGroupDefinitionResponseOutput
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponseArgs struct {
 	// Artifacts which need to be deployed before this resource group.
 	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
@@ -2125,7 +2084,6 @@ func (i ResourceGroupDefinitionResponseMap) ToResourceGroupDefinitionResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionResponseMapOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2195,7 +2153,6 @@ func (o ResourceGroupDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ResourceGroupDefinitionResponseOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValue struct {
 	// Location of the resource group.
 	Location *string `pulumi:"location"`
@@ -2214,7 +2171,6 @@ type ResourceGroupValueInput interface {
 	ToResourceGroupValueOutputWithContext(context.Context) ResourceGroupValueOutput
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueArgs struct {
 	// Location of the resource group.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -2259,7 +2215,6 @@ func (i ResourceGroupValueMap) ToResourceGroupValueMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueMapOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupValueOutput) ElementType() reflect.Type {
@@ -2304,7 +2259,6 @@ func (o ResourceGroupValueMapOutput) MapIndex(k pulumi.StringInput) ResourceGrou
 	}).(ResourceGroupValueOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponse struct {
 	// Location of the resource group.
 	Location *string `pulumi:"location"`
@@ -2323,7 +2277,6 @@ type ResourceGroupValueResponseInput interface {
 	ToResourceGroupValueResponseOutputWithContext(context.Context) ResourceGroupValueResponseOutput
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponseArgs struct {
 	// Location of the resource group.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -2368,7 +2321,6 @@ func (i ResourceGroupValueResponseMap) ToResourceGroupValueResponseMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueResponseMapOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupValueResponseOutput) ElementType() reflect.Type {
@@ -2413,7 +2365,6 @@ func (o ResourceGroupValueResponseMapOutput) MapIndex(k pulumi.StringInput) Reso
 	}).(ResourceGroupValueResponseOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReference struct {
 	// Specifies the reference to a given Azure Key Vault.
 	KeyVault KeyVaultReference `pulumi:"keyVault"`
@@ -2434,7 +2385,6 @@ type SecretValueReferenceInput interface {
 	ToSecretValueReferenceOutputWithContext(context.Context) SecretValueReferenceOutput
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceArgs struct {
 	// Specifies the reference to a given Azure Key Vault.
 	KeyVault KeyVaultReferenceInput `pulumi:"keyVault"`
@@ -2497,7 +2447,6 @@ func (i *secretValueReferencePtrType) ToSecretValueReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueReferencePtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceOutput struct{ *pulumi.OutputState }
 
 func (SecretValueReferenceOutput) ElementType() reflect.Type {
@@ -2591,7 +2540,6 @@ func (o SecretValueReferencePtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponse struct {
 	// Specifies the reference to a given Azure Key Vault.
 	KeyVault KeyVaultReferenceResponse `pulumi:"keyVault"`
@@ -2612,7 +2560,6 @@ type SecretValueReferenceResponseInput interface {
 	ToSecretValueReferenceResponseOutputWithContext(context.Context) SecretValueReferenceResponseOutput
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponseArgs struct {
 	// Specifies the reference to a given Azure Key Vault.
 	KeyVault KeyVaultReferenceResponseInput `pulumi:"keyVault"`
@@ -2675,7 +2622,6 @@ func (i *secretValueReferenceResponsePtrType) ToSecretValueReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueReferenceResponsePtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretValueReferenceResponseOutput) ElementType() reflect.Type {
@@ -2769,7 +2715,6 @@ func (o SecretValueReferenceResponsePtrOutput) SecretVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentity struct {
 	// Client App Id associated with this identity.
 	ClientId *string `pulumi:"clientId"`
@@ -2788,7 +2733,6 @@ type UserAssignedIdentityInput interface {
 	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityArgs struct {
 	// Client App Id associated with this identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -2833,7 +2777,6 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
@@ -2878,7 +2821,6 @@ func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssign
 	}).(UserAssignedIdentityOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponse struct {
 	// Client App Id associated with this identity.
 	ClientId *string `pulumi:"clientId"`
@@ -2897,7 +2839,6 @@ type UserAssignedIdentityResponseInput interface {
 	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseArgs struct {
 	// Client App Id associated with this identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -2942,7 +2883,6 @@ func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {

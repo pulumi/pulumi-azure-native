@@ -220,7 +220,6 @@ func (o AccessRightsArrayOutput) Index(i pulumi.IntInput) AccessRightsOutput {
 	}).(AccessRightsOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -387,7 +386,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// WCF relay type.
 type Relaytype string
 
 const (
@@ -552,7 +550,6 @@ func (in *relaytypePtr) ToRelaytypePtrOutputWithContext(ctx context.Context) Rel
 	return pulumi.ToOutputWithContext(ctx, in).(RelaytypePtrOutput)
 }
 
-// Name of this SKU.
 type SkuName string
 
 const (
@@ -716,7 +713,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
 }
 
-// The tier of this SKU.
 type SkuTier string
 
 const (

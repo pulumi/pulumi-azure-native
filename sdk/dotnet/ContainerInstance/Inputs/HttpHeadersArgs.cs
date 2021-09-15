@@ -11,23 +11,23 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
 {
 
     /// <summary>
-    /// Container group subnet information.
+    /// The HTTP headers.
     /// </summary>
-    public sealed class ContainerGroupSubnetIdArgs : Pulumi.ResourceArgs
+    public sealed class HttpHeadersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID of virtual network and subnet.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// Friendly name for the subnet.
+        /// The header name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        public ContainerGroupSubnetIdArgs()
+        /// <summary>
+        /// The header value.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
+
+        public HttpHeadersArgs()
         {
         }
     }

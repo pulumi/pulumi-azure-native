@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuName string
 
 const (
@@ -175,7 +174,6 @@ func (in *clusterSkuNamePtr) ToClusterSkuNamePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterSkuNamePtrOutput)
 }
 
-// Controls certain runtime behaviors of the streaming job.
 type CompatibilityLevel string
 
 const (
@@ -339,7 +337,6 @@ func (in *compatibilityLevelPtr) ToCompatibilityLevelPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(CompatibilityLevelPtrOutput)
 }
 
-// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 type Encoding string
 
 const (
@@ -503,7 +500,6 @@ func (in *encodingPtr) ToEncodingPtrOutputWithContext(ctx context.Context) Encod
 	return pulumi.ToOutputWithContext(ctx, in).(EncodingPtrOutput)
 }
 
-// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 type EventSerializationType string
 
 const (
@@ -669,7 +665,6 @@ func (in *eventSerializationTypePtr) ToEventSerializationTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(EventSerializationTypePtrOutput)
 }
 
-// Indicates the policy to apply to events that arrive out of order in the input event stream.
 type EventsOutOfOrderPolicy string
 
 const (
@@ -834,7 +829,6 @@ func (in *eventsOutOfOrderPolicyPtr) ToEventsOutOfOrderPolicyPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(EventsOutOfOrderPolicyPtrOutput)
 }
 
-// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
 type JsonOutputSerializationFormat string
 
 const (
@@ -999,7 +993,6 @@ func (in *jsonOutputSerializationFormatPtr) ToJsonOutputSerializationFormatPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(JsonOutputSerializationFormatPtrOutput)
 }
 
-// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 type OutputErrorPolicy string
 
 const (
@@ -1164,7 +1157,6 @@ func (in *outputErrorPolicyPtr) ToOutputErrorPolicyPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(OutputErrorPolicyPtrOutput)
 }
 
-// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
 type OutputStartMode string
 
 const (
@@ -1330,7 +1322,6 @@ func (in *outputStartModePtr) ToOutputStartModePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(OutputStartModePtrOutput)
 }
 
-// The name of the SKU. Required on PUT (CreateOrReplace) requests.
 type SkuName string
 
 const (

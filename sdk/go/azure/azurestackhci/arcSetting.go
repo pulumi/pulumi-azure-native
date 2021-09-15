@@ -12,7 +12,7 @@ import (
 )
 
 // ArcSetting details.
-// API Version: 2021-09-01.
+// API Version: 2021-01-01-preview.
 type ArcSetting struct {
 	pulumi.CustomResourceState
 

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of the device.
 type DeviceType string
 
 const (
@@ -175,7 +174,6 @@ func (in *deviceTypePtr) ToDeviceTypePtrOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, in).(DeviceTypePtrOutput)
 }
 
-// Specifies how the virtual machine should be created.
 type DiskCreateOptionTypes string
 
 const (
@@ -340,7 +338,6 @@ func (in *diskCreateOptionTypesPtr) ToDiskCreateOptionTypesPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DiskCreateOptionTypesPtrOutput)
 }
 
-// IP address allocation method.
 type IPAllocationMethod string
 
 const (
@@ -506,7 +503,6 @@ func (in *ipallocationMethodPtr) ToIPAllocationMethodPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IPAllocationMethodPtrOutput)
 }
 
-// IP address version.
 type IPVersion string
 
 const (
@@ -671,7 +667,6 @@ func (in *ipversionPtr) ToIPVersionPtrOutputWithContext(ctx context.Context) IPV
 	return pulumi.ToOutputWithContext(ctx, in).(IPVersionPtrOutput)
 }
 
-// Role type.
 type NetworkFunctionRoleConfigurationType string
 
 const (
@@ -836,7 +831,6 @@ func (in *networkFunctionRoleConfigurationTypePtr) ToNetworkFunctionRoleConfigur
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkFunctionRoleConfigurationTypePtrOutput)
 }
 
-// The OS type.
 type OperatingSystemTypes string
 
 const (
@@ -1002,7 +996,6 @@ func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypesPtrOutput)
 }
 
-// The sku deployment mode.
 type SkuDeploymentMode string
 
 const (
@@ -1168,7 +1161,6 @@ func (in *skuDeploymentModePtr) ToSkuDeploymentModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SkuDeploymentModePtrOutput)
 }
 
-// The sku type.
 type SkuType string
 
 const (
@@ -1335,7 +1327,6 @@ func (in *skuTypePtr) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuType
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTypePtrOutput)
 }
 
-// The type of the VM switch.
 type VMSwitchType string
 
 const (
@@ -1502,7 +1493,6 @@ func (in *vmswitchTypePtr) ToVMSwitchTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(VMSwitchTypePtrOutput)
 }
 
-// The size of the virtual machine.
 type VirtualMachineSizeTypes string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Responsibility role under which this Managed Network Group will be created
 type Kind string
 
 const (
@@ -174,7 +173,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Gets or sets the connectivity type of a network structure policy
 type Type string
 
 const (

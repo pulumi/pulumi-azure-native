@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU name
 type AzureSkuName string
 
 const (
@@ -174,7 +173,6 @@ func (in *azureSkuNamePtr) ToAzureSkuNamePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuNamePtrOutput)
 }
 
-// SKU tier
 type AzureSkuTier string
 
 const (
@@ -338,7 +336,6 @@ func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuTierPtrOutput)
 }
 
-// Status of the connection.
 type PersistedConnectionStatus string
 
 const (
@@ -505,7 +502,6 @@ func (in *persistedConnectionStatusPtr) ToPersistedConnectionStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(PersistedConnectionStatusPtrOutput)
 }
 
-// Provisioning state of the Private Endpoint Connection.
 type ResourceProvisioningState string
 
 const (

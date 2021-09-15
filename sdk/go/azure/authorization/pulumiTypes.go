@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Review Instance.
 type AccessReviewInstance struct {
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime *string `pulumi:"endDateTime"`
@@ -29,7 +28,6 @@ type AccessReviewInstanceInput interface {
 	ToAccessReviewInstanceOutputWithContext(context.Context) AccessReviewInstanceOutput
 }
 
-// Access Review Instance.
 type AccessReviewInstanceArgs struct {
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
@@ -74,7 +72,6 @@ func (i AccessReviewInstanceArray) ToAccessReviewInstanceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceArrayOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewInstanceOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewIn
 	}).(AccessReviewInstanceOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponse struct {
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime *string `pulumi:"endDateTime"`
@@ -146,7 +142,6 @@ type AccessReviewInstanceResponseInput interface {
 	ToAccessReviewInstanceResponseOutputWithContext(context.Context) AccessReviewInstanceResponseOutput
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponseArgs struct {
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
@@ -199,7 +194,6 @@ func (i AccessReviewInstanceResponseArray) ToAccessReviewInstanceResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceResponseArrayOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewInstanceResponseOutput) ElementType() reflect.Type {
@@ -264,7 +258,6 @@ func (o AccessReviewInstanceResponseArrayOutput) Index(i pulumi.IntInput) Access
 	}).(AccessReviewInstanceResponseOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewer struct {
 	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId *string `pulumi:"principalId"`
@@ -281,7 +274,6 @@ type AccessReviewReviewerInput interface {
 	ToAccessReviewReviewerOutputWithContext(context.Context) AccessReviewReviewerOutput
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerArgs struct {
 	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -324,7 +316,6 @@ func (i AccessReviewReviewerArray) ToAccessReviewReviewerArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerArrayOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewReviewerOutput) ElementType() reflect.Type {
@@ -364,7 +355,6 @@ func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewRe
 	}).(AccessReviewReviewerOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponse struct {
 	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId *string `pulumi:"principalId"`
@@ -383,7 +373,6 @@ type AccessReviewReviewerResponseInput interface {
 	ToAccessReviewReviewerResponseOutputWithContext(context.Context) AccessReviewReviewerResponseOutput
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponseArgs struct {
 	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -428,7 +417,6 @@ func (i AccessReviewReviewerResponseArray) ToAccessReviewReviewerResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerResponseArrayOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewReviewerResponseOutput) ElementType() reflect.Type {
@@ -473,7 +461,6 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 	}).(AccessReviewReviewerResponseOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -490,7 +477,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -549,7 +535,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -613,7 +598,6 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of the resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -634,7 +618,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
 	// The principal ID of the resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -697,7 +680,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -791,7 +773,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwner struct {
 	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -808,7 +789,6 @@ type ManagementLockOwnerInput interface {
 	ToManagementLockOwnerOutputWithContext(context.Context) ManagementLockOwnerOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerArgs struct {
 	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -851,7 +831,6 @@ func (i ManagementLockOwnerArray) ToManagementLockOwnerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerOutput) ElementType() reflect.Type {
@@ -891,7 +870,6 @@ func (o ManagementLockOwnerArrayOutput) Index(i pulumi.IntInput) ManagementLockO
 	}).(ManagementLockOwnerOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponse struct {
 	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -908,7 +886,6 @@ type ManagementLockOwnerResponseInput interface {
 	ToManagementLockOwnerResponseOutputWithContext(context.Context) ManagementLockOwnerResponseOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseArgs struct {
 	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -951,7 +928,6 @@ func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerResponseOutput) ElementType() reflect.Type {
@@ -991,7 +967,6 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 	}).(ManagementLockOwnerResponseOutput)
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessage struct {
 	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 	Message string `pulumi:"message"`
@@ -1010,7 +985,6 @@ type NonComplianceMessageInput interface {
 	ToNonComplianceMessageOutputWithContext(context.Context) NonComplianceMessageOutput
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessageArgs struct {
 	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 	Message pulumi.StringInput `pulumi:"message"`
@@ -1055,7 +1029,6 @@ func (i NonComplianceMessageArray) ToNonComplianceMessageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageArrayOutput)
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (NonComplianceMessageOutput) ElementType() reflect.Type {
@@ -1100,7 +1073,6 @@ func (o NonComplianceMessageArrayOutput) Index(i pulumi.IntInput) NonComplianceM
 	}).(NonComplianceMessageOutput)
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessageResponse struct {
 	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 	Message string `pulumi:"message"`
@@ -1119,7 +1091,6 @@ type NonComplianceMessageResponseInput interface {
 	ToNonComplianceMessageResponseOutputWithContext(context.Context) NonComplianceMessageResponseOutput
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessageResponseArgs struct {
 	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 	Message pulumi.StringInput `pulumi:"message"`
@@ -1164,7 +1135,6 @@ func (i NonComplianceMessageResponseArray) ToNonComplianceMessageResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageResponseArrayOutput)
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 type NonComplianceMessageResponseOutput struct{ *pulumi.OutputState }
 
 func (NonComplianceMessageResponseOutput) ElementType() reflect.Type {
@@ -1209,7 +1179,6 @@ func (o NonComplianceMessageResponseArrayOutput) Index(i pulumi.IntInput) NonCom
 	}).(NonComplianceMessageResponseOutput)
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValue struct {
 	// The allowed values for the parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
@@ -1232,7 +1201,6 @@ type ParameterDefinitionsValueInput interface {
 	ToParameterDefinitionsValueOutputWithContext(context.Context) ParameterDefinitionsValueOutput
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueArgs struct {
 	// The allowed values for the parameter.
 	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
@@ -1281,7 +1249,6 @@ func (i ParameterDefinitionsValueMap) ToParameterDefinitionsValueMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMapOutput)
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionsValueOutput) ElementType() reflect.Type {
@@ -1336,7 +1303,6 @@ func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) Param
 	}).(ParameterDefinitionsValueOutput)
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueMetadata struct {
 	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 	AssignPermissions *bool `pulumi:"assignPermissions"`
@@ -1359,7 +1325,6 @@ type ParameterDefinitionsValueMetadataInput interface {
 	ToParameterDefinitionsValueMetadataOutputWithContext(context.Context) ParameterDefinitionsValueMetadataOutput
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueMetadataArgs struct {
 	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
@@ -1424,7 +1389,6 @@ func (i *parameterDefinitionsValueMetadataPtrType) ToParameterDefinitionsValueMe
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueMetadataOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionsValueMetadataOutput) ElementType() reflect.Type {
@@ -1533,7 +1497,6 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponse struct {
 	// The allowed values for the parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
@@ -1556,7 +1519,6 @@ type ParameterDefinitionsValueResponseInput interface {
 	ToParameterDefinitionsValueResponseOutputWithContext(context.Context) ParameterDefinitionsValueResponseOutput
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponseArgs struct {
 	// The allowed values for the parameter.
 	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
@@ -1605,7 +1567,6 @@ func (i ParameterDefinitionsValueResponseMap) ToParameterDefinitionsValueRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMapOutput)
 }
 
-// The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionsValueResponseOutput) ElementType() reflect.Type {
@@ -1662,7 +1623,6 @@ func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(ParameterDefinitionsValueResponseOutput)
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadata struct {
 	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 	AssignPermissions *bool `pulumi:"assignPermissions"`
@@ -1685,7 +1645,6 @@ type ParameterDefinitionsValueResponseMetadataInput interface {
 	ToParameterDefinitionsValueResponseMetadataOutputWithContext(context.Context) ParameterDefinitionsValueResponseMetadataOutput
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadataArgs struct {
 	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
@@ -1750,7 +1709,6 @@ func (i *parameterDefinitionsValueResponseMetadataPtrType) ToParameterDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
-// General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadataOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionsValueResponseMetadataOutput) ElementType() reflect.Type {
@@ -1859,7 +1817,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of a parameter.
 type ParameterValuesValue struct {
 	// The value of the parameter.
 	Value interface{} `pulumi:"value"`
@@ -1876,7 +1833,6 @@ type ParameterValuesValueInput interface {
 	ToParameterValuesValueOutputWithContext(context.Context) ParameterValuesValueOutput
 }
 
-// The value of a parameter.
 type ParameterValuesValueArgs struct {
 	// The value of the parameter.
 	Value pulumi.Input `pulumi:"value"`
@@ -1919,7 +1875,6 @@ func (i ParameterValuesValueMap) ToParameterValuesValueMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueMapOutput)
 }
 
-// The value of a parameter.
 type ParameterValuesValueOutput struct{ *pulumi.OutputState }
 
 func (ParameterValuesValueOutput) ElementType() reflect.Type {
@@ -1959,7 +1914,6 @@ func (o ParameterValuesValueMapOutput) MapIndex(k pulumi.StringInput) ParameterV
 	}).(ParameterValuesValueOutput)
 }
 
-// The value of a parameter.
 type ParameterValuesValueResponse struct {
 	// The value of the parameter.
 	Value interface{} `pulumi:"value"`
@@ -1976,7 +1930,6 @@ type ParameterValuesValueResponseInput interface {
 	ToParameterValuesValueResponseOutputWithContext(context.Context) ParameterValuesValueResponseOutput
 }
 
-// The value of a parameter.
 type ParameterValuesValueResponseArgs struct {
 	// The value of the parameter.
 	Value pulumi.Input `pulumi:"value"`
@@ -2019,7 +1972,6 @@ func (i ParameterValuesValueResponseMap) ToParameterValuesValueResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueResponseMapOutput)
 }
 
-// The value of a parameter.
 type ParameterValuesValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterValuesValueResponseOutput) ElementType() reflect.Type {
@@ -2059,7 +2011,6 @@ func (o ParameterValuesValueResponseMapOutput) MapIndex(k pulumi.StringInput) Pa
 	}).(ParameterValuesValueResponseOutput)
 }
 
-// Role definition permissions.
 type Permission struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
@@ -2082,7 +2033,6 @@ type PermissionInput interface {
 	ToPermissionOutputWithContext(context.Context) PermissionOutput
 }
 
-// Role definition permissions.
 type PermissionArgs struct {
 	// Allowed actions.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
@@ -2131,7 +2081,6 @@ func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
 }
 
-// Role definition permissions.
 type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
@@ -2186,7 +2135,6 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 	}).(PermissionOutput)
 }
 
-// Role definition permissions.
 type PermissionResponse struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
@@ -2209,7 +2157,6 @@ type PermissionResponseInput interface {
 	ToPermissionResponseOutputWithContext(context.Context) PermissionResponseOutput
 }
 
-// Role definition permissions.
 type PermissionResponseArgs struct {
 	// Allowed actions.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
@@ -2258,7 +2205,6 @@ func (i PermissionResponseArray) ToPermissionResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseArrayOutput)
 }
 
-// Role definition permissions.
 type PermissionResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionResponseOutput) ElementType() reflect.Type {
@@ -2490,7 +2436,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() PolicyAssignmentPro
 	}).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
 
-// Details of the policy
 type PolicyAssignmentPropertiesResponsePolicy struct {
 	// Id of the policy
 	Id *string `pulumi:"id"`
@@ -2511,7 +2456,6 @@ type PolicyAssignmentPropertiesResponsePolicyInput interface {
 	ToPolicyAssignmentPropertiesResponsePolicyOutputWithContext(context.Context) PolicyAssignmentPropertiesResponsePolicyOutput
 }
 
-// Details of the policy
 type PolicyAssignmentPropertiesResponsePolicyArgs struct {
 	// Id of the policy
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2574,7 +2518,6 @@ func (i *policyAssignmentPropertiesResponsePolicyPtrType) ToPolicyAssignmentProp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
 
-// Details of the policy
 type PolicyAssignmentPropertiesResponsePolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentPropertiesResponsePolicyOutput) ElementType() reflect.Type {
@@ -2668,7 +2611,6 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) LastModifiedDateTime(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of role definition
 type PolicyAssignmentPropertiesResponseRoleDefinition struct {
 	// Display name of the role definition
 	DisplayName *string `pulumi:"displayName"`
@@ -2689,7 +2631,6 @@ type PolicyAssignmentPropertiesResponseRoleDefinitionInput interface {
 	ToPolicyAssignmentPropertiesResponseRoleDefinitionOutputWithContext(context.Context) PolicyAssignmentPropertiesResponseRoleDefinitionOutput
 }
 
-// Details of role definition
 type PolicyAssignmentPropertiesResponseRoleDefinitionArgs struct {
 	// Display name of the role definition
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -2752,7 +2693,6 @@ func (i *policyAssignmentPropertiesResponseRoleDefinitionPtrType) ToPolicyAssign
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
 
-// Details of role definition
 type PolicyAssignmentPropertiesResponseRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ElementType() reflect.Type {
@@ -2846,7 +2786,6 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Type() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the resource scope
 type PolicyAssignmentPropertiesResponseScope struct {
 	// Display name of the resource
 	DisplayName *string `pulumi:"displayName"`
@@ -2867,7 +2806,6 @@ type PolicyAssignmentPropertiesResponseScopeInput interface {
 	ToPolicyAssignmentPropertiesResponseScopeOutputWithContext(context.Context) PolicyAssignmentPropertiesResponseScopeOutput
 }
 
-// Details of the resource scope
 type PolicyAssignmentPropertiesResponseScopeArgs struct {
 	// Display name of the resource
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -2930,7 +2868,6 @@ func (i *policyAssignmentPropertiesResponseScopePtrType) ToPolicyAssignmentPrope
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
 
-// Details of the resource scope
 type PolicyAssignmentPropertiesResponseScopeOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentPropertiesResponseScopeOutput) ElementType() reflect.Type {
@@ -3024,7 +2961,6 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Type() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy definition group.
 type PolicyDefinitionGroup struct {
 	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId *string `pulumi:"additionalMetadataId"`
@@ -3049,7 +2985,6 @@ type PolicyDefinitionGroupInput interface {
 	ToPolicyDefinitionGroupOutputWithContext(context.Context) PolicyDefinitionGroupOutput
 }
 
-// The policy definition group.
 type PolicyDefinitionGroupArgs struct {
 	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId pulumi.StringPtrInput `pulumi:"additionalMetadataId"`
@@ -3100,7 +3035,6 @@ func (i PolicyDefinitionGroupArray) ToPolicyDefinitionGroupArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionGroupArrayOutput)
 }
 
-// The policy definition group.
 type PolicyDefinitionGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionGroupOutput) ElementType() reflect.Type {
@@ -3160,7 +3094,6 @@ func (o PolicyDefinitionGroupArrayOutput) Index(i pulumi.IntInput) PolicyDefinit
 	}).(PolicyDefinitionGroupOutput)
 }
 
-// The policy definition group.
 type PolicyDefinitionGroupResponse struct {
 	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId *string `pulumi:"additionalMetadataId"`
@@ -3185,7 +3118,6 @@ type PolicyDefinitionGroupResponseInput interface {
 	ToPolicyDefinitionGroupResponseOutputWithContext(context.Context) PolicyDefinitionGroupResponseOutput
 }
 
-// The policy definition group.
 type PolicyDefinitionGroupResponseArgs struct {
 	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId pulumi.StringPtrInput `pulumi:"additionalMetadataId"`
@@ -3236,7 +3168,6 @@ func (i PolicyDefinitionGroupResponseArray) ToPolicyDefinitionGroupResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionGroupResponseArrayOutput)
 }
 
-// The policy definition group.
 type PolicyDefinitionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionGroupResponseOutput) ElementType() reflect.Type {
@@ -3296,7 +3227,6 @@ func (o PolicyDefinitionGroupResponseArrayOutput) Index(i pulumi.IntInput) Polic
 	}).(PolicyDefinitionGroupResponseOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReference struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames []string `pulumi:"groupNames"`
@@ -3319,7 +3249,6 @@ type PolicyDefinitionReferenceInput interface {
 	ToPolicyDefinitionReferenceOutputWithContext(context.Context) PolicyDefinitionReferenceOutput
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceArgs struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
@@ -3368,7 +3297,6 @@ func (i PolicyDefinitionReferenceArray) ToPolicyDefinitionReferenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceArrayOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionReferenceOutput) ElementType() reflect.Type {
@@ -3423,7 +3351,6 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 	}).(PolicyDefinitionReferenceOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponse struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames []string `pulumi:"groupNames"`
@@ -3446,7 +3373,6 @@ type PolicyDefinitionReferenceResponseInput interface {
 	ToPolicyDefinitionReferenceResponseOutputWithContext(context.Context) PolicyDefinitionReferenceResponseOutput
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponseArgs struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
@@ -3495,7 +3421,6 @@ func (i PolicyDefinitionReferenceResponseArray) ToPolicyDefinitionReferenceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceResponseArrayOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionReferenceResponseOutput) ElementType() reflect.Type {
@@ -3550,7 +3475,6 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
-// The name of the entity last modified it
 type PrincipalResponse struct {
 	// The name of the principal made changes
 	DisplayName *string `pulumi:"displayName"`
@@ -3573,7 +3497,6 @@ type PrincipalResponseInput interface {
 	ToPrincipalResponseOutputWithContext(context.Context) PrincipalResponseOutput
 }
 
-// The name of the entity last modified it
 type PrincipalResponseArgs struct {
 	// The name of the principal made changes
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -3638,7 +3561,6 @@ func (i *principalResponsePtrType) ToPrincipalResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalResponsePtrOutput)
 }
 
-// The name of the entity last modified it
 type PrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (PrincipalResponseOutput) ElementType() reflect.Type {
@@ -3886,7 +3808,6 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Priva
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -3913,7 +3834,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -3982,7 +3902,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

@@ -322,7 +322,6 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionState struct {
 	// Actions required (if any).
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -343,7 +342,6 @@ type ConnectionStateInput interface {
 	ToConnectionStateOutputWithContext(context.Context) ConnectionStateOutput
 }
 
-// ConnectionState information.
 type ConnectionStateArgs struct {
 	// Actions required (if any).
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -406,7 +404,6 @@ func (i *connectionStatePtrType) ToConnectionStatePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateOutput) ElementType() reflect.Type {
@@ -500,7 +497,6 @@ func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponse struct {
 	// Actions required (if any).
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -521,7 +517,6 @@ type ConnectionStateResponseInput interface {
 	ToConnectionStateResponseOutputWithContext(context.Context) ConnectionStateResponseOutput
 }
 
-// ConnectionState information.
 type ConnectionStateResponseArgs struct {
 	// Actions required (if any).
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -584,7 +579,6 @@ func (i *connectionStateResponsePtrType) ToConnectionStateResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateResponsePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1220,7 +1214,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1247,7 +1240,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1316,7 +1308,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

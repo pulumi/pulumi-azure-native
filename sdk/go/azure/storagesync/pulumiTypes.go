@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponse struct {
 	// Count of bytes that were served from the local server
 	CacheHitBytes float64 `pulumi:"cacheHitBytes"`
@@ -33,7 +32,6 @@ type CloudTieringCachePerformanceResponseInput interface {
 	ToCloudTieringCachePerformanceResponseOutputWithContext(context.Context) CloudTieringCachePerformanceResponseOutput
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponseArgs struct {
 	// Count of bytes that were served from the local server
 	CacheHitBytes pulumi.Float64Input `pulumi:"cacheHitBytes"`
@@ -98,7 +96,6 @@ func (i *cloudTieringCachePerformanceResponsePtrType) ToCloudTieringCachePerform
 	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringCachePerformanceResponsePtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudTieringCachePerformanceResponseOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o CloudTieringCachePerformanceResponsePtrOutput) LastUpdatedTimestamp() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the date policy
 type CloudTieringDatePolicyStatusResponse struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
@@ -226,7 +222,6 @@ type CloudTieringDatePolicyStatusResponseInput interface {
 	ToCloudTieringDatePolicyStatusResponseOutputWithContext(context.Context) CloudTieringDatePolicyStatusResponseOutput
 }
 
-// Status of the date policy
 type CloudTieringDatePolicyStatusResponseArgs struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
@@ -287,7 +282,6 @@ func (i *cloudTieringDatePolicyStatusResponsePtrType) ToCloudTieringDatePolicySt
 	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringDatePolicyStatusResponsePtrOutput)
 }
 
-// Status of the date policy
 type CloudTieringDatePolicyStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudTieringDatePolicyStatusResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o CloudTieringDatePolicyStatusResponsePtrOutput) TieredFilesMostRecentAcce
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringFilesNotTieringResponse struct {
 	// Array of tiering errors
 	Errors []FilesNotTieringErrorResponse `pulumi:"errors"`
@@ -387,7 +380,6 @@ type CloudTieringFilesNotTieringResponseInput interface {
 	ToCloudTieringFilesNotTieringResponseOutputWithContext(context.Context) CloudTieringFilesNotTieringResponseOutput
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringFilesNotTieringResponseArgs struct {
 	// Array of tiering errors
 	Errors FilesNotTieringErrorResponseArrayInput `pulumi:"errors"`
@@ -450,7 +442,6 @@ func (i *cloudTieringFilesNotTieringResponsePtrType) ToCloudTieringFilesNotTieri
 	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringFilesNotTieringResponsePtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringFilesNotTieringResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudTieringFilesNotTieringResponseOutput) ElementType() reflect.Type {
@@ -544,7 +535,6 @@ func (o CloudTieringFilesNotTieringResponsePtrOutput) TotalFileCount() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringSpaceSavingsResponse struct {
 	// Cached content size on the server
 	CachedSizeBytes float64 `pulumi:"cachedSizeBytes"`
@@ -571,7 +561,6 @@ type CloudTieringSpaceSavingsResponseInput interface {
 	ToCloudTieringSpaceSavingsResponseOutputWithContext(context.Context) CloudTieringSpaceSavingsResponseOutput
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringSpaceSavingsResponseArgs struct {
 	// Cached content size on the server
 	CachedSizeBytes pulumi.Float64Input `pulumi:"cachedSizeBytes"`
@@ -640,7 +629,6 @@ func (i *cloudTieringSpaceSavingsResponsePtrType) ToCloudTieringSpaceSavingsResp
 	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringSpaceSavingsResponsePtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type CloudTieringSpaceSavingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudTieringSpaceSavingsResponseOutput) ElementType() reflect.Type {
@@ -779,7 +767,6 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) VolumeSizeBytes() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Status of the volume free space policy
 type CloudTieringVolumeFreeSpacePolicyStatusResponse struct {
 	// Current volume free space percentage.
 	CurrentVolumeFreeSpacePercent int `pulumi:"currentVolumeFreeSpacePercent"`
@@ -800,7 +787,6 @@ type CloudTieringVolumeFreeSpacePolicyStatusResponseInput interface {
 	ToCloudTieringVolumeFreeSpacePolicyStatusResponseOutputWithContext(context.Context) CloudTieringVolumeFreeSpacePolicyStatusResponseOutput
 }
 
-// Status of the volume free space policy
 type CloudTieringVolumeFreeSpacePolicyStatusResponseArgs struct {
 	// Current volume free space percentage.
 	CurrentVolumeFreeSpacePercent pulumi.IntInput `pulumi:"currentVolumeFreeSpacePercent"`
@@ -863,7 +849,6 @@ func (i *cloudTieringVolumeFreeSpacePolicyStatusResponsePtrType) ToCloudTieringV
 	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput)
 }
 
-// Status of the volume free space policy
 type CloudTieringVolumeFreeSpacePolicyStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudTieringVolumeFreeSpacePolicyStatusResponseOutput) ElementType() reflect.Type {
@@ -957,7 +942,6 @@ func (o CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput) LastUpdatedTim
 	}).(pulumi.StringPtrOutput)
 }
 
-// Files not tiering error object
 type FilesNotTieringErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
@@ -976,7 +960,6 @@ type FilesNotTieringErrorResponseInput interface {
 	ToFilesNotTieringErrorResponseOutputWithContext(context.Context) FilesNotTieringErrorResponseOutput
 }
 
-// Files not tiering error object
 type FilesNotTieringErrorResponseArgs struct {
 	// Error code (HResult)
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
@@ -1021,7 +1004,6 @@ func (i FilesNotTieringErrorResponseArray) ToFilesNotTieringErrorResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FilesNotTieringErrorResponseArrayOutput)
 }
 
-// Files not tiering error object
 type FilesNotTieringErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (FilesNotTieringErrorResponseOutput) ElementType() reflect.Type {
@@ -1066,7 +1048,6 @@ func (o FilesNotTieringErrorResponseArrayOutput) Index(i pulumi.IntInput) FilesN
 	}).(FilesNotTieringErrorResponseOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -1093,7 +1074,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1146,7 +1126,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1213,7 +1192,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -1230,7 +1208,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1289,7 +1266,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1353,7 +1329,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1374,7 +1349,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1437,7 +1411,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1531,7 +1504,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1552,7 +1524,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -1615,7 +1586,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1709,7 +1679,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type ServerEndpointCloudTieringStatusResponse struct {
 	// Information regarding how well the local cache on the server is performing.
 	CachePerformance CloudTieringCachePerformanceResponse `pulumi:"cachePerformance"`
@@ -1744,7 +1713,6 @@ type ServerEndpointCloudTieringStatusResponseInput interface {
 	ToServerEndpointCloudTieringStatusResponseOutputWithContext(context.Context) ServerEndpointCloudTieringStatusResponseOutput
 }
 
-// Server endpoint cloud tiering status object.
 type ServerEndpointCloudTieringStatusResponseArgs struct {
 	// Information regarding how well the local cache on the server is performing.
 	CachePerformance CloudTieringCachePerformanceResponseInput `pulumi:"cachePerformance"`
@@ -1821,7 +1789,6 @@ func (i *serverEndpointCloudTieringStatusResponsePtrType) ToServerEndpointCloudT
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointCloudTieringStatusResponsePtrOutput)
 }
 
-// Server endpoint cloud tiering status object.
 type ServerEndpointCloudTieringStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointCloudTieringStatusResponseOutput) ElementType() reflect.Type {
@@ -2030,7 +1997,6 @@ func (o ServerEndpointCloudTieringStatusResponsePtrOutput) VolumeFreeSpacePolicy
 	}).(CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput)
 }
 
-// Files not syncing error object
 type ServerEndpointFilesNotSyncingErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
@@ -2051,7 +2017,6 @@ type ServerEndpointFilesNotSyncingErrorResponseInput interface {
 	ToServerEndpointFilesNotSyncingErrorResponseOutputWithContext(context.Context) ServerEndpointFilesNotSyncingErrorResponseOutput
 }
 
-// Files not syncing error object
 type ServerEndpointFilesNotSyncingErrorResponseArgs struct {
 	// Error code (HResult)
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
@@ -2098,7 +2063,6 @@ func (i ServerEndpointFilesNotSyncingErrorResponseArray) ToServerEndpointFilesNo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointFilesNotSyncingErrorResponseArrayOutput)
 }
 
-// Files not syncing error object
 type ServerEndpointFilesNotSyncingErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointFilesNotSyncingErrorResponseOutput) ElementType() reflect.Type {
@@ -2148,7 +2112,6 @@ func (o ServerEndpointFilesNotSyncingErrorResponseArrayOutput) Index(i pulumi.In
 	}).(ServerEndpointFilesNotSyncingErrorResponseOutput)
 }
 
-// Server endpoint recall error object
 type ServerEndpointRecallErrorResponse struct {
 	// Count of occurences of the error
 	Count float64 `pulumi:"count"`
@@ -2167,7 +2130,6 @@ type ServerEndpointRecallErrorResponseInput interface {
 	ToServerEndpointRecallErrorResponseOutputWithContext(context.Context) ServerEndpointRecallErrorResponseOutput
 }
 
-// Server endpoint recall error object
 type ServerEndpointRecallErrorResponseArgs struct {
 	// Count of occurences of the error
 	Count pulumi.Float64Input `pulumi:"count"`
@@ -2212,7 +2174,6 @@ func (i ServerEndpointRecallErrorResponseArray) ToServerEndpointRecallErrorRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointRecallErrorResponseArrayOutput)
 }
 
-// Server endpoint recall error object
 type ServerEndpointRecallErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointRecallErrorResponseOutput) ElementType() reflect.Type {
@@ -2257,7 +2218,6 @@ func (o ServerEndpointRecallErrorResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(ServerEndpointRecallErrorResponseOutput)
 }
 
-// Server endpoint recall status object.
 type ServerEndpointRecallStatusResponse struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
@@ -2278,7 +2238,6 @@ type ServerEndpointRecallStatusResponseInput interface {
 	ToServerEndpointRecallStatusResponseOutputWithContext(context.Context) ServerEndpointRecallStatusResponseOutput
 }
 
-// Server endpoint recall status object.
 type ServerEndpointRecallStatusResponseArgs struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
@@ -2341,7 +2300,6 @@ func (i *serverEndpointRecallStatusResponsePtrType) ToServerEndpointRecallStatus
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointRecallStatusResponsePtrOutput)
 }
 
-// Server endpoint recall status object.
 type ServerEndpointRecallStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointRecallStatusResponseOutput) ElementType() reflect.Type {
@@ -2435,7 +2393,6 @@ func (o ServerEndpointRecallStatusResponsePtrOutput) TotalRecallErrorsCount() pu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sync Session status object.
 type ServerEndpointSyncActivityStatusResponse struct {
 	// Applied bytes
 	AppliedBytes float64 `pulumi:"appliedBytes"`
@@ -2462,7 +2419,6 @@ type ServerEndpointSyncActivityStatusResponseInput interface {
 	ToServerEndpointSyncActivityStatusResponseOutputWithContext(context.Context) ServerEndpointSyncActivityStatusResponseOutput
 }
 
-// Sync Session status object.
 type ServerEndpointSyncActivityStatusResponseArgs struct {
 	// Applied bytes
 	AppliedBytes pulumi.Float64Input `pulumi:"appliedBytes"`
@@ -2531,7 +2487,6 @@ func (i *serverEndpointSyncActivityStatusResponsePtrType) ToServerEndpointSyncAc
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncActivityStatusResponsePtrOutput)
 }
 
-// Sync Session status object.
 type ServerEndpointSyncActivityStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointSyncActivityStatusResponseOutput) ElementType() reflect.Type {
@@ -2670,7 +2625,6 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) TotalItemCount() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sync Session status object.
 type ServerEndpointSyncSessionStatusResponse struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors []ServerEndpointFilesNotSyncingErrorResponse `pulumi:"filesNotSyncingErrors"`
@@ -2699,7 +2653,6 @@ type ServerEndpointSyncSessionStatusResponseInput interface {
 	ToServerEndpointSyncSessionStatusResponseOutputWithContext(context.Context) ServerEndpointSyncSessionStatusResponseOutput
 }
 
-// Sync Session status object.
 type ServerEndpointSyncSessionStatusResponseArgs struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors ServerEndpointFilesNotSyncingErrorResponseArrayInput `pulumi:"filesNotSyncingErrors"`
@@ -2770,7 +2723,6 @@ func (i *serverEndpointSyncSessionStatusResponsePtrType) ToServerEndpointSyncSes
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncSessionStatusResponsePtrOutput)
 }
 
-// Sync Session status object.
 type ServerEndpointSyncSessionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointSyncSessionStatusResponseOutput) ElementType() reflect.Type {
@@ -2926,7 +2878,6 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) TransientFilesNotSynci
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Server Endpoint sync status
 type ServerEndpointSyncStatusResponse struct {
 	// Combined Health Status.
 	CombinedHealth string `pulumi:"combinedHealth"`
@@ -2963,7 +2914,6 @@ type ServerEndpointSyncStatusResponseInput interface {
 	ToServerEndpointSyncStatusResponseOutputWithContext(context.Context) ServerEndpointSyncStatusResponseOutput
 }
 
-// Server Endpoint sync status
 type ServerEndpointSyncStatusResponseArgs struct {
 	// Combined Health Status.
 	CombinedHealth pulumi.StringInput `pulumi:"combinedHealth"`
@@ -3042,7 +2992,6 @@ func (i *serverEndpointSyncStatusResponsePtrType) ToServerEndpointSyncStatusResp
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncStatusResponsePtrOutput)
 }
 
-// Server Endpoint sync status
 type ServerEndpointSyncStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointSyncStatusResponseOutput) ElementType() reflect.Type {

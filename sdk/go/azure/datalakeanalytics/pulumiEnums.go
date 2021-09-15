@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of AAD object the object identifier refers to.
 type AADObjectType string
 
 const (
@@ -176,7 +175,6 @@ func (in *aadobjectTypePtr) ToAADObjectTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AADObjectTypePtrOutput)
 }
 
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
 type FirewallAllowAzureIpsState string
 
 const (
@@ -341,7 +339,6 @@ func (in *firewallAllowAzureIpsStatePtr) ToFirewallAllowAzureIpsStatePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallAllowAzureIpsStatePtrOutput)
 }
 
-// The current state of the IP address firewall for this account.
 type FirewallState string
 
 const (
@@ -506,7 +503,6 @@ func (in *firewallStatePtr) ToFirewallStatePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallStatePtrOutput)
 }
 
-// The commitment tier for the next month.
 type TierType string
 
 const (

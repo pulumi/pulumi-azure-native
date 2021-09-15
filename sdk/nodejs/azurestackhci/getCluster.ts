@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster details.
- * API Version: 2021-09-01.
+ * API Version: 2020-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -55,10 +55,6 @@ export interface GetClusterResult {
      */
     readonly cloudId: string;
     /**
-     * Endpoint configured for management from the Azure portal.
-     */
-    readonly cloudManagementEndpoint?: string;
-    /**
      * The timestamp of resource creation (UTC).
      */
     readonly createdAt?: string;
@@ -70,10 +66,6 @@ export interface GetClusterResult {
      * The type of identity that created the resource.
      */
     readonly createdByType?: string;
-    /**
-     * Desired properties of the cluster.
-     */
-    readonly desiredProperties?: outputs.azurestackhci.ClusterDesiredPropertiesResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -117,7 +109,7 @@ export interface GetClusterResult {
     /**
      * Properties reported by cluster agent.
      */
-    readonly reportedProperties: outputs.azurestackhci.ClusterReportedPropertiesResponse;
+    readonly reportedProperties?: outputs.azurestackhci.ClusterReportedPropertiesResponse;
     /**
      * Status of the cluster agent.
      */

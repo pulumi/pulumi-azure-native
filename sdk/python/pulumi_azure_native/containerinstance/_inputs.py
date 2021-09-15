@@ -14,7 +14,7 @@ __all__ = [
     'ContainerExecArgs',
     'ContainerGroupDiagnosticsArgs',
     'ContainerGroupIdentityArgs',
-    'ContainerGroupSubnetIdArgs',
+    'ContainerGroupNetworkProfileArgs',
     'ContainerHttpGetArgs',
     'ContainerPortArgs',
     'ContainerProbeArgs',
@@ -24,7 +24,7 @@ __all__ = [
     'EnvironmentVariableArgs',
     'GitRepoVolumeArgs',
     'GpuResourceArgs',
-    'HttpHeaderArgs',
+    'HttpHeadersArgs',
     'ImageRegistryCredentialArgs',
     'InitContainerDefinitionArgs',
     'IpAddressArgs',
@@ -196,24 +196,20 @@ class ContainerGroupIdentityArgs:
 
 
 @pulumi.input_type
-class ContainerGroupSubnetIdArgs:
+class ContainerGroupNetworkProfileArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 id: pulumi.Input[str]):
         """
-        Container group subnet information.
-        :param pulumi.Input[str] id: Resource ID of virtual network and subnet.
-        :param pulumi.Input[str] name: Friendly name for the subnet.
+        Container group network profile information.
+        :param pulumi.Input[str] id: The identifier for a network profile.
         """
         pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Resource ID of virtual network and subnet.
+        The identifier for a network profile.
         """
         return pulumi.get(self, "id")
 
@@ -221,30 +217,18 @@ class ContainerGroupSubnetIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Friendly name for the subnet.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class ContainerHttpGetArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]] = None,
+                 http_headers: Optional[pulumi.Input['HttpHeadersArgs']] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param pulumi.Input[int] port: The port number to probe.
-        :param pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]] http_headers: The HTTP headers.
+        :param pulumi.Input['HttpHeadersArgs'] http_headers: The HTTP headers.
         :param pulumi.Input[str] path: The path to probe.
         :param pulumi.Input[Union[str, 'Scheme']] scheme: The scheme.
         """
@@ -270,14 +254,14 @@ class ContainerHttpGetArgs:
 
     @property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]:
+    def http_headers(self) -> Optional[pulumi.Input['HttpHeadersArgs']]:
         """
         The HTTP headers.
         """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]):
+    def http_headers(self, value: Optional[pulumi.Input['HttpHeadersArgs']]):
         pulumi.set(self, "http_headers", value)
 
     @property
@@ -870,12 +854,12 @@ class GpuResourceArgs:
 
 
 @pulumi.input_type
-class HttpHeaderArgs:
+class HttpHeadersArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The HTTP header.
+        The HTTP headers.
         :param pulumi.Input[str] name: The header name.
         :param pulumi.Input[str] value: The header value.
         """
@@ -914,23 +898,15 @@ class ImageRegistryCredentialArgs:
     def __init__(__self__, *,
                  server: pulumi.Input[str],
                  username: pulumi.Input[str],
-                 identity: Optional[pulumi.Input[str]] = None,
-                 identity_url: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
         Image registry credential.
         :param pulumi.Input[str] server: The Docker image registry server without a protocol such as "http" and "https".
         :param pulumi.Input[str] username: The username for the private registry.
-        :param pulumi.Input[str] identity: The identity for the private registry.
-        :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "username", username)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if identity_url is not None:
-            pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
 
@@ -957,30 +933,6 @@ class ImageRegistryCredentialArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity for the private registry.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter(name="identityUrl")
-    def identity_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity URL for the private registry.
-        """
-        return pulumi.get(self, "identity_url")
-
-    @identity_url.setter
-    def identity_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "identity_url", value)
 
     @property
     @pulumi.getter
@@ -1159,14 +1111,14 @@ class LogAnalyticsArgs:
                  workspace_key: pulumi.Input[str],
                  log_type: Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
+                 workspace_resource_id: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Container group log analytics information.
         :param pulumi.Input[str] workspace_id: The workspace id for log analytics
         :param pulumi.Input[str] workspace_key: The workspace key for log analytics
         :param pulumi.Input[Union[str, 'LogAnalyticsLogType']] log_type: The log type to be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata for log analytics.
-        :param pulumi.Input[str] workspace_resource_id: The workspace resource id for log analytics
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] workspace_resource_id: The workspace resource id for log analytics
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         pulumi.set(__self__, "workspace_key", workspace_key)
@@ -1227,14 +1179,14 @@ class LogAnalyticsArgs:
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+    def workspace_resource_id(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The workspace resource id for log analytics
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+    def workspace_resource_id(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 

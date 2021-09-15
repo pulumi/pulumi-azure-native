@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Read only system data
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -37,7 +36,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -106,7 +104,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

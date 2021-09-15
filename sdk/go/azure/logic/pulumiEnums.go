@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The agreement type.
 type AgreementType string
 
 const (
@@ -177,7 +176,6 @@ func (in *agreementTypePtr) ToAgreementTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AgreementTypePtrOutput)
 }
 
-// The day of the week.
 type DayOfWeek string
 
 const (
@@ -561,7 +559,6 @@ func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) DaysOfWeekOutput {
 	}).(DaysOfWeekOutput)
 }
 
-// The EDIFACT frame setting characterSet.
 type EdifactCharacterSet string
 
 const (
@@ -739,7 +736,6 @@ func (in *edifactCharacterSetPtr) ToEdifactCharacterSetPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EdifactCharacterSetPtrOutput)
 }
 
-// The EDIFACT frame setting decimal indicator.
 type EdifactDecimalIndicator string
 
 const (
@@ -905,7 +901,6 @@ func (in *edifactDecimalIndicatorPtr) ToEdifactDecimalIndicatorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(EdifactDecimalIndicatorPtrOutput)
 }
 
-// The encryption algorithm.
 type EncryptionAlgorithm string
 
 const (
@@ -1075,7 +1070,6 @@ func (in *encryptionAlgorithmPtr) ToEncryptionAlgorithmPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionAlgorithmPtrOutput)
 }
 
-// The signing or hashing algorithm.
 type HashingAlgorithm string
 
 const (
@@ -1245,7 +1239,6 @@ func (in *hashingAlgorithmPtr) ToHashingAlgorithmPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(HashingAlgorithmPtrOutput)
 }
 
-// The sku name.
 type IntegrationAccountSkuName string
 
 const (
@@ -1412,7 +1405,6 @@ func (in *integrationAccountSkuNamePtr) ToIntegrationAccountSkuNamePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAccountSkuNamePtrOutput)
 }
 
-// The access endpoint type.
 type IntegrationServiceEnvironmentAccessEndpointType string
 
 const (
@@ -1578,7 +1570,6 @@ func (in *integrationServiceEnvironmentAccessEndpointTypePtr) ToIntegrationServi
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationServiceEnvironmentAccessEndpointTypePtrOutput)
 }
 
-// The sku name.
 type IntegrationServiceEnvironmentSkuName string
 
 const (
@@ -1744,7 +1735,6 @@ func (in *integrationServiceEnvironmentSkuNamePtr) ToIntegrationServiceEnvironme
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationServiceEnvironmentSkuNamePtrOutput)
 }
 
-// The key type.
 type KeyType string
 
 const (
@@ -1910,7 +1900,6 @@ func (in *keyTypePtr) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyType
 	return pulumi.ToOutputWithContext(ctx, in).(KeyTypePtrOutput)
 }
 
-// The map type.
 type MapType string
 
 const (
@@ -2078,7 +2067,6 @@ func (in *mapTypePtr) ToMapTypePtrOutputWithContext(ctx context.Context) MapType
 	return pulumi.ToOutputWithContext(ctx, in).(MapTypePtrOutput)
 }
 
-// The message filter type.
 type MessageFilterType string
 
 const (
@@ -2244,7 +2232,6 @@ func (in *messageFilterTypePtr) ToMessageFilterTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(MessageFilterTypePtrOutput)
 }
 
-// The type.
 type ParameterType string
 
 const (
@@ -2416,7 +2403,6 @@ func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
 }
 
-// The partner type.
 type PartnerType string
 
 const (
@@ -2581,7 +2567,6 @@ func (in *partnerTypePtr) ToPartnerTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(PartnerTypePtrOutput)
 }
 
-// The frequency.
 type RecurrenceFrequency string
 
 const (
@@ -2752,7 +2737,6 @@ func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceFrequencyPtrOutput)
 }
 
-// The value indicating whether the RosettaNet PIP is used for a single action.
 type RosettaNetActionType string
 
 const (
@@ -2918,7 +2902,6 @@ func (in *rosettaNetActionTypePtr) ToRosettaNetActionTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(RosettaNetActionTypePtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration activity type.
 type RosettaNetPipActivityType string
 
 const (
@@ -3088,7 +3071,6 @@ func (in *rosettaNetPipActivityTypePtr) ToRosettaNetPipActivityTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(RosettaNetPipActivityTypePtrOutput)
 }
 
-// The persistent confidentiality encryption scope.
 type RosettaNetPipConfidentialityScope string
 
 const (
@@ -3255,7 +3237,6 @@ func (in *rosettaNetPipConfidentialityScopePtr) ToRosettaNetPipConfidentialitySc
 	return pulumi.ToOutputWithContext(ctx, in).(RosettaNetPipConfidentialityScopePtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration role type.
 type RosettaNetPipRoleType string
 
 const (
@@ -3422,7 +3403,6 @@ func (in *rosettaNetPipRoleTypePtr) ToRosettaNetPipRoleTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RosettaNetPipRoleTypePtrOutput)
 }
 
-// The value indicating whether the RosettaNet PIP communication is synchronous.
 type RosettaNetResponseType string
 
 const (
@@ -3588,7 +3568,6 @@ func (in *rosettaNetResponseTypePtr) ToRosettaNetResponseTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(RosettaNetResponseTypePtrOutput)
 }
 
-// The schema type.
 type SchemaType string
 
 const (
@@ -3753,7 +3732,6 @@ func (in *schemaTypePtr) ToSchemaTypePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaTypePtrOutput)
 }
 
-// The segment terminator suffix.
 type SegmentTerminatorSuffix string
 
 const (
@@ -3921,7 +3899,6 @@ func (in *segmentTerminatorSuffixPtr) ToSegmentTerminatorSuffixPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(SegmentTerminatorSuffixPtrOutput)
 }
 
-// The signing algorithm.
 type SigningAlgorithm string
 
 const (
@@ -4090,7 +4067,6 @@ func (in *signingAlgorithmPtr) ToSigningAlgorithmPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(SigningAlgorithmPtrOutput)
 }
 
-// The trailing separator policy.
 type TrailingSeparatorPolicy string
 
 const (
@@ -4257,7 +4233,6 @@ func (in *trailingSeparatorPolicyPtr) ToTrailingSeparatorPolicyPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(TrailingSeparatorPolicyPtrOutput)
 }
 
-// The usage indicator.
 type UsageIndicator string
 
 const (
@@ -4424,7 +4399,6 @@ func (in *usageIndicatorPtr) ToUsageIndicatorPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(UsageIndicatorPtrOutput)
 }
 
-// The provisioning state.
 type WorkflowProvisioningState string
 
 const (
@@ -4609,7 +4583,6 @@ func (in *workflowProvisioningStatePtr) ToWorkflowProvisioningStatePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowProvisioningStatePtrOutput)
 }
 
-// The state.
 type WorkflowStateEnum string
 
 const (
@@ -4778,7 +4751,6 @@ func (in *workflowStateEnumPtr) ToWorkflowStateEnumPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStateEnumPtrOutput)
 }
 
-// The X12 character set.
 type X12CharacterSet string
 
 const (
@@ -4945,7 +4917,6 @@ func (in *x12characterSetPtr) ToX12CharacterSetPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(X12CharacterSetPtrOutput)
 }
 
-// The group header date format.
 type X12DateFormat string
 
 const (
@@ -5111,7 +5082,6 @@ func (in *x12dateFormatPtr) ToX12DateFormatPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(X12DateFormatPtrOutput)
 }
 
-// The group header time format.
 type X12TimeFormat string
 
 const (

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App resource properties payload
 type AppResourceProperties struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
@@ -37,7 +36,6 @@ type AppResourcePropertiesInput interface {
 	ToAppResourcePropertiesOutputWithContext(context.Context) AppResourcePropertiesOutput
 }
 
-// App resource properties payload
 type AppResourcePropertiesArgs struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
@@ -106,7 +104,6 @@ func (i *appResourcePropertiesPtrType) ToAppResourcePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourcePropertiesPtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AppResourcePropertiesOutput) ElementType() reflect.Type {
@@ -245,7 +242,6 @@ func (o AppResourcePropertiesPtrOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 	}).(TemporaryDiskPtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponse struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
@@ -278,7 +274,6 @@ type AppResourcePropertiesResponseInput interface {
 	ToAppResourcePropertiesResponseOutputWithContext(context.Context) AppResourcePropertiesResponseOutput
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponseArgs struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
@@ -353,7 +348,6 @@ func (i *appResourcePropertiesResponsePtrType) ToAppResourcePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourcePropertiesResponsePtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AppResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -537,7 +531,6 @@ func (o AppResourcePropertiesResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourceProperties struct {
 	// Binding parameters of the Binding resource
 	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
@@ -558,7 +551,6 @@ type BindingResourcePropertiesInput interface {
 	ToBindingResourcePropertiesOutputWithContext(context.Context) BindingResourcePropertiesOutput
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesArgs struct {
 	// Binding parameters of the Binding resource
 	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
@@ -621,7 +613,6 @@ func (i *bindingResourcePropertiesPtrType) ToBindingResourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BindingResourcePropertiesPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BindingResourcePropertiesOutput) ElementType() reflect.Type {
@@ -715,7 +706,6 @@ func (o BindingResourcePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponse struct {
 	// Binding parameters of the Binding resource
 	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
@@ -746,7 +736,6 @@ type BindingResourcePropertiesResponseInput interface {
 	ToBindingResourcePropertiesResponseOutputWithContext(context.Context) BindingResourcePropertiesResponseOutput
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponseArgs struct {
 	// Binding parameters of the Binding resource
 	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
@@ -819,7 +808,6 @@ func (i *bindingResourcePropertiesResponsePtrType) ToBindingResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(BindingResourcePropertiesResponsePtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BindingResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -988,7 +976,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) UpdatedAt() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificateProperties struct {
 	// The certificate version of key vault.
 	CertVersion *string `pulumi:"certVersion"`
@@ -1009,7 +996,6 @@ type CertificatePropertiesInput interface {
 	ToCertificatePropertiesOutputWithContext(context.Context) CertificatePropertiesOutput
 }
 
-// Certificate resource payload.
 type CertificatePropertiesArgs struct {
 	// The certificate version of key vault.
 	CertVersion pulumi.StringPtrInput `pulumi:"certVersion"`
@@ -1072,7 +1058,6 @@ func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesOutput) ElementType() reflect.Type {
@@ -1166,7 +1151,6 @@ func (o CertificatePropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponse struct {
 	// The activate date of certificate.
 	ActivateDate string `pulumi:"activateDate"`
@@ -1201,7 +1185,6 @@ type CertificatePropertiesResponseInput interface {
 	ToCertificatePropertiesResponseOutputWithContext(context.Context) CertificatePropertiesResponseOutput
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponseArgs struct {
 	// The activate date of certificate.
 	ActivateDate pulumi.StringInput `pulumi:"activateDate"`
@@ -1278,7 +1261,6 @@ func (i *certificatePropertiesResponsePtrType) ToCertificatePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesResponsePtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1477,7 +1459,6 @@ func (o CertificatePropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service properties payload
 type ClusterResourceProperties struct {
 	// Network profile of the Service
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
@@ -1494,7 +1475,6 @@ type ClusterResourcePropertiesInput interface {
 	ToClusterResourcePropertiesOutputWithContext(context.Context) ClusterResourcePropertiesOutput
 }
 
-// Service properties payload
 type ClusterResourcePropertiesArgs struct {
 	// Network profile of the Service
 	NetworkProfile NetworkProfilePtrInput `pulumi:"networkProfile"`
@@ -1553,7 +1533,6 @@ func (i *clusterResourcePropertiesPtrType) ToClusterResourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesPtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcePropertiesOutput) ElementType() reflect.Type {
@@ -1617,7 +1596,6 @@ func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOu
 	}).(NetworkProfilePtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponse struct {
 	// Network profile of the Service
 	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
@@ -1640,7 +1618,6 @@ type ClusterResourcePropertiesResponseInput interface {
 	ToClusterResourcePropertiesResponseOutputWithContext(context.Context) ClusterResourcePropertiesResponseOutput
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponseArgs struct {
 	// Network profile of the Service
 	NetworkProfile NetworkProfileResponsePtrInput `pulumi:"networkProfile"`
@@ -1705,7 +1682,6 @@ func (i *clusterResourcePropertiesResponsePtrType) ToClusterResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesResponsePtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1814,7 +1790,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) Version() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainProperties struct {
 	// The bound certificate name of domain.
 	CertName *string `pulumi:"certName"`
@@ -1833,7 +1808,6 @@ type CustomDomainPropertiesInput interface {
 	ToCustomDomainPropertiesOutputWithContext(context.Context) CustomDomainPropertiesOutput
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesArgs struct {
 	// The bound certificate name of domain.
 	CertName pulumi.StringPtrInput `pulumi:"certName"`
@@ -1894,7 +1868,6 @@ func (i *customDomainPropertiesPtrType) ToCustomDomainPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesPtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPropertiesOutput) ElementType() reflect.Type {
@@ -1973,7 +1946,6 @@ func (o CustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponse struct {
 	// The app name of domain.
 	AppName string `pulumi:"appName"`
@@ -1994,7 +1966,6 @@ type CustomDomainPropertiesResponseInput interface {
 	ToCustomDomainPropertiesResponseOutputWithContext(context.Context) CustomDomainPropertiesResponseOutput
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponseArgs struct {
 	// The app name of domain.
 	AppName pulumi.StringInput `pulumi:"appName"`
@@ -2057,7 +2028,6 @@ func (i *customDomainPropertiesResponsePtrType) ToCustomDomainPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesResponsePtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2151,7 +2121,6 @@ func (o CustomDomainPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponse struct {
 	// Discovery status of the deployment instance
 	DiscoveryStatus string `pulumi:"discoveryStatus"`
@@ -2176,7 +2145,6 @@ type DeploymentInstanceResponseInput interface {
 	ToDeploymentInstanceResponseOutputWithContext(context.Context) DeploymentInstanceResponseOutput
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponseArgs struct {
 	// Discovery status of the deployment instance
 	DiscoveryStatus pulumi.StringInput `pulumi:"discoveryStatus"`
@@ -2227,7 +2195,6 @@ func (i DeploymentInstanceResponseArray) ToDeploymentInstanceResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentInstanceResponseArrayOutput)
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentInstanceResponseOutput) ElementType() reflect.Type {
@@ -2287,7 +2254,6 @@ func (o DeploymentInstanceResponseArrayOutput) Index(i pulumi.IntInput) Deployme
 	}).(DeploymentInstanceResponseOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourceProperties struct {
 	// Deployment settings of the Deployment
 	DeploymentSettings *DeploymentSettings `pulumi:"deploymentSettings"`
@@ -2306,7 +2272,6 @@ type DeploymentResourcePropertiesInput interface {
 	ToDeploymentResourcePropertiesOutputWithContext(context.Context) DeploymentResourcePropertiesOutput
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesArgs struct {
 	// Deployment settings of the Deployment
 	DeploymentSettings DeploymentSettingsPtrInput `pulumi:"deploymentSettings"`
@@ -2367,7 +2332,6 @@ func (i *deploymentResourcePropertiesPtrType) ToDeploymentResourcePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentResourcePropertiesPtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (DeploymentResourcePropertiesOutput) ElementType() reflect.Type {
@@ -2446,7 +2410,6 @@ func (o DeploymentResourcePropertiesPtrOutput) Source() UserSourceInfoPtrOutput 
 	}).(UserSourceInfoPtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponse struct {
 	// Indicates whether the Deployment is active
 	Active bool `pulumi:"active"`
@@ -2477,7 +2440,6 @@ type DeploymentResourcePropertiesResponseInput interface {
 	ToDeploymentResourcePropertiesResponseOutputWithContext(context.Context) DeploymentResourcePropertiesResponseOutput
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponseArgs struct {
 	// Indicates whether the Deployment is active
 	Active pulumi.BoolInput `pulumi:"active"`
@@ -2550,7 +2512,6 @@ func (i *deploymentResourcePropertiesResponsePtrType) ToDeploymentResourceProper
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentResourcePropertiesResponsePtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2719,7 +2680,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettings struct {
 	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 	Cpu *int `pulumi:"cpu"`
@@ -2746,7 +2706,6 @@ type DeploymentSettingsInput interface {
 	ToDeploymentSettingsOutputWithContext(context.Context) DeploymentSettingsOutput
 }
 
-// Deployment settings payload
 type DeploymentSettingsArgs struct {
 	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
@@ -2815,7 +2774,6 @@ func (i *deploymentSettingsPtrType) ToDeploymentSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentSettingsOutput) ElementType() reflect.Type {
@@ -2954,7 +2912,6 @@ func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponse struct {
 	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 	Cpu *int `pulumi:"cpu"`
@@ -2981,7 +2938,6 @@ type DeploymentSettingsResponseInput interface {
 	ToDeploymentSettingsResponseOutputWithContext(context.Context) DeploymentSettingsResponseOutput
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponseArgs struct {
 	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
@@ -3050,7 +3006,6 @@ func (i *deploymentSettingsResponsePtrType) ToDeploymentSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsResponsePtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentSettingsResponseOutput) ElementType() reflect.Type {
@@ -3189,7 +3144,6 @@ func (o DeploymentSettingsResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityProperties struct {
 	// Principal Id
 	PrincipalId *string `pulumi:"principalId"`
@@ -3210,7 +3164,6 @@ type ManagedIdentityPropertiesInput interface {
 	ToManagedIdentityPropertiesOutputWithContext(context.Context) ManagedIdentityPropertiesOutput
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesArgs struct {
 	// Principal Id
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3273,7 +3226,6 @@ func (i *managedIdentityPropertiesPtrType) ToManagedIdentityPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPropertiesPtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPropertiesOutput) ElementType() reflect.Type {
@@ -3367,7 +3319,6 @@ func (o ManagedIdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponse struct {
 	// Principal Id
 	PrincipalId *string `pulumi:"principalId"`
@@ -3388,7 +3339,6 @@ type ManagedIdentityPropertiesResponseInput interface {
 	ToManagedIdentityPropertiesResponseOutputWithContext(context.Context) ManagedIdentityPropertiesResponseOutput
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponseArgs struct {
 	// Principal Id
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3451,7 +3401,6 @@ func (i *managedIdentityPropertiesResponsePtrType) ToManagedIdentityPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPropertiesResponsePtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3545,7 +3494,6 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfile struct {
 	// Name of the resource group containing network resources of Azure Spring Cloud Apps
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
@@ -3570,7 +3518,6 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Service network profile payload
 type NetworkProfileArgs struct {
 	// Name of the resource group containing network resources of Azure Spring Cloud Apps
 	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
@@ -3637,7 +3584,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -3761,7 +3707,6 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileResponse struct {
 	// Name of the resource group containing network resources of Azure Spring Cloud Apps
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
@@ -3790,7 +3735,6 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Service network profile payload
 type NetworkProfileResponseArgs struct {
 	// Name of the resource group containing network resources of Azure Spring Cloud Apps
 	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
@@ -3861,7 +3805,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -4015,7 +3958,6 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPs struct {
 	// A list of public IP addresses.
 	PublicIPs []string `pulumi:"publicIPs"`
@@ -4032,7 +3974,6 @@ type NetworkProfileResponseOutboundIPsInput interface {
 	ToNetworkProfileResponseOutboundIPsOutputWithContext(context.Context) NetworkProfileResponseOutboundIPsOutput
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPsArgs struct {
 	// A list of public IP addresses.
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
@@ -4091,7 +4032,6 @@ func (i *networkProfileResponseOutboundIPsPtrType) ToNetworkProfileResponseOutbo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
@@ -4155,7 +4095,6 @@ func (o NetworkProfileResponseOutboundIPsPtrOutput) PublicIPs() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Persistent disk payload
 type PersistentDisk struct {
 	// Mount path of the persistent disk
 	MountPath *string `pulumi:"mountPath"`
@@ -4174,7 +4113,6 @@ type PersistentDiskInput interface {
 	ToPersistentDiskOutputWithContext(context.Context) PersistentDiskOutput
 }
 
-// Persistent disk payload
 type PersistentDiskArgs struct {
 	// Mount path of the persistent disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
@@ -4235,7 +4173,6 @@ func (i *persistentDiskPtrType) ToPersistentDiskPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskPtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskOutput struct{ *pulumi.OutputState }
 
 func (PersistentDiskOutput) ElementType() reflect.Type {
@@ -4314,7 +4251,6 @@ func (o PersistentDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskResponse struct {
 	// Mount path of the persistent disk
 	MountPath *string `pulumi:"mountPath"`
@@ -4335,7 +4271,6 @@ type PersistentDiskResponseInput interface {
 	ToPersistentDiskResponseOutputWithContext(context.Context) PersistentDiskResponseOutput
 }
 
-// Persistent disk payload
 type PersistentDiskResponseArgs struct {
 	// Mount path of the persistent disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
@@ -4398,7 +4333,6 @@ func (i *persistentDiskResponsePtrType) ToPersistentDiskResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskResponsePtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (PersistentDiskResponseOutput) ElementType() reflect.Type {
@@ -4492,7 +4426,6 @@ func (o PersistentDiskResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponse struct {
 	// The direction of required traffic
 	Direction string `pulumi:"direction"`
@@ -4517,7 +4450,6 @@ type RequiredTrafficResponseInput interface {
 	ToRequiredTrafficResponseOutputWithContext(context.Context) RequiredTrafficResponseOutput
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponseArgs struct {
 	// The direction of required traffic
 	Direction pulumi.StringInput `pulumi:"direction"`
@@ -4568,7 +4500,6 @@ func (i RequiredTrafficResponseArray) ToRequiredTrafficResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RequiredTrafficResponseArrayOutput)
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponseOutput struct{ *pulumi.OutputState }
 
 func (RequiredTrafficResponseOutput) ElementType() reflect.Type {
@@ -4628,7 +4559,6 @@ func (o RequiredTrafficResponseArrayOutput) Index(i pulumi.IntInput) RequiredTra
 	}).(RequiredTrafficResponseOutput)
 }
 
-// Sku of Azure Spring Cloud
 type Sku struct {
 	// Current capacity of the target resource
 	Capacity *int `pulumi:"capacity"`
@@ -4649,7 +4579,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku of Azure Spring Cloud
 type SkuArgs struct {
 	// Current capacity of the target resource
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -4712,7 +4641,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -4806,7 +4734,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponse struct {
 	// Current capacity of the target resource
 	Capacity *int `pulumi:"capacity"`
@@ -4827,7 +4754,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponseArgs struct {
 	// Current capacity of the target resource
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -4890,7 +4816,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -4984,7 +4909,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDisk struct {
 	// Mount path of the temporary disk
 	MountPath *string `pulumi:"mountPath"`
@@ -5003,7 +4927,6 @@ type TemporaryDiskInput interface {
 	ToTemporaryDiskOutputWithContext(context.Context) TemporaryDiskOutput
 }
 
-// Temporary disk payload
 type TemporaryDiskArgs struct {
 	// Mount path of the temporary disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
@@ -5064,7 +4987,6 @@ func (i *temporaryDiskPtrType) ToTemporaryDiskPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskOutput struct{ *pulumi.OutputState }
 
 func (TemporaryDiskOutput) ElementType() reflect.Type {
@@ -5143,7 +5065,6 @@ func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskResponse struct {
 	// Mount path of the temporary disk
 	MountPath *string `pulumi:"mountPath"`
@@ -5162,7 +5083,6 @@ type TemporaryDiskResponseInput interface {
 	ToTemporaryDiskResponseOutputWithContext(context.Context) TemporaryDiskResponseOutput
 }
 
-// Temporary disk payload
 type TemporaryDiskResponseArgs struct {
 	// Mount path of the temporary disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
@@ -5223,7 +5143,6 @@ func (i *temporaryDiskResponsePtrType) ToTemporaryDiskResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskResponsePtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (TemporaryDiskResponseOutput) ElementType() reflect.Type {
@@ -5302,7 +5221,6 @@ func (o TemporaryDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfo struct {
 	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
 	// the relative path to the target module/project.
@@ -5326,7 +5244,6 @@ type UserSourceInfoInput interface {
 	ToUserSourceInfoOutputWithContext(context.Context) UserSourceInfoOutput
 }
 
-// Source information for a deployment
 type UserSourceInfoArgs struct {
 	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
 	// the relative path to the target module/project.
@@ -5392,7 +5309,6 @@ func (i *userSourceInfoPtrType) ToUserSourceInfoPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoOutput struct{ *pulumi.OutputState }
 
 func (UserSourceInfoOutput) ElementType() reflect.Type {
@@ -5503,7 +5419,6 @@ func (o UserSourceInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoResponse struct {
 	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
 	// the relative path to the target module/project.
@@ -5527,7 +5442,6 @@ type UserSourceInfoResponseInput interface {
 	ToUserSourceInfoResponseOutputWithContext(context.Context) UserSourceInfoResponseOutput
 }
 
-// Source information for a deployment
 type UserSourceInfoResponseArgs struct {
 	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
 	// the relative path to the target module/project.
@@ -5593,7 +5507,6 @@ func (i *userSourceInfoResponsePtrType) ToUserSourceInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoResponsePtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserSourceInfoResponseOutput) ElementType() reflect.Type {

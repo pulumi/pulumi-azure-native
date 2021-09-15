@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Default action when no other rule matches
 type ACLAction string
 
 const (
@@ -175,9 +174,6 @@ func (in *aclactionPtr) ToACLActionPtrOutputWithContext(ctx context.Context) ACL
 	return pulumi.ToOutputWithContext(ctx, in).(ACLActionPtrOutput)
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
 type FeatureFlags string
 
 const (
@@ -343,7 +339,6 @@ func (in *featureFlagsPtr) ToFeatureFlagsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureFlagsPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -510,7 +505,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 type ServiceKind string
 
 const (
@@ -675,7 +669,6 @@ func (in *serviceKindPtr) ToServiceKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceKindPtrOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 type SignalRRequestType string
 
 const (
@@ -842,9 +835,6 @@ func (in *signalRRequestTypePtr) ToSignalRRequestTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SignalRRequestTypePtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 type SignalRSkuTier string
 
 const (

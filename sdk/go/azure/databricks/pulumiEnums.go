@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 type KeySource string
 
 const (
@@ -175,7 +174,6 @@ func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) Key
 	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
 }
 
-// The status of a private endpoint connection
 type PrivateLinkServiceConnectionStatus string
 
 const (

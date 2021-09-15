@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilities struct {
 	// The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
 	UltraSSDEnabled *bool `pulumi:"ultraSSDEnabled"`
@@ -27,7 +26,6 @@ type AdditionalCapabilitiesInput interface {
 	ToAdditionalCapabilitiesOutputWithContext(context.Context) AdditionalCapabilitiesOutput
 }
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilitiesArgs struct {
 	// The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
 	UltraSSDEnabled pulumi.BoolPtrInput `pulumi:"ultraSSDEnabled"`
@@ -86,7 +84,6 @@ func (i *additionalCapabilitiesPtrType) ToAdditionalCapabilitiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalCapabilitiesPtrOutput)
 }
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (AdditionalCapabilitiesOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AdditionalCapabilitiesPtrOutput) UltraSSDEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilitiesResponse struct {
 	// The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
 	UltraSSDEnabled *bool `pulumi:"ultraSSDEnabled"`
@@ -167,7 +163,6 @@ type AdditionalCapabilitiesResponseInput interface {
 	ToAdditionalCapabilitiesResponseOutputWithContext(context.Context) AdditionalCapabilitiesResponseOutput
 }
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilitiesResponseArgs struct {
 	// The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
 	UltraSSDEnabled pulumi.BoolPtrInput `pulumi:"ultraSSDEnabled"`
@@ -226,7 +221,6 @@ func (i *additionalCapabilitiesResponsePtrType) ToAdditionalCapabilitiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalCapabilitiesResponsePtrOutput)
 }
 
-// Enables or disables a capability on the virtual machine or virtual machine scale set.
 type AdditionalCapabilitiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalCapabilitiesResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o AdditionalCapabilitiesResponsePtrOutput) UltraSSDEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContent struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
 	ComponentName *ComponentNames `pulumi:"componentName"`
@@ -313,7 +306,6 @@ type AdditionalUnattendContentInput interface {
 	ToAdditionalUnattendContentOutputWithContext(context.Context) AdditionalUnattendContentOutput
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentArgs struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
 	ComponentName ComponentNamesPtrInput `pulumi:"componentName"`
@@ -362,7 +354,6 @@ func (i AdditionalUnattendContentArray) ToAdditionalUnattendContentArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalUnattendContentArrayOutput)
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentOutput struct{ *pulumi.OutputState }
 
 func (AdditionalUnattendContentOutput) ElementType() reflect.Type {
@@ -417,7 +408,6 @@ func (o AdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) Additiona
 	}).(AdditionalUnattendContentOutput)
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentResponse struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
 	ComponentName *string `pulumi:"componentName"`
@@ -440,7 +430,6 @@ type AdditionalUnattendContentResponseInput interface {
 	ToAdditionalUnattendContentResponseOutputWithContext(context.Context) AdditionalUnattendContentResponseOutput
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentResponseArgs struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
 	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
@@ -489,7 +478,6 @@ func (i AdditionalUnattendContentResponseArray) ToAdditionalUnattendContentRespo
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalUnattendContentResponseArrayOutput)
 }
 
-// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalUnattendContentResponseOutput) ElementType() reflect.Type {
@@ -544,7 +532,6 @@ func (o AdditionalUnattendContentResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(AdditionalUnattendContentResponseOutput)
 }
 
-// The API entity reference.
 type ApiEntityReference struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
@@ -561,7 +548,6 @@ type ApiEntityReferenceInput interface {
 	ToApiEntityReferenceOutputWithContext(context.Context) ApiEntityReferenceOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceArgs struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -645,7 +631,6 @@ func (i ApiEntityReferenceArray) ToApiEntityReferenceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceArrayOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceOutput) ElementType() reflect.Type {
@@ -729,7 +714,6 @@ func (o ApiEntityReferenceArrayOutput) Index(i pulumi.IntInput) ApiEntityReferen
 	}).(ApiEntityReferenceOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponse struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
@@ -746,7 +730,6 @@ type ApiEntityReferenceResponseInput interface {
 	ToApiEntityReferenceResponseOutputWithContext(context.Context) ApiEntityReferenceResponseOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseArgs struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -830,7 +813,6 @@ func (i ApiEntityReferenceResponseArray) ToApiEntityReferenceResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceResponseArrayOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceResponseOutput) ElementType() reflect.Type {
@@ -914,7 +896,6 @@ func (o ApiEntityReferenceResponseArrayOutput) Index(i pulumi.IntInput) ApiEntit
 	}).(ApiEntityReferenceResponseOutput)
 }
 
-// Api error base.
 type ApiErrorBaseResponse struct {
 	// The error code.
 	Code *string `pulumi:"code"`
@@ -935,7 +916,6 @@ type ApiErrorBaseResponseInput interface {
 	ToApiErrorBaseResponseOutputWithContext(context.Context) ApiErrorBaseResponseOutput
 }
 
-// Api error base.
 type ApiErrorBaseResponseArgs struct {
 	// The error code.
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -982,7 +962,6 @@ func (i ApiErrorBaseResponseArray) ToApiErrorBaseResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorBaseResponseArrayOutput)
 }
 
-// Api error base.
 type ApiErrorBaseResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiErrorBaseResponseOutput) ElementType() reflect.Type {
@@ -1032,7 +1011,6 @@ func (o ApiErrorBaseResponseArrayOutput) Index(i pulumi.IntInput) ApiErrorBaseRe
 	}).(ApiErrorBaseResponseOutput)
 }
 
-// Api error.
 type ApiErrorResponse struct {
 	// The error code.
 	Code *string `pulumi:"code"`
@@ -1057,7 +1035,6 @@ type ApiErrorResponseInput interface {
 	ToApiErrorResponseOutputWithContext(context.Context) ApiErrorResponseOutput
 }
 
-// Api error.
 type ApiErrorResponseArgs struct {
 	// The error code.
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -1124,7 +1101,6 @@ func (i *apiErrorResponsePtrType) ToApiErrorResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorResponsePtrOutput)
 }
 
-// Api error.
 type ApiErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiErrorResponseOutput) ElementType() reflect.Type {
@@ -1248,7 +1224,6 @@ func (o ApiErrorResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicy struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
 	DisableAutomaticRollback *bool `pulumi:"disableAutomaticRollback"`
@@ -1267,7 +1242,6 @@ type AutomaticOSUpgradePolicyInput interface {
 	ToAutomaticOSUpgradePolicyOutputWithContext(context.Context) AutomaticOSUpgradePolicyOutput
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicyArgs struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
 	DisableAutomaticRollback pulumi.BoolPtrInput `pulumi:"disableAutomaticRollback"`
@@ -1328,7 +1302,6 @@ func (i *automaticOSUpgradePolicyPtrType) ToAutomaticOSUpgradePolicyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AutomaticOSUpgradePolicyPtrOutput)
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (AutomaticOSUpgradePolicyOutput) ElementType() reflect.Type {
@@ -1407,7 +1380,6 @@ func (o AutomaticOSUpgradePolicyPtrOutput) EnableAutomaticOSUpgrade() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicyResponse struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
 	DisableAutomaticRollback *bool `pulumi:"disableAutomaticRollback"`
@@ -1426,7 +1398,6 @@ type AutomaticOSUpgradePolicyResponseInput interface {
 	ToAutomaticOSUpgradePolicyResponseOutputWithContext(context.Context) AutomaticOSUpgradePolicyResponseOutput
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicyResponseArgs struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
 	DisableAutomaticRollback pulumi.BoolPtrInput `pulumi:"disableAutomaticRollback"`
@@ -1487,7 +1458,6 @@ func (i *automaticOSUpgradePolicyResponsePtrType) ToAutomaticOSUpgradePolicyResp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomaticOSUpgradePolicyResponsePtrOutput)
 }
 
-// The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomaticOSUpgradePolicyResponseOutput) ElementType() reflect.Type {
@@ -1566,7 +1536,6 @@ func (o AutomaticOSUpgradePolicyResponsePtrOutput) EnableAutomaticOSUpgrade() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicy struct {
 	// Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
 	Enabled *bool `pulumi:"enabled"`
@@ -1585,7 +1554,6 @@ type AutomaticRepairsPolicyInput interface {
 	ToAutomaticRepairsPolicyOutputWithContext(context.Context) AutomaticRepairsPolicyOutput
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicyArgs struct {
 	// Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1646,7 +1614,6 @@ func (i *automaticRepairsPolicyPtrType) ToAutomaticRepairsPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AutomaticRepairsPolicyPtrOutput)
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicyOutput struct{ *pulumi.OutputState }
 
 func (AutomaticRepairsPolicyOutput) ElementType() reflect.Type {
@@ -1725,7 +1692,6 @@ func (o AutomaticRepairsPolicyPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicyResponse struct {
 	// Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
 	Enabled *bool `pulumi:"enabled"`
@@ -1744,7 +1710,6 @@ type AutomaticRepairsPolicyResponseInput interface {
 	ToAutomaticRepairsPolicyResponseOutputWithContext(context.Context) AutomaticRepairsPolicyResponseOutput
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicyResponseArgs struct {
 	// Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1805,7 +1770,6 @@ func (i *automaticRepairsPolicyResponsePtrType) ToAutomaticRepairsPolicyResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutomaticRepairsPolicyResponsePtrOutput)
 }
 
-// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
 type AutomaticRepairsPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomaticRepairsPolicyResponseOutput) ElementType() reflect.Type {
@@ -1884,7 +1848,6 @@ func (o AutomaticRepairsPolicyResponsePtrOutput) GracePeriod() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of an virtual machine instance view for available patch summary.
 type AvailablePatchSummaryResponse struct {
 	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
 	AssessmentActivityId string `pulumi:"assessmentActivityId"`
@@ -1915,7 +1878,6 @@ type AvailablePatchSummaryResponseInput interface {
 	ToAvailablePatchSummaryResponseOutputWithContext(context.Context) AvailablePatchSummaryResponseOutput
 }
 
-// Describes the properties of an virtual machine instance view for available patch summary.
 type AvailablePatchSummaryResponseArgs struct {
 	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
 	AssessmentActivityId pulumi.StringInput `pulumi:"assessmentActivityId"`
@@ -1988,7 +1950,6 @@ func (i *availablePatchSummaryResponsePtrType) ToAvailablePatchSummaryResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AvailablePatchSummaryResponsePtrOutput)
 }
 
-// Describes the properties of an virtual machine instance view for available patch summary.
 type AvailablePatchSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (AvailablePatchSummaryResponseOutput) ElementType() reflect.Type {
@@ -2157,7 +2118,6 @@ func (o AvailablePatchSummaryResponsePtrOutput) Status() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfile struct {
 	// Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
 	MaxPrice *float64 `pulumi:"maxPrice"`
@@ -2174,7 +2134,6 @@ type BillingProfileInput interface {
 	ToBillingProfileOutputWithContext(context.Context) BillingProfileOutput
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfileArgs struct {
 	// Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
 	MaxPrice pulumi.Float64PtrInput `pulumi:"maxPrice"`
@@ -2233,7 +2192,6 @@ func (i *billingProfilePtrType) ToBillingProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BillingProfilePtrOutput)
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfileOutput struct{ *pulumi.OutputState }
 
 func (BillingProfileOutput) ElementType() reflect.Type {
@@ -2297,7 +2255,6 @@ func (o BillingProfilePtrOutput) MaxPrice() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfileResponse struct {
 	// Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
 	MaxPrice *float64 `pulumi:"maxPrice"`
@@ -2314,7 +2271,6 @@ type BillingProfileResponseInput interface {
 	ToBillingProfileResponseOutputWithContext(context.Context) BillingProfileResponseOutput
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfileResponseArgs struct {
 	// Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
 	MaxPrice pulumi.Float64PtrInput `pulumi:"maxPrice"`
@@ -2373,7 +2329,6 @@ func (i *billingProfileResponsePtrType) ToBillingProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BillingProfileResponsePtrOutput)
 }
 
-// Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (BillingProfileResponseOutput) ElementType() reflect.Type {
@@ -2437,7 +2392,6 @@ func (o BillingProfileResponsePtrOutput) MaxPrice() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnostics struct {
 	// Whether boot diagnostics should be enabled on the Virtual Machine.
 	Enabled *bool `pulumi:"enabled"`
@@ -2456,7 +2410,6 @@ type BootDiagnosticsInput interface {
 	ToBootDiagnosticsOutputWithContext(context.Context) BootDiagnosticsOutput
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnosticsArgs struct {
 	// Whether boot diagnostics should be enabled on the Virtual Machine.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2517,7 +2470,6 @@ func (i *bootDiagnosticsPtrType) ToBootDiagnosticsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsPtrOutput)
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (BootDiagnosticsOutput) ElementType() reflect.Type {
@@ -2596,7 +2548,6 @@ func (o BootDiagnosticsPtrOutput) StorageUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of a virtual machine boot diagnostics.
 type BootDiagnosticsInstanceViewResponse struct {
 	// The console screenshot blob URI. <br><br>NOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.
 	ConsoleScreenshotBlobUri string `pulumi:"consoleScreenshotBlobUri"`
@@ -2617,7 +2568,6 @@ type BootDiagnosticsInstanceViewResponseInput interface {
 	ToBootDiagnosticsInstanceViewResponseOutputWithContext(context.Context) BootDiagnosticsInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine boot diagnostics.
 type BootDiagnosticsInstanceViewResponseArgs struct {
 	// The console screenshot blob URI. <br><br>NOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.
 	ConsoleScreenshotBlobUri pulumi.StringInput `pulumi:"consoleScreenshotBlobUri"`
@@ -2680,7 +2630,6 @@ func (i *bootDiagnosticsInstanceViewResponsePtrType) ToBootDiagnosticsInstanceVi
 	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a virtual machine boot diagnostics.
 type BootDiagnosticsInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (BootDiagnosticsInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -2774,7 +2723,6 @@ func (o BootDiagnosticsInstanceViewResponsePtrOutput) Status() InstanceViewStatu
 	}).(InstanceViewStatusResponsePtrOutput)
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnosticsResponse struct {
 	// Whether boot diagnostics should be enabled on the Virtual Machine.
 	Enabled *bool `pulumi:"enabled"`
@@ -2793,7 +2741,6 @@ type BootDiagnosticsResponseInput interface {
 	ToBootDiagnosticsResponseOutputWithContext(context.Context) BootDiagnosticsResponseOutput
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnosticsResponseArgs struct {
 	// Whether boot diagnostics should be enabled on the Virtual Machine.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2854,7 +2801,6 @@ func (i *bootDiagnosticsResponsePtrType) ToBootDiagnosticsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsResponsePtrOutput)
 }
 
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 type BootDiagnosticsResponseOutput struct{ *pulumi.OutputState }
 
 func (BootDiagnosticsResponseOutput) ElementType() reflect.Type {
@@ -3072,7 +3018,6 @@ func (o CapacityReservationGroupInstanceViewResponsePtrOutput) CapacityReservati
 	}).(CapacityReservationInstanceViewWithNameResponseArrayOutput)
 }
 
-// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
 type CapacityReservationInstanceViewResponse struct {
 	// The resource status information.
 	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
@@ -3091,7 +3036,6 @@ type CapacityReservationInstanceViewResponseInput interface {
 	ToCapacityReservationInstanceViewResponseOutputWithContext(context.Context) CapacityReservationInstanceViewResponseOutput
 }
 
-// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
 type CapacityReservationInstanceViewResponseArgs struct {
 	// The resource status information.
 	Statuses InstanceViewStatusResponseArrayInput `pulumi:"statuses"`
@@ -3152,7 +3096,6 @@ func (i *capacityReservationInstanceViewResponsePtrType) ToCapacityReservationIn
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
 type CapacityReservationInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -3233,7 +3176,6 @@ func (o CapacityReservationInstanceViewResponsePtrOutput) UtilizationInfo() Capa
 	}).(CapacityReservationUtilizationResponsePtrOutput)
 }
 
-// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
 type CapacityReservationInstanceViewWithNameResponse struct {
 	// The name of the capacity reservation.
 	Name string `pulumi:"name"`
@@ -3254,7 +3196,6 @@ type CapacityReservationInstanceViewWithNameResponseInput interface {
 	ToCapacityReservationInstanceViewWithNameResponseOutputWithContext(context.Context) CapacityReservationInstanceViewWithNameResponseOutput
 }
 
-// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
 type CapacityReservationInstanceViewWithNameResponseArgs struct {
 	// The name of the capacity reservation.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3301,7 +3242,6 @@ func (i CapacityReservationInstanceViewWithNameResponseArray) ToCapacityReservat
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewWithNameResponseArrayOutput)
 }
 
-// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
 type CapacityReservationInstanceViewWithNameResponseOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationInstanceViewWithNameResponseOutput) ElementType() reflect.Type {
@@ -3355,7 +3295,6 @@ func (o CapacityReservationInstanceViewWithNameResponseArrayOutput) Index(i pulu
 	}).(CapacityReservationInstanceViewWithNameResponseOutput)
 }
 
-// Represents the capacity reservation utilization in terms of resources allocated.
 type CapacityReservationUtilizationResponse struct {
 	// A list of all virtual machines resource ids allocated against the capacity reservation.
 	VirtualMachinesAllocated []SubResourceReadOnlyResponse `pulumi:"virtualMachinesAllocated"`
@@ -3372,7 +3311,6 @@ type CapacityReservationUtilizationResponseInput interface {
 	ToCapacityReservationUtilizationResponseOutputWithContext(context.Context) CapacityReservationUtilizationResponseOutput
 }
 
-// Represents the capacity reservation utilization in terms of resources allocated.
 type CapacityReservationUtilizationResponseArgs struct {
 	// A list of all virtual machines resource ids allocated against the capacity reservation.
 	VirtualMachinesAllocated SubResourceReadOnlyResponseArrayInput `pulumi:"virtualMachinesAllocated"`
@@ -3431,7 +3369,6 @@ func (i *capacityReservationUtilizationResponsePtrType) ToCapacityReservationUti
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationUtilizationResponsePtrOutput)
 }
 
-// Represents the capacity reservation utilization in terms of resources allocated.
 type CapacityReservationUtilizationResponseOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationUtilizationResponseOutput) ElementType() reflect.Type {
@@ -3497,7 +3434,6 @@ func (o CapacityReservationUtilizationResponsePtrOutput) VirtualMachinesAllocate
 	}).(SubResourceReadOnlyResponseArrayOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfile struct {
 	// List of extensions for the cloud service.
 	Extensions []Extension `pulumi:"extensions"`
@@ -3514,7 +3450,6 @@ type CloudServiceExtensionProfileInput interface {
 	ToCloudServiceExtensionProfileOutputWithContext(context.Context) CloudServiceExtensionProfileOutput
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileArgs struct {
 	// List of extensions for the cloud service.
 	Extensions ExtensionArrayInput `pulumi:"extensions"`
@@ -3573,7 +3508,6 @@ func (i *cloudServiceExtensionProfilePtrType) ToCloudServiceExtensionProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfilePtrOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionProfileOutput) ElementType() reflect.Type {
@@ -3637,7 +3571,6 @@ func (o CloudServiceExtensionProfilePtrOutput) Extensions() ExtensionArrayOutput
 	}).(ExtensionArrayOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponse struct {
 	// List of extensions for the cloud service.
 	Extensions []ExtensionResponse `pulumi:"extensions"`
@@ -3654,7 +3587,6 @@ type CloudServiceExtensionProfileResponseInput interface {
 	ToCloudServiceExtensionProfileResponseOutputWithContext(context.Context) CloudServiceExtensionProfileResponseOutput
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponseArgs struct {
 	// List of extensions for the cloud service.
 	Extensions ExtensionResponseArrayInput `pulumi:"extensions"`
@@ -3713,7 +3645,6 @@ func (i *cloudServiceExtensionProfileResponsePtrType) ToCloudServiceExtensionPro
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionProfileResponseOutput) ElementType() reflect.Type {
@@ -3777,7 +3708,6 @@ func (o CloudServiceExtensionProfileResponsePtrOutput) Extensions() ExtensionRes
 	}).(ExtensionResponseArrayOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionProperties struct {
 	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -3813,7 +3743,6 @@ type CloudServiceExtensionPropertiesInput interface {
 	ToCloudServiceExtensionPropertiesOutputWithContext(context.Context) CloudServiceExtensionPropertiesOutput
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesArgs struct {
 	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -3891,7 +3820,6 @@ func (i *cloudServiceExtensionPropertiesPtrType) ToCloudServiceExtensionProperti
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesPtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionPropertiesOutput) ElementType() reflect.Type {
@@ -4083,7 +4011,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) TypeHandlerVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponse struct {
 	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -4121,7 +4048,6 @@ type CloudServiceExtensionPropertiesResponseInput interface {
 	ToCloudServiceExtensionPropertiesResponseOutputWithContext(context.Context) CloudServiceExtensionPropertiesResponseOutput
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponseArgs struct {
 	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -4201,7 +4127,6 @@ func (i *cloudServiceExtensionPropertiesResponsePtrType) ToCloudServiceExtension
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4408,7 +4333,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfile struct {
 	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
@@ -4427,7 +4351,6 @@ type CloudServiceNetworkProfileInput interface {
 	ToCloudServiceNetworkProfileOutputWithContext(context.Context) CloudServiceNetworkProfileOutput
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileArgs struct {
 	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations LoadBalancerConfigurationArrayInput `pulumi:"loadBalancerConfigurations"`
@@ -4488,7 +4411,6 @@ func (i *cloudServiceNetworkProfilePtrType) ToCloudServiceNetworkProfilePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceNetworkProfileOutput) ElementType() reflect.Type {
@@ -4567,7 +4489,6 @@ func (o CloudServiceNetworkProfilePtrOutput) SwappableCloudService() SubResource
 	}).(SubResourcePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponse struct {
 	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
@@ -4586,7 +4507,6 @@ type CloudServiceNetworkProfileResponseInput interface {
 	ToCloudServiceNetworkProfileResponseOutputWithContext(context.Context) CloudServiceNetworkProfileResponseOutput
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponseArgs struct {
 	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayInput `pulumi:"loadBalancerConfigurations"`
@@ -4647,7 +4567,6 @@ func (i *cloudServiceNetworkProfileResponsePtrType) ToCloudServiceNetworkProfile
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -4728,7 +4647,6 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) SwappableCloudService() Sub
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfile struct {
 	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets []CloudServiceVaultSecretGroup `pulumi:"secrets"`
@@ -4745,7 +4663,6 @@ type CloudServiceOsProfileInput interface {
 	ToCloudServiceOsProfileOutputWithContext(context.Context) CloudServiceOsProfileOutput
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileArgs struct {
 	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets CloudServiceVaultSecretGroupArrayInput `pulumi:"secrets"`
@@ -4804,7 +4721,6 @@ func (i *cloudServiceOsProfilePtrType) ToCloudServiceOsProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfilePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceOsProfileOutput) ElementType() reflect.Type {
@@ -4868,7 +4784,6 @@ func (o CloudServiceOsProfilePtrOutput) Secrets() CloudServiceVaultSecretGroupAr
 	}).(CloudServiceVaultSecretGroupArrayOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponse struct {
 	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets []CloudServiceVaultSecretGroupResponse `pulumi:"secrets"`
@@ -4885,7 +4800,6 @@ type CloudServiceOsProfileResponseInput interface {
 	ToCloudServiceOsProfileResponseOutputWithContext(context.Context) CloudServiceOsProfileResponseOutput
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponseArgs struct {
 	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets CloudServiceVaultSecretGroupResponseArrayInput `pulumi:"secrets"`
@@ -4944,7 +4858,6 @@ func (i *cloudServiceOsProfileResponsePtrType) ToCloudServiceOsProfileResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceOsProfileResponseOutput) ElementType() reflect.Type {
@@ -5008,7 +4921,6 @@ func (o CloudServiceOsProfileResponsePtrOutput) Secrets() CloudServiceVaultSecre
 	}).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
 
-// Cloud service properties
 type CloudServiceProperties struct {
 	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
 	// The default value is `false`.
@@ -5049,7 +4961,6 @@ type CloudServicePropertiesInput interface {
 	ToCloudServicePropertiesOutputWithContext(context.Context) CloudServicePropertiesOutput
 }
 
-// Cloud service properties
 type CloudServicePropertiesArgs struct {
 	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
 	// The default value is `false`.
@@ -5132,7 +5043,6 @@ func (i *cloudServicePropertiesPtrType) ToCloudServicePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesPtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServicePropertiesOutput) ElementType() reflect.Type {
@@ -5343,7 +5253,6 @@ func (o CloudServicePropertiesPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponse struct {
 	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
 	// The default value is `false`.
@@ -5388,7 +5297,6 @@ type CloudServicePropertiesResponseInput interface {
 	ToCloudServicePropertiesResponseOutputWithContext(context.Context) CloudServicePropertiesResponseOutput
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponseArgs struct {
 	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
 	// The default value is `false`.
@@ -5475,7 +5383,6 @@ func (i *cloudServicePropertiesResponsePtrType) ToCloudServicePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesResponsePtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServicePropertiesResponseOutput) ElementType() reflect.Type {
@@ -5718,7 +5625,6 @@ func (o CloudServicePropertiesResponsePtrOutput) UpgradeMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfile struct {
 	// List of roles for the cloud service.
 	Roles []CloudServiceRoleProfileProperties `pulumi:"roles"`
@@ -5735,7 +5641,6 @@ type CloudServiceRoleProfileInput interface {
 	ToCloudServiceRoleProfileOutputWithContext(context.Context) CloudServiceRoleProfileOutput
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileArgs struct {
 	// List of roles for the cloud service.
 	Roles CloudServiceRoleProfilePropertiesArrayInput `pulumi:"roles"`
@@ -5794,7 +5699,6 @@ func (i *cloudServiceRoleProfilePtrType) ToCloudServiceRoleProfilePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfileOutput) ElementType() reflect.Type {
@@ -5858,7 +5762,6 @@ func (o CloudServiceRoleProfilePtrOutput) Roles() CloudServiceRoleProfilePropert
 	}).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfileProperties struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
@@ -5877,7 +5780,6 @@ type CloudServiceRoleProfilePropertiesInput interface {
 	ToCloudServiceRoleProfilePropertiesOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesOutput
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesArgs struct {
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -5922,7 +5824,6 @@ func (i CloudServiceRoleProfilePropertiesArray) ToCloudServiceRoleProfilePropert
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfilePropertiesOutput) ElementType() reflect.Type {
@@ -5967,7 +5868,6 @@ func (o CloudServiceRoleProfilePropertiesArrayOutput) Index(i pulumi.IntInput) C
 	}).(CloudServiceRoleProfilePropertiesOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponse struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
@@ -5986,7 +5886,6 @@ type CloudServiceRoleProfilePropertiesResponseInput interface {
 	ToCloudServiceRoleProfilePropertiesResponseOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesResponseOutput
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponseArgs struct {
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -6031,7 +5930,6 @@ func (i CloudServiceRoleProfilePropertiesResponseArray) ToCloudServiceRoleProfil
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfilePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6076,7 +5974,6 @@ func (o CloudServiceRoleProfilePropertiesResponseArrayOutput) Index(i pulumi.Int
 	}).(CloudServiceRoleProfilePropertiesResponseOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponse struct {
 	// List of roles for the cloud service.
 	Roles []CloudServiceRoleProfilePropertiesResponse `pulumi:"roles"`
@@ -6093,7 +5990,6 @@ type CloudServiceRoleProfileResponseInput interface {
 	ToCloudServiceRoleProfileResponseOutputWithContext(context.Context) CloudServiceRoleProfileResponseOutput
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponseArgs struct {
 	// List of roles for the cloud service.
 	Roles CloudServiceRoleProfilePropertiesResponseArrayInput `pulumi:"roles"`
@@ -6152,7 +6048,6 @@ func (i *cloudServiceRoleProfileResponsePtrType) ToCloudServiceRoleProfileRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfileResponseOutput) ElementType() reflect.Type {
@@ -6216,7 +6111,6 @@ func (o CloudServiceRoleProfileResponsePtrOutput) Roles() CloudServiceRoleProfil
 	}).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSku struct {
 	// Specifies the number of role instances in the cloud service.
 	Capacity *float64 `pulumi:"capacity"`
@@ -6237,7 +6131,6 @@ type CloudServiceRoleSkuInput interface {
 	ToCloudServiceRoleSkuOutputWithContext(context.Context) CloudServiceRoleSkuOutput
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuArgs struct {
 	// Specifies the number of role instances in the cloud service.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
@@ -6300,7 +6193,6 @@ func (i *cloudServiceRoleSkuPtrType) ToCloudServiceRoleSkuPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuPtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleSkuOutput) ElementType() reflect.Type {
@@ -6394,7 +6286,6 @@ func (o CloudServiceRoleSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponse struct {
 	// Specifies the number of role instances in the cloud service.
 	Capacity *float64 `pulumi:"capacity"`
@@ -6415,7 +6306,6 @@ type CloudServiceRoleSkuResponseInput interface {
 	ToCloudServiceRoleSkuResponseOutputWithContext(context.Context) CloudServiceRoleSkuResponseOutput
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponseArgs struct {
 	// Specifies the number of role instances in the cloud service.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
@@ -6478,7 +6368,6 @@ func (i *cloudServiceRoleSkuResponsePtrType) ToCloudServiceRoleSkuResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuResponsePtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleSkuResponseOutput) ElementType() reflect.Type {
@@ -6868,7 +6757,6 @@ func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) SourceVault() SubR
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificate struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -6885,7 +6773,6 @@ type CloudServiceVaultCertificateInput interface {
 	ToCloudServiceVaultCertificateOutputWithContext(context.Context) CloudServiceVaultCertificateOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
@@ -6928,7 +6815,6 @@ func (i CloudServiceVaultCertificateArray) ToCloudServiceVaultCertificateArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultCertificateOutput) ElementType() reflect.Type {
@@ -6968,7 +6854,6 @@ func (o CloudServiceVaultCertificateArrayOutput) Index(i pulumi.IntInput) CloudS
 	}).(CloudServiceVaultCertificateOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponse struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -6985,7 +6870,6 @@ type CloudServiceVaultCertificateResponseInput interface {
 	ToCloudServiceVaultCertificateResponseOutputWithContext(context.Context) CloudServiceVaultCertificateResponseOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponseArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
@@ -7028,7 +6912,6 @@ func (i CloudServiceVaultCertificateResponseArray) ToCloudServiceVaultCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateResponseArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -7068,7 +6951,6 @@ func (o CloudServiceVaultCertificateResponseArrayOutput) Index(i pulumi.IntInput
 	}).(CloudServiceVaultCertificateResponseOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroup struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault *SubResource `pulumi:"sourceVault"`
@@ -7087,7 +6969,6 @@ type CloudServiceVaultSecretGroupInput interface {
 	ToCloudServiceVaultSecretGroupOutputWithContext(context.Context) CloudServiceVaultSecretGroupOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourcePtrInput `pulumi:"sourceVault"`
@@ -7132,7 +7013,6 @@ func (i CloudServiceVaultSecretGroupArray) ToCloudServiceVaultSecretGroupArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultSecretGroupOutput) ElementType() reflect.Type {
@@ -7177,7 +7057,6 @@ func (o CloudServiceVaultSecretGroupArrayOutput) Index(i pulumi.IntInput) CloudS
 	}).(CloudServiceVaultSecretGroupOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponse struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault *SubResourceResponse `pulumi:"sourceVault"`
@@ -7196,7 +7075,6 @@ type CloudServiceVaultSecretGroupResponseInput interface {
 	ToCloudServiceVaultSecretGroupResponseOutputWithContext(context.Context) CloudServiceVaultSecretGroupResponseOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponseArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceResponsePtrInput `pulumi:"sourceVault"`
@@ -7241,7 +7119,6 @@ func (i CloudServiceVaultSecretGroupResponseArray) ToCloudServiceVaultSecretGrou
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultSecretGroupResponseOutput) ElementType() reflect.Type {
@@ -7288,7 +7165,6 @@ func (o CloudServiceVaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput
 	}).(CloudServiceVaultSecretGroupResponseOutput)
 }
 
-// Data used when creating a disk.
 type CreationData struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption string `pulumi:"createOption"`
@@ -7319,7 +7195,6 @@ type CreationDataInput interface {
 	ToCreationDataOutputWithContext(context.Context) CreationDataOutput
 }
 
-// Data used when creating a disk.
 type CreationDataArgs struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
@@ -7392,7 +7267,6 @@ func (i *creationDataPtrType) ToCreationDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataPtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataOutput struct{ *pulumi.OutputState }
 
 func (CreationDataOutput) ElementType() reflect.Type {
@@ -7561,7 +7435,6 @@ func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponse struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption string `pulumi:"createOption"`
@@ -7594,7 +7467,6 @@ type CreationDataResponseInput interface {
 	ToCreationDataResponseOutputWithContext(context.Context) CreationDataResponseOutput
 }
 
-// Data used when creating a disk.
 type CreationDataResponseArgs struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
@@ -7669,7 +7541,6 @@ func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponsePtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (CreationDataResponseOutput) ElementType() reflect.Type {
@@ -7853,7 +7724,6 @@ func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Describes a data disk.
 type DataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *CachingTypes `pulumi:"caching"`
@@ -7892,7 +7762,6 @@ type DataDiskInput interface {
 	ToDataDiskOutputWithContext(context.Context) DataDiskOutput
 }
 
-// Describes a data disk.
 type DataDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching CachingTypesPtrInput `pulumi:"caching"`
@@ -7957,7 +7826,6 @@ func (i DataDiskArray) ToDataDiskArrayOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskArrayOutput)
 }
 
-// Describes a data disk.
 type DataDiskOutput struct{ *pulumi.OutputState }
 
 func (DataDiskOutput) ElementType() reflect.Type {
@@ -8052,7 +7920,6 @@ func (o DataDiskArrayOutput) Index(i pulumi.IntInput) DataDiskOutput {
 	}).(DataDiskOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryption struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -8071,7 +7938,6 @@ type DataDiskImageEncryptionInput interface {
 	ToDataDiskImageEncryptionOutputWithContext(context.Context) DataDiskImageEncryptionOutput
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionArgs struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -8116,7 +7982,6 @@ func (i DataDiskImageEncryptionArray) ToDataDiskImageEncryptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionArrayOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageEncryptionOutput) ElementType() reflect.Type {
@@ -8161,7 +8026,6 @@ func (o DataDiskImageEncryptionArrayOutput) Index(i pulumi.IntInput) DataDiskIma
 	}).(DataDiskImageEncryptionOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponse struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -8180,7 +8044,6 @@ type DataDiskImageEncryptionResponseInput interface {
 	ToDataDiskImageEncryptionResponseOutputWithContext(context.Context) DataDiskImageEncryptionResponseOutput
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponseArgs struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -8225,7 +8088,6 @@ func (i DataDiskImageEncryptionResponseArray) ToDataDiskImageEncryptionResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionResponseArrayOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageEncryptionResponseOutput) ElementType() reflect.Type {
@@ -8270,7 +8132,6 @@ func (o DataDiskImageEncryptionResponseArrayOutput) Index(i pulumi.IntInput) Dat
 	}).(DataDiskImageEncryptionResponseOutput)
 }
 
-// Describes a data disk.
 type DataDiskResponse struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *string `pulumi:"caching"`
@@ -8313,7 +8174,6 @@ type DataDiskResponseInput interface {
 	ToDataDiskResponseOutputWithContext(context.Context) DataDiskResponseOutput
 }
 
-// Describes a data disk.
 type DataDiskResponseArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -8382,7 +8242,6 @@ func (i DataDiskResponseArray) ToDataDiskResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskResponseArrayOutput)
 }
 
-// Describes a data disk.
 type DataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskResponseOutput) ElementType() reflect.Type {
@@ -8487,7 +8346,6 @@ func (o DataDiskResponseArrayOutput) Index(i pulumi.IntInput) DataDiskResponseOu
 	}).(DataDiskResponseOutput)
 }
 
-// Represents the dedicated host unutilized capacity in terms of a specific VM size.
 type DedicatedHostAllocatableVMResponse struct {
 	// Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
 	Count *float64 `pulumi:"count"`
@@ -8506,7 +8364,6 @@ type DedicatedHostAllocatableVMResponseInput interface {
 	ToDedicatedHostAllocatableVMResponseOutputWithContext(context.Context) DedicatedHostAllocatableVMResponseOutput
 }
 
-// Represents the dedicated host unutilized capacity in terms of a specific VM size.
 type DedicatedHostAllocatableVMResponseArgs struct {
 	// Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
 	Count pulumi.Float64PtrInput `pulumi:"count"`
@@ -8551,7 +8408,6 @@ func (i DedicatedHostAllocatableVMResponseArray) ToDedicatedHostAllocatableVMRes
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostAllocatableVMResponseArrayOutput)
 }
 
-// Represents the dedicated host unutilized capacity in terms of a specific VM size.
 type DedicatedHostAllocatableVMResponseOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostAllocatableVMResponseOutput) ElementType() reflect.Type {
@@ -8596,7 +8452,6 @@ func (o DedicatedHostAllocatableVMResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(DedicatedHostAllocatableVMResponseOutput)
 }
 
-// Dedicated host unutilized capacity.
 type DedicatedHostAvailableCapacityResponse struct {
 	// The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
 	AllocatableVMs []DedicatedHostAllocatableVMResponse `pulumi:"allocatableVMs"`
@@ -8613,7 +8468,6 @@ type DedicatedHostAvailableCapacityResponseInput interface {
 	ToDedicatedHostAvailableCapacityResponseOutputWithContext(context.Context) DedicatedHostAvailableCapacityResponseOutput
 }
 
-// Dedicated host unutilized capacity.
 type DedicatedHostAvailableCapacityResponseArgs struct {
 	// The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
 	AllocatableVMs DedicatedHostAllocatableVMResponseArrayInput `pulumi:"allocatableVMs"`
@@ -8672,7 +8526,6 @@ func (i *dedicatedHostAvailableCapacityResponsePtrType) ToDedicatedHostAvailable
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostAvailableCapacityResponsePtrOutput)
 }
 
-// Dedicated host unutilized capacity.
 type DedicatedHostAvailableCapacityResponseOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostAvailableCapacityResponseOutput) ElementType() reflect.Type {
@@ -8877,7 +8730,6 @@ func (o DedicatedHostGroupInstanceViewResponsePtrOutput) Hosts() DedicatedHostIn
 	}).(DedicatedHostInstanceViewWithNameResponseArrayOutput)
 }
 
-// The instance view of a dedicated host.
 type DedicatedHostInstanceViewResponse struct {
 	// Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
 	AssetId string `pulumi:"assetId"`
@@ -8898,7 +8750,6 @@ type DedicatedHostInstanceViewResponseInput interface {
 	ToDedicatedHostInstanceViewResponseOutputWithContext(context.Context) DedicatedHostInstanceViewResponseOutput
 }
 
-// The instance view of a dedicated host.
 type DedicatedHostInstanceViewResponseArgs struct {
 	// Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
 	AssetId pulumi.StringInput `pulumi:"assetId"`
@@ -8961,7 +8812,6 @@ func (i *dedicatedHostInstanceViewResponsePtrType) ToDedicatedHostInstanceViewRe
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a dedicated host.
 type DedicatedHostInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -9057,7 +8907,6 @@ func (o DedicatedHostInstanceViewResponsePtrOutput) Statuses() InstanceViewStatu
 	}).(InstanceViewStatusResponseArrayOutput)
 }
 
-// The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
 type DedicatedHostInstanceViewWithNameResponse struct {
 	// Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
 	AssetId string `pulumi:"assetId"`
@@ -9080,7 +8929,6 @@ type DedicatedHostInstanceViewWithNameResponseInput interface {
 	ToDedicatedHostInstanceViewWithNameResponseOutputWithContext(context.Context) DedicatedHostInstanceViewWithNameResponseOutput
 }
 
-// The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
 type DedicatedHostInstanceViewWithNameResponseArgs struct {
 	// Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
 	AssetId pulumi.StringInput `pulumi:"assetId"`
@@ -9129,7 +8977,6 @@ func (i DedicatedHostInstanceViewWithNameResponseArray) ToDedicatedHostInstanceV
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostInstanceViewWithNameResponseArrayOutput)
 }
 
-// The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
 type DedicatedHostInstanceViewWithNameResponseOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostInstanceViewWithNameResponseOutput) ElementType() reflect.Type {
@@ -9186,7 +9033,6 @@ func (o DedicatedHostInstanceViewWithNameResponseArrayOutput) Index(i pulumi.Int
 	}).(DedicatedHostInstanceViewWithNameResponseOutput)
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfile struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 	BootDiagnostics *BootDiagnostics `pulumi:"bootDiagnostics"`
@@ -9203,7 +9049,6 @@ type DiagnosticsProfileInput interface {
 	ToDiagnosticsProfileOutputWithContext(context.Context) DiagnosticsProfileOutput
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfileArgs struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 	BootDiagnostics BootDiagnosticsPtrInput `pulumi:"bootDiagnostics"`
@@ -9262,7 +9107,6 @@ func (i *diagnosticsProfilePtrType) ToDiagnosticsProfilePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsProfilePtrOutput)
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfileOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsProfileOutput) ElementType() reflect.Type {
@@ -9326,7 +9170,6 @@ func (o DiagnosticsProfilePtrOutput) BootDiagnostics() BootDiagnosticsPtrOutput 
 	}).(BootDiagnosticsPtrOutput)
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfileResponse struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 	BootDiagnostics *BootDiagnosticsResponse `pulumi:"bootDiagnostics"`
@@ -9343,7 +9186,6 @@ type DiagnosticsProfileResponseInput interface {
 	ToDiagnosticsProfileResponseOutputWithContext(context.Context) DiagnosticsProfileResponseOutput
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfileResponseArgs struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
 	BootDiagnostics BootDiagnosticsResponsePtrInput `pulumi:"bootDiagnostics"`
@@ -9402,7 +9244,6 @@ func (i *diagnosticsProfileResponsePtrType) ToDiagnosticsProfileResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsProfileResponsePtrOutput)
 }
 
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 type DiagnosticsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsProfileResponseOutput) ElementType() reflect.Type {
@@ -9466,7 +9307,6 @@ func (o DiagnosticsProfileResponsePtrOutput) BootDiagnostics() BootDiagnosticsRe
 	}).(BootDiagnosticsResponsePtrOutput)
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettings struct {
 	// Specifies the ephemeral disk settings for operating system disk.
 	Option *string `pulumi:"option"`
@@ -9485,7 +9325,6 @@ type DiffDiskSettingsInput interface {
 	ToDiffDiskSettingsOutputWithContext(context.Context) DiffDiskSettingsOutput
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettingsArgs struct {
 	// Specifies the ephemeral disk settings for operating system disk.
 	Option pulumi.StringPtrInput `pulumi:"option"`
@@ -9546,7 +9385,6 @@ func (i *diffDiskSettingsPtrType) ToDiffDiskSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DiffDiskSettingsPtrOutput)
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettingsOutput struct{ *pulumi.OutputState }
 
 func (DiffDiskSettingsOutput) ElementType() reflect.Type {
@@ -9625,7 +9463,6 @@ func (o DiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettingsResponse struct {
 	// Specifies the ephemeral disk settings for operating system disk.
 	Option *string `pulumi:"option"`
@@ -9644,7 +9481,6 @@ type DiffDiskSettingsResponseInput interface {
 	ToDiffDiskSettingsResponseOutputWithContext(context.Context) DiffDiskSettingsResponseOutput
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettingsResponseArgs struct {
 	// Specifies the ephemeral disk settings for operating system disk.
 	Option pulumi.StringPtrInput `pulumi:"option"`
@@ -9705,7 +9541,6 @@ func (i *diffDiskSettingsResponsePtrType) ToDiffDiskSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DiffDiskSettingsResponsePtrOutput)
 }
 
-// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
 type DiffDiskSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiffDiskSettingsResponseOutput) ElementType() reflect.Type {
@@ -9784,7 +9619,6 @@ func (o DiffDiskSettingsResponsePtrOutput) Placement() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the disallowed disk types.
 type Disallowed struct {
 	// A list of disk types.
 	DiskTypes []string `pulumi:"diskTypes"`
@@ -9801,7 +9635,6 @@ type DisallowedInput interface {
 	ToDisallowedOutputWithContext(context.Context) DisallowedOutput
 }
 
-// Describes the disallowed disk types.
 type DisallowedArgs struct {
 	// A list of disk types.
 	DiskTypes pulumi.StringArrayInput `pulumi:"diskTypes"`
@@ -9860,7 +9693,6 @@ func (i *disallowedPtrType) ToDisallowedPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DisallowedPtrOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedOutput struct{ *pulumi.OutputState }
 
 func (DisallowedOutput) ElementType() reflect.Type {
@@ -9924,7 +9756,6 @@ func (o DisallowedPtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponse struct {
 	// A list of disk types.
 	DiskTypes []string `pulumi:"diskTypes"`
@@ -9941,7 +9772,6 @@ type DisallowedResponseInput interface {
 	ToDisallowedResponseOutputWithContext(context.Context) DisallowedResponseOutput
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponseArgs struct {
 	// A list of disk types.
 	DiskTypes pulumi.StringArrayInput `pulumi:"diskTypes"`
@@ -10000,7 +9830,6 @@ func (i *disallowedResponsePtrType) ToDisallowedResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DisallowedResponsePtrOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponseOutput struct{ *pulumi.OutputState }
 
 func (DisallowedResponseOutput) ElementType() reflect.Type {
@@ -10064,7 +9893,6 @@ func (o DisallowedResponsePtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParameters struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -10081,7 +9909,6 @@ type DiskEncryptionSetParametersInput interface {
 	ToDiskEncryptionSetParametersOutputWithContext(context.Context) DiskEncryptionSetParametersOutput
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParametersArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -10140,7 +9967,6 @@ func (i *diskEncryptionSetParametersPtrType) ToDiskEncryptionSetParametersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetParametersPtrOutput)
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParametersOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetParametersOutput) ElementType() reflect.Type {
@@ -10204,7 +10030,6 @@ func (o DiskEncryptionSetParametersPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParametersResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -10221,7 +10046,6 @@ type DiskEncryptionSetParametersResponseInput interface {
 	ToDiskEncryptionSetParametersResponseOutputWithContext(context.Context) DiskEncryptionSetParametersResponseOutput
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParametersResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -10280,7 +10104,6 @@ func (i *diskEncryptionSetParametersResponsePtrType) ToDiskEncryptionSetParamete
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetParametersResponsePtrOutput)
 }
 
-// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
 type DiskEncryptionSetParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetParametersResponseOutput) ElementType() reflect.Type {
@@ -10344,7 +10167,6 @@ func (o DiskEncryptionSetParametersResponsePtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettings struct {
 	// Specifies the location of the disk encryption key, which is a Key Vault Secret.
 	DiskEncryptionKey *KeyVaultSecretReference `pulumi:"diskEncryptionKey"`
@@ -10365,7 +10187,6 @@ type DiskEncryptionSettingsInput interface {
 	ToDiskEncryptionSettingsOutputWithContext(context.Context) DiskEncryptionSettingsOutput
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettingsArgs struct {
 	// Specifies the location of the disk encryption key, which is a Key Vault Secret.
 	DiskEncryptionKey KeyVaultSecretReferencePtrInput `pulumi:"diskEncryptionKey"`
@@ -10428,7 +10249,6 @@ func (i *diskEncryptionSettingsPtrType) ToDiskEncryptionSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSettingsPtrOutput)
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -10522,7 +10342,6 @@ func (o DiskEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReference
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettingsResponse struct {
 	// Specifies the location of the disk encryption key, which is a Key Vault Secret.
 	DiskEncryptionKey *KeyVaultSecretReferenceResponse `pulumi:"diskEncryptionKey"`
@@ -10543,7 +10362,6 @@ type DiskEncryptionSettingsResponseInput interface {
 	ToDiskEncryptionSettingsResponseOutputWithContext(context.Context) DiskEncryptionSettingsResponseOutput
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettingsResponseArgs struct {
 	// Specifies the location of the disk encryption key, which is a Key Vault Secret.
 	DiskEncryptionKey KeyVaultSecretReferenceResponsePtrInput `pulumi:"diskEncryptionKey"`
@@ -10631,7 +10449,6 @@ func (i DiskEncryptionSettingsResponseArray) ToDiskEncryptionSettingsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSettingsResponseArrayOutput)
 }
 
-// Describes a Encryption Settings for a Disk
 type DiskEncryptionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSettingsResponseOutput) ElementType() reflect.Type {
@@ -10745,7 +10562,6 @@ func (o DiskEncryptionSettingsResponseArrayOutput) Index(i pulumi.IntInput) Disk
 	}).(DiskEncryptionSettingsResponseOutput)
 }
 
-// The instance view of the disk.
 type DiskInstanceViewResponse struct {
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
 	EncryptionSettings []DiskEncryptionSettingsResponse `pulumi:"encryptionSettings"`
@@ -10766,7 +10582,6 @@ type DiskInstanceViewResponseInput interface {
 	ToDiskInstanceViewResponseOutputWithContext(context.Context) DiskInstanceViewResponseOutput
 }
 
-// The instance view of the disk.
 type DiskInstanceViewResponseArgs struct {
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
 	EncryptionSettings DiskEncryptionSettingsResponseArrayInput `pulumi:"encryptionSettings"`
@@ -10813,7 +10628,6 @@ func (i DiskInstanceViewResponseArray) ToDiskInstanceViewResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DiskInstanceViewResponseArrayOutput)
 }
 
-// The instance view of the disk.
 type DiskInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -10863,7 +10677,6 @@ func (o DiskInstanceViewResponseArrayOutput) Index(i pulumi.IntInput) DiskInstan
 	}).(DiskInstanceViewResponseOutput)
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfile struct {
 	// Specifies the SecurityType of the VM. Applicable for OS disks only.
 	SecurityType *string `pulumi:"securityType"`
@@ -10880,7 +10693,6 @@ type DiskSecurityProfileInput interface {
 	ToDiskSecurityProfileOutputWithContext(context.Context) DiskSecurityProfileOutput
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfileArgs struct {
 	// Specifies the SecurityType of the VM. Applicable for OS disks only.
 	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
@@ -10939,7 +10751,6 @@ func (i *diskSecurityProfilePtrType) ToDiskSecurityProfilePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfilePtrOutput)
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (DiskSecurityProfileOutput) ElementType() reflect.Type {
@@ -11003,7 +10814,6 @@ func (o DiskSecurityProfilePtrOutput) SecurityType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfileResponse struct {
 	// Specifies the SecurityType of the VM. Applicable for OS disks only.
 	SecurityType *string `pulumi:"securityType"`
@@ -11020,7 +10830,6 @@ type DiskSecurityProfileResponseInput interface {
 	ToDiskSecurityProfileResponseOutputWithContext(context.Context) DiskSecurityProfileResponseOutput
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfileResponseArgs struct {
 	// Specifies the SecurityType of the VM. Applicable for OS disks only.
 	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
@@ -11079,7 +10888,6 @@ func (i *diskSecurityProfileResponsePtrType) ToDiskSecurityProfileResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileResponsePtrOutput)
 }
 
-// Contains the security related information for the resource.
 type DiskSecurityProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSecurityProfileResponseOutput) ElementType() reflect.Type {
@@ -11143,7 +10951,6 @@ func (o DiskSecurityProfileResponsePtrOutput) SecurityType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSku struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -11160,7 +10967,6 @@ type DiskSkuInput interface {
 	ToDiskSkuOutputWithContext(context.Context) DiskSkuOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -11219,7 +11025,6 @@ func (i *diskSkuPtrType) ToDiskSkuPtrOutputWithContext(ctx context.Context) Disk
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuOutput) ElementType() reflect.Type {
@@ -11283,7 +11088,6 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -11302,7 +11106,6 @@ type DiskSkuResponseInput interface {
 	ToDiskSkuResponseOutputWithContext(context.Context) DiskSkuResponseOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponseArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -11363,7 +11166,6 @@ func (i *diskSkuResponsePtrType) ToDiskSkuResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuResponsePtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuResponseOutput) ElementType() reflect.Type {
@@ -11442,7 +11244,6 @@ func (o DiskSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type Encryption struct {
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -11461,7 +11262,6 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionArgs struct {
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -11522,7 +11322,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -11601,7 +11400,6 @@ func (o EncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImages struct {
 	// A list of encryption specifications for data disk images.
 	DataDiskImages []DataDiskImageEncryption `pulumi:"dataDiskImages"`
@@ -11620,7 +11418,6 @@ type EncryptionImagesInput interface {
 	ToEncryptionImagesOutputWithContext(context.Context) EncryptionImagesOutput
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesArgs struct {
 	// A list of encryption specifications for data disk images.
 	DataDiskImages DataDiskImageEncryptionArrayInput `pulumi:"dataDiskImages"`
@@ -11681,7 +11478,6 @@ func (i *encryptionImagesPtrType) ToEncryptionImagesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionImagesOutput) ElementType() reflect.Type {
@@ -11760,7 +11556,6 @@ func (o EncryptionImagesPtrOutput) OsDiskImage() OSDiskImageEncryptionPtrOutput 
 	}).(OSDiskImageEncryptionPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponse struct {
 	// A list of encryption specifications for data disk images.
 	DataDiskImages []DataDiskImageEncryptionResponse `pulumi:"dataDiskImages"`
@@ -11779,7 +11574,6 @@ type EncryptionImagesResponseInput interface {
 	ToEncryptionImagesResponseOutputWithContext(context.Context) EncryptionImagesResponseOutput
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponseArgs struct {
 	// A list of encryption specifications for data disk images.
 	DataDiskImages DataDiskImageEncryptionResponseArrayInput `pulumi:"dataDiskImages"`
@@ -11840,7 +11634,6 @@ func (i *encryptionImagesResponsePtrType) ToEncryptionImagesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesResponsePtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionImagesResponseOutput) ElementType() reflect.Type {
@@ -11919,7 +11712,6 @@ func (o EncryptionImagesResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionRe
 	}).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponse struct {
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -11938,7 +11730,6 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponseArgs struct {
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -11999,7 +11790,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -12078,7 +11868,6 @@ func (o EncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentity struct {
 	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type *string `pulumi:"type"`
@@ -12095,7 +11884,6 @@ type EncryptionSetIdentityInput interface {
 	ToEncryptionSetIdentityOutputWithContext(context.Context) EncryptionSetIdentityOutput
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityArgs struct {
 	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -12154,7 +11942,6 @@ func (i *encryptionSetIdentityPtrType) ToEncryptionSetIdentityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetIdentityPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSetIdentityOutput) ElementType() reflect.Type {
@@ -12218,7 +12005,6 @@ func (o EncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponse struct {
 	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	PrincipalId string `pulumi:"principalId"`
@@ -12239,7 +12025,6 @@ type EncryptionSetIdentityResponseInput interface {
 	ToEncryptionSetIdentityResponseOutputWithContext(context.Context) EncryptionSetIdentityResponseOutput
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponseArgs struct {
 	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -12302,7 +12087,6 @@ func (i *encryptionSetIdentityResponsePtrType) ToEncryptionSetIdentityResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetIdentityResponsePtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSetIdentityResponseOutput) ElementType() reflect.Type {
@@ -12396,7 +12180,6 @@ func (o EncryptionSetIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollection struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled bool `pulumi:"enabled"`
@@ -12417,7 +12200,6 @@ type EncryptionSettingsCollectionInput interface {
 	ToEncryptionSettingsCollectionOutputWithContext(context.Context) EncryptionSettingsCollectionOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionArgs struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -12480,7 +12262,6 @@ func (i *encryptionSettingsCollectionPtrType) ToEncryptionSettingsCollectionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionOutput) ElementType() reflect.Type {
@@ -12574,7 +12355,6 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettingsVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponse struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled bool `pulumi:"enabled"`
@@ -12595,7 +12375,6 @@ type EncryptionSettingsCollectionResponseInput interface {
 	ToEncryptionSettingsCollectionResponseOutputWithContext(context.Context) EncryptionSettingsCollectionResponseOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseArgs struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -12658,7 +12437,6 @@ func (i *encryptionSettingsCollectionResponsePtrType) ToEncryptionSettingsCollec
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionResponsePtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionResponseOutput) ElementType() reflect.Type {
@@ -12754,7 +12532,6 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettingsVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElement struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReference `pulumi:"diskEncryptionKey"`
@@ -12773,7 +12550,6 @@ type EncryptionSettingsElementInput interface {
 	ToEncryptionSettingsElementOutputWithContext(context.Context) EncryptionSettingsElementOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementArgs struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferencePtrInput `pulumi:"diskEncryptionKey"`
@@ -12818,7 +12594,6 @@ func (i EncryptionSettingsElementArray) ToEncryptionSettingsElementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementOutput) ElementType() reflect.Type {
@@ -12863,7 +12638,6 @@ func (o EncryptionSettingsElementArrayOutput) Index(i pulumi.IntInput) Encryptio
 	}).(EncryptionSettingsElementOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponse struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReferenceResponse `pulumi:"diskEncryptionKey"`
@@ -12882,7 +12656,6 @@ type EncryptionSettingsElementResponseInput interface {
 	ToEncryptionSettingsElementResponseOutputWithContext(context.Context) EncryptionSettingsElementResponseOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseArgs struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferenceResponsePtrInput `pulumi:"diskEncryptionKey"`
@@ -12927,7 +12700,6 @@ func (i EncryptionSettingsElementResponseArray) ToEncryptionSettingsElementRespo
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementResponseOutput) ElementType() reflect.Type {
@@ -12974,7 +12746,6 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EncryptionSettingsElementResponseOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocation struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -12993,7 +12764,6 @@ type ExtendedLocationInput interface {
 	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13054,7 +12824,6 @@ func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationOutput) ElementType() reflect.Type {
@@ -13133,7 +12902,6 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponse struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -13152,7 +12920,6 @@ type ExtendedLocationResponseInput interface {
 	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13213,7 +12980,6 @@ func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
@@ -13292,7 +13058,6 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service Extension.
 type Extension struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
@@ -13311,7 +13076,6 @@ type ExtensionInput interface {
 	ToExtensionOutputWithContext(context.Context) ExtensionOutput
 }
 
-// Describes a cloud service Extension.
 type ExtensionArgs struct {
 	// The name of the extension.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13356,7 +13120,6 @@ func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionArrayOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
@@ -13401,7 +13164,6 @@ func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
 	}).(ExtensionOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponse struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
@@ -13420,7 +13182,6 @@ type ExtensionResponseInput interface {
 	ToExtensionResponseOutputWithContext(context.Context) ExtensionResponseOutput
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponseArgs struct {
 	// The name of the extension.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13465,7 +13226,6 @@ func (i ExtensionResponseArray) ToExtensionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResponseArrayOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResponseOutput) ElementType() reflect.Type {
@@ -13510,7 +13270,6 @@ func (o ExtensionResponseArrayOutput) Index(i pulumi.IntInput) ExtensionResponse
 	}).(ExtensionResponseOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfile struct {
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
@@ -13540,7 +13299,6 @@ type GalleryApplicationVersionPublishingProfileInput interface {
 	ToGalleryApplicationVersionPublishingProfileOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileArgs struct {
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
@@ -13612,7 +13370,6 @@ func (i *galleryApplicationVersionPublishingProfilePtrType) ToGalleryApplication
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -13779,7 +13536,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() Tar
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponse struct {
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
@@ -13811,7 +13567,6 @@ type GalleryApplicationVersionPublishingProfileResponseInput interface {
 	ToGalleryApplicationVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseArgs struct {
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
@@ -13885,7 +13640,6 @@ func (i *galleryApplicationVersionPublishingProfileResponsePtrType) ToGalleryApp
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -14071,7 +13825,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) TargetRegio
 	}).(TargetRegionResponseArrayOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSource struct {
 	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id *string `pulumi:"id"`
@@ -14090,7 +13843,6 @@ type GalleryArtifactVersionSourceInput interface {
 	ToGalleryArtifactVersionSourceOutputWithContext(context.Context) GalleryArtifactVersionSourceOutput
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceArgs struct {
 	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -14151,7 +13903,6 @@ func (i *galleryArtifactVersionSourcePtrType) ToGalleryArtifactVersionSourcePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceOutput struct{ *pulumi.OutputState }
 
 func (GalleryArtifactVersionSourceOutput) ElementType() reflect.Type {
@@ -14230,7 +13981,6 @@ func (o GalleryArtifactVersionSourcePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponse struct {
 	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id *string `pulumi:"id"`
@@ -14249,7 +13999,6 @@ type GalleryArtifactVersionSourceResponseInput interface {
 	ToGalleryArtifactVersionSourceResponseOutputWithContext(context.Context) GalleryArtifactVersionSourceResponseOutput
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponseArgs struct {
 	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -14310,7 +14059,6 @@ func (i *galleryArtifactVersionSourceResponsePtrType) ToGalleryArtifactVersionSo
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryArtifactVersionSourceResponseOutput) ElementType() reflect.Type {
@@ -14389,7 +14137,6 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) Uri() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImage struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *HostCaching `pulumi:"hostCaching"`
@@ -14410,7 +14157,6 @@ type GalleryDataDiskImageInput interface {
 	ToGalleryDataDiskImageOutputWithContext(context.Context) GalleryDataDiskImageOutput
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching HostCachingPtrInput `pulumi:"hostCaching"`
@@ -14457,7 +14203,6 @@ func (i GalleryDataDiskImageArray) ToGalleryDataDiskImageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageArrayOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryDataDiskImageOutput) ElementType() reflect.Type {
@@ -14507,7 +14252,6 @@ func (o GalleryDataDiskImageArrayOutput) Index(i pulumi.IntInput) GalleryDataDis
 	}).(GalleryDataDiskImageOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponse struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *string `pulumi:"hostCaching"`
@@ -14530,7 +14274,6 @@ type GalleryDataDiskImageResponseInput interface {
 	ToGalleryDataDiskImageResponseOutputWithContext(context.Context) GalleryDataDiskImageResponseOutput
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponseArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
@@ -14579,7 +14322,6 @@ func (i GalleryDataDiskImageResponseArray) ToGalleryDataDiskImageResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageResponseArrayOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryDataDiskImageResponseOutput) ElementType() reflect.Type {
@@ -14634,7 +14376,6 @@ func (o GalleryDataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) Galler
 	}).(GalleryDataDiskImageResponseOutput)
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponse struct {
 	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 	UniqueName string `pulumi:"uniqueName"`
@@ -14651,7 +14392,6 @@ type GalleryIdentifierResponseInput interface {
 	ToGalleryIdentifierResponseOutputWithContext(context.Context) GalleryIdentifierResponseOutput
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponseArgs struct {
 	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
@@ -14710,7 +14450,6 @@ func (i *galleryIdentifierResponsePtrType) ToGalleryIdentifierResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryIdentifierResponsePtrOutput)
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryIdentifierResponseOutput) ElementType() reflect.Type {
@@ -14774,7 +14513,6 @@ func (o GalleryIdentifierResponsePtrOutput) UniqueName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeature struct {
 	// The name of the gallery image feature.
 	Name *string `pulumi:"name"`
@@ -14793,7 +14531,6 @@ type GalleryImageFeatureInput interface {
 	ToGalleryImageFeatureOutputWithContext(context.Context) GalleryImageFeatureOutput
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureArgs struct {
 	// The name of the gallery image feature.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14838,7 +14575,6 @@ func (i GalleryImageFeatureArray) ToGalleryImageFeatureArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureArrayOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageFeatureOutput) ElementType() reflect.Type {
@@ -14883,7 +14619,6 @@ func (o GalleryImageFeatureArrayOutput) Index(i pulumi.IntInput) GalleryImageFea
 	}).(GalleryImageFeatureOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponse struct {
 	// The name of the gallery image feature.
 	Name *string `pulumi:"name"`
@@ -14902,7 +14637,6 @@ type GalleryImageFeatureResponseInput interface {
 	ToGalleryImageFeatureResponseOutputWithContext(context.Context) GalleryImageFeatureResponseOutput
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponseArgs struct {
 	// The name of the gallery image feature.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14947,7 +14681,6 @@ func (i GalleryImageFeatureResponseArray) ToGalleryImageFeatureResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureResponseArrayOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageFeatureResponseOutput) ElementType() reflect.Type {
@@ -14992,7 +14725,6 @@ func (o GalleryImageFeatureResponseArrayOutput) Index(i pulumi.IntInput) Gallery
 	}).(GalleryImageFeatureResponseOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifier struct {
 	// The name of the gallery image definition offer.
 	Offer string `pulumi:"offer"`
@@ -15013,7 +14745,6 @@ type GalleryImageIdentifierInput interface {
 	ToGalleryImageIdentifierOutputWithContext(context.Context) GalleryImageIdentifierOutput
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierArgs struct {
 	// The name of the gallery image definition offer.
 	Offer pulumi.StringInput `pulumi:"offer"`
@@ -15076,7 +14807,6 @@ func (i *galleryImageIdentifierPtrType) ToGalleryImageIdentifierPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierPtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierOutput) ElementType() reflect.Type {
@@ -15170,7 +14900,6 @@ func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponse struct {
 	// The name of the gallery image definition offer.
 	Offer string `pulumi:"offer"`
@@ -15191,7 +14920,6 @@ type GalleryImageIdentifierResponseInput interface {
 	ToGalleryImageIdentifierResponseOutputWithContext(context.Context) GalleryImageIdentifierResponseOutput
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseArgs struct {
 	// The name of the gallery image definition offer.
 	Offer pulumi.StringInput `pulumi:"offer"`
@@ -15254,7 +14982,6 @@ func (i *galleryImageIdentifierResponsePtrType) ToGalleryImageIdentifierResponse
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierResponsePtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -15348,7 +15075,6 @@ func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfile struct {
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
@@ -15373,7 +15099,6 @@ type GalleryImageVersionPublishingProfileInput interface {
 	ToGalleryImageVersionPublishingProfileOutputWithContext(context.Context) GalleryImageVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileArgs struct {
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
@@ -15440,7 +15165,6 @@ func (i *galleryImageVersionPublishingProfilePtrType) ToGalleryImageVersionPubli
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -15564,7 +15288,6 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) TargetRegions() TargetReg
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponse struct {
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
@@ -15591,7 +15314,6 @@ type GalleryImageVersionPublishingProfileResponseInput interface {
 	ToGalleryImageVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryImageVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseArgs struct {
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
@@ -15660,7 +15382,6 @@ func (i *galleryImageVersionPublishingProfileResponsePtrType) ToGalleryImageVers
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -15799,7 +15520,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) TargetRegions() T
 	}).(TargetRegionResponseArrayOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfile struct {
 	// A list of data disk images.
 	DataDiskImages []GalleryDataDiskImage `pulumi:"dataDiskImages"`
@@ -15820,7 +15540,6 @@ type GalleryImageVersionStorageProfileInput interface {
 	ToGalleryImageVersionStorageProfileOutputWithContext(context.Context) GalleryImageVersionStorageProfileOutput
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileArgs struct {
 	// A list of data disk images.
 	DataDiskImages GalleryDataDiskImageArrayInput `pulumi:"dataDiskImages"`
@@ -15883,7 +15602,6 @@ func (i *galleryImageVersionStorageProfilePtrType) ToGalleryImageVersionStorageP
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionStorageProfilePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionStorageProfileOutput) ElementType() reflect.Type {
@@ -15977,7 +15695,6 @@ func (o GalleryImageVersionStorageProfilePtrOutput) Source() GalleryArtifactVers
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponse struct {
 	// A list of data disk images.
 	DataDiskImages []GalleryDataDiskImageResponse `pulumi:"dataDiskImages"`
@@ -15998,7 +15715,6 @@ type GalleryImageVersionStorageProfileResponseInput interface {
 	ToGalleryImageVersionStorageProfileResponseOutputWithContext(context.Context) GalleryImageVersionStorageProfileResponseOutput
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponseArgs struct {
 	// A list of data disk images.
 	DataDiskImages GalleryDataDiskImageResponseArrayInput `pulumi:"dataDiskImages"`
@@ -16061,7 +15777,6 @@ func (i *galleryImageVersionStorageProfileResponsePtrType) ToGalleryImageVersion
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionStorageProfileResponsePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionStorageProfileResponseOutput) ElementType() reflect.Type {
@@ -16159,7 +15874,6 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) Source() GalleryArti
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImage struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *HostCaching `pulumi:"hostCaching"`
@@ -16178,7 +15892,6 @@ type GalleryOSDiskImageInput interface {
 	ToGalleryOSDiskImageOutputWithContext(context.Context) GalleryOSDiskImageOutput
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching HostCachingPtrInput `pulumi:"hostCaching"`
@@ -16239,7 +15952,6 @@ func (i *galleryOSDiskImagePtrType) ToGalleryOSDiskImagePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImagePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryOSDiskImageOutput) ElementType() reflect.Type {
@@ -16318,7 +16030,6 @@ func (o GalleryOSDiskImagePtrOutput) Source() GalleryArtifactVersionSourcePtrOut
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponse struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *string `pulumi:"hostCaching"`
@@ -16339,7 +16050,6 @@ type GalleryOSDiskImageResponseInput interface {
 	ToGalleryOSDiskImageResponseOutputWithContext(context.Context) GalleryOSDiskImageResponseOutput
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponseArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
@@ -16402,7 +16112,6 @@ func (i *galleryOSDiskImageResponsePtrType) ToGalleryOSDiskImageResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImageResponsePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryOSDiskImageResponseOutput) ElementType() reflect.Type {
@@ -16496,7 +16205,6 @@ func (o GalleryOSDiskImageResponsePtrOutput) Source() GalleryArtifactVersionSour
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfile struct {
 	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize *string `pulumi:"vmSize"`
@@ -16513,7 +16221,6 @@ type HardwareProfileInput interface {
 	ToHardwareProfileOutputWithContext(context.Context) HardwareProfileOutput
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfileArgs struct {
 	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
@@ -16572,7 +16279,6 @@ func (i *hardwareProfilePtrType) ToHardwareProfilePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfilePtrOutput)
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfileOutput struct{ *pulumi.OutputState }
 
 func (HardwareProfileOutput) ElementType() reflect.Type {
@@ -16636,7 +16342,6 @@ func (o HardwareProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfileResponse struct {
 	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize *string `pulumi:"vmSize"`
@@ -16653,7 +16358,6 @@ type HardwareProfileResponseInput interface {
 	ToHardwareProfileResponseOutputWithContext(context.Context) HardwareProfileResponseOutput
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfileResponseArgs struct {
 	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
@@ -16712,7 +16416,6 @@ func (i *hardwareProfileResponsePtrType) ToHardwareProfileResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfileResponsePtrOutput)
 }
 
-// Specifies the hardware settings for the virtual machine.
 type HardwareProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (HardwareProfileResponseOutput) ElementType() reflect.Type {
@@ -16776,7 +16479,6 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a data disk.
 type ImageDataDisk struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
@@ -16807,7 +16509,6 @@ type ImageDataDiskInput interface {
 	ToImageDataDiskOutputWithContext(context.Context) ImageDataDiskOutput
 }
 
-// Describes a data disk.
 type ImageDataDiskArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
@@ -16864,7 +16565,6 @@ func (i ImageDataDiskArray) ToImageDataDiskArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDataDiskArrayOutput)
 }
 
-// Describes a data disk.
 type ImageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskOutput) ElementType() reflect.Type {
@@ -16939,7 +16639,6 @@ func (o ImageDataDiskArrayOutput) Index(i pulumi.IntInput) ImageDataDiskOutput {
 	}).(ImageDataDiskOutput)
 }
 
-// Describes a data disk.
 type ImageDataDiskResponse struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
@@ -16970,7 +16669,6 @@ type ImageDataDiskResponseInput interface {
 	ToImageDataDiskResponseOutputWithContext(context.Context) ImageDataDiskResponseOutput
 }
 
-// Describes a data disk.
 type ImageDataDiskResponseArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
@@ -17027,7 +16725,6 @@ func (i ImageDataDiskResponseArray) ToImageDataDiskResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDataDiskResponseArrayOutput)
 }
 
-// Describes a data disk.
 type ImageDataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskResponseOutput) ElementType() reflect.Type {
@@ -17102,7 +16799,6 @@ func (o ImageDataDiskResponseArrayOutput) Index(i pulumi.IntInput) ImageDataDisk
 	}).(ImageDataDiskResponseOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReference struct {
 	// A relative uri containing either a Platform Image Repository or user image reference.
 	Id string `pulumi:"id"`
@@ -17121,7 +16817,6 @@ type ImageDiskReferenceInput interface {
 	ToImageDiskReferenceOutputWithContext(context.Context) ImageDiskReferenceOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceArgs struct {
 	// A relative uri containing either a Platform Image Repository or user image reference.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -17182,7 +16877,6 @@ func (i *imageDiskReferencePtrType) ToImageDiskReferencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferencePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceOutput) ElementType() reflect.Type {
@@ -17261,7 +16955,6 @@ func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponse struct {
 	// A relative uri containing either a Platform Image Repository or user image reference.
 	Id string `pulumi:"id"`
@@ -17280,7 +16973,6 @@ type ImageDiskReferenceResponseInput interface {
 	ToImageDiskReferenceResponseOutputWithContext(context.Context) ImageDiskReferenceResponseOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseArgs struct {
 	// A relative uri containing either a Platform Image Repository or user image reference.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -17341,7 +17033,6 @@ func (i *imageDiskReferenceResponsePtrType) ToImageDiskReferenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceResponseOutput) ElementType() reflect.Type {
@@ -17420,7 +17111,6 @@ func (o ImageDiskReferenceResponsePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes an Operating System disk.
 type ImageOSDisk struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
@@ -17453,7 +17143,6 @@ type ImageOSDiskInput interface {
 	ToImageOSDiskOutputWithContext(context.Context) ImageOSDiskOutput
 }
 
-// Describes an Operating System disk.
 type ImageOSDiskArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
@@ -17528,7 +17217,6 @@ func (i *imageOSDiskPtrType) ToImageOSDiskPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOSDiskPtrOutput)
 }
 
-// Describes an Operating System disk.
 type ImageOSDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageOSDiskOutput) ElementType() reflect.Type {
@@ -17712,7 +17400,6 @@ func (o ImageOSDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an Operating System disk.
 type ImageOSDiskResponse struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
@@ -17745,7 +17432,6 @@ type ImageOSDiskResponseInput interface {
 	ToImageOSDiskResponseOutputWithContext(context.Context) ImageOSDiskResponseOutput
 }
 
-// Describes an Operating System disk.
 type ImageOSDiskResponseArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
@@ -17820,7 +17506,6 @@ func (i *imageOSDiskResponsePtrType) ToImageOSDiskResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOSDiskResponsePtrOutput)
 }
 
-// Describes an Operating System disk.
 type ImageOSDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageOSDiskResponseOutput) ElementType() reflect.Type {
@@ -18004,7 +17689,6 @@ func (o ImageOSDiskResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlan struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -18025,7 +17709,6 @@ type ImagePurchasePlanInput interface {
 	ToImagePurchasePlanOutputWithContext(context.Context) ImagePurchasePlanOutput
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -18088,7 +17771,6 @@ func (i *imagePurchasePlanPtrType) ToImagePurchasePlanPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanOutput) ElementType() reflect.Type {
@@ -18182,7 +17864,6 @@ func (o ImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -18203,7 +17884,6 @@ type ImagePurchasePlanResponseInput interface {
 	ToImagePurchasePlanResponseOutputWithContext(context.Context) ImagePurchasePlanResponseOutput
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -18266,7 +17946,6 @@ func (i *imagePurchasePlanResponsePtrType) ToImagePurchasePlanResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanResponsePtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -18360,7 +18039,6 @@ func (o ImagePurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReference struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -18385,7 +18063,6 @@ type ImageReferenceInput interface {
 	ToImageReferenceOutputWithContext(context.Context) ImageReferenceOutput
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReferenceArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -18452,7 +18129,6 @@ func (i *imageReferencePtrType) ToImageReferencePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ImageReferencePtrOutput)
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (ImageReferenceOutput) ElementType() reflect.Type {
@@ -18576,7 +18252,6 @@ func (o ImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReferenceResponse struct {
 	// Specifies in decimal numbers, the version of platform image or marketplace image used to create the virtual machine. This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
 	ExactVersion string `pulumi:"exactVersion"`
@@ -18603,7 +18278,6 @@ type ImageReferenceResponseInput interface {
 	ToImageReferenceResponseOutputWithContext(context.Context) ImageReferenceResponseOutput
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReferenceResponseArgs struct {
 	// Specifies in decimal numbers, the version of platform image or marketplace image used to create the virtual machine. This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
 	ExactVersion pulumi.StringInput `pulumi:"exactVersion"`
@@ -18672,7 +18346,6 @@ func (i *imageReferenceResponsePtrType) ToImageReferenceResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceResponsePtrOutput)
 }
 
-// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
 type ImageReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageReferenceResponseOutput) ElementType() reflect.Type {
@@ -18811,7 +18484,6 @@ func (o ImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a storage profile.
 type ImageStorageProfile struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
@@ -18832,7 +18504,6 @@ type ImageStorageProfileInput interface {
 	ToImageStorageProfileOutputWithContext(context.Context) ImageStorageProfileOutput
 }
 
-// Describes a storage profile.
 type ImageStorageProfileArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 	DataDisks ImageDataDiskArrayInput `pulumi:"dataDisks"`
@@ -18895,7 +18566,6 @@ func (i *imageStorageProfilePtrType) ToImageStorageProfilePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ImageStorageProfilePtrOutput)
 }
 
-// Describes a storage profile.
 type ImageStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (ImageStorageProfileOutput) ElementType() reflect.Type {
@@ -18989,7 +18659,6 @@ func (o ImageStorageProfilePtrOutput) ZoneResilient() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes a storage profile.
 type ImageStorageProfileResponse struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 	DataDisks []ImageDataDiskResponse `pulumi:"dataDisks"`
@@ -19010,7 +18679,6 @@ type ImageStorageProfileResponseInput interface {
 	ToImageStorageProfileResponseOutputWithContext(context.Context) ImageStorageProfileResponseOutput
 }
 
-// Describes a storage profile.
 type ImageStorageProfileResponseArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 	DataDisks ImageDataDiskResponseArrayInput `pulumi:"dataDisks"`
@@ -19073,7 +18741,6 @@ func (i *imageStorageProfileResponsePtrType) ToImageStorageProfileResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ImageStorageProfileResponsePtrOutput)
 }
 
-// Describes a storage profile.
 type ImageStorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageStorageProfileResponseOutput) ElementType() reflect.Type {
@@ -19167,7 +18834,6 @@ func (o ImageStorageProfileResponsePtrOutput) ZoneResilient() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Inner error details.
 type InnerErrorResponse struct {
 	// The internal error message or exception dump.
 	Errordetail *string `pulumi:"errordetail"`
@@ -19186,7 +18852,6 @@ type InnerErrorResponseInput interface {
 	ToInnerErrorResponseOutputWithContext(context.Context) InnerErrorResponseOutput
 }
 
-// Inner error details.
 type InnerErrorResponseArgs struct {
 	// The internal error message or exception dump.
 	Errordetail pulumi.StringPtrInput `pulumi:"errordetail"`
@@ -19247,7 +18912,6 @@ func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponsePtrOutput)
 }
 
-// Inner error details.
 type InnerErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (InnerErrorResponseOutput) ElementType() reflect.Type {
@@ -19326,7 +18990,6 @@ func (o InnerErrorResponsePtrOutput) Exceptiontype() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 type InstanceViewStatus struct {
 	// The status code.
 	Code *string `pulumi:"code"`
@@ -19351,7 +19014,6 @@ type InstanceViewStatusInput interface {
 	ToInstanceViewStatusOutputWithContext(context.Context) InstanceViewStatusOutput
 }
 
-// Instance view status.
 type InstanceViewStatusArgs struct {
 	// The status code.
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -19443,7 +19105,6 @@ func (i InstanceViewStatusArray) ToInstanceViewStatusArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceViewStatusArrayOutput)
 }
 
-// Instance view status.
 type InstanceViewStatusOutput struct{ *pulumi.OutputState }
 
 func (InstanceViewStatusOutput) ElementType() reflect.Type {
@@ -19587,7 +19248,6 @@ func (o InstanceViewStatusArrayOutput) Index(i pulumi.IntInput) InstanceViewStat
 	}).(InstanceViewStatusOutput)
 }
 
-// Instance view status.
 type InstanceViewStatusResponse struct {
 	// The status code.
 	Code *string `pulumi:"code"`
@@ -19612,7 +19272,6 @@ type InstanceViewStatusResponseInput interface {
 	ToInstanceViewStatusResponseOutputWithContext(context.Context) InstanceViewStatusResponseOutput
 }
 
-// Instance view status.
 type InstanceViewStatusResponseArgs struct {
 	// The status code.
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -19704,7 +19363,6 @@ func (i InstanceViewStatusResponseArray) ToInstanceViewStatusResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceViewStatusResponseArrayOutput)
 }
 
-// Instance view status.
 type InstanceViewStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (InstanceViewStatusResponseOutput) ElementType() reflect.Type {
@@ -19848,7 +19506,6 @@ func (o InstanceViewStatusResponseArrayOutput) Index(i pulumi.IntInput) Instance
 	}).(InstanceViewStatusResponseOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSet struct {
 	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl string `pulumi:"keyUrl"`
@@ -19867,7 +19524,6 @@ type KeyForDiskEncryptionSetInput interface {
 	ToKeyForDiskEncryptionSetOutputWithContext(context.Context) KeyForDiskEncryptionSetOutput
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetArgs struct {
 	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -19928,7 +19584,6 @@ func (i *keyForDiskEncryptionSetPtrType) ToKeyForDiskEncryptionSetPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetPtrOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (KeyForDiskEncryptionSetOutput) ElementType() reflect.Type {
@@ -20007,7 +19662,6 @@ func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponse struct {
 	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl string `pulumi:"keyUrl"`
@@ -20026,7 +19680,6 @@ type KeyForDiskEncryptionSetResponseInput interface {
 	ToKeyForDiskEncryptionSetResponseOutputWithContext(context.Context) KeyForDiskEncryptionSetResponseOutput
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponseArgs struct {
 	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -20112,7 +19765,6 @@ func (i KeyForDiskEncryptionSetResponseArray) ToKeyForDiskEncryptionSetResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponseArrayOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyForDiskEncryptionSetResponseOutput) ElementType() reflect.Type {
@@ -20211,7 +19863,6 @@ func (o KeyForDiskEncryptionSetResponseArrayOutput) Index(i pulumi.IntInput) Key
 	}).(KeyForDiskEncryptionSetResponseOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReference struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl string `pulumi:"keyUrl"`
@@ -20230,7 +19881,6 @@ type KeyVaultAndKeyReferenceInput interface {
 	ToKeyVaultAndKeyReferenceOutputWithContext(context.Context) KeyVaultAndKeyReferenceOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceArgs struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -20291,7 +19941,6 @@ func (i *keyVaultAndKeyReferencePtrType) ToKeyVaultAndKeyReferencePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferencePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceOutput) ElementType() reflect.Type {
@@ -20370,7 +20019,6 @@ func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl string `pulumi:"keyUrl"`
@@ -20389,7 +20037,6 @@ type KeyVaultAndKeyReferenceResponseInput interface {
 	ToKeyVaultAndKeyReferenceResponseOutputWithContext(context.Context) KeyVaultAndKeyReferenceResponseOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseArgs struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -20450,7 +20097,6 @@ func (i *keyVaultAndKeyReferenceResponsePtrType) ToKeyVaultAndKeyReferenceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -20529,7 +20175,6 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultRespo
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReference struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl string `pulumi:"secretUrl"`
@@ -20548,7 +20193,6 @@ type KeyVaultAndSecretReferenceInput interface {
 	ToKeyVaultAndSecretReferenceOutputWithContext(context.Context) KeyVaultAndSecretReferenceOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceArgs struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
@@ -20609,7 +20253,6 @@ func (i *keyVaultAndSecretReferencePtrType) ToKeyVaultAndSecretReferencePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceOutput) ElementType() reflect.Type {
@@ -20688,7 +20331,6 @@ func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput 
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl string `pulumi:"secretUrl"`
@@ -20707,7 +20349,6 @@ type KeyVaultAndSecretReferenceResponseInput interface {
 	ToKeyVaultAndSecretReferenceResponseOutputWithContext(context.Context) KeyVaultAndSecretReferenceResponseOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseArgs struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
@@ -20768,7 +20409,6 @@ func (i *keyVaultAndSecretReferenceResponsePtrType) ToKeyVaultAndSecretReference
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceResponseOutput) ElementType() reflect.Type {
@@ -20847,7 +20487,6 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultRe
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReference struct {
 	// The URL referencing a key encryption key in Key Vault.
 	KeyUrl string `pulumi:"keyUrl"`
@@ -20866,7 +20505,6 @@ type KeyVaultKeyReferenceInput interface {
 	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReferenceArgs struct {
 	// The URL referencing a key encryption key in Key Vault.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -20927,7 +20565,6 @@ func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
@@ -21006,7 +20643,6 @@ func (o KeyVaultKeyReferencePtrOutput) SourceVault() SubResourcePtrOutput {
 	}).(SubResourcePtrOutput)
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReferenceResponse struct {
 	// The URL referencing a key encryption key in Key Vault.
 	KeyUrl string `pulumi:"keyUrl"`
@@ -21025,7 +20661,6 @@ type KeyVaultKeyReferenceResponseInput interface {
 	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReferenceResponseArgs struct {
 	// The URL referencing a key encryption key in Key Vault.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
@@ -21086,7 +20721,6 @@ func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Key
 type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -21165,7 +20799,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() SubResourceResponse
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReference struct {
 	// The URL referencing a secret in a Key Vault.
 	SecretUrl string `pulumi:"secretUrl"`
@@ -21184,7 +20817,6 @@ type KeyVaultSecretReferenceInput interface {
 	ToKeyVaultSecretReferenceOutputWithContext(context.Context) KeyVaultSecretReferenceOutput
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReferenceArgs struct {
 	// The URL referencing a secret in a Key Vault.
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
@@ -21245,7 +20877,6 @@ func (i *keyVaultSecretReferencePtrType) ToKeyVaultSecretReferencePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretReferencePtrOutput)
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultSecretReferenceOutput) ElementType() reflect.Type {
@@ -21324,7 +20955,6 @@ func (o KeyVaultSecretReferencePtrOutput) SourceVault() SubResourcePtrOutput {
 	}).(SubResourcePtrOutput)
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReferenceResponse struct {
 	// The URL referencing a secret in a Key Vault.
 	SecretUrl string `pulumi:"secretUrl"`
@@ -21343,7 +20973,6 @@ type KeyVaultSecretReferenceResponseInput interface {
 	ToKeyVaultSecretReferenceResponseOutputWithContext(context.Context) KeyVaultSecretReferenceResponseOutput
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReferenceResponseArgs struct {
 	// The URL referencing a secret in a Key Vault.
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
@@ -21404,7 +21033,6 @@ func (i *keyVaultSecretReferenceResponsePtrType) ToKeyVaultSecretReferenceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Secret
 type KeyVaultSecretReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultSecretReferenceResponseOutput) ElementType() reflect.Type {
@@ -21483,7 +21111,6 @@ func (o KeyVaultSecretReferenceResponsePtrOutput) SourceVault() SubResourceRespo
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes the properties of the last installed patch summary.
 type LastPatchInstallationSummaryResponse struct {
 	// The errors that were encountered during execution of the operation. The details array contains the list of them.
 	Error ApiErrorResponse `pulumi:"error"`
@@ -21520,7 +21147,6 @@ type LastPatchInstallationSummaryResponseInput interface {
 	ToLastPatchInstallationSummaryResponseOutputWithContext(context.Context) LastPatchInstallationSummaryResponseOutput
 }
 
-// Describes the properties of the last installed patch summary.
 type LastPatchInstallationSummaryResponseArgs struct {
 	// The errors that were encountered during execution of the operation. The details array contains the list of them.
 	Error ApiErrorResponseInput `pulumi:"error"`
@@ -21599,7 +21225,6 @@ func (i *lastPatchInstallationSummaryResponsePtrType) ToLastPatchInstallationSum
 	return pulumi.ToOutputWithContext(ctx, i).(LastPatchInstallationSummaryResponsePtrOutput)
 }
 
-// Describes the properties of the last installed patch summary.
 type LastPatchInstallationSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (LastPatchInstallationSummaryResponseOutput) ElementType() reflect.Type {
@@ -21813,7 +21438,6 @@ func (o LastPatchInstallationSummaryResponsePtrOutput) Status() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfiguration struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -21836,7 +21460,6 @@ type LinuxConfigurationInput interface {
 	ToLinuxConfigurationOutputWithContext(context.Context) LinuxConfigurationOutput
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfigurationArgs struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
@@ -21901,7 +21524,6 @@ func (i *linuxConfigurationPtrType) ToLinuxConfigurationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LinuxConfigurationOutput) ElementType() reflect.Type {
@@ -22010,7 +21632,6 @@ func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 	}).(SshConfigurationPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfigurationResponse struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -22033,7 +21654,6 @@ type LinuxConfigurationResponseInput interface {
 	ToLinuxConfigurationResponseOutputWithContext(context.Context) LinuxConfigurationResponseOutput
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfigurationResponseArgs struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
@@ -22098,7 +21718,6 @@ func (i *linuxConfigurationResponsePtrType) ToLinuxConfigurationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationResponsePtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 type LinuxConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxConfigurationResponseOutput) ElementType() reflect.Type {
@@ -22207,7 +21826,6 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 	}).(SshConfigurationResponsePtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettings struct {
 	// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode *string `pulumi:"assessmentMode"`
@@ -22226,7 +21844,6 @@ type LinuxPatchSettingsInput interface {
 	ToLinuxPatchSettingsOutputWithContext(context.Context) LinuxPatchSettingsOutput
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettingsArgs struct {
 	// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode pulumi.StringPtrInput `pulumi:"assessmentMode"`
@@ -22287,7 +21904,6 @@ func (i *linuxPatchSettingsPtrType) ToLinuxPatchSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsPtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettingsOutput struct{ *pulumi.OutputState }
 
 func (LinuxPatchSettingsOutput) ElementType() reflect.Type {
@@ -22366,7 +21982,6 @@ func (o LinuxPatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettingsResponse struct {
 	// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode *string `pulumi:"assessmentMode"`
@@ -22385,7 +22000,6 @@ type LinuxPatchSettingsResponseInput interface {
 	ToLinuxPatchSettingsResponseOutputWithContext(context.Context) LinuxPatchSettingsResponseOutput
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettingsResponseArgs struct {
 	// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode pulumi.StringPtrInput `pulumi:"assessmentMode"`
@@ -22446,7 +22060,6 @@ func (i *linuxPatchSettingsResponsePtrType) ToLinuxPatchSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsResponsePtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Linux.
 type LinuxPatchSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxPatchSettingsResponseOutput) ElementType() reflect.Type {
@@ -22525,7 +22138,6 @@ func (o LinuxPatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfiguration struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -22546,7 +22158,6 @@ type LoadBalancerConfigurationInput interface {
 	ToLoadBalancerConfigurationOutputWithContext(context.Context) LoadBalancerConfigurationOutput
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -22593,7 +22204,6 @@ func (i LoadBalancerConfigurationArray) ToLoadBalancerConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConfigurationOutput) ElementType() reflect.Type {
@@ -22751,7 +22361,6 @@ func (o LoadBalancerConfigurationPropertiesResponseOutput) FrontendIPConfigurati
 	}).(LoadBalancerFrontendIPConfigurationResponseArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -22772,7 +22381,6 @@ type LoadBalancerConfigurationResponseInput interface {
 	ToLoadBalancerConfigurationResponseOutputWithContext(context.Context) LoadBalancerConfigurationResponseOutput
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -22819,7 +22427,6 @@ func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationRespo
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConfigurationResponseOutput) ElementType() reflect.Type {
@@ -22979,7 +22586,6 @@ func (o LoadBalancerFrontendIPConfigurationArrayOutput) Index(i pulumi.IntInput)
 	}).(LoadBalancerFrontendIPConfigurationOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationProperties struct {
 	// The virtual network private IP address of the IP configuration.
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
@@ -23000,7 +22606,6 @@ type LoadBalancerFrontendIPConfigurationPropertiesInput interface {
 	ToLoadBalancerFrontendIPConfigurationPropertiesOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesOutput
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesArgs struct {
 	// The virtual network private IP address of the IP configuration.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
@@ -23022,7 +22627,6 @@ func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFronten
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -23052,7 +22656,6 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) Subnet() SubResourc
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponse struct {
 	// The virtual network private IP address of the IP configuration.
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
@@ -23073,7 +22676,6 @@ type LoadBalancerFrontendIPConfigurationPropertiesResponseInput interface {
 	ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponseArgs struct {
 	// The virtual network private IP address of the IP configuration.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
@@ -23095,7 +22697,6 @@ func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalance
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -23235,7 +22836,6 @@ func (o LoadBalancerFrontendIPConfigurationResponseArrayOutput) Index(i pulumi.I
 	}).(LoadBalancerFrontendIPConfigurationResponseOutput)
 }
 
-// LogAnalytics output properties
 type LogAnalyticsOutputResponse struct {
 	// Output file Uri path to blob container.
 	Output string `pulumi:"output"`
@@ -23252,7 +22852,6 @@ type LogAnalyticsOutputResponseInput interface {
 	ToLogAnalyticsOutputResponseOutputWithContext(context.Context) LogAnalyticsOutputResponseOutput
 }
 
-// LogAnalytics output properties
 type LogAnalyticsOutputResponseArgs struct {
 	// Output file Uri path to blob container.
 	Output pulumi.StringInput `pulumi:"output"`
@@ -23270,7 +22869,6 @@ func (i LogAnalyticsOutputResponseArgs) ToLogAnalyticsOutputResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsOutputResponseOutput)
 }
 
-// LogAnalytics output properties
 type LogAnalyticsOutputResponseOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsOutputResponseOutput) ElementType() reflect.Type {
@@ -23290,7 +22888,6 @@ func (o LogAnalyticsOutputResponseOutput) Output() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAnalyticsOutputResponse) string { return v.Output }).(pulumi.StringOutput)
 }
 
-// Maintenance Operation Status.
 type MaintenanceRedeployStatusResponse struct {
 	// True, if customer is allowed to perform Maintenance.
 	IsCustomerInitiatedMaintenanceAllowed *bool `pulumi:"isCustomerInitiatedMaintenanceAllowed"`
@@ -23319,7 +22916,6 @@ type MaintenanceRedeployStatusResponseInput interface {
 	ToMaintenanceRedeployStatusResponseOutputWithContext(context.Context) MaintenanceRedeployStatusResponseOutput
 }
 
-// Maintenance Operation Status.
 type MaintenanceRedeployStatusResponseArgs struct {
 	// True, if customer is allowed to perform Maintenance.
 	IsCustomerInitiatedMaintenanceAllowed pulumi.BoolPtrInput `pulumi:"isCustomerInitiatedMaintenanceAllowed"`
@@ -23390,7 +22986,6 @@ func (i *maintenanceRedeployStatusResponsePtrType) ToMaintenanceRedeployStatusRe
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRedeployStatusResponsePtrOutput)
 }
 
-// Maintenance Operation Status.
 type MaintenanceRedeployStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceRedeployStatusResponseOutput) ElementType() reflect.Type {
@@ -23544,7 +23139,6 @@ func (o MaintenanceRedeployStatusResponsePtrOutput) PreMaintenanceWindowStartTim
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParameters struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet *DiskEncryptionSetParameters `pulumi:"diskEncryptionSet"`
@@ -23565,7 +23159,6 @@ type ManagedDiskParametersInput interface {
 	ToManagedDiskParametersOutputWithContext(context.Context) ManagedDiskParametersOutput
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParametersArgs struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet DiskEncryptionSetParametersPtrInput `pulumi:"diskEncryptionSet"`
@@ -23628,7 +23221,6 @@ func (i *managedDiskParametersPtrType) ToManagedDiskParametersPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskParametersPtrOutput)
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParametersOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskParametersOutput) ElementType() reflect.Type {
@@ -23722,7 +23314,6 @@ func (o ManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParametersResponse struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet *DiskEncryptionSetParametersResponse `pulumi:"diskEncryptionSet"`
@@ -23743,7 +23334,6 @@ type ManagedDiskParametersResponseInput interface {
 	ToManagedDiskParametersResponseOutputWithContext(context.Context) ManagedDiskParametersResponseOutput
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParametersResponseArgs struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet DiskEncryptionSetParametersResponsePtrInput `pulumi:"diskEncryptionSet"`
@@ -23806,7 +23396,6 @@ func (i *managedDiskParametersResponsePtrType) ToManagedDiskParametersResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskParametersResponsePtrOutput)
 }
 
-// The parameters of a managed disk.
 type ManagedDiskParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskParametersResponseOutput) ElementType() reflect.Type {
@@ -23900,7 +23489,6 @@ func (o ManagedDiskParametersResponsePtrOutput) StorageAccountType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReference struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -23921,7 +23509,6 @@ type NetworkInterfaceReferenceInput interface {
 	ToNetworkInterfaceReferenceOutputWithContext(context.Context) NetworkInterfaceReferenceOutput
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReferenceArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -23968,7 +23555,6 @@ func (i NetworkInterfaceReferenceArray) ToNetworkInterfaceReferenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceReferenceArrayOutput)
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReferenceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceReferenceOutput) ElementType() reflect.Type {
@@ -24018,7 +23604,6 @@ func (o NetworkInterfaceReferenceArrayOutput) Index(i pulumi.IntInput) NetworkIn
 	}).(NetworkInterfaceReferenceOutput)
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReferenceResponse struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -24039,7 +23624,6 @@ type NetworkInterfaceReferenceResponseInput interface {
 	ToNetworkInterfaceReferenceResponseOutputWithContext(context.Context) NetworkInterfaceReferenceResponseOutput
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReferenceResponseArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -24086,7 +23670,6 @@ func (i NetworkInterfaceReferenceResponseArray) ToNetworkInterfaceReferenceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceReferenceResponseArrayOutput)
 }
 
-// Describes a network interface reference.
 type NetworkInterfaceReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceReferenceResponseOutput) ElementType() reflect.Type {
@@ -24136,7 +23719,6 @@ func (o NetworkInterfaceReferenceResponseArrayOutput) Index(i pulumi.IntInput) N
 	}).(NetworkInterfaceReferenceResponseOutput)
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfile struct {
 	// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
 	NetworkApiVersion *string `pulumi:"networkApiVersion"`
@@ -24157,7 +23739,6 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfileArgs struct {
 	// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
 	NetworkApiVersion pulumi.StringPtrInput `pulumi:"networkApiVersion"`
@@ -24220,7 +23801,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -24316,7 +23896,6 @@ func (o NetworkProfilePtrOutput) NetworkInterfaces() NetworkInterfaceReferenceAr
 	}).(NetworkInterfaceReferenceArrayOutput)
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfileResponse struct {
 	// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
 	NetworkApiVersion *string `pulumi:"networkApiVersion"`
@@ -24337,7 +23916,6 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfileResponseArgs struct {
 	// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
 	NetworkApiVersion pulumi.StringPtrInput `pulumi:"networkApiVersion"`
@@ -24400,7 +23978,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Specifies the network interfaces or the networking configuration of the virtual machine.
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -24496,7 +24073,6 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() NetworkInterfaceRef
 	}).(NetworkInterfaceReferenceResponseArrayOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 	Caching *CachingTypes `pulumi:"caching"`
@@ -24535,7 +24111,6 @@ type OSDiskInput interface {
 	ToOSDiskOutputWithContext(context.Context) OSDiskOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 	Caching CachingTypesPtrInput `pulumi:"caching"`
@@ -24616,7 +24191,6 @@ func (i *osdiskPtrType) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDisk
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskPtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDiskOutput struct{ *pulumi.OutputState }
 
 func (OSDiskOutput) ElementType() reflect.Type {
@@ -24845,7 +24419,6 @@ func (o OSDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryption struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -24862,7 +24435,6 @@ type OSDiskImageEncryptionInput interface {
 	ToOSDiskImageEncryptionOutputWithContext(context.Context) OSDiskImageEncryptionOutput
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionArgs struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -24921,7 +24493,6 @@ func (i *osdiskImageEncryptionPtrType) ToOSDiskImageEncryptionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionPtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OSDiskImageEncryptionOutput) ElementType() reflect.Type {
@@ -24985,7 +24556,6 @@ func (o OSDiskImageEncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponse struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -25002,7 +24572,6 @@ type OSDiskImageEncryptionResponseInput interface {
 	ToOSDiskImageEncryptionResponseOutputWithContext(context.Context) OSDiskImageEncryptionResponseOutput
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponseArgs struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -25061,7 +24630,6 @@ func (i *osdiskImageEncryptionResponsePtrType) ToOSDiskImageEncryptionResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDiskImageEncryptionResponseOutput) ElementType() reflect.Type {
@@ -25125,7 +24693,6 @@ func (o OSDiskImageEncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDiskResponse struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 	Caching *string `pulumi:"caching"`
@@ -25164,7 +24731,6 @@ type OSDiskResponseInput interface {
 	ToOSDiskResponseOutputWithContext(context.Context) OSDiskResponseOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDiskResponseArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -25245,7 +24811,6 @@ func (i *osdiskResponsePtrType) ToOSDiskResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskResponsePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 type OSDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDiskResponseOutput) ElementType() reflect.Type {
@@ -25474,7 +25039,6 @@ func (o OSDiskResponsePtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfile struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -25507,7 +25071,6 @@ type OSProfileInput interface {
 	ToOSProfileOutputWithContext(context.Context) OSProfileOutput
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfileArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -25582,7 +25145,6 @@ func (i *osprofilePtrType) ToOSProfilePtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OSProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfileOutput struct{ *pulumi.OutputState }
 
 func (OSProfileOutput) ElementType() reflect.Type {
@@ -25766,7 +25328,6 @@ func (o OSProfilePtrOutput) WindowsConfiguration() WindowsConfigurationPtrOutput
 	}).(WindowsConfigurationPtrOutput)
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfileResponse struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -25799,7 +25360,6 @@ type OSProfileResponseInput interface {
 	ToOSProfileResponseOutputWithContext(context.Context) OSProfileResponseOutput
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfileResponseArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -25874,7 +25434,6 @@ func (i *osprofileResponsePtrType) ToOSProfileResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OSProfileResponsePtrOutput)
 }
 
-// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
 type OSProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OSProfileResponseOutput) ElementType() reflect.Type {
@@ -26058,7 +25617,6 @@ func (o OSProfileResponsePtrOutput) WindowsConfiguration() WindowsConfigurationR
 	}).(WindowsConfigurationResponsePtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettings struct {
 	// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode *string `pulumi:"assessmentMode"`
@@ -26079,7 +25637,6 @@ type PatchSettingsInput interface {
 	ToPatchSettingsOutputWithContext(context.Context) PatchSettingsOutput
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsArgs struct {
 	// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode pulumi.StringPtrInput `pulumi:"assessmentMode"`
@@ -26142,7 +25699,6 @@ func (i *patchSettingsPtrType) ToPatchSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PatchSettingsPtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsOutput struct{ *pulumi.OutputState }
 
 func (PatchSettingsOutput) ElementType() reflect.Type {
@@ -26236,7 +25792,6 @@ func (o PatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponse struct {
 	// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode *string `pulumi:"assessmentMode"`
@@ -26257,7 +25812,6 @@ type PatchSettingsResponseInput interface {
 	ToPatchSettingsResponseOutputWithContext(context.Context) PatchSettingsResponseOutput
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponseArgs struct {
 	// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
 	AssessmentMode pulumi.StringPtrInput `pulumi:"assessmentMode"`
@@ -26320,7 +25874,6 @@ func (i *patchSettingsResponsePtrType) ToPatchSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PatchSettingsResponsePtrOutput)
 }
 
-// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PatchSettingsResponseOutput) ElementType() reflect.Type {
@@ -26414,7 +25967,6 @@ func (o PatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type Plan struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -26437,7 +25989,6 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type PlanArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -26502,7 +26053,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -26611,7 +26161,6 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type PlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -26634,7 +26183,6 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type PlanResponseArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -26699,7 +26247,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -26808,7 +26355,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// private endpoint connection Id
 	Id string `pulumi:"id"`
@@ -26835,7 +26381,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
 	// private endpoint connection Id
 	Id pulumi.StringInput `pulumi:"id"`
@@ -26888,7 +26433,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -26955,7 +26499,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
@@ -26972,7 +26515,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
@@ -27031,7 +26573,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -27095,7 +26636,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -27116,7 +26656,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -27179,7 +26718,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -27273,7 +26811,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -27294,7 +26831,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -27357,7 +26893,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -27451,7 +26986,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the disk for which update is pending.
 type PropertyUpdatesInProgressResponse struct {
 	// The target performance tier of the disk if a tier change operation is in progress.
 	TargetTier *string `pulumi:"targetTier"`
@@ -27468,7 +27002,6 @@ type PropertyUpdatesInProgressResponseInput interface {
 	ToPropertyUpdatesInProgressResponseOutputWithContext(context.Context) PropertyUpdatesInProgressResponseOutput
 }
 
-// Properties of the disk for which update is pending.
 type PropertyUpdatesInProgressResponseArgs struct {
 	// The target performance tier of the disk if a tier change operation is in progress.
 	TargetTier pulumi.StringPtrInput `pulumi:"targetTier"`
@@ -27527,7 +27060,6 @@ func (i *propertyUpdatesInProgressResponsePtrType) ToPropertyUpdatesInProgressRe
 	return pulumi.ToOutputWithContext(ctx, i).(PropertyUpdatesInProgressResponsePtrOutput)
 }
 
-// Properties of the disk for which update is pending.
 type PropertyUpdatesInProgressResponseOutput struct{ *pulumi.OutputState }
 
 func (PropertyUpdatesInProgressResponseOutput) ElementType() reflect.Type {
@@ -27591,7 +27123,6 @@ func (o PropertyUpdatesInProgressResponsePtrOutput) TargetTier() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSku struct {
 	// Specify public IP sku name
 	Name *string `pulumi:"name"`
@@ -27610,7 +27141,6 @@ type PublicIPAddressSkuInput interface {
 	ToPublicIPAddressSkuOutputWithContext(context.Context) PublicIPAddressSkuOutput
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSkuArgs struct {
 	// Specify public IP sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -27671,7 +27201,6 @@ func (i *publicIPAddressSkuPtrType) ToPublicIPAddressSkuPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressSkuPtrOutput)
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSkuOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressSkuOutput) ElementType() reflect.Type {
@@ -27750,7 +27279,6 @@ func (o PublicIPAddressSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSkuResponse struct {
 	// Specify public IP sku name
 	Name *string `pulumi:"name"`
@@ -27769,7 +27297,6 @@ type PublicIPAddressSkuResponseInput interface {
 	ToPublicIPAddressSkuResponseOutputWithContext(context.Context) PublicIPAddressSkuResponseOutput
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSkuResponseArgs struct {
 	// Specify public IP sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -27830,7 +27357,6 @@ func (i *publicIPAddressSkuResponsePtrType) ToPublicIPAddressSkuResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressSkuResponsePtrOutput)
 }
 
-// Describes the public IP Sku
 type PublicIPAddressSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressSkuResponseOutput) ElementType() reflect.Type {
@@ -27909,7 +27435,6 @@ func (o PublicIPAddressSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlan struct {
 	// The plan ID.
 	Name string `pulumi:"name"`
@@ -27932,7 +27457,6 @@ type PurchasePlanInput interface {
 	ToPurchasePlanOutputWithContext(context.Context) PurchasePlanOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanArgs struct {
 	// The plan ID.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -27997,7 +27521,6 @@ func (i *purchasePlanPtrType) ToPurchasePlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanOutput) ElementType() reflect.Type {
@@ -28106,7 +27629,6 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
 	// The plan ID.
 	Name string `pulumi:"name"`
@@ -28129,7 +27651,6 @@ type PurchasePlanResponseInput interface {
 	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseArgs struct {
 	// The plan ID.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -28194,7 +27715,6 @@ func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -28303,7 +27823,6 @@ func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfiguration struct {
 	// Describes the resource range.
 	Memory *ResourceRange `pulumi:"memory"`
@@ -28322,7 +27841,6 @@ type RecommendedMachineConfigurationInput interface {
 	ToRecommendedMachineConfigurationOutputWithContext(context.Context) RecommendedMachineConfigurationOutput
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationArgs struct {
 	// Describes the resource range.
 	Memory ResourceRangePtrInput `pulumi:"memory"`
@@ -28383,7 +27901,6 @@ func (i *recommendedMachineConfigurationPtrType) ToRecommendedMachineConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendedMachineConfigurationPtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecommendedMachineConfigurationOutput) ElementType() reflect.Type {
@@ -28462,7 +27979,6 @@ func (o RecommendedMachineConfigurationPtrOutput) VCPUs() ResourceRangePtrOutput
 	}).(ResourceRangePtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponse struct {
 	// Describes the resource range.
 	Memory *ResourceRangeResponse `pulumi:"memory"`
@@ -28481,7 +27997,6 @@ type RecommendedMachineConfigurationResponseInput interface {
 	ToRecommendedMachineConfigurationResponseOutputWithContext(context.Context) RecommendedMachineConfigurationResponseOutput
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponseArgs struct {
 	// Describes the resource range.
 	Memory ResourceRangeResponsePtrInput `pulumi:"memory"`
@@ -28542,7 +28057,6 @@ func (i *recommendedMachineConfigurationResponsePtrType) ToRecommendedMachineCon
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendedMachineConfigurationResponsePtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RecommendedMachineConfigurationResponseOutput) ElementType() reflect.Type {
@@ -28621,7 +28135,6 @@ func (o RecommendedMachineConfigurationResponsePtrOutput) VCPUs() ResourceRangeR
 	}).(ResourceRangeResponsePtrOutput)
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponse struct {
 	// The details of the replication status.
 	Details string `pulumi:"details"`
@@ -28644,7 +28157,6 @@ type RegionalReplicationStatusResponseInput interface {
 	ToRegionalReplicationStatusResponseOutputWithContext(context.Context) RegionalReplicationStatusResponseOutput
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponseArgs struct {
 	// The details of the replication status.
 	Details pulumi.StringInput `pulumi:"details"`
@@ -28693,7 +28205,6 @@ func (i RegionalReplicationStatusResponseArray) ToRegionalReplicationStatusRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RegionalReplicationStatusResponseArrayOutput)
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (RegionalReplicationStatusResponseOutput) ElementType() reflect.Type {
@@ -28748,7 +28259,6 @@ func (o RegionalReplicationStatusResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RegionalReplicationStatusResponseOutput)
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponse struct {
 	// This is the aggregated replication status based on all the regional replication status flags.
 	AggregatedState string `pulumi:"aggregatedState"`
@@ -28767,7 +28277,6 @@ type ReplicationStatusResponseInput interface {
 	ToReplicationStatusResponseOutputWithContext(context.Context) ReplicationStatusResponseOutput
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponseArgs struct {
 	// This is the aggregated replication status based on all the regional replication status flags.
 	AggregatedState pulumi.StringInput `pulumi:"aggregatedState"`
@@ -28828,7 +28337,6 @@ func (i *replicationStatusResponsePtrType) ToReplicationStatusResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStatusResponsePtrOutput)
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationStatusResponseOutput) ElementType() reflect.Type {
@@ -28907,7 +28415,6 @@ func (o ReplicationStatusResponsePtrOutput) Summary() RegionalReplicationStatusR
 	}).(RegionalReplicationStatusResponseArrayOutput)
 }
 
-// Describes the resource range.
 type ResourceRange struct {
 	// The maximum number of the resource.
 	Max *int `pulumi:"max"`
@@ -28926,7 +28433,6 @@ type ResourceRangeInput interface {
 	ToResourceRangeOutputWithContext(context.Context) ResourceRangeOutput
 }
 
-// Describes the resource range.
 type ResourceRangeArgs struct {
 	// The maximum number of the resource.
 	Max pulumi.IntPtrInput `pulumi:"max"`
@@ -28987,7 +28493,6 @@ func (i *resourceRangePtrType) ToResourceRangePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangePtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeOutput struct{ *pulumi.OutputState }
 
 func (ResourceRangeOutput) ElementType() reflect.Type {
@@ -29066,7 +28571,6 @@ func (o ResourceRangePtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeResponse struct {
 	// The maximum number of the resource.
 	Max *int `pulumi:"max"`
@@ -29085,7 +28589,6 @@ type ResourceRangeResponseInput interface {
 	ToResourceRangeResponseOutputWithContext(context.Context) ResourceRangeResponseOutput
 }
 
-// Describes the resource range.
 type ResourceRangeResponseArgs struct {
 	// The maximum number of the resource.
 	Max pulumi.IntPtrInput `pulumi:"max"`
@@ -29146,7 +28649,6 @@ func (i *resourceRangeResponsePtrType) ToResourceRangeResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangeResponsePtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceRangeResponseOutput) ElementType() reflect.Type {
@@ -29225,7 +28727,6 @@ func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourceProperties struct {
 	// Resource Id of the source resource used to create this restore point collection
 	Id *string `pulumi:"id"`
@@ -29242,7 +28743,6 @@ type RestorePointCollectionSourcePropertiesInput interface {
 	ToRestorePointCollectionSourcePropertiesOutputWithContext(context.Context) RestorePointCollectionSourcePropertiesOutput
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourcePropertiesArgs struct {
 	// Resource Id of the source resource used to create this restore point collection
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -29301,7 +28801,6 @@ func (i *restorePointCollectionSourcePropertiesPtrType) ToRestorePointCollection
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointCollectionSourcePropertiesPtrOutput)
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RestorePointCollectionSourcePropertiesOutput) ElementType() reflect.Type {
@@ -29365,7 +28864,6 @@ func (o RestorePointCollectionSourcePropertiesPtrOutput) Id() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourcePropertiesResponse struct {
 	// Resource Id of the source resource used to create this restore point collection
 	Id *string `pulumi:"id"`
@@ -29384,7 +28882,6 @@ type RestorePointCollectionSourcePropertiesResponseInput interface {
 	ToRestorePointCollectionSourcePropertiesResponseOutputWithContext(context.Context) RestorePointCollectionSourcePropertiesResponseOutput
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourcePropertiesResponseArgs struct {
 	// Resource Id of the source resource used to create this restore point collection
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -29445,7 +28942,6 @@ func (i *restorePointCollectionSourcePropertiesResponsePtrType) ToRestorePointCo
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointCollectionSourcePropertiesResponsePtrOutput)
 }
 
-// The properties of the source resource that this restore point collection is created from.
 type RestorePointCollectionSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointCollectionSourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -29524,7 +29020,6 @@ func (o RestorePointCollectionSourcePropertiesResponsePtrOutput) Location() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Restore Point Provisioning details.
 type RestorePointProvisioningDetailsResponse struct {
 	// Gets the creation time of the restore point.
 	CreationTime *string `pulumi:"creationTime"`
@@ -29547,7 +29042,6 @@ type RestorePointProvisioningDetailsResponseInput interface {
 	ToRestorePointProvisioningDetailsResponseOutputWithContext(context.Context) RestorePointProvisioningDetailsResponseOutput
 }
 
-// Restore Point Provisioning details.
 type RestorePointProvisioningDetailsResponseArgs struct {
 	// Gets the creation time of the restore point.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
@@ -29612,7 +29106,6 @@ func (i *restorePointProvisioningDetailsResponsePtrType) ToRestorePointProvision
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointProvisioningDetailsResponsePtrOutput)
 }
 
-// Restore Point Provisioning details.
 type RestorePointProvisioningDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointProvisioningDetailsResponseOutput) ElementType() reflect.Type {
@@ -29721,7 +29214,6 @@ func (o RestorePointProvisioningDetailsResponsePtrOutput) TotalUsedSizeInBytes()
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Restore Point details.
 type RestorePointResponse struct {
 	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
 	ConsistencyMode string `pulumi:"consistencyMode"`
@@ -29752,7 +29244,6 @@ type RestorePointResponseInput interface {
 	ToRestorePointResponseOutputWithContext(context.Context) RestorePointResponseOutput
 }
 
-// Restore Point details.
 type RestorePointResponseArgs struct {
 	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
 	ConsistencyMode pulumi.StringInput `pulumi:"consistencyMode"`
@@ -29809,7 +29300,6 @@ func (i RestorePointResponseArray) ToRestorePointResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointResponseArrayOutput)
 }
 
-// Restore Point details.
 type RestorePointResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointResponseOutput) ElementType() reflect.Type {
@@ -29884,7 +29374,6 @@ func (o RestorePointResponseArrayOutput) Index(i pulumi.IntInput) RestorePointRe
 	}).(RestorePointResponseOutput)
 }
 
-// Describes the properties of the Virtual Machine for which the restore point was created. The properties provided are a subset and the snapshot of the overall Virtual Machine properties captured at the time of the restore point creation.
 type RestorePointSourceMetadataResponse struct {
 	// Gets the diagnostics profile.
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
@@ -29915,7 +29404,6 @@ type RestorePointSourceMetadataResponseInput interface {
 	ToRestorePointSourceMetadataResponseOutputWithContext(context.Context) RestorePointSourceMetadataResponseOutput
 }
 
-// Describes the properties of the Virtual Machine for which the restore point was created. The properties provided are a subset and the snapshot of the overall Virtual Machine properties captured at the time of the restore point creation.
 type RestorePointSourceMetadataResponseArgs struct {
 	// Gets the diagnostics profile.
 	DiagnosticsProfile DiagnosticsProfileResponsePtrInput `pulumi:"diagnosticsProfile"`
@@ -29988,7 +29476,6 @@ func (i *restorePointSourceMetadataResponsePtrType) ToRestorePointSourceMetadata
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointSourceMetadataResponsePtrOutput)
 }
 
-// Describes the properties of the Virtual Machine for which the restore point was created. The properties provided are a subset and the snapshot of the overall Virtual Machine properties captured at the time of the restore point creation.
 type RestorePointSourceMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointSourceMetadataResponseOutput) ElementType() reflect.Type {
@@ -30159,7 +29646,6 @@ func (o RestorePointSourceMetadataResponsePtrOutput) VmId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a data disk.
 type RestorePointSourceVMDataDiskResponse struct {
 	// Gets the caching type.
 	Caching *string `pulumi:"caching"`
@@ -30186,7 +29672,6 @@ type RestorePointSourceVMDataDiskResponseInput interface {
 	ToRestorePointSourceVMDataDiskResponseOutputWithContext(context.Context) RestorePointSourceVMDataDiskResponseOutput
 }
 
-// Describes a data disk.
 type RestorePointSourceVMDataDiskResponseArgs struct {
 	// Gets the caching type.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -30239,7 +29724,6 @@ func (i RestorePointSourceVMDataDiskResponseArray) ToRestorePointSourceVMDataDis
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointSourceVMDataDiskResponseArrayOutput)
 }
 
-// Describes a data disk.
 type RestorePointSourceVMDataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointSourceVMDataDiskResponseOutput) ElementType() reflect.Type {
@@ -30304,7 +29788,6 @@ func (o RestorePointSourceVMDataDiskResponseArrayOutput) Index(i pulumi.IntInput
 	}).(RestorePointSourceVMDataDiskResponseOutput)
 }
 
-// Describes an Operating System disk.
 type RestorePointSourceVMOSDiskResponse struct {
 	// Gets the caching type.
 	Caching *string `pulumi:"caching"`
@@ -30333,7 +29816,6 @@ type RestorePointSourceVMOSDiskResponseInput interface {
 	ToRestorePointSourceVMOSDiskResponseOutputWithContext(context.Context) RestorePointSourceVMOSDiskResponseOutput
 }
 
-// Describes an Operating System disk.
 type RestorePointSourceVMOSDiskResponseArgs struct {
 	// Gets the caching type.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -30404,7 +29886,6 @@ func (i *restorePointSourceVMOSDiskResponsePtrType) ToRestorePointSourceVMOSDisk
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointSourceVMOSDiskResponsePtrOutput)
 }
 
-// Describes an Operating System disk.
 type RestorePointSourceVMOSDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointSourceVMOSDiskResponseOutput) ElementType() reflect.Type {
@@ -30560,7 +30041,6 @@ func (o RestorePointSourceVMOSDiskResponsePtrOutput) OsType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the storage profile.
 type RestorePointSourceVMStorageProfileResponse struct {
 	// Gets the data disks of the VM captured at the time of the restore point creation.
 	DataDisks []RestorePointSourceVMDataDiskResponse `pulumi:"dataDisks"`
@@ -30579,7 +30059,6 @@ type RestorePointSourceVMStorageProfileResponseInput interface {
 	ToRestorePointSourceVMStorageProfileResponseOutputWithContext(context.Context) RestorePointSourceVMStorageProfileResponseOutput
 }
 
-// Describes the storage profile.
 type RestorePointSourceVMStorageProfileResponseArgs struct {
 	// Gets the data disks of the VM captured at the time of the restore point creation.
 	DataDisks RestorePointSourceVMDataDiskResponseArrayInput `pulumi:"dataDisks"`
@@ -30640,7 +30119,6 @@ func (i *restorePointSourceVMStorageProfileResponsePtrType) ToRestorePointSource
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointSourceVMStorageProfileResponsePtrOutput)
 }
 
-// Describes the storage profile.
 type RestorePointSourceVMStorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (RestorePointSourceVMStorageProfileResponseOutput) ElementType() reflect.Type {
@@ -30723,7 +30201,6 @@ func (o RestorePointSourceVMStorageProfileResponsePtrOutput) OsDisk() RestorePoi
 	}).(RestorePointSourceVMOSDiskResponsePtrOutput)
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicy struct {
 	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
 	EnableCrossZoneUpgrade *bool `pulumi:"enableCrossZoneUpgrade"`
@@ -30750,7 +30227,6 @@ type RollingUpgradePolicyInput interface {
 	ToRollingUpgradePolicyOutputWithContext(context.Context) RollingUpgradePolicyOutput
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyArgs struct {
 	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
 	EnableCrossZoneUpgrade pulumi.BoolPtrInput `pulumi:"enableCrossZoneUpgrade"`
@@ -30819,7 +30295,6 @@ func (i *rollingUpgradePolicyPtrType) ToRollingUpgradePolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RollingUpgradePolicyPtrOutput)
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (RollingUpgradePolicyOutput) ElementType() reflect.Type {
@@ -30958,7 +30433,6 @@ func (o RollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstances() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyResponse struct {
 	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
 	EnableCrossZoneUpgrade *bool `pulumi:"enableCrossZoneUpgrade"`
@@ -30985,7 +30459,6 @@ type RollingUpgradePolicyResponseInput interface {
 	ToRollingUpgradePolicyResponseOutputWithContext(context.Context) RollingUpgradePolicyResponseOutput
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyResponseArgs struct {
 	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
 	EnableCrossZoneUpgrade pulumi.BoolPtrInput `pulumi:"enableCrossZoneUpgrade"`
@@ -31054,7 +30527,6 @@ func (i *rollingUpgradePolicyResponsePtrType) ToRollingUpgradePolicyResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RollingUpgradePolicyResponsePtrOutput)
 }
 
-// The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RollingUpgradePolicyResponseOutput) ElementType() reflect.Type {
@@ -31193,7 +30665,6 @@ func (o RollingUpgradePolicyResponsePtrOutput) PrioritizeUnhealthyInstances() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameter struct {
 	// The run command parameter name.
 	Name string `pulumi:"name"`
@@ -31212,7 +30683,6 @@ type RunCommandInputParameterInput interface {
 	ToRunCommandInputParameterOutputWithContext(context.Context) RunCommandInputParameterOutput
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameterArgs struct {
 	// The run command parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -31257,7 +30727,6 @@ func (i RunCommandInputParameterArray) ToRunCommandInputParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterArrayOutput)
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameterOutput struct{ *pulumi.OutputState }
 
 func (RunCommandInputParameterOutput) ElementType() reflect.Type {
@@ -31302,7 +30771,6 @@ func (o RunCommandInputParameterArrayOutput) Index(i pulumi.IntInput) RunCommand
 	}).(RunCommandInputParameterOutput)
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameterResponse struct {
 	// The run command parameter name.
 	Name string `pulumi:"name"`
@@ -31321,7 +30789,6 @@ type RunCommandInputParameterResponseInput interface {
 	ToRunCommandInputParameterResponseOutputWithContext(context.Context) RunCommandInputParameterResponseOutput
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameterResponseArgs struct {
 	// The run command parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -31366,7 +30833,6 @@ func (i RunCommandInputParameterResponseArray) ToRunCommandInputParameterRespons
 	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterResponseArrayOutput)
 }
 
-// Describes the properties of a run command parameter.
 type RunCommandInputParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (RunCommandInputParameterResponseOutput) ElementType() reflect.Type {
@@ -31411,7 +30877,6 @@ func (o RunCommandInputParameterResponseArrayOutput) Index(i pulumi.IntInput) Ru
 	}).(RunCommandInputParameterResponseOutput)
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicy struct {
 	// The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
 	Rules []string `pulumi:"rules"`
@@ -31428,7 +30893,6 @@ type ScaleInPolicyInput interface {
 	ToScaleInPolicyOutputWithContext(context.Context) ScaleInPolicyOutput
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicyArgs struct {
 	// The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
 	Rules pulumi.StringArrayInput `pulumi:"rules"`
@@ -31487,7 +30951,6 @@ func (i *scaleInPolicyPtrType) ToScaleInPolicyPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleInPolicyPtrOutput)
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicyOutput struct{ *pulumi.OutputState }
 
 func (ScaleInPolicyOutput) ElementType() reflect.Type {
@@ -31551,7 +31014,6 @@ func (o ScaleInPolicyPtrOutput) Rules() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicyResponse struct {
 	// The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
 	Rules []string `pulumi:"rules"`
@@ -31568,7 +31030,6 @@ type ScaleInPolicyResponseInput interface {
 	ToScaleInPolicyResponseOutputWithContext(context.Context) ScaleInPolicyResponseOutput
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicyResponseArgs struct {
 	// The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
 	Rules pulumi.StringArrayInput `pulumi:"rules"`
@@ -31627,7 +31088,6 @@ func (i *scaleInPolicyResponsePtrType) ToScaleInPolicyResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleInPolicyResponsePtrOutput)
 }
 
-// Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ScaleInPolicyResponseOutput) ElementType() reflect.Type {
@@ -31967,7 +31427,6 @@ func (o ScheduledEventsProfileResponsePtrOutput) TerminateNotificationProfile() 
 	}).(TerminateNotificationProfileResponsePtrOutput)
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfile struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
@@ -31988,7 +31447,6 @@ type SecurityProfileInput interface {
 	ToSecurityProfileOutputWithContext(context.Context) SecurityProfileOutput
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileArgs struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
@@ -32051,7 +31509,6 @@ func (i *securityProfilePtrType) ToSecurityProfilePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePtrOutput)
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileOutput) ElementType() reflect.Type {
@@ -32145,7 +31602,6 @@ func (o SecurityProfilePtrOutput) UefiSettings() UefiSettingsPtrOutput {
 	}).(UefiSettingsPtrOutput)
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileResponse struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
@@ -32166,7 +31622,6 @@ type SecurityProfileResponseInput interface {
 	ToSecurityProfileResponseOutputWithContext(context.Context) SecurityProfileResponseOutput
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileResponseArgs struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
@@ -32229,7 +31684,6 @@ func (i *securityProfileResponsePtrType) ToSecurityProfileResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileResponsePtrOutput)
 }
 
-// Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileResponseOutput) ElementType() reflect.Type {
@@ -32420,7 +31874,6 @@ func (o ShareInfoElementResponseArrayOutput) Index(i pulumi.IntInput) ShareInfoE
 	}).(ShareInfoElementResponseOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfile struct {
 	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions *string `pulumi:"permissions"`
@@ -32437,7 +31890,6 @@ type SharingProfileInput interface {
 	ToSharingProfileOutputWithContext(context.Context) SharingProfileOutput
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileArgs struct {
 	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
@@ -32496,7 +31948,6 @@ func (i *sharingProfilePtrType) ToSharingProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfilePtrOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileOutput) ElementType() reflect.Type {
@@ -32560,7 +32011,6 @@ func (o SharingProfilePtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponse struct {
 	// A list of subscription/tenant ids the gallery is aimed to be shared to.
 	Ids []string `pulumi:"ids"`
@@ -32579,7 +32029,6 @@ type SharingProfileGroupResponseInput interface {
 	ToSharingProfileGroupResponseOutputWithContext(context.Context) SharingProfileGroupResponseOutput
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponseArgs struct {
 	// A list of subscription/tenant ids the gallery is aimed to be shared to.
 	Ids pulumi.StringArrayInput `pulumi:"ids"`
@@ -32624,7 +32073,6 @@ func (i SharingProfileGroupResponseArray) ToSharingProfileGroupResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupResponseArrayOutput)
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileGroupResponseOutput) ElementType() reflect.Type {
@@ -32669,7 +32117,6 @@ func (o SharingProfileGroupResponseArrayOutput) Index(i pulumi.IntInput) Sharing
 	}).(SharingProfileGroupResponseOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponse struct {
 	// A list of sharing profile groups.
 	Groups []SharingProfileGroupResponse `pulumi:"groups"`
@@ -32688,7 +32135,6 @@ type SharingProfileResponseInput interface {
 	ToSharingProfileResponseOutputWithContext(context.Context) SharingProfileResponseOutput
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponseArgs struct {
 	// A list of sharing profile groups.
 	Groups SharingProfileGroupResponseArrayInput `pulumi:"groups"`
@@ -32749,7 +32195,6 @@ func (i *sharingProfileResponsePtrType) ToSharingProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileResponsePtrOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileResponseOutput) ElementType() reflect.Type {
@@ -32828,7 +32273,6 @@ func (o SharingProfileResponsePtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type Sku struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity *float64 `pulumi:"capacity"`
@@ -32849,7 +32293,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuArgs struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
@@ -32912,7 +32355,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -33006,7 +32448,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponse struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity *float64 `pulumi:"capacity"`
@@ -33027,7 +32468,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponseArgs struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
@@ -33090,7 +32530,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -33184,7 +32623,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSku struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -33201,7 +32639,6 @@ type SnapshotSkuInput interface {
 	ToSnapshotSkuOutputWithContext(context.Context) SnapshotSkuOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -33260,7 +32697,6 @@ func (i *snapshotSkuPtrType) ToSnapshotSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuOutput) ElementType() reflect.Type {
@@ -33324,7 +32760,6 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -33343,7 +32778,6 @@ type SnapshotSkuResponseInput interface {
 	ToSnapshotSkuResponseOutputWithContext(context.Context) SnapshotSkuResponseOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -33404,7 +32838,6 @@ func (i *snapshotSkuResponsePtrType) ToSnapshotSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuResponsePtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuResponseOutput) ElementType() reflect.Type {
@@ -33483,7 +32916,6 @@ func (o SnapshotSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVault struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -33500,7 +32932,6 @@ type SourceVaultInput interface {
 	ToSourceVaultOutputWithContext(context.Context) SourceVaultOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -33559,7 +32990,6 @@ func (i *sourceVaultPtrType) ToSourceVaultPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultOutput) ElementType() reflect.Type {
@@ -33623,7 +33053,6 @@ func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -33640,7 +33069,6 @@ type SourceVaultResponseInput interface {
 	ToSourceVaultResponseOutputWithContext(context.Context) SourceVaultResponseOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -33699,7 +33127,6 @@ func (i *sourceVaultResponsePtrType) ToSourceVaultResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultResponsePtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultResponseOutput) ElementType() reflect.Type {
@@ -33763,7 +33190,6 @@ func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfiguration struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKeyType `pulumi:"publicKeys"`
@@ -33780,7 +33206,6 @@ type SshConfigurationInput interface {
 	ToSshConfigurationOutputWithContext(context.Context) SshConfigurationOutput
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationArgs struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyTypeArrayInput `pulumi:"publicKeys"`
@@ -33839,7 +33264,6 @@ func (i *sshConfigurationPtrType) ToSshConfigurationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationPtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SshConfigurationOutput) ElementType() reflect.Type {
@@ -33903,7 +33327,6 @@ func (o SshConfigurationPtrOutput) PublicKeys() SshPublicKeyTypeArrayOutput {
 	}).(SshPublicKeyTypeArrayOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKeyResponse `pulumi:"publicKeys"`
@@ -33920,7 +33343,6 @@ type SshConfigurationResponseInput interface {
 	ToSshConfigurationResponseOutputWithContext(context.Context) SshConfigurationResponseOutput
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponseArgs struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
@@ -33979,7 +33401,6 @@ func (i *sshConfigurationResponsePtrType) ToSshConfigurationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -34043,7 +33464,6 @@ func (o SshConfigurationResponsePtrOutput) PublicKeys() SshPublicKeyResponseArra
 	}).(SshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyType struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
 	KeyData *string `pulumi:"keyData"`
@@ -34062,7 +33482,6 @@ type SshPublicKeyTypeInput interface {
 	ToSshPublicKeyTypeOutputWithContext(context.Context) SshPublicKeyTypeOutput
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyTypeArgs struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
@@ -34107,7 +33526,6 @@ func (i SshPublicKeyTypeArray) ToSshPublicKeyTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyTypeArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyTypeOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyTypeOutput) ElementType() reflect.Type {
@@ -34152,7 +33570,6 @@ func (o SshPublicKeyTypeArrayOutput) Index(i pulumi.IntInput) SshPublicKeyTypeOu
 	}).(SshPublicKeyTypeOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponse struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
 	KeyData *string `pulumi:"keyData"`
@@ -34171,7 +33588,6 @@ type SshPublicKeyResponseInput interface {
 	ToSshPublicKeyResponseOutputWithContext(context.Context) SshPublicKeyResponseOutput
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponseArgs struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
@@ -34216,7 +33632,6 @@ func (i SshPublicKeyResponseArray) ToSshPublicKeyResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -34261,7 +33676,6 @@ func (o SshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput) SshPublicKeyRe
 	}).(SshPublicKeyResponseOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfile struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks []DataDisk `pulumi:"dataDisks"`
@@ -34282,7 +33696,6 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks DataDiskArrayInput `pulumi:"dataDisks"`
@@ -34345,7 +33758,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -34439,7 +33851,6 @@ func (o StorageProfilePtrOutput) OsDisk() OSDiskPtrOutput {
 	}).(OSDiskPtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponse struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks []DataDiskResponse `pulumi:"dataDisks"`
@@ -34460,7 +33871,6 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponseArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks DataDiskResponseArrayInput `pulumi:"dataDisks"`
@@ -34523,7 +33933,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {
@@ -35184,7 +34593,6 @@ func (o SubResourceWithColocationStatusResponseArrayOutput) Index(i pulumi.IntIn
 	}).(SubResourceWithColocationStatusResponseOutput)
 }
 
-// Describes the target region information.
 type TargetRegion struct {
 	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 	Encryption *EncryptionImages `pulumi:"encryption"`
@@ -35207,7 +34615,6 @@ type TargetRegionInput interface {
 	ToTargetRegionOutputWithContext(context.Context) TargetRegionOutput
 }
 
-// Describes the target region information.
 type TargetRegionArgs struct {
 	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 	Encryption EncryptionImagesPtrInput `pulumi:"encryption"`
@@ -35256,7 +34663,6 @@ func (i TargetRegionArray) ToTargetRegionArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionArrayOutput)
 }
 
-// Describes the target region information.
 type TargetRegionOutput struct{ *pulumi.OutputState }
 
 func (TargetRegionOutput) ElementType() reflect.Type {
@@ -35311,7 +34717,6 @@ func (o TargetRegionArrayOutput) Index(i pulumi.IntInput) TargetRegionOutput {
 	}).(TargetRegionOutput)
 }
 
-// Describes the target region information.
 type TargetRegionResponse struct {
 	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 	Encryption *EncryptionImagesResponse `pulumi:"encryption"`
@@ -35334,7 +34739,6 @@ type TargetRegionResponseInput interface {
 	ToTargetRegionResponseOutputWithContext(context.Context) TargetRegionResponseOutput
 }
 
-// Describes the target region information.
 type TargetRegionResponseArgs struct {
 	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 	Encryption EncryptionImagesResponsePtrInput `pulumi:"encryption"`
@@ -35383,7 +34787,6 @@ func (i TargetRegionResponseArray) ToTargetRegionResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionResponseArrayOutput)
 }
 
-// Describes the target region information.
 type TargetRegionResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetRegionResponseOutput) ElementType() reflect.Type {
@@ -35750,7 +35153,6 @@ func (o TerminateNotificationProfileResponsePtrOutput) NotBeforeTimeout() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettings struct {
 	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
@@ -35769,7 +35171,6 @@ type UefiSettingsInput interface {
 	ToUefiSettingsOutputWithContext(context.Context) UefiSettingsOutput
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettingsArgs struct {
 	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
 	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
@@ -35830,7 +35231,6 @@ func (i *uefiSettingsPtrType) ToUefiSettingsPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsPtrOutput)
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettingsOutput struct{ *pulumi.OutputState }
 
 func (UefiSettingsOutput) ElementType() reflect.Type {
@@ -35909,7 +35309,6 @@ func (o UefiSettingsPtrOutput) VTpmEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettingsResponse struct {
 	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
@@ -35928,7 +35327,6 @@ type UefiSettingsResponseInput interface {
 	ToUefiSettingsResponseOutputWithContext(context.Context) UefiSettingsResponseOutput
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettingsResponseArgs struct {
 	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
 	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
@@ -35989,7 +35387,6 @@ func (i *uefiSettingsResponsePtrType) ToUefiSettingsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsResponsePtrOutput)
 }
 
-// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
 type UefiSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (UefiSettingsResponseOutput) ElementType() reflect.Type {
@@ -36068,7 +35465,6 @@ func (o UefiSettingsResponsePtrOutput) VTpmEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicy struct {
 	// Configuration parameters used for performing automatic OS Upgrade.
 	AutomaticOSUpgradePolicy *AutomaticOSUpgradePolicy `pulumi:"automaticOSUpgradePolicy"`
@@ -36089,7 +35485,6 @@ type UpgradePolicyInput interface {
 	ToUpgradePolicyOutputWithContext(context.Context) UpgradePolicyOutput
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicyArgs struct {
 	// Configuration parameters used for performing automatic OS Upgrade.
 	AutomaticOSUpgradePolicy AutomaticOSUpgradePolicyPtrInput `pulumi:"automaticOSUpgradePolicy"`
@@ -36152,7 +35547,6 @@ func (i *upgradePolicyPtrType) ToUpgradePolicyPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UpgradePolicyPtrOutput)
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (UpgradePolicyOutput) ElementType() reflect.Type {
@@ -36246,7 +35640,6 @@ func (o UpgradePolicyPtrOutput) RollingUpgradePolicy() RollingUpgradePolicyPtrOu
 	}).(RollingUpgradePolicyPtrOutput)
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicyResponse struct {
 	// Configuration parameters used for performing automatic OS Upgrade.
 	AutomaticOSUpgradePolicy *AutomaticOSUpgradePolicyResponse `pulumi:"automaticOSUpgradePolicy"`
@@ -36267,7 +35660,6 @@ type UpgradePolicyResponseInput interface {
 	ToUpgradePolicyResponseOutputWithContext(context.Context) UpgradePolicyResponseOutput
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicyResponseArgs struct {
 	// Configuration parameters used for performing automatic OS Upgrade.
 	AutomaticOSUpgradePolicy AutomaticOSUpgradePolicyResponsePtrInput `pulumi:"automaticOSUpgradePolicy"`
@@ -36330,7 +35722,6 @@ func (i *upgradePolicyResponsePtrType) ToUpgradePolicyResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(UpgradePolicyResponsePtrOutput)
 }
 
-// Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (UpgradePolicyResponseOutput) ElementType() reflect.Type {
@@ -36774,7 +36165,6 @@ func (o UserArtifactManageResponsePtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSource struct {
 	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
@@ -36793,7 +36183,6 @@ type UserArtifactSourceInput interface {
 	ToUserArtifactSourceOutputWithContext(context.Context) UserArtifactSourceOutput
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceArgs struct {
 	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
@@ -36854,7 +36243,6 @@ func (i *userArtifactSourcePtrType) ToUserArtifactSourcePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactSourcePtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceOutput struct{ *pulumi.OutputState }
 
 func (UserArtifactSourceOutput) ElementType() reflect.Type {
@@ -36933,7 +36321,6 @@ func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponse struct {
 	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
@@ -36952,7 +36339,6 @@ type UserArtifactSourceResponseInput interface {
 	ToUserArtifactSourceResponseOutputWithContext(context.Context) UserArtifactSourceResponseOutput
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponseArgs struct {
 	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
@@ -37013,7 +36399,6 @@ func (i *userArtifactSourceResponsePtrType) ToUserArtifactSourceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactSourceResponsePtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (UserArtifactSourceResponseOutput) ElementType() reflect.Type {
@@ -37092,7 +36477,6 @@ func (o UserArtifactSourceResponsePtrOutput) MediaLink() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificate struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
 	CertificateStore *string `pulumi:"certificateStore"`
@@ -37111,7 +36495,6 @@ type VaultCertificateInput interface {
 	ToVaultCertificateOutputWithContext(context.Context) VaultCertificateOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateArgs struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
@@ -37156,7 +36539,6 @@ func (i VaultCertificateArray) ToVaultCertificateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateOutput) ElementType() reflect.Type {
@@ -37201,7 +36583,6 @@ func (o VaultCertificateArrayOutput) Index(i pulumi.IntInput) VaultCertificateOu
 	}).(VaultCertificateOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponse struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
 	CertificateStore *string `pulumi:"certificateStore"`
@@ -37220,7 +36601,6 @@ type VaultCertificateResponseInput interface {
 	ToVaultCertificateResponseOutputWithContext(context.Context) VaultCertificateResponseOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseArgs struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
@@ -37265,7 +36645,6 @@ func (i VaultCertificateResponseArray) ToVaultCertificateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateResponseArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -37310,7 +36689,6 @@ func (o VaultCertificateResponseArrayOutput) Index(i pulumi.IntInput) VaultCerti
 	}).(VaultCertificateResponseOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroup struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault *SubResource `pulumi:"sourceVault"`
@@ -37329,7 +36707,6 @@ type VaultSecretGroupInput interface {
 	ToVaultSecretGroupOutputWithContext(context.Context) VaultSecretGroupOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroupArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourcePtrInput `pulumi:"sourceVault"`
@@ -37374,7 +36751,6 @@ func (i VaultSecretGroupArray) ToVaultSecretGroupArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroupOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupOutput) ElementType() reflect.Type {
@@ -37419,7 +36795,6 @@ func (o VaultSecretGroupArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupOu
 	}).(VaultSecretGroupOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroupResponse struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault *SubResourceResponse `pulumi:"sourceVault"`
@@ -37438,7 +36813,6 @@ type VaultSecretGroupResponseInput interface {
 	ToVaultSecretGroupResponseOutputWithContext(context.Context) VaultSecretGroupResponseOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroupResponseArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceResponsePtrInput `pulumi:"sourceVault"`
@@ -37483,7 +36857,6 @@ func (i VaultSecretGroupResponseArray) ToVaultSecretGroupResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupResponseArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type VaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupResponseOutput) ElementType() reflect.Type {
@@ -37528,7 +36901,6 @@ func (o VaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput) VaultSecre
 	}).(VaultSecretGroupResponseOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDisk struct {
 	// Specifies the virtual hard disk's uri.
 	Uri *string `pulumi:"uri"`
@@ -37545,7 +36917,6 @@ type VirtualHardDiskInput interface {
 	ToVirtualHardDiskOutputWithContext(context.Context) VirtualHardDiskOutput
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskArgs struct {
 	// Specifies the virtual hard disk's uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -37604,7 +36975,6 @@ func (i *virtualHardDiskPtrType) ToVirtualHardDiskPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskPtrOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualHardDiskOutput) ElementType() reflect.Type {
@@ -37668,7 +37038,6 @@ func (o VirtualHardDiskPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskResponse struct {
 	// Specifies the virtual hard disk's uri.
 	Uri *string `pulumi:"uri"`
@@ -37685,7 +37054,6 @@ type VirtualHardDiskResponseInput interface {
 	ToVirtualHardDiskResponseOutputWithContext(context.Context) VirtualHardDiskResponseOutput
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskResponseArgs struct {
 	// Specifies the virtual hard disk's uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -37744,7 +37112,6 @@ func (i *virtualHardDiskResponsePtrType) ToVirtualHardDiskResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskResponsePtrOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualHardDiskResponseOutput) ElementType() reflect.Type {
@@ -37808,7 +37175,6 @@ func (o VirtualHardDiskResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of the VM Agent running on the virtual machine.
 type VirtualMachineAgentInstanceViewResponse struct {
 	// The virtual machine extension handler instance view.
 	ExtensionHandlers []VirtualMachineExtensionHandlerInstanceViewResponse `pulumi:"extensionHandlers"`
@@ -37829,7 +37195,6 @@ type VirtualMachineAgentInstanceViewResponseInput interface {
 	ToVirtualMachineAgentInstanceViewResponseOutputWithContext(context.Context) VirtualMachineAgentInstanceViewResponseOutput
 }
 
-// The instance view of the VM Agent running on the virtual machine.
 type VirtualMachineAgentInstanceViewResponseArgs struct {
 	// The virtual machine extension handler instance view.
 	ExtensionHandlers VirtualMachineExtensionHandlerInstanceViewResponseArrayInput `pulumi:"extensionHandlers"`
@@ -37892,7 +37257,6 @@ func (i *virtualMachineAgentInstanceViewResponsePtrType) ToVirtualMachineAgentIn
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAgentInstanceViewResponsePtrOutput)
 }
 
-// The instance view of the VM Agent running on the virtual machine.
 type VirtualMachineAgentInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAgentInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -37988,7 +37352,6 @@ func (o VirtualMachineAgentInstanceViewResponsePtrOutput) VmAgentVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of a virtual machine extension handler.
 type VirtualMachineExtensionHandlerInstanceViewResponse struct {
 	// The extension handler status.
 	Status *InstanceViewStatusResponse `pulumi:"status"`
@@ -38009,7 +37372,6 @@ type VirtualMachineExtensionHandlerInstanceViewResponseInput interface {
 	ToVirtualMachineExtensionHandlerInstanceViewResponseOutputWithContext(context.Context) VirtualMachineExtensionHandlerInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine extension handler.
 type VirtualMachineExtensionHandlerInstanceViewResponseArgs struct {
 	// The extension handler status.
 	Status InstanceViewStatusResponsePtrInput `pulumi:"status"`
@@ -38056,7 +37418,6 @@ func (i VirtualMachineExtensionHandlerInstanceViewResponseArray) ToVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionHandlerInstanceViewResponseArrayOutput)
 }
 
-// The instance view of a virtual machine extension handler.
 type VirtualMachineExtensionHandlerInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionHandlerInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -38108,7 +37469,6 @@ func (o VirtualMachineExtensionHandlerInstanceViewResponseArrayOutput) Index(i p
 	}).(VirtualMachineExtensionHandlerInstanceViewResponseOutput)
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceView struct {
 	// The virtual machine extension name.
 	Name *string `pulumi:"name"`
@@ -38133,7 +37493,6 @@ type VirtualMachineExtensionInstanceViewInput interface {
 	ToVirtualMachineExtensionInstanceViewOutputWithContext(context.Context) VirtualMachineExtensionInstanceViewOutput
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewArgs struct {
 	// The virtual machine extension name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -38200,7 +37559,6 @@ func (i *virtualMachineExtensionInstanceViewPtrType) ToVirtualMachineExtensionIn
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionInstanceViewPtrOutput)
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionInstanceViewOutput) ElementType() reflect.Type {
@@ -38324,7 +37682,6 @@ func (o VirtualMachineExtensionInstanceViewPtrOutput) TypeHandlerVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewResponse struct {
 	// The virtual machine extension name.
 	Name *string `pulumi:"name"`
@@ -38349,7 +37706,6 @@ type VirtualMachineExtensionInstanceViewResponseInput interface {
 	ToVirtualMachineExtensionInstanceViewResponseOutputWithContext(context.Context) VirtualMachineExtensionInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewResponseArgs struct {
 	// The virtual machine extension name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -38441,7 +37797,6 @@ func (i VirtualMachineExtensionInstanceViewResponseArray) ToVirtualMachineExtens
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionInstanceViewResponseArrayOutput)
 }
 
-// The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -38585,7 +37940,6 @@ func (o VirtualMachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.I
 	}).(VirtualMachineExtensionInstanceViewResponseOutput)
 }
 
-// Describes a Virtual Machine Extension.
 type VirtualMachineExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -38628,7 +37982,6 @@ type VirtualMachineExtensionResponseInput interface {
 	ToVirtualMachineExtensionResponseOutputWithContext(context.Context) VirtualMachineExtensionResponseOutput
 }
 
-// Describes a Virtual Machine Extension.
 type VirtualMachineExtensionResponseArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -38697,7 +38050,6 @@ func (i VirtualMachineExtensionResponseArray) ToVirtualMachineExtensionResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionResponseArrayOutput)
 }
 
-// Describes a Virtual Machine Extension.
 type VirtualMachineExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionResponseOutput) ElementType() reflect.Type {
@@ -38804,7 +38156,6 @@ func (o VirtualMachineExtensionResponseArrayOutput) Index(i pulumi.IntInput) Vir
 	}).(VirtualMachineExtensionResponseOutput)
 }
 
-// The health status of the VM.
 type VirtualMachineHealthStatusResponse struct {
 	// The health status information for the VM.
 	Status InstanceViewStatusResponse `pulumi:"status"`
@@ -38821,7 +38172,6 @@ type VirtualMachineHealthStatusResponseInput interface {
 	ToVirtualMachineHealthStatusResponseOutputWithContext(context.Context) VirtualMachineHealthStatusResponseOutput
 }
 
-// The health status of the VM.
 type VirtualMachineHealthStatusResponseArgs struct {
 	// The health status information for the VM.
 	Status InstanceViewStatusResponseInput `pulumi:"status"`
@@ -38880,7 +38230,6 @@ func (i *virtualMachineHealthStatusResponsePtrType) ToVirtualMachineHealthStatus
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineHealthStatusResponsePtrOutput)
 }
 
-// The health status of the VM.
 type VirtualMachineHealthStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineHealthStatusResponseOutput) ElementType() reflect.Type {
@@ -38944,7 +38293,6 @@ func (o VirtualMachineHealthStatusResponsePtrOutput) Status() InstanceViewStatus
 	}).(InstanceViewStatusResponsePtrOutput)
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentity struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -38963,7 +38311,6 @@ type VirtualMachineIdentityInput interface {
 	ToVirtualMachineIdentityOutputWithContext(context.Context) VirtualMachineIdentityOutput
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentityArgs struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -39024,7 +38371,6 @@ func (i *virtualMachineIdentityPtrType) ToVirtualMachineIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityPtrOutput)
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityOutput) ElementType() reflect.Type {
@@ -39103,7 +38449,6 @@ func (o VirtualMachineIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentityResponse struct {
 	// The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -39126,7 +38471,6 @@ type VirtualMachineIdentityResponseInput interface {
 	ToVirtualMachineIdentityResponseOutputWithContext(context.Context) VirtualMachineIdentityResponseOutput
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentityResponseArgs struct {
 	// The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -39191,7 +38535,6 @@ func (i *virtualMachineIdentityResponsePtrType) ToVirtualMachineIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityResponsePtrOutput)
 }
 
-// Identity for the virtual machine.
 type VirtualMachineIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityResponseOutput) ElementType() reflect.Type {
@@ -39408,7 +38751,6 @@ func (o VirtualMachineIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	}).(VirtualMachineIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// The instance view of a virtual machine.
 type VirtualMachineInstanceViewResponse struct {
 	// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
 	AssignedHost string `pulumi:"assignedHost"`
@@ -39455,7 +38797,6 @@ type VirtualMachineInstanceViewResponseInput interface {
 	ToVirtualMachineInstanceViewResponseOutputWithContext(context.Context) VirtualMachineInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine.
 type VirtualMachineInstanceViewResponseArgs struct {
 	// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
 	AssignedHost pulumi.StringInput `pulumi:"assignedHost"`
@@ -39544,7 +38885,6 @@ func (i *virtualMachineInstanceViewResponsePtrType) ToVirtualMachineInstanceView
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a virtual machine.
 type VirtualMachineInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -39839,7 +39179,6 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) VmHealth() VirtualMachineHe
 	}).(VirtualMachineHealthStatusResponsePtrOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTag struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType *string `pulumi:"ipTagType"`
@@ -39858,7 +39197,6 @@ type VirtualMachineIpTagInput interface {
 	ToVirtualMachineIpTagOutputWithContext(context.Context) VirtualMachineIpTagOutput
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTagArgs struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType pulumi.StringPtrInput `pulumi:"ipTagType"`
@@ -39903,7 +39241,6 @@ func (i VirtualMachineIpTagArray) ToVirtualMachineIpTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIpTagArrayOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIpTagOutput) ElementType() reflect.Type {
@@ -39948,7 +39285,6 @@ func (o VirtualMachineIpTagArrayOutput) Index(i pulumi.IntInput) VirtualMachineI
 	}).(VirtualMachineIpTagOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTagResponse struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType *string `pulumi:"ipTagType"`
@@ -39967,7 +39303,6 @@ type VirtualMachineIpTagResponseInput interface {
 	ToVirtualMachineIpTagResponseOutputWithContext(context.Context) VirtualMachineIpTagResponseOutput
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTagResponseArgs struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType pulumi.StringPtrInput `pulumi:"ipTagType"`
@@ -40012,7 +39347,6 @@ func (i VirtualMachineIpTagResponseArray) ToVirtualMachineIpTagResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIpTagResponseArrayOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineIpTagResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIpTagResponseOutput) ElementType() reflect.Type {
@@ -40057,7 +39391,6 @@ func (o VirtualMachineIpTagResponseArrayOutput) Index(i pulumi.IntInput) Virtual
 	}).(VirtualMachineIpTagResponseOutput)
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfiguration struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -40091,7 +39424,6 @@ type VirtualMachineNetworkInterfaceConfigurationInput interface {
 	ToVirtualMachineNetworkInterfaceConfigurationOutputWithContext(context.Context) VirtualMachineNetworkInterfaceConfigurationOutput
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfigurationArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -40151,7 +39483,6 @@ func (i VirtualMachineNetworkInterfaceConfigurationArray) ToVirtualMachineNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceConfigurationArrayOutput)
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceConfigurationOutput) ElementType() reflect.Type {
@@ -40239,7 +39570,6 @@ func (o VirtualMachineNetworkInterfaceConfigurationArrayOutput) Index(i pulumi.I
 	}).(VirtualMachineNetworkInterfaceConfigurationOutput)
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfigurationResponse struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -40273,7 +39603,6 @@ type VirtualMachineNetworkInterfaceConfigurationResponseInput interface {
 	ToVirtualMachineNetworkInterfaceConfigurationResponseOutputWithContext(context.Context) VirtualMachineNetworkInterfaceConfigurationResponseOutput
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfigurationResponseArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -40333,7 +39662,6 @@ func (i VirtualMachineNetworkInterfaceConfigurationResponseArray) ToVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine network interface configurations.
 type VirtualMachineNetworkInterfaceConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceConfigurationResponseOutput) ElementType() reflect.Type {
@@ -40427,7 +39755,6 @@ func (o VirtualMachineNetworkInterfaceConfigurationResponseArrayOutput) Index(i 
 	}).(VirtualMachineNetworkInterfaceConfigurationResponseOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfiguration struct {
 	// List of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
@@ -40444,7 +39771,6 @@ type VirtualMachineNetworkInterfaceDnsSettingsConfigurationInput interface {
 	ToVirtualMachineNetworkInterfaceDnsSettingsConfigurationOutputWithContext(context.Context) VirtualMachineNetworkInterfaceDnsSettingsConfigurationOutput
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs struct {
 	// List of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -40503,7 +39829,6 @@ func (i *virtualMachineNetworkInterfaceDnsSettingsConfigurationPtrType) ToVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceDnsSettingsConfigurationPtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceDnsSettingsConfigurationOutput) ElementType() reflect.Type {
@@ -40567,7 +39892,6 @@ func (o VirtualMachineNetworkInterfaceDnsSettingsConfigurationPtrOutput) DnsServ
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse struct {
 	// List of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
@@ -40584,7 +39908,6 @@ type VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseInput interfa
 	ToVirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseOutputWithContext(context.Context) VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseOutput
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseArgs struct {
 	// List of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -40643,7 +39966,6 @@ func (i *virtualMachineNetworkInterfaceDnsSettingsConfigurationResponsePtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -40707,7 +40029,6 @@ func (o VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponsePtrOutput)
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfiguration struct {
 	// Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools []SubResource `pulumi:"applicationGatewayBackendAddressPools"`
@@ -40738,7 +40059,6 @@ type VirtualMachineNetworkInterfaceIPConfigurationInput interface {
 	ToVirtualMachineNetworkInterfaceIPConfigurationOutputWithContext(context.Context) VirtualMachineNetworkInterfaceIPConfigurationOutput
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfigurationArgs struct {
 	// Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools SubResourceArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
@@ -40795,7 +40115,6 @@ func (i VirtualMachineNetworkInterfaceIPConfigurationArray) ToVirtualMachineNetw
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceIPConfigurationArrayOutput)
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceIPConfigurationOutput) ElementType() reflect.Type {
@@ -40878,7 +40197,6 @@ func (o VirtualMachineNetworkInterfaceIPConfigurationArrayOutput) Index(i pulumi
 	}).(VirtualMachineNetworkInterfaceIPConfigurationOutput)
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfigurationResponse struct {
 	// Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools []SubResourceResponse `pulumi:"applicationGatewayBackendAddressPools"`
@@ -40909,7 +40227,6 @@ type VirtualMachineNetworkInterfaceIPConfigurationResponseInput interface {
 	ToVirtualMachineNetworkInterfaceIPConfigurationResponseOutputWithContext(context.Context) VirtualMachineNetworkInterfaceIPConfigurationResponseOutput
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfigurationResponseArgs struct {
 	// Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools SubResourceResponseArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
@@ -40966,7 +40283,6 @@ func (i VirtualMachineNetworkInterfaceIPConfigurationResponseArray) ToVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineNetworkInterfaceIPConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine network profile's IP configuration.
 type VirtualMachineNetworkInterfaceIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineNetworkInterfaceIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -41051,7 +40367,6 @@ func (o VirtualMachineNetworkInterfaceIPConfigurationResponseArrayOutput) Index(
 	}).(VirtualMachineNetworkInterfaceIPConfigurationResponseOutput)
 }
 
-// The status of virtual machine patch operations.
 type VirtualMachinePatchStatusResponse struct {
 	// The available patch summary of the latest assessment operation for the virtual machine.
 	AvailablePatchSummary *AvailablePatchSummaryResponse `pulumi:"availablePatchSummary"`
@@ -41072,7 +40387,6 @@ type VirtualMachinePatchStatusResponseInput interface {
 	ToVirtualMachinePatchStatusResponseOutputWithContext(context.Context) VirtualMachinePatchStatusResponseOutput
 }
 
-// The status of virtual machine patch operations.
 type VirtualMachinePatchStatusResponseArgs struct {
 	// The available patch summary of the latest assessment operation for the virtual machine.
 	AvailablePatchSummary AvailablePatchSummaryResponsePtrInput `pulumi:"availablePatchSummary"`
@@ -41135,7 +40449,6 @@ func (i *virtualMachinePatchStatusResponsePtrType) ToVirtualMachinePatchStatusRe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePatchStatusResponsePtrOutput)
 }
 
-// The status of virtual machine patch operations.
 type VirtualMachinePatchStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePatchStatusResponseOutput) ElementType() reflect.Type {
@@ -41233,7 +40546,6 @@ func (o VirtualMachinePatchStatusResponsePtrOutput) LastPatchInstallationSummary
 	}).(LastPatchInstallationSummaryResponsePtrOutput)
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfiguration struct {
 	// Specify what happens to the public IP address when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -41266,7 +40578,6 @@ type VirtualMachinePublicIPAddressConfigurationInput interface {
 	ToVirtualMachinePublicIPAddressConfigurationOutputWithContext(context.Context) VirtualMachinePublicIPAddressConfigurationOutput
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfigurationArgs struct {
 	// Specify what happens to the public IP address when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -41341,7 +40652,6 @@ func (i *virtualMachinePublicIPAddressConfigurationPtrType) ToVirtualMachinePubl
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePublicIPAddressConfigurationPtrOutput)
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePublicIPAddressConfigurationOutput) ElementType() reflect.Type {
@@ -41527,7 +40837,6 @@ func (o VirtualMachinePublicIPAddressConfigurationPtrOutput) Sku() PublicIPAddre
 	}).(PublicIPAddressSkuPtrOutput)
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfigurationResponse struct {
 	// Specify what happens to the public IP address when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -41560,7 +40869,6 @@ type VirtualMachinePublicIPAddressConfigurationResponseInput interface {
 	ToVirtualMachinePublicIPAddressConfigurationResponseOutputWithContext(context.Context) VirtualMachinePublicIPAddressConfigurationResponseOutput
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfigurationResponseArgs struct {
 	// Specify what happens to the public IP address when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -41635,7 +40943,6 @@ func (i *virtualMachinePublicIPAddressConfigurationResponsePtrType) ToVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePublicIPAddressConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machines IP Configuration's PublicIPAddress configuration
 type VirtualMachinePublicIPAddressConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePublicIPAddressConfigurationResponseOutput) ElementType() reflect.Type {
@@ -41825,7 +41132,6 @@ func (o VirtualMachinePublicIPAddressConfigurationResponsePtrOutput) Sku() Publi
 	}).(PublicIPAddressSkuResponsePtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfiguration struct {
 	// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
 	DomainNameLabel string `pulumi:"domainNameLabel"`
@@ -41842,7 +41148,6 @@ type VirtualMachinePublicIPAddressDnsSettingsConfigurationInput interface {
 	ToVirtualMachinePublicIPAddressDnsSettingsConfigurationOutputWithContext(context.Context) VirtualMachinePublicIPAddressDnsSettingsConfigurationOutput
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs struct {
 	// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
@@ -41901,7 +41206,6 @@ func (i *virtualMachinePublicIPAddressDnsSettingsConfigurationPtrType) ToVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePublicIPAddressDnsSettingsConfigurationPtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePublicIPAddressDnsSettingsConfigurationOutput) ElementType() reflect.Type {
@@ -41965,7 +41269,6 @@ func (o VirtualMachinePublicIPAddressDnsSettingsConfigurationPtrOutput) DomainNa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfigurationResponse struct {
 	// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
 	DomainNameLabel string `pulumi:"domainNameLabel"`
@@ -41982,7 +41285,6 @@ type VirtualMachinePublicIPAddressDnsSettingsConfigurationResponseInput interfac
 	ToVirtualMachinePublicIPAddressDnsSettingsConfigurationResponseOutputWithContext(context.Context) VirtualMachinePublicIPAddressDnsSettingsConfigurationResponseOutput
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfigurationResponseArgs struct {
 	// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
@@ -42041,7 +41343,6 @@ func (i *virtualMachinePublicIPAddressDnsSettingsConfigurationResponsePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePublicIPAddressDnsSettingsConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machines network configuration's DNS settings.
 type VirtualMachinePublicIPAddressDnsSettingsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePublicIPAddressDnsSettingsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -42105,7 +41406,6 @@ func (o VirtualMachinePublicIPAddressDnsSettingsConfigurationResponsePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of a virtual machine run command.
 type VirtualMachineRunCommandInstanceViewResponse struct {
 	// Script end time.
 	EndTime *string `pulumi:"endTime"`
@@ -42136,7 +41436,6 @@ type VirtualMachineRunCommandInstanceViewResponseInput interface {
 	ToVirtualMachineRunCommandInstanceViewResponseOutputWithContext(context.Context) VirtualMachineRunCommandInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine run command.
 type VirtualMachineRunCommandInstanceViewResponseArgs struct {
 	// Script end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -42209,7 +41508,6 @@ func (i *virtualMachineRunCommandInstanceViewResponsePtrType) ToVirtualMachineRu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a virtual machine run command.
 type VirtualMachineRunCommandInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineRunCommandInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -42378,7 +41676,6 @@ func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) Statuses() Instan
 	}).(InstanceViewStatusResponseArrayOutput)
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSource struct {
 	// Specifies a commandId of predefined built-in script.
 	CommandId *string `pulumi:"commandId"`
@@ -42399,7 +41696,6 @@ type VirtualMachineRunCommandScriptSourceInput interface {
 	ToVirtualMachineRunCommandScriptSourceOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourceOutput
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSourceArgs struct {
 	// Specifies a commandId of predefined built-in script.
 	CommandId pulumi.StringPtrInput `pulumi:"commandId"`
@@ -42462,7 +41758,6 @@ func (i *virtualMachineRunCommandScriptSourcePtrType) ToVirtualMachineRunCommand
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourcePtrOutput)
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSourceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineRunCommandScriptSourceOutput) ElementType() reflect.Type {
@@ -42556,7 +41851,6 @@ func (o VirtualMachineRunCommandScriptSourcePtrOutput) ScriptUri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSourceResponse struct {
 	// Specifies a commandId of predefined built-in script.
 	CommandId *string `pulumi:"commandId"`
@@ -42577,7 +41871,6 @@ type VirtualMachineRunCommandScriptSourceResponseInput interface {
 	ToVirtualMachineRunCommandScriptSourceResponseOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourceResponseOutput
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSourceResponseArgs struct {
 	// Specifies a commandId of predefined built-in script.
 	CommandId pulumi.StringPtrInput `pulumi:"commandId"`
@@ -42640,7 +41933,6 @@ func (i *virtualMachineRunCommandScriptSourceResponsePtrType) ToVirtualMachineRu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceResponsePtrOutput)
 }
 
-// Describes the script sources for run command.
 type VirtualMachineRunCommandScriptSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineRunCommandScriptSourceResponseOutput) ElementType() reflect.Type {
@@ -42734,7 +42026,6 @@ func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) ScriptUri() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *CachingTypes `pulumi:"caching"`
@@ -42767,7 +42058,6 @@ type VirtualMachineScaleSetDataDiskInput interface {
 	ToVirtualMachineScaleSetDataDiskOutputWithContext(context.Context) VirtualMachineScaleSetDataDiskOutput
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching CachingTypesPtrInput `pulumi:"caching"`
@@ -42826,7 +42116,6 @@ func (i VirtualMachineScaleSetDataDiskArray) ToVirtualMachineScaleSetDataDiskArr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetDataDiskArrayOutput)
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
@@ -42908,7 +42197,6 @@ func (o VirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) Virt
 	}).(VirtualMachineScaleSetDataDiskOutput)
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskResponse struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *string `pulumi:"caching"`
@@ -42941,7 +42229,6 @@ type VirtualMachineScaleSetDataDiskResponseInput interface {
 	ToVirtualMachineScaleSetDataDiskResponseOutputWithContext(context.Context) VirtualMachineScaleSetDataDiskResponseOutput
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskResponseArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -43000,7 +42287,6 @@ func (i VirtualMachineScaleSetDataDiskResponseArray) ToVirtualMachineScaleSetDat
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetDataDiskResponseArrayOutput)
 }
 
-// Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetDataDiskResponseOutput) ElementType() reflect.Type {
@@ -43082,7 +42368,6 @@ func (o VirtualMachineScaleSetDataDiskResponseArrayOutput) Index(i pulumi.IntInp
 	}).(VirtualMachineScaleSetDataDiskResponseOutput)
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionType struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -43117,7 +42402,6 @@ type VirtualMachineScaleSetExtensionTypeInput interface {
 	ToVirtualMachineScaleSetExtensionTypeOutputWithContext(context.Context) VirtualMachineScaleSetExtensionTypeOutput
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionTypeArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -43178,7 +42462,6 @@ func (i VirtualMachineScaleSetExtensionTypeArray) ToVirtualMachineScaleSetExtens
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionTypeArrayOutput)
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionTypeOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionTypeOutput) ElementType() reflect.Type {
@@ -43263,7 +42546,6 @@ func (o VirtualMachineScaleSetExtensionTypeArrayOutput) Index(i pulumi.IntInput)
 	}).(VirtualMachineScaleSetExtensionTypeOutput)
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfile struct {
 	// The virtual machine scale set child extension resources.
 	Extensions []VirtualMachineScaleSetExtensionType `pulumi:"extensions"`
@@ -43282,7 +42564,6 @@ type VirtualMachineScaleSetExtensionProfileInput interface {
 	ToVirtualMachineScaleSetExtensionProfileOutputWithContext(context.Context) VirtualMachineScaleSetExtensionProfileOutput
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfileArgs struct {
 	// The virtual machine scale set child extension resources.
 	Extensions VirtualMachineScaleSetExtensionTypeArrayInput `pulumi:"extensions"`
@@ -43343,7 +42624,6 @@ func (i *virtualMachineScaleSetExtensionProfilePtrType) ToVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionProfilePtrOutput)
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionProfileOutput) ElementType() reflect.Type {
@@ -43424,7 +42704,6 @@ func (o VirtualMachineScaleSetExtensionProfilePtrOutput) ExtensionsTimeBudget() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfileResponse struct {
 	// The virtual machine scale set child extension resources.
 	Extensions []VirtualMachineScaleSetExtensionResponse `pulumi:"extensions"`
@@ -43443,7 +42722,6 @@ type VirtualMachineScaleSetExtensionProfileResponseInput interface {
 	ToVirtualMachineScaleSetExtensionProfileResponseOutputWithContext(context.Context) VirtualMachineScaleSetExtensionProfileResponseOutput
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfileResponseArgs struct {
 	// The virtual machine scale set child extension resources.
 	Extensions VirtualMachineScaleSetExtensionResponseArrayInput `pulumi:"extensions"`
@@ -43504,7 +42782,6 @@ func (i *virtualMachineScaleSetExtensionProfileResponsePtrType) ToVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionProfileResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set extension profile.
 type VirtualMachineScaleSetExtensionProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionProfileResponseOutput) ElementType() reflect.Type {
@@ -43585,7 +42862,6 @@ func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) ExtensionsTimeB
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -43624,7 +42900,6 @@ type VirtualMachineScaleSetExtensionResponseInput interface {
 	ToVirtualMachineScaleSetExtensionResponseOutputWithContext(context.Context) VirtualMachineScaleSetExtensionResponseOutput
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionResponseArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -43689,7 +42964,6 @@ func (i VirtualMachineScaleSetExtensionResponseArray) ToVirtualMachineScaleSetEx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionResponseArrayOutput)
 }
 
-// Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionResponseOutput) ElementType() reflect.Type {
@@ -43784,7 +43058,6 @@ func (o VirtualMachineScaleSetExtensionResponseArrayOutput) Index(i pulumi.IntIn
 	}).(VirtualMachineScaleSetExtensionResponseOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfiguration struct {
 	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools []SubResource `pulumi:"applicationGatewayBackendAddressPools"`
@@ -43819,7 +43092,6 @@ type VirtualMachineScaleSetIPConfigurationInput interface {
 	ToVirtualMachineScaleSetIPConfigurationOutputWithContext(context.Context) VirtualMachineScaleSetIPConfigurationOutput
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationArgs struct {
 	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools SubResourceArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
@@ -43880,7 +43152,6 @@ func (i VirtualMachineScaleSetIPConfigurationArray) ToVirtualMachineScaleSetIPCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIPConfigurationArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIPConfigurationOutput) ElementType() reflect.Type {
@@ -43969,7 +43240,6 @@ func (o VirtualMachineScaleSetIPConfigurationArrayOutput) Index(i pulumi.IntInpu
 	}).(VirtualMachineScaleSetIPConfigurationOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationResponse struct {
 	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools []SubResourceResponse `pulumi:"applicationGatewayBackendAddressPools"`
@@ -44004,7 +43274,6 @@ type VirtualMachineScaleSetIPConfigurationResponseInput interface {
 	ToVirtualMachineScaleSetIPConfigurationResponseOutputWithContext(context.Context) VirtualMachineScaleSetIPConfigurationResponseOutput
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationResponseArgs struct {
 	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools SubResourceResponseArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
@@ -44065,7 +43334,6 @@ func (i VirtualMachineScaleSetIPConfigurationResponseArray) ToVirtualMachineScal
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIPConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -44160,7 +43428,6 @@ func (o VirtualMachineScaleSetIPConfigurationResponseArrayOutput) Index(i pulumi
 	}).(VirtualMachineScaleSetIPConfigurationResponseOutput)
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentity struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -44179,7 +43446,6 @@ type VirtualMachineScaleSetIdentityInput interface {
 	ToVirtualMachineScaleSetIdentityOutputWithContext(context.Context) VirtualMachineScaleSetIdentityOutput
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityArgs struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -44240,7 +43506,6 @@ func (i *virtualMachineScaleSetIdentityPtrType) ToVirtualMachineScaleSetIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
@@ -44319,7 +43584,6 @@ func (o VirtualMachineScaleSetIdentityPtrOutput) UserAssignedIdentities() pulumi
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityResponse struct {
 	// The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -44342,7 +43606,6 @@ type VirtualMachineScaleSetIdentityResponseInput interface {
 	ToVirtualMachineScaleSetIdentityResponseOutputWithContext(context.Context) VirtualMachineScaleSetIdentityResponseOutput
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityResponseArgs struct {
 	// The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -44407,7 +43670,6 @@ func (i *virtualMachineScaleSetIdentityResponsePtrType) ToVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityResponsePtrOutput)
 }
 
-// Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIdentityResponseOutput) ElementType() reflect.Type {
@@ -44624,7 +43886,6 @@ func (o VirtualMachineScaleSetIdentityResponseUserAssignedIdentitiesMapOutput) M
 	}).(VirtualMachineScaleSetIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTag struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType *string `pulumi:"ipTagType"`
@@ -44643,7 +43904,6 @@ type VirtualMachineScaleSetIpTagInput interface {
 	ToVirtualMachineScaleSetIpTagOutputWithContext(context.Context) VirtualMachineScaleSetIpTagOutput
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTagArgs struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType pulumi.StringPtrInput `pulumi:"ipTagType"`
@@ -44688,7 +43948,6 @@ func (i VirtualMachineScaleSetIpTagArray) ToVirtualMachineScaleSetIpTagArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIpTagArrayOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIpTagOutput) ElementType() reflect.Type {
@@ -44733,7 +43992,6 @@ func (o VirtualMachineScaleSetIpTagArrayOutput) Index(i pulumi.IntInput) Virtual
 	}).(VirtualMachineScaleSetIpTagOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTagResponse struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType *string `pulumi:"ipTagType"`
@@ -44752,7 +44010,6 @@ type VirtualMachineScaleSetIpTagResponseInput interface {
 	ToVirtualMachineScaleSetIpTagResponseOutputWithContext(context.Context) VirtualMachineScaleSetIpTagResponseOutput
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTagResponseArgs struct {
 	// IP tag type. Example: FirstPartyUsage.
 	IpTagType pulumi.StringPtrInput `pulumi:"ipTagType"`
@@ -44797,7 +44054,6 @@ func (i VirtualMachineScaleSetIpTagResponseArray) ToVirtualMachineScaleSetIpTagR
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIpTagResponseArrayOutput)
 }
 
-// Contains the IP tag associated with the public IP address.
 type VirtualMachineScaleSetIpTagResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetIpTagResponseOutput) ElementType() reflect.Type {
@@ -44842,7 +44098,6 @@ func (o VirtualMachineScaleSetIpTagResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(VirtualMachineScaleSetIpTagResponseOutput)
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParameters struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet *DiskEncryptionSetParameters `pulumi:"diskEncryptionSet"`
@@ -44861,7 +44116,6 @@ type VirtualMachineScaleSetManagedDiskParametersInput interface {
 	ToVirtualMachineScaleSetManagedDiskParametersOutputWithContext(context.Context) VirtualMachineScaleSetManagedDiskParametersOutput
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersArgs struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet DiskEncryptionSetParametersPtrInput `pulumi:"diskEncryptionSet"`
@@ -44922,7 +44176,6 @@ func (i *virtualMachineScaleSetManagedDiskParametersPtrType) ToVirtualMachineSca
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetManagedDiskParametersPtrOutput)
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetManagedDiskParametersOutput) ElementType() reflect.Type {
@@ -45003,7 +44256,6 @@ func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) StorageAccountType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersResponse struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet *DiskEncryptionSetParametersResponse `pulumi:"diskEncryptionSet"`
@@ -45022,7 +44274,6 @@ type VirtualMachineScaleSetManagedDiskParametersResponseInput interface {
 	ToVirtualMachineScaleSetManagedDiskParametersResponseOutputWithContext(context.Context) VirtualMachineScaleSetManagedDiskParametersResponseOutput
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersResponseArgs struct {
 	// Specifies the customer managed disk encryption set resource id for the managed disk.
 	DiskEncryptionSet DiskEncryptionSetParametersResponsePtrInput `pulumi:"diskEncryptionSet"`
@@ -45083,7 +44334,6 @@ func (i *virtualMachineScaleSetManagedDiskParametersResponsePtrType) ToVirtualMa
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetManagedDiskParametersResponsePtrOutput)
 }
 
-// Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetManagedDiskParametersResponseOutput) ElementType() reflect.Type {
@@ -45164,7 +44414,6 @@ func (o VirtualMachineScaleSetManagedDiskParametersResponsePtrOutput) StorageAcc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfiguration struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -45199,7 +44448,6 @@ type VirtualMachineScaleSetNetworkConfigurationInput interface {
 	ToVirtualMachineScaleSetNetworkConfigurationOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationOutput
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -45260,7 +44508,6 @@ func (i VirtualMachineScaleSetNetworkConfigurationArray) ToVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -45349,7 +44596,6 @@ func (o VirtualMachineScaleSetNetworkConfigurationArrayOutput) Index(i pulumi.In
 	}).(VirtualMachineScaleSetNetworkConfigurationOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettings struct {
 	// List of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
@@ -45366,7 +44612,6 @@ type VirtualMachineScaleSetNetworkConfigurationDnsSettingsInput interface {
 	ToVirtualMachineScaleSetNetworkConfigurationDnsSettingsOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationDnsSettingsOutput
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs struct {
 	// List of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -45425,7 +44670,6 @@ func (i *virtualMachineScaleSetNetworkConfigurationDnsSettingsPtrType) ToVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationDnsSettingsPtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkConfigurationDnsSettingsOutput) ElementType() reflect.Type {
@@ -45489,7 +44733,6 @@ func (o VirtualMachineScaleSetNetworkConfigurationDnsSettingsPtrOutput) DnsServe
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse struct {
 	// List of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
@@ -45506,7 +44749,6 @@ type VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseInput interfac
 	ToVirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseOutput
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseArgs struct {
 	// List of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -45565,7 +44807,6 @@ func (i *virtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -45629,7 +44870,6 @@ func (o VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationResponse struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -45664,7 +44904,6 @@ type VirtualMachineScaleSetNetworkConfigurationResponseInput interface {
 	ToVirtualMachineScaleSetNetworkConfigurationResponseOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationResponseOutput
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationResponseArgs struct {
 	// Specify what happens to the network interface when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -45725,7 +44964,6 @@ func (i VirtualMachineScaleSetNetworkConfigurationResponseArray) ToVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -45816,7 +45054,6 @@ func (o VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput) Index(i p
 	}).(VirtualMachineScaleSetNetworkConfigurationResponseOutput)
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfile struct {
 	// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
 	HealthProbe *ApiEntityReference `pulumi:"healthProbe"`
@@ -45837,7 +45074,6 @@ type VirtualMachineScaleSetNetworkProfileInput interface {
 	ToVirtualMachineScaleSetNetworkProfileOutputWithContext(context.Context) VirtualMachineScaleSetNetworkProfileOutput
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfileArgs struct {
 	// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
 	HealthProbe ApiEntityReferencePtrInput `pulumi:"healthProbe"`
@@ -45900,7 +45136,6 @@ func (i *virtualMachineScaleSetNetworkProfilePtrType) ToVirtualMachineScaleSetNe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkProfilePtrOutput)
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkProfileOutput) ElementType() reflect.Type {
@@ -45996,7 +45231,6 @@ func (o VirtualMachineScaleSetNetworkProfilePtrOutput) NetworkInterfaceConfigura
 	}).(VirtualMachineScaleSetNetworkConfigurationArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfileResponse struct {
 	// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
 	HealthProbe *ApiEntityReferenceResponse `pulumi:"healthProbe"`
@@ -46017,7 +45251,6 @@ type VirtualMachineScaleSetNetworkProfileResponseInput interface {
 	ToVirtualMachineScaleSetNetworkProfileResponseOutputWithContext(context.Context) VirtualMachineScaleSetNetworkProfileResponseOutput
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfileResponseArgs struct {
 	// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
 	HealthProbe ApiEntityReferenceResponsePtrInput `pulumi:"healthProbe"`
@@ -46080,7 +45313,6 @@ func (i *virtualMachineScaleSetNetworkProfileResponsePtrType) ToVirtualMachineSc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkProfileResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set network profile.
 type VirtualMachineScaleSetNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -46176,7 +45408,6 @@ func (o VirtualMachineScaleSetNetworkProfileResponsePtrOutput) NetworkInterfaceC
 	}).(VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *CachingTypes `pulumi:"caching"`
@@ -46211,7 +45442,6 @@ type VirtualMachineScaleSetOSDiskInput interface {
 	ToVirtualMachineScaleSetOSDiskOutputWithContext(context.Context) VirtualMachineScaleSetOSDiskOutput
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching CachingTypesPtrInput `pulumi:"caching"`
@@ -46288,7 +45518,6 @@ func (i *virtualMachineScaleSetOSDiskPtrType) ToVirtualMachineScaleSetOSDiskPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOSDiskPtrOutput)
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOSDiskOutput) ElementType() reflect.Type {
@@ -46489,7 +45718,6 @@ func (o VirtualMachineScaleSetOSDiskPtrOutput) WriteAcceleratorEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskResponse struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching *string `pulumi:"caching"`
@@ -46524,7 +45752,6 @@ type VirtualMachineScaleSetOSDiskResponseInput interface {
 	ToVirtualMachineScaleSetOSDiskResponseOutputWithContext(context.Context) VirtualMachineScaleSetOSDiskResponseOutput
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskResponseArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
@@ -46601,7 +45828,6 @@ func (i *virtualMachineScaleSetOSDiskResponsePtrType) ToVirtualMachineScaleSetOS
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOSDiskResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOSDiskResponseOutput) ElementType() reflect.Type {
@@ -46802,7 +46028,6 @@ func (o VirtualMachineScaleSetOSDiskResponsePtrOutput) WriteAcceleratorEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfile struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -46831,7 +46056,6 @@ type VirtualMachineScaleSetOSProfileInput interface {
 	ToVirtualMachineScaleSetOSProfileOutputWithContext(context.Context) VirtualMachineScaleSetOSProfileOutput
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfileArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -46902,7 +46126,6 @@ func (i *virtualMachineScaleSetOSProfilePtrType) ToVirtualMachineScaleSetOSProfi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOSProfilePtrOutput)
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOSProfileOutput) ElementType() reflect.Type {
@@ -47056,7 +46279,6 @@ func (o VirtualMachineScaleSetOSProfilePtrOutput) WindowsConfiguration() Windows
 	}).(WindowsConfigurationPtrOutput)
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfileResponse struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -47085,7 +46307,6 @@ type VirtualMachineScaleSetOSProfileResponseInput interface {
 	ToVirtualMachineScaleSetOSProfileResponseOutputWithContext(context.Context) VirtualMachineScaleSetOSProfileResponseOutput
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfileResponseArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -47156,7 +46377,6 @@ func (i *virtualMachineScaleSetOSProfileResponsePtrType) ToVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOSProfileResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set OS profile.
 type VirtualMachineScaleSetOSProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOSProfileResponseOutput) ElementType() reflect.Type {
@@ -47314,7 +46534,6 @@ func (o VirtualMachineScaleSetOSProfileResponsePtrOutput) WindowsConfiguration()
 	}).(WindowsConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfiguration struct {
 	// Specify what happens to the public IP when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -47345,7 +46564,6 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationInput interface {
 	ToVirtualMachineScaleSetPublicIPAddressConfigurationOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationOutput
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationArgs struct {
 	// Specify what happens to the public IP when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -47418,7 +46636,6 @@ func (i *virtualMachineScaleSetPublicIPAddressConfigurationPtrType) ToVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationPtrOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetPublicIPAddressConfigurationOutput) ElementType() reflect.Type {
@@ -47591,7 +46808,6 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationPtrOutput) Sku() Publi
 	}).(PublicIPAddressSkuPtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings struct {
 	// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
 	DomainNameLabel string `pulumi:"domainNameLabel"`
@@ -47608,7 +46824,6 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsInput interfac
 	ToVirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsOutput
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs struct {
 	// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
@@ -47667,7 +46882,6 @@ func (i *virtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsPtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsOutput) ElementType() reflect.Type {
@@ -47731,7 +46945,6 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse struct {
 	// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
 	DomainNameLabel string `pulumi:"domainNameLabel"`
@@ -47748,7 +46961,6 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseInput 
 	ToVirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseOutput
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseArgs struct {
 	// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
@@ -47807,7 +47019,6 @@ func (i *virtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput)
 }
 
-// Describes a virtual machines scale sets network configuration's DNS settings.
 type VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -47873,7 +47084,6 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationResponse struct {
 	// Specify what happens to the public IP when the VM is deleted
 	DeleteOption *string `pulumi:"deleteOption"`
@@ -47904,7 +47114,6 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationResponseInput interface {
 	ToVirtualMachineScaleSetPublicIPAddressConfigurationResponseOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs struct {
 	// Specify what happens to the public IP when the VM is deleted
 	DeleteOption pulumi.StringPtrInput `pulumi:"deleteOption"`
@@ -47977,7 +47186,6 @@ func (i *virtualMachineScaleSetPublicIPAddressConfigurationResponsePtrType) ToVi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) ElementType() reflect.Type {
@@ -48156,7 +47364,6 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) Sku
 	}).(PublicIPAddressSkuResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfile struct {
 	// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks []VirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
@@ -48177,7 +47384,6 @@ type VirtualMachineScaleSetStorageProfileInput interface {
 	ToVirtualMachineScaleSetStorageProfileOutputWithContext(context.Context) VirtualMachineScaleSetStorageProfileOutput
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfileArgs struct {
 	// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks VirtualMachineScaleSetDataDiskArrayInput `pulumi:"dataDisks"`
@@ -48240,7 +47446,6 @@ func (i *virtualMachineScaleSetStorageProfilePtrType) ToVirtualMachineScaleSetSt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetStorageProfilePtrOutput)
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetStorageProfileOutput) ElementType() reflect.Type {
@@ -48334,7 +47539,6 @@ func (o VirtualMachineScaleSetStorageProfilePtrOutput) OsDisk() VirtualMachineSc
 	}).(VirtualMachineScaleSetOSDiskPtrOutput)
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfileResponse struct {
 	// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks []VirtualMachineScaleSetDataDiskResponse `pulumi:"dataDisks"`
@@ -48355,7 +47559,6 @@ type VirtualMachineScaleSetStorageProfileResponseInput interface {
 	ToVirtualMachineScaleSetStorageProfileResponseOutputWithContext(context.Context) VirtualMachineScaleSetStorageProfileResponseOutput
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfileResponseArgs struct {
 	// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 	DataDisks VirtualMachineScaleSetDataDiskResponseArrayInput `pulumi:"dataDisks"`
@@ -48418,7 +47621,6 @@ func (i *virtualMachineScaleSetStorageProfileResponsePtrType) ToVirtualMachineSc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetStorageProfileResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set storage profile.
 type VirtualMachineScaleSetStorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetStorageProfileResponseOutput) ElementType() reflect.Type {
@@ -48516,7 +47718,6 @@ func (o VirtualMachineScaleSetStorageProfileResponsePtrOutput) OsDisk() VirtualM
 	}).(VirtualMachineScaleSetOSDiskResponsePtrOutput)
 }
 
-// The instance view of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMInstanceViewResponse struct {
 	// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
 	AssignedHost string `pulumi:"assignedHost"`
@@ -48555,7 +47756,6 @@ type VirtualMachineScaleSetVMInstanceViewResponseInput interface {
 	ToVirtualMachineScaleSetVMInstanceViewResponseOutputWithContext(context.Context) VirtualMachineScaleSetVMInstanceViewResponseOutput
 }
 
-// The instance view of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMInstanceViewResponseArgs struct {
 	// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
 	AssignedHost pulumi.StringInput `pulumi:"assignedHost"`
@@ -48636,7 +47836,6 @@ func (i *virtualMachineScaleSetVMInstanceViewResponsePtrType) ToVirtualMachineSc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMInstanceViewResponsePtrOutput)
 }
 
-// The instance view of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -48875,7 +48074,6 @@ func (o VirtualMachineScaleSetVMInstanceViewResponsePtrOutput) VmHealth() Virtua
 	}).(VirtualMachineHealthStatusResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfiguration struct {
 	// The list of network configurations.
 	NetworkInterfaceConfigurations []VirtualMachineScaleSetNetworkConfiguration `pulumi:"networkInterfaceConfigurations"`
@@ -48892,7 +48090,6 @@ type VirtualMachineScaleSetVMNetworkProfileConfigurationInput interface {
 	ToVirtualMachineScaleSetVMNetworkProfileConfigurationOutputWithContext(context.Context) VirtualMachineScaleSetVMNetworkProfileConfigurationOutput
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfigurationArgs struct {
 	// The list of network configurations.
 	NetworkInterfaceConfigurations VirtualMachineScaleSetNetworkConfigurationArrayInput `pulumi:"networkInterfaceConfigurations"`
@@ -48951,7 +48148,6 @@ func (i *virtualMachineScaleSetVMNetworkProfileConfigurationPtrType) ToVirtualMa
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMNetworkProfileConfigurationPtrOutput)
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMNetworkProfileConfigurationOutput) ElementType() reflect.Type {
@@ -49017,7 +48213,6 @@ func (o VirtualMachineScaleSetVMNetworkProfileConfigurationPtrOutput) NetworkInt
 	}).(VirtualMachineScaleSetNetworkConfigurationArrayOutput)
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfigurationResponse struct {
 	// The list of network configurations.
 	NetworkInterfaceConfigurations []VirtualMachineScaleSetNetworkConfigurationResponse `pulumi:"networkInterfaceConfigurations"`
@@ -49034,7 +48229,6 @@ type VirtualMachineScaleSetVMNetworkProfileConfigurationResponseInput interface 
 	ToVirtualMachineScaleSetVMNetworkProfileConfigurationResponseOutputWithContext(context.Context) VirtualMachineScaleSetVMNetworkProfileConfigurationResponseOutput
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfigurationResponseArgs struct {
 	// The list of network configurations.
 	NetworkInterfaceConfigurations VirtualMachineScaleSetNetworkConfigurationResponseArrayInput `pulumi:"networkInterfaceConfigurations"`
@@ -49093,7 +48287,6 @@ func (i *virtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrType) ToV
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set VM network profile.
 type VirtualMachineScaleSetVMNetworkProfileConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMNetworkProfileConfigurationResponseOutput) ElementType() reflect.Type {
@@ -49159,7 +48352,6 @@ func (o VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput) Ne
 	}).(VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput)
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfile struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfile `pulumi:"billingProfile"`
@@ -49198,7 +48390,6 @@ type VirtualMachineScaleSetVMProfileInput interface {
 	ToVirtualMachineScaleSetVMProfileOutputWithContext(context.Context) VirtualMachineScaleSetVMProfileOutput
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfileArgs struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfilePtrInput `pulumi:"billingProfile"`
@@ -49279,7 +48470,6 @@ func (i *virtualMachineScaleSetVMProfilePtrType) ToVirtualMachineScaleSetVMProfi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMProfilePtrOutput)
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMProfileOutput) ElementType() reflect.Type {
@@ -49510,7 +48700,6 @@ func (o VirtualMachineScaleSetVMProfilePtrOutput) UserData() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfileResponse struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfileResponse `pulumi:"billingProfile"`
@@ -49549,7 +48738,6 @@ type VirtualMachineScaleSetVMProfileResponseInput interface {
 	ToVirtualMachineScaleSetVMProfileResponseOutputWithContext(context.Context) VirtualMachineScaleSetVMProfileResponseOutput
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfileResponseArgs struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfileResponsePtrInput `pulumi:"billingProfile"`
@@ -49630,7 +48818,6 @@ func (i *virtualMachineScaleSetVMProfileResponsePtrType) ToVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set virtual machine profile.
 type VirtualMachineScaleSetVMProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMProfileResponseOutput) ElementType() reflect.Type {
@@ -49871,7 +49058,6 @@ func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) UserData() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicy struct {
 	// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
@@ -49890,7 +49076,6 @@ type VirtualMachineScaleSetVMProtectionPolicyInput interface {
 	ToVirtualMachineScaleSetVMProtectionPolicyOutputWithContext(context.Context) VirtualMachineScaleSetVMProtectionPolicyOutput
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicyArgs struct {
 	// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
 	ProtectFromScaleIn pulumi.BoolPtrInput `pulumi:"protectFromScaleIn"`
@@ -49951,7 +49136,6 @@ func (i *virtualMachineScaleSetVMProtectionPolicyPtrType) ToVirtualMachineScaleS
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMProtectionPolicyPtrOutput)
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMProtectionPolicyOutput) ElementType() reflect.Type {
@@ -50030,7 +49214,6 @@ func (o VirtualMachineScaleSetVMProtectionPolicyPtrOutput) ProtectFromScaleSetAc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicyResponse struct {
 	// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
@@ -50049,7 +49232,6 @@ type VirtualMachineScaleSetVMProtectionPolicyResponseInput interface {
 	ToVirtualMachineScaleSetVMProtectionPolicyResponseOutputWithContext(context.Context) VirtualMachineScaleSetVMProtectionPolicyResponseOutput
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicyResponseArgs struct {
 	// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
 	ProtectFromScaleIn pulumi.BoolPtrInput `pulumi:"protectFromScaleIn"`
@@ -50110,7 +49292,6 @@ func (i *virtualMachineScaleSetVMProtectionPolicyResponsePtrType) ToVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput)
 }
 
-// The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMProtectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -50189,7 +49370,6 @@ func (o VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput) ProtectFromSc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfiguration struct {
 	// The list of Windows Remote Management listeners
 	Listeners []WinRMListener `pulumi:"listeners"`
@@ -50206,7 +49386,6 @@ type WinRMConfigurationInput interface {
 	ToWinRMConfigurationOutputWithContext(context.Context) WinRMConfigurationOutput
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfigurationArgs struct {
 	// The list of Windows Remote Management listeners
 	Listeners WinRMListenerArrayInput `pulumi:"listeners"`
@@ -50265,7 +49444,6 @@ func (i *winRMConfigurationPtrType) ToWinRMConfigurationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WinRMConfigurationPtrOutput)
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WinRMConfigurationOutput) ElementType() reflect.Type {
@@ -50329,7 +49507,6 @@ func (o WinRMConfigurationPtrOutput) Listeners() WinRMListenerArrayOutput {
 	}).(WinRMListenerArrayOutput)
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfigurationResponse struct {
 	// The list of Windows Remote Management listeners
 	Listeners []WinRMListenerResponse `pulumi:"listeners"`
@@ -50346,7 +49523,6 @@ type WinRMConfigurationResponseInput interface {
 	ToWinRMConfigurationResponseOutputWithContext(context.Context) WinRMConfigurationResponseOutput
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfigurationResponseArgs struct {
 	// The list of Windows Remote Management listeners
 	Listeners WinRMListenerResponseArrayInput `pulumi:"listeners"`
@@ -50405,7 +49581,6 @@ func (i *winRMConfigurationResponsePtrType) ToWinRMConfigurationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WinRMConfigurationResponsePtrOutput)
 }
 
-// Describes Windows Remote Management configuration of the VM
 type WinRMConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (WinRMConfigurationResponseOutput) ElementType() reflect.Type {
@@ -50469,7 +49644,6 @@ func (o WinRMConfigurationResponsePtrOutput) Listeners() WinRMListenerResponseAr
 	}).(WinRMListenerResponseArrayOutput)
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListener struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br> "data":"<Base64-encoded-certificate>",<br> "dataType":"pfx",<br> "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -50488,7 +49662,6 @@ type WinRMListenerInput interface {
 	ToWinRMListenerOutputWithContext(context.Context) WinRMListenerOutput
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListenerArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br> "data":"<Base64-encoded-certificate>",<br> "dataType":"pfx",<br> "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
@@ -50533,7 +49706,6 @@ func (i WinRMListenerArray) ToWinRMListenerArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WinRMListenerArrayOutput)
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListenerOutput struct{ *pulumi.OutputState }
 
 func (WinRMListenerOutput) ElementType() reflect.Type {
@@ -50578,7 +49750,6 @@ func (o WinRMListenerArrayOutput) Index(i pulumi.IntInput) WinRMListenerOutput {
 	}).(WinRMListenerOutput)
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListenerResponse struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br> "data":"<Base64-encoded-certificate>",<br> "dataType":"pfx",<br> "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -50597,7 +49768,6 @@ type WinRMListenerResponseInput interface {
 	ToWinRMListenerResponseOutputWithContext(context.Context) WinRMListenerResponseOutput
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListenerResponseArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br> "data":"<Base64-encoded-certificate>",<br> "dataType":"pfx",<br> "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
@@ -50642,7 +49812,6 @@ func (i WinRMListenerResponseArray) ToWinRMListenerResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WinRMListenerResponseArrayOutput)
 }
 
-// Describes Protocol and thumbprint of Windows Remote Management listener
 type WinRMListenerResponseOutput struct{ *pulumi.OutputState }
 
 func (WinRMListenerResponseOutput) ElementType() reflect.Type {
@@ -50687,7 +49856,6 @@ func (o WinRMListenerResponseArrayOutput) Index(i pulumi.IntInput) WinRMListener
 	}).(WinRMListenerResponseOutput)
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfiguration struct {
 	// Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
 	AdditionalUnattendContent []AdditionalUnattendContent `pulumi:"additionalUnattendContent"`
@@ -50714,7 +49882,6 @@ type WindowsConfigurationInput interface {
 	ToWindowsConfigurationOutputWithContext(context.Context) WindowsConfigurationOutput
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfigurationArgs struct {
 	// Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
 	AdditionalUnattendContent AdditionalUnattendContentArrayInput `pulumi:"additionalUnattendContent"`
@@ -50783,7 +49950,6 @@ func (i *windowsConfigurationPtrType) ToWindowsConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsConfigurationPtrOutput)
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WindowsConfigurationOutput) ElementType() reflect.Type {
@@ -50922,7 +50088,6 @@ func (o WindowsConfigurationPtrOutput) WinRM() WinRMConfigurationPtrOutput {
 	}).(WinRMConfigurationPtrOutput)
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfigurationResponse struct {
 	// Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
 	AdditionalUnattendContent []AdditionalUnattendContentResponse `pulumi:"additionalUnattendContent"`
@@ -50949,7 +50114,6 @@ type WindowsConfigurationResponseInput interface {
 	ToWindowsConfigurationResponseOutputWithContext(context.Context) WindowsConfigurationResponseOutput
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfigurationResponseArgs struct {
 	// Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
 	AdditionalUnattendContent AdditionalUnattendContentResponseArrayInput `pulumi:"additionalUnattendContent"`
@@ -51018,7 +50182,6 @@ func (i *windowsConfigurationResponsePtrType) ToWindowsConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsConfigurationResponsePtrOutput)
 }
 
-// Specifies Windows operating system settings on the virtual machine.
 type WindowsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (WindowsConfigurationResponseOutput) ElementType() reflect.Type {

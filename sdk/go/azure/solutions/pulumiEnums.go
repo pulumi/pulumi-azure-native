@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The managed application definition artifact type.
 type ApplicationArtifactType string
 
 const (
@@ -176,7 +175,6 @@ func (in *applicationArtifactTypePtr) ToApplicationArtifactTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationArtifactTypePtrOutput)
 }
 
-// The managed application definition artifact name.
 type ApplicationDefinitionArtifactName string
 
 const (
@@ -343,7 +341,6 @@ func (in *applicationDefinitionArtifactNamePtr) ToApplicationDefinitionArtifactN
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationDefinitionArtifactNamePtrOutput)
 }
 
-// The managed application lock level.
 type ApplicationLockLevel string
 
 const (
@@ -509,7 +506,6 @@ func (in *applicationLockLevelPtr) ToApplicationLockLevelPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationLockLevelPtrOutput)
 }
 
-// The managed application management mode.
 type ApplicationManagementMode string
 
 const (
@@ -675,7 +671,6 @@ func (in *applicationManagementModePtr) ToApplicationManagementModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationManagementModePtrOutput)
 }
 
-// The managed application deployment mode.
 type DeploymentMode string
 
 const (
@@ -841,7 +836,6 @@ func (in *deploymentModePtr) ToDeploymentModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentModePtrOutput)
 }
 
-// JIT approval mode.
 type JitApprovalMode string
 
 const (
@@ -1007,7 +1001,6 @@ func (in *jitApprovalModePtr) ToJitApprovalModePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(JitApprovalModePtrOutput)
 }
 
-// The approver type.
 type JitApproverType string
 
 const (
@@ -1172,7 +1165,6 @@ func (in *jitApproverTypePtr) ToJitApproverTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(JitApproverTypePtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (

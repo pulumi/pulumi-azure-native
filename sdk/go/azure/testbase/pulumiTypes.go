@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The command used in the test
 type Command struct {
 	// The action of the command.
 	Action string `pulumi:"action"`
@@ -45,7 +44,6 @@ type CommandInput interface {
 	ToCommandOutputWithContext(context.Context) CommandOutput
 }
 
-// The command used in the test
 type CommandArgs struct {
 	// The action of the command.
 	Action pulumi.StringInput `pulumi:"action"`
@@ -106,7 +104,6 @@ func (i CommandArray) ToCommandArrayOutputWithContext(ctx context.Context) Comma
 	return pulumi.ToOutputWithContext(ctx, i).(CommandArrayOutput)
 }
 
-// The command used in the test
 type CommandOutput struct{ *pulumi.OutputState }
 
 func (CommandOutput) ElementType() reflect.Type {
@@ -191,7 +188,6 @@ func (o CommandArrayOutput) Index(i pulumi.IntInput) CommandOutput {
 	}).(CommandOutput)
 }
 
-// The command used in the test
 type CommandResponse struct {
 	// The action of the command.
 	Action string `pulumi:"action"`
@@ -226,7 +222,6 @@ type CommandResponseInput interface {
 	ToCommandResponseOutputWithContext(context.Context) CommandResponseOutput
 }
 
-// The command used in the test
 type CommandResponseArgs struct {
 	// The action of the command.
 	Action pulumi.StringInput `pulumi:"action"`
@@ -287,7 +282,6 @@ func (i CommandResponseArray) ToCommandResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CommandResponseArrayOutput)
 }
 
-// The command used in the test
 type CommandResponseOutput struct{ *pulumi.OutputState }
 
 func (CommandResponseOutput) ElementType() reflect.Type {
@@ -372,7 +366,6 @@ func (o CommandResponseArrayOutput) Index(i pulumi.IntInput) CommandResponseOutp
 	}).(CommandResponseOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValue struct {
 	// The list of distribution groups.
 	DistributionGroups []string `pulumi:"distributionGroups"`
@@ -389,7 +382,6 @@ type DistributionGroupListReceiverValueInput interface {
 	ToDistributionGroupListReceiverValueOutputWithContext(context.Context) DistributionGroupListReceiverValueOutput
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueArgs struct {
 	// The list of distribution groups.
 	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
@@ -448,7 +440,6 @@ func (i *distributionGroupListReceiverValuePtrType) ToDistributionGroupListRecei
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (DistributionGroupListReceiverValueOutput) ElementType() reflect.Type {
@@ -512,7 +503,6 @@ func (o DistributionGroupListReceiverValuePtrOutput) DistributionGroups() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponse struct {
 	// The list of distribution groups.
 	DistributionGroups []string `pulumi:"distributionGroups"`
@@ -529,7 +519,6 @@ type DistributionGroupListReceiverValueResponseInput interface {
 	ToDistributionGroupListReceiverValueResponseOutputWithContext(context.Context) DistributionGroupListReceiverValueResponseOutput
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponseArgs struct {
 	// The list of distribution groups.
 	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
@@ -588,7 +577,6 @@ func (i *distributionGroupListReceiverValueResponsePtrType) ToDistributionGroupL
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (DistributionGroupListReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -652,7 +640,6 @@ func (o DistributionGroupListReceiverValueResponsePtrOutput) DistributionGroups(
 	}).(pulumi.StringArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiver struct {
 	// The type of the notification event receiver.
 	ReceiverType *string `pulumi:"receiverType"`
@@ -671,7 +658,6 @@ type NotificationEventReceiverInput interface {
 	ToNotificationEventReceiverOutputWithContext(context.Context) NotificationEventReceiverOutput
 }
 
-// A notification event receivers.
 type NotificationEventReceiverArgs struct {
 	// The type of the notification event receiver.
 	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
@@ -716,7 +702,6 @@ func (i NotificationEventReceiverArray) ToNotificationEventReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverOutput struct{ *pulumi.OutputState }
 
 func (NotificationEventReceiverOutput) ElementType() reflect.Type {
@@ -761,7 +746,6 @@ func (o NotificationEventReceiverArrayOutput) Index(i pulumi.IntInput) Notificat
 	}).(NotificationEventReceiverOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponse struct {
 	// The type of the notification event receiver.
 	ReceiverType *string `pulumi:"receiverType"`
@@ -780,7 +764,6 @@ type NotificationEventReceiverResponseInput interface {
 	ToNotificationEventReceiverResponseOutputWithContext(context.Context) NotificationEventReceiverResponseOutput
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponseArgs struct {
 	// The type of the notification event receiver.
 	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
@@ -825,7 +808,6 @@ func (i NotificationEventReceiverResponseArray) ToNotificationEventReceiverRespo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverResponseArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationEventReceiverResponseOutput) ElementType() reflect.Type {
@@ -870,7 +852,6 @@ func (o NotificationEventReceiverResponseArrayOutput) Index(i pulumi.IntInput) N
 	}).(NotificationEventReceiverResponseOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValue struct {
 	// The user object receiver value.
 	DistributionGroupListReceiverValue *DistributionGroupListReceiverValue `pulumi:"distributionGroupListReceiverValue"`
@@ -891,7 +872,6 @@ type NotificationReceiverValueInput interface {
 	ToNotificationReceiverValueOutputWithContext(context.Context) NotificationReceiverValueOutput
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueArgs struct {
 	// The user object receiver value.
 	DistributionGroupListReceiverValue DistributionGroupListReceiverValuePtrInput `pulumi:"distributionGroupListReceiverValue"`
@@ -954,7 +934,6 @@ func (i *notificationReceiverValuePtrType) ToNotificationReceiverValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValuePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (NotificationReceiverValueOutput) ElementType() reflect.Type {
@@ -1050,7 +1029,6 @@ func (o NotificationReceiverValuePtrOutput) UserObjectReceiverValue() UserObject
 	}).(UserObjectReceiverValuePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponse struct {
 	// The user object receiver value.
 	DistributionGroupListReceiverValue *DistributionGroupListReceiverValueResponse `pulumi:"distributionGroupListReceiverValue"`
@@ -1071,7 +1049,6 @@ type NotificationReceiverValueResponseInput interface {
 	ToNotificationReceiverValueResponseOutputWithContext(context.Context) NotificationReceiverValueResponseOutput
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponseArgs struct {
 	// The user object receiver value.
 	DistributionGroupListReceiverValue DistributionGroupListReceiverValueResponsePtrInput `pulumi:"distributionGroupListReceiverValue"`
@@ -1134,7 +1111,6 @@ func (i *notificationReceiverValueResponsePtrType) ToNotificationReceiverValueRe
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueResponsePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -1234,7 +1210,6 @@ func (o NotificationReceiverValueResponsePtrOutput) UserObjectReceiverValue() Us
 	}).(UserObjectReceiverValueResponsePtrOutput)
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponse struct {
 	// Error information.
 	Errors []string `pulumi:"errors"`
@@ -1255,7 +1230,6 @@ type PackageValidationResultResponseInput interface {
 	ToPackageValidationResultResponseOutputWithContext(context.Context) PackageValidationResultResponseOutput
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponseArgs struct {
 	// Error information.
 	Errors pulumi.StringArrayInput `pulumi:"errors"`
@@ -1302,7 +1276,6 @@ func (i PackageValidationResultResponseArray) ToPackageValidationResultResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(PackageValidationResultResponseArrayOutput)
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponseOutput struct{ *pulumi.OutputState }
 
 func (PackageValidationResultResponseOutput) ElementType() reflect.Type {
@@ -1352,7 +1325,6 @@ func (o PackageValidationResultResponseArrayOutput) Index(i pulumi.IntInput) Pac
 	}).(PackageValidationResultResponseOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValue struct {
 	// The role of the notification receiver.
 	Role *string `pulumi:"role"`
@@ -1373,7 +1345,6 @@ type SubscriptionReceiverValueInput interface {
 	ToSubscriptionReceiverValueOutputWithContext(context.Context) SubscriptionReceiverValueOutput
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueArgs struct {
 	// The role of the notification receiver.
 	Role pulumi.StringPtrInput `pulumi:"role"`
@@ -1436,7 +1407,6 @@ func (i *subscriptionReceiverValuePtrType) ToSubscriptionReceiverValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValuePtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionReceiverValueOutput) ElementType() reflect.Type {
@@ -1530,7 +1500,6 @@ func (o SubscriptionReceiverValuePtrOutput) SubscriptionName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponse struct {
 	// The role of the notification receiver.
 	Role *string `pulumi:"role"`
@@ -1551,7 +1520,6 @@ type SubscriptionReceiverValueResponseInput interface {
 	ToSubscriptionReceiverValueResponseOutputWithContext(context.Context) SubscriptionReceiverValueResponseOutput
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponseArgs struct {
 	// The role of the notification receiver.
 	Role pulumi.StringPtrInput `pulumi:"role"`
@@ -1614,7 +1582,6 @@ func (i *subscriptionReceiverValueResponsePtrType) ToSubscriptionReceiverValueRe
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueResponsePtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -1708,7 +1675,6 @@ func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1735,7 +1701,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1804,7 +1769,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1943,7 +1907,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfo struct {
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType string `pulumi:"osUpdateType"`
@@ -1962,7 +1925,6 @@ type TargetOSInfoInput interface {
 	ToTargetOSInfoOutputWithContext(context.Context) TargetOSInfoOutput
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoArgs struct {
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType pulumi.StringInput `pulumi:"osUpdateType"`
@@ -2007,7 +1969,6 @@ func (i TargetOSInfoArray) ToTargetOSInfoArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOSInfoArrayOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoOutput struct{ *pulumi.OutputState }
 
 func (TargetOSInfoOutput) ElementType() reflect.Type {
@@ -2052,7 +2013,6 @@ func (o TargetOSInfoArrayOutput) Index(i pulumi.IntInput) TargetOSInfoOutput {
 	}).(TargetOSInfoOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponse struct {
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType string `pulumi:"osUpdateType"`
@@ -2071,7 +2031,6 @@ type TargetOSInfoResponseInput interface {
 	ToTargetOSInfoResponseOutputWithContext(context.Context) TargetOSInfoResponseOutput
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponseArgs struct {
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType pulumi.StringInput `pulumi:"osUpdateType"`
@@ -2116,7 +2075,6 @@ func (i TargetOSInfoResponseArray) ToTargetOSInfoResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOSInfoResponseArrayOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetOSInfoResponseOutput) ElementType() reflect.Type {
@@ -2161,7 +2119,6 @@ func (o TargetOSInfoResponseArrayOutput) Index(i pulumi.IntInput) TargetOSInfoRe
 	}).(TargetOSInfoResponseOutput)
 }
 
-// The definition of a Test.
 type Test struct {
 	// The commands used in the test.
 	Commands []Command `pulumi:"commands"`
@@ -2182,7 +2139,6 @@ type TestInput interface {
 	ToTestOutputWithContext(context.Context) TestOutput
 }
 
-// The definition of a Test.
 type TestArgs struct {
 	// The commands used in the test.
 	Commands CommandArrayInput `pulumi:"commands"`
@@ -2229,7 +2185,6 @@ func (i TestArray) ToTestArrayOutputWithContext(ctx context.Context) TestArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TestArrayOutput)
 }
 
-// The definition of a Test.
 type TestOutput struct{ *pulumi.OutputState }
 
 func (TestOutput) ElementType() reflect.Type {
@@ -2279,7 +2234,6 @@ func (o TestArrayOutput) Index(i pulumi.IntInput) TestOutput {
 	}).(TestOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKU struct {
 	// The locations that the SKU is available.
 	Locations []string `pulumi:"locations"`
@@ -2302,7 +2256,6 @@ type TestBaseAccountSKUInput interface {
 	ToTestBaseAccountSKUOutputWithContext(context.Context) TestBaseAccountSKUOutput
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUArgs struct {
 	// The locations that the SKU is available.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
@@ -2367,7 +2320,6 @@ func (i *testBaseAccountSKUPtrType) ToTestBaseAccountSKUPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUPtrOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUOutput) ElementType() reflect.Type {
@@ -2476,7 +2428,6 @@ func (o TestBaseAccountSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponse struct {
 	// An invariant to describe the feature, such as 'SLA'.
 	Name string `pulumi:"name"`
@@ -2495,7 +2446,6 @@ type TestBaseAccountSKUCapabilityResponseInput interface {
 	ToTestBaseAccountSKUCapabilityResponseOutputWithContext(context.Context) TestBaseAccountSKUCapabilityResponseOutput
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponseArgs struct {
 	// An invariant to describe the feature, such as 'SLA'.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2540,7 +2490,6 @@ func (i TestBaseAccountSKUCapabilityResponseArray) ToTestBaseAccountSKUCapabilit
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUCapabilityResponseArrayOutput)
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUCapabilityResponseOutput) ElementType() reflect.Type {
@@ -2585,7 +2534,6 @@ func (o TestBaseAccountSKUCapabilityResponseArrayOutput) Index(i pulumi.IntInput
 	}).(TestBaseAccountSKUCapabilityResponseOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponse struct {
 	// The capabilities of a SKU.
 	Capabilities []TestBaseAccountSKUCapabilityResponse `pulumi:"capabilities"`
@@ -2610,7 +2558,6 @@ type TestBaseAccountSKUResponseInput interface {
 	ToTestBaseAccountSKUResponseOutputWithContext(context.Context) TestBaseAccountSKUResponseOutput
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponseArgs struct {
 	// The capabilities of a SKU.
 	Capabilities TestBaseAccountSKUCapabilityResponseArrayInput `pulumi:"capabilities"`
@@ -2677,7 +2624,6 @@ func (i *testBaseAccountSKUResponsePtrType) ToTestBaseAccountSKUResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUResponsePtrOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUResponseOutput) ElementType() reflect.Type {
@@ -2801,7 +2747,6 @@ func (o TestBaseAccountSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a Test.
 type TestResponse struct {
 	// The commands used in the test.
 	Commands []CommandResponse `pulumi:"commands"`
@@ -2824,7 +2769,6 @@ type TestResponseInput interface {
 	ToTestResponseOutputWithContext(context.Context) TestResponseOutput
 }
 
-// The definition of a Test.
 type TestResponseArgs struct {
 	// The commands used in the test.
 	Commands CommandResponseArrayInput `pulumi:"commands"`
@@ -2873,7 +2817,6 @@ func (i TestResponseArray) ToTestResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TestResponseArrayOutput)
 }
 
-// The definition of a Test.
 type TestResponseOutput struct{ *pulumi.OutputState }
 
 func (TestResponseOutput) ElementType() reflect.Type {
@@ -2928,7 +2871,6 @@ func (o TestResponseArrayOutput) Index(i pulumi.IntInput) TestResponseOutput {
 	}).(TestResponseOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValue struct {
 	// user object ids.
 	UserObjectIds []string `pulumi:"userObjectIds"`
@@ -2945,7 +2887,6 @@ type UserObjectReceiverValueInput interface {
 	ToUserObjectReceiverValueOutputWithContext(context.Context) UserObjectReceiverValueOutput
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueArgs struct {
 	// user object ids.
 	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
@@ -3004,7 +2945,6 @@ func (i *userObjectReceiverValuePtrType) ToUserObjectReceiverValuePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (UserObjectReceiverValueOutput) ElementType() reflect.Type {
@@ -3068,7 +3008,6 @@ func (o UserObjectReceiverValuePtrOutput) UserObjectIds() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponse struct {
 	// user object ids.
 	UserObjectIds []string `pulumi:"userObjectIds"`
@@ -3085,7 +3024,6 @@ type UserObjectReceiverValueResponseInput interface {
 	ToUserObjectReceiverValueResponseOutputWithContext(context.Context) UserObjectReceiverValueResponseOutput
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponseArgs struct {
 	// user object ids.
 	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
@@ -3144,7 +3082,6 @@ func (i *userObjectReceiverValueResponsePtrType) ToUserObjectReceiverValueRespon
 	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (UserObjectReceiverValueResponseOutput) ElementType() reflect.Type {

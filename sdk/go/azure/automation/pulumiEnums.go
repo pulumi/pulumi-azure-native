@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets or sets the content source type.
 type ContentSourceType string
 
 const (
@@ -175,7 +174,6 @@ func (in *contentSourceTypePtr) ToContentSourceTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ContentSourceTypePtrOutput)
 }
 
-// Encryption Key Source
 type EncryptionKeySourceType string
 
 const (
@@ -340,7 +338,6 @@ func (in *encryptionKeySourceTypePtr) ToEncryptionKeySourceTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionKeySourceTypePtrOutput)
 }
 
-// Update classifications included in the software update configuration.
 type LinuxUpdateClasses string
 
 const (
@@ -507,7 +504,6 @@ func (in *linuxUpdateClassesPtr) ToLinuxUpdateClassesPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(LinuxUpdateClassesPtrOutput)
 }
 
-// operating system of target machines
 type OperatingSystemType string
 
 const (
@@ -672,7 +668,6 @@ func (in *operatingSystemTypePtr) ToOperatingSystemTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypePtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (
@@ -839,7 +834,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Gets or sets the type of the runbook.
 type RunbookTypeEnum string
 
 const (
@@ -1008,7 +1002,6 @@ func (in *runbookTypeEnumPtr) ToRunbookTypeEnumPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(RunbookTypeEnumPtrOutput)
 }
 
-// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 type ScheduleDay string
 
 const (
@@ -1178,7 +1171,6 @@ func (in *scheduleDayPtr) ToScheduleDayPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleDayPtrOutput)
 }
 
-// Gets or sets the frequency of the schedule.
 type ScheduleFrequency string
 
 const (
@@ -1348,7 +1340,6 @@ func (in *scheduleFrequencyPtr) ToScheduleFrequencyPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleFrequencyPtrOutput)
 }
 
-// Gets or sets the SKU name of the account.
 type SkuNameEnum string
 
 const (
@@ -1513,7 +1504,6 @@ func (in *skuNameEnumPtr) ToSkuNameEnumPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(SkuNameEnumPtrOutput)
 }
 
-// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
 type SourceType string
 
 const (
@@ -1679,7 +1669,6 @@ func (in *sourceTypePtr) ToSourceTypePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SourceTypePtrOutput)
 }
 
-// Filter VMs by Any or All specified tags.
 type TagOperators string
 
 const (
@@ -1844,7 +1833,6 @@ func (in *tagOperatorsPtr) ToTagOperatorsPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(TagOperatorsPtrOutput)
 }
 
-// The token type. Must be either PersonalAccessToken or Oauth.
 type TokenType string
 
 const (
@@ -2009,7 +1997,6 @@ func (in *tokenTypePtr) ToTokenTypePtrOutputWithContext(ctx context.Context) Tok
 	return pulumi.ToOutputWithContext(ctx, in).(TokenTypePtrOutput)
 }
 
-// Update classification included in the software update configuration. A comma separated string with required values
 type WindowsUpdateClasses string
 
 const (

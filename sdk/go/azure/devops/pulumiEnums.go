@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of authorization.
 type AuthorizationType string
 
 const (
@@ -174,7 +173,6 @@ func (in *authorizationTypePtr) ToAuthorizationTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizationTypePtrOutput)
 }
 
-// Type of code repository.
 type CodeRepositoryType string
 
 const (
@@ -339,7 +337,6 @@ func (in *codeRepositoryTypePtr) ToCodeRepositoryTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(CodeRepositoryTypePtrOutput)
 }
 
-// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
 type PipelineTypeEnum string
 
 const (

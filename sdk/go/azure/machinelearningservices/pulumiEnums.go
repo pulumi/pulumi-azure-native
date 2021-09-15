@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
 type ApplicationSharingPolicy string
 
 const (
@@ -175,7 +174,6 @@ func (in *applicationSharingPolicyPtr) ToApplicationSharingPolicyPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationSharingPolicyPtrOutput)
 }
 
-// Logging level for batch inference operation.
 type BatchLoggingLevel string
 
 const (
@@ -341,7 +339,6 @@ func (in *batchLoggingLevelPtr) ToBatchLoggingLevelPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(BatchLoggingLevelPtrOutput)
 }
 
-// Indicates how the output will be organized.
 type BatchOutputAction string
 
 const (
@@ -506,7 +503,6 @@ func (in *batchOutputActionPtr) ToBatchOutputActionPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(BatchOutputActionPtrOutput)
 }
 
-// Intended usage of the cluster
 type ClusterPurpose string
 
 const (
@@ -672,7 +668,6 @@ func (in *clusterPurposePtr) ToClusterPurposePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterPurposePtrOutput)
 }
 
-// The compute environment type for the service.
 type ComputeEnvironmentType string
 
 const (
@@ -837,7 +832,6 @@ func (in *computeEnvironmentTypePtr) ToComputeEnvironmentTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentTypePtrOutput)
 }
 
-// The Compute Instance Authorization type. Available values are personal (default).
 type ComputeInstanceAuthorizationType string
 
 const (
@@ -1001,7 +995,6 @@ func (in *computeInstanceAuthorizationTypePtr) ToComputeInstanceAuthorizationTyp
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeInstanceAuthorizationTypePtrOutput)
 }
 
-// The type of compute
 type ComputeType string
 
 const (
@@ -1172,7 +1165,6 @@ func (in *computeTypePtr) ToComputeTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeTypePtrOutput)
 }
 
-// The type of container to retrieve logs from.
 type ContainerType string
 
 const (
@@ -1337,7 +1329,6 @@ func (in *containerTypePtr) ToContainerTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerTypePtrOutput)
 }
 
-// Mechanism for data movement to datastore.
 type DataBindingMode string
 
 const (
@@ -1503,7 +1494,6 @@ func (in *dataBindingModePtr) ToDataBindingModePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DataBindingModePtrOutput)
 }
 
-// Specifies dataset type.
 type DatasetType string
 
 const (
@@ -1668,7 +1658,6 @@ func (in *datasetTypePtr) ToDatasetTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetTypePtrOutput)
 }
 
-// Specifies datastore type.
 type DatastoreTypeArm string
 
 const (
@@ -1839,7 +1828,6 @@ func (in *datastoreTypeArmPtr) ToDatastoreTypeArmPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DatastoreTypeArmPtrOutput)
 }
 
-// Specifies the type of distribution framework.
 type DistributionType string
 
 const (
@@ -2005,7 +1993,6 @@ func (in *distributionTypePtr) ToDistributionTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionTypePtrOutput)
 }
 
-// Docker specification must be either Build or Image
 type DockerSpecificationType string
 
 const (
@@ -2170,7 +2157,6 @@ func (in *dockerSpecificationTypePtr) ToDockerSpecificationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DockerSpecificationTypePtrOutput)
 }
 
-// Name of policy configuration
 type EarlyTerminationPolicyType string
 
 const (
@@ -2336,7 +2322,6 @@ func (in *earlyTerminationPolicyTypePtr) ToEarlyTerminationPolicyTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(EarlyTerminationPolicyTypePtrOutput)
 }
 
-// Indicates whether or not the encryption is enabled for the workspace.
 type EncryptionStatus string
 
 const (
@@ -2501,7 +2486,6 @@ func (in *encryptionStatusPtr) ToEncryptionStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionStatusPtrOutput)
 }
 
-// Inference endpoint authentication mode type
 type EndpointAuthMode string
 
 const (
@@ -2667,7 +2651,6 @@ func (in *endpointAuthModePtr) ToEndpointAuthModePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointAuthModePtrOutput)
 }
 
-// The compute type of the endpoint.
 type EndpointComputeType string
 
 const (
@@ -2833,7 +2816,6 @@ func (in *endpointComputeTypePtr) ToEndpointComputeTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointComputeTypePtrOutput)
 }
 
-// Defines supported metric goals for hyperparameter tuning
 type Goal string
 
 const (
@@ -2998,7 +2980,6 @@ func (in *goalPtr) ToGoalPtrOutputWithContext(ctx context.Context) GoalPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(GoalPtrOutput)
 }
 
-// Header type.
 type Header string
 
 const (
@@ -3165,7 +3146,6 @@ func (in *headerPtr) ToHeaderPtrOutputWithContext(ctx context.Context) HeaderPtr
 	return pulumi.ToOutputWithContext(ctx, in).(HeaderPtrOutput)
 }
 
-// Specifies the type of identity framework.
 type IdentityConfigurationType string
 
 const (
@@ -3330,7 +3310,6 @@ func (in *identityConfigurationTypePtr) ToIdentityConfigurationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityConfigurationTypePtrOutput)
 }
 
-// Annotation type of image labeling tasks.
 type ImageAnnotationType string
 
 const (
@@ -3496,7 +3475,6 @@ func (in *imageAnnotationTypePtr) ToImageAnnotationTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ImageAnnotationTypePtrOutput)
 }
 
-// Specifies the type of job.
 type JobType string
 
 const (
@@ -3662,7 +3640,6 @@ func (in *jobTypePtr) ToJobTypePtrOutputWithContext(ctx context.Context) JobType
 	return pulumi.ToOutputWithContext(ctx, in).(JobTypePtrOutput)
 }
 
-// Type of the link target.
 type LinkedServiceLinkType string
 
 const (
@@ -3826,7 +3803,6 @@ func (in *linkedServiceLinkTypePtr) ToLinkedServiceLinkTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(LinkedServiceLinkTypePtrOutput)
 }
 
-// Media type of data asset.
 type MediaType string
 
 const (
@@ -3991,7 +3967,6 @@ func (in *mediaTypePtr) ToMediaTypePtrOutputWithContext(ctx context.Context) Med
 	return pulumi.ToOutputWithContext(ctx, in).(MediaTypePtrOutput)
 }
 
-// The OS type the Environment.
 type OperatingSystemType string
 
 const (
@@ -4156,7 +4131,6 @@ func (in *operatingSystemTypePtr) ToOperatingSystemTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypePtrOutput)
 }
 
-// Compute OS Type
 type OsType string
 
 const (
@@ -4321,7 +4295,6 @@ func (in *osTypePtr) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(OsTypePtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -4489,7 +4462,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// Specifies the type of asset reference.
 type ReferenceType string
 
 const (
@@ -4655,7 +4627,6 @@ func (in *referenceTypePtr) ToReferenceTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ReferenceTypePtrOutput)
 }
 
-// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
 type RemoteLoginPortPublicAccess string
 
 const (
@@ -4821,7 +4792,6 @@ func (in *remoteLoginPortPublicAccessPtr) ToRemoteLoginPortPublicAccessPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(RemoteLoginPortPublicAccessPtrOutput)
 }
 
-// Defines values for a ResourceIdentity's type.
 type ResourceIdentityAssignment string
 
 const (
@@ -4988,7 +4958,6 @@ func (in *resourceIdentityAssignmentPtr) ToResourceIdentityAssignmentPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityAssignmentPtrOutput)
 }
 
-// The identity type.
 type ResourceIdentityType string
 
 const (
@@ -5155,7 +5124,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Type of the hyperparameter sampling algorithms
 type SamplingAlgorithm string
 
 const (
@@ -5321,7 +5289,6 @@ func (in *samplingAlgorithmPtr) ToSamplingAlgorithmPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SamplingAlgorithmPtrOutput)
 }
 
-// Type of deployment scaling algorithm
 type ScaleType string
 
 const (
@@ -5486,7 +5453,6 @@ func (in *scaleTypePtr) ToScaleTypePtrOutputWithContext(ctx context.Context) Sca
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleTypePtrOutput)
 }
 
-// Data source type.
 type SourceType string
 
 const (
@@ -5652,7 +5618,6 @@ func (in *sourceTypePtr) ToSourceTypePtrOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, in).(SourceTypePtrOutput)
 }
 
-// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
 type SshPublicAccess string
 
 const (
@@ -5817,7 +5782,6 @@ func (in *sshPublicAccessPtr) ToSshPublicAccessPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(SshPublicAccessPtrOutput)
 }
 
-// format for the workspace connection value
 type ValueFormat string
 
 const (
@@ -5981,7 +5945,6 @@ func (in *valueFormatPtr) ToValueFormatPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ValueFormatPtrOutput)
 }
 
-// The type of the variant.
 type VariantType string
 
 const (
@@ -6146,7 +6109,6 @@ func (in *variantTypePtr) ToVariantTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(VariantTypePtrOutput)
 }
 
-// Virtual Machine priority
 type VmPriority string
 
 const (

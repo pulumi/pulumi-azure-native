@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicy struct {
 	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
 	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicy `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
@@ -29,7 +28,6 @@ type ApplicationDeltaHealthPolicyInput interface {
 	ToApplicationDeltaHealthPolicyOutputWithContext(context.Context) ApplicationDeltaHealthPolicyOutput
 }
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicyArgs struct {
 	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
 	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyPtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
@@ -74,7 +72,6 @@ func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeltaHealthPolicyOutput) ElementType() reflect.Type {
@@ -123,7 +120,6 @@ func (o ApplicationDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Ap
 	}).(ApplicationDeltaHealthPolicyOutput)
 }
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicyResponse struct {
 	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
 	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicyResponse `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
@@ -142,7 +138,6 @@ type ApplicationDeltaHealthPolicyResponseInput interface {
 	ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseOutput
 }
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicyResponseArgs struct {
 	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
 	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
@@ -187,7 +182,6 @@ func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyR
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 type ApplicationDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -236,7 +230,6 @@ func (o ApplicationDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringI
 	}).(ApplicationDeltaHealthPolicyResponseOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicy struct {
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicy `pulumi:"defaultServiceTypeHealthPolicy"`
@@ -255,7 +248,6 @@ type ApplicationHealthPolicyInput interface {
 	ToApplicationHealthPolicyOutputWithContext(context.Context) ApplicationHealthPolicyOutput
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyArgs struct {
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyPtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
@@ -300,7 +292,6 @@ func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationHealthPolicyOutput) ElementType() reflect.Type {
@@ -345,7 +336,6 @@ func (o ApplicationHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Applica
 	}).(ApplicationHealthPolicyOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyResponse struct {
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicyResponse `pulumi:"defaultServiceTypeHealthPolicy"`
@@ -364,7 +354,6 @@ type ApplicationHealthPolicyResponseInput interface {
 	ToApplicationHealthPolicyResponseOutputWithContext(context.Context) ApplicationHealthPolicyResponseOutput
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyResponseArgs struct {
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
@@ -409,7 +398,6 @@ func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseMapOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -458,7 +446,6 @@ func (o ApplicationHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ApplicationHealthPolicyResponseOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescription struct {
 	// The maximum node capacity for Service Fabric application.
 	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
@@ -491,7 +478,6 @@ type ApplicationMetricDescriptionInput interface {
 	ToApplicationMetricDescriptionOutputWithContext(context.Context) ApplicationMetricDescriptionOutput
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescriptionArgs struct {
 	// The maximum node capacity for Service Fabric application.
 	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
@@ -550,7 +536,6 @@ func (i ApplicationMetricDescriptionArray) ToApplicationMetricDescriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionArrayOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMetricDescriptionOutput) ElementType() reflect.Type {
@@ -615,7 +600,6 @@ func (o ApplicationMetricDescriptionArrayOutput) Index(i pulumi.IntInput) Applic
 	}).(ApplicationMetricDescriptionOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescriptionResponse struct {
 	// The maximum node capacity for Service Fabric application.
 	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
@@ -648,7 +632,6 @@ type ApplicationMetricDescriptionResponseInput interface {
 	ToApplicationMetricDescriptionResponseOutputWithContext(context.Context) ApplicationMetricDescriptionResponseOutput
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescriptionResponseArgs struct {
 	// The maximum node capacity for Service Fabric application.
 	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
@@ -707,7 +690,6 @@ func (i ApplicationMetricDescriptionResponseArray) ToApplicationMetricDescriptio
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionResponseArrayOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 type ApplicationMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMetricDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1046,7 +1028,6 @@ func (o ApplicationTypeVersionsCleanupPolicyResponsePtrOutput) MaxUnusedVersions
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicy struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy *ArmApplicationHealthPolicy `pulumi:"applicationHealthPolicy"`
@@ -1073,7 +1054,6 @@ type ApplicationUpgradePolicyInput interface {
 	ToApplicationUpgradePolicyOutputWithContext(context.Context) ApplicationUpgradePolicyOutput
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyArgs struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy ArmApplicationHealthPolicyPtrInput `pulumi:"applicationHealthPolicy"`
@@ -1142,7 +1122,6 @@ func (i *applicationUpgradePolicyPtrType) ToApplicationUpgradePolicyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationUpgradePolicyPtrOutput)
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationUpgradePolicyOutput) ElementType() reflect.Type {
@@ -1283,7 +1262,6 @@ func (o ApplicationUpgradePolicyPtrOutput) UpgradeReplicaSetCheckTimeout() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyResponse struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy *ArmApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicy"`
@@ -1310,7 +1288,6 @@ type ApplicationUpgradePolicyResponseInput interface {
 	ToApplicationUpgradePolicyResponseOutputWithContext(context.Context) ApplicationUpgradePolicyResponseOutput
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyResponseArgs struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy ArmApplicationHealthPolicyResponsePtrInput `pulumi:"applicationHealthPolicy"`
@@ -1379,7 +1356,6 @@ func (i *applicationUpgradePolicyResponsePtrType) ToApplicationUpgradePolicyResp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationUpgradePolicyResponsePtrOutput)
 }
 
-// Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationUpgradePolicyResponseOutput) ElementType() reflect.Type {
@@ -1734,7 +1710,6 @@ func (o ApplicationUserAssignedIdentityResponseArrayOutput) Index(i pulumi.IntIn
 	}).(ApplicationUserAssignedIdentityResponseOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicy struct {
 	// Indicates whether warnings are treated with the same severity as errors.
 	ConsiderWarningAsError *bool `pulumi:"considerWarningAsError"`
@@ -1760,7 +1735,6 @@ type ArmApplicationHealthPolicyInput interface {
 	ToArmApplicationHealthPolicyOutputWithContext(context.Context) ArmApplicationHealthPolicyOutput
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicyArgs struct {
 	// Indicates whether warnings are treated with the same severity as errors.
 	ConsiderWarningAsError pulumi.BoolPtrInput `pulumi:"considerWarningAsError"`
@@ -1828,7 +1802,6 @@ func (i *armApplicationHealthPolicyPtrType) ToArmApplicationHealthPolicyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ArmApplicationHealthPolicyPtrOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ArmApplicationHealthPolicyOutput) ElementType() reflect.Type {
@@ -1947,7 +1920,6 @@ func (o ArmApplicationHealthPolicyPtrOutput) ServiceTypeHealthPolicyMap() ArmSer
 	}).(ArmServiceTypeHealthPolicyMapOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicyResponse struct {
 	// Indicates whether warnings are treated with the same severity as errors.
 	ConsiderWarningAsError *bool `pulumi:"considerWarningAsError"`
@@ -1973,7 +1945,6 @@ type ArmApplicationHealthPolicyResponseInput interface {
 	ToArmApplicationHealthPolicyResponseOutputWithContext(context.Context) ArmApplicationHealthPolicyResponseOutput
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicyResponseArgs struct {
 	// Indicates whether warnings are treated with the same severity as errors.
 	ConsiderWarningAsError pulumi.BoolPtrInput `pulumi:"considerWarningAsError"`
@@ -2041,7 +2012,6 @@ func (i *armApplicationHealthPolicyResponsePtrType) ToArmApplicationHealthPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ArmApplicationHealthPolicyResponsePtrOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ArmApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmApplicationHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -2160,7 +2130,6 @@ func (o ArmApplicationHealthPolicyResponsePtrOutput) ServiceTypeHealthPolicyMap(
 	}).(ArmServiceTypeHealthPolicyResponseMapOutput)
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicy struct {
 	// The activation Mode of the service package
 	FailureAction *string `pulumi:"failureAction"`
@@ -2187,7 +2156,6 @@ type ArmRollingUpgradeMonitoringPolicyInput interface {
 	ToArmRollingUpgradeMonitoringPolicyOutputWithContext(context.Context) ArmRollingUpgradeMonitoringPolicyOutput
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicyArgs struct {
 	// The activation Mode of the service package
 	FailureAction pulumi.StringPtrInput `pulumi:"failureAction"`
@@ -2256,7 +2224,6 @@ func (i *armRollingUpgradeMonitoringPolicyPtrType) ToArmRollingUpgradeMonitoring
 	return pulumi.ToOutputWithContext(ctx, i).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicyOutput struct{ *pulumi.OutputState }
 
 func (ArmRollingUpgradeMonitoringPolicyOutput) ElementType() reflect.Type {
@@ -2395,7 +2362,6 @@ func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) UpgradeTimeout() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicyResponse struct {
 	// The activation Mode of the service package
 	FailureAction *string `pulumi:"failureAction"`
@@ -2422,7 +2388,6 @@ type ArmRollingUpgradeMonitoringPolicyResponseInput interface {
 	ToArmRollingUpgradeMonitoringPolicyResponseOutputWithContext(context.Context) ArmRollingUpgradeMonitoringPolicyResponseOutput
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicyResponseArgs struct {
 	// The activation Mode of the service package
 	FailureAction pulumi.StringPtrInput `pulumi:"failureAction"`
@@ -2491,7 +2456,6 @@ func (i *armRollingUpgradeMonitoringPolicyResponsePtrType) ToArmRollingUpgradeMo
 	return pulumi.ToOutputWithContext(ctx, i).(ArmRollingUpgradeMonitoringPolicyResponsePtrOutput)
 }
 
-// The policy used for monitoring the application upgrade
 type ArmRollingUpgradeMonitoringPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmRollingUpgradeMonitoringPolicyResponseOutput) ElementType() reflect.Type {
@@ -2630,7 +2594,6 @@ func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) UpgradeTimeout() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicy struct {
 	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyPartitionsPerService *int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
@@ -2651,7 +2614,6 @@ type ArmServiceTypeHealthPolicyInput interface {
 	ToArmServiceTypeHealthPolicyOutputWithContext(context.Context) ArmServiceTypeHealthPolicyOutput
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyArgs struct {
 	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyPartitionsPerService pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyPartitionsPerService"`
@@ -2739,7 +2701,6 @@ func (i ArmServiceTypeHealthPolicyMap) ToArmServiceTypeHealthPolicyMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ArmServiceTypeHealthPolicyOutput) ElementType() reflect.Type {
@@ -2853,7 +2814,6 @@ func (o ArmServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ArmS
 	}).(ArmServiceTypeHealthPolicyOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyResponse struct {
 	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyPartitionsPerService *int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
@@ -2874,7 +2834,6 @@ type ArmServiceTypeHealthPolicyResponseInput interface {
 	ToArmServiceTypeHealthPolicyResponseOutputWithContext(context.Context) ArmServiceTypeHealthPolicyResponseOutput
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyResponseArgs struct {
 	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyPartitionsPerService pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyPartitionsPerService"`
@@ -2962,7 +2921,6 @@ func (i ArmServiceTypeHealthPolicyResponseMap) ToArmServiceTypeHealthPolicyRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyResponseMapOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmServiceTypeHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -3076,7 +3034,6 @@ func (o ArmServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInp
 	}).(ArmServiceTypeHealthPolicyResponseOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectory struct {
 	// Azure active directory client application id.
 	ClientApplication *string `pulumi:"clientApplication"`
@@ -3097,7 +3054,6 @@ type AzureActiveDirectoryInput interface {
 	ToAzureActiveDirectoryOutputWithContext(context.Context) AzureActiveDirectoryOutput
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryArgs struct {
 	// Azure active directory client application id.
 	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
@@ -3160,7 +3116,6 @@ func (i *azureActiveDirectoryPtrType) ToAzureActiveDirectoryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryPtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryOutput) ElementType() reflect.Type {
@@ -3254,7 +3209,6 @@ func (o AzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponse struct {
 	// Azure active directory client application id.
 	ClientApplication *string `pulumi:"clientApplication"`
@@ -3275,7 +3229,6 @@ type AzureActiveDirectoryResponseInput interface {
 	ToAzureActiveDirectoryResponseOutputWithContext(context.Context) AzureActiveDirectoryResponseOutput
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponseArgs struct {
 	// Azure active directory client application id.
 	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
@@ -3338,7 +3291,6 @@ func (i *azureActiveDirectoryResponsePtrType) ToAzureActiveDirectoryResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponsePtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -3432,7 +3384,6 @@ func (o AzureActiveDirectoryResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the certificate details.
 type CertificateDescription struct {
 	// Thumbprint of the primary certificate.
 	Thumbprint string `pulumi:"thumbprint"`
@@ -3453,7 +3404,6 @@ type CertificateDescriptionInput interface {
 	ToCertificateDescriptionOutputWithContext(context.Context) CertificateDescriptionOutput
 }
 
-// Describes the certificate details.
 type CertificateDescriptionArgs struct {
 	// Thumbprint of the primary certificate.
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
@@ -3516,7 +3466,6 @@ func (i *certificateDescriptionPtrType) ToCertificateDescriptionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionPtrOutput)
 }
 
-// Describes the certificate details.
 type CertificateDescriptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDescriptionOutput) ElementType() reflect.Type {
@@ -3610,7 +3559,6 @@ func (o CertificateDescriptionPtrOutput) X509StoreName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the certificate details.
 type CertificateDescriptionResponse struct {
 	// Thumbprint of the primary certificate.
 	Thumbprint string `pulumi:"thumbprint"`
@@ -3631,7 +3579,6 @@ type CertificateDescriptionResponseInput interface {
 	ToCertificateDescriptionResponseOutputWithContext(context.Context) CertificateDescriptionResponseOutput
 }
 
-// Describes the certificate details.
 type CertificateDescriptionResponseArgs struct {
 	// Thumbprint of the primary certificate.
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
@@ -3694,7 +3641,6 @@ func (i *certificateDescriptionResponsePtrType) ToCertificateDescriptionResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionResponsePtrOutput)
 }
 
-// Describes the certificate details.
 type CertificateDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateDescriptionResponseOutput) ElementType() reflect.Type {
@@ -3788,7 +3734,6 @@ func (o CertificateDescriptionResponsePtrOutput) X509StoreName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificate struct {
 	// Certificate Common name.
 	CommonName *string `pulumi:"commonName"`
@@ -3811,7 +3756,6 @@ type ClientCertificateInput interface {
 	ToClientCertificateOutputWithContext(context.Context) ClientCertificateOutput
 }
 
-// Client Certificate definition.
 type ClientCertificateArgs struct {
 	// Certificate Common name.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
@@ -3860,7 +3804,6 @@ func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateOutput) ElementType() reflect.Type {
@@ -3915,7 +3858,6 @@ func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificate
 	}).(ClientCertificateOutput)
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonName struct {
 	// The common name of the client certificate.
 	CertificateCommonName string `pulumi:"certificateCommonName"`
@@ -3936,7 +3878,6 @@ type ClientCertificateCommonNameInput interface {
 	ToClientCertificateCommonNameOutputWithContext(context.Context) ClientCertificateCommonNameOutput
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonNameArgs struct {
 	// The common name of the client certificate.
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
@@ -3983,7 +3924,6 @@ func (i ClientCertificateCommonNameArray) ToClientCertificateCommonNameArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameArrayOutput)
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateCommonNameOutput) ElementType() reflect.Type {
@@ -4033,7 +3973,6 @@ func (o ClientCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ClientC
 	}).(ClientCertificateCommonNameOutput)
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonNameResponse struct {
 	// The common name of the client certificate.
 	CertificateCommonName string `pulumi:"certificateCommonName"`
@@ -4054,7 +3993,6 @@ type ClientCertificateCommonNameResponseInput interface {
 	ToClientCertificateCommonNameResponseOutputWithContext(context.Context) ClientCertificateCommonNameResponseOutput
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonNameResponseArgs struct {
 	// The common name of the client certificate.
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
@@ -4101,7 +4039,6 @@ func (i ClientCertificateCommonNameResponseArray) ToClientCertificateCommonNameR
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameResponseArrayOutput)
 }
 
-// Describes the client certificate details using common name.
 type ClientCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateCommonNameResponseOutput) ElementType() reflect.Type {
@@ -4151,7 +4088,6 @@ func (o ClientCertificateCommonNameResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ClientCertificateCommonNameResponseOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateResponse struct {
 	// Certificate Common name.
 	CommonName *string `pulumi:"commonName"`
@@ -4174,7 +4110,6 @@ type ClientCertificateResponseInput interface {
 	ToClientCertificateResponseOutputWithContext(context.Context) ClientCertificateResponseOutput
 }
 
-// Client Certificate definition.
 type ClientCertificateResponseArgs struct {
 	// Certificate Common name.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
@@ -4223,7 +4158,6 @@ func (i ClientCertificateResponseArray) ToClientCertificateResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateResponseArrayOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateResponseOutput) ElementType() reflect.Type {
@@ -4278,7 +4212,6 @@ func (o ClientCertificateResponseArrayOutput) Index(i pulumi.IntInput) ClientCer
 	}).(ClientCertificateResponseOutput)
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprint struct {
 	// The thumbprint of the client certificate.
 	CertificateThumbprint string `pulumi:"certificateThumbprint"`
@@ -4297,7 +4230,6 @@ type ClientCertificateThumbprintInput interface {
 	ToClientCertificateThumbprintOutputWithContext(context.Context) ClientCertificateThumbprintOutput
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprintArgs struct {
 	// The thumbprint of the client certificate.
 	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
@@ -4342,7 +4274,6 @@ func (i ClientCertificateThumbprintArray) ToClientCertificateThumbprintArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintArrayOutput)
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprintOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateThumbprintOutput) ElementType() reflect.Type {
@@ -4387,7 +4318,6 @@ func (o ClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) ClientC
 	}).(ClientCertificateThumbprintOutput)
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprintResponse struct {
 	// The thumbprint of the client certificate.
 	CertificateThumbprint string `pulumi:"certificateThumbprint"`
@@ -4406,7 +4336,6 @@ type ClientCertificateThumbprintResponseInput interface {
 	ToClientCertificateThumbprintResponseOutputWithContext(context.Context) ClientCertificateThumbprintResponseOutput
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprintResponseArgs struct {
 	// The thumbprint of the client certificate.
 	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
@@ -4451,7 +4380,6 @@ func (i ClientCertificateThumbprintResponseArray) ToClientCertificateThumbprintR
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintResponseArrayOutput)
 }
 
-// Describes the client certificate details using thumbprint.
 type ClientCertificateThumbprintResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateThumbprintResponseOutput) ElementType() reflect.Type {
@@ -4496,7 +4424,6 @@ func (o ClientCertificateThumbprintResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ClientCertificateThumbprintResponseOutput)
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicy struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicies map[string]ApplicationHealthPolicy `pulumi:"applicationHealthPolicies"`
@@ -4529,7 +4456,6 @@ type ClusterHealthPolicyInput interface {
 	ToClusterHealthPolicyOutputWithContext(context.Context) ClusterHealthPolicyOutput
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicies ApplicationHealthPolicyMapInput `pulumi:"applicationHealthPolicies"`
@@ -4604,7 +4530,6 @@ func (i *clusterHealthPolicyPtrType) ToClusterHealthPolicyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyPtrOutput)
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterHealthPolicyOutput) ElementType() reflect.Type {
@@ -4722,7 +4647,6 @@ func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponse struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicies map[string]ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicies"`
@@ -4755,7 +4679,6 @@ type ClusterHealthPolicyResponseInput interface {
 	ToClusterHealthPolicyResponseOutputWithContext(context.Context) ClusterHealthPolicyResponseOutput
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponseArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicies ApplicationHealthPolicyResponseMapInput `pulumi:"applicationHealthPolicies"`
@@ -4830,7 +4753,6 @@ func (i *clusterHealthPolicyResponsePtrType) ToClusterHealthPolicyResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyResponsePtrOutput)
 }
 
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -4950,7 +4872,6 @@ func (o ClusterHealthPolicyResponsePtrOutput) MaxPercentUnhealthyNodes() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicy struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicy `pulumi:"applicationDeltaHealthPolicies"`
@@ -4979,7 +4900,6 @@ type ClusterUpgradeDeltaHealthPolicyInput interface {
 	ToClusterUpgradeDeltaHealthPolicyOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyOutput
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapInput `pulumi:"applicationDeltaHealthPolicies"`
@@ -5050,7 +4970,6 @@ func (i *clusterUpgradeDeltaHealthPolicyPtrType) ToClusterUpgradeDeltaHealthPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradeDeltaHealthPolicyOutput) ElementType() reflect.Type {
@@ -5173,7 +5092,6 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentUpgradeDomainDeltaUn
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponse struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicyResponse `pulumi:"applicationDeltaHealthPolicies"`
@@ -5202,7 +5120,6 @@ type ClusterUpgradeDeltaHealthPolicyResponseInput interface {
 	ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyResponseOutput
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponseArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
 	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyResponseMapInput `pulumi:"applicationDeltaHealthPolicies"`
@@ -5273,7 +5190,6 @@ func (i *clusterUpgradeDeltaHealthPolicyResponsePtrType) ToClusterUpgradeDeltaHe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
 }
 
-// Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -5398,7 +5314,6 @@ func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) MaxPercentUpgradeDomai
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicy struct {
 	// The cluster delta health policy used when upgrading the cluster.
 	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicy `pulumi:"deltaHealthPolicy"`
@@ -5431,7 +5346,6 @@ type ClusterUpgradePolicyInput interface {
 	ToClusterUpgradePolicyOutputWithContext(context.Context) ClusterUpgradePolicyOutput
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicyArgs struct {
 	// The cluster delta health policy used when upgrading the cluster.
 	DeltaHealthPolicy ClusterUpgradeDeltaHealthPolicyPtrInput `pulumi:"deltaHealthPolicy"`
@@ -5506,7 +5420,6 @@ func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyPtrOutput)
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradePolicyOutput) ElementType() reflect.Type {
@@ -5690,7 +5603,6 @@ func (o ClusterUpgradePolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicyResponse struct {
 	// The cluster delta health policy used when upgrading the cluster.
 	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicyResponse `pulumi:"deltaHealthPolicy"`
@@ -5723,7 +5635,6 @@ type ClusterUpgradePolicyResponseInput interface {
 	ToClusterUpgradePolicyResponseOutputWithContext(context.Context) ClusterUpgradePolicyResponseOutput
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicyResponseArgs struct {
 	// The cluster delta health policy used when upgrading the cluster.
 	DeltaHealthPolicy ClusterUpgradeDeltaHealthPolicyResponsePtrInput `pulumi:"deltaHealthPolicy"`
@@ -5798,7 +5709,6 @@ func (i *clusterUpgradePolicyResponsePtrType) ToClusterUpgradePolicyResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyResponsePtrOutput)
 }
 
-// Describes the policy used when upgrading the cluster.
 type ClusterUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradePolicyResponseOutput) ElementType() reflect.Type {
@@ -5984,7 +5894,6 @@ func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detail of the Service Fabric runtime version result
 type ClusterVersionDetailsResponse struct {
 	// The Service Fabric runtime version of the cluster.
 	CodeVersion *string `pulumi:"codeVersion"`
@@ -6005,7 +5914,6 @@ type ClusterVersionDetailsResponseInput interface {
 	ToClusterVersionDetailsResponseOutputWithContext(context.Context) ClusterVersionDetailsResponseOutput
 }
 
-// The detail of the Service Fabric runtime version result
 type ClusterVersionDetailsResponseArgs struct {
 	// The Service Fabric runtime version of the cluster.
 	CodeVersion pulumi.StringPtrInput `pulumi:"codeVersion"`
@@ -6052,7 +5960,6 @@ func (i ClusterVersionDetailsResponseArray) ToClusterVersionDetailsResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsResponseArrayOutput)
 }
 
-// The detail of the Service Fabric runtime version result
 type ClusterVersionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterVersionDetailsResponseOutput) ElementType() reflect.Type {
@@ -6102,7 +6009,6 @@ func (o ClusterVersionDetailsResponseArrayOutput) Index(i pulumi.IntInput) Clust
 	}).(ClusterVersionDetailsResponseOutput)
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfig struct {
 	// The blob endpoint of the azure storage account.
 	BlobEndpoint string `pulumi:"blobEndpoint"`
@@ -6129,7 +6035,6 @@ type DiagnosticsStorageAccountConfigInput interface {
 	ToDiagnosticsStorageAccountConfigOutputWithContext(context.Context) DiagnosticsStorageAccountConfigOutput
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfigArgs struct {
 	// The blob endpoint of the azure storage account.
 	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
@@ -6198,7 +6103,6 @@ func (i *diagnosticsStorageAccountConfigPtrType) ToDiagnosticsStorageAccountConf
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigPtrOutput)
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfigOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsStorageAccountConfigOutput) ElementType() reflect.Type {
@@ -6337,7 +6241,6 @@ func (o DiagnosticsStorageAccountConfigPtrOutput) TableEndpoint() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfigResponse struct {
 	// The blob endpoint of the azure storage account.
 	BlobEndpoint string `pulumi:"blobEndpoint"`
@@ -6364,7 +6267,6 @@ type DiagnosticsStorageAccountConfigResponseInput interface {
 	ToDiagnosticsStorageAccountConfigResponseOutputWithContext(context.Context) DiagnosticsStorageAccountConfigResponseOutput
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfigResponseArgs struct {
 	// The blob endpoint of the azure storage account.
 	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
@@ -6433,7 +6335,6 @@ func (i *diagnosticsStorageAccountConfigResponsePtrType) ToDiagnosticsStorageAcc
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigResponsePtrOutput)
 }
 
-// The storage account information for storing Service Fabric diagnostic logs.
 type DiagnosticsStorageAccountConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsStorageAccountConfigResponseOutput) ElementType() reflect.Type {
@@ -6572,7 +6473,6 @@ func (o DiagnosticsStorageAccountConfigResponsePtrOutput) TableEndpoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescription struct {
 	// End port of a range of ports
 	EndPort int `pulumi:"endPort"`
@@ -6591,7 +6491,6 @@ type EndpointRangeDescriptionInput interface {
 	ToEndpointRangeDescriptionOutputWithContext(context.Context) EndpointRangeDescriptionOutput
 }
 
-// Port range details
 type EndpointRangeDescriptionArgs struct {
 	// End port of a range of ports
 	EndPort pulumi.IntInput `pulumi:"endPort"`
@@ -6652,7 +6551,6 @@ func (i *endpointRangeDescriptionPtrType) ToEndpointRangeDescriptionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionPtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EndpointRangeDescriptionOutput) ElementType() reflect.Type {
@@ -6731,7 +6629,6 @@ func (o EndpointRangeDescriptionPtrOutput) StartPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionResponse struct {
 	// End port of a range of ports
 	EndPort int `pulumi:"endPort"`
@@ -6750,7 +6647,6 @@ type EndpointRangeDescriptionResponseInput interface {
 	ToEndpointRangeDescriptionResponseOutputWithContext(context.Context) EndpointRangeDescriptionResponseOutput
 }
 
-// Port range details
 type EndpointRangeDescriptionResponseArgs struct {
 	// End port of a range of ports
 	EndPort pulumi.IntInput `pulumi:"endPort"`
@@ -6811,7 +6707,6 @@ func (i *endpointRangeDescriptionResponsePtrType) ToEndpointRangeDescriptionResp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionResponsePtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointRangeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -6890,7 +6785,6 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRule struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort int `pulumi:"backendPort"`
@@ -6915,7 +6809,6 @@ type LoadBalancingRuleInput interface {
 	ToLoadBalancingRuleOutputWithContext(context.Context) LoadBalancingRuleOutput
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleArgs struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
@@ -6966,7 +6859,6 @@ func (i LoadBalancingRuleArray) ToLoadBalancingRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleArrayOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleOutput) ElementType() reflect.Type {
@@ -7026,7 +6918,6 @@ func (o LoadBalancingRuleArrayOutput) Index(i pulumi.IntInput) LoadBalancingRule
 	}).(LoadBalancingRuleOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponse struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort int `pulumi:"backendPort"`
@@ -7051,7 +6942,6 @@ type LoadBalancingRuleResponseInput interface {
 	ToLoadBalancingRuleResponseOutputWithContext(context.Context) LoadBalancingRuleResponseOutput
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponseArgs struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
@@ -7102,7 +6992,6 @@ func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseArrayOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleResponseOutput) ElementType() reflect.Type {
@@ -7162,7 +7051,6 @@ func (o LoadBalancingRuleResponseArrayOutput) Index(i pulumi.IntInput) LoadBalan
 	}).(LoadBalancingRuleResponseOutput)
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentity struct {
 	// The type of managed identity for the resource.
 	Type *ManagedIdentityType `pulumi:"type"`
@@ -7182,7 +7070,6 @@ type ManagedIdentityInput interface {
 	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the resource.
 	Type ManagedIdentityTypePtrInput `pulumi:"type"`
@@ -7244,7 +7131,6 @@ func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityOutput) ElementType() reflect.Type {
@@ -7325,7 +7211,6 @@ func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentityResponse struct {
 	// The principal id of the managed identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -7349,7 +7234,6 @@ type ManagedIdentityResponseInput interface {
 	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentityResponseArgs struct {
 	// The principal id of the managed identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -7415,7 +7299,6 @@ func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
 }
 
-// Describes the managed identities for an Azure resource.
 type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -7528,7 +7411,6 @@ func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedI
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescription struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
@@ -7550,7 +7432,6 @@ type NamedPartitionSchemeDescriptionInput interface {
 	ToNamedPartitionSchemeDescriptionOutputWithContext(context.Context) NamedPartitionSchemeDescriptionOutput
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescriptionArgs struct {
 	// The number of partitions.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -7573,7 +7454,6 @@ func (i NamedPartitionSchemeDescriptionArgs) ToNamedPartitionSchemeDescriptionOu
 	return pulumi.ToOutputWithContext(ctx, i).(NamedPartitionSchemeDescriptionOutput)
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (NamedPartitionSchemeDescriptionOutput) ElementType() reflect.Type {
@@ -7604,7 +7484,6 @@ func (o NamedPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOu
 	return o.ApplyT(func(v NamedPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescriptionResponse struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
@@ -7626,7 +7505,6 @@ type NamedPartitionSchemeDescriptionResponseInput interface {
 	ToNamedPartitionSchemeDescriptionResponseOutputWithContext(context.Context) NamedPartitionSchemeDescriptionResponseOutput
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescriptionResponseArgs struct {
 	// The number of partitions.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -7649,7 +7527,6 @@ func (i NamedPartitionSchemeDescriptionResponseArgs) ToNamedPartitionSchemeDescr
 	return pulumi.ToOutputWithContext(ctx, i).(NamedPartitionSchemeDescriptionResponseOutput)
 }
 
-// Describes the named partition scheme of the service.
 type NamedPartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (NamedPartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -7680,7 +7557,6 @@ func (o NamedPartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.
 	return o.ApplyT(func(v NamedPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescription struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts *EndpointRangeDescription `pulumi:"applicationPorts"`
@@ -7721,7 +7597,6 @@ type NodeTypeDescriptionInput interface {
 	ToNodeTypeDescriptionOutputWithContext(context.Context) NodeTypeDescriptionOutput
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescriptionArgs struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts EndpointRangeDescriptionPtrInput `pulumi:"applicationPorts"`
@@ -7788,7 +7663,6 @@ func (i NodeTypeDescriptionArray) ToNodeTypeDescriptionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionArrayOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (NodeTypeDescriptionOutput) ElementType() reflect.Type {
@@ -7882,7 +7756,6 @@ func (o NodeTypeDescriptionArrayOutput) Index(i pulumi.IntInput) NodeTypeDescrip
 	}).(NodeTypeDescriptionOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescriptionResponse struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
@@ -7923,7 +7796,6 @@ type NodeTypeDescriptionResponseInput interface {
 	ToNodeTypeDescriptionResponseOutputWithContext(context.Context) NodeTypeDescriptionResponseOutput
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescriptionResponseArgs struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts EndpointRangeDescriptionResponsePtrInput `pulumi:"applicationPorts"`
@@ -7990,7 +7862,6 @@ func (i NodeTypeDescriptionResponseArray) ToNodeTypeDescriptionResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionResponseArrayOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (NodeTypeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -8084,7 +7955,6 @@ func (o NodeTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) NodeTyp
 	}).(NodeTypeDescriptionResponseOutput)
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonName struct {
 	// The common name of the server certificate.
 	CertificateCommonName string `pulumi:"certificateCommonName"`
@@ -8103,7 +7973,6 @@ type ServerCertificateCommonNameInput interface {
 	ToServerCertificateCommonNameOutputWithContext(context.Context) ServerCertificateCommonNameOutput
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonNameArgs struct {
 	// The common name of the server certificate.
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
@@ -8148,7 +8017,6 @@ func (i ServerCertificateCommonNameArray) ToServerCertificateCommonNameArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameArrayOutput)
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateCommonNameOutput) ElementType() reflect.Type {
@@ -8193,7 +8061,6 @@ func (o ServerCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ServerC
 	}).(ServerCertificateCommonNameOutput)
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonNameResponse struct {
 	// The common name of the server certificate.
 	CertificateCommonName string `pulumi:"certificateCommonName"`
@@ -8212,7 +8079,6 @@ type ServerCertificateCommonNameResponseInput interface {
 	ToServerCertificateCommonNameResponseOutputWithContext(context.Context) ServerCertificateCommonNameResponseOutput
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonNameResponseArgs struct {
 	// The common name of the server certificate.
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
@@ -8257,7 +8123,6 @@ func (i ServerCertificateCommonNameResponseArray) ToServerCertificateCommonNameR
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameResponseArrayOutput)
 }
 
-// Describes the server certificate details using common name.
 type ServerCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateCommonNameResponseOutput) ElementType() reflect.Type {
@@ -8302,7 +8167,6 @@ func (o ServerCertificateCommonNameResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ServerCertificateCommonNameResponseOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNames struct {
 	// The list of server certificates referenced by common name that are used to secure the cluster.
 	CommonNames []ServerCertificateCommonName `pulumi:"commonNames"`
@@ -8321,7 +8185,6 @@ type ServerCertificateCommonNamesInput interface {
 	ToServerCertificateCommonNamesOutputWithContext(context.Context) ServerCertificateCommonNamesOutput
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNamesArgs struct {
 	// The list of server certificates referenced by common name that are used to secure the cluster.
 	CommonNames ServerCertificateCommonNameArrayInput `pulumi:"commonNames"`
@@ -8382,7 +8245,6 @@ func (i *serverCertificateCommonNamesPtrType) ToServerCertificateCommonNamesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesPtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNamesOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateCommonNamesOutput) ElementType() reflect.Type {
@@ -8461,7 +8323,6 @@ func (o ServerCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNamesResponse struct {
 	// The list of server certificates referenced by common name that are used to secure the cluster.
 	CommonNames []ServerCertificateCommonNameResponse `pulumi:"commonNames"`
@@ -8480,7 +8341,6 @@ type ServerCertificateCommonNamesResponseInput interface {
 	ToServerCertificateCommonNamesResponseOutputWithContext(context.Context) ServerCertificateCommonNamesResponseOutput
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNamesResponseArgs struct {
 	// The list of server certificates referenced by common name that are used to secure the cluster.
 	CommonNames ServerCertificateCommonNameResponseArrayInput `pulumi:"commonNames"`
@@ -8541,7 +8401,6 @@ func (i *serverCertificateCommonNamesResponsePtrType) ToServerCertificateCommonN
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesResponsePtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 type ServerCertificateCommonNamesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateCommonNamesResponseOutput) ElementType() reflect.Type {
@@ -8622,7 +8481,6 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescription struct {
 	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 	Scheme string `pulumi:"scheme"`
@@ -8641,7 +8499,6 @@ type ServiceCorrelationDescriptionInput interface {
 	ToServiceCorrelationDescriptionOutputWithContext(context.Context) ServiceCorrelationDescriptionOutput
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescriptionArgs struct {
 	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 	Scheme pulumi.StringInput `pulumi:"scheme"`
@@ -8686,7 +8543,6 @@ func (i ServiceCorrelationDescriptionArray) ToServiceCorrelationDescriptionArray
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionArrayOutput)
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorrelationDescriptionOutput) ElementType() reflect.Type {
@@ -8731,7 +8587,6 @@ func (o ServiceCorrelationDescriptionArrayOutput) Index(i pulumi.IntInput) Servi
 	}).(ServiceCorrelationDescriptionOutput)
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescriptionResponse struct {
 	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 	Scheme string `pulumi:"scheme"`
@@ -8750,7 +8605,6 @@ type ServiceCorrelationDescriptionResponseInput interface {
 	ToServiceCorrelationDescriptionResponseOutputWithContext(context.Context) ServiceCorrelationDescriptionResponseOutput
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescriptionResponseArgs struct {
 	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 	Scheme pulumi.StringInput `pulumi:"scheme"`
@@ -8795,7 +8649,6 @@ func (i ServiceCorrelationDescriptionResponseArray) ToServiceCorrelationDescript
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionResponseArrayOutput)
 }
 
-// Creates a particular correlation between services.
 type ServiceCorrelationDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorrelationDescriptionResponseOutput) ElementType() reflect.Type {
@@ -8840,7 +8693,6 @@ func (o ServiceCorrelationDescriptionResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(ServiceCorrelationDescriptionResponseOutput)
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescription struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad *int `pulumi:"defaultLoad"`
@@ -8865,7 +8717,6 @@ type ServiceLoadMetricDescriptionInput interface {
 	ToServiceLoadMetricDescriptionOutputWithContext(context.Context) ServiceLoadMetricDescriptionOutput
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescriptionArgs struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad pulumi.IntPtrInput `pulumi:"defaultLoad"`
@@ -8916,7 +8767,6 @@ func (i ServiceLoadMetricDescriptionArray) ToServiceLoadMetricDescriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionArrayOutput)
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ServiceLoadMetricDescriptionOutput) ElementType() reflect.Type {
@@ -8976,7 +8826,6 @@ func (o ServiceLoadMetricDescriptionArrayOutput) Index(i pulumi.IntInput) Servic
 	}).(ServiceLoadMetricDescriptionOutput)
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescriptionResponse struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad *int `pulumi:"defaultLoad"`
@@ -9001,7 +8850,6 @@ type ServiceLoadMetricDescriptionResponseInput interface {
 	ToServiceLoadMetricDescriptionResponseOutputWithContext(context.Context) ServiceLoadMetricDescriptionResponseOutput
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescriptionResponseArgs struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad pulumi.IntPtrInput `pulumi:"defaultLoad"`
@@ -9052,7 +8900,6 @@ func (i ServiceLoadMetricDescriptionResponseArray) ToServiceLoadMetricDescriptio
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionResponseArrayOutput)
 }
 
-// Specifies a metric to load balance a service during runtime.
 type ServiceLoadMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceLoadMetricDescriptionResponseOutput) ElementType() reflect.Type {
@@ -9112,7 +8959,6 @@ func (o ServiceLoadMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ServiceLoadMetricDescriptionResponseOutput)
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescription struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type string `pulumi:"type"`
@@ -9129,7 +8975,6 @@ type ServicePlacementPolicyDescriptionInput interface {
 	ToServicePlacementPolicyDescriptionOutputWithContext(context.Context) ServicePlacementPolicyDescriptionOutput
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionArgs struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -9172,7 +9017,6 @@ func (i ServicePlacementPolicyDescriptionArray) ToServicePlacementPolicyDescript
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionArrayOutput)
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementPolicyDescriptionOutput) ElementType() reflect.Type {
@@ -9212,7 +9056,6 @@ func (o ServicePlacementPolicyDescriptionArrayOutput) Index(i pulumi.IntInput) S
 	}).(ServicePlacementPolicyDescriptionOutput)
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionResponse struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type string `pulumi:"type"`
@@ -9229,7 +9072,6 @@ type ServicePlacementPolicyDescriptionResponseInput interface {
 	ToServicePlacementPolicyDescriptionResponseOutputWithContext(context.Context) ServicePlacementPolicyDescriptionResponseOutput
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionResponseArgs struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -9272,7 +9114,6 @@ func (i ServicePlacementPolicyDescriptionResponseArray) ToServicePlacementPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionResponseArrayOutput)
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementPolicyDescriptionResponseOutput) ElementType() reflect.Type {
@@ -9312,7 +9153,6 @@ func (o ServicePlacementPolicyDescriptionResponseArrayOutput) Index(i pulumi.Int
 	}).(ServicePlacementPolicyDescriptionResponseOutput)
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicy struct {
 	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -9331,7 +9171,6 @@ type ServiceTypeDeltaHealthPolicyInput interface {
 	ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyOutput
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicyArgs struct {
 	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -9417,7 +9256,6 @@ func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyMapOutput)
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServiceTypeDeltaHealthPolicyOutput) ElementType() reflect.Type {
@@ -9505,7 +9343,6 @@ func (o ServiceTypeDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Se
 	}).(ServiceTypeDeltaHealthPolicyOutput)
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicyResponse struct {
 	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -9524,7 +9361,6 @@ type ServiceTypeDeltaHealthPolicyResponseInput interface {
 	ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseOutput
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicyResponseArgs struct {
 	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -9610,7 +9446,6 @@ func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyR
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 type ServiceTypeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceTypeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -9698,7 +9533,6 @@ func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringI
 	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicy struct {
 	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
@@ -9715,7 +9549,6 @@ type ServiceTypeHealthPolicyInput interface {
 	ToServiceTypeHealthPolicyOutputWithContext(context.Context) ServiceTypeHealthPolicyOutput
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyArgs struct {
 	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
@@ -9799,7 +9632,6 @@ func (i ServiceTypeHealthPolicyMap) ToServiceTypeHealthPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyMapOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServiceTypeHealthPolicyOutput) ElementType() reflect.Type {
@@ -9883,7 +9715,6 @@ func (o ServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Service
 	}).(ServiceTypeHealthPolicyOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyResponse struct {
 	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
@@ -9900,7 +9731,6 @@ type ServiceTypeHealthPolicyResponseInput interface {
 	ToServiceTypeHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseOutput
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyResponseArgs struct {
 	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
 	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
@@ -9984,7 +9814,6 @@ func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseMapOutput)
 }
 
-// Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceTypeHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -10068,7 +9897,6 @@ func (o ServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ServiceTypeHealthPolicyResponseOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescription struct {
 	// The parameter name of fabric setting.
 	Name string `pulumi:"name"`
@@ -10087,7 +9915,6 @@ type SettingsParameterDescriptionInput interface {
 	ToSettingsParameterDescriptionOutputWithContext(context.Context) SettingsParameterDescriptionOutput
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionArgs struct {
 	// The parameter name of fabric setting.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10132,7 +9959,6 @@ func (i SettingsParameterDescriptionArray) ToSettingsParameterDescriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionArrayOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SettingsParameterDescriptionOutput) ElementType() reflect.Type {
@@ -10177,7 +10003,6 @@ func (o SettingsParameterDescriptionArrayOutput) Index(i pulumi.IntInput) Settin
 	}).(SettingsParameterDescriptionOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponse struct {
 	// The parameter name of fabric setting.
 	Name string `pulumi:"name"`
@@ -10196,7 +10021,6 @@ type SettingsParameterDescriptionResponseInput interface {
 	ToSettingsParameterDescriptionResponseOutputWithContext(context.Context) SettingsParameterDescriptionResponseOutput
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponseArgs struct {
 	// The parameter name of fabric setting.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10241,7 +10065,6 @@ func (i SettingsParameterDescriptionResponseArray) ToSettingsParameterDescriptio
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionResponseArrayOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsParameterDescriptionResponseOutput) ElementType() reflect.Type {
@@ -10286,7 +10109,6 @@ func (o SettingsParameterDescriptionResponseArrayOutput) Index(i pulumi.IntInput
 	}).(SettingsParameterDescriptionResponseOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescription struct {
 	// The section name of the fabric settings.
 	Name string `pulumi:"name"`
@@ -10305,7 +10127,6 @@ type SettingsSectionDescriptionInput interface {
 	ToSettingsSectionDescriptionOutputWithContext(context.Context) SettingsSectionDescriptionOutput
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionArgs struct {
 	// The section name of the fabric settings.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10350,7 +10171,6 @@ func (i SettingsSectionDescriptionArray) ToSettingsSectionDescriptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionArrayOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SettingsSectionDescriptionOutput) ElementType() reflect.Type {
@@ -10395,7 +10215,6 @@ func (o SettingsSectionDescriptionArrayOutput) Index(i pulumi.IntInput) Settings
 	}).(SettingsSectionDescriptionOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponse struct {
 	// The section name of the fabric settings.
 	Name string `pulumi:"name"`
@@ -10414,7 +10233,6 @@ type SettingsSectionDescriptionResponseInput interface {
 	ToSettingsSectionDescriptionResponseOutputWithContext(context.Context) SettingsSectionDescriptionResponseOutput
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponseArgs struct {
 	// The section name of the fabric settings.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10459,7 +10277,6 @@ func (i SettingsSectionDescriptionResponseArray) ToSettingsSectionDescriptionRes
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionResponseArrayOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsSectionDescriptionResponseOutput) ElementType() reflect.Type {
@@ -10504,7 +10321,6 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(SettingsSectionDescriptionResponseOutput)
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescription struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
@@ -10522,7 +10338,6 @@ type SingletonPartitionSchemeDescriptionInput interface {
 	ToSingletonPartitionSchemeDescriptionOutputWithContext(context.Context) SingletonPartitionSchemeDescriptionOutput
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionArgs struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
@@ -10541,7 +10356,6 @@ func (i SingletonPartitionSchemeDescriptionArgs) ToSingletonPartitionSchemeDescr
 	return pulumi.ToOutputWithContext(ctx, i).(SingletonPartitionSchemeDescriptionOutput)
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SingletonPartitionSchemeDescriptionOutput) ElementType() reflect.Type {
@@ -10562,7 +10376,6 @@ func (o SingletonPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.Stri
 	return o.ApplyT(func(v SingletonPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionResponse struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
@@ -10580,7 +10393,6 @@ type SingletonPartitionSchemeDescriptionResponseInput interface {
 	ToSingletonPartitionSchemeDescriptionResponseOutputWithContext(context.Context) SingletonPartitionSchemeDescriptionResponseOutput
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionResponseArgs struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
@@ -10599,7 +10411,6 @@ func (i SingletonPartitionSchemeDescriptionResponseArgs) ToSingletonPartitionSch
 	return pulumi.ToOutputWithContext(ctx, i).(SingletonPartitionSchemeDescriptionResponseOutput)
 }
 
-// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SingletonPartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -10620,7 +10431,6 @@ func (o SingletonPartitionSchemeDescriptionResponseOutput) PartitionScheme() pul
 	return o.ApplyT(func(v SingletonPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
-// Sku definition
 type Sku struct {
 	// Sku Name.
 	Name string `pulumi:"name"`
@@ -10637,7 +10447,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku definition
 type SkuArgs struct {
 	// Sku Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10696,7 +10505,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku definition
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -10760,7 +10568,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku definition
 type SkuResponse struct {
 	// Sku Name.
 	Name string `pulumi:"name"`
@@ -10777,7 +10584,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Sku definition
 type SkuResponseArgs struct {
 	// Sku Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10836,7 +10642,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Sku definition
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -10900,7 +10705,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure resource identifier.
 type SubResource struct {
 	// Azure resource identifier.
 	Id *string `pulumi:"id"`
@@ -10917,7 +10721,6 @@ type SubResourceInput interface {
 	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
 }
 
-// Azure resource identifier.
 type SubResourceArgs struct {
 	// Azure resource identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -10935,7 +10738,6 @@ func (i SubResourceArgs) ToSubResourceOutputWithContext(ctx context.Context) Sub
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceOutput)
 }
 
-// Azure resource identifier.
 type SubResourceOutput struct{ *pulumi.OutputState }
 
 func (SubResourceOutput) ElementType() reflect.Type {
@@ -10955,7 +10757,6 @@ func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource identifier.
 type SubResourceResponse struct {
 	// Azure resource identifier.
 	Id *string `pulumi:"id"`
@@ -10972,7 +10773,6 @@ type SubResourceResponseInput interface {
 	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
 }
 
-// Azure resource identifier.
 type SubResourceResponseArgs struct {
 	// Azure resource identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -10990,7 +10790,6 @@ func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
 }
 
-// Azure resource identifier.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -11010,7 +10809,6 @@ func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescription struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
@@ -11036,7 +10834,6 @@ type UniformInt64RangePartitionSchemeDescriptionInput interface {
 	ToUniformInt64RangePartitionSchemeDescriptionOutputWithContext(context.Context) UniformInt64RangePartitionSchemeDescriptionOutput
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescriptionArgs struct {
 	// The number of partitions.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -11063,7 +10860,6 @@ func (i UniformInt64RangePartitionSchemeDescriptionArgs) ToUniformInt64RangePart
 	return pulumi.ToOutputWithContext(ctx, i).(UniformInt64RangePartitionSchemeDescriptionOutput)
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (UniformInt64RangePartitionSchemeDescriptionOutput) ElementType() reflect.Type {
@@ -11101,7 +10897,6 @@ func (o UniformInt64RangePartitionSchemeDescriptionOutput) PartitionScheme() pul
 	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescriptionResponse struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
@@ -11127,7 +10922,6 @@ type UniformInt64RangePartitionSchemeDescriptionResponseInput interface {
 	ToUniformInt64RangePartitionSchemeDescriptionResponseOutputWithContext(context.Context) UniformInt64RangePartitionSchemeDescriptionResponseOutput
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescriptionResponseArgs struct {
 	// The number of partitions.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -11154,7 +10948,6 @@ func (i UniformInt64RangePartitionSchemeDescriptionResponseArgs) ToUniformInt64R
 	return pulumi.ToOutputWithContext(ctx, i).(UniformInt64RangePartitionSchemeDescriptionResponseOutput)
 }
 
-// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (UniformInt64RangePartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -11298,7 +11091,6 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtension struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -11331,7 +11123,6 @@ type VMSSExtensionInput interface {
 	ToVMSSExtensionOutputWithContext(context.Context) VMSSExtensionOutput
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -11390,7 +11181,6 @@ func (i VMSSExtensionArray) ToVMSSExtensionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionArrayOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionOutput struct{ *pulumi.OutputState }
 
 func (VMSSExtensionOutput) ElementType() reflect.Type {
@@ -11470,7 +11260,6 @@ func (o VMSSExtensionArrayOutput) Index(i pulumi.IntInput) VMSSExtensionOutput {
 	}).(VMSSExtensionOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -11505,7 +11294,6 @@ type VMSSExtensionResponseInput interface {
 	ToVMSSExtensionResponseOutputWithContext(context.Context) VMSSExtensionResponseOutput
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponseArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
@@ -11566,7 +11354,6 @@ func (i VMSSExtensionResponseArray) ToVMSSExtensionResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionResponseArrayOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (VMSSExtensionResponseOutput) ElementType() reflect.Type {
@@ -11651,7 +11438,6 @@ func (o VMSSExtensionResponseArrayOutput) Index(i pulumi.IntInput) VMSSExtension
 	}).(VMSSExtensionResponseOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificate struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore string `pulumi:"certificateStore"`
@@ -11670,7 +11456,6 @@ type VaultCertificateInput interface {
 	ToVaultCertificateOutputWithContext(context.Context) VaultCertificateOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateArgs struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
@@ -11715,7 +11500,6 @@ func (i VaultCertificateArray) ToVaultCertificateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateOutput) ElementType() reflect.Type {
@@ -11760,7 +11544,6 @@ func (o VaultCertificateArrayOutput) Index(i pulumi.IntInput) VaultCertificateOu
 	}).(VaultCertificateOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponse struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore string `pulumi:"certificateStore"`
@@ -11779,7 +11562,6 @@ type VaultCertificateResponseInput interface {
 	ToVaultCertificateResponseOutputWithContext(context.Context) VaultCertificateResponseOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseArgs struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
@@ -11824,7 +11606,6 @@ func (i VaultCertificateResponseArray) ToVaultCertificateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateResponseArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -11869,7 +11650,6 @@ func (o VaultCertificateResponseArrayOutput) Index(i pulumi.IntInput) VaultCerti
 	}).(VaultCertificateResponseOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroup struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResource `pulumi:"sourceVault"`
@@ -11888,7 +11668,6 @@ type VaultSecretGroupInput interface {
 	ToVaultSecretGroupOutputWithContext(context.Context) VaultSecretGroupOutput
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceInput `pulumi:"sourceVault"`
@@ -11933,7 +11712,6 @@ func (i VaultSecretGroupArray) ToVaultSecretGroupArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupArrayOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupOutput) ElementType() reflect.Type {
@@ -11978,7 +11756,6 @@ func (o VaultSecretGroupArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupOu
 	}).(VaultSecretGroupOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponse struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceResponse `pulumi:"sourceVault"`
@@ -11997,7 +11774,6 @@ type VaultSecretGroupResponseInput interface {
 	ToVaultSecretGroupResponseOutputWithContext(context.Context) VaultSecretGroupResponseOutput
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponseArgs struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceResponseInput `pulumi:"sourceVault"`
@@ -12042,7 +11818,6 @@ func (i VaultSecretGroupResponseArray) ToVaultSecretGroupResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupResponseArrayOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupResponseOutput) ElementType() reflect.Type {

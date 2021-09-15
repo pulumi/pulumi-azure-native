@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// System data for notebook resource
 type NotebookResourceSystemData struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -31,7 +30,6 @@ type NotebookResourceSystemDataInput interface {
 	ToNotebookResourceSystemDataOutputWithContext(context.Context) NotebookResourceSystemDataOutput
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataArgs struct {
 	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
 	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
@@ -94,7 +92,6 @@ func (i *notebookResourceSystemDataPtrType) ToNotebookResourceSystemDataPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataPtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataOutput struct{ *pulumi.OutputState }
 
 func (NotebookResourceSystemDataOutput) ElementType() reflect.Type {
@@ -221,7 +218,6 @@ func (o NotebookResourceSystemDataPtrOutput) LastModifiedByType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -242,7 +238,6 @@ type NotebookResourceSystemDataResponseInput interface {
 	ToNotebookResourceSystemDataResponseOutputWithContext(context.Context) NotebookResourceSystemDataResponseOutput
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponseArgs struct {
 	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
 	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
@@ -305,7 +300,6 @@ func (i *notebookResourceSystemDataResponsePtrType) ToNotebookResourceSystemData
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataResponsePtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (NotebookResourceSystemDataResponseOutput) ElementType() reflect.Type {

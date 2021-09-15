@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Put subscription properties.
 type PutAliasRequestProperties struct {
 	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
 	BillingScope *string `pulumi:"billingScope"`
@@ -35,7 +34,6 @@ type PutAliasRequestPropertiesInput interface {
 	ToPutAliasRequestPropertiesOutputWithContext(context.Context) PutAliasRequestPropertiesOutput
 }
 
-// Put subscription properties.
 type PutAliasRequestPropertiesArgs struct {
 	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
 	BillingScope pulumi.StringPtrInput `pulumi:"billingScope"`
@@ -102,7 +100,6 @@ func (i *putAliasRequestPropertiesPtrType) ToPutAliasRequestPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PutAliasRequestPropertiesPtrOutput)
 }
 
-// Put subscription properties.
 type PutAliasRequestPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PutAliasRequestPropertiesOutput) ElementType() reflect.Type {
@@ -226,7 +223,6 @@ func (o PutAliasRequestPropertiesPtrOutput) Workload() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponse struct {
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -245,7 +241,6 @@ type PutAliasResponsePropertiesResponseInput interface {
 	ToPutAliasResponsePropertiesResponseOutputWithContext(context.Context) PutAliasResponsePropertiesResponseOutput
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponseArgs struct {
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
@@ -306,7 +301,6 @@ func (i *putAliasResponsePropertiesResponsePtrType) ToPutAliasResponseProperties
 	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesResponsePtrOutput)
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PutAliasResponsePropertiesResponseOutput) ElementType() reflect.Type {

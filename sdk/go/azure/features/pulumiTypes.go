@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization Profile
 type AuthorizationProfileResponse struct {
 	// The approved time
 	ApprovedTime string `pulumi:"approvedTime"`
@@ -35,7 +34,6 @@ type AuthorizationProfileResponseInput interface {
 	ToAuthorizationProfileResponseOutputWithContext(context.Context) AuthorizationProfileResponseOutput
 }
 
-// Authorization Profile
 type AuthorizationProfileResponseArgs struct {
 	// The approved time
 	ApprovedTime pulumi.StringInput `pulumi:"approvedTime"`
@@ -102,7 +100,6 @@ func (i *authorizationProfileResponsePtrType) ToAuthorizationProfileResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationProfileResponsePtrOutput)
 }
 
-// Authorization Profile
 type AuthorizationProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationProfileResponseOutput) ElementType() reflect.Type {

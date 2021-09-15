@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetail struct {
 	// Offer Id
 	Id *string `pulumi:"id"`
@@ -35,7 +34,6 @@ type OrganizationResourcePropertiesOfferDetailInput interface {
 	ToOrganizationResourcePropertiesOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesOfferDetailOutput
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetailArgs struct {
 	// Offer Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -102,7 +100,6 @@ func (i *organizationResourcePropertiesOfferDetailPtrType) ToOrganizationResourc
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesOfferDetailPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesOfferDetailOutput) ElementType() reflect.Type {
@@ -226,7 +223,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) TermUnit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetail struct {
 	// Offer Id
 	Id *string `pulumi:"id"`
@@ -253,7 +249,6 @@ type OrganizationResourcePropertiesResponseOfferDetailInput interface {
 	ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseOfferDetailOutput
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetailArgs struct {
 	// Offer Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -322,7 +317,6 @@ func (i *organizationResourcePropertiesResponseOfferDetailPtrType) ToOrganizatio
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseOfferDetailOutput) ElementType() reflect.Type {
@@ -461,7 +455,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) TermUnit() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetail struct {
 	// Email address
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -482,7 +475,6 @@ type OrganizationResourcePropertiesResponseUserDetailInput interface {
 	ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseUserDetailOutput
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetailArgs struct {
 	// Email address
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -545,7 +537,6 @@ func (i *organizationResourcePropertiesResponseUserDetailPtrType) ToOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseUserDetailOutput) ElementType() reflect.Type {
@@ -639,7 +630,6 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) LastName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetail struct {
 	// Email address
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -660,7 +650,6 @@ type OrganizationResourcePropertiesUserDetailInput interface {
 	ToOrganizationResourcePropertiesUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesUserDetailOutput
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetailArgs struct {
 	// Email address
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -723,7 +712,6 @@ func (i *organizationResourcePropertiesUserDetailPtrType) ToOrganizationResource
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesUserDetailPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesUserDetailOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfile struct {
 	// Path for metadata configuration.
 	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
@@ -27,7 +26,6 @@ type CustomProfileInput interface {
 	ToCustomProfileOutputWithContext(context.Context) CustomProfileOutput
 }
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfileArgs struct {
 	// Path for metadata configuration.
 	MetadataConfigurationPath pulumi.StringPtrInput `pulumi:"metadataConfigurationPath"`
@@ -86,7 +84,6 @@ func (i *customProfilePtrType) ToCustomProfilePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProfilePtrOutput)
 }
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfileOutput struct{ *pulumi.OutputState }
 
 func (CustomProfileOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o CustomProfilePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfileResponse struct {
 	// Path for metadata configuration.
 	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
@@ -167,7 +163,6 @@ type CustomProfileResponseInput interface {
 	ToCustomProfileResponseOutputWithContext(context.Context) CustomProfileResponseOutput
 }
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfileResponseArgs struct {
 	// Path for metadata configuration.
 	MetadataConfigurationPath pulumi.StringPtrInput `pulumi:"metadataConfigurationPath"`
@@ -226,7 +221,6 @@ func (i *customProfileResponsePtrType) ToCustomProfileResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProfileResponsePtrOutput)
 }
 
-// Specifies the custom settings for the virtual machine.
 type CustomProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomProfileResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o CustomProfileResponsePtrOutput) MetadataConfigurationPath() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDisk struct {
 	// Specifies how the virtual machine should be created.
 	CreateOption *string `pulumi:"createOption"`
@@ -311,7 +304,6 @@ type DataDiskInput interface {
 	ToDataDiskOutputWithContext(context.Context) DataDiskOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDiskArgs struct {
 	// Specifies how the virtual machine should be created.
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
@@ -358,7 +350,6 @@ func (i DataDiskArray) ToDataDiskArrayOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskArrayOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDiskOutput struct{ *pulumi.OutputState }
 
 func (DataDiskOutput) ElementType() reflect.Type {
@@ -408,7 +399,6 @@ func (o DataDiskArrayOutput) Index(i pulumi.IntInput) DataDiskOutput {
 	}).(DataDiskOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDiskResponse struct {
 	// Specifies how the virtual machine should be created.
 	CreateOption *string `pulumi:"createOption"`
@@ -429,7 +419,6 @@ type DataDiskResponseInput interface {
 	ToDataDiskResponseOutputWithContext(context.Context) DataDiskResponseOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDiskResponseArgs struct {
 	// Specifies how the virtual machine should be created.
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
@@ -476,7 +465,6 @@ func (i DataDiskResponseArray) ToDataDiskResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskResponseArrayOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type DataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskResponseOutput) ElementType() reflect.Type {
@@ -526,7 +514,6 @@ func (o DataDiskResponseArrayOutput) Index(i pulumi.IntInput) DataDiskResponseOu
 	}).(DataDiskResponseOutput)
 }
 
-// The image reference properties.
 type ImageReference struct {
 	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion *string `pulumi:"exactVersion"`
@@ -551,7 +538,6 @@ type ImageReferenceInput interface {
 	ToImageReferenceOutputWithContext(context.Context) ImageReferenceOutput
 }
 
-// The image reference properties.
 type ImageReferenceArgs struct {
 	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
@@ -618,7 +604,6 @@ func (i *imageReferencePtrType) ToImageReferencePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ImageReferencePtrOutput)
 }
 
-// The image reference properties.
 type ImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (ImageReferenceOutput) ElementType() reflect.Type {
@@ -742,7 +727,6 @@ func (o ImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image reference properties.
 type ImageReferenceResponse struct {
 	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion *string `pulumi:"exactVersion"`
@@ -767,7 +751,6 @@ type ImageReferenceResponseInput interface {
 	ToImageReferenceResponseOutputWithContext(context.Context) ImageReferenceResponseOutput
 }
 
-// The image reference properties.
 type ImageReferenceResponseArgs struct {
 	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
@@ -834,7 +817,6 @@ func (i *imageReferenceResponsePtrType) ToImageReferenceResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceResponsePtrOutput)
 }
 
-// The image reference properties.
 type ImageReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageReferenceResponseOutput) ElementType() reflect.Type {
@@ -958,7 +940,6 @@ func (o ImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfiguration struct {
 	// Specifies the ssh key configuration for a Linux OS.
 	Ssh *SshConfiguration `pulumi:"ssh"`
@@ -975,7 +956,6 @@ type LinuxConfigurationInput interface {
 	ToLinuxConfigurationOutputWithContext(context.Context) LinuxConfigurationOutput
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationArgs struct {
 	// Specifies the ssh key configuration for a Linux OS.
 	Ssh SshConfigurationPtrInput `pulumi:"ssh"`
@@ -1034,7 +1014,6 @@ func (i *linuxConfigurationPtrType) ToLinuxConfigurationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LinuxConfigurationOutput) ElementType() reflect.Type {
@@ -1098,7 +1077,6 @@ func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 	}).(SshConfigurationPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationResponse struct {
 	// Specifies the ssh key configuration for a Linux OS.
 	Ssh *SshConfigurationResponse `pulumi:"ssh"`
@@ -1115,7 +1093,6 @@ type LinuxConfigurationResponseInput interface {
 	ToLinuxConfigurationResponseOutputWithContext(context.Context) LinuxConfigurationResponseOutput
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationResponseArgs struct {
 	// Specifies the ssh key configuration for a Linux OS.
 	Ssh SshConfigurationResponsePtrInput `pulumi:"ssh"`
@@ -1174,7 +1151,6 @@ func (i *linuxConfigurationResponsePtrType) ToLinuxConfigurationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationResponsePtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1238,7 +1214,6 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 	}).(SshConfigurationResponsePtrOutput)
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfiguration struct {
 	// Specifies the custom settings for the virtual machine.
 	CustomProfile *CustomProfile `pulumi:"customProfile"`
@@ -1271,7 +1246,6 @@ type NetworkFunctionRoleConfigurationInput interface {
 	ToNetworkFunctionRoleConfigurationOutputWithContext(context.Context) NetworkFunctionRoleConfigurationOutput
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfigurationArgs struct {
 	// Specifies the custom settings for the virtual machine.
 	CustomProfile CustomProfilePtrInput `pulumi:"customProfile"`
@@ -1330,7 +1304,6 @@ func (i NetworkFunctionRoleConfigurationArray) ToNetworkFunctionRoleConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionRoleConfigurationArrayOutput)
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionRoleConfigurationOutput) ElementType() reflect.Type {
@@ -1410,7 +1383,6 @@ func (o NetworkFunctionRoleConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkFunctionRoleConfigurationOutput)
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfigurationResponse struct {
 	// Specifies the custom settings for the virtual machine.
 	CustomProfile *CustomProfileResponse `pulumi:"customProfile"`
@@ -1443,7 +1415,6 @@ type NetworkFunctionRoleConfigurationResponseInput interface {
 	ToNetworkFunctionRoleConfigurationResponseOutputWithContext(context.Context) NetworkFunctionRoleConfigurationResponseOutput
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfigurationResponseArgs struct {
 	// Specifies the custom settings for the virtual machine.
 	CustomProfile CustomProfileResponsePtrInput `pulumi:"customProfile"`
@@ -1502,7 +1473,6 @@ func (i NetworkFunctionRoleConfigurationResponseArray) ToNetworkFunctionRoleConf
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionRoleConfigurationResponseArrayOutput)
 }
 
-// Network function role configuration.
 type NetworkFunctionRoleConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionRoleConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1584,7 +1554,6 @@ func (o NetworkFunctionRoleConfigurationResponseArrayOutput) Index(i pulumi.IntI
 	}).(NetworkFunctionRoleConfigurationResponseOutput)
 }
 
-// The network function template.
 type NetworkFunctionTemplate struct {
 	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfiguration `pulumi:"networkFunctionRoleConfigurations"`
@@ -1601,7 +1570,6 @@ type NetworkFunctionTemplateInput interface {
 	ToNetworkFunctionTemplateOutputWithContext(context.Context) NetworkFunctionTemplateOutput
 }
 
-// The network function template.
 type NetworkFunctionTemplateArgs struct {
 	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations NetworkFunctionRoleConfigurationArrayInput `pulumi:"networkFunctionRoleConfigurations"`
@@ -1660,7 +1628,6 @@ func (i *networkFunctionTemplatePtrType) ToNetworkFunctionTemplatePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionTemplatePtrOutput)
 }
 
-// The network function template.
 type NetworkFunctionTemplateOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionTemplateOutput) ElementType() reflect.Type {
@@ -1726,7 +1693,6 @@ func (o NetworkFunctionTemplatePtrOutput) NetworkFunctionRoleConfigurations() Ne
 	}).(NetworkFunctionRoleConfigurationArrayOutput)
 }
 
-// The network function template.
 type NetworkFunctionTemplateResponse struct {
 	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfigurationResponse `pulumi:"networkFunctionRoleConfigurations"`
@@ -1743,7 +1709,6 @@ type NetworkFunctionTemplateResponseInput interface {
 	ToNetworkFunctionTemplateResponseOutputWithContext(context.Context) NetworkFunctionTemplateResponseOutput
 }
 
-// The network function template.
 type NetworkFunctionTemplateResponseArgs struct {
 	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations NetworkFunctionRoleConfigurationResponseArrayInput `pulumi:"networkFunctionRoleConfigurations"`
@@ -1802,7 +1767,6 @@ func (i *networkFunctionTemplateResponsePtrType) ToNetworkFunctionTemplateRespon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionTemplateResponsePtrOutput)
 }
 
-// The network function template.
 type NetworkFunctionTemplateResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionTemplateResponseOutput) ElementType() reflect.Type {
@@ -1868,7 +1832,6 @@ func (o NetworkFunctionTemplateResponsePtrOutput) NetworkFunctionRoleConfigurati
 	}).(NetworkFunctionRoleConfigurationResponseArrayOutput)
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfiguration struct {
 	// The network interface configuration.
 	NetworkInterfaces []NetworkInterface `pulumi:"networkInterfaces"`
@@ -1891,7 +1854,6 @@ type NetworkFunctionUserConfigurationInput interface {
 	ToNetworkFunctionUserConfigurationOutputWithContext(context.Context) NetworkFunctionUserConfigurationOutput
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfigurationArgs struct {
 	// The network interface configuration.
 	NetworkInterfaces NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
@@ -1940,7 +1902,6 @@ func (i NetworkFunctionUserConfigurationArray) ToNetworkFunctionUserConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationArrayOutput)
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionUserConfigurationOutput) ElementType() reflect.Type {
@@ -1997,7 +1958,6 @@ func (o NetworkFunctionUserConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkFunctionUserConfigurationOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationOsProfile struct {
 	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData *string `pulumi:"customData"`
@@ -2014,7 +1974,6 @@ type NetworkFunctionUserConfigurationOsProfileInput interface {
 	ToNetworkFunctionUserConfigurationOsProfileOutputWithContext(context.Context) NetworkFunctionUserConfigurationOsProfileOutput
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationOsProfileArgs struct {
 	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
@@ -2073,7 +2032,6 @@ func (i *networkFunctionUserConfigurationOsProfilePtrType) ToNetworkFunctionUser
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationOsProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationOsProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionUserConfigurationOsProfileOutput) ElementType() reflect.Type {
@@ -2137,7 +2095,6 @@ func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) CustomData() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfigurationResponse struct {
 	// The network interface configuration.
 	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
@@ -2160,7 +2117,6 @@ type NetworkFunctionUserConfigurationResponseInput interface {
 	ToNetworkFunctionUserConfigurationResponseOutputWithContext(context.Context) NetworkFunctionUserConfigurationResponseOutput
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfigurationResponseArgs struct {
 	// The network interface configuration.
 	NetworkInterfaces NetworkInterfaceResponseArrayInput `pulumi:"networkInterfaces"`
@@ -2209,7 +2165,6 @@ func (i NetworkFunctionUserConfigurationResponseArray) ToNetworkFunctionUserConf
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationResponseArrayOutput)
 }
 
-// The network function user configuration.
 type NetworkFunctionUserConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionUserConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2268,7 +2223,6 @@ func (o NetworkFunctionUserConfigurationResponseArrayOutput) Index(i pulumi.IntI
 	}).(NetworkFunctionUserConfigurationResponseOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationResponseOsProfile struct {
 	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData *string `pulumi:"customData"`
@@ -2285,7 +2239,6 @@ type NetworkFunctionUserConfigurationResponseOsProfileInput interface {
 	ToNetworkFunctionUserConfigurationResponseOsProfileOutputWithContext(context.Context) NetworkFunctionUserConfigurationResponseOsProfileOutput
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationResponseOsProfileArgs struct {
 	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
@@ -2344,7 +2297,6 @@ func (i *networkFunctionUserConfigurationResponseOsProfilePtrType) ToNetworkFunc
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationResponseOsProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type NetworkFunctionUserConfigurationResponseOsProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionUserConfigurationResponseOsProfileOutput) ElementType() reflect.Type {
@@ -2408,7 +2360,6 @@ func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) CustomData()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network interface properties.
 type NetworkInterface struct {
 	// A list of IP configurations of the network interface.
 	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
@@ -2431,7 +2382,6 @@ type NetworkInterfaceInput interface {
 	ToNetworkInterfaceOutputWithContext(context.Context) NetworkInterfaceOutput
 }
 
-// Network interface properties.
 type NetworkInterfaceArgs struct {
 	// A list of IP configurations of the network interface.
 	IpConfigurations NetworkInterfaceIPConfigurationArrayInput `pulumi:"ipConfigurations"`
@@ -2480,7 +2430,6 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
 }
 
-// Network interface properties.
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -2535,7 +2484,6 @@ func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOu
 	}).(NetworkInterfaceOutput)
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfiguration struct {
 	// The list of DNS servers IP addresses.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -2562,7 +2510,6 @@ type NetworkInterfaceIPConfigurationInput interface {
 	ToNetworkInterfaceIPConfigurationOutputWithContext(context.Context) NetworkInterfaceIPConfigurationOutput
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationArgs struct {
 	// The list of DNS servers IP addresses.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -2615,7 +2562,6 @@ func (i NetworkInterfaceIPConfigurationArray) ToNetworkInterfaceIPConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIPConfigurationArrayOutput)
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceIPConfigurationOutput) ElementType() reflect.Type {
@@ -2680,7 +2626,6 @@ func (o NetworkInterfaceIPConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 	}).(NetworkInterfaceIPConfigurationOutput)
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationResponse struct {
 	// The list of DNS servers IP addresses.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -2707,7 +2652,6 @@ type NetworkInterfaceIPConfigurationResponseInput interface {
 	ToNetworkInterfaceIPConfigurationResponseOutputWithContext(context.Context) NetworkInterfaceIPConfigurationResponseOutput
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationResponseArgs struct {
 	// The list of DNS servers IP addresses.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -2760,7 +2704,6 @@ func (i NetworkInterfaceIPConfigurationResponseArray) ToNetworkInterfaceIPConfig
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIPConfigurationResponseArrayOutput)
 }
 
-// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2825,7 +2768,6 @@ func (o NetworkInterfaceIPConfigurationResponseArrayOutput) Index(i pulumi.IntIn
 	}).(NetworkInterfaceIPConfigurationResponseOutput)
 }
 
-// Network interface properties.
 type NetworkInterfaceResponse struct {
 	// A list of IP configurations of the network interface.
 	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
@@ -2848,7 +2790,6 @@ type NetworkInterfaceResponseInput interface {
 	ToNetworkInterfaceResponseOutputWithContext(context.Context) NetworkInterfaceResponseOutput
 }
 
-// Network interface properties.
 type NetworkInterfaceResponseArgs struct {
 	// A list of IP configurations of the network interface.
 	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayInput `pulumi:"ipConfigurations"`
@@ -2897,7 +2838,6 @@ func (i NetworkInterfaceResponseArray) ToNetworkInterfaceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResponseArrayOutput)
 }
 
-// Network interface properties.
 type NetworkInterfaceResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResponseOutput) ElementType() reflect.Type {
@@ -2952,7 +2892,6 @@ func (o NetworkInterfaceResponseArrayOutput) Index(i pulumi.IntInput) NetworkInt
 	}).(NetworkInterfaceResponseOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDisk struct {
 	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -2975,7 +2914,6 @@ type OsDiskInput interface {
 	ToOsDiskOutputWithContext(context.Context) OsDiskOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDiskArgs struct {
 	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -3040,7 +2978,6 @@ func (i *osDiskPtrType) ToOsDiskPtrOutputWithContext(ctx context.Context) OsDisk
 	return pulumi.ToOutputWithContext(ctx, i).(OsDiskPtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDiskOutput struct{ *pulumi.OutputState }
 
 func (OsDiskOutput) ElementType() reflect.Type {
@@ -3149,7 +3086,6 @@ func (o OsDiskPtrOutput) Vhd() VirtualHardDiskPtrOutput {
 	}).(VirtualHardDiskPtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDiskResponse struct {
 	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -3170,7 +3106,6 @@ type OsDiskResponseInput interface {
 	ToOsDiskResponseOutputWithContext(context.Context) OsDiskResponseOutput
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDiskResponseArgs struct {
 	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -3233,7 +3168,6 @@ func (i *osDiskResponsePtrType) ToOsDiskResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OsDiskResponsePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OsDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (OsDiskResponseOutput) ElementType() reflect.Type {
@@ -3327,7 +3261,6 @@ func (o OsDiskResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfile struct {
 	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -3350,7 +3283,6 @@ type OsProfileInput interface {
 	ToOsProfileOutputWithContext(context.Context) OsProfileOutput
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfileArgs struct {
 	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
@@ -3415,7 +3347,6 @@ func (i *osProfilePtrType) ToOsProfilePtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OsProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfileOutput struct{ *pulumi.OutputState }
 
 func (OsProfileOutput) ElementType() reflect.Type {
@@ -3524,7 +3455,6 @@ func (o OsProfilePtrOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 	}).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfileResponse struct {
 	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -3547,7 +3477,6 @@ type OsProfileResponseInput interface {
 	ToOsProfileResponseOutputWithContext(context.Context) OsProfileResponseOutput
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfileResponseArgs struct {
 	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
@@ -3612,7 +3541,6 @@ func (i *osProfileResponsePtrType) ToOsProfileResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OsProfileResponsePtrOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 type OsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OsProfileResponseOutput) ElementType() reflect.Type {
@@ -3721,7 +3649,6 @@ func (o OsProfileResponsePtrOutput) LinuxConfiguration() LinuxConfigurationRespo
 	}).(LinuxConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfiguration struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKey `pulumi:"publicKeys"`
@@ -3738,7 +3665,6 @@ type SshConfigurationInput interface {
 	ToSshConfigurationOutputWithContext(context.Context) SshConfigurationOutput
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationArgs struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyArrayInput `pulumi:"publicKeys"`
@@ -3797,7 +3723,6 @@ func (i *sshConfigurationPtrType) ToSshConfigurationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationPtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SshConfigurationOutput) ElementType() reflect.Type {
@@ -3861,7 +3786,6 @@ func (o SshConfigurationPtrOutput) PublicKeys() SshPublicKeyArrayOutput {
 	}).(SshPublicKeyArrayOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKeyResponse `pulumi:"publicKeys"`
@@ -3878,7 +3802,6 @@ type SshConfigurationResponseInput interface {
 	ToSshConfigurationResponseOutputWithContext(context.Context) SshConfigurationResponseOutput
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponseArgs struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
@@ -3937,7 +3860,6 @@ func (i *sshConfigurationResponsePtrType) ToSshConfigurationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4001,7 +3923,6 @@ func (o SshConfigurationResponsePtrOutput) PublicKeys() SshPublicKeyResponseArra
 	}).(SshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKey struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData *string `pulumi:"keyData"`
@@ -4020,7 +3941,6 @@ type SshPublicKeyInput interface {
 	ToSshPublicKeyOutputWithContext(context.Context) SshPublicKeyOutput
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyArgs struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
@@ -4065,7 +3985,6 @@ func (i SshPublicKeyArray) ToSshPublicKeyArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyOutput) ElementType() reflect.Type {
@@ -4110,7 +4029,6 @@ func (o SshPublicKeyArrayOutput) Index(i pulumi.IntInput) SshPublicKeyOutput {
 	}).(SshPublicKeyOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponse struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData *string `pulumi:"keyData"`
@@ -4129,7 +4047,6 @@ type SshPublicKeyResponseInput interface {
 	ToSshPublicKeyResponseOutputWithContext(context.Context) SshPublicKeyResponseOutput
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponseArgs struct {
 	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
@@ -4174,7 +4091,6 @@ func (i SshPublicKeyResponseArray) ToSshPublicKeyResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 type SshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -4219,7 +4135,6 @@ func (o SshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput) SshPublicKeyRe
 	}).(SshPublicKeyResponseOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfile struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine.
 	DataDisks []DataDisk `pulumi:"dataDisks"`
@@ -4240,7 +4155,6 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine.
 	DataDisks DataDiskArrayInput `pulumi:"dataDisks"`
@@ -4303,7 +4217,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -4397,7 +4310,6 @@ func (o StorageProfilePtrOutput) OsDisk() OsDiskPtrOutput {
 	}).(OsDiskPtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponse struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine.
 	DataDisks []DataDiskResponse `pulumi:"dataDisks"`
@@ -4418,7 +4330,6 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponseArgs struct {
 	// Specifies the parameters that are used to add a data disk to a virtual machine.
 	DataDisks DataDiskResponseArrayInput `pulumi:"dataDisks"`
@@ -4481,7 +4392,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {
@@ -4575,7 +4485,6 @@ func (o StorageProfileResponsePtrOutput) OsDisk() OsDiskResponsePtrOutput {
 	}).(OsDiskResponsePtrOutput)
 }
 
-// Reference to another sub resource.
 type SubResource struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
@@ -4592,7 +4501,6 @@ type SubResourceInput interface {
 	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
 }
 
-// Reference to another sub resource.
 type SubResourceArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4651,7 +4559,6 @@ func (i *subResourcePtrType) ToSubResourcePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourcePtrOutput)
 }
 
-// Reference to another sub resource.
 type SubResourceOutput struct{ *pulumi.OutputState }
 
 func (SubResourceOutput) ElementType() reflect.Type {
@@ -4715,7 +4622,6 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to another sub resource.
 type SubResourceResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
@@ -4732,7 +4638,6 @@ type SubResourceResponseInput interface {
 	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
 }
 
-// Reference to another sub resource.
 type SubResourceResponseArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4816,7 +4721,6 @@ func (i SubResourceResponseArray) ToSubResourceResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseArrayOutput)
 }
 
-// Reference to another sub resource.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -4900,7 +4804,6 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 	}).(SubResourceResponseOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDisk struct {
 	// Specifies the virtual hard disk's uri.
 	Uri *string `pulumi:"uri"`
@@ -4917,7 +4820,6 @@ type VirtualHardDiskInput interface {
 	ToVirtualHardDiskOutputWithContext(context.Context) VirtualHardDiskOutput
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskArgs struct {
 	// Specifies the virtual hard disk's uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -4976,7 +4878,6 @@ func (i *virtualHardDiskPtrType) ToVirtualHardDiskPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskPtrOutput)
 }
 
-// Describes the uri of a disk.
 type VirtualHardDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualHardDiskOutput) ElementType() reflect.Type {

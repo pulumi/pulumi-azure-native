@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The activation Mode of the service package
 type ArmServicePackageActivationMode string
 
 const (
@@ -177,7 +176,6 @@ func (in *armServicePackageActivationModePtr) ToArmServicePackageActivationModeP
 	return pulumi.ToOutputWithContext(ctx, in).(ArmServicePackageActivationModePtrOutput)
 }
 
-// The activation Mode of the service package
 type ArmUpgradeFailureAction string
 
 const (
@@ -344,7 +342,6 @@ func (in *armUpgradeFailureActionPtr) ToArmUpgradeFailureActionPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ArmUpgradeFailureActionPtrOutput)
 }
 
-// The type of managed identity for the resource.
 type ManagedIdentityType string
 
 const (
@@ -515,7 +512,6 @@ func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
 }
 
-// Specifies the move cost for the service.
 type MoveCost string
 
 const (
@@ -686,7 +682,6 @@ func (in *moveCostPtr) ToMoveCostPtrOutputWithContext(ctx context.Context) MoveC
 	return pulumi.ToOutputWithContext(ctx, in).(MoveCostPtrOutput)
 }
 
-// Specifies how the service is partitioned.
 type PartitionScheme string
 
 const (
@@ -857,7 +852,6 @@ func (in *partitionSchemePtr) ToPartitionSchemePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(PartitionSchemePtrOutput)
 }
 
-// the reference to the load balancer probe used by the load balancing rule.
 type ProbeProtocol string
 
 const (
@@ -1023,7 +1017,6 @@ func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
 }
 
-// The reference to the transport protocol used by the load balancing rule.
 type Protocol string
 
 const (
@@ -1188,7 +1181,6 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
 type RollingUpgradeMode string
 
 const (
@@ -1359,7 +1351,6 @@ func (in *rollingUpgradeModePtr) ToRollingUpgradeModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(RollingUpgradeModePtrOutput)
 }
 
-// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 type ServiceCorrelationScheme string
 
 const (
@@ -1530,7 +1521,6 @@ func (in *serviceCorrelationSchemePtr) ToServiceCorrelationSchemePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceCorrelationSchemePtrOutput)
 }
 
-// The kind of service (Stateless or Stateful).
 type ServiceKind string
 
 const (
@@ -1699,7 +1689,6 @@ func (in *serviceKindPtr) ToServiceKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceKindPtrOutput)
 }
 
-// The service load metric relative weight, compared to other metrics configured for this service, as a number.
 type ServiceLoadMetricWeight string
 
 const (
@@ -1870,7 +1859,6 @@ func (in *serviceLoadMetricWeightPtr) ToServiceLoadMetricWeightPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLoadMetricWeightPtrOutput)
 }
 
-// The type of placement policy for a service fabric service. Following are the possible values.
 type ServicePlacementPolicyType string
 
 const (

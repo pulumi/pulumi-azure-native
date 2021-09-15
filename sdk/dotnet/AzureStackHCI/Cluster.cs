@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Cluster details.
-    /// API Version: 2021-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
@@ -41,12 +41,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> CloudId { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoint configured for management from the Azure portal.
-        /// </summary>
-        [Output("cloudManagementEndpoint")]
-        public Output<string?> CloudManagementEndpoint { get; private set; } = null!;
-
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         [Output("createdAt")]
@@ -63,12 +57,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("createdByType")]
         public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// Desired properties of the cluster.
-        /// </summary>
-        [Output("desiredProperties")]
-        public Output<Outputs.ClusterDesiredPropertiesResponse?> DesiredProperties { get; private set; } = null!;
 
         /// <summary>
         /// Most recent billing meter timestamp.
@@ -128,7 +116,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Properties reported by cluster agent.
         /// </summary>
         [Output("reportedProperties")]
-        public Output<Outputs.ClusterReportedPropertiesResponse> ReportedProperties { get; private set; } = null!;
+        public Output<Outputs.ClusterReportedPropertiesResponse?> ReportedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Status of the cluster agent.
@@ -224,12 +212,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string> AadTenantId { get; set; } = null!;
 
         /// <summary>
-        /// Endpoint configured for management from the Azure portal.
-        /// </summary>
-        [Input("cloudManagementEndpoint")]
-        public Input<string>? CloudManagementEndpoint { get; set; }
-
-        /// <summary>
         /// The name of the cluster.
         /// </summary>
         [Input("clusterName")]
@@ -252,12 +234,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("createdByType")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// Desired properties of the cluster.
-        /// </summary>
-        [Input("desiredProperties")]
-        public Input<Inputs.ClusterDesiredPropertiesArgs>? DesiredProperties { get; set; }
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)

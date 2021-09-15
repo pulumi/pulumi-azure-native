@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The routing types that are supported for action requests.
 type ActionRouting string
 
 const (
@@ -174,7 +173,6 @@ func (in *actionRoutingPtr) ToActionRoutingPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ActionRoutingPtrOutput)
 }
 
-// The routing types that are supported for resource requests.
 type ResourceTypeRouting string
 
 const (
@@ -339,7 +337,6 @@ func (in *resourceTypeRoutingPtr) ToResourceTypeRoutingPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceTypeRoutingPtrOutput)
 }
 
-// The type of validation to run against a matching request.
 type ValidationType string
 
 const (

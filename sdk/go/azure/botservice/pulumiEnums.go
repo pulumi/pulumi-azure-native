@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The current state of the Enterprise Channel Node.
 type EnterpriseChannelNodeState string
 
 const (
@@ -183,7 +182,6 @@ func (in *enterpriseChannelNodeStatePtr) ToEnterpriseChannelNodeStatePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(EnterpriseChannelNodeStatePtrOutput)
 }
 
-// The current state of the Enterprise Channel.
 type EnterpriseChannelStateEnum string
 
 const (
@@ -356,7 +354,6 @@ func (in *enterpriseChannelStateEnumPtr) ToEnterpriseChannelStateEnumPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(EnterpriseChannelStateEnumPtrOutput)
 }
 
-// Required. Gets or sets the Kind of the resource.
 type Kind string
 
 const (
@@ -523,7 +520,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -689,7 +685,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// The sku name
 type SkuName string
 
 const (

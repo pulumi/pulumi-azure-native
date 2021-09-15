@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphProperties struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description *string `pulumi:"description"`
@@ -31,7 +30,6 @@ type EnterpriseKnowledgeGraphPropertiesInput interface {
 	ToEnterpriseKnowledgeGraphPropertiesOutputWithContext(context.Context) EnterpriseKnowledgeGraphPropertiesOutput
 }
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesArgs struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -94,7 +92,6 @@ func (i *enterpriseKnowledgeGraphPropertiesPtrType) ToEnterpriseKnowledgeGraphPr
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesPtrOutput)
 }
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseKnowledgeGraphPropertiesOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) ProvisioningState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesResponse struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description *string `pulumi:"description"`
@@ -209,7 +205,6 @@ type EnterpriseKnowledgeGraphPropertiesResponseInput interface {
 	ToEnterpriseKnowledgeGraphPropertiesResponseOutputWithContext(context.Context) EnterpriseKnowledgeGraphPropertiesResponseOutput
 }
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesResponseArgs struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -272,7 +267,6 @@ func (i *enterpriseKnowledgeGraphPropertiesResponsePtrType) ToEnterpriseKnowledg
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput)
 }
 
-// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseKnowledgeGraphPropertiesResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ProvisioningState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type Sku struct {
 	// The sku name
 	Name string `pulumi:"name"`
@@ -383,7 +376,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuArgs struct {
 	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -442,7 +434,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -506,7 +497,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuResponse struct {
 	// The sku name
 	Name string `pulumi:"name"`
@@ -523,7 +513,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuResponseArgs struct {
 	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -582,7 +571,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

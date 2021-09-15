@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// A container group.
-        /// API Version: 2021-07-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The network profile information for a container group.
+        /// </summary>
+        public readonly Outputs.ContainerGroupNetworkProfileResponse? NetworkProfile;
+        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         public readonly string OsType;
@@ -110,10 +114,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The SKU for a container group.
         /// </summary>
         public readonly string? Sku;
-        /// <summary>
-        /// The subnet resource IDs for a container group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> SubnetIds;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -153,6 +153,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string name,
 
+            Outputs.ContainerGroupNetworkProfileResponse? networkProfile,
+
             string osType,
 
             string provisioningState,
@@ -160,8 +162,6 @@ namespace Pulumi.AzureNative.ContainerInstance
             string? restartPolicy,
 
             string? sku,
-
-            ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -181,11 +181,11 @@ namespace Pulumi.AzureNative.ContainerInstance
             IpAddress = ipAddress;
             Location = location;
             Name = name;
+            NetworkProfile = networkProfile;
             OsType = osType;
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
             Sku = sku;
-            SubnetIds = subnetIds;
             Tags = tags;
             Type = type;
             Volumes = volumes;

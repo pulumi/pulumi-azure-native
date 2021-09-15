@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettings struct {
 	// Indicates whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -33,7 +32,6 @@ type AS2AcknowledgementConnectionSettingsInput interface {
 	ToAS2AcknowledgementConnectionSettingsOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsOutput
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsArgs struct {
 	// Indicates whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
@@ -98,7 +96,6 @@ func (i *as2acknowledgementConnectionSettingsPtrType) ToAS2AcknowledgementConnec
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsPtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2AcknowledgementConnectionSettingsOutput) ElementType() reflect.Type {
@@ -207,7 +204,6 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponse struct {
 	// Indicates whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -230,7 +226,6 @@ type AS2AcknowledgementConnectionSettingsResponseInput interface {
 	ToAS2AcknowledgementConnectionSettingsResponseOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsResponseOutput
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponseArgs struct {
 	// Indicates whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
@@ -295,7 +290,6 @@ func (i *as2acknowledgementConnectionSettingsResponsePtrType) ToAS2Acknowledgeme
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2AcknowledgementConnectionSettingsResponseOutput) ElementType() reflect.Type {
@@ -404,7 +398,6 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContent struct {
 	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreement `pulumi:"receiveAgreement"`
@@ -423,7 +416,6 @@ type AS2AgreementContentInput interface {
 	ToAS2AgreementContentOutputWithContext(context.Context) AS2AgreementContentOutput
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentArgs struct {
 	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementInput `pulumi:"receiveAgreement"`
@@ -484,7 +476,6 @@ func (i *as2agreementContentPtrType) ToAS2AgreementContentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (AS2AgreementContentOutput) ElementType() reflect.Type {
@@ -563,7 +554,6 @@ func (o AS2AgreementContentPtrOutput) SendAgreement() AS2OneWayAgreementPtrOutpu
 	}).(AS2OneWayAgreementPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponse struct {
 	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementResponse `pulumi:"receiveAgreement"`
@@ -582,7 +572,6 @@ type AS2AgreementContentResponseInput interface {
 	ToAS2AgreementContentResponseOutputWithContext(context.Context) AS2AgreementContentResponseOutput
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponseArgs struct {
 	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementResponseInput `pulumi:"receiveAgreement"`
@@ -643,7 +632,6 @@ func (i *as2agreementContentResponsePtrType) ToAS2AgreementContentResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentResponsePtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -722,7 +710,6 @@ func (o AS2AgreementContentResponsePtrOutput) SendAgreement() AS2OneWayAgreement
 	}).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettings struct {
 	// The value indicating whether to auto generate file name.
 	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
@@ -747,7 +734,6 @@ type AS2EnvelopeSettingsInput interface {
 	ToAS2EnvelopeSettingsOutputWithContext(context.Context) AS2EnvelopeSettingsOutput
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsArgs struct {
 	// The value indicating whether to auto generate file name.
 	AutogenerateFileName pulumi.BoolInput `pulumi:"autogenerateFileName"`
@@ -814,7 +800,6 @@ func (i *as2envelopeSettingsPtrType) ToAS2EnvelopeSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsPtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2EnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -938,7 +923,6 @@ func (o AS2EnvelopeSettingsPtrOutput) TransmitFileNameInMimeHeader() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponse struct {
 	// The value indicating whether to auto generate file name.
 	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
@@ -963,7 +947,6 @@ type AS2EnvelopeSettingsResponseInput interface {
 	ToAS2EnvelopeSettingsResponseOutputWithContext(context.Context) AS2EnvelopeSettingsResponseOutput
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponseArgs struct {
 	// The value indicating whether to auto generate file name.
 	AutogenerateFileName pulumi.BoolInput `pulumi:"autogenerateFileName"`
@@ -1030,7 +1013,6 @@ func (i *as2envelopeSettingsResponsePtrType) ToAS2EnvelopeSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2EnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -1154,7 +1136,6 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) TransmitFileNameInMimeHeader() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettings struct {
 	// The value indicating whether to resend message If MDN is not received.
 	ResendIfMDNNotReceived bool `pulumi:"resendIfMDNNotReceived"`
@@ -1173,7 +1154,6 @@ type AS2ErrorSettingsInput interface {
 	ToAS2ErrorSettingsOutputWithContext(context.Context) AS2ErrorSettingsOutput
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsArgs struct {
 	// The value indicating whether to resend message If MDN is not received.
 	ResendIfMDNNotReceived pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
@@ -1234,7 +1214,6 @@ func (i *as2errorSettingsPtrType) ToAS2ErrorSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ErrorSettingsOutput) ElementType() reflect.Type {
@@ -1313,7 +1292,6 @@ func (o AS2ErrorSettingsPtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponse struct {
 	// The value indicating whether to resend message If MDN is not received.
 	ResendIfMDNNotReceived bool `pulumi:"resendIfMDNNotReceived"`
@@ -1332,7 +1310,6 @@ type AS2ErrorSettingsResponseInput interface {
 	ToAS2ErrorSettingsResponseOutputWithContext(context.Context) AS2ErrorSettingsResponseOutput
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponseArgs struct {
 	// The value indicating whether to resend message If MDN is not received.
 	ResendIfMDNNotReceived pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
@@ -1393,7 +1370,6 @@ func (i *as2errorSettingsResponsePtrType) ToAS2ErrorSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ErrorSettingsResponseOutput) ElementType() reflect.Type {
@@ -1472,7 +1448,6 @@ func (o AS2ErrorSettingsResponsePtrOutput) SuspendDuplicateMessage() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettings struct {
 	// The disposition notification to header value.
 	DispositionNotificationTo *string `pulumi:"dispositionNotificationTo"`
@@ -1505,7 +1480,6 @@ type AS2MdnSettingsInput interface {
 	ToAS2MdnSettingsOutputWithContext(context.Context) AS2MdnSettingsOutput
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsArgs struct {
 	// The disposition notification to header value.
 	DispositionNotificationTo pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
@@ -1580,7 +1554,6 @@ func (i *as2mdnSettingsPtrType) ToAS2MdnSettingsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2MdnSettingsOutput) ElementType() reflect.Type {
@@ -1764,7 +1737,6 @@ func (o AS2MdnSettingsPtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponse struct {
 	// The disposition notification to header value.
 	DispositionNotificationTo *string `pulumi:"dispositionNotificationTo"`
@@ -1797,7 +1769,6 @@ type AS2MdnSettingsResponseInput interface {
 	ToAS2MdnSettingsResponseOutputWithContext(context.Context) AS2MdnSettingsResponseOutput
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponseArgs struct {
 	// The disposition notification to header value.
 	DispositionNotificationTo pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
@@ -1872,7 +1843,6 @@ func (i *as2mdnSettingsResponsePtrType) ToAS2MdnSettingsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2MdnSettingsResponseOutput) ElementType() reflect.Type {
@@ -2056,7 +2026,6 @@ func (o AS2MdnSettingsResponsePtrOutput) SignOutboundMDNIfOptional() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettings struct {
 	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -2079,7 +2048,6 @@ type AS2MessageConnectionSettingsInput interface {
 	ToAS2MessageConnectionSettingsOutputWithContext(context.Context) AS2MessageConnectionSettingsOutput
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsArgs struct {
 	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
@@ -2144,7 +2112,6 @@ func (i *as2messageConnectionSettingsPtrType) ToAS2MessageConnectionSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2MessageConnectionSettingsOutput) ElementType() reflect.Type {
@@ -2253,7 +2220,6 @@ func (o AS2MessageConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponse struct {
 	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -2276,7 +2242,6 @@ type AS2MessageConnectionSettingsResponseInput interface {
 	ToAS2MessageConnectionSettingsResponseOutputWithContext(context.Context) AS2MessageConnectionSettingsResponseOutput
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponseArgs struct {
 	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
@@ -2341,7 +2306,6 @@ func (i *as2messageConnectionSettingsResponsePtrType) ToAS2MessageConnectionSett
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2MessageConnectionSettingsResponseOutput) ElementType() reflect.Type {
@@ -2450,7 +2414,6 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreement struct {
 	// The AS2 protocol settings.
 	ProtocolSettings AS2ProtocolSettings `pulumi:"protocolSettings"`
@@ -2471,7 +2434,6 @@ type AS2OneWayAgreementInput interface {
 	ToAS2OneWayAgreementOutputWithContext(context.Context) AS2OneWayAgreementOutput
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementArgs struct {
 	// The AS2 protocol settings.
 	ProtocolSettings AS2ProtocolSettingsInput `pulumi:"protocolSettings"`
@@ -2534,7 +2496,6 @@ func (i *as2oneWayAgreementPtrType) ToAS2OneWayAgreementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (AS2OneWayAgreementOutput) ElementType() reflect.Type {
@@ -2628,7 +2589,6 @@ func (o AS2OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponse struct {
 	// The AS2 protocol settings.
 	ProtocolSettings AS2ProtocolSettingsResponse `pulumi:"protocolSettings"`
@@ -2649,7 +2609,6 @@ type AS2OneWayAgreementResponseInput interface {
 	ToAS2OneWayAgreementResponseOutputWithContext(context.Context) AS2OneWayAgreementResponseOutput
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponseArgs struct {
 	// The AS2 protocol settings.
 	ProtocolSettings AS2ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
@@ -2712,7 +2671,6 @@ func (i *as2oneWayAgreementResponsePtrType) ToAS2OneWayAgreementResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2OneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -2806,7 +2764,6 @@ func (o AS2OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessId
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettings struct {
 	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettings `pulumi:"acknowledgementConnectionSettings"`
@@ -2835,7 +2792,6 @@ type AS2ProtocolSettingsInput interface {
 	ToAS2ProtocolSettingsOutputWithContext(context.Context) AS2ProtocolSettingsOutput
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsArgs struct {
 	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsInput `pulumi:"acknowledgementConnectionSettings"`
@@ -2906,7 +2862,6 @@ func (i *as2protocolSettingsPtrType) ToAS2ProtocolSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsPtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ProtocolSettingsOutput) ElementType() reflect.Type {
@@ -3062,7 +3017,6 @@ func (o AS2ProtocolSettingsPtrOutput) ValidationSettings() AS2ValidationSettings
 	}).(AS2ValidationSettingsPtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponse struct {
 	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsResponse `pulumi:"acknowledgementConnectionSettings"`
@@ -3091,7 +3045,6 @@ type AS2ProtocolSettingsResponseInput interface {
 	ToAS2ProtocolSettingsResponseOutputWithContext(context.Context) AS2ProtocolSettingsResponseOutput
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponseArgs struct {
 	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsResponseInput `pulumi:"acknowledgementConnectionSettings"`
@@ -3162,7 +3115,6 @@ func (i *as2protocolSettingsResponsePtrType) ToAS2ProtocolSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -3320,7 +3272,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) ValidationSettings() AS2Validation
 	}).(AS2ValidationSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettings struct {
 	// The value indicating whether to enable NRR for inbound decoded messages.
 	EnableNRRForInboundDecodedMessages bool `pulumi:"enableNRRForInboundDecodedMessages"`
@@ -3355,7 +3306,6 @@ type AS2SecuritySettingsInput interface {
 	ToAS2SecuritySettingsOutputWithContext(context.Context) AS2SecuritySettingsOutput
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsArgs struct {
 	// The value indicating whether to enable NRR for inbound decoded messages.
 	EnableNRRForInboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundDecodedMessages"`
@@ -3432,7 +3382,6 @@ func (i *as2securitySettingsPtrType) ToAS2SecuritySettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsPtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2SecuritySettingsOutput) ElementType() reflect.Type {
@@ -3631,7 +3580,6 @@ func (o AS2SecuritySettingsPtrOutput) SigningCertificateName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponse struct {
 	// The value indicating whether to enable NRR for inbound decoded messages.
 	EnableNRRForInboundDecodedMessages bool `pulumi:"enableNRRForInboundDecodedMessages"`
@@ -3666,7 +3614,6 @@ type AS2SecuritySettingsResponseInput interface {
 	ToAS2SecuritySettingsResponseOutputWithContext(context.Context) AS2SecuritySettingsResponseOutput
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponseArgs struct {
 	// The value indicating whether to enable NRR for inbound decoded messages.
 	EnableNRRForInboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundDecodedMessages"`
@@ -3743,7 +3690,6 @@ func (i *as2securitySettingsResponsePtrType) ToAS2SecuritySettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsResponsePtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2SecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -3942,7 +3888,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) SigningCertificateName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettings struct {
 	// The value indicating whether to check for certificate revocation list on receive.
 	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
@@ -3977,7 +3922,6 @@ type AS2ValidationSettingsInput interface {
 	ToAS2ValidationSettingsOutputWithContext(context.Context) AS2ValidationSettingsOutput
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsArgs struct {
 	// The value indicating whether to check for certificate revocation list on receive.
 	CheckCertificateRevocationListOnReceive pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnReceive"`
@@ -4054,7 +3998,6 @@ func (i *as2validationSettingsPtrType) ToAS2ValidationSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ValidationSettingsOutput) ElementType() reflect.Type {
@@ -4253,7 +4196,6 @@ func (o AS2ValidationSettingsPtrOutput) SigningAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponse struct {
 	// The value indicating whether to check for certificate revocation list on receive.
 	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
@@ -4288,7 +4230,6 @@ type AS2ValidationSettingsResponseInput interface {
 	ToAS2ValidationSettingsResponseOutputWithContext(context.Context) AS2ValidationSettingsResponseOutput
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponseArgs struct {
 	// The value indicating whether to check for certificate revocation list on receive.
 	CheckCertificateRevocationListOnReceive pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnReceive"`
@@ -4365,7 +4306,6 @@ func (i *as2validationSettingsResponsePtrType) ToAS2ValidationSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ValidationSettingsResponseOutput) ElementType() reflect.Type {
@@ -4564,7 +4504,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) SigningAlgorithm() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContent struct {
 	// The AS2 agreement content.
 	AS2 *AS2AgreementContent `pulumi:"aS2"`
@@ -4585,7 +4524,6 @@ type AgreementContentInput interface {
 	ToAgreementContentOutputWithContext(context.Context) AgreementContentOutput
 }
 
-// The integration account agreement content.
 type AgreementContentArgs struct {
 	// The AS2 agreement content.
 	AS2 AS2AgreementContentPtrInput `pulumi:"aS2"`
@@ -4648,7 +4586,6 @@ func (i *agreementContentPtrType) ToAgreementContentPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementContentPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (AgreementContentOutput) ElementType() reflect.Type {
@@ -4742,7 +4679,6 @@ func (o AgreementContentPtrOutput) X12() X12AgreementContentPtrOutput {
 	}).(X12AgreementContentPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentResponse struct {
 	// The AS2 agreement content.
 	AS2 *AS2AgreementContentResponse `pulumi:"aS2"`
@@ -4763,7 +4699,6 @@ type AgreementContentResponseInput interface {
 	ToAgreementContentResponseOutputWithContext(context.Context) AgreementContentResponseOutput
 }
 
-// The integration account agreement content.
 type AgreementContentResponseArgs struct {
 	// The AS2 agreement content.
 	AS2 AS2AgreementContentResponsePtrInput `pulumi:"aS2"`
@@ -4826,7 +4761,6 @@ func (i *agreementContentResponsePtrType) ToAgreementContentResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementContentResponsePtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -4920,7 +4854,6 @@ func (o AgreementContentResponsePtrOutput) X12() X12AgreementContentResponsePtrO
 	}).(X12AgreementContentResponsePtrOutput)
 }
 
-// The API deployment parameter metadata.
 type ApiDeploymentParameterMetadataResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -4945,7 +4878,6 @@ type ApiDeploymentParameterMetadataResponseInput interface {
 	ToApiDeploymentParameterMetadataResponseOutputWithContext(context.Context) ApiDeploymentParameterMetadataResponseOutput
 }
 
-// The API deployment parameter metadata.
 type ApiDeploymentParameterMetadataResponseArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -5012,7 +4944,6 @@ func (i *apiDeploymentParameterMetadataResponsePtrType) ToApiDeploymentParameter
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataResponsePtrOutput)
 }
 
-// The API deployment parameter metadata.
 type ApiDeploymentParameterMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiDeploymentParameterMetadataResponseOutput) ElementType() reflect.Type {
@@ -5136,7 +5067,6 @@ func (o ApiDeploymentParameterMetadataResponsePtrOutput) Visibility() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API deployment parameters metadata.
 type ApiDeploymentParameterMetadataSetResponse struct {
 	// The package content link parameter.
 	PackageContentLink *ApiDeploymentParameterMetadataResponse `pulumi:"packageContentLink"`
@@ -5155,7 +5085,6 @@ type ApiDeploymentParameterMetadataSetResponseInput interface {
 	ToApiDeploymentParameterMetadataSetResponseOutputWithContext(context.Context) ApiDeploymentParameterMetadataSetResponseOutput
 }
 
-// The API deployment parameters metadata.
 type ApiDeploymentParameterMetadataSetResponseArgs struct {
 	// The package content link parameter.
 	PackageContentLink ApiDeploymentParameterMetadataResponsePtrInput `pulumi:"packageContentLink"`
@@ -5216,7 +5145,6 @@ func (i *apiDeploymentParameterMetadataSetResponsePtrType) ToApiDeploymentParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataSetResponsePtrOutput)
 }
 
-// The API deployment parameters metadata.
 type ApiDeploymentParameterMetadataSetResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiDeploymentParameterMetadataSetResponseOutput) ElementType() reflect.Type {
@@ -5299,7 +5227,6 @@ func (o ApiDeploymentParameterMetadataSetResponsePtrOutput) RedisCacheConnection
 	}).(ApiDeploymentParameterMetadataResponsePtrOutput)
 }
 
-// The API backend service.
 type ApiResourceBackendServiceResponse struct {
 	// The service URL.
 	ServiceUrl *string `pulumi:"serviceUrl"`
@@ -5316,7 +5243,6 @@ type ApiResourceBackendServiceResponseInput interface {
 	ToApiResourceBackendServiceResponseOutputWithContext(context.Context) ApiResourceBackendServiceResponseOutput
 }
 
-// The API backend service.
 type ApiResourceBackendServiceResponseArgs struct {
 	// The service URL.
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
@@ -5375,7 +5301,6 @@ func (i *apiResourceBackendServiceResponsePtrType) ToApiResourceBackendServiceRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServiceResponsePtrOutput)
 }
 
-// The API backend service.
 type ApiResourceBackendServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceBackendServiceResponseOutput) ElementType() reflect.Type {
@@ -5439,7 +5364,6 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ServiceUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Api resource definition.
 type ApiResourceDefinitionsResponse struct {
 	// The modified swagger url.
 	ModifiedSwaggerUrl *string `pulumi:"modifiedSwaggerUrl"`
@@ -5458,7 +5382,6 @@ type ApiResourceDefinitionsResponseInput interface {
 	ToApiResourceDefinitionsResponseOutputWithContext(context.Context) ApiResourceDefinitionsResponseOutput
 }
 
-// The Api resource definition.
 type ApiResourceDefinitionsResponseArgs struct {
 	// The modified swagger url.
 	ModifiedSwaggerUrl pulumi.StringPtrInput `pulumi:"modifiedSwaggerUrl"`
@@ -5519,7 +5442,6 @@ func (i *apiResourceDefinitionsResponsePtrType) ToApiResourceDefinitionsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsResponsePtrOutput)
 }
 
-// The Api resource definition.
 type ApiResourceDefinitionsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceDefinitionsResponseOutput) ElementType() reflect.Type {
@@ -5598,7 +5520,6 @@ func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API general information.
 type ApiResourceGeneralInformationResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -5625,7 +5546,6 @@ type ApiResourceGeneralInformationResponseInput interface {
 	ToApiResourceGeneralInformationResponseOutputWithContext(context.Context) ApiResourceGeneralInformationResponseOutput
 }
 
-// The API general information.
 type ApiResourceGeneralInformationResponseArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -5694,7 +5614,6 @@ func (i *apiResourceGeneralInformationResponsePtrType) ToApiResourceGeneralInfor
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceGeneralInformationResponsePtrOutput)
 }
 
-// The API general information.
 type ApiResourceGeneralInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceGeneralInformationResponseOutput) ElementType() reflect.Type {
@@ -5833,7 +5752,6 @@ func (o ApiResourceGeneralInformationResponsePtrOutput) Tier() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The api resource metadata.
 type ApiResourceMetadataResponse struct {
 	// The api type.
 	ApiType *string `pulumi:"apiType"`
@@ -5868,7 +5786,6 @@ type ApiResourceMetadataResponseInput interface {
 	ToApiResourceMetadataResponseOutputWithContext(context.Context) ApiResourceMetadataResponseOutput
 }
 
-// The api resource metadata.
 type ApiResourceMetadataResponseArgs struct {
 	// The api type.
 	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
@@ -5945,7 +5862,6 @@ func (i *apiResourceMetadataResponsePtrType) ToApiResourceMetadataResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceMetadataResponsePtrOutput)
 }
 
-// The api resource metadata.
 type ApiResourceMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceMetadataResponseOutput) ElementType() reflect.Type {
@@ -6146,7 +6062,6 @@ func (o ApiResourceMetadataResponsePtrOutput) WsdlService() WsdlServiceResponseP
 	}).(WsdlServiceResponsePtrOutput)
 }
 
-// The API resource policies.
 type ApiResourcePoliciesResponse struct {
 	// The API level only policies XML as embedded content.
 	Content *string `pulumi:"content"`
@@ -6165,7 +6080,6 @@ type ApiResourcePoliciesResponseInput interface {
 	ToApiResourcePoliciesResponseOutputWithContext(context.Context) ApiResourcePoliciesResponseOutput
 }
 
-// The API resource policies.
 type ApiResourcePoliciesResponseArgs struct {
 	// The API level only policies XML as embedded content.
 	Content pulumi.StringPtrInput `pulumi:"content"`
@@ -6226,7 +6140,6 @@ func (i *apiResourcePoliciesResponsePtrType) ToApiResourcePoliciesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePoliciesResponsePtrOutput)
 }
 
-// The API resource policies.
 type ApiResourcePoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourcePoliciesResponseOutput) ElementType() reflect.Type {
@@ -6305,7 +6218,6 @@ func (o ApiResourcePoliciesResponsePtrOutput) ContentLink() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API resource properties.
 type ApiResourcePropertiesResponse struct {
 	// The API definition.
 	ApiDefinitionUrl *string `pulumi:"apiDefinitionUrl"`
@@ -6346,7 +6258,6 @@ type ApiResourcePropertiesResponseInput interface {
 	ToApiResourcePropertiesResponseOutputWithContext(context.Context) ApiResourcePropertiesResponseOutput
 }
 
-// The API resource properties.
 type ApiResourcePropertiesResponseArgs struct {
 	// The API definition.
 	ApiDefinitionUrl pulumi.StringPtrInput `pulumi:"apiDefinitionUrl"`
@@ -6429,7 +6340,6 @@ func (i *apiResourcePropertiesResponsePtrType) ToApiResourcePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePropertiesResponsePtrOutput)
 }
 
-// The API resource properties.
 type ApiResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6677,7 +6587,6 @@ func (o ApiResourcePropertiesResponsePtrOutput) RuntimeUrls() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The assembly properties definition.
 type AssemblyProperties struct {
 	// The assembly culture.
 	AssemblyCulture *string `pulumi:"assemblyCulture"`
@@ -6710,7 +6619,6 @@ type AssemblyPropertiesInput interface {
 	ToAssemblyPropertiesOutputWithContext(context.Context) AssemblyPropertiesOutput
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesArgs struct {
 	// The assembly culture.
 	AssemblyCulture pulumi.StringPtrInput `pulumi:"assemblyCulture"`
@@ -6785,7 +6693,6 @@ func (i *assemblyPropertiesPtrType) ToAssemblyPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AssemblyPropertiesPtrOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AssemblyPropertiesOutput) ElementType() reflect.Type {
@@ -6980,7 +6887,6 @@ func (o AssemblyPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponse struct {
 	// The assembly culture.
 	AssemblyCulture *string `pulumi:"assemblyCulture"`
@@ -7013,7 +6919,6 @@ type AssemblyPropertiesResponseInput interface {
 	ToAssemblyPropertiesResponseOutputWithContext(context.Context) AssemblyPropertiesResponseOutput
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponseArgs struct {
 	// The assembly culture.
 	AssemblyCulture pulumi.StringPtrInput `pulumi:"assemblyCulture"`
@@ -7088,7 +6993,6 @@ func (i *assemblyPropertiesResponsePtrType) ToAssemblyPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AssemblyPropertiesResponsePtrOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AssemblyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7283,7 +7187,6 @@ func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponse struct {
 	// The error code.
 	Code string `pulumi:"code"`
@@ -7304,7 +7207,6 @@ type AzureResourceErrorInfoResponseInput interface {
 	ToAzureResourceErrorInfoResponseOutputWithContext(context.Context) AzureResourceErrorInfoResponseOutput
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponseArgs struct {
 	// The error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -7392,7 +7294,6 @@ func (i AzureResourceErrorInfoResponseArray) ToAzureResourceErrorInfoResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponseArrayOutput)
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -7506,7 +7407,6 @@ func (o AzureResourceErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) Azur
 	}).(AzureResourceErrorInfoResponseOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContent struct {
 	// The list of partner business identities.
 	BusinessIdentities []BusinessIdentity `pulumi:"businessIdentities"`
@@ -7523,7 +7423,6 @@ type B2BPartnerContentInput interface {
 	ToB2BPartnerContentOutputWithContext(context.Context) B2BPartnerContentOutput
 }
 
-// The B2B partner content.
 type B2BPartnerContentArgs struct {
 	// The list of partner business identities.
 	BusinessIdentities BusinessIdentityArrayInput `pulumi:"businessIdentities"`
@@ -7582,7 +7481,6 @@ func (i *b2bpartnerContentPtrType) ToB2BPartnerContentPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentPtrOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentOutput struct{ *pulumi.OutputState }
 
 func (B2BPartnerContentOutput) ElementType() reflect.Type {
@@ -7646,7 +7544,6 @@ func (o B2BPartnerContentPtrOutput) BusinessIdentities() BusinessIdentityArrayOu
 	}).(BusinessIdentityArrayOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponse struct {
 	// The list of partner business identities.
 	BusinessIdentities []BusinessIdentityResponse `pulumi:"businessIdentities"`
@@ -7663,7 +7560,6 @@ type B2BPartnerContentResponseInput interface {
 	ToB2BPartnerContentResponseOutputWithContext(context.Context) B2BPartnerContentResponseOutput
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponseArgs struct {
 	// The list of partner business identities.
 	BusinessIdentities BusinessIdentityResponseArrayInput `pulumi:"businessIdentities"`
@@ -7722,7 +7618,6 @@ func (i *b2bpartnerContentResponsePtrType) ToB2BPartnerContentResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentResponsePtrOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponseOutput struct{ *pulumi.OutputState }
 
 func (B2BPartnerContentResponseOutput) ElementType() reflect.Type {
@@ -7786,7 +7681,6 @@ func (o B2BPartnerContentResponsePtrOutput) BusinessIdentities() BusinessIdentit
 	}).(BusinessIdentityResponseArrayOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationProperties struct {
 	// The name of the batch group.
 	BatchGroupName string `pulumi:"batchGroupName"`
@@ -7810,7 +7704,6 @@ type BatchConfigurationPropertiesInput interface {
 	ToBatchConfigurationPropertiesOutputWithContext(context.Context) BatchConfigurationPropertiesOutput
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesArgs struct {
 	// The name of the batch group.
 	BatchGroupName pulumi.StringInput `pulumi:"batchGroupName"`
@@ -7876,7 +7769,6 @@ func (i *batchConfigurationPropertiesPtrType) ToBatchConfigurationPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BatchConfigurationPropertiesPtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BatchConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -7998,7 +7890,6 @@ func (o BatchConfigurationPropertiesPtrOutput) ReleaseCriteria() BatchReleaseCri
 	}).(BatchReleaseCriteriaPtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponse struct {
 	// The name of the batch group.
 	BatchGroupName string `pulumi:"batchGroupName"`
@@ -8022,7 +7913,6 @@ type BatchConfigurationPropertiesResponseInput interface {
 	ToBatchConfigurationPropertiesResponseOutputWithContext(context.Context) BatchConfigurationPropertiesResponseOutput
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponseArgs struct {
 	// The name of the batch group.
 	BatchGroupName pulumi.StringInput `pulumi:"batchGroupName"`
@@ -8088,7 +7978,6 @@ func (i *batchConfigurationPropertiesResponsePtrType) ToBatchConfigurationProper
 	return pulumi.ToOutputWithContext(ctx, i).(BatchConfigurationPropertiesResponsePtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8210,7 +8099,6 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) ReleaseCriteria() BatchRe
 	}).(BatchReleaseCriteriaResponsePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteria struct {
 	// The batch size in bytes.
 	BatchSize *int `pulumi:"batchSize"`
@@ -8231,7 +8119,6 @@ type BatchReleaseCriteriaInput interface {
 	ToBatchReleaseCriteriaOutputWithContext(context.Context) BatchReleaseCriteriaOutput
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaArgs struct {
 	// The batch size in bytes.
 	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
@@ -8294,7 +8181,6 @@ func (i *batchReleaseCriteriaPtrType) ToBatchReleaseCriteriaPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BatchReleaseCriteriaPtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BatchReleaseCriteriaOutput) ElementType() reflect.Type {
@@ -8388,7 +8274,6 @@ func (o BatchReleaseCriteriaPtrOutput) Recurrence() WorkflowTriggerRecurrencePtr
 	}).(WorkflowTriggerRecurrencePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponse struct {
 	// The batch size in bytes.
 	BatchSize *int `pulumi:"batchSize"`
@@ -8409,7 +8294,6 @@ type BatchReleaseCriteriaResponseInput interface {
 	ToBatchReleaseCriteriaResponseOutputWithContext(context.Context) BatchReleaseCriteriaResponseOutput
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponseArgs struct {
 	// The batch size in bytes.
 	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
@@ -8472,7 +8356,6 @@ func (i *batchReleaseCriteriaResponsePtrType) ToBatchReleaseCriteriaResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BatchReleaseCriteriaResponsePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchReleaseCriteriaResponseOutput) ElementType() reflect.Type {
@@ -8566,7 +8449,6 @@ func (o BatchReleaseCriteriaResponsePtrOutput) Recurrence() WorkflowTriggerRecur
 	}).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentity struct {
 	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier string `pulumi:"qualifier"`
@@ -8585,7 +8467,6 @@ type BusinessIdentityInput interface {
 	ToBusinessIdentityOutputWithContext(context.Context) BusinessIdentityOutput
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityArgs struct {
 	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier pulumi.StringInput `pulumi:"qualifier"`
@@ -8671,7 +8552,6 @@ func (i BusinessIdentityArray) ToBusinessIdentityArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityArrayOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityOutput struct{ *pulumi.OutputState }
 
 func (BusinessIdentityOutput) ElementType() reflect.Type {
@@ -8770,7 +8650,6 @@ func (o BusinessIdentityArrayOutput) Index(i pulumi.IntInput) BusinessIdentityOu
 	}).(BusinessIdentityOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponse struct {
 	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier string `pulumi:"qualifier"`
@@ -8789,7 +8668,6 @@ type BusinessIdentityResponseInput interface {
 	ToBusinessIdentityResponseOutputWithContext(context.Context) BusinessIdentityResponseOutput
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponseArgs struct {
 	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier pulumi.StringInput `pulumi:"qualifier"`
@@ -8875,7 +8753,6 @@ func (i BusinessIdentityResponseArray) ToBusinessIdentityResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityResponseArrayOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (BusinessIdentityResponseOutput) ElementType() reflect.Type {
@@ -8974,7 +8851,6 @@ func (o BusinessIdentityResponseArrayOutput) Index(i pulumi.IntInput) BusinessId
 	}).(BusinessIdentityResponseOutput)
 }
 
-// The content hash.
 type ContentHash struct {
 	// The algorithm of the content hash.
 	Algorithm *string `pulumi:"algorithm"`
@@ -8993,7 +8869,6 @@ type ContentHashInput interface {
 	ToContentHashOutputWithContext(context.Context) ContentHashOutput
 }
 
-// The content hash.
 type ContentHashArgs struct {
 	// The algorithm of the content hash.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
@@ -9054,7 +8929,6 @@ func (i *contentHashPtrType) ToContentHashPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashPtrOutput)
 }
 
-// The content hash.
 type ContentHashOutput struct{ *pulumi.OutputState }
 
 func (ContentHashOutput) ElementType() reflect.Type {
@@ -9133,7 +9007,6 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content hash.
 type ContentHashResponse struct {
 	// The algorithm of the content hash.
 	Algorithm *string `pulumi:"algorithm"`
@@ -9152,7 +9025,6 @@ type ContentHashResponseInput interface {
 	ToContentHashResponseOutputWithContext(context.Context) ContentHashResponseOutput
 }
 
-// The content hash.
 type ContentHashResponseArgs struct {
 	// The algorithm of the content hash.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
@@ -9213,7 +9085,6 @@ func (i *contentHashResponsePtrType) ToContentHashResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashResponsePtrOutput)
 }
 
-// The content hash.
 type ContentHashResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentHashResponseOutput) ElementType() reflect.Type {
@@ -9292,7 +9163,6 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content link.
 type ContentLink struct {
 	// The content hash.
 	ContentHash *ContentHash `pulumi:"contentHash"`
@@ -9317,7 +9187,6 @@ type ContentLinkInput interface {
 	ToContentLinkOutputWithContext(context.Context) ContentLinkOutput
 }
 
-// The content link.
 type ContentLinkArgs struct {
 	// The content hash.
 	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
@@ -9384,7 +9253,6 @@ func (i *contentLinkPtrType) ToContentLinkPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkPtrOutput)
 }
 
-// The content link.
 type ContentLinkOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkOutput) ElementType() reflect.Type {
@@ -9508,7 +9376,6 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content link.
 type ContentLinkResponse struct {
 	// The content hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
@@ -9533,7 +9400,6 @@ type ContentLinkResponseInput interface {
 	ToContentLinkResponseOutputWithContext(context.Context) ContentLinkResponseOutput
 }
 
-// The content link.
 type ContentLinkResponseArgs struct {
 	// The content hash.
 	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
@@ -9600,7 +9466,6 @@ func (i *contentLinkResponsePtrType) ToContentLinkResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkResponsePtrOutput)
 }
 
-// The content link.
 type ContentLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkResponseOutput) ElementType() reflect.Type {
@@ -9724,7 +9589,6 @@ func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettings struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -9761,7 +9625,6 @@ type EdifactAcknowledgementSettingsInput interface {
 	ToEdifactAcknowledgementSettingsOutputWithContext(context.Context) EdifactAcknowledgementSettingsOutput
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsArgs struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -9840,7 +9703,6 @@ func (i *edifactAcknowledgementSettingsPtrType) ToEdifactAcknowledgementSettings
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactAcknowledgementSettingsOutput) ElementType() reflect.Type {
@@ -10054,7 +9916,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponse struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -10091,7 +9952,6 @@ type EdifactAcknowledgementSettingsResponseInput interface {
 	ToEdifactAcknowledgementSettingsResponseOutputWithContext(context.Context) EdifactAcknowledgementSettingsResponseOutput
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponseArgs struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -10170,7 +10030,6 @@ func (i *edifactAcknowledgementSettingsResponsePtrType) ToEdifactAcknowledgement
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactAcknowledgementSettingsResponseOutput) ElementType() reflect.Type {
@@ -10384,7 +10243,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowle
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContent struct {
 	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreement `pulumi:"receiveAgreement"`
@@ -10403,7 +10261,6 @@ type EdifactAgreementContentInput interface {
 	ToEdifactAgreementContentOutputWithContext(context.Context) EdifactAgreementContentOutput
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentArgs struct {
 	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementInput `pulumi:"receiveAgreement"`
@@ -10464,7 +10321,6 @@ func (i *edifactAgreementContentPtrType) ToEdifactAgreementContentPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentOutput struct{ *pulumi.OutputState }
 
 func (EdifactAgreementContentOutput) ElementType() reflect.Type {
@@ -10543,7 +10399,6 @@ func (o EdifactAgreementContentPtrOutput) SendAgreement() EdifactOneWayAgreement
 	}).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponse struct {
 	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementResponse `pulumi:"receiveAgreement"`
@@ -10562,7 +10417,6 @@ type EdifactAgreementContentResponseInput interface {
 	ToEdifactAgreementContentResponseOutputWithContext(context.Context) EdifactAgreementContentResponseOutput
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponseArgs struct {
 	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementResponseInput `pulumi:"receiveAgreement"`
@@ -10623,7 +10477,6 @@ func (i *edifactAgreementContentResponsePtrType) ToEdifactAgreementContentRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentResponsePtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactAgreementContentResponseOutput) ElementType() reflect.Type {
@@ -10702,7 +10555,6 @@ func (o EdifactAgreementContentResponsePtrOutput) SendAgreement() EdifactOneWayA
 	}).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverride struct {
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
@@ -10741,7 +10593,6 @@ type EdifactDelimiterOverrideInput interface {
 	ToEdifactDelimiterOverrideOutputWithContext(context.Context) EdifactDelimiterOverrideOutput
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideArgs struct {
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
@@ -10806,7 +10657,6 @@ func (i EdifactDelimiterOverrideArray) ToEdifactDelimiterOverrideArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideArrayOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactDelimiterOverrideOutput) ElementType() reflect.Type {
@@ -10901,7 +10751,6 @@ func (o EdifactDelimiterOverrideArrayOutput) Index(i pulumi.IntInput) EdifactDel
 	}).(EdifactDelimiterOverrideOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponse struct {
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
@@ -10940,7 +10789,6 @@ type EdifactDelimiterOverrideResponseInput interface {
 	ToEdifactDelimiterOverrideResponseOutputWithContext(context.Context) EdifactDelimiterOverrideResponseOutput
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponseArgs struct {
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
@@ -11005,7 +10853,6 @@ func (i EdifactDelimiterOverrideResponseArray) ToEdifactDelimiterOverrideRespons
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideResponseArrayOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactDelimiterOverrideResponseOutput) ElementType() reflect.Type {
@@ -11100,7 +10947,6 @@ func (o EdifactDelimiterOverrideResponseArrayOutput) Index(i pulumi.IntInput) Ed
 	}).(EdifactDelimiterOverrideResponseOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverride struct {
 	// The application password.
 	ApplicationPassword *string `pulumi:"applicationPassword"`
@@ -11145,7 +10991,6 @@ type EdifactEnvelopeOverrideInput interface {
 	ToEdifactEnvelopeOverrideOutputWithContext(context.Context) EdifactEnvelopeOverrideOutput
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideArgs struct {
 	// The application password.
 	ApplicationPassword pulumi.StringPtrInput `pulumi:"applicationPassword"`
@@ -11216,7 +11061,6 @@ func (i EdifactEnvelopeOverrideArray) ToEdifactEnvelopeOverrideArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideArrayOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeOverrideOutput) ElementType() reflect.Type {
@@ -11326,7 +11170,6 @@ func (o EdifactEnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) EdifactEnve
 	}).(EdifactEnvelopeOverrideOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponse struct {
 	// The application password.
 	ApplicationPassword *string `pulumi:"applicationPassword"`
@@ -11371,7 +11214,6 @@ type EdifactEnvelopeOverrideResponseInput interface {
 	ToEdifactEnvelopeOverrideResponseOutputWithContext(context.Context) EdifactEnvelopeOverrideResponseOutput
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponseArgs struct {
 	// The application password.
 	ApplicationPassword pulumi.StringPtrInput `pulumi:"applicationPassword"`
@@ -11442,7 +11284,6 @@ func (i EdifactEnvelopeOverrideResponseArray) ToEdifactEnvelopeOverrideResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideResponseArrayOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeOverrideResponseOutput) ElementType() reflect.Type {
@@ -11552,7 +11393,6 @@ func (o EdifactEnvelopeOverrideResponseArrayOutput) Index(i pulumi.IntInput) Edi
 	}).(EdifactEnvelopeOverrideResponseOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettings struct {
 	// The application reference id.
 	ApplicationReferenceId *string `pulumi:"applicationReferenceId"`
@@ -11649,7 +11489,6 @@ type EdifactEnvelopeSettingsInput interface {
 	ToEdifactEnvelopeSettingsOutputWithContext(context.Context) EdifactEnvelopeSettingsOutput
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsArgs struct {
 	// The application reference id.
 	ApplicationReferenceId pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
@@ -11788,7 +11627,6 @@ func (i *edifactEnvelopeSettingsPtrType) ToEdifactEnvelopeSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsPtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -12452,7 +12290,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound(
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponse struct {
 	// The application reference id.
 	ApplicationReferenceId *string `pulumi:"applicationReferenceId"`
@@ -12549,7 +12386,6 @@ type EdifactEnvelopeSettingsResponseInput interface {
 	ToEdifactEnvelopeSettingsResponseOutputWithContext(context.Context) EdifactEnvelopeSettingsResponseOutput
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponseArgs struct {
 	// The application reference id.
 	ApplicationReferenceId pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
@@ -12688,7 +12524,6 @@ func (i *edifactEnvelopeSettingsResponsePtrType) ToEdifactEnvelopeSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -13352,7 +13187,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettings struct {
 	// The character encoding.
 	CharacterEncoding *string `pulumi:"characterEncoding"`
@@ -13389,7 +13223,6 @@ type EdifactFramingSettingsInput interface {
 	ToEdifactFramingSettingsOutputWithContext(context.Context) EdifactFramingSettingsOutput
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsArgs struct {
 	// The character encoding.
 	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
@@ -13468,7 +13301,6 @@ func (i *edifactFramingSettingsPtrType) ToEdifactFramingSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsPtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactFramingSettingsOutput) ElementType() reflect.Type {
@@ -13682,7 +13514,6 @@ func (o EdifactFramingSettingsPtrOutput) ServiceCodeListDirectoryVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponse struct {
 	// The character encoding.
 	CharacterEncoding *string `pulumi:"characterEncoding"`
@@ -13719,7 +13550,6 @@ type EdifactFramingSettingsResponseInput interface {
 	ToEdifactFramingSettingsResponseOutputWithContext(context.Context) EdifactFramingSettingsResponseOutput
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponseArgs struct {
 	// The character encoding.
 	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
@@ -13798,7 +13628,6 @@ func (i *edifactFramingSettingsResponsePtrType) ToEdifactFramingSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactFramingSettingsResponseOutput) ElementType() reflect.Type {
@@ -14012,7 +13841,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) ServiceCodeListDirectoryVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilter struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -14029,7 +13857,6 @@ type EdifactMessageFilterInput interface {
 	ToEdifactMessageFilterOutputWithContext(context.Context) EdifactMessageFilterOutput
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterArgs struct {
 	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
@@ -14088,7 +13915,6 @@ func (i *edifactMessageFilterPtrType) ToEdifactMessageFilterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageFilterOutput) ElementType() reflect.Type {
@@ -14152,7 +13978,6 @@ func (o EdifactMessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponse struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -14169,7 +13994,6 @@ type EdifactMessageFilterResponseInput interface {
 	ToEdifactMessageFilterResponseOutputWithContext(context.Context) EdifactMessageFilterResponseOutput
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponseArgs struct {
 	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
@@ -14228,7 +14052,6 @@ func (i *edifactMessageFilterResponsePtrType) ToEdifactMessageFilterResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterResponsePtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageFilterResponseOutput) ElementType() reflect.Type {
@@ -14292,7 +14115,6 @@ func (o EdifactMessageFilterResponsePtrOutput) MessageFilterType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifier struct {
 	// The message id on which this envelope settings has to be applied.
 	MessageId string `pulumi:"messageId"`
@@ -14309,7 +14131,6 @@ type EdifactMessageIdentifierInput interface {
 	ToEdifactMessageIdentifierOutputWithContext(context.Context) EdifactMessageIdentifierOutput
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierArgs struct {
 	// The message id on which this envelope settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -14352,7 +14173,6 @@ func (i EdifactMessageIdentifierArray) ToEdifactMessageIdentifierArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierArrayOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageIdentifierOutput) ElementType() reflect.Type {
@@ -14392,7 +14212,6 @@ func (o EdifactMessageIdentifierArrayOutput) Index(i pulumi.IntInput) EdifactMes
 	}).(EdifactMessageIdentifierOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponse struct {
 	// The message id on which this envelope settings has to be applied.
 	MessageId string `pulumi:"messageId"`
@@ -14409,7 +14228,6 @@ type EdifactMessageIdentifierResponseInput interface {
 	ToEdifactMessageIdentifierResponseOutputWithContext(context.Context) EdifactMessageIdentifierResponseOutput
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponseArgs struct {
 	// The message id on which this envelope settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -14452,7 +14270,6 @@ func (i EdifactMessageIdentifierResponseArray) ToEdifactMessageIdentifierRespons
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierResponseArrayOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -14492,7 +14309,6 @@ func (o EdifactMessageIdentifierResponseArrayOutput) Index(i pulumi.IntInput) Ed
 	}).(EdifactMessageIdentifierResponseOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreement struct {
 	// The EDIFACT protocol settings.
 	ProtocolSettings EdifactProtocolSettings `pulumi:"protocolSettings"`
@@ -14513,7 +14329,6 @@ type EdifactOneWayAgreementInput interface {
 	ToEdifactOneWayAgreementOutputWithContext(context.Context) EdifactOneWayAgreementOutput
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementArgs struct {
 	// The EDIFACT protocol settings.
 	ProtocolSettings EdifactProtocolSettingsInput `pulumi:"protocolSettings"`
@@ -14576,7 +14391,6 @@ func (i *edifactOneWayAgreementPtrType) ToEdifactOneWayAgreementPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (EdifactOneWayAgreementOutput) ElementType() reflect.Type {
@@ -14670,7 +14484,6 @@ func (o EdifactOneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdenti
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponse struct {
 	// The EDIFACT protocol settings.
 	ProtocolSettings EdifactProtocolSettingsResponse `pulumi:"protocolSettings"`
@@ -14691,7 +14504,6 @@ type EdifactOneWayAgreementResponseInput interface {
 	ToEdifactOneWayAgreementResponseOutputWithContext(context.Context) EdifactOneWayAgreementResponseOutput
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponseArgs struct {
 	// The EDIFACT protocol settings.
 	ProtocolSettings EdifactProtocolSettingsResponseInput `pulumi:"protocolSettings"`
@@ -14754,7 +14566,6 @@ func (i *edifactOneWayAgreementResponsePtrType) ToEdifactOneWayAgreementResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactOneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -14848,7 +14659,6 @@ func (o EdifactOneWayAgreementResponsePtrOutput) SenderBusinessIdentity() Busine
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettings struct {
 	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
@@ -14873,7 +14683,6 @@ type EdifactProcessingSettingsInput interface {
 	ToEdifactProcessingSettingsOutputWithContext(context.Context) EdifactProcessingSettingsOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsArgs struct {
 	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
@@ -14940,7 +14749,6 @@ func (i *edifactProcessingSettingsPtrType) ToEdifactProcessingSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactProcessingSettingsOutput) ElementType() reflect.Type {
@@ -15064,7 +14872,6 @@ func (o EdifactProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponse struct {
 	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
@@ -15089,7 +14896,6 @@ type EdifactProcessingSettingsResponseInput interface {
 	ToEdifactProcessingSettingsResponseOutputWithContext(context.Context) EdifactProcessingSettingsResponseOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponseArgs struct {
 	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
@@ -15156,7 +14962,6 @@ func (i *edifactProcessingSettingsResponsePtrType) ToEdifactProcessingSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactProcessingSettingsResponseOutput) ElementType() reflect.Type {
@@ -15280,7 +15085,6 @@ func (o EdifactProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettings struct {
 	// The EDIFACT acknowledgement settings.
 	AcknowledgementSettings EdifactAcknowledgementSettings `pulumi:"acknowledgementSettings"`
@@ -15317,7 +15121,6 @@ type EdifactProtocolSettingsInput interface {
 	ToEdifactProtocolSettingsOutputWithContext(context.Context) EdifactProtocolSettingsOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsArgs struct {
 	// The EDIFACT acknowledgement settings.
 	AcknowledgementSettings EdifactAcknowledgementSettingsInput `pulumi:"acknowledgementSettings"`
@@ -15396,7 +15199,6 @@ func (i *edifactProtocolSettingsPtrType) ToEdifactProtocolSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactProtocolSettingsOutput) ElementType() reflect.Type {
@@ -15610,7 +15412,6 @@ func (o EdifactProtocolSettingsPtrOutput) ValidationSettings() EdifactValidation
 	}).(EdifactValidationSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponse struct {
 	// The EDIFACT acknowledgement settings.
 	AcknowledgementSettings EdifactAcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
@@ -15647,7 +15448,6 @@ type EdifactProtocolSettingsResponseInput interface {
 	ToEdifactProtocolSettingsResponseOutputWithContext(context.Context) EdifactProtocolSettingsResponseOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponseArgs struct {
 	// The EDIFACT acknowledgement settings.
 	AcknowledgementSettings EdifactAcknowledgementSettingsResponseInput `pulumi:"acknowledgementSettings"`
@@ -15726,7 +15526,6 @@ func (i *edifactProtocolSettingsResponsePtrType) ToEdifactProtocolSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -15946,7 +15745,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ValidationSettings() EdifactVa
 	}).(EdifactValidationSettingsResponsePtrOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReference struct {
 	// The association assigned code.
 	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
@@ -15975,7 +15773,6 @@ type EdifactSchemaReferenceInput interface {
 	ToEdifactSchemaReferenceOutputWithContext(context.Context) EdifactSchemaReferenceOutput
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceArgs struct {
 	// The association assigned code.
 	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
@@ -16030,7 +15827,6 @@ func (i EdifactSchemaReferenceArray) ToEdifactSchemaReferenceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceArrayOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (EdifactSchemaReferenceOutput) ElementType() reflect.Type {
@@ -16100,7 +15896,6 @@ func (o EdifactSchemaReferenceArrayOutput) Index(i pulumi.IntInput) EdifactSchem
 	}).(EdifactSchemaReferenceOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponse struct {
 	// The association assigned code.
 	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
@@ -16129,7 +15924,6 @@ type EdifactSchemaReferenceResponseInput interface {
 	ToEdifactSchemaReferenceResponseOutputWithContext(context.Context) EdifactSchemaReferenceResponseOutput
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponseArgs struct {
 	// The association assigned code.
 	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
@@ -16184,7 +15978,6 @@ func (i EdifactSchemaReferenceResponseArray) ToEdifactSchemaReferenceResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceResponseArrayOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactSchemaReferenceResponseOutput) ElementType() reflect.Type {
@@ -16254,7 +16047,6 @@ func (o EdifactSchemaReferenceResponseArrayOutput) Index(i pulumi.IntInput) Edif
 	}).(EdifactSchemaReferenceResponseOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverride struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16283,7 +16075,6 @@ type EdifactValidationOverrideInput interface {
 	ToEdifactValidationOverrideOutputWithContext(context.Context) EdifactValidationOverrideOutput
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16338,7 +16129,6 @@ func (i EdifactValidationOverrideArray) ToEdifactValidationOverrideArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideArrayOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationOverrideOutput) ElementType() reflect.Type {
@@ -16408,7 +16198,6 @@ func (o EdifactValidationOverrideArrayOutput) Index(i pulumi.IntInput) EdifactVa
 	}).(EdifactValidationOverrideOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16437,7 +16226,6 @@ type EdifactValidationOverrideResponseInput interface {
 	ToEdifactValidationOverrideResponseOutputWithContext(context.Context) EdifactValidationOverrideResponseOutput
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponseArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16492,7 +16280,6 @@ func (i EdifactValidationOverrideResponseArray) ToEdifactValidationOverrideRespo
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideResponseArrayOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationOverrideResponseOutput) ElementType() reflect.Type {
@@ -16562,7 +16349,6 @@ func (o EdifactValidationOverrideResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EdifactValidationOverrideResponseOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettings struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16597,7 +16383,6 @@ type EdifactValidationSettingsInput interface {
 	ToEdifactValidationSettingsOutputWithContext(context.Context) EdifactValidationSettingsOutput
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16674,7 +16459,6 @@ func (i *edifactValidationSettingsPtrType) ToEdifactValidationSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsPtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationSettingsOutput) ElementType() reflect.Type {
@@ -16873,7 +16657,6 @@ func (o EdifactValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16908,7 +16691,6 @@ type EdifactValidationSettingsResponseInput interface {
 	ToEdifactValidationSettingsResponseOutputWithContext(context.Context) EdifactValidationSettingsResponseOutput
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponseArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16985,7 +16767,6 @@ func (i *edifactValidationSettingsResponsePtrType) ToEdifactValidationSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationSettingsResponseOutput) ElementType() reflect.Type {
@@ -17184,7 +16965,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The expression.
 type ExpressionResponse struct {
 	// The azure resource error info.
 	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
@@ -17206,7 +16986,6 @@ type ExpressionResponseInput interface {
 	ToExpressionResponseOutputWithContext(context.Context) ExpressionResponseOutput
 }
 
-// The expression.
 type ExpressionResponseArgs struct {
 	// The azure resource error info.
 	Error AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
@@ -17254,7 +17033,6 @@ func (i ExpressionResponseArray) ToExpressionResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressionResponseArrayOutput)
 }
 
-// The expression.
 type ExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressionResponseOutput) ElementType() reflect.Type {
@@ -17308,7 +17086,6 @@ func (o ExpressionResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRespon
 	}).(ExpressionResponseOutput)
 }
 
-// The expression root.
 type ExpressionRootResponse struct {
 	// The azure resource error info.
 	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
@@ -17332,7 +17109,6 @@ type ExpressionRootResponseInput interface {
 	ToExpressionRootResponseOutputWithContext(context.Context) ExpressionRootResponseOutput
 }
 
-// The expression root.
 type ExpressionRootResponseArgs struct {
 	// The azure resource error info.
 	Error AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
@@ -17382,7 +17158,6 @@ func (i ExpressionRootResponseArray) ToExpressionRootResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressionRootResponseArrayOutput)
 }
 
-// The expression root.
 type ExpressionRootResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressionRootResponseOutput) ElementType() reflect.Type {
@@ -17441,7 +17216,6 @@ func (o ExpressionRootResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRo
 	}).(ExpressionRootResponseOutput)
 }
 
-// The access control configuration.
 type FlowAccessControlConfiguration struct {
 	// The access control configuration for workflow actions.
 	Actions *FlowAccessControlConfigurationPolicy `pulumi:"actions"`
@@ -17464,7 +17238,6 @@ type FlowAccessControlConfigurationInput interface {
 	ToFlowAccessControlConfigurationOutputWithContext(context.Context) FlowAccessControlConfigurationOutput
 }
 
-// The access control configuration.
 type FlowAccessControlConfigurationArgs struct {
 	// The access control configuration for workflow actions.
 	Actions FlowAccessControlConfigurationPolicyPtrInput `pulumi:"actions"`
@@ -17529,7 +17302,6 @@ func (i *flowAccessControlConfigurationPtrType) ToFlowAccessControlConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPtrOutput)
 }
 
-// The access control configuration.
 type FlowAccessControlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FlowAccessControlConfigurationOutput) ElementType() reflect.Type {
@@ -17640,7 +17412,6 @@ func (o FlowAccessControlConfigurationPtrOutput) WorkflowManagement() FlowAccess
 	}).(FlowAccessControlConfigurationPolicyPtrOutput)
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicy struct {
 	// The allowed caller IP address ranges.
 	AllowedCallerIpAddresses []IpAddressRange `pulumi:"allowedCallerIpAddresses"`
@@ -17659,7 +17430,6 @@ type FlowAccessControlConfigurationPolicyInput interface {
 	ToFlowAccessControlConfigurationPolicyOutputWithContext(context.Context) FlowAccessControlConfigurationPolicyOutput
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicyArgs struct {
 	// The allowed caller IP address ranges.
 	AllowedCallerIpAddresses IpAddressRangeArrayInput `pulumi:"allowedCallerIpAddresses"`
@@ -17720,7 +17490,6 @@ func (i *flowAccessControlConfigurationPolicyPtrType) ToFlowAccessControlConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPolicyPtrOutput)
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicyOutput struct{ *pulumi.OutputState }
 
 func (FlowAccessControlConfigurationPolicyOutput) ElementType() reflect.Type {
@@ -17801,7 +17570,6 @@ func (o FlowAccessControlConfigurationPolicyPtrOutput) OpenAuthenticationPolicie
 	}).(OpenAuthenticationAccessPoliciesPtrOutput)
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicyResponse struct {
 	// The allowed caller IP address ranges.
 	AllowedCallerIpAddresses []IpAddressRangeResponse `pulumi:"allowedCallerIpAddresses"`
@@ -17820,7 +17588,6 @@ type FlowAccessControlConfigurationPolicyResponseInput interface {
 	ToFlowAccessControlConfigurationPolicyResponseOutputWithContext(context.Context) FlowAccessControlConfigurationPolicyResponseOutput
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicyResponseArgs struct {
 	// The allowed caller IP address ranges.
 	AllowedCallerIpAddresses IpAddressRangeResponseArrayInput `pulumi:"allowedCallerIpAddresses"`
@@ -17881,7 +17648,6 @@ func (i *flowAccessControlConfigurationPolicyResponsePtrType) ToFlowAccessContro
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPolicyResponsePtrOutput)
 }
 
-// The access control configuration policy.
 type FlowAccessControlConfigurationPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (FlowAccessControlConfigurationPolicyResponseOutput) ElementType() reflect.Type {
@@ -17964,7 +17730,6 @@ func (o FlowAccessControlConfigurationPolicyResponsePtrOutput) OpenAuthenticatio
 	}).(OpenAuthenticationAccessPoliciesResponsePtrOutput)
 }
 
-// The access control configuration.
 type FlowAccessControlConfigurationResponse struct {
 	// The access control configuration for workflow actions.
 	Actions *FlowAccessControlConfigurationPolicyResponse `pulumi:"actions"`
@@ -17987,7 +17752,6 @@ type FlowAccessControlConfigurationResponseInput interface {
 	ToFlowAccessControlConfigurationResponseOutputWithContext(context.Context) FlowAccessControlConfigurationResponseOutput
 }
 
-// The access control configuration.
 type FlowAccessControlConfigurationResponseArgs struct {
 	// The access control configuration for workflow actions.
 	Actions FlowAccessControlConfigurationPolicyResponsePtrInput `pulumi:"actions"`
@@ -18052,7 +17816,6 @@ func (i *flowAccessControlConfigurationResponsePtrType) ToFlowAccessControlConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationResponsePtrOutput)
 }
 
-// The access control configuration.
 type FlowAccessControlConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FlowAccessControlConfigurationResponseOutput) ElementType() reflect.Type {
@@ -18169,7 +17932,6 @@ func (o FlowAccessControlConfigurationResponsePtrOutput) WorkflowManagement() Fl
 	}).(FlowAccessControlConfigurationPolicyResponsePtrOutput)
 }
 
-// The flow endpoints configuration.
 type FlowEndpoints struct {
 	// The access endpoint ip address.
 	AccessEndpointIpAddresses []IpAddress `pulumi:"accessEndpointIpAddresses"`
@@ -18188,7 +17950,6 @@ type FlowEndpointsInput interface {
 	ToFlowEndpointsOutputWithContext(context.Context) FlowEndpointsOutput
 }
 
-// The flow endpoints configuration.
 type FlowEndpointsArgs struct {
 	// The access endpoint ip address.
 	AccessEndpointIpAddresses IpAddressArrayInput `pulumi:"accessEndpointIpAddresses"`
@@ -18249,7 +18010,6 @@ func (i *flowEndpointsPtrType) ToFlowEndpointsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsPtrOutput)
 }
 
-// The flow endpoints configuration.
 type FlowEndpointsOutput struct{ *pulumi.OutputState }
 
 func (FlowEndpointsOutput) ElementType() reflect.Type {
@@ -18328,7 +18088,6 @@ func (o FlowEndpointsPtrOutput) OutgoingIpAddresses() IpAddressArrayOutput {
 	}).(IpAddressArrayOutput)
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfiguration struct {
 	// The connector endpoints.
 	Connector *FlowEndpoints `pulumi:"connector"`
@@ -18347,7 +18106,6 @@ type FlowEndpointsConfigurationInput interface {
 	ToFlowEndpointsConfigurationOutputWithContext(context.Context) FlowEndpointsConfigurationOutput
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfigurationArgs struct {
 	// The connector endpoints.
 	Connector FlowEndpointsPtrInput `pulumi:"connector"`
@@ -18408,7 +18166,6 @@ func (i *flowEndpointsConfigurationPtrType) ToFlowEndpointsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsConfigurationPtrOutput)
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FlowEndpointsConfigurationOutput) ElementType() reflect.Type {
@@ -18487,7 +18244,6 @@ func (o FlowEndpointsConfigurationPtrOutput) Workflow() FlowEndpointsPtrOutput {
 	}).(FlowEndpointsPtrOutput)
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfigurationResponse struct {
 	// The connector endpoints.
 	Connector *FlowEndpointsResponse `pulumi:"connector"`
@@ -18506,7 +18262,6 @@ type FlowEndpointsConfigurationResponseInput interface {
 	ToFlowEndpointsConfigurationResponseOutputWithContext(context.Context) FlowEndpointsConfigurationResponseOutput
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfigurationResponseArgs struct {
 	// The connector endpoints.
 	Connector FlowEndpointsResponsePtrInput `pulumi:"connector"`
@@ -18567,7 +18322,6 @@ func (i *flowEndpointsConfigurationResponsePtrType) ToFlowEndpointsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsConfigurationResponsePtrOutput)
 }
 
-// The endpoints configuration.
 type FlowEndpointsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FlowEndpointsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -18646,7 +18400,6 @@ func (o FlowEndpointsConfigurationResponsePtrOutput) Workflow() FlowEndpointsRes
 	}).(FlowEndpointsResponsePtrOutput)
 }
 
-// The flow endpoints configuration.
 type FlowEndpointsResponse struct {
 	// The access endpoint ip address.
 	AccessEndpointIpAddresses []IpAddressResponse `pulumi:"accessEndpointIpAddresses"`
@@ -18665,7 +18418,6 @@ type FlowEndpointsResponseInput interface {
 	ToFlowEndpointsResponseOutputWithContext(context.Context) FlowEndpointsResponseOutput
 }
 
-// The flow endpoints configuration.
 type FlowEndpointsResponseArgs struct {
 	// The access endpoint ip address.
 	AccessEndpointIpAddresses IpAddressResponseArrayInput `pulumi:"accessEndpointIpAddresses"`
@@ -18726,7 +18478,6 @@ func (i *flowEndpointsResponsePtrType) ToFlowEndpointsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsResponsePtrOutput)
 }
 
-// The flow endpoints configuration.
 type FlowEndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (FlowEndpointsResponseOutput) ElementType() reflect.Type {
@@ -18805,7 +18556,6 @@ func (o FlowEndpointsResponsePtrOutput) OutgoingIpAddresses() IpAddressResponseA
 	}).(IpAddressResponseArrayOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchema struct {
 	// The reference name.
 	Ref *string `pulumi:"ref"`
@@ -18822,7 +18572,6 @@ type IntegrationAccountMapPropertiesParametersSchemaInput interface {
 	ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesParametersSchemaOutput
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchemaArgs struct {
 	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
@@ -18881,7 +18630,6 @@ func (i *integrationAccountMapPropertiesParametersSchemaPtrType) ToIntegrationAc
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapPropertiesParametersSchemaOutput) ElementType() reflect.Type {
@@ -18945,7 +18693,6 @@ func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Ref() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchema struct {
 	// The reference name.
 	Ref *string `pulumi:"ref"`
@@ -18962,7 +18709,6 @@ type IntegrationAccountMapPropertiesResponseParametersSchemaInput interface {
 	ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaOutput
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchemaArgs struct {
 	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
@@ -19021,7 +18767,6 @@ func (i *integrationAccountMapPropertiesResponseParametersSchemaPtrType) ToInteg
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ElementType() reflect.Type {
@@ -19085,7 +18830,6 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Ref() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSku struct {
 	// The sku name.
 	Name string `pulumi:"name"`
@@ -19102,7 +18846,6 @@ type IntegrationAccountSkuInput interface {
 	ToIntegrationAccountSkuOutputWithContext(context.Context) IntegrationAccountSkuOutput
 }
 
-// The integration account sku.
 type IntegrationAccountSkuArgs struct {
 	// The sku name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -19161,7 +18904,6 @@ func (i *integrationAccountSkuPtrType) ToIntegrationAccountSkuPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSkuPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSkuOutput) ElementType() reflect.Type {
@@ -19225,7 +18967,6 @@ func (o IntegrationAccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponse struct {
 	// The sku name.
 	Name string `pulumi:"name"`
@@ -19242,7 +18983,6 @@ type IntegrationAccountSkuResponseInput interface {
 	ToIntegrationAccountSkuResponseOutputWithContext(context.Context) IntegrationAccountSkuResponseOutput
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponseArgs struct {
 	// The sku name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -19301,7 +19041,6 @@ func (i *integrationAccountSkuResponsePtrType) ToIntegrationAccountSkuResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSkuResponsePtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSkuResponseOutput) ElementType() reflect.Type {
@@ -19365,7 +19104,6 @@ func (o IntegrationAccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfiguration struct {
 	// The encryption key reference.
 	EncryptionKeyReference *IntegrationServiceEnvironmenEncryptionKeyReference `pulumi:"encryptionKeyReference"`
@@ -19382,7 +19120,6 @@ type IntegrationServiceEnvironmenEncryptionConfigurationInput interface {
 	ToIntegrationServiceEnvironmenEncryptionConfigurationOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationOutput
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfigurationArgs struct {
 	// The encryption key reference.
 	EncryptionKeyReference IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput `pulumi:"encryptionKeyReference"`
@@ -19441,7 +19178,6 @@ func (i *integrationServiceEnvironmenEncryptionConfigurationPtrType) ToIntegrati
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput)
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmenEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -19507,7 +19243,6 @@ func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) Encryption
 	}).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfigurationResponse struct {
 	// The encryption key reference.
 	EncryptionKeyReference *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse `pulumi:"encryptionKeyReference"`
@@ -19524,7 +19259,6 @@ type IntegrationServiceEnvironmenEncryptionConfigurationResponseInput interface 
 	ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs struct {
 	// The encryption key reference.
 	EncryptionKeyReference IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput `pulumi:"encryptionKeyReference"`
@@ -19583,7 +19317,6 @@ func (i *integrationServiceEnvironmenEncryptionConfigurationResponsePtrType) ToI
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput)
 }
 
-// The encryption configuration for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ElementType() reflect.Type {
@@ -19649,7 +19382,6 @@ func (o IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) En
 	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReference struct {
 	// Gets the key name in the Key Vault.
 	KeyName *string `pulumi:"keyName"`
@@ -19670,7 +19402,6 @@ type IntegrationServiceEnvironmenEncryptionKeyReferenceInput interface {
 	ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceOutput
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReferenceArgs struct {
 	// Gets the key name in the Key Vault.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
@@ -19733,7 +19464,6 @@ func (i *integrationServiceEnvironmenEncryptionKeyReferencePtrType) ToIntegratio
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ElementType() reflect.Type {
@@ -19827,7 +19557,6 @@ func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyVersion(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReferenceResponse struct {
 	// Gets the key name in the Key Vault.
 	KeyName *string `pulumi:"keyName"`
@@ -19848,7 +19577,6 @@ type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseInput interface {
 	ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs struct {
 	// Gets the key name in the Key Vault.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
@@ -19911,7 +19639,6 @@ func (i *integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType) ToIn
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
 }
 
-// The encryption key details for the integration service environment.
 type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -20007,7 +19734,6 @@ func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) Key
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentType struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
@@ -20030,7 +19756,6 @@ type IntegrationServiceEnvironmentTypeInput interface {
 	ToIntegrationServiceEnvironmentTypeOutputWithContext(context.Context) IntegrationServiceEnvironmentTypeOutput
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentTypeArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -20095,7 +19820,6 @@ func (i *integrationServiceEnvironmentTypePtrType) ToIntegrationServiceEnvironme
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentTypePtrOutput)
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentTypeOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentTypeOutput) ElementType() reflect.Type {
@@ -20206,7 +19930,6 @@ func (o IntegrationServiceEnvironmentTypePtrOutput) Tags() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpoint struct {
 	// The access endpoint type.
 	Type *string `pulumi:"type"`
@@ -20223,7 +19946,6 @@ type IntegrationServiceEnvironmentAccessEndpointInput interface {
 	ToIntegrationServiceEnvironmentAccessEndpointOutputWithContext(context.Context) IntegrationServiceEnvironmentAccessEndpointOutput
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointArgs struct {
 	// The access endpoint type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -20282,7 +20004,6 @@ func (i *integrationServiceEnvironmentAccessEndpointPtrType) ToIntegrationServic
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentAccessEndpointPtrOutput)
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentAccessEndpointOutput) ElementType() reflect.Type {
@@ -20346,7 +20067,6 @@ func (o IntegrationServiceEnvironmentAccessEndpointPtrOutput) Type() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointResponse struct {
 	// The access endpoint type.
 	Type *string `pulumi:"type"`
@@ -20363,7 +20083,6 @@ type IntegrationServiceEnvironmentAccessEndpointResponseInput interface {
 	ToIntegrationServiceEnvironmentAccessEndpointResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentAccessEndpointResponseOutput
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointResponseArgs struct {
 	// The access endpoint type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -20422,7 +20141,6 @@ func (i *integrationServiceEnvironmentAccessEndpointResponsePtrType) ToIntegrati
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput)
 }
 
-// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentAccessEndpointResponseOutput) ElementType() reflect.Type {
@@ -20486,7 +20204,6 @@ func (o IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput) Type() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentProperties struct {
 	// The encryption configuration.
 	EncryptionConfiguration *IntegrationServiceEnvironmenEncryptionConfiguration `pulumi:"encryptionConfiguration"`
@@ -20513,7 +20230,6 @@ type IntegrationServiceEnvironmentPropertiesInput interface {
 	ToIntegrationServiceEnvironmentPropertiesOutputWithContext(context.Context) IntegrationServiceEnvironmentPropertiesOutput
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesArgs struct {
 	// The encryption configuration.
 	EncryptionConfiguration IntegrationServiceEnvironmenEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
@@ -20582,7 +20298,6 @@ func (i *integrationServiceEnvironmentPropertiesPtrType) ToIntegrationServiceEnv
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentPropertiesPtrOutput)
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentPropertiesOutput) ElementType() reflect.Type {
@@ -20725,7 +20440,6 @@ func (o IntegrationServiceEnvironmentPropertiesPtrOutput) State() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesResponse struct {
 	// The encryption configuration.
 	EncryptionConfiguration *IntegrationServiceEnvironmenEncryptionConfigurationResponse `pulumi:"encryptionConfiguration"`
@@ -20752,7 +20466,6 @@ type IntegrationServiceEnvironmentPropertiesResponseInput interface {
 	ToIntegrationServiceEnvironmentPropertiesResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentPropertiesResponseOutput
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesResponseArgs struct {
 	// The encryption configuration.
 	EncryptionConfiguration IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput `pulumi:"encryptionConfiguration"`
@@ -20821,7 +20534,6 @@ func (i *integrationServiceEnvironmentPropertiesResponsePtrType) ToIntegrationSe
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentPropertiesResponsePtrOutput)
 }
 
-// The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -20968,7 +20680,6 @@ func (o IntegrationServiceEnvironmentPropertiesResponsePtrOutput) State() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentResponse struct {
 	// The resource id.
 	Id string `pulumi:"id"`
@@ -20997,7 +20708,6 @@ type IntegrationServiceEnvironmentResponseInput interface {
 	ToIntegrationServiceEnvironmentResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentResponseOutput
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentResponseArgs struct {
 	// The resource id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -21068,7 +20778,6 @@ func (i *integrationServiceEnvironmentResponsePtrType) ToIntegrationServiceEnvir
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentResponsePtrOutput)
 }
 
-// The integration service environment.
 type IntegrationServiceEnvironmentResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentResponseOutput) ElementType() reflect.Type {
@@ -21224,7 +20933,6 @@ func (o IntegrationServiceEnvironmentResponsePtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSku struct {
 	// The sku capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -21243,7 +20951,6 @@ type IntegrationServiceEnvironmentSkuInput interface {
 	ToIntegrationServiceEnvironmentSkuOutputWithContext(context.Context) IntegrationServiceEnvironmentSkuOutput
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuArgs struct {
 	// The sku capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -21304,7 +21011,6 @@ func (i *integrationServiceEnvironmentSkuPtrType) ToIntegrationServiceEnvironmen
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentSkuPtrOutput)
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentSkuOutput) ElementType() reflect.Type {
@@ -21383,7 +21089,6 @@ func (o IntegrationServiceEnvironmentSkuPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuResponse struct {
 	// The sku capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -21402,7 +21107,6 @@ type IntegrationServiceEnvironmentSkuResponseInput interface {
 	ToIntegrationServiceEnvironmentSkuResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentSkuResponseOutput
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuResponseArgs struct {
 	// The sku capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -21463,7 +21167,6 @@ func (i *integrationServiceEnvironmentSkuResponsePtrType) ToIntegrationServiceEn
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
 }
 
-// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentSkuResponseOutput) ElementType() reflect.Type {
@@ -21542,7 +21245,6 @@ func (o IntegrationServiceEnvironmentSkuResponsePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ip address.
 type IpAddress struct {
 	// The address.
 	Address *string `pulumi:"address"`
@@ -21559,7 +21261,6 @@ type IpAddressInput interface {
 	ToIpAddressOutputWithContext(context.Context) IpAddressOutput
 }
 
-// The ip address.
 type IpAddressArgs struct {
 	// The address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
@@ -21602,7 +21303,6 @@ func (i IpAddressArray) ToIpAddressArrayOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressArrayOutput)
 }
 
-// The ip address.
 type IpAddressOutput struct{ *pulumi.OutputState }
 
 func (IpAddressOutput) ElementType() reflect.Type {
@@ -21642,7 +21342,6 @@ func (o IpAddressArrayOutput) Index(i pulumi.IntInput) IpAddressOutput {
 	}).(IpAddressOutput)
 }
 
-// The ip address range.
 type IpAddressRange struct {
 	// The IP address range.
 	AddressRange *string `pulumi:"addressRange"`
@@ -21659,7 +21358,6 @@ type IpAddressRangeInput interface {
 	ToIpAddressRangeOutputWithContext(context.Context) IpAddressRangeOutput
 }
 
-// The ip address range.
 type IpAddressRangeArgs struct {
 	// The IP address range.
 	AddressRange pulumi.StringPtrInput `pulumi:"addressRange"`
@@ -21702,7 +21400,6 @@ func (i IpAddressRangeArray) ToIpAddressRangeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressRangeArrayOutput)
 }
 
-// The ip address range.
 type IpAddressRangeOutput struct{ *pulumi.OutputState }
 
 func (IpAddressRangeOutput) ElementType() reflect.Type {
@@ -21742,7 +21439,6 @@ func (o IpAddressRangeArrayOutput) Index(i pulumi.IntInput) IpAddressRangeOutput
 	}).(IpAddressRangeOutput)
 }
 
-// The ip address range.
 type IpAddressRangeResponse struct {
 	// The IP address range.
 	AddressRange *string `pulumi:"addressRange"`
@@ -21759,7 +21455,6 @@ type IpAddressRangeResponseInput interface {
 	ToIpAddressRangeResponseOutputWithContext(context.Context) IpAddressRangeResponseOutput
 }
 
-// The ip address range.
 type IpAddressRangeResponseArgs struct {
 	// The IP address range.
 	AddressRange pulumi.StringPtrInput `pulumi:"addressRange"`
@@ -21802,7 +21497,6 @@ func (i IpAddressRangeResponseArray) ToIpAddressRangeResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressRangeResponseArrayOutput)
 }
 
-// The ip address range.
 type IpAddressRangeResponseOutput struct{ *pulumi.OutputState }
 
 func (IpAddressRangeResponseOutput) ElementType() reflect.Type {
@@ -21842,7 +21536,6 @@ func (o IpAddressRangeResponseArrayOutput) Index(i pulumi.IntInput) IpAddressRan
 	}).(IpAddressRangeResponseOutput)
 }
 
-// The ip address.
 type IpAddressResponse struct {
 	// The address.
 	Address *string `pulumi:"address"`
@@ -21859,7 +21552,6 @@ type IpAddressResponseInput interface {
 	ToIpAddressResponseOutputWithContext(context.Context) IpAddressResponseOutput
 }
 
-// The ip address.
 type IpAddressResponseArgs struct {
 	// The address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
@@ -21902,7 +21594,6 @@ func (i IpAddressResponseArray) ToIpAddressResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IpAddressResponseArrayOutput)
 }
 
-// The ip address.
 type IpAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (IpAddressResponseOutput) ElementType() reflect.Type {
@@ -21942,7 +21633,6 @@ func (o IpAddressResponseArrayOutput) Index(i pulumi.IntInput) IpAddressResponse
 	}).(IpAddressResponseOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReference struct {
 	// The private key name in key vault.
 	KeyName string `pulumi:"keyName"`
@@ -21963,7 +21653,6 @@ type KeyVaultKeyReferenceInput interface {
 	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceArgs struct {
 	// The private key name in key vault.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
@@ -22026,7 +21715,6 @@ func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
@@ -22120,7 +21808,6 @@ func (o KeyVaultKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVault struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -22137,7 +21824,6 @@ type KeyVaultKeyReferenceKeyVaultInput interface {
 	ToKeyVaultKeyReferenceKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceKeyVaultOutput
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVaultArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -22196,7 +21882,6 @@ func (i *keyVaultKeyReferenceKeyVaultPtrType) ToKeyVaultKeyReferenceKeyVaultPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceKeyVaultOutput) ElementType() reflect.Type {
@@ -22260,7 +21945,6 @@ func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponse struct {
 	// The private key name in key vault.
 	KeyName string `pulumi:"keyName"`
@@ -22281,7 +21965,6 @@ type KeyVaultKeyReferenceResponseInput interface {
 	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponseArgs struct {
 	// The private key name in key vault.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
@@ -22344,7 +22027,6 @@ func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -22438,7 +22120,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVault struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -22459,7 +22140,6 @@ type KeyVaultKeyReferenceResponseKeyVaultInput interface {
 	ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseKeyVaultOutput
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVaultArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -22522,7 +22202,6 @@ func (i *keyVaultKeyReferenceResponseKeyVaultPtrType) ToKeyVaultKeyReferenceResp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseKeyVaultOutput) ElementType() reflect.Type {
@@ -22616,7 +22295,6 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault key.
 type KeyVaultKeyResponse struct {
 	// The key attributes.
 	Attributes *KeyVaultKeyResponseAttributes `pulumi:"attributes"`
@@ -22635,7 +22313,6 @@ type KeyVaultKeyResponseInput interface {
 	ToKeyVaultKeyResponseOutputWithContext(context.Context) KeyVaultKeyResponseOutput
 }
 
-// The key vault key.
 type KeyVaultKeyResponseArgs struct {
 	// The key attributes.
 	Attributes KeyVaultKeyResponseAttributesPtrInput `pulumi:"attributes"`
@@ -22680,7 +22357,6 @@ func (i KeyVaultKeyResponseArray) ToKeyVaultKeyResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseArrayOutput)
 }
 
-// The key vault key.
 type KeyVaultKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyResponseOutput) ElementType() reflect.Type {
@@ -22725,7 +22401,6 @@ func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResp
 	}).(KeyVaultKeyResponseOutput)
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributes struct {
 	// When the key was created.
 	Created *float64 `pulumi:"created"`
@@ -22746,7 +22421,6 @@ type KeyVaultKeyResponseAttributesInput interface {
 	ToKeyVaultKeyResponseAttributesOutputWithContext(context.Context) KeyVaultKeyResponseAttributesOutput
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributesArgs struct {
 	// When the key was created.
 	Created pulumi.Float64PtrInput `pulumi:"created"`
@@ -22809,7 +22483,6 @@ func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPt
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyResponseAttributesOutput) ElementType() reflect.Type {
@@ -22903,7 +22576,6 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultReference struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -22922,7 +22594,6 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// The key vault reference.
 type KeyVaultReferenceArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -22942,7 +22613,6 @@ func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
 }
 
-// The key vault reference.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -22967,7 +22637,6 @@ func (o KeyVaultReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The network configuration.
 type NetworkConfiguration struct {
 	// The access endpoint.
 	AccessEndpoint *IntegrationServiceEnvironmentAccessEndpoint `pulumi:"accessEndpoint"`
@@ -22988,7 +22657,6 @@ type NetworkConfigurationInput interface {
 	ToNetworkConfigurationOutputWithContext(context.Context) NetworkConfigurationOutput
 }
 
-// The network configuration.
 type NetworkConfigurationArgs struct {
 	// The access endpoint.
 	AccessEndpoint IntegrationServiceEnvironmentAccessEndpointPtrInput `pulumi:"accessEndpoint"`
@@ -23051,7 +22719,6 @@ func (i *networkConfigurationPtrType) ToNetworkConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationPtrOutput)
 }
 
-// The network configuration.
 type NetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkConfigurationOutput) ElementType() reflect.Type {
@@ -23145,7 +22812,6 @@ func (o NetworkConfigurationPtrOutput) VirtualNetworkAddressSpace() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network configuration.
 type NetworkConfigurationResponse struct {
 	// The access endpoint.
 	AccessEndpoint *IntegrationServiceEnvironmentAccessEndpointResponse `pulumi:"accessEndpoint"`
@@ -23166,7 +22832,6 @@ type NetworkConfigurationResponseInput interface {
 	ToNetworkConfigurationResponseOutputWithContext(context.Context) NetworkConfigurationResponseOutput
 }
 
-// The network configuration.
 type NetworkConfigurationResponseArgs struct {
 	// The access endpoint.
 	AccessEndpoint IntegrationServiceEnvironmentAccessEndpointResponsePtrInput `pulumi:"accessEndpoint"`
@@ -23229,7 +22894,6 @@ func (i *networkConfigurationResponsePtrType) ToNetworkConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationResponsePtrOutput)
 }
 
-// The network configuration.
 type NetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -23325,7 +22989,6 @@ func (o NetworkConfigurationResponsePtrOutput) VirtualNetworkAddressSpace() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPolicies struct {
 	// Open authentication policies.
 	Policies map[string]OpenAuthenticationAccessPolicy `pulumi:"policies"`
@@ -23342,7 +23005,6 @@ type OpenAuthenticationAccessPoliciesInput interface {
 	ToOpenAuthenticationAccessPoliciesOutputWithContext(context.Context) OpenAuthenticationAccessPoliciesOutput
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesArgs struct {
 	// Open authentication policies.
 	Policies OpenAuthenticationAccessPolicyMapInput `pulumi:"policies"`
@@ -23401,7 +23063,6 @@ func (i *openAuthenticationAccessPoliciesPtrType) ToOpenAuthenticationAccessPoli
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPoliciesPtrOutput)
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationAccessPoliciesOutput) ElementType() reflect.Type {
@@ -23465,7 +23126,6 @@ func (o OpenAuthenticationAccessPoliciesPtrOutput) Policies() OpenAuthentication
 	}).(OpenAuthenticationAccessPolicyMapOutput)
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesResponse struct {
 	// Open authentication policies.
 	Policies map[string]OpenAuthenticationAccessPolicyResponse `pulumi:"policies"`
@@ -23482,7 +23142,6 @@ type OpenAuthenticationAccessPoliciesResponseInput interface {
 	ToOpenAuthenticationAccessPoliciesResponseOutputWithContext(context.Context) OpenAuthenticationAccessPoliciesResponseOutput
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesResponseArgs struct {
 	// Open authentication policies.
 	Policies OpenAuthenticationAccessPolicyResponseMapInput `pulumi:"policies"`
@@ -23541,7 +23200,6 @@ func (i *openAuthenticationAccessPoliciesResponsePtrType) ToOpenAuthenticationAc
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPoliciesResponsePtrOutput)
 }
 
-// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationAccessPoliciesResponseOutput) ElementType() reflect.Type {
@@ -23607,7 +23265,6 @@ func (o OpenAuthenticationAccessPoliciesResponsePtrOutput) Policies() OpenAuthen
 	}).(OpenAuthenticationAccessPolicyResponseMapOutput)
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicy struct {
 	// The access policy claims.
 	Claims []OpenAuthenticationPolicyClaim `pulumi:"claims"`
@@ -23624,7 +23281,6 @@ type OpenAuthenticationAccessPolicyInput interface {
 	ToOpenAuthenticationAccessPolicyOutputWithContext(context.Context) OpenAuthenticationAccessPolicyOutput
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyArgs struct {
 	// The access policy claims.
 	Claims OpenAuthenticationPolicyClaimArrayInput `pulumi:"claims"`
@@ -23667,7 +23323,6 @@ func (i OpenAuthenticationAccessPolicyMap) ToOpenAuthenticationAccessPolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPolicyMapOutput)
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationAccessPolicyOutput) ElementType() reflect.Type {
@@ -23707,7 +23362,6 @@ func (o OpenAuthenticationAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) 
 	}).(OpenAuthenticationAccessPolicyOutput)
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyResponse struct {
 	// The access policy claims.
 	Claims []OpenAuthenticationPolicyClaimResponse `pulumi:"claims"`
@@ -23726,7 +23380,6 @@ type OpenAuthenticationAccessPolicyResponseInput interface {
 	ToOpenAuthenticationAccessPolicyResponseOutputWithContext(context.Context) OpenAuthenticationAccessPolicyResponseOutput
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyResponseArgs struct {
 	// The access policy claims.
 	Claims OpenAuthenticationPolicyClaimResponseArrayInput `pulumi:"claims"`
@@ -23771,7 +23424,6 @@ func (i OpenAuthenticationAccessPolicyResponseMap) ToOpenAuthenticationAccessPol
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPolicyResponseMapOutput)
 }
 
-// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationAccessPolicyResponseOutput) ElementType() reflect.Type {
@@ -23818,7 +23470,6 @@ func (o OpenAuthenticationAccessPolicyResponseMapOutput) MapIndex(k pulumi.Strin
 	}).(OpenAuthenticationAccessPolicyResponseOutput)
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaim struct {
 	// The name of the claim.
 	Name *string `pulumi:"name"`
@@ -23837,7 +23488,6 @@ type OpenAuthenticationPolicyClaimInput interface {
 	ToOpenAuthenticationPolicyClaimOutputWithContext(context.Context) OpenAuthenticationPolicyClaimOutput
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaimArgs struct {
 	// The name of the claim.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -23882,7 +23532,6 @@ func (i OpenAuthenticationPolicyClaimArray) ToOpenAuthenticationPolicyClaimArray
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationPolicyClaimArrayOutput)
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaimOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationPolicyClaimOutput) ElementType() reflect.Type {
@@ -23927,7 +23576,6 @@ func (o OpenAuthenticationPolicyClaimArrayOutput) Index(i pulumi.IntInput) OpenA
 	}).(OpenAuthenticationPolicyClaimOutput)
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaimResponse struct {
 	// The name of the claim.
 	Name *string `pulumi:"name"`
@@ -23946,7 +23594,6 @@ type OpenAuthenticationPolicyClaimResponseInput interface {
 	ToOpenAuthenticationPolicyClaimResponseOutputWithContext(context.Context) OpenAuthenticationPolicyClaimResponseOutput
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaimResponseArgs struct {
 	// The name of the claim.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -23991,7 +23638,6 @@ func (i OpenAuthenticationPolicyClaimResponseArray) ToOpenAuthenticationPolicyCl
 	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationPolicyClaimResponseArrayOutput)
 }
 
-// Open authentication policy claim.
 type OpenAuthenticationPolicyClaimResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationPolicyClaimResponseOutput) ElementType() reflect.Type {
@@ -24036,7 +23682,6 @@ func (o OpenAuthenticationPolicyClaimResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(OpenAuthenticationPolicyClaimResponseOutput)
 }
 
-// The integration account partner content.
 type PartnerContent struct {
 	// The B2B partner content.
 	B2b *B2BPartnerContent `pulumi:"b2b"`
@@ -24053,7 +23698,6 @@ type PartnerContentInput interface {
 	ToPartnerContentOutputWithContext(context.Context) PartnerContentOutput
 }
 
-// The integration account partner content.
 type PartnerContentArgs struct {
 	// The B2B partner content.
 	B2b B2BPartnerContentPtrInput `pulumi:"b2b"`
@@ -24112,7 +23756,6 @@ func (i *partnerContentPtrType) ToPartnerContentPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerContentPtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentOutput struct{ *pulumi.OutputState }
 
 func (PartnerContentOutput) ElementType() reflect.Type {
@@ -24176,7 +23819,6 @@ func (o PartnerContentPtrOutput) B2b() B2BPartnerContentPtrOutput {
 	}).(B2BPartnerContentPtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentResponse struct {
 	// The B2B partner content.
 	B2b *B2BPartnerContentResponse `pulumi:"b2b"`
@@ -24193,7 +23835,6 @@ type PartnerContentResponseInput interface {
 	ToPartnerContentResponseOutputWithContext(context.Context) PartnerContentResponseOutput
 }
 
-// The integration account partner content.
 type PartnerContentResponseArgs struct {
 	// The B2B partner content.
 	B2b B2BPartnerContentResponsePtrInput `pulumi:"b2b"`
@@ -24252,7 +23893,6 @@ func (i *partnerContentResponsePtrType) ToPartnerContentResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerContentResponsePtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentResponseOutput struct{ *pulumi.OutputState }
 
 func (PartnerContentResponseOutput) ElementType() reflect.Type {
@@ -24316,7 +23956,6 @@ func (o PartnerContentResponsePtrOutput) B2b() B2BPartnerContentResponsePtrOutpu
 	}).(B2BPartnerContentResponsePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceSchedule struct {
 	// The hours.
 	Hours []int `pulumi:"hours"`
@@ -24341,7 +23980,6 @@ type RecurrenceScheduleInput interface {
 	ToRecurrenceScheduleOutputWithContext(context.Context) RecurrenceScheduleOutput
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleArgs struct {
 	// The hours.
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
@@ -24408,7 +24046,6 @@ func (i *recurrenceSchedulePtrType) ToRecurrenceSchedulePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceSchedulePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -24532,7 +24169,6 @@ func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
 	}).(DaysOfWeekArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
 	Day *DayOfWeek `pulumi:"day"`
@@ -24551,7 +24187,6 @@ type RecurrenceScheduleOccurrenceInput interface {
 	ToRecurrenceScheduleOccurrenceOutputWithContext(context.Context) RecurrenceScheduleOccurrenceOutput
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
 	Day DayOfWeekPtrInput `pulumi:"day"`
@@ -24596,7 +24231,6 @@ func (i RecurrenceScheduleOccurrenceArray) ToRecurrenceScheduleOccurrenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOccurrenceOutput) ElementType() reflect.Type {
@@ -24641,7 +24275,6 @@ func (o RecurrenceScheduleOccurrenceArrayOutput) Index(i pulumi.IntInput) Recurr
 	}).(RecurrenceScheduleOccurrenceOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponse struct {
 	// The day of the week.
 	Day *string `pulumi:"day"`
@@ -24660,7 +24293,6 @@ type RecurrenceScheduleOccurrenceResponseInput interface {
 	ToRecurrenceScheduleOccurrenceResponseOutputWithContext(context.Context) RecurrenceScheduleOccurrenceResponseOutput
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponseArgs struct {
 	// The day of the week.
 	Day pulumi.StringPtrInput `pulumi:"day"`
@@ -24705,7 +24337,6 @@ func (i RecurrenceScheduleOccurrenceResponseArray) ToRecurrenceScheduleOccurrenc
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceResponseArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOccurrenceResponseOutput) ElementType() reflect.Type {
@@ -24750,7 +24381,6 @@ func (o RecurrenceScheduleOccurrenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(RecurrenceScheduleOccurrenceResponseOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponse struct {
 	// The hours.
 	Hours []int `pulumi:"hours"`
@@ -24775,7 +24405,6 @@ type RecurrenceScheduleResponseInput interface {
 	ToRecurrenceScheduleResponseOutputWithContext(context.Context) RecurrenceScheduleResponseOutput
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponseArgs struct {
 	// The hours.
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
@@ -24842,7 +24471,6 @@ func (i *recurrenceScheduleResponsePtrType) ToRecurrenceScheduleResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleResponsePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleResponseOutput) ElementType() reflect.Type {
@@ -24966,7 +24594,6 @@ func (o RecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource reference.
 type ResourceReference struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -24983,7 +24610,6 @@ type ResourceReferenceInput interface {
 	ToResourceReferenceOutputWithContext(context.Context) ResourceReferenceOutput
 }
 
-// The resource reference.
 type ResourceReferenceArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -25067,7 +24693,6 @@ func (i ResourceReferenceArray) ToResourceReferenceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceArrayOutput)
 }
 
-// The resource reference.
 type ResourceReferenceOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceOutput) ElementType() reflect.Type {
@@ -25151,7 +24776,6 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 	}).(ResourceReferenceOutput)
 }
 
-// The resource reference.
 type ResourceReferenceResponse struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -25172,7 +24796,6 @@ type ResourceReferenceResponseInput interface {
 	ToResourceReferenceResponseOutputWithContext(context.Context) ResourceReferenceResponseOutput
 }
 
-// The resource reference.
 type ResourceReferenceResponseArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -25260,7 +24883,6 @@ func (i ResourceReferenceResponseArray) ToResourceReferenceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceResponseArrayOutput)
 }
 
-// The resource reference.
 type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
@@ -25374,7 +24996,6 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettings struct {
 	// The non-repudiation is required or not.
 	IsNonRepudiationRequired bool `pulumi:"isNonRepudiationRequired"`
@@ -25393,7 +25014,6 @@ type RosettaNetPipAcknowledgmentOfReceiptSettingsInput interface {
 	ToRosettaNetPipAcknowledgmentOfReceiptSettingsOutputWithContext(context.Context) RosettaNetPipAcknowledgmentOfReceiptSettingsOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettingsArgs struct {
 	// The non-repudiation is required or not.
 	IsNonRepudiationRequired pulumi.BoolInput `pulumi:"isNonRepudiationRequired"`
@@ -25454,7 +25074,6 @@ func (i *rosettaNetPipAcknowledgmentOfReceiptSettingsPtrType) ToRosettaNetPipAck
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipAcknowledgmentOfReceiptSettingsPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettingsOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipAcknowledgmentOfReceiptSettingsOutput) ElementType() reflect.Type {
@@ -25533,7 +25152,6 @@ func (o RosettaNetPipAcknowledgmentOfReceiptSettingsPtrOutput) TimeToAcknowledge
 	}).(pulumi.IntPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettingsResponse struct {
 	// The non-repudiation is required or not.
 	IsNonRepudiationRequired bool `pulumi:"isNonRepudiationRequired"`
@@ -25552,7 +25170,6 @@ type RosettaNetPipAcknowledgmentOfReceiptSettingsResponseInput interface {
 	ToRosettaNetPipAcknowledgmentOfReceiptSettingsResponseOutputWithContext(context.Context) RosettaNetPipAcknowledgmentOfReceiptSettingsResponseOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettingsResponseArgs struct {
 	// The non-repudiation is required or not.
 	IsNonRepudiationRequired pulumi.BoolInput `pulumi:"isNonRepudiationRequired"`
@@ -25613,7 +25230,6 @@ func (i *rosettaNetPipAcknowledgmentOfReceiptSettingsResponsePtrType) ToRosettaN
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipAcknowledgmentOfReceiptSettingsResponsePtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
 type RosettaNetPipAcknowledgmentOfReceiptSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipAcknowledgmentOfReceiptSettingsResponseOutput) ElementType() reflect.Type {
@@ -25692,7 +25308,6 @@ func (o RosettaNetPipAcknowledgmentOfReceiptSettingsResponsePtrOutput) TimeToAck
 	}).(pulumi.IntPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehavior struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
 	ActionType RosettaNetActionType `pulumi:"actionType"`
@@ -25723,7 +25338,6 @@ type RosettaNetPipActivityBehaviorInput interface {
 	ToRosettaNetPipActivityBehaviorOutputWithContext(context.Context) RosettaNetPipActivityBehaviorOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
 	ActionType RosettaNetActionTypeInput `pulumi:"actionType"`
@@ -25796,7 +25410,6 @@ func (i *rosettaNetPipActivityBehaviorPtrType) ToRosettaNetPipActivityBehaviorPt
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipActivityBehaviorPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipActivityBehaviorOutput) ElementType() reflect.Type {
@@ -25967,7 +25580,6 @@ func (o RosettaNetPipActivityBehaviorPtrOutput) TimeToPerformInSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorResponse struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
 	ActionType string `pulumi:"actionType"`
@@ -25998,7 +25610,6 @@ type RosettaNetPipActivityBehaviorResponseInput interface {
 	ToRosettaNetPipActivityBehaviorResponseOutputWithContext(context.Context) RosettaNetPipActivityBehaviorResponseOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorResponseArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
@@ -26071,7 +25682,6 @@ func (i *rosettaNetPipActivityBehaviorResponsePtrType) ToRosettaNetPipActivityBe
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipActivityBehaviorResponsePtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorResponseOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipActivityBehaviorResponseOutput) ElementType() reflect.Type {
@@ -26240,7 +25850,6 @@ func (o RosettaNetPipActivityBehaviorResponsePtrOutput) TimeToPerformInSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettings struct {
 	// The RosettaNet ProcessConfiguration acknowledgement settings.
 	AcknowledgmentOfReceiptSettings RosettaNetPipAcknowledgmentOfReceiptSettings `pulumi:"acknowledgmentOfReceiptSettings"`
@@ -26261,7 +25870,6 @@ type RosettaNetPipActivitySettingsInput interface {
 	ToRosettaNetPipActivitySettingsOutputWithContext(context.Context) RosettaNetPipActivitySettingsOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettingsArgs struct {
 	// The RosettaNet ProcessConfiguration acknowledgement settings.
 	AcknowledgmentOfReceiptSettings RosettaNetPipAcknowledgmentOfReceiptSettingsInput `pulumi:"acknowledgmentOfReceiptSettings"`
@@ -26324,7 +25932,6 @@ func (i *rosettaNetPipActivitySettingsPtrType) ToRosettaNetPipActivitySettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipActivitySettingsPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettingsOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipActivitySettingsOutput) ElementType() reflect.Type {
@@ -26420,7 +26027,6 @@ func (o RosettaNetPipActivitySettingsPtrOutput) ActivityType() RosettaNetPipActi
 	}).(RosettaNetPipActivityTypePtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettingsResponse struct {
 	// The RosettaNet ProcessConfiguration acknowledgement settings.
 	AcknowledgmentOfReceiptSettings RosettaNetPipAcknowledgmentOfReceiptSettingsResponse `pulumi:"acknowledgmentOfReceiptSettings"`
@@ -26441,7 +26047,6 @@ type RosettaNetPipActivitySettingsResponseInput interface {
 	ToRosettaNetPipActivitySettingsResponseOutputWithContext(context.Context) RosettaNetPipActivitySettingsResponseOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettingsResponseArgs struct {
 	// The RosettaNet ProcessConfiguration acknowledgement settings.
 	AcknowledgmentOfReceiptSettings RosettaNetPipAcknowledgmentOfReceiptSettingsResponseInput `pulumi:"acknowledgmentOfReceiptSettings"`
@@ -26504,7 +26109,6 @@ func (i *rosettaNetPipActivitySettingsResponsePtrType) ToRosettaNetPipActivitySe
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipActivitySettingsResponsePtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration activity settings.
 type RosettaNetPipActivitySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipActivitySettingsResponseOutput) ElementType() reflect.Type {
@@ -26602,7 +26206,6 @@ func (o RosettaNetPipActivitySettingsResponsePtrOutput) ActivityType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocument struct {
 	// The business document description.
 	Description *string `pulumi:"description"`
@@ -26623,7 +26226,6 @@ type RosettaNetPipBusinessDocumentInput interface {
 	ToRosettaNetPipBusinessDocumentOutputWithContext(context.Context) RosettaNetPipBusinessDocumentOutput
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocumentArgs struct {
 	// The business document description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -26686,7 +26288,6 @@ func (i *rosettaNetPipBusinessDocumentPtrType) ToRosettaNetPipBusinessDocumentPt
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipBusinessDocumentPtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocumentOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipBusinessDocumentOutput) ElementType() reflect.Type {
@@ -26780,7 +26381,6 @@ func (o RosettaNetPipBusinessDocumentPtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocumentResponse struct {
 	// The business document description.
 	Description *string `pulumi:"description"`
@@ -26801,7 +26401,6 @@ type RosettaNetPipBusinessDocumentResponseInput interface {
 	ToRosettaNetPipBusinessDocumentResponseOutputWithContext(context.Context) RosettaNetPipBusinessDocumentResponseOutput
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocumentResponseArgs struct {
 	// The business document description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -26864,7 +26463,6 @@ func (i *rosettaNetPipBusinessDocumentResponsePtrType) ToRosettaNetPipBusinessDo
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipBusinessDocumentResponsePtrOutput)
 }
 
-// The RosettaNet ProcessConfiguration business document settings.
 type RosettaNetPipBusinessDocumentResponseOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipBusinessDocumentResponseOutput) ElementType() reflect.Type {
@@ -26958,7 +26556,6 @@ func (o RosettaNetPipBusinessDocumentResponsePtrOutput) Version() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettings struct {
 	// The action name.
 	Action string `pulumi:"action"`
@@ -26987,7 +26584,6 @@ type RosettaNetPipRoleSettingsInput interface {
 	ToRosettaNetPipRoleSettingsOutputWithContext(context.Context) RosettaNetPipRoleSettingsOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettingsArgs struct {
 	// The action name.
 	Action pulumi.StringInput `pulumi:"action"`
@@ -27058,7 +26654,6 @@ func (i *rosettaNetPipRoleSettingsPtrType) ToRosettaNetPipRoleSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipRoleSettingsPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettingsOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipRoleSettingsOutput) ElementType() reflect.Type {
@@ -27212,7 +26807,6 @@ func (o RosettaNetPipRoleSettingsPtrOutput) ServiceClassification() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettingsResponse struct {
 	// The action name.
 	Action string `pulumi:"action"`
@@ -27241,7 +26835,6 @@ type RosettaNetPipRoleSettingsResponseInput interface {
 	ToRosettaNetPipRoleSettingsResponseOutputWithContext(context.Context) RosettaNetPipRoleSettingsResponseOutput
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettingsResponseArgs struct {
 	// The action name.
 	Action pulumi.StringInput `pulumi:"action"`
@@ -27312,7 +26905,6 @@ func (i *rosettaNetPipRoleSettingsResponsePtrType) ToRosettaNetPipRoleSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetPipRoleSettingsResponsePtrOutput)
 }
 
-// The integration account RosettaNet ProcessConfiguration role settings.
 type RosettaNetPipRoleSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetPipRoleSettingsResponseOutput) ElementType() reflect.Type {
@@ -27468,7 +27060,6 @@ func (o RosettaNetPipRoleSettingsResponsePtrOutput) ServiceClassification() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku type.
 type SkuResponse struct {
 	// The name.
 	Name string `pulumi:"name"`
@@ -27487,7 +27078,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku type.
 type SkuResponseArgs struct {
 	// The name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -27548,7 +27138,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku type.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -27627,7 +27216,6 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 	}).(ResourceReferenceResponsePtrOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameter struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -27650,7 +27238,6 @@ type WorkflowParameterInput interface {
 	ToWorkflowParameterOutputWithContext(context.Context) WorkflowParameterOutput
 }
 
-// The workflow parameters.
 type WorkflowParameterArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -27699,7 +27286,6 @@ func (i WorkflowParameterMap) ToWorkflowParameterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterMapOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterOutput) ElementType() reflect.Type {
@@ -27754,7 +27340,6 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 	}).(WorkflowParameterOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -27777,7 +27362,6 @@ type WorkflowParameterResponseInput interface {
 	ToWorkflowParameterResponseOutputWithContext(context.Context) WorkflowParameterResponseOutput
 }
 
-// The workflow parameters.
 type WorkflowParameterResponseArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -27826,7 +27410,6 @@ func (i WorkflowParameterResponseMap) ToWorkflowParameterResponseMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterResponseMapOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterResponseOutput) ElementType() reflect.Type {
@@ -27881,7 +27464,6 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 	}).(WorkflowParameterResponseOutput)
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponse struct {
 	// The api version.
 	ApiVersion *string `pulumi:"apiVersion"`
@@ -27906,7 +27488,6 @@ type WorkflowTriggerListCallbackUrlQueriesResponseInput interface {
 	ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
 	// The api version.
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
@@ -27932,7 +27513,6 @@ func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerList
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
@@ -27972,7 +27552,6 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringP
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrence struct {
 	// The end time.
 	EndTime *string `pulumi:"endTime"`
@@ -27999,7 +27578,6 @@ type WorkflowTriggerRecurrenceInput interface {
 	ToWorkflowTriggerRecurrenceOutputWithContext(context.Context) WorkflowTriggerRecurrenceOutput
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceArgs struct {
 	// The end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -28068,7 +27646,6 @@ func (i *workflowTriggerRecurrencePtrType) ToWorkflowTriggerRecurrencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrencePtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerRecurrenceOutput) ElementType() reflect.Type {
@@ -28207,7 +27784,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponse struct {
 	// The end time.
 	EndTime *string `pulumi:"endTime"`
@@ -28234,7 +27810,6 @@ type WorkflowTriggerRecurrenceResponseInput interface {
 	ToWorkflowTriggerRecurrenceResponseOutputWithContext(context.Context) WorkflowTriggerRecurrenceResponseOutput
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponseArgs struct {
 	// The end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -28303,7 +27878,6 @@ func (i *workflowTriggerRecurrenceResponsePtrType) ToWorkflowTriggerRecurrenceRe
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerRecurrenceResponseOutput) ElementType() reflect.Type {
@@ -28442,7 +28016,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The WSDL service.
 type WsdlServiceResponse struct {
 	// The list of endpoints' qualified names.
 	EndpointQualifiedNames []string `pulumi:"endpointQualifiedNames"`
@@ -28461,7 +28034,6 @@ type WsdlServiceResponseInput interface {
 	ToWsdlServiceResponseOutputWithContext(context.Context) WsdlServiceResponseOutput
 }
 
-// The WSDL service.
 type WsdlServiceResponseArgs struct {
 	// The list of endpoints' qualified names.
 	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"endpointQualifiedNames"`
@@ -28522,7 +28094,6 @@ func (i *wsdlServiceResponsePtrType) ToWsdlServiceResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WsdlServiceResponsePtrOutput)
 }
 
-// The WSDL service.
 type WsdlServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (WsdlServiceResponseOutput) ElementType() reflect.Type {
@@ -28601,7 +28172,6 @@ func (o WsdlServiceResponsePtrOutput) QualifiedName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettings struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -28646,7 +28216,6 @@ type X12AcknowledgementSettingsInput interface {
 	ToX12AcknowledgementSettingsOutputWithContext(context.Context) X12AcknowledgementSettingsOutput
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsArgs struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -28733,7 +28302,6 @@ func (i *x12acknowledgementSettingsPtrType) ToX12AcknowledgementSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12AcknowledgementSettingsOutput) ElementType() reflect.Type {
@@ -29007,7 +28575,6 @@ func (o X12AcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponse struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -29052,7 +28619,6 @@ type X12AcknowledgementSettingsResponseInput interface {
 	ToX12AcknowledgementSettingsResponseOutputWithContext(context.Context) X12AcknowledgementSettingsResponseOutput
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponseArgs struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -29139,7 +28705,6 @@ func (i *x12acknowledgementSettingsResponsePtrType) ToX12AcknowledgementSettings
 	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsResponsePtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12AcknowledgementSettingsResponseOutput) ElementType() reflect.Type {
@@ -29413,7 +28978,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowledgem
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContent struct {
 	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreement `pulumi:"receiveAgreement"`
@@ -29432,7 +28996,6 @@ type X12AgreementContentInput interface {
 	ToX12AgreementContentOutputWithContext(context.Context) X12AgreementContentOutput
 }
 
-// The X12 agreement content.
 type X12AgreementContentArgs struct {
 	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementInput `pulumi:"receiveAgreement"`
@@ -29493,7 +29056,6 @@ func (i *x12agreementContentPtrType) ToX12AgreementContentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (X12AgreementContentOutput) ElementType() reflect.Type {
@@ -29572,7 +29134,6 @@ func (o X12AgreementContentPtrOutput) SendAgreement() X12OneWayAgreementPtrOutpu
 	}).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponse struct {
 	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementResponse `pulumi:"receiveAgreement"`
@@ -29591,7 +29152,6 @@ type X12AgreementContentResponseInput interface {
 	ToX12AgreementContentResponseOutputWithContext(context.Context) X12AgreementContentResponseOutput
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponseArgs struct {
 	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementResponseInput `pulumi:"receiveAgreement"`
@@ -29652,7 +29212,6 @@ func (i *x12agreementContentResponsePtrType) ToX12AgreementContentResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentResponsePtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (X12AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -29731,7 +29290,6 @@ func (o X12AgreementContentResponsePtrOutput) SendAgreement() X12OneWayAgreement
 	}).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverrides struct {
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
@@ -29764,7 +29322,6 @@ type X12DelimiterOverridesInput interface {
 	ToX12DelimiterOverridesOutputWithContext(context.Context) X12DelimiterOverridesOutput
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesArgs struct {
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
@@ -29823,7 +29380,6 @@ func (i X12DelimiterOverridesArray) ToX12DelimiterOverridesArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesArrayOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesOutput struct{ *pulumi.OutputState }
 
 func (X12DelimiterOverridesOutput) ElementType() reflect.Type {
@@ -29903,7 +29459,6 @@ func (o X12DelimiterOverridesArrayOutput) Index(i pulumi.IntInput) X12DelimiterO
 	}).(X12DelimiterOverridesOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponse struct {
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
@@ -29936,7 +29491,6 @@ type X12DelimiterOverridesResponseInput interface {
 	ToX12DelimiterOverridesResponseOutputWithContext(context.Context) X12DelimiterOverridesResponseOutput
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponseArgs struct {
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
@@ -29995,7 +29549,6 @@ func (i X12DelimiterOverridesResponseArray) ToX12DelimiterOverridesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesResponseArrayOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponseOutput struct{ *pulumi.OutputState }
 
 func (X12DelimiterOverridesResponseOutput) ElementType() reflect.Type {
@@ -30075,7 +29628,6 @@ func (o X12DelimiterOverridesResponseArrayOutput) Index(i pulumi.IntInput) X12De
 	}).(X12DelimiterOverridesResponseOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverride struct {
 	// The date format.
 	DateFormat string `pulumi:"dateFormat"`
@@ -30110,7 +29662,6 @@ type X12EnvelopeOverrideInput interface {
 	ToX12EnvelopeOverrideOutputWithContext(context.Context) X12EnvelopeOverrideOutput
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideArgs struct {
 	// The date format.
 	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
@@ -30171,7 +29722,6 @@ func (i X12EnvelopeOverrideArray) ToX12EnvelopeOverrideArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideArrayOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeOverrideOutput) ElementType() reflect.Type {
@@ -30256,7 +29806,6 @@ func (o X12EnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) X12EnvelopeOver
 	}).(X12EnvelopeOverrideOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponse struct {
 	// The date format.
 	DateFormat string `pulumi:"dateFormat"`
@@ -30291,7 +29840,6 @@ type X12EnvelopeOverrideResponseInput interface {
 	ToX12EnvelopeOverrideResponseOutputWithContext(context.Context) X12EnvelopeOverrideResponseOutput
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponseArgs struct {
 	// The date format.
 	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
@@ -30352,7 +29900,6 @@ func (i X12EnvelopeOverrideResponseArray) ToX12EnvelopeOverrideResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideResponseArrayOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeOverrideResponseOutput) ElementType() reflect.Type {
@@ -30437,7 +29984,6 @@ func (o X12EnvelopeOverrideResponseArrayOutput) Index(i pulumi.IntInput) X12Enve
 	}).(X12EnvelopeOverrideResponseOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettings struct {
 	// The controls standards id.
 	ControlStandardsId int `pulumi:"controlStandardsId"`
@@ -30500,7 +30046,6 @@ type X12EnvelopeSettingsInput interface {
 	ToX12EnvelopeSettingsOutputWithContext(context.Context) X12EnvelopeSettingsOutput
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsArgs struct {
 	// The controls standards id.
 	ControlStandardsId pulumi.IntInput `pulumi:"controlStandardsId"`
@@ -30605,7 +30150,6 @@ func (i *x12envelopeSettingsPtrType) ToX12EnvelopeSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsPtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -31014,7 +30558,6 @@ func (o X12EnvelopeSettingsPtrOutput) UseControlStandardsIdAsRepetitionCharacter
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponse struct {
 	// The controls standards id.
 	ControlStandardsId int `pulumi:"controlStandardsId"`
@@ -31077,7 +30620,6 @@ type X12EnvelopeSettingsResponseInput interface {
 	ToX12EnvelopeSettingsResponseOutputWithContext(context.Context) X12EnvelopeSettingsResponseOutput
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponseArgs struct {
 	// The controls standards id.
 	ControlStandardsId pulumi.IntInput `pulumi:"controlStandardsId"`
@@ -31182,7 +30724,6 @@ func (i *x12envelopeSettingsResponsePtrType) ToX12EnvelopeSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsResponsePtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -31591,7 +31132,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) UseControlStandardsIdAsRepetitionC
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettings struct {
 	// The X12 character set.
 	CharacterSet string `pulumi:"characterSet"`
@@ -31620,7 +31160,6 @@ type X12FramingSettingsInput interface {
 	ToX12FramingSettingsOutputWithContext(context.Context) X12FramingSettingsOutput
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsArgs struct {
 	// The X12 character set.
 	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
@@ -31691,7 +31230,6 @@ func (i *x12framingSettingsPtrType) ToX12FramingSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12FramingSettingsOutput) ElementType() reflect.Type {
@@ -31845,7 +31383,6 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminator
 	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponse struct {
 	// The X12 character set.
 	CharacterSet string `pulumi:"characterSet"`
@@ -31874,7 +31411,6 @@ type X12FramingSettingsResponseInput interface {
 	ToX12FramingSettingsResponseOutputWithContext(context.Context) X12FramingSettingsResponseOutput
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponseArgs struct {
 	// The X12 character set.
 	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
@@ -31945,7 +31481,6 @@ func (i *x12framingSettingsResponsePtrType) ToX12FramingSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsResponsePtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12FramingSettingsResponseOutput) ElementType() reflect.Type {
@@ -32099,7 +31634,6 @@ func (o X12FramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilter struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -32116,7 +31650,6 @@ type X12MessageFilterInput interface {
 	ToX12MessageFilterOutputWithContext(context.Context) X12MessageFilterOutput
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterArgs struct {
 	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
@@ -32175,7 +31708,6 @@ func (i *x12messageFilterPtrType) ToX12MessageFilterPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterOutput struct{ *pulumi.OutputState }
 
 func (X12MessageFilterOutput) ElementType() reflect.Type {
@@ -32239,7 +31771,6 @@ func (o X12MessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponse struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -32256,7 +31787,6 @@ type X12MessageFilterResponseInput interface {
 	ToX12MessageFilterResponseOutputWithContext(context.Context) X12MessageFilterResponseOutput
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponseArgs struct {
 	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
@@ -32315,7 +31845,6 @@ func (i *x12messageFilterResponsePtrType) ToX12MessageFilterResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterResponsePtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (X12MessageFilterResponseOutput) ElementType() reflect.Type {
@@ -32379,7 +31908,6 @@ func (o X12MessageFilterResponsePtrOutput) MessageFilterType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifier struct {
 	// The message id.
 	MessageId string `pulumi:"messageId"`
@@ -32396,7 +31924,6 @@ type X12MessageIdentifierInput interface {
 	ToX12MessageIdentifierOutputWithContext(context.Context) X12MessageIdentifierOutput
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierArgs struct {
 	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -32439,7 +31966,6 @@ func (i X12MessageIdentifierArray) ToX12MessageIdentifierArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierArrayOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (X12MessageIdentifierOutput) ElementType() reflect.Type {
@@ -32479,7 +32005,6 @@ func (o X12MessageIdentifierArrayOutput) Index(i pulumi.IntInput) X12MessageIden
 	}).(X12MessageIdentifierOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponse struct {
 	// The message id.
 	MessageId string `pulumi:"messageId"`
@@ -32496,7 +32021,6 @@ type X12MessageIdentifierResponseInput interface {
 	ToX12MessageIdentifierResponseOutputWithContext(context.Context) X12MessageIdentifierResponseOutput
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponseArgs struct {
 	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -32539,7 +32063,6 @@ func (i X12MessageIdentifierResponseArray) ToX12MessageIdentifierResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierResponseArrayOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (X12MessageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -32579,7 +32102,6 @@ func (o X12MessageIdentifierResponseArrayOutput) Index(i pulumi.IntInput) X12Mes
 	}).(X12MessageIdentifierResponseOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreement struct {
 	// The X12 protocol settings.
 	ProtocolSettings X12ProtocolSettings `pulumi:"protocolSettings"`
@@ -32600,7 +32122,6 @@ type X12OneWayAgreementInput interface {
 	ToX12OneWayAgreementOutputWithContext(context.Context) X12OneWayAgreementOutput
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementArgs struct {
 	// The X12 protocol settings.
 	ProtocolSettings X12ProtocolSettingsInput `pulumi:"protocolSettings"`
@@ -32663,7 +32184,6 @@ func (i *x12oneWayAgreementPtrType) ToX12OneWayAgreementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (X12OneWayAgreementOutput) ElementType() reflect.Type {
@@ -32757,7 +32277,6 @@ func (o X12OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponse struct {
 	// The X12 protocol settings.
 	ProtocolSettings X12ProtocolSettingsResponse `pulumi:"protocolSettings"`
@@ -32778,7 +32297,6 @@ type X12OneWayAgreementResponseInput interface {
 	ToX12OneWayAgreementResponseOutputWithContext(context.Context) X12OneWayAgreementResponseOutput
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponseArgs struct {
 	// The X12 protocol settings.
 	ProtocolSettings X12ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
@@ -32841,7 +32359,6 @@ func (i *x12oneWayAgreementResponsePtrType) ToX12OneWayAgreementResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (X12OneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -32935,7 +32452,6 @@ func (o X12OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessId
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettings struct {
 	// The value indicating whether to convert numerical type to implied decimal.
 	ConvertImpliedDecimal bool `pulumi:"convertImpliedDecimal"`
@@ -32962,7 +32478,6 @@ type X12ProcessingSettingsInput interface {
 	ToX12ProcessingSettingsOutputWithContext(context.Context) X12ProcessingSettingsOutput
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsArgs struct {
 	// The value indicating whether to convert numerical type to implied decimal.
 	ConvertImpliedDecimal pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
@@ -33031,7 +32546,6 @@ func (i *x12processingSettingsPtrType) ToX12ProcessingSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsPtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ProcessingSettingsOutput) ElementType() reflect.Type {
@@ -33170,7 +32684,6 @@ func (o X12ProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponse struct {
 	// The value indicating whether to convert numerical type to implied decimal.
 	ConvertImpliedDecimal bool `pulumi:"convertImpliedDecimal"`
@@ -33197,7 +32710,6 @@ type X12ProcessingSettingsResponseInput interface {
 	ToX12ProcessingSettingsResponseOutputWithContext(context.Context) X12ProcessingSettingsResponseOutput
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponseArgs struct {
 	// The value indicating whether to convert numerical type to implied decimal.
 	ConvertImpliedDecimal pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
@@ -33266,7 +32778,6 @@ func (i *x12processingSettingsResponsePtrType) ToX12ProcessingSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsResponsePtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ProcessingSettingsResponseOutput) ElementType() reflect.Type {
@@ -33405,7 +32916,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettings struct {
 	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettings `pulumi:"acknowledgementSettings"`
@@ -33444,7 +32954,6 @@ type X12ProtocolSettingsInput interface {
 	ToX12ProtocolSettingsOutputWithContext(context.Context) X12ProtocolSettingsOutput
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsArgs struct {
 	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsInput `pulumi:"acknowledgementSettings"`
@@ -33525,7 +33034,6 @@ func (i *x12protocolSettingsPtrType) ToX12ProtocolSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsPtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ProtocolSettingsOutput) ElementType() reflect.Type {
@@ -33754,7 +33262,6 @@ func (o X12ProtocolSettingsPtrOutput) X12DelimiterOverrides() X12DelimiterOverri
 	}).(X12DelimiterOverridesArrayOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponse struct {
 	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
@@ -33793,7 +33300,6 @@ type X12ProtocolSettingsResponseInput interface {
 	ToX12ProtocolSettingsResponseOutputWithContext(context.Context) X12ProtocolSettingsResponseOutput
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponseArgs struct {
 	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsResponseInput `pulumi:"acknowledgementSettings"`
@@ -33874,7 +33380,6 @@ func (i *x12protocolSettingsResponsePtrType) ToX12ProtocolSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsResponsePtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -34105,7 +33610,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) X12DelimiterOverrides() X12Delimit
 	}).(X12DelimiterOverridesResponseArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReference struct {
 	// The message id.
 	MessageId string `pulumi:"messageId"`
@@ -34128,7 +33632,6 @@ type X12SchemaReferenceInput interface {
 	ToX12SchemaReferenceOutputWithContext(context.Context) X12SchemaReferenceOutput
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceArgs struct {
 	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -34177,7 +33680,6 @@ func (i X12SchemaReferenceArray) ToX12SchemaReferenceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (X12SchemaReferenceOutput) ElementType() reflect.Type {
@@ -34232,7 +33734,6 @@ func (o X12SchemaReferenceArrayOutput) Index(i pulumi.IntInput) X12SchemaReferen
 	}).(X12SchemaReferenceOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponse struct {
 	// The message id.
 	MessageId string `pulumi:"messageId"`
@@ -34255,7 +33756,6 @@ type X12SchemaReferenceResponseInput interface {
 	ToX12SchemaReferenceResponseOutputWithContext(context.Context) X12SchemaReferenceResponseOutput
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponseArgs struct {
 	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
@@ -34304,7 +33804,6 @@ func (i X12SchemaReferenceResponseArray) ToX12SchemaReferenceResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceResponseArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (X12SchemaReferenceResponseOutput) ElementType() reflect.Type {
@@ -34359,7 +33858,6 @@ func (o X12SchemaReferenceResponseArrayOutput) Index(i pulumi.IntInput) X12Schem
 	}).(X12SchemaReferenceResponseOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettings struct {
 	// The authorization qualifier.
 	AuthorizationQualifier string `pulumi:"authorizationQualifier"`
@@ -34382,7 +33880,6 @@ type X12SecuritySettingsInput interface {
 	ToX12SecuritySettingsOutputWithContext(context.Context) X12SecuritySettingsOutput
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsArgs struct {
 	// The authorization qualifier.
 	AuthorizationQualifier pulumi.StringInput `pulumi:"authorizationQualifier"`
@@ -34447,7 +33944,6 @@ func (i *x12securitySettingsPtrType) ToX12SecuritySettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsPtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (X12SecuritySettingsOutput) ElementType() reflect.Type {
@@ -34556,7 +34052,6 @@ func (o X12SecuritySettingsPtrOutput) SecurityQualifier() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponse struct {
 	// The authorization qualifier.
 	AuthorizationQualifier string `pulumi:"authorizationQualifier"`
@@ -34579,7 +34074,6 @@ type X12SecuritySettingsResponseInput interface {
 	ToX12SecuritySettingsResponseOutputWithContext(context.Context) X12SecuritySettingsResponseOutput
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponseArgs struct {
 	// The authorization qualifier.
 	AuthorizationQualifier pulumi.StringInput `pulumi:"authorizationQualifier"`
@@ -34644,7 +34138,6 @@ func (i *x12securitySettingsResponsePtrType) ToX12SecuritySettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsResponsePtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12SecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -34753,7 +34246,6 @@ func (o X12SecuritySettingsResponsePtrOutput) SecurityQualifier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverride struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -34782,7 +34274,6 @@ type X12ValidationOverrideInput interface {
 	ToX12ValidationOverrideOutputWithContext(context.Context) X12ValidationOverrideOutput
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -34837,7 +34328,6 @@ func (i X12ValidationOverrideArray) ToX12ValidationOverrideArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideArrayOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationOverrideOutput) ElementType() reflect.Type {
@@ -34907,7 +34397,6 @@ func (o X12ValidationOverrideArrayOutput) Index(i pulumi.IntInput) X12Validation
 	}).(X12ValidationOverrideOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -34936,7 +34425,6 @@ type X12ValidationOverrideResponseInput interface {
 	ToX12ValidationOverrideResponseOutputWithContext(context.Context) X12ValidationOverrideResponseOutput
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponseArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -34991,7 +34479,6 @@ func (i X12ValidationOverrideResponseArray) ToX12ValidationOverrideResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideResponseArrayOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationOverrideResponseOutput) ElementType() reflect.Type {
@@ -35061,7 +34548,6 @@ func (o X12ValidationOverrideResponseArrayOutput) Index(i pulumi.IntInput) X12Va
 	}).(X12ValidationOverrideResponseOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettings struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -35096,7 +34582,6 @@ type X12ValidationSettingsInput interface {
 	ToX12ValidationSettingsOutputWithContext(context.Context) X12ValidationSettingsOutput
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -35173,7 +34658,6 @@ func (i *x12validationSettingsPtrType) ToX12ValidationSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsPtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationSettingsOutput) ElementType() reflect.Type {
@@ -35372,7 +34856,6 @@ func (o X12ValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -35407,7 +34890,6 @@ type X12ValidationSettingsResponseInput interface {
 	ToX12ValidationSettingsResponseOutputWithContext(context.Context) X12ValidationSettingsResponseOutput
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponseArgs struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -35484,7 +34966,6 @@ func (i *x12validationSettingsResponsePtrType) ToX12ValidationSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsResponsePtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationSettingsResponseOutput) ElementType() reflect.Type {

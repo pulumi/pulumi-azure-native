@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of direct peering.
 type DirectPeeringType string
 
 const (
@@ -180,7 +179,6 @@ func (in *directPeeringTypePtr) ToDirectPeeringTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DirectPeeringTypePtrOutput)
 }
 
-// The family of the peering SKU.
 type Family string
 
 const (
@@ -345,7 +343,6 @@ func (in *familyPtr) ToFamilyPtrOutputWithContext(ctx context.Context) FamilyPtr
 	return pulumi.ToOutputWithContext(ctx, in).(FamilyPtrOutput)
 }
 
-// The kind of the peering.
 type Kind string
 
 const (
@@ -510,7 +507,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
-// The role of the contact.
 type Role string
 
 const (
@@ -679,7 +675,6 @@ func (in *rolePtr) ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(RolePtrOutput)
 }
 
-// The field indicating if Microsoft provides session ip addresses.
 type SessionAddressProvider string
 
 const (
@@ -844,7 +839,6 @@ func (in *sessionAddressProviderPtr) ToSessionAddressProviderPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(SessionAddressProviderPtrOutput)
 }
 
-// The size of the peering SKU.
 type Size string
 
 const (
@@ -1010,7 +1004,6 @@ func (in *sizePtr) ToSizePtrOutputWithContext(ctx context.Context) SizePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(SizePtrOutput)
 }
 
-// The tier of the peering SKU.
 type Tier string
 
 const (
@@ -1175,7 +1168,6 @@ func (in *tierPtr) ToTierPtrOutputWithContext(ctx context.Context) TierPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(TierPtrOutput)
 }
 
-// The validation state of the ASN associated with the peer.
 type ValidationState string
 
 const (

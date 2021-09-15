@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponse struct {
 	// The Fluid Relay Orderer endpoints.
 	OrdererEndpoints []string `pulumi:"ordererEndpoints"`
@@ -29,7 +28,6 @@ type FluidRelayEndpointsResponseInput interface {
 	ToFluidRelayEndpointsResponseOutputWithContext(context.Context) FluidRelayEndpointsResponseOutput
 }
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponseArgs struct {
 	// The Fluid Relay Orderer endpoints.
 	OrdererEndpoints pulumi.StringArrayInput `pulumi:"ordererEndpoints"`
@@ -90,7 +88,6 @@ func (i *fluidRelayEndpointsResponsePtrType) ToFluidRelayEndpointsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FluidRelayEndpointsResponsePtrOutput)
 }
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (FluidRelayEndpointsResponseOutput) ElementType() reflect.Type {
@@ -169,7 +166,6 @@ func (o FluidRelayEndpointsResponsePtrOutput) StorageEndpoints() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -196,7 +192,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -265,7 +260,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

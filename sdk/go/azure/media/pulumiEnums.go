@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The encoding profile to be used when encoding audio with AAC.
 type AacAudioProfile string
 
 const (
@@ -179,7 +178,6 @@ func (in *aacAudioProfilePtr) ToAacAudioProfilePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(AacAudioProfilePtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 type AccountEncryptionKeyType string
 
 const (
@@ -346,7 +344,6 @@ func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AccountEncryptionKeyTypePtrOutput)
 }
 
-// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
 type AnalysisResolution string
 
 const (
@@ -511,7 +508,6 @@ func (in *analysisResolutionPtr) ToAnalysisResolutionPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisResolutionPtrOutput)
 }
 
-// The permissions to set on the SAS URL.
 type AssetContainerPermission string
 
 const (
@@ -680,7 +676,6 @@ func (in *assetContainerPermissionPtr) ToAssetContainerPermissionPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AssetContainerPermissionPtrOutput)
 }
 
-// The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
 type AttributeFilter string
 
 const (
@@ -851,7 +846,6 @@ func (in *attributeFilterPtr) ToAttributeFilterPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(AttributeFilterPtrOutput)
 }
 
-// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
 type AudioAnalysisMode string
 
 const (
@@ -1018,7 +1012,6 @@ func (in *audioAnalysisModePtr) ToAudioAnalysisModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AudioAnalysisModePtrOutput)
 }
 
-// Blur type
 type BlurType string
 
 const (
@@ -1191,7 +1184,6 @@ func (in *blurTypePtr) ToBlurTypePtrOutputWithContext(ctx context.Context) BlurT
 	return pulumi.ToOutputWithContext(ctx, in).(BlurTypePtrOutput)
 }
 
-// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
 type ChannelMapping string
 
 const (
@@ -1370,7 +1362,6 @@ func (in *channelMappingPtr) ToChannelMappingPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelMappingPtrOutput)
 }
 
-// The rental and lease key type.
 type ContentKeyPolicyFairPlayRentalAndLeaseKeyType string
 
 const (
@@ -1543,7 +1534,6 @@ func (in *contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr) ToContentKeyPolicyFa
 	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput)
 }
 
-// The PlayReady content type.
 type ContentKeyPolicyPlayReadyContentType string
 
 const (
@@ -1714,7 +1704,6 @@ func (in *contentKeyPolicyPlayReadyContentTypePtr) ToContentKeyPolicyPlayReadyCo
 	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyContentTypePtrOutput)
 }
 
-// The license type.
 type ContentKeyPolicyPlayReadyLicenseType string
 
 const (
@@ -1883,7 +1872,6 @@ func (in *contentKeyPolicyPlayReadyLicenseTypePtr) ToContentKeyPolicyPlayReadyLi
 	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyLicenseTypePtrOutput)
 }
 
-// Configures Unknown output handling settings of the license.
 type ContentKeyPolicyPlayReadyUnknownOutputPassingOption string
 
 const (
@@ -2054,7 +2042,6 @@ func (in *contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr) ToContentKeyPo
 	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput)
 }
 
-// The type of token.
 type ContentKeyPolicyRestrictionTokenType string
 
 const (
@@ -2223,7 +2210,6 @@ func (in *contentKeyPolicyRestrictionTokenTypePtr) ToContentKeyPolicyRestriction
 	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyRestrictionTokenTypePtrOutput)
 }
 
-// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 type DeinterlaceMode string
 
 const (
@@ -2390,7 +2376,6 @@ func (in *deinterlaceModePtr) ToDeinterlaceModePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DeinterlaceModePtrOutput)
 }
 
-// The field parity for de-interlacing, defaults to Auto.
 type DeinterlaceParity string
 
 const (
@@ -2559,7 +2544,6 @@ func (in *deinterlaceParityPtr) ToDeinterlaceParityPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DeinterlaceParityPtrOutput)
 }
 
-// The built-in preset to be used for encoding videos.
 type EncoderNamedPreset string
 
 const (
@@ -2754,7 +2738,6 @@ func (in *encoderNamedPresetPtr) ToEncoderNamedPresetPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EncoderNamedPresetPtrOutput)
 }
 
-// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 type EntropyMode string
 
 const (
@@ -2921,7 +2904,6 @@ func (in *entropyModePtr) ToEntropyModePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(EntropyModePtrOutput)
 }
 
-// This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
 type FaceRedactorMode string
 
 const (
@@ -3090,7 +3072,6 @@ func (in *faceRedactorModePtr) ToFaceRedactorModePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(FaceRedactorModePtrOutput)
 }
 
-// The track property condition operation.
 type FilterTrackPropertyCompareOperation string
 
 const (
@@ -3257,7 +3238,6 @@ func (in *filterTrackPropertyCompareOperationPtr) ToFilterTrackPropertyCompareOp
 	return pulumi.ToOutputWithContext(ctx, in).(FilterTrackPropertyCompareOperationPtrOutput)
 }
 
-// The track property type.
 type FilterTrackPropertyType string
 
 const (
@@ -3432,7 +3412,6 @@ func (in *filterTrackPropertyTypePtr) ToFilterTrackPropertyTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FilterTrackPropertyTypePtrOutput)
 }
 
-// Tells the encoder how to choose its encoding settings. The default value is Balanced.
 type H264Complexity string
 
 const (
@@ -3601,7 +3580,6 @@ func (in *h264complexityPtr) ToH264ComplexityPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(H264ComplexityPtrOutput)
 }
 
-// We currently support Baseline, Main, High, High422, High444. Default is Auto.
 type H264VideoProfile string
 
 const (
@@ -3776,7 +3754,6 @@ func (in *h264videoProfilePtr) ToH264VideoProfilePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(H264VideoProfilePtrOutput)
 }
 
-// Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
 type H265Complexity string
 
 const (
@@ -3945,7 +3922,6 @@ func (in *h265complexityPtr) ToH265ComplexityPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(H265ComplexityPtrOutput)
 }
 
-// We currently support Main. Default is Auto.
 type H265VideoProfile string
 
 const (
@@ -4112,7 +4088,6 @@ func (in *h265videoProfilePtr) ToH265VideoProfilePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(H265VideoProfilePtrOutput)
 }
 
-// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
 type InsightsType string
 
 const (
@@ -4281,7 +4256,6 @@ func (in *insightsTypePtr) ToInsightsTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(InsightsTypePtrOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 type LiveEventEncodingType string
 
 const (
@@ -4450,7 +4424,6 @@ func (in *liveEventEncodingTypePtr) ToLiveEventEncodingTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(LiveEventEncodingTypePtrOutput)
 }
 
-// The input protocol for the live event. This is specified at creation time and cannot be updated.
 type LiveEventInputProtocol string
 
 const (
@@ -4617,7 +4590,6 @@ func (in *liveEventInputProtocolPtr) ToLiveEventInputProtocolPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(LiveEventInputProtocolPtrOutput)
 }
 
-// The identity type.
 type ManagedIdentityType string
 
 const (
@@ -4784,7 +4756,6 @@ func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
 }
 
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 type MediaGraphRtspTransport string
 
 const (
@@ -4951,7 +4922,6 @@ func (in *mediaGraphRtspTransportPtr) ToMediaGraphRtspTransportPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(MediaGraphRtspTransportPtrOutput)
 }
 
-// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 type OnErrorType string
 
 const (
@@ -5118,7 +5088,6 @@ func (in *onErrorTypePtr) ToOnErrorTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(OnErrorTypePtrOutput)
 }
 
-// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 type Priority string
 
 const (
@@ -5287,7 +5256,6 @@ func (in *priorityPtr) ToPriorityPtrOutputWithContext(ctx context.Context) Prior
 	return pulumi.ToOutputWithContext(ctx, in).(PriorityPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -5453,7 +5421,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
 }
 
-// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 type Rotation string
 
 const (
@@ -5628,7 +5595,6 @@ func (in *rotationPtr) ToRotationPtrOutputWithContext(ctx context.Context) Rotat
 	return pulumi.ToOutputWithContext(ctx, in).(RotationPtrOutput)
 }
 
-// The type of the storage account.
 type StorageAccountType string
 
 const (
@@ -6127,7 +6093,6 @@ func (in *streamOptionsFlagPtr) ToStreamOptionsFlagPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(StreamOptionsFlagPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 type StretchMode string
 
 const (
@@ -6296,7 +6261,6 @@ func (in *stretchModePtr) ToStretchModePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(StretchModePtrOutput)
 }
 
-// The TrackAttribute to filter the tracks by.
 type TrackAttribute string
 
 const (
@@ -6463,7 +6427,6 @@ func (in *trackAttributePtr) ToTrackAttributePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(TrackAttributePtrOutput)
 }
 
-// Track property condition operation
 type TrackPropertyCompareOperation string
 
 const (
@@ -6630,7 +6593,6 @@ func (in *trackPropertyCompareOperationPtr) ToTrackPropertyCompareOperationPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(TrackPropertyCompareOperationPtrOutput)
 }
 
-// Track property type
 type TrackPropertyType string
 
 const (
@@ -6797,7 +6759,6 @@ func (in *trackPropertyTypePtr) ToTrackPropertyTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(TrackPropertyTypePtrOutput)
 }
 
-// The Video Sync Mode
 type VideoSyncMode string
 
 const (

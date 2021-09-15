@@ -224,7 +224,6 @@ func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) DaysOfWeekOutput {
 	}).(DaysOfWeekOutput)
 }
 
-// The directory type.
 type DirectoryType string
 
 const (
@@ -388,7 +387,6 @@ func (in *directoryTypePtr) ToDirectoryTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryTypePtrOutput)
 }
 
-// Algorithm identifier for encryption, default RSA-OAEP.
 type JsonWebKeyEncryptionAlgorithm string
 
 const (
@@ -554,7 +552,6 @@ func (in *jsonWebKeyEncryptionAlgorithmPtr) ToJsonWebKeyEncryptionAlgorithmPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(JsonWebKeyEncryptionAlgorithmPtrOutput)
 }
 
-// The type of operating system.
 type OSType string
 
 const (
@@ -719,7 +716,6 @@ func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
 }
 
-// Indicates whether or not private link is enabled.
 type PrivateLink string
 
 const (
@@ -884,7 +880,6 @@ func (in *privateLinkPtr) ToPrivateLinkPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkPtrOutput)
 }
 
-// The concrete private link service connection.
 type PrivateLinkServiceConnectionStatus string
 
 const (
@@ -1051,7 +1046,6 @@ func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionS
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 type ResourceIdentityType string
 
 const (
@@ -1218,7 +1212,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// The direction for the resource provider connection.
 type ResourceProviderConnection string
 
 const (
@@ -1383,7 +1376,6 @@ func (in *resourceProviderConnectionPtr) ToResourceProviderConnectionPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceProviderConnectionPtrOutput)
 }
 
-// The cluster tier.
 type Tier string
 
 const (

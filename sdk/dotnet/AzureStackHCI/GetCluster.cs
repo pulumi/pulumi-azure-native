@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Cluster details.
-        /// API Version: 2021-09-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
@@ -60,10 +60,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string CloudId;
         /// <summary>
-        /// Endpoint configured for management from the Azure portal.
-        /// </summary>
-        public readonly string? CloudManagementEndpoint;
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
@@ -75,10 +71,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The type of identity that created the resource.
         /// </summary>
         public readonly string? CreatedByType;
-        /// <summary>
-        /// Desired properties of the cluster.
-        /// </summary>
-        public readonly Outputs.ClusterDesiredPropertiesResponse? DesiredProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -122,7 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Properties reported by cluster agent.
         /// </summary>
-        public readonly Outputs.ClusterReportedPropertiesResponse ReportedProperties;
+        public readonly Outputs.ClusterReportedPropertiesResponse? ReportedProperties;
         /// <summary>
         /// Status of the cluster agent.
         /// </summary>
@@ -150,15 +142,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string cloudId,
 
-            string? cloudManagementEndpoint,
-
             string? createdAt,
 
             string? createdBy,
 
             string? createdByType,
-
-            Outputs.ClusterDesiredPropertiesResponse? desiredProperties,
 
             string id,
 
@@ -180,7 +168,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string registrationTimestamp,
 
-            Outputs.ClusterReportedPropertiesResponse reportedProperties,
+            Outputs.ClusterReportedPropertiesResponse? reportedProperties,
 
             string status,
 
@@ -194,11 +182,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
             AadTenantId = aadTenantId;
             BillingModel = billingModel;
             CloudId = cloudId;
-            CloudManagementEndpoint = cloudManagementEndpoint;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
-            DesiredProperties = desiredProperties;
             Id = id;
             LastBillingTimestamp = lastBillingTimestamp;
             LastModifiedAt = lastModifiedAt;

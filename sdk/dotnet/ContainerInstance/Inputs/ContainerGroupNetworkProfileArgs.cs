@@ -11,23 +11,17 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
 {
 
     /// <summary>
-    /// The HTTP header.
+    /// Container group network profile information.
     /// </summary>
-    public sealed class HttpHeaderArgs : Pulumi.ResourceArgs
+    public sealed class ContainerGroupNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The header name.
+        /// The identifier for a network profile.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// The header value.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public HttpHeaderArgs()
+        public ContainerGroupNetworkProfileArgs()
         {
         }
     }

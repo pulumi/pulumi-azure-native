@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The kind of workbook. Choices are user and shared.
 type OrchestratorKind string
 
 const (
@@ -174,7 +173,6 @@ func (in *orchestratorKindPtr) ToOrchestratorKindPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(OrchestratorKindPtrOutput)
 }
 
-// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 type ResourceIdentityType string
 
 const (

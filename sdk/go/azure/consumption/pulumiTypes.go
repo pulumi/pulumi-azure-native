@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpression struct {
 	// The name of the column to use in comparison.
 	Name string `pulumi:"name"`
@@ -31,7 +30,6 @@ type BudgetComparisonExpressionInput interface {
 	ToBudgetComparisonExpressionOutputWithContext(context.Context) BudgetComparisonExpressionOutput
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionArgs struct {
 	// The name of the column to use in comparison.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -94,7 +92,6 @@ func (i *budgetComparisonExpressionPtrType) ToBudgetComparisonExpressionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionOutput struct{ *pulumi.OutputState }
 
 func (BudgetComparisonExpressionOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o BudgetComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponse struct {
 	// The name of the column to use in comparison.
 	Name string `pulumi:"name"`
@@ -209,7 +205,6 @@ type BudgetComparisonExpressionResponseInput interface {
 	ToBudgetComparisonExpressionResponseOutputWithContext(context.Context) BudgetComparisonExpressionResponseOutput
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponseArgs struct {
 	// The name of the column to use in comparison.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -272,7 +267,6 @@ func (i *budgetComparisonExpressionResponsePtrType) ToBudgetComparisonExpression
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o BudgetComparisonExpressionResponsePtrOutput) Values() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilter struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []BudgetFilterProperties `pulumi:"and"`
@@ -389,7 +382,6 @@ type BudgetFilterInput interface {
 	ToBudgetFilterOutputWithContext(context.Context) BudgetFilterOutput
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And BudgetFilterPropertiesArrayInput `pulumi:"and"`
@@ -454,7 +446,6 @@ func (i *budgetFilterPtrType) ToBudgetFilterPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPtrOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterOutput) ElementType() reflect.Type {
@@ -563,7 +554,6 @@ func (o BudgetFilterPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterProperties struct {
 	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpression `pulumi:"dimensions"`
@@ -582,7 +572,6 @@ type BudgetFilterPropertiesInput interface {
 	ToBudgetFilterPropertiesOutputWithContext(context.Context) BudgetFilterPropertiesOutput
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesArgs struct {
 	// Has comparison expression for a dimension
 	Dimensions BudgetComparisonExpressionPtrInput `pulumi:"dimensions"`
@@ -668,7 +657,6 @@ func (i BudgetFilterPropertiesArray) ToBudgetFilterPropertiesArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesArrayOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterPropertiesOutput) ElementType() reflect.Type {
@@ -767,7 +755,6 @@ func (o BudgetFilterPropertiesArrayOutput) Index(i pulumi.IntInput) BudgetFilter
 	}).(BudgetFilterPropertiesOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponse struct {
 	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpressionResponse `pulumi:"dimensions"`
@@ -786,7 +773,6 @@ type BudgetFilterPropertiesResponseInput interface {
 	ToBudgetFilterPropertiesResponseOutputWithContext(context.Context) BudgetFilterPropertiesResponseOutput
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponseArgs struct {
 	// Has comparison expression for a dimension
 	Dimensions BudgetComparisonExpressionResponsePtrInput `pulumi:"dimensions"`
@@ -872,7 +858,6 @@ func (i BudgetFilterPropertiesResponseArray) ToBudgetFilterPropertiesResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesResponseArrayOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -971,7 +956,6 @@ func (o BudgetFilterPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Budg
 	}).(BudgetFilterPropertiesResponseOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponse struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []BudgetFilterPropertiesResponse `pulumi:"and"`
@@ -994,7 +978,6 @@ type BudgetFilterResponseInput interface {
 	ToBudgetFilterResponseOutputWithContext(context.Context) BudgetFilterResponseOutput
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponseArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And BudgetFilterPropertiesResponseArrayInput `pulumi:"and"`
@@ -1059,7 +1042,6 @@ func (i *budgetFilterResponsePtrType) ToBudgetFilterResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterResponsePtrOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterResponseOutput) ElementType() reflect.Type {
@@ -1168,7 +1150,6 @@ func (o BudgetFilterResponsePtrOutput) Tags() BudgetComparisonExpressionResponse
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriod struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate *string `pulumi:"endDate"`
@@ -1187,7 +1168,6 @@ type BudgetTimePeriodInput interface {
 	ToBudgetTimePeriodOutputWithContext(context.Context) BudgetTimePeriodOutput
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodArgs struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
@@ -1248,7 +1228,6 @@ func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetTimePeriodOutput) ElementType() reflect.Type {
@@ -1327,7 +1306,6 @@ func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponse struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate *string `pulumi:"endDate"`
@@ -1346,7 +1324,6 @@ type BudgetTimePeriodResponseInput interface {
 	ToBudgetTimePeriodResponseOutputWithContext(context.Context) BudgetTimePeriodResponseOutput
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponseArgs struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
@@ -1407,7 +1384,6 @@ func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponsePtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -1486,7 +1462,6 @@ func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponse struct {
 	// The total amount of cost which is being tracked by the budget.
 	Amount float64 `pulumi:"amount"`
@@ -1505,7 +1480,6 @@ type CurrentSpendResponseInput interface {
 	ToCurrentSpendResponseOutputWithContext(context.Context) CurrentSpendResponseOutput
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponseArgs struct {
 	// The total amount of cost which is being tracked by the budget.
 	Amount pulumi.Float64Input `pulumi:"amount"`
@@ -1566,7 +1540,6 @@ func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponsePtrOutput)
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentSpendResponseOutput) ElementType() reflect.Type {
@@ -1645,7 +1618,6 @@ func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponse struct {
 	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 	Amount float64 `pulumi:"amount"`
@@ -1664,7 +1636,6 @@ type ForecastSpendResponseInput interface {
 	ToForecastSpendResponseOutputWithContext(context.Context) ForecastSpendResponseOutput
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponseArgs struct {
 	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 	Amount pulumi.Float64Input `pulumi:"amount"`
@@ -1725,7 +1696,6 @@ func (i *forecastSpendResponsePtrType) ToForecastSpendResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ForecastSpendResponsePtrOutput)
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponseOutput struct{ *pulumi.OutputState }
 
 func (ForecastSpendResponseOutput) ElementType() reflect.Type {
@@ -1804,7 +1774,6 @@ func (o ForecastSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The notification associated with a budget.
 type Notification struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
@@ -1835,7 +1804,6 @@ type NotificationInput interface {
 	ToNotificationOutputWithContext(context.Context) NotificationOutput
 }
 
-// The notification associated with a budget.
 type NotificationArgs struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
@@ -1892,7 +1860,6 @@ func (i NotificationMap) ToNotificationMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationMapOutput)
 }
 
-// The notification associated with a budget.
 type NotificationOutput struct{ *pulumi.OutputState }
 
 func (NotificationOutput) ElementType() reflect.Type {
@@ -1967,7 +1934,6 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 	}).(NotificationOutput)
 }
 
-// The notification associated with a budget.
 type NotificationResponse struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
@@ -1998,7 +1964,6 @@ type NotificationResponseInput interface {
 	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
 }
 
-// The notification associated with a budget.
 type NotificationResponseArgs struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
@@ -2055,7 +2020,6 @@ func (i NotificationResponseMap) ToNotificationResponseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseMapOutput)
 }
 
-// The notification associated with a budget.
 type NotificationResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Assessment sizing criterion.
 type AssessmentSizingCriterion string
 
 const (
@@ -175,7 +174,6 @@ func (in *assessmentSizingCriterionPtr) ToAssessmentSizingCriterionPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentSizingCriterionPtrOutput)
 }
 
-// User configurable setting that describes the status of the assessment.
 type AssessmentStage string
 
 const (
@@ -341,7 +339,6 @@ func (in *assessmentStagePtr) ToAssessmentStagePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentStagePtrOutput)
 }
 
-// Storage type selected for this disk.
 type AzureDiskType string
 
 const (
@@ -509,7 +506,6 @@ func (in *azureDiskTypePtr) ToAzureDiskTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AzureDiskTypePtrOutput)
 }
 
-// AHUB discount on windows virtual machines.
 type AzureHybridUseBenefit string
 
 const (
@@ -675,7 +671,6 @@ func (in *azureHybridUseBenefitPtr) ToAzureHybridUseBenefitPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AzureHybridUseBenefitPtrOutput)
 }
 
-// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
 type AzureLocation string
 
 const (
@@ -875,7 +870,6 @@ func (in *azureLocationPtr) ToAzureLocationPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AzureLocationPtrOutput)
 }
 
-// Offer code according to which cost estimation is done.
 type AzureOfferCode string
 
 const (
@@ -1078,7 +1072,6 @@ func (in *azureOfferCodePtr) ToAzureOfferCodePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(AzureOfferCodePtrOutput)
 }
 
-// Pricing tier for Size evaluation.
 type AzurePricingTier string
 
 const (
@@ -1243,7 +1236,6 @@ func (in *azurePricingTierPtr) ToAzurePricingTierPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AzurePricingTierPtrOutput)
 }
 
-// Storage Redundancy type offered by Azure.
 type AzureStorageRedundancy string
 
 const (
@@ -1411,7 +1403,6 @@ func (in *azureStorageRedundancyPtr) ToAzureStorageRedundancyPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(AzureStorageRedundancyPtrOutput)
 }
 
-// Azure VM family.
 type AzureVmFamily string
 
 const (
@@ -1596,7 +1587,6 @@ func (in *azureVmFamilyPtr) ToAzureVmFamilyPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AzureVmFamilyPtrOutput)
 }
 
-// Currency to report prices in.
 type Currency string
 
 const (
@@ -1785,7 +1775,6 @@ func (in *currencyPtr) ToCurrencyPtrOutputWithContext(ctx context.Context) Curre
 	return pulumi.ToOutputWithContext(ctx, in).(CurrencyPtrOutput)
 }
 
-// Percentile of performance data used to recommend Azure size.
 type Percentile string
 
 const (
@@ -1952,7 +1941,6 @@ func (in *percentilePtr) ToPercentilePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PercentilePtrOutput)
 }
 
-// Assessment project status.
 type ProjectStatus string
 
 const (
@@ -2117,7 +2105,6 @@ func (in *projectStatusPtr) ToProjectStatusPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectStatusPtrOutput)
 }
 
-// Provisioning state of the migrate project.
 type ProvisioningState string
 
 const (
@@ -2286,7 +2273,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
 }
 
-// Azure reserved instance.
 type ReservedInstance string
 
 const (
@@ -2452,7 +2438,6 @@ func (in *reservedInstancePtr) ToReservedInstancePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ReservedInstancePtrOutput)
 }
 
-// The type of identity used for the resource mover service.
 type ResourceIdentityType string
 
 const (
@@ -2618,7 +2603,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Gets or sets the target availability zone.
 type TargetAvailabilityZone string
 
 const (
@@ -2785,7 +2769,6 @@ func (in *targetAvailabilityZonePtr) ToTargetAvailabilityZonePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(TargetAvailabilityZonePtrOutput)
 }
 
-// Time range of performance data used to recommend a size.
 type TimeRange string
 
 const (
@@ -2952,7 +2935,6 @@ func (in *timeRangePtr) ToTimeRangePtrOutputWithContext(ctx context.Context) Tim
 	return pulumi.ToOutputWithContext(ctx, in).(TimeRangePtrOutput)
 }
 
-// Defines the zone redundant resource setting.
 type ZoneRedundant string
 
 const (

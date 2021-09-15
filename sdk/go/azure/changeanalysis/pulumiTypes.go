@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspaceProperties struct {
 	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
@@ -31,7 +30,6 @@ type AzureMonitorWorkspacePropertiesInput interface {
 	ToAzureMonitorWorkspacePropertiesOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesOutput
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesArgs struct {
 	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
@@ -94,7 +92,6 @@ func (i *azureMonitorWorkspacePropertiesPtrType) ToAzureMonitorWorkspaceProperti
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AzureMonitorWorkspacePropertiesOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceResourceId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponse struct {
 	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
@@ -209,7 +205,6 @@ type AzureMonitorWorkspacePropertiesResponseInput interface {
 	ToAzureMonitorWorkspacePropertiesResponseOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesResponseOutput
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponseArgs struct {
 	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
@@ -272,7 +267,6 @@ func (i *azureMonitorWorkspacePropertiesResponsePtrType) ToAzureMonitorWorkspace
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMonitorWorkspacePropertiesResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) WorkspaceResourceId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourceProperties struct {
 	// Settings of change notification configuration for a subscription.
 	Notifications *NotificationSettings `pulumi:"notifications"`
@@ -383,7 +376,6 @@ type ConfigurationProfileResourcePropertiesInput interface {
 	ToConfigurationProfileResourcePropertiesOutputWithContext(context.Context) ConfigurationProfileResourcePropertiesOutput
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourcePropertiesArgs struct {
 	// Settings of change notification configuration for a subscription.
 	Notifications NotificationSettingsPtrInput `pulumi:"notifications"`
@@ -442,7 +434,6 @@ func (i *configurationProfileResourcePropertiesPtrType) ToConfigurationProfileRe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesPtrOutput)
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileResourcePropertiesOutput) ElementType() reflect.Type {
@@ -506,7 +497,6 @@ func (o ConfigurationProfileResourcePropertiesPtrOutput) Notifications() Notific
 	}).(NotificationSettingsPtrOutput)
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourcePropertiesResponse struct {
 	// Settings of change notification configuration for a subscription.
 	Notifications *NotificationSettingsResponse `pulumi:"notifications"`
@@ -523,7 +513,6 @@ type ConfigurationProfileResourcePropertiesResponseInput interface {
 	ToConfigurationProfileResourcePropertiesResponseOutputWithContext(context.Context) ConfigurationProfileResourcePropertiesResponseOutput
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourcePropertiesResponseArgs struct {
 	// Settings of change notification configuration for a subscription.
 	Notifications NotificationSettingsResponsePtrInput `pulumi:"notifications"`
@@ -582,7 +571,6 @@ func (i *configurationProfileResourcePropertiesResponsePtrType) ToConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesResponsePtrOutput)
 }
 
-// The properties of a configuration profile.
 type ConfigurationProfileResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -648,7 +636,6 @@ func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Notifications()
 	}).(NotificationSettingsResponsePtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettings struct {
 	// The state of notifications feature.
 	ActivationState *string `pulumi:"activationState"`
@@ -667,7 +654,6 @@ type NotificationSettingsInput interface {
 	ToNotificationSettingsOutputWithContext(context.Context) NotificationSettingsOutput
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettingsArgs struct {
 	// The state of notifications feature.
 	ActivationState pulumi.StringPtrInput `pulumi:"activationState"`
@@ -728,7 +714,6 @@ func (i *notificationSettingsPtrType) ToNotificationSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsPtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsOutput) ElementType() reflect.Type {
@@ -809,7 +794,6 @@ func (o NotificationSettingsPtrOutput) AzureMonitorWorkspaceProperties() AzureMo
 	}).(AzureMonitorWorkspacePropertiesPtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettingsResponse struct {
 	// The state of notifications feature.
 	ActivationState *string `pulumi:"activationState"`
@@ -828,7 +812,6 @@ type NotificationSettingsResponseInput interface {
 	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettingsResponseArgs struct {
 	// The state of notifications feature.
 	ActivationState pulumi.StringPtrInput `pulumi:"activationState"`
@@ -889,7 +872,6 @@ func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -970,7 +952,6 @@ func (o NotificationSettingsResponsePtrOutput) AzureMonitorWorkspaceProperties()
 	}).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
@@ -987,7 +968,6 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1046,7 +1026,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -1110,7 +1089,6 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityResponse struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1131,7 +1109,6 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityResponseArgs struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -1194,7 +1171,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1288,7 +1264,6 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt string `pulumi:"createdAt"`
@@ -1315,7 +1290,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
@@ -1384,7 +1358,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

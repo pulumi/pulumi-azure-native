@@ -615,7 +615,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentity struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type *string `pulumi:"type"`
@@ -632,7 +631,6 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityArgs struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -691,7 +689,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -755,7 +752,6 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponse struct {
 	// The Azure Active Directory principal id.
 	PrincipalId string `pulumi:"principalId"`
@@ -776,7 +772,6 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponseArgs struct {
 	// The Azure Active Directory principal id.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -839,7 +834,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -933,7 +927,6 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a private endpoint connection.
 type ServerPrivateEndpointConnectionPropertiesResponse struct {
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
@@ -954,7 +947,6 @@ type ServerPrivateEndpointConnectionPropertiesResponseInput interface {
 	ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Properties of a private endpoint connection.
 type ServerPrivateEndpointConnectionPropertiesResponseArgs struct {
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
@@ -976,7 +968,6 @@ func (i ServerPrivateEndpointConnectionPropertiesResponseArgs) ToServerPrivateEn
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Properties of a private endpoint connection.
 type ServerPrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerPrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1010,7 +1001,6 @@ func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ProvisioningSta
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponse struct {
 	// Resource Id of the private endpoint connection.
 	Id string `pulumi:"id"`
@@ -1029,7 +1019,6 @@ type ServerPrivateEndpointConnectionResponseInput interface {
 	ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseOutput
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponseArgs struct {
 	// Resource Id of the private endpoint connection.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1074,7 +1063,6 @@ func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseArrayOutput)
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1296,7 +1284,6 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties used to create a new server.
 type ServerPropertiesForDefaultCreate struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
 	AdministratorLogin string `pulumi:"administratorLogin"`
@@ -1330,7 +1317,6 @@ type ServerPropertiesForDefaultCreateInput interface {
 	ToServerPropertiesForDefaultCreateOutputWithContext(context.Context) ServerPropertiesForDefaultCreateOutput
 }
 
-// The properties used to create a new server.
 type ServerPropertiesForDefaultCreateArgs struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
 	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
@@ -1365,7 +1351,6 @@ func (i ServerPropertiesForDefaultCreateArgs) ToServerPropertiesForDefaultCreate
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForDefaultCreateOutput)
 }
 
-// The properties used to create a new server.
 type ServerPropertiesForDefaultCreateOutput struct{ *pulumi.OutputState }
 
 func (ServerPropertiesForDefaultCreateOutput) ElementType() reflect.Type {
@@ -1426,7 +1411,6 @@ func (o ServerPropertiesForDefaultCreateOutput) Version() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// The properties used to create a new server by restoring to a different region from a geo replicated backup.
 type ServerPropertiesForGeoRestore struct {
 	// The mode to create a new server.
 	// Expected value is 'GeoRestore'.
@@ -1458,7 +1442,6 @@ type ServerPropertiesForGeoRestoreInput interface {
 	ToServerPropertiesForGeoRestoreOutputWithContext(context.Context) ServerPropertiesForGeoRestoreOutput
 }
 
-// The properties used to create a new server by restoring to a different region from a geo replicated backup.
 type ServerPropertiesForGeoRestoreArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'GeoRestore'.
@@ -1491,7 +1474,6 @@ func (i ServerPropertiesForGeoRestoreArgs) ToServerPropertiesForGeoRestoreOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForGeoRestoreOutput)
 }
 
-// The properties used to create a new server by restoring to a different region from a geo replicated backup.
 type ServerPropertiesForGeoRestoreOutput struct{ *pulumi.OutputState }
 
 func (ServerPropertiesForGeoRestoreOutput) ElementType() reflect.Type {
@@ -1547,7 +1529,6 @@ func (o ServerPropertiesForGeoRestoreOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// The properties to create a new replica.
 type ServerPropertiesForReplica struct {
 	// The mode to create a new server.
 	// Expected value is 'Replica'.
@@ -1579,7 +1560,6 @@ type ServerPropertiesForReplicaInput interface {
 	ToServerPropertiesForReplicaOutputWithContext(context.Context) ServerPropertiesForReplicaOutput
 }
 
-// The properties to create a new replica.
 type ServerPropertiesForReplicaArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'Replica'.
@@ -1612,7 +1592,6 @@ func (i ServerPropertiesForReplicaArgs) ToServerPropertiesForReplicaOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForReplicaOutput)
 }
 
-// The properties to create a new replica.
 type ServerPropertiesForReplicaOutput struct{ *pulumi.OutputState }
 
 func (ServerPropertiesForReplicaOutput) ElementType() reflect.Type {
@@ -1668,7 +1647,6 @@ func (o ServerPropertiesForReplicaOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// The properties used to create a new server by restoring from a backup.
 type ServerPropertiesForRestore struct {
 	// The mode to create a new server.
 	// Expected value is 'PointInTimeRestore'.
@@ -1702,7 +1680,6 @@ type ServerPropertiesForRestoreInput interface {
 	ToServerPropertiesForRestoreOutputWithContext(context.Context) ServerPropertiesForRestoreOutput
 }
 
-// The properties used to create a new server by restoring from a backup.
 type ServerPropertiesForRestoreArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'PointInTimeRestore'.
@@ -1737,7 +1714,6 @@ func (i ServerPropertiesForRestoreArgs) ToServerPropertiesForRestoreOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForRestoreOutput)
 }
 
-// The properties used to create a new server by restoring from a backup.
 type ServerPropertiesForRestoreOutput struct{ *pulumi.OutputState }
 
 func (ServerPropertiesForRestoreOutput) ElementType() reflect.Type {
@@ -1798,7 +1774,6 @@ func (o ServerPropertiesForRestoreOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// Billing information related properties of a server.
 type Sku struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity *int `pulumi:"capacity"`
@@ -1823,7 +1798,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Billing information related properties of a server.
 type SkuArgs struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -1890,7 +1864,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2014,7 +1987,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuResponse struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity *int `pulumi:"capacity"`
@@ -2039,7 +2011,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Billing information related properties of a server.
 type SkuResponseArgs struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2106,7 +2077,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2230,7 +2200,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfile struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -2253,7 +2222,6 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// Storage Profile properties of a server
 type StorageProfileArgs struct {
 	// Backup retention days for the server.
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
@@ -2318,7 +2286,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -2427,7 +2394,6 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponse struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -2450,7 +2416,6 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponseArgs struct {
 	// Backup retention days for the server.
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
@@ -2515,7 +2480,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {

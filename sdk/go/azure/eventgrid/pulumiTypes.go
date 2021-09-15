@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
@@ -34,7 +33,6 @@ type AzureFunctionEventSubscriptionDestinationInput interface {
 	ToAzureFunctionEventSubscriptionDestinationOutputWithContext(context.Context) AzureFunctionEventSubscriptionDestinationOutput
 }
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
@@ -59,7 +57,6 @@ func (i AzureFunctionEventSubscriptionDestinationArgs) ToAzureFunctionEventSubsc
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionEventSubscriptionDestinationOutput)
 }
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -95,7 +92,6 @@ func (o AzureFunctionEventSubscriptionDestinationOutput) ResourceId() pulumi.Str
 	return o.ApplyT(func(v AzureFunctionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
@@ -119,7 +115,6 @@ type AzureFunctionEventSubscriptionDestinationResponseInput interface {
 	ToAzureFunctionEventSubscriptionDestinationResponseOutputWithContext(context.Context) AzureFunctionEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
@@ -144,7 +139,6 @@ func (i AzureFunctionEventSubscriptionDestinationResponseArgs) ToAzureFunctionEv
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -180,7 +174,6 @@ func (o AzureFunctionEventSubscriptionDestinationResponseOutput) ResourceId() pu
 	return o.ApplyT(func(v AzureFunctionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -202,7 +195,6 @@ type BoolEqualsAdvancedFilterInput interface {
 	ToBoolEqualsAdvancedFilterOutputWithContext(context.Context) BoolEqualsAdvancedFilterOutput
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -225,7 +217,6 @@ func (i BoolEqualsAdvancedFilterArgs) ToBoolEqualsAdvancedFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BoolEqualsAdvancedFilterOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (BoolEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -256,7 +247,6 @@ func (o BoolEqualsAdvancedFilterOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilter) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -278,7 +268,6 @@ type BoolEqualsAdvancedFilterResponseInput interface {
 	ToBoolEqualsAdvancedFilterResponseOutputWithContext(context.Context) BoolEqualsAdvancedFilterResponseOutput
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -301,7 +290,6 @@ func (i BoolEqualsAdvancedFilterResponseArgs) ToBoolEqualsAdvancedFilterResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BoolEqualsAdvancedFilterResponseOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BoolEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -332,7 +320,6 @@ func (o BoolEqualsAdvancedFilterResponseOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilterResponse) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionState struct {
 	// Actions required (if any).
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -353,7 +340,6 @@ type ConnectionStateInput interface {
 	ToConnectionStateOutputWithContext(context.Context) ConnectionStateOutput
 }
 
-// ConnectionState information.
 type ConnectionStateArgs struct {
 	// Actions required (if any).
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -416,7 +402,6 @@ func (i *connectionStatePtrType) ToConnectionStatePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateOutput) ElementType() reflect.Type {
@@ -510,7 +495,6 @@ func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponse struct {
 	// Actions required (if any).
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -531,7 +515,6 @@ type ConnectionStateResponseInput interface {
 	ToConnectionStateResponseOutputWithContext(context.Context) ConnectionStateResponseOutput
 }
 
-// ConnectionState information.
 type ConnectionStateResponseArgs struct {
 	// Actions required (if any).
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -594,7 +577,6 @@ func (i *connectionStateResponsePtrType) ToConnectionStateResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateResponsePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -688,7 +670,6 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentity struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -708,7 +689,6 @@ type DeadLetterWithResourceIdentityInput interface {
 	ToDeadLetterWithResourceIdentityOutputWithContext(context.Context) DeadLetterWithResourceIdentityOutput
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentityArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -770,7 +750,6 @@ func (i *deadLetterWithResourceIdentityPtrType) ToDeadLetterWithResourceIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityPtrOutput)
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (DeadLetterWithResourceIdentityOutput) ElementType() reflect.Type {
@@ -853,7 +832,6 @@ func (o DeadLetterWithResourceIdentityPtrOutput) Identity() EventSubscriptionIde
 	}).(EventSubscriptionIdentityPtrOutput)
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentityResponse struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -873,7 +851,6 @@ type DeadLetterWithResourceIdentityResponseInput interface {
 	ToDeadLetterWithResourceIdentityResponseOutputWithContext(context.Context) DeadLetterWithResourceIdentityResponseOutput
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentityResponseArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -935,7 +912,6 @@ func (i *deadLetterWithResourceIdentityResponsePtrType) ToDeadLetterWithResource
 	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponsePtrOutput)
 }
 
-// Information about the deadletter destination with resource identity.
 type DeadLetterWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (DeadLetterWithResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1018,7 +994,6 @@ func (o DeadLetterWithResourceIdentityResponsePtrOutput) Identity() EventSubscri
 	}).(EventSubscriptionIdentityResponsePtrOutput)
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentity struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -1038,7 +1013,6 @@ type DeliveryWithResourceIdentityInput interface {
 	ToDeliveryWithResourceIdentityOutputWithContext(context.Context) DeliveryWithResourceIdentityOutput
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentityArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -1100,7 +1074,6 @@ func (i *deliveryWithResourceIdentityPtrType) ToDeliveryWithResourceIdentityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityPtrOutput)
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (DeliveryWithResourceIdentityOutput) ElementType() reflect.Type {
@@ -1181,7 +1154,6 @@ func (o DeliveryWithResourceIdentityPtrOutput) Identity() EventSubscriptionIdent
 	}).(EventSubscriptionIdentityPtrOutput)
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentityResponse struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -1201,7 +1173,6 @@ type DeliveryWithResourceIdentityResponseInput interface {
 	ToDeliveryWithResourceIdentityResponseOutputWithContext(context.Context) DeliveryWithResourceIdentityResponseOutput
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentityResponseArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -1263,7 +1234,6 @@ func (i *deliveryWithResourceIdentityResponsePtrType) ToDeliveryWithResourceIden
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponsePtrOutput)
 }
 
-// Information about the delivery for an event subscription with resource identity.
 type DeliveryWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryWithResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1344,7 +1314,6 @@ func (o DeliveryWithResourceIdentityResponsePtrOutput) Identity() EventSubscript
 	}).(EventSubscriptionIdentityResponsePtrOutput)
 }
 
-// Dynamic delivery attribute mapping details.
 type DynamicDeliveryAttributeMappingResponse struct {
 	// Name of the delivery attribute or header.
 	Name *string `pulumi:"name"`
@@ -1366,7 +1335,6 @@ type DynamicDeliveryAttributeMappingResponseInput interface {
 	ToDynamicDeliveryAttributeMappingResponseOutputWithContext(context.Context) DynamicDeliveryAttributeMappingResponseOutput
 }
 
-// Dynamic delivery attribute mapping details.
 type DynamicDeliveryAttributeMappingResponseArgs struct {
 	// Name of the delivery attribute or header.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1389,7 +1357,6 @@ func (i DynamicDeliveryAttributeMappingResponseArgs) ToDynamicDeliveryAttributeM
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicDeliveryAttributeMappingResponseOutput)
 }
 
-// Dynamic delivery attribute mapping details.
 type DynamicDeliveryAttributeMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (DynamicDeliveryAttributeMappingResponseOutput) ElementType() reflect.Type {
@@ -1420,7 +1387,6 @@ func (o DynamicDeliveryAttributeMappingResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v DynamicDeliveryAttributeMappingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestination struct {
 	// Azure subscription ID of the customer creating the event channel. The partner topic
 	// associated with the event channel will be created under this Azure subscription.
@@ -1443,7 +1409,6 @@ type EventChannelDestinationInput interface {
 	ToEventChannelDestinationOutputWithContext(context.Context) EventChannelDestinationOutput
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestinationArgs struct {
 	// Azure subscription ID of the customer creating the event channel. The partner topic
 	// associated with the event channel will be created under this Azure subscription.
@@ -1508,7 +1473,6 @@ func (i *eventChannelDestinationPtrType) ToEventChannelDestinationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationPtrOutput)
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventChannelDestinationOutput) ElementType() reflect.Type {
@@ -1606,7 +1570,6 @@ func (o EventChannelDestinationPtrOutput) ResourceGroup() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestinationResponse struct {
 	// Azure subscription ID of the customer creating the event channel. The partner topic
 	// associated with the event channel will be created under this Azure subscription.
@@ -1629,7 +1592,6 @@ type EventChannelDestinationResponseInput interface {
 	ToEventChannelDestinationResponseOutputWithContext(context.Context) EventChannelDestinationResponseOutput
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestinationResponseArgs struct {
 	// Azure subscription ID of the customer creating the event channel. The partner topic
 	// associated with the event channel will be created under this Azure subscription.
@@ -1694,7 +1656,6 @@ func (i *eventChannelDestinationResponsePtrType) ToEventChannelDestinationRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationResponsePtrOutput)
 }
 
-// Properties of the destination of an event channel.
 type EventChannelDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventChannelDestinationResponseOutput) ElementType() reflect.Type {
@@ -1792,7 +1753,6 @@ func (o EventChannelDestinationResponsePtrOutput) ResourceGroup() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Channel.
 type EventChannelFilter struct {
 	// An array of advanced filters that are used for filtering event channels.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
@@ -1811,7 +1771,6 @@ type EventChannelFilterInput interface {
 	ToEventChannelFilterOutputWithContext(context.Context) EventChannelFilterOutput
 }
 
-// Filter for the Event Channel.
 type EventChannelFilterArgs struct {
 	// An array of advanced filters that are used for filtering event channels.
 	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
@@ -1872,7 +1831,6 @@ func (i *eventChannelFilterPtrType) ToEventChannelFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterPtrOutput)
 }
 
-// Filter for the Event Channel.
 type EventChannelFilterOutput struct{ *pulumi.OutputState }
 
 func (EventChannelFilterOutput) ElementType() reflect.Type {
@@ -1951,7 +1909,6 @@ func (o EventChannelFilterPtrOutput) EnableAdvancedFilteringOnArrays() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Filter for the Event Channel.
 type EventChannelFilterResponse struct {
 	// An array of advanced filters that are used for filtering event channels.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
@@ -1970,7 +1927,6 @@ type EventChannelFilterResponseInput interface {
 	ToEventChannelFilterResponseOutputWithContext(context.Context) EventChannelFilterResponseOutput
 }
 
-// Filter for the Event Channel.
 type EventChannelFilterResponseArgs struct {
 	// An array of advanced filters that are used for filtering event channels.
 	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
@@ -2031,7 +1987,6 @@ func (i *eventChannelFilterResponsePtrType) ToEventChannelFilterResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterResponsePtrOutput)
 }
 
-// Filter for the Event Channel.
 type EventChannelFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventChannelFilterResponseOutput) ElementType() reflect.Type {
@@ -2110,7 +2065,6 @@ func (o EventChannelFilterResponsePtrOutput) EnableAdvancedFilteringOnArrays() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties of the source of an event channel.
 type EventChannelSource struct {
 	// The identifier of the resource that's the source of the events.
 	// This represents a unique resource in the partner's resource model.
@@ -2128,7 +2082,6 @@ type EventChannelSourceInput interface {
 	ToEventChannelSourceOutputWithContext(context.Context) EventChannelSourceOutput
 }
 
-// Properties of the source of an event channel.
 type EventChannelSourceArgs struct {
 	// The identifier of the resource that's the source of the events.
 	// This represents a unique resource in the partner's resource model.
@@ -2188,7 +2141,6 @@ func (i *eventChannelSourcePtrType) ToEventChannelSourcePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourcePtrOutput)
 }
 
-// Properties of the source of an event channel.
 type EventChannelSourceOutput struct{ *pulumi.OutputState }
 
 func (EventChannelSourceOutput) ElementType() reflect.Type {
@@ -2254,7 +2206,6 @@ func (o EventChannelSourcePtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the source of an event channel.
 type EventChannelSourceResponse struct {
 	// The identifier of the resource that's the source of the events.
 	// This represents a unique resource in the partner's resource model.
@@ -2272,7 +2223,6 @@ type EventChannelSourceResponseInput interface {
 	ToEventChannelSourceResponseOutputWithContext(context.Context) EventChannelSourceResponseOutput
 }
 
-// Properties of the source of an event channel.
 type EventChannelSourceResponseArgs struct {
 	// The identifier of the resource that's the source of the events.
 	// This represents a unique resource in the partner's resource model.
@@ -2332,7 +2282,6 @@ func (i *eventChannelSourceResponsePtrType) ToEventChannelSourceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceResponsePtrOutput)
 }
 
-// Properties of the source of an event channel.
 type EventChannelSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (EventChannelSourceResponseOutput) ElementType() reflect.Type {
@@ -2398,7 +2347,6 @@ func (o EventChannelSourceResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
@@ -2418,7 +2366,6 @@ type EventHubEventSubscriptionDestinationInput interface {
 	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
@@ -2439,7 +2386,6 @@ func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDes
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -2465,7 +2411,6 @@ func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPt
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
@@ -2485,7 +2430,6 @@ type EventHubEventSubscriptionDestinationResponseInput interface {
 	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
@@ -2506,7 +2450,6 @@ func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -2532,7 +2475,6 @@ func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilter struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
@@ -2561,7 +2503,6 @@ type EventSubscriptionFilterInput interface {
 	ToEventSubscriptionFilterOutputWithContext(context.Context) EventSubscriptionFilterOutput
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterArgs struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
@@ -2632,7 +2573,6 @@ func (i *eventSubscriptionFilterPtrType) ToEventSubscriptionFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -2764,7 +2704,6 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponse struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
@@ -2793,7 +2732,6 @@ type EventSubscriptionFilterResponseInput interface {
 	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponseArgs struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
@@ -2864,7 +2802,6 @@ func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterResponseOutput) ElementType() reflect.Type {
@@ -2996,7 +2933,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 	Type *string `pulumi:"type"`
@@ -3015,7 +2951,6 @@ type EventSubscriptionIdentityInput interface {
 	ToEventSubscriptionIdentityOutputWithContext(context.Context) EventSubscriptionIdentityOutput
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -3076,7 +3011,6 @@ func (i *eventSubscriptionIdentityPtrType) ToEventSubscriptionIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityPtrOutput)
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionIdentityOutput) ElementType() reflect.Type {
@@ -3155,7 +3089,6 @@ func (o EventSubscriptionIdentityPtrOutput) UserAssignedIdentity() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentityResponse struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 	Type *string `pulumi:"type"`
@@ -3174,7 +3107,6 @@ type EventSubscriptionIdentityResponseInput interface {
 	ToEventSubscriptionIdentityResponseOutputWithContext(context.Context) EventSubscriptionIdentityResponseOutput
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentityResponseArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -3235,7 +3167,6 @@ func (i *eventSubscriptionIdentityResponsePtrType) ToEventSubscriptionIdentityRe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponsePtrOutput)
 }
 
-// The identity information with the event subscription.
 type EventSubscriptionIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionIdentityResponseOutput) ElementType() reflect.Type {
@@ -3314,7 +3245,6 @@ func (o EventSubscriptionIdentityResponsePtrOutput) UserAssignedIdentity() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
@@ -3334,7 +3264,6 @@ type HybridConnectionEventSubscriptionDestinationInput interface {
 	ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
@@ -3355,7 +3284,6 @@ func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEven
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -3381,7 +3309,6 @@ func (o HybridConnectionEventSubscriptionDestinationOutput) ResourceId() pulumi.
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
@@ -3401,7 +3328,6 @@ type HybridConnectionEventSubscriptionDestinationResponseInput interface {
 	ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
@@ -3422,7 +3348,6 @@ func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnec
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -3448,7 +3373,6 @@ func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ResourceId()
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The identity information for the resource.
 type IdentityInfo struct {
 	// The principal ID of resource identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3473,7 +3397,6 @@ type IdentityInfoInput interface {
 	ToIdentityInfoOutputWithContext(context.Context) IdentityInfoOutput
 }
 
-// The identity information for the resource.
 type IdentityInfoArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3540,7 +3463,6 @@ func (i *identityInfoPtrType) ToIdentityInfoPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityInfoPtrOutput)
 }
 
-// The identity information for the resource.
 type IdentityInfoOutput struct{ *pulumi.OutputState }
 
 func (IdentityInfoOutput) ElementType() reflect.Type {
@@ -3653,7 +3575,6 @@ func (o IdentityInfoPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMa
 	}).(UserIdentityPropertiesMapOutput)
 }
 
-// The identity information for the resource.
 type IdentityInfoResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3678,7 +3599,6 @@ type IdentityInfoResponseInput interface {
 	ToIdentityInfoResponseOutputWithContext(context.Context) IdentityInfoResponseOutput
 }
 
-// The identity information for the resource.
 type IdentityInfoResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3745,7 +3665,6 @@ func (i *identityInfoResponsePtrType) ToIdentityInfoResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityInfoResponsePtrOutput)
 }
 
-// The identity information for the resource.
 type IdentityInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityInfoResponseOutput) ElementType() reflect.Type {
@@ -4072,7 +3991,6 @@ func (o InboundIpRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundIpRule
 	}).(InboundIpRuleResponseOutput)
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -4092,7 +4010,6 @@ type IsNotNullAdvancedFilterInput interface {
 	ToIsNotNullAdvancedFilterOutputWithContext(context.Context) IsNotNullAdvancedFilterOutput
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -4113,7 +4030,6 @@ func (i IsNotNullAdvancedFilterArgs) ToIsNotNullAdvancedFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IsNotNullAdvancedFilterOutput)
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (IsNotNullAdvancedFilterOutput) ElementType() reflect.Type {
@@ -4139,7 +4055,6 @@ func (o IsNotNullAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v IsNotNullAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -4159,7 +4074,6 @@ type IsNotNullAdvancedFilterResponseInput interface {
 	ToIsNotNullAdvancedFilterResponseOutputWithContext(context.Context) IsNotNullAdvancedFilterResponseOutput
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -4180,7 +4094,6 @@ func (i IsNotNullAdvancedFilterResponseArgs) ToIsNotNullAdvancedFilterResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(IsNotNullAdvancedFilterResponseOutput)
 }
 
-// IsNotNull Advanced Filter.
 type IsNotNullAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (IsNotNullAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -4206,7 +4119,6 @@ func (o IsNotNullAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutpu
 	return o.ApplyT(func(v IsNotNullAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -4226,7 +4138,6 @@ type IsNullOrUndefinedAdvancedFilterInput interface {
 	ToIsNullOrUndefinedAdvancedFilterOutputWithContext(context.Context) IsNullOrUndefinedAdvancedFilterOutput
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -4247,7 +4158,6 @@ func (i IsNullOrUndefinedAdvancedFilterArgs) ToIsNullOrUndefinedAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(IsNullOrUndefinedAdvancedFilterOutput)
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (IsNullOrUndefinedAdvancedFilterOutput) ElementType() reflect.Type {
@@ -4273,7 +4183,6 @@ func (o IsNullOrUndefinedAdvancedFilterOutput) OperatorType() pulumi.StringOutpu
 	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -4293,7 +4202,6 @@ type IsNullOrUndefinedAdvancedFilterResponseInput interface {
 	ToIsNullOrUndefinedAdvancedFilterResponseOutputWithContext(context.Context) IsNullOrUndefinedAdvancedFilterResponseOutput
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -4314,7 +4222,6 @@ func (i IsNullOrUndefinedAdvancedFilterResponseArgs) ToIsNullOrUndefinedAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(IsNullOrUndefinedAdvancedFilterResponseOutput)
 }
 
-// IsNullOrUndefined Advanced Filter.
 type IsNullOrUndefinedAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (IsNullOrUndefinedAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -4340,7 +4247,6 @@ func (o IsNullOrUndefinedAdvancedFilterResponseOutput) OperatorType() pulumi.Str
 	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonField struct {
 	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField *string `pulumi:"sourceField"`
@@ -4357,7 +4263,6 @@ type JsonFieldInput interface {
 	ToJsonFieldOutputWithContext(context.Context) JsonFieldOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonFieldArgs struct {
 	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
@@ -4416,7 +4321,6 @@ func (i *jsonFieldPtrType) ToJsonFieldPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonFieldOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldOutput) ElementType() reflect.Type {
@@ -4480,7 +4384,6 @@ func (o JsonFieldPtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonFieldResponse struct {
 	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField *string `pulumi:"sourceField"`
@@ -4497,7 +4400,6 @@ type JsonFieldResponseInput interface {
 	ToJsonFieldResponseOutputWithContext(context.Context) JsonFieldResponseOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonFieldResponseArgs struct {
 	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
@@ -4556,7 +4458,6 @@ func (i *jsonFieldResponsePtrType) ToJsonFieldResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldResponsePtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
 type JsonFieldResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldResponseOutput) ElementType() reflect.Type {
@@ -4620,10 +4521,6 @@ func (o JsonFieldResponsePtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefault struct {
 	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -4642,10 +4539,6 @@ type JsonFieldWithDefaultInput interface {
 	ToJsonFieldWithDefaultOutputWithContext(context.Context) JsonFieldWithDefaultOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultArgs struct {
 	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
@@ -4706,10 +4599,6 @@ func (i *jsonFieldWithDefaultPtrType) ToJsonFieldWithDefaultPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldWithDefaultOutput) ElementType() reflect.Type {
@@ -4788,10 +4677,6 @@ func (o JsonFieldWithDefaultPtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponse struct {
 	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -4810,10 +4695,6 @@ type JsonFieldWithDefaultResponseInput interface {
 	ToJsonFieldWithDefaultResponseOutputWithContext(context.Context) JsonFieldWithDefaultResponseOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponseArgs struct {
 	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
@@ -4874,10 +4755,6 @@ func (i *jsonFieldWithDefaultResponsePtrType) ToJsonFieldWithDefaultResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field
-// in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
-// 'eventtype' and 'dataversion' properties. This represents a field in the input event schema
-// along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldWithDefaultResponseOutput) ElementType() reflect.Type {
@@ -4956,7 +4833,6 @@ func (o JsonFieldWithDefaultResponsePtrOutput) SourceField() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMapping struct {
 	// The mapping information for the DataVersion property of the Event Grid Event.
 	DataVersion *JsonFieldWithDefault `pulumi:"dataVersion"`
@@ -4986,7 +4862,6 @@ type JsonInputSchemaMappingInput interface {
 	ToJsonInputSchemaMappingOutputWithContext(context.Context) JsonInputSchemaMappingOutput
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingArgs struct {
 	// The mapping information for the DataVersion property of the Event Grid Event.
 	DataVersion JsonFieldWithDefaultPtrInput `pulumi:"dataVersion"`
@@ -5058,7 +4933,6 @@ func (i *jsonInputSchemaMappingPtrType) ToJsonInputSchemaMappingPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingOutput struct{ *pulumi.OutputState }
 
 func (JsonInputSchemaMappingOutput) ElementType() reflect.Type {
@@ -5214,7 +5088,6 @@ func (o JsonInputSchemaMappingPtrOutput) Topic() JsonFieldPtrOutput {
 	}).(JsonFieldPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponse struct {
 	// The mapping information for the DataVersion property of the Event Grid Event.
 	DataVersion *JsonFieldWithDefaultResponse `pulumi:"dataVersion"`
@@ -5244,7 +5117,6 @@ type JsonInputSchemaMappingResponseInput interface {
 	ToJsonInputSchemaMappingResponseOutputWithContext(context.Context) JsonInputSchemaMappingResponseOutput
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponseArgs struct {
 	// The mapping information for the DataVersion property of the Event Grid Event.
 	DataVersion JsonFieldWithDefaultResponsePtrInput `pulumi:"dataVersion"`
@@ -5316,7 +5188,6 @@ func (i *jsonInputSchemaMappingResponsePtrType) ToJsonInputSchemaMappingResponse
 	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingResponsePtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonInputSchemaMappingResponseOutput) ElementType() reflect.Type {
@@ -5472,7 +5343,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) Topic() JsonFieldResponsePtrOut
 	}).(JsonFieldResponsePtrOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5494,7 +5364,6 @@ type NumberGreaterThanAdvancedFilterInput interface {
 	ToNumberGreaterThanAdvancedFilterOutputWithContext(context.Context) NumberGreaterThanAdvancedFilterOutput
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5517,7 +5386,6 @@ func (i NumberGreaterThanAdvancedFilterArgs) ToNumberGreaterThanAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanAdvancedFilterOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanAdvancedFilterOutput) ElementType() reflect.Type {
@@ -5548,7 +5416,6 @@ func (o NumberGreaterThanAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5570,7 +5437,6 @@ type NumberGreaterThanAdvancedFilterResponseInput interface {
 	ToNumberGreaterThanAdvancedFilterResponseOutputWithContext(context.Context) NumberGreaterThanAdvancedFilterResponseOutput
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5593,7 +5459,6 @@ func (i NumberGreaterThanAdvancedFilterResponseArgs) ToNumberGreaterThanAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanAdvancedFilterResponseOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -5624,7 +5489,6 @@ func (o NumberGreaterThanAdvancedFilterResponseOutput) Value() pulumi.Float64Ptr
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5646,7 +5510,6 @@ type NumberGreaterThanOrEqualsAdvancedFilterInput interface {
 	ToNumberGreaterThanOrEqualsAdvancedFilterOutputWithContext(context.Context) NumberGreaterThanOrEqualsAdvancedFilterOutput
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5669,7 +5532,6 @@ func (i NumberGreaterThanOrEqualsAdvancedFilterArgs) ToNumberGreaterThanOrEquals
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanOrEqualsAdvancedFilterOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -5700,7 +5562,6 @@ func (o NumberGreaterThanOrEqualsAdvancedFilterOutput) Value() pulumi.Float64Ptr
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5722,7 +5583,6 @@ type NumberGreaterThanOrEqualsAdvancedFilterResponseInput interface {
 	ToNumberGreaterThanOrEqualsAdvancedFilterResponseOutputWithContext(context.Context) NumberGreaterThanOrEqualsAdvancedFilterResponseOutput
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5745,7 +5605,6 @@ func (i NumberGreaterThanOrEqualsAdvancedFilterResponseArgs) ToNumberGreaterThan
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanOrEqualsAdvancedFilterResponseOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -5776,7 +5635,6 @@ func (o NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) Value() pulumi.Fl
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5798,7 +5656,6 @@ type NumberInAdvancedFilterInput interface {
 	ToNumberInAdvancedFilterOutputWithContext(context.Context) NumberInAdvancedFilterOutput
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5821,7 +5678,6 @@ func (i NumberInAdvancedFilterArgs) ToNumberInAdvancedFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInAdvancedFilterOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -5852,7 +5708,6 @@ func (o NumberInAdvancedFilterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5874,7 +5729,6 @@ type NumberInAdvancedFilterResponseInput interface {
 	ToNumberInAdvancedFilterResponseOutputWithContext(context.Context) NumberInAdvancedFilterResponseOutput
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5897,7 +5751,6 @@ func (i NumberInAdvancedFilterResponseArgs) ToNumberInAdvancedFilterResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInAdvancedFilterResponseOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -5928,7 +5781,6 @@ func (o NumberInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOutput
 	return o.ApplyT(func(v NumberInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -5950,7 +5802,6 @@ type NumberInRangeAdvancedFilterInput interface {
 	ToNumberInRangeAdvancedFilterOutputWithContext(context.Context) NumberInRangeAdvancedFilterOutput
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5973,7 +5824,6 @@ func (i NumberInRangeAdvancedFilterArgs) ToNumberInRangeAdvancedFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInRangeAdvancedFilterOutput)
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberInRangeAdvancedFilterOutput) ElementType() reflect.Type {
@@ -6004,7 +5854,6 @@ func (o NumberInRangeAdvancedFilterOutput) Values() pulumi.Float64ArrayArrayOutp
 	return o.ApplyT(func(v NumberInRangeAdvancedFilter) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6026,7 +5875,6 @@ type NumberInRangeAdvancedFilterResponseInput interface {
 	ToNumberInRangeAdvancedFilterResponseOutputWithContext(context.Context) NumberInRangeAdvancedFilterResponseOutput
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6049,7 +5897,6 @@ func (i NumberInRangeAdvancedFilterResponseArgs) ToNumberInRangeAdvancedFilterRe
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInRangeAdvancedFilterResponseOutput)
 }
 
-// NumberInRange Advanced Filter.
 type NumberInRangeAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberInRangeAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -6080,7 +5927,6 @@ func (o NumberInRangeAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayA
 	return o.ApplyT(func(v NumberInRangeAdvancedFilterResponse) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6102,7 +5948,6 @@ type NumberLessThanAdvancedFilterInput interface {
 	ToNumberLessThanAdvancedFilterOutputWithContext(context.Context) NumberLessThanAdvancedFilterOutput
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6125,7 +5970,6 @@ func (i NumberLessThanAdvancedFilterArgs) ToNumberLessThanAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanAdvancedFilterOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanAdvancedFilterOutput) ElementType() reflect.Type {
@@ -6156,7 +6000,6 @@ func (o NumberLessThanAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6178,7 +6021,6 @@ type NumberLessThanAdvancedFilterResponseInput interface {
 	ToNumberLessThanAdvancedFilterResponseOutputWithContext(context.Context) NumberLessThanAdvancedFilterResponseOutput
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6201,7 +6043,6 @@ func (i NumberLessThanAdvancedFilterResponseArgs) ToNumberLessThanAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanAdvancedFilterResponseOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -6232,7 +6073,6 @@ func (o NumberLessThanAdvancedFilterResponseOutput) Value() pulumi.Float64PtrOut
 	return o.ApplyT(func(v NumberLessThanAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6254,7 +6094,6 @@ type NumberLessThanOrEqualsAdvancedFilterInput interface {
 	ToNumberLessThanOrEqualsAdvancedFilterOutputWithContext(context.Context) NumberLessThanOrEqualsAdvancedFilterOutput
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6277,7 +6116,6 @@ func (i NumberLessThanOrEqualsAdvancedFilterArgs) ToNumberLessThanOrEqualsAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanOrEqualsAdvancedFilterOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanOrEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -6308,7 +6146,6 @@ func (o NumberLessThanOrEqualsAdvancedFilterOutput) Value() pulumi.Float64PtrOut
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6330,7 +6167,6 @@ type NumberLessThanOrEqualsAdvancedFilterResponseInput interface {
 	ToNumberLessThanOrEqualsAdvancedFilterResponseOutputWithContext(context.Context) NumberLessThanOrEqualsAdvancedFilterResponseOutput
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6353,7 +6189,6 @@ func (i NumberLessThanOrEqualsAdvancedFilterResponseArgs) ToNumberLessThanOrEqua
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanOrEqualsAdvancedFilterResponseOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanOrEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -6384,7 +6219,6 @@ func (o NumberLessThanOrEqualsAdvancedFilterResponseOutput) Value() pulumi.Float
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6406,7 +6240,6 @@ type NumberNotInAdvancedFilterInput interface {
 	ToNumberNotInAdvancedFilterOutputWithContext(context.Context) NumberNotInAdvancedFilterOutput
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6429,7 +6262,6 @@ func (i NumberNotInAdvancedFilterArgs) ToNumberNotInAdvancedFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInAdvancedFilterOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -6460,7 +6292,6 @@ func (o NumberNotInAdvancedFilterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6482,7 +6313,6 @@ type NumberNotInAdvancedFilterResponseInput interface {
 	ToNumberNotInAdvancedFilterResponseOutputWithContext(context.Context) NumberNotInAdvancedFilterResponseOutput
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6505,7 +6335,6 @@ func (i NumberNotInAdvancedFilterResponseArgs) ToNumberNotInAdvancedFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInAdvancedFilterResponseOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -6536,7 +6365,6 @@ func (o NumberNotInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOut
 	return o.ApplyT(func(v NumberNotInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6558,7 +6386,6 @@ type NumberNotInRangeAdvancedFilterInput interface {
 	ToNumberNotInRangeAdvancedFilterOutputWithContext(context.Context) NumberNotInRangeAdvancedFilterOutput
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6581,7 +6408,6 @@ func (i NumberNotInRangeAdvancedFilterArgs) ToNumberNotInRangeAdvancedFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInRangeAdvancedFilterOutput)
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInRangeAdvancedFilterOutput) ElementType() reflect.Type {
@@ -6612,7 +6438,6 @@ func (o NumberNotInRangeAdvancedFilterOutput) Values() pulumi.Float64ArrayArrayO
 	return o.ApplyT(func(v NumberNotInRangeAdvancedFilter) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -6634,7 +6459,6 @@ type NumberNotInRangeAdvancedFilterResponseInput interface {
 	ToNumberNotInRangeAdvancedFilterResponseOutputWithContext(context.Context) NumberNotInRangeAdvancedFilterResponseOutput
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -6657,7 +6481,6 @@ func (i NumberNotInRangeAdvancedFilterResponseArgs) ToNumberNotInRangeAdvancedFi
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInRangeAdvancedFilterResponseOutput)
 }
 
-// NumberNotInRange Advanced Filter.
 type NumberNotInRangeAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInRangeAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -6688,7 +6511,6 @@ func (o NumberNotInRangeAdvancedFilterResponseOutput) Values() pulumi.Float64Arr
 	return o.ApplyT(func(v NumberNotInRangeAdvancedFilterResponse) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpoint struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -6705,7 +6527,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -6764,7 +6585,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -6981,7 +6801,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -6998,7 +6817,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -7057,7 +6875,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -7121,7 +6938,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicy struct {
 	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
@@ -7140,7 +6956,6 @@ type RetryPolicyInput interface {
 	ToRetryPolicyOutputWithContext(context.Context) RetryPolicyOutput
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyArgs struct {
 	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
@@ -7201,7 +7016,6 @@ func (i *retryPolicyPtrType) ToRetryPolicyPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyPtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyOutput) ElementType() reflect.Type {
@@ -7280,7 +7094,6 @@ func (o RetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponse struct {
 	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
@@ -7299,7 +7112,6 @@ type RetryPolicyResponseInput interface {
 	ToRetryPolicyResponseOutputWithContext(context.Context) RetryPolicyResponseOutput
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponseArgs struct {
 	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
@@ -7360,7 +7172,6 @@ func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponsePtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyResponseOutput) ElementType() reflect.Type {
@@ -7439,7 +7250,6 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
@@ -7459,7 +7269,6 @@ type ServiceBusQueueEventSubscriptionDestinationInput interface {
 	ToServiceBusQueueEventSubscriptionDestinationOutputWithContext(context.Context) ServiceBusQueueEventSubscriptionDestinationOutput
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
@@ -7480,7 +7289,6 @@ func (i ServiceBusQueueEventSubscriptionDestinationArgs) ToServiceBusQueueEventS
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueEventSubscriptionDestinationOutput)
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -7506,7 +7314,6 @@ func (o ServiceBusQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.S
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
@@ -7526,7 +7333,6 @@ type ServiceBusQueueEventSubscriptionDestinationResponseInput interface {
 	ToServiceBusQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) ServiceBusQueueEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
@@ -7547,7 +7353,6 @@ func (i ServiceBusQueueEventSubscriptionDestinationResponseArgs) ToServiceBusQue
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -7573,7 +7378,6 @@ func (o ServiceBusQueueEventSubscriptionDestinationResponseOutput) ResourceId() 
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
@@ -7593,7 +7397,6 @@ type ServiceBusTopicEventSubscriptionDestinationInput interface {
 	ToServiceBusTopicEventSubscriptionDestinationOutputWithContext(context.Context) ServiceBusTopicEventSubscriptionDestinationOutput
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
@@ -7614,7 +7417,6 @@ func (i ServiceBusTopicEventSubscriptionDestinationArgs) ToServiceBusTopicEventS
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicEventSubscriptionDestinationOutput)
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusTopicEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -7640,7 +7442,6 @@ func (o ServiceBusTopicEventSubscriptionDestinationOutput) ResourceId() pulumi.S
 	return o.ApplyT(func(v ServiceBusTopicEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
@@ -7660,7 +7461,6 @@ type ServiceBusTopicEventSubscriptionDestinationResponseInput interface {
 	ToServiceBusTopicEventSubscriptionDestinationResponseOutputWithContext(context.Context) ServiceBusTopicEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
@@ -7681,7 +7481,6 @@ func (i ServiceBusTopicEventSubscriptionDestinationResponseArgs) ToServiceBusTop
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusTopicEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -7707,7 +7506,6 @@ func (o ServiceBusTopicEventSubscriptionDestinationResponseOutput) ResourceId() 
 	return o.ApplyT(func(v ServiceBusTopicEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Static delivery attribute mapping details.
 type StaticDeliveryAttributeMappingResponse struct {
 	// Boolean flag to tell if the attribute contains sensitive information .
 	IsSecret *bool `pulumi:"isSecret"`
@@ -7731,7 +7529,6 @@ type StaticDeliveryAttributeMappingResponseInput interface {
 	ToStaticDeliveryAttributeMappingResponseOutputWithContext(context.Context) StaticDeliveryAttributeMappingResponseOutput
 }
 
-// Static delivery attribute mapping details.
 type StaticDeliveryAttributeMappingResponseArgs struct {
 	// Boolean flag to tell if the attribute contains sensitive information .
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
@@ -7756,7 +7553,6 @@ func (i StaticDeliveryAttributeMappingResponseArgs) ToStaticDeliveryAttributeMap
 	return pulumi.ToOutputWithContext(ctx, i).(StaticDeliveryAttributeMappingResponseOutput)
 }
 
-// Static delivery attribute mapping details.
 type StaticDeliveryAttributeMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (StaticDeliveryAttributeMappingResponseOutput) ElementType() reflect.Type {
@@ -7792,7 +7588,6 @@ func (o StaticDeliveryAttributeMappingResponseOutput) Value() pulumi.StringPtrOu
 	return o.ApplyT(func(v StaticDeliveryAttributeMappingResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestination struct {
 	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
@@ -7814,7 +7609,6 @@ type StorageBlobDeadLetterDestinationInput interface {
 	ToStorageBlobDeadLetterDestinationOutputWithContext(context.Context) StorageBlobDeadLetterDestinationOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationArgs struct {
 	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
@@ -7878,7 +7672,6 @@ func (i *storageBlobDeadLetterDestinationPtrType) ToStorageBlobDeadLetterDestina
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -7974,7 +7767,6 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponse struct {
 	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
@@ -7996,7 +7788,6 @@ type StorageBlobDeadLetterDestinationResponseInput interface {
 	ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponseOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseArgs struct {
 	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
@@ -8060,7 +7851,6 @@ func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLette
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationResponseOutput) ElementType() reflect.Type {
@@ -8156,7 +7946,6 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
@@ -8178,7 +7967,6 @@ type StorageQueueEventSubscriptionDestinationInput interface {
 	ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
@@ -8201,7 +7989,6 @@ func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -8232,7 +8019,6 @@ func (o StorageQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.Stri
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
@@ -8254,7 +8040,6 @@ type StorageQueueEventSubscriptionDestinationResponseInput interface {
 	ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
@@ -8277,7 +8062,6 @@ func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEven
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -8308,7 +8092,6 @@ func (o StorageQueueEventSubscriptionDestinationResponseOutput) ResourceId() pul
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8330,7 +8113,6 @@ type StringBeginsWithAdvancedFilterInput interface {
 	ToStringBeginsWithAdvancedFilterOutputWithContext(context.Context) StringBeginsWithAdvancedFilterOutput
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8353,7 +8135,6 @@ func (i StringBeginsWithAdvancedFilterArgs) ToStringBeginsWithAdvancedFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StringBeginsWithAdvancedFilterOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringBeginsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -8384,7 +8165,6 @@ func (o StringBeginsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8406,7 +8186,6 @@ type StringBeginsWithAdvancedFilterResponseInput interface {
 	ToStringBeginsWithAdvancedFilterResponseOutputWithContext(context.Context) StringBeginsWithAdvancedFilterResponseOutput
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8429,7 +8208,6 @@ func (i StringBeginsWithAdvancedFilterResponseArgs) ToStringBeginsWithAdvancedFi
 	return pulumi.ToOutputWithContext(ctx, i).(StringBeginsWithAdvancedFilterResponseOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringBeginsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -8460,7 +8238,6 @@ func (o StringBeginsWithAdvancedFilterResponseOutput) Values() pulumi.StringArra
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8482,7 +8259,6 @@ type StringContainsAdvancedFilterInput interface {
 	ToStringContainsAdvancedFilterOutputWithContext(context.Context) StringContainsAdvancedFilterOutput
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8505,7 +8281,6 @@ func (i StringContainsAdvancedFilterArgs) ToStringContainsAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StringContainsAdvancedFilterOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringContainsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -8536,7 +8311,6 @@ func (o StringContainsAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8558,7 +8332,6 @@ type StringContainsAdvancedFilterResponseInput interface {
 	ToStringContainsAdvancedFilterResponseOutputWithContext(context.Context) StringContainsAdvancedFilterResponseOutput
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8581,7 +8354,6 @@ func (i StringContainsAdvancedFilterResponseArgs) ToStringContainsAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(StringContainsAdvancedFilterResponseOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringContainsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -8612,7 +8384,6 @@ func (o StringContainsAdvancedFilterResponseOutput) Values() pulumi.StringArrayO
 	return o.ApplyT(func(v StringContainsAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8634,7 +8405,6 @@ type StringEndsWithAdvancedFilterInput interface {
 	ToStringEndsWithAdvancedFilterOutputWithContext(context.Context) StringEndsWithAdvancedFilterOutput
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8657,7 +8427,6 @@ func (i StringEndsWithAdvancedFilterArgs) ToStringEndsWithAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StringEndsWithAdvancedFilterOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringEndsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -8688,7 +8457,6 @@ func (o StringEndsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8710,7 +8478,6 @@ type StringEndsWithAdvancedFilterResponseInput interface {
 	ToStringEndsWithAdvancedFilterResponseOutputWithContext(context.Context) StringEndsWithAdvancedFilterResponseOutput
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8733,7 +8500,6 @@ func (i StringEndsWithAdvancedFilterResponseArgs) ToStringEndsWithAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(StringEndsWithAdvancedFilterResponseOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringEndsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -8764,7 +8530,6 @@ func (o StringEndsWithAdvancedFilterResponseOutput) Values() pulumi.StringArrayO
 	return o.ApplyT(func(v StringEndsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8786,7 +8551,6 @@ type StringInAdvancedFilterInput interface {
 	ToStringInAdvancedFilterOutputWithContext(context.Context) StringInAdvancedFilterOutput
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8809,7 +8573,6 @@ func (i StringInAdvancedFilterArgs) ToStringInAdvancedFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StringInAdvancedFilterOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -8840,7 +8603,6 @@ func (o StringInAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringInAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8862,7 +8624,6 @@ type StringInAdvancedFilterResponseInput interface {
 	ToStringInAdvancedFilterResponseOutputWithContext(context.Context) StringInAdvancedFilterResponseOutput
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8885,7 +8646,6 @@ func (i StringInAdvancedFilterResponseArgs) ToStringInAdvancedFilterResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StringInAdvancedFilterResponseOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -8916,7 +8676,6 @@ func (o StringInAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v StringInAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -8938,7 +8697,6 @@ type StringNotBeginsWithAdvancedFilterInput interface {
 	ToStringNotBeginsWithAdvancedFilterOutputWithContext(context.Context) StringNotBeginsWithAdvancedFilterOutput
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -8961,7 +8719,6 @@ func (i StringNotBeginsWithAdvancedFilterArgs) ToStringNotBeginsWithAdvancedFilt
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotBeginsWithAdvancedFilterOutput)
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringNotBeginsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -8992,7 +8749,6 @@ func (o StringNotBeginsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutp
 	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9014,7 +8770,6 @@ type StringNotBeginsWithAdvancedFilterResponseInput interface {
 	ToStringNotBeginsWithAdvancedFilterResponseOutputWithContext(context.Context) StringNotBeginsWithAdvancedFilterResponseOutput
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9037,7 +8792,6 @@ func (i StringNotBeginsWithAdvancedFilterResponseArgs) ToStringNotBeginsWithAdva
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotBeginsWithAdvancedFilterResponseOutput)
 }
 
-// StringNotBeginsWith Advanced Filter.
 type StringNotBeginsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringNotBeginsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -9068,7 +8822,6 @@ func (o StringNotBeginsWithAdvancedFilterResponseOutput) Values() pulumi.StringA
 	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9090,7 +8843,6 @@ type StringNotContainsAdvancedFilterInput interface {
 	ToStringNotContainsAdvancedFilterOutputWithContext(context.Context) StringNotContainsAdvancedFilterOutput
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9113,7 +8865,6 @@ func (i StringNotContainsAdvancedFilterArgs) ToStringNotContainsAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotContainsAdvancedFilterOutput)
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringNotContainsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -9144,7 +8895,6 @@ func (o StringNotContainsAdvancedFilterOutput) Values() pulumi.StringArrayOutput
 	return o.ApplyT(func(v StringNotContainsAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9166,7 +8916,6 @@ type StringNotContainsAdvancedFilterResponseInput interface {
 	ToStringNotContainsAdvancedFilterResponseOutputWithContext(context.Context) StringNotContainsAdvancedFilterResponseOutput
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9189,7 +8938,6 @@ func (i StringNotContainsAdvancedFilterResponseArgs) ToStringNotContainsAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotContainsAdvancedFilterResponseOutput)
 }
 
-// StringNotContains Advanced Filter.
 type StringNotContainsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringNotContainsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -9220,7 +8968,6 @@ func (o StringNotContainsAdvancedFilterResponseOutput) Values() pulumi.StringArr
 	return o.ApplyT(func(v StringNotContainsAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9242,7 +8989,6 @@ type StringNotEndsWithAdvancedFilterInput interface {
 	ToStringNotEndsWithAdvancedFilterOutputWithContext(context.Context) StringNotEndsWithAdvancedFilterOutput
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9265,7 +9011,6 @@ func (i StringNotEndsWithAdvancedFilterArgs) ToStringNotEndsWithAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotEndsWithAdvancedFilterOutput)
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringNotEndsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -9296,7 +9041,6 @@ func (o StringNotEndsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput
 	return o.ApplyT(func(v StringNotEndsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9318,7 +9062,6 @@ type StringNotEndsWithAdvancedFilterResponseInput interface {
 	ToStringNotEndsWithAdvancedFilterResponseOutputWithContext(context.Context) StringNotEndsWithAdvancedFilterResponseOutput
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9341,7 +9084,6 @@ func (i StringNotEndsWithAdvancedFilterResponseArgs) ToStringNotEndsWithAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotEndsWithAdvancedFilterResponseOutput)
 }
 
-// StringNotEndsWith Advanced Filter.
 type StringNotEndsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringNotEndsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -9372,7 +9114,6 @@ func (o StringNotEndsWithAdvancedFilterResponseOutput) Values() pulumi.StringArr
 	return o.ApplyT(func(v StringNotEndsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilter struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9394,7 +9135,6 @@ type StringNotInAdvancedFilterInput interface {
 	ToStringNotInAdvancedFilterOutputWithContext(context.Context) StringNotInAdvancedFilterOutput
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9417,7 +9157,6 @@ func (i StringNotInAdvancedFilterArgs) ToStringNotInAdvancedFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotInAdvancedFilterOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringNotInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -9448,7 +9187,6 @@ func (o StringNotInAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponse struct {
 	// The field/property in the event based on which you want to filter.
 	Key *string `pulumi:"key"`
@@ -9470,7 +9208,6 @@ type StringNotInAdvancedFilterResponseInput interface {
 	ToStringNotInAdvancedFilterResponseOutputWithContext(context.Context) StringNotInAdvancedFilterResponseOutput
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponseArgs struct {
 	// The field/property in the event based on which you want to filter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -9493,7 +9230,6 @@ func (i StringNotInAdvancedFilterResponseArgs) ToStringNotInAdvancedFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotInAdvancedFilterResponseOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringNotInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -9524,7 +9260,6 @@ func (o StringNotInAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutp
 	return o.ApplyT(func(v StringNotInAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -9551,7 +9286,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -9620,7 +9354,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -9759,7 +9492,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The information about the user identity.
 type UserIdentityProperties struct {
 	// The client id of user assigned identity.
 	ClientId *string `pulumi:"clientId"`
@@ -9778,7 +9510,6 @@ type UserIdentityPropertiesInput interface {
 	ToUserIdentityPropertiesOutputWithContext(context.Context) UserIdentityPropertiesOutput
 }
 
-// The information about the user identity.
 type UserIdentityPropertiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -9823,7 +9554,6 @@ func (i UserIdentityPropertiesMap) ToUserIdentityPropertiesMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesMapOutput)
 }
 
-// The information about the user identity.
 type UserIdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityPropertiesOutput) ElementType() reflect.Type {
@@ -9868,7 +9598,6 @@ func (o UserIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) UserIden
 	}).(UserIdentityPropertiesOutput)
 }
 
-// The information about the user identity.
 type UserIdentityPropertiesResponse struct {
 	// The client id of user assigned identity.
 	ClientId *string `pulumi:"clientId"`
@@ -9887,7 +9616,6 @@ type UserIdentityPropertiesResponseInput interface {
 	ToUserIdentityPropertiesResponseOutputWithContext(context.Context) UserIdentityPropertiesResponseOutput
 }
 
-// The information about the user identity.
 type UserIdentityPropertiesResponseArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -9932,7 +9660,6 @@ func (i UserIdentityPropertiesResponseMap) ToUserIdentityPropertiesResponseMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesResponseMapOutput)
 }
 
-// The information about the user identity.
 type UserIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -9977,7 +9704,6 @@ func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) 
 	}).(UserIdentityPropertiesResponseOutput)
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestination struct {
 	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
@@ -10005,7 +9731,6 @@ type WebHookEventSubscriptionDestinationInput interface {
 	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestinationArgs struct {
 	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryApplicationIdOrUri pulumi.StringPtrInput `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
@@ -10034,7 +9759,6 @@ func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDesti
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -10080,7 +9804,6 @@ func (o WebHookEventSubscriptionDestinationOutput) PreferredBatchSizeInKilobytes
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *int { return v.PreferredBatchSizeInKilobytes }).(pulumi.IntPtrOutput)
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestinationResponse struct {
 	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
@@ -10110,7 +9833,6 @@ type WebHookEventSubscriptionDestinationResponseInput interface {
 	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestinationResponseArgs struct {
 	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryApplicationIdOrUri pulumi.StringPtrInput `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
@@ -10141,7 +9863,6 @@ func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the webhook destination for an event subscription.
 type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {

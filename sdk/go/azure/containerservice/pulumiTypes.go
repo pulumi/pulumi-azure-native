@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettings struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge *string `pulumi:"maxSurge"`
@@ -27,7 +26,6 @@ type AgentPoolUpgradeSettingsInput interface {
 	ToAgentPoolUpgradeSettingsOutputWithContext(context.Context) AgentPoolUpgradeSettingsOutput
 }
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettingsArgs struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
@@ -86,7 +84,6 @@ func (i *agentPoolUpgradeSettingsPtrType) ToAgentPoolUpgradeSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpgradeSettingsPtrOutput)
 }
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettingsOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolUpgradeSettingsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o AgentPoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettingsResponse struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge *string `pulumi:"maxSurge"`
@@ -167,7 +163,6 @@ type AgentPoolUpgradeSettingsResponseInput interface {
 	ToAgentPoolUpgradeSettingsResponseOutputWithContext(context.Context) AgentPoolUpgradeSettingsResponseOutput
 }
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettingsResponseArgs struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
@@ -226,7 +221,6 @@ func (i *agentPoolUpgradeSettingsResponsePtrType) ToAgentPoolUpgradeSettingsResp
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
 
-// Settings for upgrading an agentpool
 type AgentPoolUpgradeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolUpgradeSettingsResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An error response from the Container service.
 type CloudErrorBodyResponse struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code *string `pulumi:"code"`
@@ -313,7 +306,6 @@ type CloudErrorBodyResponseInput interface {
 	ToCloudErrorBodyResponseOutputWithContext(context.Context) CloudErrorBodyResponseOutput
 }
 
-// An error response from the Container service.
 type CloudErrorBodyResponseArgs struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -403,7 +395,6 @@ func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseArrayOutput)
 }
 
-// An error response from the Container service.
 type CloudErrorBodyResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudErrorBodyResponseOutput) ElementType() reflect.Type {
@@ -532,7 +523,6 @@ func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBo
 	}).(CloudErrorBodyResponseOutput)
 }
 
-// An error response from the Container service.
 type CloudErrorResponse struct {
 	// Details about the error.
 	Error *CloudErrorBodyResponse `pulumi:"error"`
@@ -549,7 +539,6 @@ type CloudErrorResponseInput interface {
 	ToCloudErrorResponseOutputWithContext(context.Context) CloudErrorResponseOutput
 }
 
-// An error response from the Container service.
 type CloudErrorResponseArgs struct {
 	// Details about the error.
 	Error CloudErrorBodyResponsePtrInput `pulumi:"error"`
@@ -608,7 +597,6 @@ func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponsePtrOutput)
 }
 
-// An error response from the Container service.
 type CloudErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudErrorResponseOutput) ElementType() reflect.Type {
@@ -672,7 +660,6 @@ func (o CloudErrorResponsePtrOutput) Error() CloudErrorBodyResponsePtrOutput {
 	}).(CloudErrorBodyResponsePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -691,7 +678,6 @@ type ContainerServiceLinuxProfileInput interface {
 	ToContainerServiceLinuxProfileOutputWithContext(context.Context) ContainerServiceLinuxProfileOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileArgs struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
@@ -752,7 +738,6 @@ func (i *containerServiceLinuxProfilePtrType) ToContainerServiceLinuxProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileOutput) ElementType() reflect.Type {
@@ -831,7 +816,6 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponse struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -850,7 +834,6 @@ type ContainerServiceLinuxProfileResponseInput interface {
 	ToContainerServiceLinuxProfileResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileResponseOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseArgs struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
@@ -911,7 +894,6 @@ func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxPro
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileResponseOutput) ElementType() reflect.Type {
@@ -990,7 +972,6 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSsh
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfile struct {
 	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 	DnsServiceIP *string `pulumi:"dnsServiceIP"`
@@ -1025,7 +1006,6 @@ type ContainerServiceNetworkProfileInput interface {
 	ToContainerServiceNetworkProfileOutputWithContext(context.Context) ContainerServiceNetworkProfileOutput
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileArgs struct {
 	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
@@ -1102,7 +1082,6 @@ func (i *containerServiceNetworkProfilePtrType) ToContainerServiceNetworkProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfilePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceNetworkProfileOutput) ElementType() reflect.Type {
@@ -1303,7 +1282,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponse struct {
 	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 	DnsServiceIP *string `pulumi:"dnsServiceIP"`
@@ -1338,7 +1316,6 @@ type ContainerServiceNetworkProfileResponseInput interface {
 	ToContainerServiceNetworkProfileResponseOutputWithContext(context.Context) ContainerServiceNetworkProfileResponseOutput
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponseArgs struct {
 	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
@@ -1415,7 +1392,6 @@ func (i *containerServiceNetworkProfileResponsePtrType) ToContainerServiceNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -1616,7 +1592,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfiguration struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKey `pulumi:"publicKeys"`
@@ -1633,7 +1608,6 @@ type ContainerServiceSshConfigurationInput interface {
 	ToContainerServiceSshConfigurationOutputWithContext(context.Context) ContainerServiceSshConfigurationOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationArgs struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyArrayInput `pulumi:"publicKeys"`
@@ -1692,7 +1666,6 @@ func (i *containerServiceSshConfigurationPtrType) ToContainerServiceSshConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationOutput) ElementType() reflect.Type {
@@ -1756,7 +1729,6 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 	}).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
@@ -1773,7 +1745,6 @@ type ContainerServiceSshConfigurationResponseInput interface {
 	ToContainerServiceSshConfigurationResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationResponseOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseArgs struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
@@ -1832,7 +1803,6 @@ func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1898,7 +1868,6 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() Containe
 	}).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKey struct {
 	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
@@ -1915,7 +1884,6 @@ type ContainerServiceSshPublicKeyInput interface {
 	ToContainerServiceSshPublicKeyOutputWithContext(context.Context) ContainerServiceSshPublicKeyOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyArgs struct {
 	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
@@ -1958,7 +1926,6 @@ func (i ContainerServiceSshPublicKeyArray) ToContainerServiceSshPublicKeyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyOutput) ElementType() reflect.Type {
@@ -1998,7 +1965,6 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 	}).(ContainerServiceSshPublicKeyOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponse struct {
 	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
@@ -2015,7 +1981,6 @@ type ContainerServiceSshPublicKeyResponseInput interface {
 	ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseArgs struct {
 	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
@@ -2058,7 +2023,6 @@ func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKe
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -2098,7 +2062,6 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ContainerServiceSshPublicKeyResponseOutput)
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationData struct {
 	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
@@ -2115,7 +2078,6 @@ type CreationDataInput interface {
 	ToCreationDataOutputWithContext(context.Context) CreationDataOutput
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationDataArgs struct {
 	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
@@ -2174,7 +2136,6 @@ func (i *creationDataPtrType) ToCreationDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataPtrOutput)
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationDataOutput struct{ *pulumi.OutputState }
 
 func (CreationDataOutput) ElementType() reflect.Type {
@@ -2238,7 +2199,6 @@ func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationDataResponse struct {
 	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
@@ -2255,7 +2215,6 @@ type CreationDataResponseInput interface {
 	ToCreationDataResponseOutputWithContext(context.Context) CreationDataResponseOutput
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationDataResponseArgs struct {
 	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
@@ -2314,7 +2273,6 @@ func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponsePtrOutput)
 }
 
-// Data used when creating a target resource from a source resource.
 type CreationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (CreationDataResponseOutput) ElementType() reflect.Type {
@@ -2378,7 +2336,6 @@ func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credential result response.
 type CredentialResultResponse struct {
 	// The name of the credential.
 	Name string `pulumi:"name"`
@@ -2397,7 +2354,6 @@ type CredentialResultResponseInput interface {
 	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
 }
 
-// The credential result response.
 type CredentialResultResponseArgs struct {
 	// The name of the credential.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2442,7 +2398,6 @@ func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
 }
 
-// The credential result response.
 type CredentialResultResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialResultResponseOutput) ElementType() reflect.Type {
@@ -2487,7 +2442,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocation struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -2506,7 +2460,6 @@ type ExtendedLocationInput interface {
 	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2567,7 +2520,6 @@ func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationOutput) ElementType() reflect.Type {
@@ -2646,7 +2598,6 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponse struct {
 	// The name of the extended location.
 	Name *string `pulumi:"name"`
@@ -2665,7 +2616,6 @@ type ExtendedLocationResponseInput interface {
 	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseArgs struct {
 	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2726,7 +2676,6 @@ func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
@@ -2805,7 +2754,6 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfig struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
@@ -2842,7 +2790,6 @@ type KubeletConfigInput interface {
 	ToKubeletConfigOutputWithContext(context.Context) KubeletConfigOutput
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfigArgs struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
@@ -2921,7 +2868,6 @@ func (i *kubeletConfigPtrType) ToKubeletConfigPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigPtrOutput)
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfigOutput struct{ *pulumi.OutputState }
 
 func (KubeletConfigOutput) ElementType() reflect.Type {
@@ -3135,7 +3081,6 @@ func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfigResponse struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
@@ -3172,7 +3117,6 @@ type KubeletConfigResponseInput interface {
 	ToKubeletConfigResponseOutputWithContext(context.Context) KubeletConfigResponseOutput
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfigResponseArgs struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
@@ -3251,7 +3195,6 @@ func (i *kubeletConfigResponsePtrType) ToKubeletConfigResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigResponsePtrOutput)
 }
 
-// Kubelet configurations of agent nodes.
 type KubeletConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (KubeletConfigResponseOutput) ElementType() reflect.Type {
@@ -3465,7 +3408,6 @@ func (o KubeletConfigResponsePtrOutput) TopologyManagerPolicy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfig struct {
 	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
@@ -3488,7 +3430,6 @@ type LinuxOSConfigInput interface {
 	ToLinuxOSConfigOutputWithContext(context.Context) LinuxOSConfigOutput
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfigArgs struct {
 	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
@@ -3553,7 +3494,6 @@ func (i *linuxOSConfigPtrType) ToLinuxOSConfigPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigPtrOutput)
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfigOutput struct{ *pulumi.OutputState }
 
 func (LinuxOSConfigOutput) ElementType() reflect.Type {
@@ -3662,7 +3602,6 @@ func (o LinuxOSConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfigResponse struct {
 	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
@@ -3685,7 +3624,6 @@ type LinuxOSConfigResponseInput interface {
 	ToLinuxOSConfigResponseOutputWithContext(context.Context) LinuxOSConfigResponseOutput
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfigResponseArgs struct {
 	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
@@ -3750,7 +3688,6 @@ func (i *linuxOSConfigResponsePtrType) ToLinuxOSConfigResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigResponsePtrOutput)
 }
 
-// OS configurations of Linux agent nodes.
 type LinuxOSConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxOSConfigResponseOutput) ElementType() reflect.Type {
@@ -3859,7 +3796,6 @@ func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageEnabled() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfile struct {
 	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs []string `pulumi:"adminGroupObjectIDs"`
@@ -3888,7 +3824,6 @@ type ManagedClusterAADProfileInput interface {
 	ToManagedClusterAADProfileOutputWithContext(context.Context) ManagedClusterAADProfileOutput
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileArgs struct {
 	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs pulumi.StringArrayInput `pulumi:"adminGroupObjectIDs"`
@@ -3959,7 +3894,6 @@ func (i *managedClusterAADProfilePtrType) ToManagedClusterAADProfilePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfilePtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAADProfileOutput) ElementType() reflect.Type {
@@ -4113,7 +4047,6 @@ func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponse struct {
 	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs []string `pulumi:"adminGroupObjectIDs"`
@@ -4142,7 +4075,6 @@ type ManagedClusterAADProfileResponseInput interface {
 	ToManagedClusterAADProfileResponseOutputWithContext(context.Context) ManagedClusterAADProfileResponseOutput
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponseArgs struct {
 	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs pulumi.StringArrayInput `pulumi:"adminGroupObjectIDs"`
@@ -4213,7 +4145,6 @@ func (i *managedClusterAADProfileResponsePtrType) ToManagedClusterAADProfileResp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAADProfileResponseOutput) ElementType() reflect.Type {
@@ -4367,7 +4298,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfile struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
@@ -4388,7 +4318,6 @@ type ManagedClusterAPIServerAccessProfileInput interface {
 	ToManagedClusterAPIServerAccessProfileOutputWithContext(context.Context) ManagedClusterAPIServerAccessProfileOutput
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileArgs struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
@@ -4451,7 +4380,6 @@ func (i *managedClusterAPIServerAccessProfilePtrType) ToManagedClusterAPIServerA
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfilePtrOutput)
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAPIServerAccessProfileOutput) ElementType() reflect.Type {
@@ -4545,7 +4473,6 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) PrivateDNSZone() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileResponse struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
@@ -4566,7 +4493,6 @@ type ManagedClusterAPIServerAccessProfileResponseInput interface {
 	ToManagedClusterAPIServerAccessProfileResponseOutputWithContext(context.Context) ManagedClusterAPIServerAccessProfileResponseOutput
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileResponseArgs struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
@@ -4629,7 +4555,6 @@ func (i *managedClusterAPIServerAccessProfileResponsePtrType) ToManagedClusterAP
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
 }
 
-// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAPIServerAccessProfileResponseOutput) ElementType() reflect.Type {
@@ -4723,7 +4648,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) PrivateDNSZone() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfile struct {
 	// Key-value pairs for configuring an add-on.
 	Config map[string]string `pulumi:"config"`
@@ -4742,7 +4666,6 @@ type ManagedClusterAddonProfileInput interface {
 	ToManagedClusterAddonProfileOutputWithContext(context.Context) ManagedClusterAddonProfileOutput
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileArgs struct {
 	// Key-value pairs for configuring an add-on.
 	Config pulumi.StringMapInput `pulumi:"config"`
@@ -4787,7 +4710,6 @@ func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileMapOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileOutput) ElementType() reflect.Type {
@@ -4832,7 +4754,6 @@ func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) Mana
 	}).(ManagedClusterAddonProfileOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponse struct {
 	// Key-value pairs for configuring an add-on.
 	Config map[string]string `pulumi:"config"`
@@ -4853,7 +4774,6 @@ type ManagedClusterAddonProfileResponseInput interface {
 	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponseArgs struct {
 	// Key-value pairs for configuring an add-on.
 	Config pulumi.StringMapInput `pulumi:"config"`
@@ -4900,7 +4820,6 @@ func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
@@ -4952,7 +4871,6 @@ func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInp
 	}).(ManagedClusterAddonProfileResponseOutput)
 }
 
-// Information of user assigned identity used by this add-on.
 type ManagedClusterAddonProfileResponseIdentity struct {
 	// The client id of the user assigned identity.
 	ClientId *string `pulumi:"clientId"`
@@ -4973,7 +4891,6 @@ type ManagedClusterAddonProfileResponseIdentityInput interface {
 	ToManagedClusterAddonProfileResponseIdentityOutputWithContext(context.Context) ManagedClusterAddonProfileResponseIdentityOutput
 }
 
-// Information of user assigned identity used by this add-on.
 type ManagedClusterAddonProfileResponseIdentityArgs struct {
 	// The client id of the user assigned identity.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -4995,7 +4912,6 @@ func (i ManagedClusterAddonProfileResponseIdentityArgs) ToManagedClusterAddonPro
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseIdentityOutput)
 }
 
-// Information of user assigned identity used by this add-on.
 type ManagedClusterAddonProfileResponseIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileResponseIdentityOutput) ElementType() reflect.Type {
@@ -5025,7 +4941,6 @@ func (o ManagedClusterAddonProfileResponseIdentityOutput) ResourceId() pulumi.St
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponseIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -5106,7 +5021,6 @@ type ManagedClusterAgentPoolProfileInput interface {
 	ToManagedClusterAgentPoolProfileOutputWithContext(context.Context) ManagedClusterAgentPoolProfileOutput
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileArgs struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
@@ -5213,7 +5127,6 @@ func (i ManagedClusterAgentPoolProfileArray) ToManagedClusterAgentPoolProfileArr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -5413,7 +5326,6 @@ func (o ManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Mana
 	}).(ManagedClusterAgentPoolProfileOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponse struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -5500,7 +5412,6 @@ type ManagedClusterAgentPoolProfileResponseInput interface {
 	ToManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) ManagedClusterAgentPoolProfileResponseOutput
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponseArgs struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
@@ -5613,7 +5524,6 @@ func (i ManagedClusterAgentPoolProfileResponseArray) ToManagedClusterAgentPoolPr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -5830,7 +5740,6 @@ func (o ManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ManagedClusterAgentPoolProfileResponseOutput)
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfile struct {
 	// upgrade channel for auto upgrade.
 	UpgradeChannel *string `pulumi:"upgradeChannel"`
@@ -5847,7 +5756,6 @@ type ManagedClusterAutoUpgradeProfileInput interface {
 	ToManagedClusterAutoUpgradeProfileOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfileOutput
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfileArgs struct {
 	// upgrade channel for auto upgrade.
 	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
@@ -5906,7 +5814,6 @@ func (i *managedClusterAutoUpgradeProfilePtrType) ToManagedClusterAutoUpgradePro
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfilePtrOutput)
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAutoUpgradeProfileOutput) ElementType() reflect.Type {
@@ -5970,7 +5877,6 @@ func (o ManagedClusterAutoUpgradeProfilePtrOutput) UpgradeChannel() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfileResponse struct {
 	// upgrade channel for auto upgrade.
 	UpgradeChannel *string `pulumi:"upgradeChannel"`
@@ -5987,7 +5893,6 @@ type ManagedClusterAutoUpgradeProfileResponseInput interface {
 	ToManagedClusterAutoUpgradeProfileResponseOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfileResponseOutput
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfileResponseArgs struct {
 	// upgrade channel for auto upgrade.
 	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
@@ -6046,7 +5951,6 @@ func (i *managedClusterAutoUpgradeProfileResponsePtrType) ToManagedClusterAutoUp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
 }
 
-// Auto upgrade profile for a managed cluster.
 type ManagedClusterAutoUpgradeProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAutoUpgradeProfileResponseOutput) ElementType() reflect.Type {
@@ -6110,7 +6014,6 @@ func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) UpgradeChannel() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfig struct {
 	// HTTP proxy server endpoint to use.
 	HttpProxy *string `pulumi:"httpProxy"`
@@ -6133,7 +6036,6 @@ type ManagedClusterHTTPProxyConfigInput interface {
 	ToManagedClusterHTTPProxyConfigOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigOutput
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfigArgs struct {
 	// HTTP proxy server endpoint to use.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
@@ -6198,7 +6100,6 @@ func (i *managedClusterHTTPProxyConfigPtrType) ToManagedClusterHTTPProxyConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigPtrOutput)
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfigOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterHTTPProxyConfigOutput) ElementType() reflect.Type {
@@ -6307,7 +6208,6 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfigResponse struct {
 	// HTTP proxy server endpoint to use.
 	HttpProxy *string `pulumi:"httpProxy"`
@@ -6330,7 +6230,6 @@ type ManagedClusterHTTPProxyConfigResponseInput interface {
 	ToManagedClusterHTTPProxyConfigResponseOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigResponseOutput
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfigResponseArgs struct {
 	// HTTP proxy server endpoint to use.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
@@ -6395,7 +6294,6 @@ func (i *managedClusterHTTPProxyConfigResponsePtrType) ToManagedClusterHTTPProxy
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
 }
 
-// Configurations for provisioning the cluster with HTTP proxy servers.
 type ManagedClusterHTTPProxyConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterHTTPProxyConfigResponseOutput) ElementType() reflect.Type {
@@ -6504,7 +6402,6 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) TrustedCa() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentity struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -6523,7 +6420,6 @@ type ManagedClusterIdentityInput interface {
 	ToManagedClusterIdentityOutputWithContext(context.Context) ManagedClusterIdentityOutput
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityArgs struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -6584,7 +6480,6 @@ func (i *managedClusterIdentityPtrType) ToManagedClusterIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityPtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityOutput) ElementType() reflect.Type {
@@ -6663,7 +6558,6 @@ func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponse struct {
 	// The principal id of the system assigned identity which is used by master components.
 	PrincipalId string `pulumi:"principalId"`
@@ -6686,7 +6580,6 @@ type ManagedClusterIdentityResponseInput interface {
 	ToManagedClusterIdentityResponseOutputWithContext(context.Context) ManagedClusterIdentityResponseOutput
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponseArgs struct {
 	// The principal id of the system assigned identity which is used by master components.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -6751,7 +6644,6 @@ func (i *managedClusterIdentityResponsePtrType) ToManagedClusterIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponsePtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -6968,7 +6860,6 @@ func (o ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	}).(ManagedClusterIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfile struct {
 	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
@@ -6995,7 +6886,6 @@ type ManagedClusterLoadBalancerProfileInput interface {
 	ToManagedClusterLoadBalancerProfileOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutput
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfileArgs struct {
 	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 	AllocatedOutboundPorts pulumi.IntPtrInput `pulumi:"allocatedOutboundPorts"`
@@ -7064,7 +6954,6 @@ func (i *managedClusterLoadBalancerProfilePtrType) ToManagedClusterLoadBalancerP
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfilePtrOutput)
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileOutput) ElementType() reflect.Type {
@@ -7209,7 +7098,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedCluster
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileManagedOutboundIPs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
@@ -7226,7 +7114,6 @@ type ManagedClusterLoadBalancerProfileManagedOutboundIPsInput interface {
 	ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -7285,7 +7172,6 @@ func (i *managedClusterLoadBalancerProfileManagedOutboundIPsPtrType) ToManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ElementType() reflect.Type {
@@ -7349,7 +7235,6 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixes struct {
 	// A list of public IP prefix resources.
 	PublicIPPrefixes []ResourceReference `pulumi:"publicIPPrefixes"`
@@ -7366,7 +7251,6 @@ type ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput interface {
 	ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs struct {
 	// A list of public IP prefix resources.
 	PublicIPPrefixes ResourceReferenceArrayInput `pulumi:"publicIPPrefixes"`
@@ -7425,7 +7309,6 @@ func (i *managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType) ToManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ElementType() reflect.Type {
@@ -7491,7 +7374,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) PublicIPPr
 	}).(ResourceReferenceArrayOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPs struct {
 	// A list of public IP resources.
 	PublicIPs []ResourceReference `pulumi:"publicIPs"`
@@ -7508,7 +7390,6 @@ type ManagedClusterLoadBalancerProfileOutboundIPsInput interface {
 	ToManagedClusterLoadBalancerProfileOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPsOutput
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPsArgs struct {
 	// A list of public IP resources.
 	PublicIPs ResourceReferenceArrayInput `pulumi:"publicIPs"`
@@ -7567,7 +7448,6 @@ func (i *managedClusterLoadBalancerProfileOutboundIPsPtrType) ToManagedClusterLo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileOutboundIPsOutput) ElementType() reflect.Type {
@@ -7631,7 +7511,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) PublicIPs() Resou
 	}).(ResourceReferenceArrayOutput)
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponse struct {
 	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
@@ -7658,7 +7537,6 @@ type ManagedClusterLoadBalancerProfileResponseInput interface {
 	ToManagedClusterLoadBalancerProfileResponseOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutput
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseArgs struct {
 	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 	AllocatedOutboundPorts pulumi.IntPtrInput `pulumi:"allocatedOutboundPorts"`
@@ -7727,7 +7605,6 @@ func (i *managedClusterLoadBalancerProfileResponsePtrType) ToManagedClusterLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
 
-// Profile of the managed cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseOutput) ElementType() reflect.Type {
@@ -7874,7 +7751,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() Manage
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
@@ -7891,7 +7767,6 @@ type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput interface 
 	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
@@ -7950,7 +7825,6 @@ func (i *managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ToM
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ElementType() reflect.Type {
@@ -8014,7 +7888,6 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Co
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes struct {
 	// A list of public IP prefix resources.
 	PublicIPPrefixes []ResourceReferenceResponse `pulumi:"publicIPPrefixes"`
@@ -8031,7 +7904,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput interface 
 	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs struct {
 	// A list of public IP prefix resources.
 	PublicIPPrefixes ResourceReferenceResponseArrayInput `pulumi:"publicIPPrefixes"`
@@ -8090,7 +7962,6 @@ func (i *managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ToM
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ElementType() reflect.Type {
@@ -8156,7 +8027,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) Pu
 	}).(ResourceReferenceResponseArrayOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPs struct {
 	// A list of public IP resources.
 	PublicIPs []ResourceReferenceResponse `pulumi:"publicIPs"`
@@ -8173,7 +8043,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPsInput interface {
 	ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs struct {
 	// A list of public IP resources.
 	PublicIPs ResourceReferenceResponseArrayInput `pulumi:"publicIPs"`
@@ -8232,7 +8101,6 @@ func (i *managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ToManagedC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 type ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
@@ -9239,7 +9107,6 @@ func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) Error() CloudEr
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponseProvisioningInfo) *CloudErrorResponse { return v.Error }).(CloudErrorResponsePtrOutput)
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
 	Expander                      *string `pulumi:"expander"`
@@ -9271,7 +9138,6 @@ type ManagedClusterPropertiesAutoScalerProfileInput interface {
 	ToManagedClusterPropertiesAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesAutoScalerProfileOutput
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
 	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
@@ -9345,7 +9211,6 @@ func (i *managedClusterPropertiesAutoScalerProfilePtrType) ToManagedClusterPrope
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesAutoScalerProfilePtrOutput)
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterPropertiesAutoScalerProfileOutput) ElementType() reflect.Type {
@@ -9730,7 +9595,6 @@ func (o ManagedClusterPropertiesIdentityProfileMapOutput) MapIndex(k pulumi.Stri
 	}).(ManagedClusterPropertiesIdentityProfileOutput)
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
 	Expander                      *string `pulumi:"expander"`
@@ -9762,7 +9626,6 @@ type ManagedClusterPropertiesResponseAutoScalerProfileInput interface {
 	ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
 	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
@@ -9836,7 +9699,6 @@ func (i *managedClusterPropertiesResponseAutoScalerProfilePtrType) ToManagedClus
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
 }
 
-// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfileOutput) ElementType() reflect.Type {
@@ -10535,7 +10397,6 @@ func (o ManagedClusterSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfile struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
@@ -10554,7 +10415,6 @@ type ManagedClusterServicePrincipalProfileInput interface {
 	ToManagedClusterServicePrincipalProfileOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileArgs struct {
 	// The ID for the service principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -10615,7 +10475,6 @@ func (i *managedClusterServicePrincipalProfilePtrType) ToManagedClusterServicePr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterServicePrincipalProfileOutput) ElementType() reflect.Type {
@@ -10694,7 +10553,6 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponse struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
@@ -10713,7 +10571,6 @@ type ManagedClusterServicePrincipalProfileResponseInput interface {
 	ToManagedClusterServicePrincipalProfileResponseOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileResponseOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponseArgs struct {
 	// The ID for the service principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -10774,7 +10631,6 @@ func (i *managedClusterServicePrincipalProfileResponsePtrType) ToManagedClusterS
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterServicePrincipalProfileResponseOutput) ElementType() reflect.Type {
@@ -10853,7 +10709,6 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Secret() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfile struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -10876,7 +10731,6 @@ type ManagedClusterWindowsProfileInput interface {
 	ToManagedClusterWindowsProfileOutputWithContext(context.Context) ManagedClusterWindowsProfileOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -10941,7 +10795,6 @@ func (i *managedClusterWindowsProfilePtrType) ToManagedClusterWindowsProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfilePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterWindowsProfileOutput) ElementType() reflect.Type {
@@ -11050,7 +10903,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) LicenseType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponse struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -11073,7 +10925,6 @@ type ManagedClusterWindowsProfileResponseInput interface {
 	ToManagedClusterWindowsProfileResponseOutputWithContext(context.Context) ManagedClusterWindowsProfileResponseOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponseArgs struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
@@ -11138,7 +10989,6 @@ func (i *managedClusterWindowsProfileResponsePtrType) ToManagedClusterWindowsPro
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterWindowsProfileResponseOutput) ElementType() reflect.Type {
@@ -11247,7 +11097,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) LicenseType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfile struct {
 	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
@@ -11268,7 +11117,6 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileArgs struct {
 	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
@@ -11331,7 +11179,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -11425,7 +11272,6 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponse struct {
 	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
@@ -11446,7 +11292,6 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponseArgs struct {
 	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
@@ -11509,7 +11354,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -11603,7 +11447,6 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProvider struct {
 	// The clientId password associated with the provider.
 	ClientId *string `pulumi:"clientId"`
@@ -11629,7 +11472,6 @@ type OpenShiftManagedClusterAADIdentityProviderInput interface {
 	ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderOutput
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderArgs struct {
 	// The clientId password associated with the provider.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -11697,7 +11539,6 @@ func (i *openShiftManagedClusterAADIdentityProviderPtrType) ToOpenShiftManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAADIdentityProviderOutput) ElementType() reflect.Type {
@@ -11823,7 +11664,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponse struct {
 	// The clientId password associated with the provider.
 	ClientId *string `pulumi:"clientId"`
@@ -11849,7 +11689,6 @@ type OpenShiftManagedClusterAADIdentityProviderResponseInput interface {
 	ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
 	// The clientId password associated with the provider.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -11917,7 +11756,6 @@ func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftM
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAADIdentityProviderResponseOutput) ElementType() reflect.Type {
@@ -12043,7 +11881,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers.
 	Count int `pulumi:"count"`
@@ -12070,7 +11907,6 @@ type OpenShiftManagedClusterAgentPoolProfileInput interface {
 	ToOpenShiftManagedClusterAgentPoolProfileOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileOutput
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileArgs struct {
 	// Number of agents (VMs) to host docker containers.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -12123,7 +11959,6 @@ func (i OpenShiftManagedClusterAgentPoolProfileArray) ToOpenShiftManagedClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileArrayOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -12188,7 +12023,6 @@ func (o OpenShiftManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntIn
 	}).(OpenShiftManagedClusterAgentPoolProfileOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponse struct {
 	// Number of agents (VMs) to host docker containers.
 	Count int `pulumi:"count"`
@@ -12215,7 +12049,6 @@ type OpenShiftManagedClusterAgentPoolProfileResponseInput interface {
 	ToOpenShiftManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileResponseOutput
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponseArgs struct {
 	// Number of agents (VMs) to host docker containers.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -12268,7 +12101,6 @@ func (i OpenShiftManagedClusterAgentPoolProfileResponseArray) ToOpenShiftManaged
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -12333,7 +12165,6 @@ func (o OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulu
 	}).(OpenShiftManagedClusterAgentPoolProfileResponseOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfile struct {
 	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProvider `pulumi:"identityProviders"`
@@ -12350,7 +12181,6 @@ type OpenShiftManagedClusterAuthProfileInput interface {
 	ToOpenShiftManagedClusterAuthProfileOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileOutput
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileArgs struct {
 	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderArrayInput `pulumi:"identityProviders"`
@@ -12409,7 +12239,6 @@ func (i *openShiftManagedClusterAuthProfilePtrType) ToOpenShiftManagedClusterAut
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfilePtrOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAuthProfileOutput) ElementType() reflect.Type {
@@ -12475,7 +12304,6 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShi
 	}).(OpenShiftManagedClusterIdentityProviderArrayOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponse struct {
 	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProviderResponse `pulumi:"identityProviders"`
@@ -12492,7 +12320,6 @@ type OpenShiftManagedClusterAuthProfileResponseInput interface {
 	ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileResponseOutput
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponseArgs struct {
 	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderResponseArrayInput `pulumi:"identityProviders"`
@@ -12551,7 +12378,6 @@ func (i *openShiftManagedClusterAuthProfileResponsePtrType) ToOpenShiftManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAuthProfileResponseOutput) ElementType() reflect.Type {
@@ -12617,7 +12443,6 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders()
 	}).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProvider struct {
 	// Name of the provider.
 	Name *string `pulumi:"name"`
@@ -12636,7 +12461,6 @@ type OpenShiftManagedClusterIdentityProviderInput interface {
 	ToOpenShiftManagedClusterIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderOutput
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderArgs struct {
 	// Name of the provider.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -12681,7 +12505,6 @@ func (i OpenShiftManagedClusterIdentityProviderArray) ToOpenShiftManagedClusterI
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterIdentityProviderOutput) ElementType() reflect.Type {
@@ -12728,7 +12551,6 @@ func (o OpenShiftManagedClusterIdentityProviderArrayOutput) Index(i pulumi.IntIn
 	}).(OpenShiftManagedClusterIdentityProviderOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponse struct {
 	// Name of the provider.
 	Name *string `pulumi:"name"`
@@ -12747,7 +12569,6 @@ type OpenShiftManagedClusterIdentityProviderResponseInput interface {
 	ToOpenShiftManagedClusterIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderResponseOutput
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponseArgs struct {
 	// Name of the provider.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -12792,7 +12613,6 @@ func (i OpenShiftManagedClusterIdentityProviderResponseArray) ToOpenShiftManaged
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterIdentityProviderResponseOutput) ElementType() reflect.Type {
@@ -12839,7 +12659,6 @@ func (o OpenShiftManagedClusterIdentityProviderResponseArrayOutput) Index(i pulu
 	}).(OpenShiftManagedClusterIdentityProviderResponseOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfile struct {
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count int `pulumi:"count"`
@@ -12864,7 +12683,6 @@ type OpenShiftManagedClusterMasterPoolProfileInput interface {
 	ToOpenShiftManagedClusterMasterPoolProfileOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileOutput
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileArgs struct {
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -12931,7 +12749,6 @@ func (i *openShiftManagedClusterMasterPoolProfilePtrType) ToOpenShiftManagedClus
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterMasterPoolProfileOutput) ElementType() reflect.Type {
@@ -13055,7 +12872,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponse struct {
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count int `pulumi:"count"`
@@ -13080,7 +12896,6 @@ type OpenShiftManagedClusterMasterPoolProfileResponseInput interface {
 	ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileResponseOutput
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponseArgs struct {
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count pulumi.IntInput `pulumi:"count"`
@@ -13147,7 +12962,6 @@ func (i *openShiftManagedClusterMasterPoolProfileResponsePtrType) ToOpenShiftMan
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterMasterPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -13271,7 +13085,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfile struct {
 	// Name of the router profile.
 	Name *string `pulumi:"name"`
@@ -13288,7 +13101,6 @@ type OpenShiftRouterProfileInput interface {
 	ToOpenShiftRouterProfileOutputWithContext(context.Context) OpenShiftRouterProfileOutput
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileArgs struct {
 	// Name of the router profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13331,7 +13143,6 @@ func (i OpenShiftRouterProfileArray) ToOpenShiftRouterProfileArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileArrayOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftRouterProfileOutput) ElementType() reflect.Type {
@@ -13371,7 +13182,6 @@ func (o OpenShiftRouterProfileArrayOutput) Index(i pulumi.IntInput) OpenShiftRou
 	}).(OpenShiftRouterProfileOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponse struct {
 	// Auto-allocated FQDN for the OpenShift router.
 	Fqdn string `pulumi:"fqdn"`
@@ -13392,7 +13202,6 @@ type OpenShiftRouterProfileResponseInput interface {
 	ToOpenShiftRouterProfileResponseOutputWithContext(context.Context) OpenShiftRouterProfileResponseOutput
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponseArgs struct {
 	// Auto-allocated FQDN for the OpenShift router.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
@@ -13439,7 +13248,6 @@ func (i OpenShiftRouterProfileResponseArray) ToOpenShiftRouterProfileResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileResponseArrayOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftRouterProfileResponseOutput) ElementType() reflect.Type {
@@ -13489,7 +13297,6 @@ func (o OpenShiftRouterProfileResponseArrayOutput) Index(i pulumi.IntInput) Open
 	}).(OpenShiftRouterProfileResponseOutput)
 }
 
-// Describes the Power State of the cluster
 type PowerStateResponse struct {
 	// Tells whether the cluster is Running or Stopped
 	Code *string `pulumi:"code"`
@@ -13506,7 +13313,6 @@ type PowerStateResponseInput interface {
 	ToPowerStateResponseOutputWithContext(context.Context) PowerStateResponseOutput
 }
 
-// Describes the Power State of the cluster
 type PowerStateResponseArgs struct {
 	// Tells whether the cluster is Running or Stopped
 	Code pulumi.StringPtrInput `pulumi:"code"`
@@ -13565,7 +13371,6 @@ func (i *powerStateResponsePtrType) ToPowerStateResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponsePtrOutput)
 }
 
-// Describes the Power State of the cluster
 type PowerStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PowerStateResponseOutput) ElementType() reflect.Type {
@@ -13629,7 +13434,6 @@ func (o PowerStateResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpoint struct {
 	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
@@ -13646,7 +13450,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointArgs struct {
 	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -13705,7 +13508,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -13769,7 +13571,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponse struct {
 	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
@@ -13786,7 +13587,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponseArgs struct {
 	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -13845,7 +13645,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -13909,7 +13708,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A private link resource
 type PrivateLinkResource struct {
 	// The group ID of the resource.
 	GroupId *string `pulumi:"groupId"`
@@ -13934,7 +13732,6 @@ type PrivateLinkResourceInput interface {
 	ToPrivateLinkResourceOutputWithContext(context.Context) PrivateLinkResourceOutput
 }
 
-// A private link resource
 type PrivateLinkResourceArgs struct {
 	// The group ID of the resource.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
@@ -13985,7 +13782,6 @@ func (i PrivateLinkResourceArray) ToPrivateLinkResourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceArrayOutput)
 }
 
-// A private link resource
 type PrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkResourceOutput) ElementType() reflect.Type {
@@ -14045,7 +13841,6 @@ func (o PrivateLinkResourceArrayOutput) Index(i pulumi.IntInput) PrivateLinkReso
 	}).(PrivateLinkResourceOutput)
 }
 
-// A private link resource
 type PrivateLinkResourceResponse struct {
 	// The group ID of the resource.
 	GroupId *string `pulumi:"groupId"`
@@ -14072,7 +13867,6 @@ type PrivateLinkResourceResponseInput interface {
 	ToPrivateLinkResourceResponseOutputWithContext(context.Context) PrivateLinkResourceResponseOutput
 }
 
-// A private link resource
 type PrivateLinkResourceResponseArgs struct {
 	// The group ID of the resource.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
@@ -14125,7 +13919,6 @@ func (i PrivateLinkResourceResponseArray) ToPrivateLinkResourceResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceResponseArrayOutput)
 }
 
-// A private link resource
 type PrivateLinkResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkResourceResponseOutput) ElementType() reflect.Type {
@@ -14190,7 +13983,6 @@ func (o PrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) Private
 	}).(PrivateLinkResourceResponseOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionState struct {
 	// The private link service connection description.
 	Description *string `pulumi:"description"`
@@ -14209,7 +14001,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -14270,7 +14061,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -14349,7 +14139,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// The private link service connection description.
 	Description *string `pulumi:"description"`
@@ -14368,7 +14157,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -14429,7 +14217,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -14508,7 +14295,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlan struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -14531,7 +14317,6 @@ type PurchasePlanInput interface {
 	ToPurchasePlanOutputWithContext(context.Context) PurchasePlanOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14596,7 +14381,6 @@ func (i *purchasePlanPtrType) ToPurchasePlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanOutput) ElementType() reflect.Type {
@@ -14705,7 +14489,6 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -14728,7 +14511,6 @@ type PurchasePlanResponseInput interface {
 	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14793,7 +14575,6 @@ func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -14902,7 +14683,6 @@ func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A reference to an Azure resource.
 type ResourceReference struct {
 	// The fully qualified Azure resource id.
 	Id *string `pulumi:"id"`
@@ -14919,7 +14699,6 @@ type ResourceReferenceInput interface {
 	ToResourceReferenceOutputWithContext(context.Context) ResourceReferenceOutput
 }
 
-// A reference to an Azure resource.
 type ResourceReferenceArgs struct {
 	// The fully qualified Azure resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -14962,7 +14741,6 @@ func (i ResourceReferenceArray) ToResourceReferenceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceArrayOutput)
 }
 
-// A reference to an Azure resource.
 type ResourceReferenceOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceOutput) ElementType() reflect.Type {
@@ -15002,7 +14780,6 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 	}).(ResourceReferenceOutput)
 }
 
-// A reference to an Azure resource.
 type ResourceReferenceResponse struct {
 	// The fully qualified Azure resource id.
 	Id *string `pulumi:"id"`
@@ -15019,7 +14796,6 @@ type ResourceReferenceResponseInput interface {
 	ToResourceReferenceResponseOutputWithContext(context.Context) ResourceReferenceResponseOutput
 }
 
-// A reference to an Azure resource.
 type ResourceReferenceResponseArgs struct {
 	// The fully qualified Azure resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -15062,7 +14838,6 @@ func (i ResourceReferenceResponseArray) ToResourceReferenceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceResponseArrayOutput)
 }
 
-// A reference to an Azure resource.
 type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
@@ -15102,7 +14877,6 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfig struct {
 	// Sysctl setting fs.aio-max-nr.
 	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
@@ -15173,7 +14947,6 @@ type SysctlConfigInput interface {
 	ToSysctlConfigOutputWithContext(context.Context) SysctlConfigOutput
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfigArgs struct {
 	// Sysctl setting fs.aio-max-nr.
 	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
@@ -15286,7 +15059,6 @@ func (i *sysctlConfigPtrType) ToSysctlConfigPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfigOutput struct{ *pulumi.OutputState }
 
 func (SysctlConfigOutput) ElementType() reflect.Type {
@@ -15755,7 +15527,6 @@ func (o SysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfigResponse struct {
 	// Sysctl setting fs.aio-max-nr.
 	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
@@ -15826,7 +15597,6 @@ type SysctlConfigResponseInput interface {
 	ToSysctlConfigResponseOutputWithContext(context.Context) SysctlConfigResponseOutput
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfigResponseArgs struct {
 	// Sysctl setting fs.aio-max-nr.
 	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
@@ -15939,7 +15709,6 @@ func (i *sysctlConfigResponsePtrType) ToSysctlConfigResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigResponsePtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 type SysctlConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (SysctlConfigResponseOutput) ElementType() reflect.Type {
@@ -16408,7 +16177,6 @@ func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The UTC timestamp of resource creation.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -16435,7 +16203,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The UTC timestamp of resource creation.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -16504,7 +16271,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -16643,7 +16409,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time in a week.
 type TimeInWeek struct {
 	// A day in a week.
 	Day *string `pulumi:"day"`
@@ -16662,7 +16427,6 @@ type TimeInWeekInput interface {
 	ToTimeInWeekOutputWithContext(context.Context) TimeInWeekOutput
 }
 
-// Time in a week.
 type TimeInWeekArgs struct {
 	// A day in a week.
 	Day pulumi.StringPtrInput `pulumi:"day"`
@@ -16707,7 +16471,6 @@ func (i TimeInWeekArray) ToTimeInWeekArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekArrayOutput)
 }
 
-// Time in a week.
 type TimeInWeekOutput struct{ *pulumi.OutputState }
 
 func (TimeInWeekOutput) ElementType() reflect.Type {
@@ -16752,7 +16515,6 @@ func (o TimeInWeekArrayOutput) Index(i pulumi.IntInput) TimeInWeekOutput {
 	}).(TimeInWeekOutput)
 }
 
-// Time in a week.
 type TimeInWeekResponse struct {
 	// A day in a week.
 	Day *string `pulumi:"day"`
@@ -16771,7 +16533,6 @@ type TimeInWeekResponseInput interface {
 	ToTimeInWeekResponseOutputWithContext(context.Context) TimeInWeekResponseOutput
 }
 
-// Time in a week.
 type TimeInWeekResponseArgs struct {
 	// A day in a week.
 	Day pulumi.StringPtrInput `pulumi:"day"`
@@ -16816,7 +16577,6 @@ func (i TimeInWeekResponseArray) ToTimeInWeekResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekResponseArrayOutput)
 }
 
-// Time in a week.
 type TimeInWeekResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeInWeekResponseOutput) ElementType() reflect.Type {
@@ -16861,7 +16621,6 @@ func (o TimeInWeekResponseArrayOutput) Index(i pulumi.IntInput) TimeInWeekRespon
 	}).(TimeInWeekResponseOutput)
 }
 
-// The time span with start and end properties.
 type TimeSpan struct {
 	// The end of a time span
 	End *string `pulumi:"end"`
@@ -16880,7 +16639,6 @@ type TimeSpanInput interface {
 	ToTimeSpanOutputWithContext(context.Context) TimeSpanOutput
 }
 
-// The time span with start and end properties.
 type TimeSpanArgs struct {
 	// The end of a time span
 	End pulumi.StringPtrInput `pulumi:"end"`
@@ -16925,7 +16683,6 @@ func (i TimeSpanArray) ToTimeSpanArrayOutputWithContext(ctx context.Context) Tim
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanArrayOutput)
 }
 
-// The time span with start and end properties.
 type TimeSpanOutput struct{ *pulumi.OutputState }
 
 func (TimeSpanOutput) ElementType() reflect.Type {
@@ -16970,7 +16727,6 @@ func (o TimeSpanArrayOutput) Index(i pulumi.IntInput) TimeSpanOutput {
 	}).(TimeSpanOutput)
 }
 
-// The time span with start and end properties.
 type TimeSpanResponse struct {
 	// The end of a time span
 	End *string `pulumi:"end"`
@@ -16989,7 +16745,6 @@ type TimeSpanResponseInput interface {
 	ToTimeSpanResponseOutputWithContext(context.Context) TimeSpanResponseOutput
 }
 
-// The time span with start and end properties.
 type TimeSpanResponseArgs struct {
 	// The end of a time span
 	End pulumi.StringPtrInput `pulumi:"end"`
@@ -17034,7 +16789,6 @@ func (i TimeSpanResponseArray) ToTimeSpanResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanResponseArrayOutput)
 }
 
-// The time span with start and end properties.
 type TimeSpanResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeSpanResponseOutput) ElementType() reflect.Type {

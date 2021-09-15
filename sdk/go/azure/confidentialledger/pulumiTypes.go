@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipal struct {
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
@@ -31,7 +30,6 @@ type AADBasedSecurityPrincipalInput interface {
 	ToAADBasedSecurityPrincipalOutputWithContext(context.Context) AADBasedSecurityPrincipalOutput
 }
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipalArgs struct {
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
@@ -78,7 +76,6 @@ func (i AADBasedSecurityPrincipalArray) ToAADBasedSecurityPrincipalArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalArrayOutput)
 }
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
 
 func (AADBasedSecurityPrincipalOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o AADBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) AADBasedS
 	}).(AADBasedSecurityPrincipalOutput)
 }
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipalResponse struct {
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
@@ -149,7 +145,6 @@ type AADBasedSecurityPrincipalResponseInput interface {
 	ToAADBasedSecurityPrincipalResponseOutputWithContext(context.Context) AADBasedSecurityPrincipalResponseOutput
 }
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipalResponseArgs struct {
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
@@ -196,7 +191,6 @@ func (i AADBasedSecurityPrincipalResponseArray) ToAADBasedSecurityPrincipalRespo
 	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// AAD based security principal with associated Ledger RoleName
 type AADBasedSecurityPrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (AADBasedSecurityPrincipalResponseOutput) ElementType() reflect.Type {
@@ -246,7 +240,6 @@ func (o AADBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(AADBasedSecurityPrincipalResponseOutput)
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipal struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
@@ -265,7 +258,6 @@ type CertBasedSecurityPrincipalInput interface {
 	ToCertBasedSecurityPrincipalOutputWithContext(context.Context) CertBasedSecurityPrincipalOutput
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalArgs struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
@@ -310,7 +302,6 @@ func (i CertBasedSecurityPrincipalArray) ToCertBasedSecurityPrincipalArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalArrayOutput)
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
 
 func (CertBasedSecurityPrincipalOutput) ElementType() reflect.Type {
@@ -355,7 +346,6 @@ func (o CertBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) CertBase
 	}).(CertBasedSecurityPrincipalOutput)
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalResponse struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
@@ -374,7 +364,6 @@ type CertBasedSecurityPrincipalResponseInput interface {
 	ToCertBasedSecurityPrincipalResponseOutputWithContext(context.Context) CertBasedSecurityPrincipalResponseOutput
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalResponseArgs struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
@@ -419,7 +408,6 @@ func (i CertBasedSecurityPrincipalResponseArray) ToCertBasedSecurityPrincipalRes
 	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (CertBasedSecurityPrincipalResponseOutput) ElementType() reflect.Type {
@@ -464,7 +452,6 @@ func (o CertBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(CertBasedSecurityPrincipalResponseOutput)
 }
 
-// Additional Confidential Ledger properties.
 type LedgerProperties struct {
 	// Array of all AAD based Security Principals.
 	AadBasedSecurityPrincipals []AADBasedSecurityPrincipal `pulumi:"aadBasedSecurityPrincipals"`
@@ -487,7 +474,6 @@ type LedgerPropertiesInput interface {
 	ToLedgerPropertiesOutputWithContext(context.Context) LedgerPropertiesOutput
 }
 
-// Additional Confidential Ledger properties.
 type LedgerPropertiesArgs struct {
 	// Array of all AAD based Security Principals.
 	AadBasedSecurityPrincipals AADBasedSecurityPrincipalArrayInput `pulumi:"aadBasedSecurityPrincipals"`
@@ -552,7 +538,6 @@ func (i *ledgerPropertiesPtrType) ToLedgerPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerPropertiesPtrOutput)
 }
 
-// Additional Confidential Ledger properties.
 type LedgerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LedgerPropertiesOutput) ElementType() reflect.Type {
@@ -661,7 +646,6 @@ func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional Confidential Ledger properties.
 type LedgerPropertiesResponse struct {
 	// Array of all AAD based Security Principals.
 	AadBasedSecurityPrincipals []AADBasedSecurityPrincipalResponse `pulumi:"aadBasedSecurityPrincipals"`
@@ -694,7 +678,6 @@ type LedgerPropertiesResponseInput interface {
 	ToLedgerPropertiesResponseOutputWithContext(context.Context) LedgerPropertiesResponseOutput
 }
 
-// Additional Confidential Ledger properties.
 type LedgerPropertiesResponseArgs struct {
 	// Array of all AAD based Security Principals.
 	AadBasedSecurityPrincipals AADBasedSecurityPrincipalResponseArrayInput `pulumi:"aadBasedSecurityPrincipals"`
@@ -769,7 +752,6 @@ func (i *ledgerPropertiesResponsePtrType) ToLedgerPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerPropertiesResponsePtrOutput)
 }
 
-// Additional Confidential Ledger properties.
 type LedgerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LedgerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -957,7 +939,6 @@ func (o LedgerPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -984,7 +965,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1053,7 +1033,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

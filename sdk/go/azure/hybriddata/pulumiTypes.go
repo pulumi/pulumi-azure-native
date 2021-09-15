@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The pair of customer secret.
 type CustomerSecret struct {
 	// The encryption algorithm used to encrypt data.
 	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
@@ -31,7 +30,6 @@ type CustomerSecretInput interface {
 	ToCustomerSecretOutputWithContext(context.Context) CustomerSecretOutput
 }
 
-// The pair of customer secret.
 type CustomerSecretArgs struct {
 	// The encryption algorithm used to encrypt data.
 	Algorithm SupportedAlgorithmInput `pulumi:"algorithm"`
@@ -78,7 +76,6 @@ func (i CustomerSecretArray) ToCustomerSecretArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretArrayOutput)
 }
 
-// The pair of customer secret.
 type CustomerSecretOutput struct{ *pulumi.OutputState }
 
 func (CustomerSecretOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o CustomerSecretArrayOutput) Index(i pulumi.IntInput) CustomerSecretOutput
 	}).(CustomerSecretOutput)
 }
 
-// The pair of customer secret.
 type CustomerSecretResponse struct {
 	// The encryption algorithm used to encrypt data.
 	Algorithm string `pulumi:"algorithm"`
@@ -149,7 +145,6 @@ type CustomerSecretResponseInput interface {
 	ToCustomerSecretResponseOutputWithContext(context.Context) CustomerSecretResponseOutput
 }
 
-// The pair of customer secret.
 type CustomerSecretResponseArgs struct {
 	// The encryption algorithm used to encrypt data.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
@@ -196,7 +191,6 @@ func (i CustomerSecretResponseArray) ToCustomerSecretResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretResponseArrayOutput)
 }
 
-// The pair of customer secret.
 type CustomerSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomerSecretResponseOutput) ElementType() reflect.Type {
@@ -246,7 +240,6 @@ func (o CustomerSecretResponseArrayOutput) Index(i pulumi.IntInput) CustomerSecr
 	}).(CustomerSecretResponseOutput)
 }
 
-// Schedule for the job run.
 type Schedule struct {
 	// Name of the schedule.
 	Name *string `pulumi:"name"`
@@ -265,7 +258,6 @@ type ScheduleInput interface {
 	ToScheduleOutputWithContext(context.Context) ScheduleOutput
 }
 
-// Schedule for the job run.
 type ScheduleArgs struct {
 	// Name of the schedule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -310,7 +302,6 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleArrayOutput)
 }
 
-// Schedule for the job run.
 type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
@@ -355,7 +346,6 @@ func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
 	}).(ScheduleOutput)
 }
 
-// Schedule for the job run.
 type ScheduleResponse struct {
 	// Name of the schedule.
 	Name *string `pulumi:"name"`
@@ -374,7 +364,6 @@ type ScheduleResponseInput interface {
 	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
 }
 
-// Schedule for the job run.
 type ScheduleResponseArgs struct {
 	// Name of the schedule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -419,7 +408,6 @@ func (i ScheduleResponseArray) ToScheduleResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseArrayOutput)
 }
 
-// Schedule for the job run.
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResponseOutput) ElementType() reflect.Type {
@@ -464,7 +452,6 @@ func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOu
 	}).(ScheduleResponseOutput)
 }
 
-// The sku type.
 type Sku struct {
 	// The sku name. Required for data manager creation, optional for update.
 	Name *string `pulumi:"name"`
@@ -483,7 +470,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The sku type.
 type SkuArgs struct {
 	// The sku name. Required for data manager creation, optional for update.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -544,7 +530,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The sku type.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -623,7 +608,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku type.
 type SkuResponse struct {
 	// The sku name. Required for data manager creation, optional for update.
 	Name *string `pulumi:"name"`
@@ -642,7 +626,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku type.
 type SkuResponseArgs struct {
 	// The sku name. Required for data manager creation, optional for update.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -703,7 +686,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku type.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

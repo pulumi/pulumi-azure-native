@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 type AddDataLakeStoreWithAccountParameters struct {
 	// The unique name of the Data Lake Store account to add.
 	Name string `pulumi:"name"`
@@ -29,7 +28,6 @@ type AddDataLakeStoreWithAccountParametersInput interface {
 	ToAddDataLakeStoreWithAccountParametersOutputWithContext(context.Context) AddDataLakeStoreWithAccountParametersOutput
 }
 
-// The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 type AddDataLakeStoreWithAccountParametersArgs struct {
 	// The unique name of the Data Lake Store account to add.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -74,7 +72,6 @@ func (i AddDataLakeStoreWithAccountParametersArray) ToAddDataLakeStoreWithAccoun
 	return pulumi.ToOutputWithContext(ctx, i).(AddDataLakeStoreWithAccountParametersArrayOutput)
 }
 
-// The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 type AddDataLakeStoreWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (AddDataLakeStoreWithAccountParametersOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AddDataLakeStoreWithAccountParametersArrayOutput) Index(i pulumi.IntInpu
 	}).(AddDataLakeStoreWithAccountParametersOutput)
 }
 
-// The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParameters struct {
 	// The access key associated with this Azure Storage account that will be used to connect to it.
 	AccessKey string `pulumi:"accessKey"`
@@ -140,7 +136,6 @@ type AddStorageAccountWithAccountParametersInput interface {
 	ToAddStorageAccountWithAccountParametersOutputWithContext(context.Context) AddStorageAccountWithAccountParametersOutput
 }
 
-// The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParametersArgs struct {
 	// The access key associated with this Azure Storage account that will be used to connect to it.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
@@ -187,7 +182,6 @@ func (i AddStorageAccountWithAccountParametersArray) ToAddStorageAccountWithAcco
 	return pulumi.ToOutputWithContext(ctx, i).(AddStorageAccountWithAccountParametersArrayOutput)
 }
 
-// The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (AddStorageAccountWithAccountParametersOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInp
 	}).(AddStorageAccountWithAccountParametersOutput)
 }
 
-// Data Lake Analytics compute policy information.
 type ComputePolicyResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -266,7 +259,6 @@ type ComputePolicyResponseInput interface {
 	ToComputePolicyResponseOutputWithContext(context.Context) ComputePolicyResponseOutput
 }
 
-// Data Lake Analytics compute policy information.
 type ComputePolicyResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -321,7 +313,6 @@ func (i ComputePolicyResponseArray) ToComputePolicyResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyResponseArrayOutput)
 }
 
-// Data Lake Analytics compute policy information.
 type ComputePolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ComputePolicyResponseOutput) ElementType() reflect.Type {
@@ -391,7 +382,6 @@ func (o ComputePolicyResponseArrayOutput) Index(i pulumi.IntInput) ComputePolicy
 	}).(ComputePolicyResponseOutput)
 }
 
-// The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 type CreateComputePolicyWithAccountParameters struct {
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
@@ -416,7 +406,6 @@ type CreateComputePolicyWithAccountParametersInput interface {
 	ToCreateComputePolicyWithAccountParametersOutputWithContext(context.Context) CreateComputePolicyWithAccountParametersOutput
 }
 
-// The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 type CreateComputePolicyWithAccountParametersArgs struct {
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelismPerJob"`
@@ -467,7 +456,6 @@ func (i CreateComputePolicyWithAccountParametersArray) ToCreateComputePolicyWith
 	return pulumi.ToOutputWithContext(ctx, i).(CreateComputePolicyWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 type CreateComputePolicyWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (CreateComputePolicyWithAccountParametersOutput) ElementType() reflect.Type {
@@ -527,7 +515,6 @@ func (o CreateComputePolicyWithAccountParametersArrayOutput) Index(i pulumi.IntI
 	}).(CreateComputePolicyWithAccountParametersOutput)
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParameters struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
@@ -548,7 +535,6 @@ type CreateFirewallRuleWithAccountParametersInput interface {
 	ToCreateFirewallRuleWithAccountParametersOutputWithContext(context.Context) CreateFirewallRuleWithAccountParametersOutput
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParametersArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
@@ -595,7 +581,6 @@ func (i CreateFirewallRuleWithAccountParametersArray) ToCreateFirewallRuleWithAc
 	return pulumi.ToOutputWithContext(ctx, i).(CreateFirewallRuleWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (CreateFirewallRuleWithAccountParametersOutput) ElementType() reflect.Type {
@@ -645,7 +630,6 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 	}).(CreateFirewallRuleWithAccountParametersOutput)
 }
 
-// Data Lake Store account information.
 type DataLakeStoreAccountInformationResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -668,7 +652,6 @@ type DataLakeStoreAccountInformationResponseInput interface {
 	ToDataLakeStoreAccountInformationResponseOutputWithContext(context.Context) DataLakeStoreAccountInformationResponseOutput
 }
 
-// Data Lake Store account information.
 type DataLakeStoreAccountInformationResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -717,7 +700,6 @@ func (i DataLakeStoreAccountInformationResponseArray) ToDataLakeStoreAccountInfo
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationResponseArrayOutput)
 }
 
-// Data Lake Store account information.
 type DataLakeStoreAccountInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (DataLakeStoreAccountInformationResponseOutput) ElementType() reflect.Type {
@@ -772,7 +754,6 @@ func (o DataLakeStoreAccountInformationResponseArrayOutput) Index(i pulumi.IntIn
 	}).(DataLakeStoreAccountInformationResponseOutput)
 }
 
-// Data Lake Analytics firewall rule information.
 type FirewallRuleResponse struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
@@ -797,7 +778,6 @@ type FirewallRuleResponseInput interface {
 	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
 }
 
-// Data Lake Analytics firewall rule information.
 type FirewallRuleResponseArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
@@ -848,7 +828,6 @@ func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
 }
 
-// Data Lake Analytics firewall rule information.
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleResponseOutput) ElementType() reflect.Type {
@@ -1077,7 +1056,6 @@ func (o HiveMetastoreResponseArrayOutput) Index(i pulumi.IntInput) HiveMetastore
 	}).(HiveMetastoreResponseOutput)
 }
 
-// SAS token information.
 type SasTokenInformationResponse struct {
 	// The access token for the associated Azure Storage Container.
 	AccessToken string `pulumi:"accessToken"`
@@ -1094,7 +1072,6 @@ type SasTokenInformationResponseInput interface {
 	ToSasTokenInformationResponseOutputWithContext(context.Context) SasTokenInformationResponseOutput
 }
 
-// SAS token information.
 type SasTokenInformationResponseArgs struct {
 	// The access token for the associated Azure Storage Container.
 	AccessToken pulumi.StringInput `pulumi:"accessToken"`
@@ -1137,7 +1114,6 @@ func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseArrayOutput)
 }
 
-// SAS token information.
 type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
@@ -1177,7 +1153,6 @@ func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasToke
 	}).(SasTokenInformationResponseOutput)
 }
 
-// Azure Storage account information.
 type StorageAccountInformationResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1200,7 +1175,6 @@ type StorageAccountInformationResponseInput interface {
 	ToStorageAccountInformationResponseOutputWithContext(context.Context) StorageAccountInformationResponseOutput
 }
 
-// Azure Storage account information.
 type StorageAccountInformationResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1249,7 +1223,6 @@ func (i StorageAccountInformationResponseArray) ToStorageAccountInformationRespo
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationResponseArrayOutput)
 }
 
-// Azure Storage account information.
 type StorageAccountInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountInformationResponseOutput) ElementType() reflect.Type {
@@ -1304,7 +1277,6 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(StorageAccountInformationResponseOutput)
 }
 
-// Data Lake Analytics  VirtualNetwork Rule information.
 type VirtualNetworkRuleResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1329,7 +1301,6 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// Data Lake Analytics  VirtualNetwork Rule information.
 type VirtualNetworkRuleResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1380,7 +1351,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Data Lake Analytics  VirtualNetwork Rule information.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {

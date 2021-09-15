@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// controller details
 type ControllerDetailsType struct {
 	// controller arm resource id
 	Id *string `pulumi:"id"`
@@ -27,7 +26,6 @@ type ControllerDetailsTypeInput interface {
 	ToControllerDetailsTypeOutputWithContext(context.Context) ControllerDetailsTypeOutput
 }
 
-// controller details
 type ControllerDetailsTypeArgs struct {
 	// controller arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -86,7 +84,6 @@ func (i *controllerDetailsTypePtrType) ToControllerDetailsTypePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsTypePtrOutput)
 }
 
-// controller details
 type ControllerDetailsTypeOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsTypeOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o ControllerDetailsTypePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// controller details
 type ControllerDetailsResponse struct {
 	// controller arm resource id
 	Id *string `pulumi:"id"`
@@ -167,7 +163,6 @@ type ControllerDetailsResponseInput interface {
 	ToControllerDetailsResponseOutputWithContext(context.Context) ControllerDetailsResponseOutput
 }
 
-// controller details
 type ControllerDetailsResponseArgs struct {
 	// controller arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -226,7 +221,6 @@ func (i *controllerDetailsResponsePtrType) ToControllerDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsResponsePtrOutput)
 }
 
-// controller details
 type ControllerDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsResponseOutput) ElementType() reflect.Type {
@@ -602,7 +596,6 @@ func (o OrchestratorIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of orchestrator
 type SubnetDetails struct {
 	// subnet arm resource id
 	Id *string `pulumi:"id"`
@@ -619,7 +612,6 @@ type SubnetDetailsInput interface {
 	ToSubnetDetailsOutputWithContext(context.Context) SubnetDetailsOutput
 }
 
-// Properties of orchestrator
 type SubnetDetailsArgs struct {
 	// subnet arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -678,7 +670,6 @@ func (i *subnetDetailsPtrType) ToSubnetDetailsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsPtrOutput)
 }
 
-// Properties of orchestrator
 type SubnetDetailsOutput struct{ *pulumi.OutputState }
 
 func (SubnetDetailsOutput) ElementType() reflect.Type {
@@ -742,7 +733,6 @@ func (o SubnetDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of orchestrator
 type SubnetDetailsResponse struct {
 	// subnet arm resource id
 	Id *string `pulumi:"id"`
@@ -759,7 +749,6 @@ type SubnetDetailsResponseInput interface {
 	ToSubnetDetailsResponseOutputWithContext(context.Context) SubnetDetailsResponseOutput
 }
 
-// Properties of orchestrator
 type SubnetDetailsResponseArgs struct {
 	// subnet arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -818,7 +807,6 @@ func (i *subnetDetailsResponsePtrType) ToSubnetDetailsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsResponsePtrOutput)
 }
 
-// Properties of orchestrator
 type SubnetDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetDetailsResponseOutput) ElementType() reflect.Type {

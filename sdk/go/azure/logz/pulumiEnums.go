@@ -174,7 +174,6 @@ func (in *managedIdentityTypesPtr) ToManagedIdentityTypesPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypesPtrOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 type MarketplaceSubscriptionStatus string
 
 const (
@@ -339,7 +338,6 @@ func (in *marketplaceSubscriptionStatusPtr) ToMarketplaceSubscriptionStatusPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(MarketplaceSubscriptionStatusPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 type MonitoringStatus string
 
 const (
@@ -504,7 +502,6 @@ func (in *monitoringStatusPtr) ToMonitoringStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringStatusPtrOutput)
 }
 
-// Valid actions for a filtering tag. Exclusion takes priority over inclusion.
 type TagAction string
 
 const (

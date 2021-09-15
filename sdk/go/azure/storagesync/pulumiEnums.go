@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Offline data transfer
 type FeatureStatus string
 
 const (
@@ -175,7 +174,6 @@ func (in *featureStatusPtr) ToFeatureStatusPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureStatusPtrOutput)
 }
 
-// Incoming Traffic Policy
 type IncomingTrafficPolicy string
 
 const (
@@ -340,7 +338,6 @@ func (in *incomingTrafficPolicyPtr) ToIncomingTrafficPolicyPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(IncomingTrafficPolicyPtrOutput)
 }
 
-// Policy for how namespace and files are recalled during FastDr.
 type InitialDownloadPolicy string
 
 const (
@@ -506,7 +503,6 @@ func (in *initialDownloadPolicyPtr) ToInitialDownloadPolicyPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(InitialDownloadPolicyPtrOutput)
 }
 
-// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 type LocalCacheMode string
 
 const (
@@ -671,7 +667,6 @@ func (in *localCacheModePtr) ToLocalCacheModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(LocalCacheModePtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
 const (

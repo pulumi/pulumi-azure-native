@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ArcSetting details.
- * API Version: 2021-09-01.
+ * API Version: 2021-01-01-preview.
  */
 export class ArcSetting extends pulumi.CustomResource {
     /**

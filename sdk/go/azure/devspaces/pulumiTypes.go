@@ -109,7 +109,6 @@ func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ControllerConnectionDetailsResponseOutput)
 }
 
-// Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'Kubernetes'.
@@ -129,7 +128,6 @@ type KubernetesConnectionDetailsResponseInput interface {
 	ToKubernetesConnectionDetailsResponseOutputWithContext(context.Context) KubernetesConnectionDetailsResponseOutput
 }
 
-// Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'Kubernetes'.
@@ -191,7 +189,6 @@ func (i *kubernetesConnectionDetailsResponsePtrType) ToKubernetesConnectionDetai
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponsePtrOutput)
 }
 
-// Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (KubernetesConnectionDetailsResponseOutput) ElementType() reflect.Type {
@@ -272,7 +269,6 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type Sku struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
 	Name string `pulumi:"name"`
@@ -291,7 +287,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type SkuArgs struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -352,7 +347,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -431,7 +425,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type SkuResponse struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
 	Name string `pulumi:"name"`
@@ -450,7 +443,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type SkuResponseArgs struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -511,7 +503,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Model representing SKU for Azure Dev Spaces Controller.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

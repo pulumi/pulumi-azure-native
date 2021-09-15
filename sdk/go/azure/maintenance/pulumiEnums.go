@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
 type MaintenanceScope string
 
 const (

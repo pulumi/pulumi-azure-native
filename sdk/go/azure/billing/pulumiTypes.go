@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Details of the Azure plan.
 type AzurePlanResponse struct {
 	// The sku description.
 	SkuDescription string `pulumi:"skuDescription"`
@@ -29,7 +28,6 @@ type AzurePlanResponseInput interface {
 	ToAzurePlanResponseOutputWithContext(context.Context) AzurePlanResponseOutput
 }
 
-// Details of the Azure plan.
 type AzurePlanResponseArgs struct {
 	// The sku description.
 	SkuDescription pulumi.StringInput `pulumi:"skuDescription"`
@@ -74,7 +72,6 @@ func (i AzurePlanResponseArray) ToAzurePlanResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AzurePlanResponseArrayOutput)
 }
 
-// Details of the Azure plan.
 type AzurePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (AzurePlanResponseOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AzurePlanResponseArrayOutput) Index(i pulumi.IntInput) AzurePlanResponse
 	}).(AzurePlanResponseOutput)
 }
 
-// Invoice section properties with create subscription permission.
 type InvoiceSectionWithCreateSubPermissionResponse struct {
 	// The name of the billing profile for the invoice section.
 	BillingProfileDisplayName string `pulumi:"billingProfileDisplayName"`
@@ -154,7 +150,6 @@ type InvoiceSectionWithCreateSubPermissionResponseInput interface {
 	ToInvoiceSectionWithCreateSubPermissionResponseOutputWithContext(context.Context) InvoiceSectionWithCreateSubPermissionResponseOutput
 }
 
-// Invoice section properties with create subscription permission.
 type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
 	// The name of the billing profile for the invoice section.
 	BillingProfileDisplayName pulumi.StringInput `pulumi:"billingProfileDisplayName"`
@@ -215,7 +210,6 @@ func (i InvoiceSectionWithCreateSubPermissionResponseArray) ToInvoiceSectionWith
 	return pulumi.ToOutputWithContext(ctx, i).(InvoiceSectionWithCreateSubPermissionResponseArrayOutput)
 }
 
-// Invoice section properties with create subscription permission.
 type InvoiceSectionWithCreateSubPermissionResponseOutput struct{ *pulumi.OutputState }
 
 func (InvoiceSectionWithCreateSubPermissionResponseOutput) ElementType() reflect.Type {

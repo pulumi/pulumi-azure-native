@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the container service backing the cluster
 type AcsClusterProperties struct {
 	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
 	AgentCount *int `pulumi:"agentCount"`
@@ -37,7 +36,6 @@ type AcsClusterPropertiesInput interface {
 	ToAcsClusterPropertiesOutputWithContext(context.Context) AcsClusterPropertiesOutput
 }
 
-// Information about the container service backing the cluster
 type AcsClusterPropertiesArgs struct {
 	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
 	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
@@ -106,7 +104,6 @@ func (i *acsClusterPropertiesPtrType) ToAcsClusterPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesPtrOutput)
 }
 
-// Information about the container service backing the cluster
 type AcsClusterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AcsClusterPropertiesOutput) ElementType() reflect.Type {
@@ -245,7 +242,6 @@ func (o AcsClusterPropertiesPtrOutput) SystemServices() SystemServiceArrayOutput
 	}).(SystemServiceArrayOutput)
 }
 
-// Information about the container service backing the cluster
 type AcsClusterPropertiesResponse struct {
 	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
 	AgentCount *int `pulumi:"agentCount"`
@@ -274,7 +270,6 @@ type AcsClusterPropertiesResponseInput interface {
 	ToAcsClusterPropertiesResponseOutputWithContext(context.Context) AcsClusterPropertiesResponseOutput
 }
 
-// Information about the container service backing the cluster
 type AcsClusterPropertiesResponseArgs struct {
 	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
 	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
@@ -345,7 +340,6 @@ func (i *acsClusterPropertiesResponsePtrType) ToAcsClusterPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesResponsePtrOutput)
 }
 
-// Information about the container service backing the cluster
 type AcsClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AcsClusterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -501,7 +495,6 @@ func (o AcsClusterPropertiesResponsePtrOutput) SystemServices() SystemServiceRes
 	}).(SystemServiceResponseArrayOutput)
 }
 
-// AppInsights credentials.
 type AppInsightsCredentialsResponse struct {
 	// The AppInsights application ID.
 	AppId *string `pulumi:"appId"`
@@ -520,7 +513,6 @@ type AppInsightsCredentialsResponseInput interface {
 	ToAppInsightsCredentialsResponseOutputWithContext(context.Context) AppInsightsCredentialsResponseOutput
 }
 
-// AppInsights credentials.
 type AppInsightsCredentialsResponseArgs struct {
 	// The AppInsights application ID.
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
@@ -540,7 +532,6 @@ func (i AppInsightsCredentialsResponseArgs) ToAppInsightsCredentialsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsCredentialsResponseOutput)
 }
 
-// AppInsights credentials.
 type AppInsightsCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (AppInsightsCredentialsResponseOutput) ElementType() reflect.Type {
@@ -565,7 +556,6 @@ func (o AppInsightsCredentialsResponseOutput) InstrumentationKey() pulumi.String
 	return o.ApplyT(func(v AppInsightsCredentialsResponse) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
 }
 
-// Properties of App Insights.
 type AppInsightsProperties struct {
 	// ARM resource ID of the App Insights.
 	ResourceId *string `pulumi:"resourceId"`
@@ -582,7 +572,6 @@ type AppInsightsPropertiesInput interface {
 	ToAppInsightsPropertiesOutputWithContext(context.Context) AppInsightsPropertiesOutput
 }
 
-// Properties of App Insights.
 type AppInsightsPropertiesArgs struct {
 	// ARM resource ID of the App Insights.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -641,7 +630,6 @@ func (i *appInsightsPropertiesPtrType) ToAppInsightsPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsPropertiesPtrOutput)
 }
 
-// Properties of App Insights.
 type AppInsightsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AppInsightsPropertiesOutput) ElementType() reflect.Type {
@@ -705,7 +693,6 @@ func (o AppInsightsPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of App Insights.
 type AppInsightsPropertiesResponse struct {
 	// ARM resource ID of the App Insights.
 	ResourceId *string `pulumi:"resourceId"`
@@ -722,7 +709,6 @@ type AppInsightsPropertiesResponseInput interface {
 	ToAppInsightsPropertiesResponseOutputWithContext(context.Context) AppInsightsPropertiesResponseOutput
 }
 
-// Properties of App Insights.
 type AppInsightsPropertiesResponseArgs struct {
 	// ARM resource ID of the App Insights.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -781,7 +767,6 @@ func (i *appInsightsPropertiesResponsePtrType) ToAppInsightsPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsPropertiesResponsePtrOutput)
 }
 
-// Properties of App Insights.
 type AppInsightsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AppInsightsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -845,7 +830,6 @@ func (o AppInsightsPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfiguration struct {
 	// The maximum number of replicas for each service.
 	MaxReplicas *int `pulumi:"maxReplicas"`
@@ -870,7 +854,6 @@ type AutoScaleConfigurationInput interface {
 	ToAutoScaleConfigurationOutputWithContext(context.Context) AutoScaleConfigurationOutput
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfigurationArgs struct {
 	// The maximum number of replicas for each service.
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
@@ -937,7 +920,6 @@ func (i *autoScaleConfigurationPtrType) ToAutoScaleConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationPtrOutput)
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AutoScaleConfigurationOutput) ElementType() reflect.Type {
@@ -1061,7 +1043,6 @@ func (o AutoScaleConfigurationPtrOutput) TargetUtilization() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfigurationResponse struct {
 	// The maximum number of replicas for each service.
 	MaxReplicas *int `pulumi:"maxReplicas"`
@@ -1086,7 +1067,6 @@ type AutoScaleConfigurationResponseInput interface {
 	ToAutoScaleConfigurationResponseOutputWithContext(context.Context) AutoScaleConfigurationResponseOutput
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfigurationResponseArgs struct {
 	// The maximum number of replicas for each service.
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
@@ -1153,7 +1133,6 @@ func (i *autoScaleConfigurationResponsePtrType) ToAutoScaleConfigurationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationResponsePtrOutput)
 }
 
-// AutoScale configuration properties.
 type AutoScaleConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoScaleConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1277,7 +1256,6 @@ func (o AutoScaleConfigurationResponsePtrOutput) TargetUtilization() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerRegistryCredentialsResponse struct {
 	// The ACR login server name. User name is the first part of the FQDN.
 	LoginServer string `pulumi:"loginServer"`
@@ -1300,7 +1278,6 @@ type ContainerRegistryCredentialsResponseInput interface {
 	ToContainerRegistryCredentialsResponseOutputWithContext(context.Context) ContainerRegistryCredentialsResponseOutput
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerRegistryCredentialsResponseArgs struct {
 	// The ACR login server name. User name is the first part of the FQDN.
 	LoginServer pulumi.StringInput `pulumi:"loginServer"`
@@ -1324,7 +1301,6 @@ func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentials
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput)
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -1359,7 +1335,6 @@ func (o ContainerRegistryCredentialsResponseOutput) Username() pulumi.StringOutp
 	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryProperties struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -1376,7 +1351,6 @@ type ContainerRegistryPropertiesInput interface {
 	ToContainerRegistryPropertiesOutputWithContext(context.Context) ContainerRegistryPropertiesOutput
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesArgs struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -1435,7 +1409,6 @@ func (i *containerRegistryPropertiesPtrType) ToContainerRegistryPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesPtrOutput)
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ContainerRegistryPropertiesOutput) ElementType() reflect.Type {
@@ -1499,7 +1472,6 @@ func (o ContainerRegistryPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesResponse struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -1516,7 +1488,6 @@ type ContainerRegistryPropertiesResponseInput interface {
 	ToContainerRegistryPropertiesResponseOutputWithContext(context.Context) ContainerRegistryPropertiesResponseOutput
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesResponseArgs struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -1575,7 +1546,6 @@ func (i *containerRegistryPropertiesResponsePtrType) ToContainerRegistryProperti
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesResponsePtrOutput)
 }
 
-// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerRegistryPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1639,7 +1609,6 @@ func (o ContainerRegistryPropertiesResponsePtrOutput) ResourceId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerServiceCredentialsResponse struct {
 	// The ACS kube config file.
 	AcsKubeConfig string `pulumi:"acsKubeConfig"`
@@ -1660,7 +1629,6 @@ type ContainerServiceCredentialsResponseInput interface {
 	ToContainerServiceCredentialsResponseOutputWithContext(context.Context) ContainerServiceCredentialsResponseOutput
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerServiceCredentialsResponseArgs struct {
 	// The ACS kube config file.
 	AcsKubeConfig pulumi.StringInput `pulumi:"acsKubeConfig"`
@@ -1682,7 +1650,6 @@ func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput)
 }
 
-// Information about the Azure Container Registry which contains the images deployed to the cluster.
 type ContainerServiceCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceCredentialsResponseOutput) ElementType() reflect.Type {
@@ -1714,7 +1681,6 @@ func (o ContainerServiceCredentialsResponseOutput) ServicePrincipalConfiguration
 	}).(ServicePrincipalPropertiesResponseOutput)
 }
 
-// Error detail information.
 type ErrorDetailResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -1733,7 +1699,6 @@ type ErrorDetailResponseInput interface {
 	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
 }
 
-// Error detail information.
 type ErrorDetailResponseArgs struct {
 	// Error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -1778,7 +1743,6 @@ func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
 }
 
-// Error detail information.
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -1823,7 +1787,6 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
-// Error response information.
 type ErrorResponseResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -1844,7 +1807,6 @@ type ErrorResponseResponseInput interface {
 	ToErrorResponseResponseOutputWithContext(context.Context) ErrorResponseResponseOutput
 }
 
-// Error response information.
 type ErrorResponseResponseArgs struct {
 	// Error code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -1907,7 +1869,6 @@ func (i *errorResponseResponsePtrType) ToErrorResponseResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponsePtrOutput)
 }
 
-// Error response information.
 type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseResponseOutput) ElementType() reflect.Type {
@@ -2001,7 +1962,6 @@ func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type ErrorResponseWrapperResponse struct {
 	// The error response.
 	Error *ErrorResponseResponse `pulumi:"error"`
@@ -2018,7 +1978,6 @@ type ErrorResponseWrapperResponseInput interface {
 	ToErrorResponseWrapperResponseOutputWithContext(context.Context) ErrorResponseWrapperResponseOutput
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type ErrorResponseWrapperResponseArgs struct {
 	// The error response.
 	Error ErrorResponseResponsePtrInput `pulumi:"error"`
@@ -2061,7 +2020,6 @@ func (i ErrorResponseWrapperResponseArray) ToErrorResponseWrapperResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseWrapperResponseArrayOutput)
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type ErrorResponseWrapperResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseWrapperResponseOutput) ElementType() reflect.Type {
@@ -2101,7 +2059,6 @@ func (o ErrorResponseWrapperResponseArrayOutput) Index(i pulumi.IntInput) ErrorR
 	}).(ErrorResponseWrapperResponseOutput)
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfiguration struct {
 	// The auto-scale configuration
 	AutoScale *AutoScaleConfiguration `pulumi:"autoScale"`
@@ -2124,7 +2081,6 @@ type GlobalServiceConfigurationInput interface {
 	ToGlobalServiceConfigurationOutputWithContext(context.Context) GlobalServiceConfigurationOutput
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfigurationArgs struct {
 	// The auto-scale configuration
 	AutoScale AutoScaleConfigurationPtrInput `pulumi:"autoScale"`
@@ -2189,7 +2145,6 @@ func (i *globalServiceConfigurationPtrType) ToGlobalServiceConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationPtrOutput)
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalServiceConfigurationOutput) ElementType() reflect.Type {
@@ -2298,7 +2253,6 @@ func (o GlobalServiceConfigurationPtrOutput) Ssl() SslConfigurationPtrOutput {
 	}).(SslConfigurationPtrOutput)
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfigurationResponse struct {
 	// The auto-scale configuration
 	AutoScale *AutoScaleConfigurationResponse `pulumi:"autoScale"`
@@ -2321,7 +2275,6 @@ type GlobalServiceConfigurationResponseInput interface {
 	ToGlobalServiceConfigurationResponseOutputWithContext(context.Context) GlobalServiceConfigurationResponseOutput
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfigurationResponseArgs struct {
 	// The auto-scale configuration
 	AutoScale AutoScaleConfigurationResponsePtrInput `pulumi:"autoScale"`
@@ -2386,7 +2339,6 @@ func (i *globalServiceConfigurationResponsePtrType) ToGlobalServiceConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationResponsePtrOutput)
 }
 
-// Global configuration for services in the cluster.
 type GlobalServiceConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (GlobalServiceConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2495,7 +2447,6 @@ func (o GlobalServiceConfigurationResponsePtrOutput) Ssl() SslConfigurationRespo
 	}).(SslConfigurationResponsePtrOutput)
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterProperties struct {
 	// The Azure Service Principal used by Kubernetes
 	ServicePrincipal *ServicePrincipalProperties `pulumi:"servicePrincipal"`
@@ -2512,7 +2463,6 @@ type KubernetesClusterPropertiesInput interface {
 	ToKubernetesClusterPropertiesOutputWithContext(context.Context) KubernetesClusterPropertiesOutput
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesArgs struct {
 	// The Azure Service Principal used by Kubernetes
 	ServicePrincipal ServicePrincipalPropertiesPtrInput `pulumi:"servicePrincipal"`
@@ -2571,7 +2521,6 @@ func (i *kubernetesClusterPropertiesPtrType) ToKubernetesClusterPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesPtrOutput)
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterPropertiesOutput) ElementType() reflect.Type {
@@ -2635,7 +2584,6 @@ func (o KubernetesClusterPropertiesPtrOutput) ServicePrincipal() ServicePrincipa
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesResponse struct {
 	// The Azure Service Principal used by Kubernetes
 	ServicePrincipal *ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
@@ -2652,7 +2600,6 @@ type KubernetesClusterPropertiesResponseInput interface {
 	ToKubernetesClusterPropertiesResponseOutputWithContext(context.Context) KubernetesClusterPropertiesResponseOutput
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesResponseArgs struct {
 	// The Azure Service Principal used by Kubernetes
 	ServicePrincipal ServicePrincipalPropertiesResponsePtrInput `pulumi:"servicePrincipal"`
@@ -2711,7 +2658,6 @@ func (i *kubernetesClusterPropertiesResponsePtrType) ToKubernetesClusterProperti
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesResponsePtrOutput)
 }
 
-// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2777,7 +2723,6 @@ func (o KubernetesClusterPropertiesResponsePtrOutput) ServicePrincipal() Service
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfiguration struct {
 	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 	PrimaryAuthKeyHash string `pulumi:"primaryAuthKeyHash"`
@@ -2796,7 +2741,6 @@ type ServiceAuthConfigurationInput interface {
 	ToServiceAuthConfigurationOutputWithContext(context.Context) ServiceAuthConfigurationOutput
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfigurationArgs struct {
 	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 	PrimaryAuthKeyHash pulumi.StringInput `pulumi:"primaryAuthKeyHash"`
@@ -2857,7 +2801,6 @@ func (i *serviceAuthConfigurationPtrType) ToServiceAuthConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationPtrOutput)
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthConfigurationOutput) ElementType() reflect.Type {
@@ -2936,7 +2879,6 @@ func (o ServiceAuthConfigurationPtrOutput) SecondaryAuthKeyHash() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfigurationResponse struct {
 	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 	PrimaryAuthKeyHash string `pulumi:"primaryAuthKeyHash"`
@@ -2955,7 +2897,6 @@ type ServiceAuthConfigurationResponseInput interface {
 	ToServiceAuthConfigurationResponseOutputWithContext(context.Context) ServiceAuthConfigurationResponseOutput
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfigurationResponseArgs struct {
 	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 	PrimaryAuthKeyHash pulumi.StringInput `pulumi:"primaryAuthKeyHash"`
@@ -3016,7 +2957,6 @@ func (i *serviceAuthConfigurationResponsePtrType) ToServiceAuthConfigurationResp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationResponsePtrOutput)
 }
 
-// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
 type ServiceAuthConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3095,7 +3035,6 @@ func (o ServiceAuthConfigurationResponsePtrOutput) SecondaryAuthKeyHash() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalProperties struct {
 	// The service principal client ID
 	ClientId string `pulumi:"clientId"`
@@ -3114,7 +3053,6 @@ type ServicePrincipalPropertiesInput interface {
 	ToServicePrincipalPropertiesOutputWithContext(context.Context) ServicePrincipalPropertiesOutput
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalPropertiesArgs struct {
 	// The service principal client ID
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -3175,7 +3113,6 @@ func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesOutput) ElementType() reflect.Type {
@@ -3254,7 +3191,6 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalPropertiesResponse struct {
 	// The service principal client ID
 	ClientId string `pulumi:"clientId"`
@@ -3273,7 +3209,6 @@ type ServicePrincipalPropertiesResponseInput interface {
 	ToServicePrincipalPropertiesResponseOutputWithContext(context.Context) ServicePrincipalPropertiesResponseOutput
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalPropertiesResponseArgs struct {
 	// The service principal client ID
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -3334,7 +3269,6 @@ func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// The Azure service principal used by Kubernetes for configuring load balancers
 type ServicePrincipalPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3413,7 +3347,6 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfiguration struct {
 	// The SSL cert data in PEM format.
 	Cert *string `pulumi:"cert"`
@@ -3436,7 +3369,6 @@ type SslConfigurationInput interface {
 	ToSslConfigurationOutputWithContext(context.Context) SslConfigurationOutput
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationArgs struct {
 	// The SSL cert data in PEM format.
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
@@ -3501,7 +3433,6 @@ func (i *sslConfigurationPtrType) ToSslConfigurationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationPtrOutput)
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SslConfigurationOutput) ElementType() reflect.Type {
@@ -3610,7 +3541,6 @@ func (o SslConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationResponse struct {
 	// The SSL cert data in PEM format.
 	Cert *string `pulumi:"cert"`
@@ -3633,7 +3563,6 @@ type SslConfigurationResponseInput interface {
 	ToSslConfigurationResponseOutputWithContext(context.Context) SslConfigurationResponseOutput
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationResponseArgs struct {
 	// The SSL cert data in PEM format.
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
@@ -3698,7 +3627,6 @@ func (i *sslConfigurationResponsePtrType) ToSslConfigurationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationResponsePtrOutput)
 }
 
-// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SslConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3807,7 +3735,6 @@ func (o SslConfigurationResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access information for the storage account.
 type StorageAccountCredentialsResponse struct {
 	// The primary key of the storage account.
 	PrimaryKey string `pulumi:"primaryKey"`
@@ -3828,7 +3755,6 @@ type StorageAccountCredentialsResponseInput interface {
 	ToStorageAccountCredentialsResponseOutputWithContext(context.Context) StorageAccountCredentialsResponseOutput
 }
 
-// Access information for the storage account.
 type StorageAccountCredentialsResponseArgs struct {
 	// The primary key of the storage account.
 	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
@@ -3850,7 +3776,6 @@ func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput)
 }
 
-// Access information for the storage account.
 type StorageAccountCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountCredentialsResponseOutput) ElementType() reflect.Type {
@@ -3880,7 +3805,6 @@ func (o StorageAccountCredentialsResponseOutput) SecondaryKey() pulumi.StringOut
 	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// Properties of Storage Account.
 type StorageAccountProperties struct {
 	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -3897,7 +3821,6 @@ type StorageAccountPropertiesInput interface {
 	ToStorageAccountPropertiesOutputWithContext(context.Context) StorageAccountPropertiesOutput
 }
 
-// Properties of Storage Account.
 type StorageAccountPropertiesArgs struct {
 	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -3956,7 +3879,6 @@ func (i *storageAccountPropertiesPtrType) ToStorageAccountPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesPtrOutput)
 }
 
-// Properties of Storage Account.
 type StorageAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesOutput) ElementType() reflect.Type {
@@ -4020,7 +3942,6 @@ func (o StorageAccountPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of Storage Account.
 type StorageAccountPropertiesResponse struct {
 	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -4037,7 +3958,6 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// Properties of Storage Account.
 type StorageAccountPropertiesResponseArgs struct {
 	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -4096,7 +4016,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// Properties of Storage Account.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4160,7 +4079,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a system service deployed in the cluster
 type SystemService struct {
 	// The system service type
 	SystemServiceType string `pulumi:"systemServiceType"`
@@ -4177,7 +4095,6 @@ type SystemServiceInput interface {
 	ToSystemServiceOutputWithContext(context.Context) SystemServiceOutput
 }
 
-// Information about a system service deployed in the cluster
 type SystemServiceArgs struct {
 	// The system service type
 	SystemServiceType pulumi.StringInput `pulumi:"systemServiceType"`
@@ -4220,7 +4137,6 @@ func (i SystemServiceArray) ToSystemServiceArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SystemServiceArrayOutput)
 }
 
-// Information about a system service deployed in the cluster
 type SystemServiceOutput struct{ *pulumi.OutputState }
 
 func (SystemServiceOutput) ElementType() reflect.Type {
@@ -4260,7 +4176,6 @@ func (o SystemServiceArrayOutput) Index(i pulumi.IntInput) SystemServiceOutput {
 	}).(SystemServiceOutput)
 }
 
-// Information about a system service deployed in the cluster
 type SystemServiceResponse struct {
 	// The public IP address of the system service
 	PublicIpAddress string `pulumi:"publicIpAddress"`
@@ -4281,7 +4196,6 @@ type SystemServiceResponseInput interface {
 	ToSystemServiceResponseOutputWithContext(context.Context) SystemServiceResponseOutput
 }
 
-// Information about a system service deployed in the cluster
 type SystemServiceResponseArgs struct {
 	// The public IP address of the system service
 	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
@@ -4328,7 +4242,6 @@ func (i SystemServiceResponseArray) ToSystemServiceResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SystemServiceResponseArrayOutput)
 }
 
-// Information about a system service deployed in the cluster
 type SystemServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemServiceResponseOutput) ElementType() reflect.Type {

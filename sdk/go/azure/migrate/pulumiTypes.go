@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of an assessment.
 type AssessmentProperties struct {
 	// Storage type selected for this disk.
 	AzureDiskType string `pulumi:"azureDiskType"`
@@ -57,7 +56,6 @@ type AssessmentPropertiesInput interface {
 	ToAssessmentPropertiesOutputWithContext(context.Context) AssessmentPropertiesOutput
 }
 
-// Properties of an assessment.
 type AssessmentPropertiesArgs struct {
 	// Storage type selected for this disk.
 	AzureDiskType pulumi.StringInput `pulumi:"azureDiskType"`
@@ -146,7 +144,6 @@ func (i *assessmentPropertiesPtrType) ToAssessmentPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPropertiesPtrOutput)
 }
 
-// Properties of an assessment.
 type AssessmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPropertiesOutput) ElementType() reflect.Type {
@@ -435,7 +432,6 @@ func (o AssessmentPropertiesPtrOutput) VmUptime() VmUptimePtrOutput {
 	}).(VmUptimePtrOutput)
 }
 
-// Properties of an assessment.
 type AssessmentPropertiesResponse struct {
 	// Storage type selected for this disk.
 	AzureDiskType string `pulumi:"azureDiskType"`
@@ -510,7 +506,6 @@ type AssessmentPropertiesResponseInput interface {
 	ToAssessmentPropertiesResponseOutputWithContext(context.Context) AssessmentPropertiesResponseOutput
 }
 
-// Properties of an assessment.
 type AssessmentPropertiesResponseArgs struct {
 	// Storage type selected for this disk.
 	AzureDiskType pulumi.StringInput `pulumi:"azureDiskType"`
@@ -627,7 +622,6 @@ func (i *assessmentPropertiesResponsePtrType) ToAssessmentPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPropertiesResponsePtrOutput)
 }
 
-// Properties of an assessment.
 type AssessmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1126,7 +1120,6 @@ func (o AssessmentPropertiesResponsePtrOutput) VmUptime() VmUptimeResponsePtrOut
 	}).(VmUptimeResponsePtrOutput)
 }
 
-// Defines the properties for automatic resolution.
 type AutomaticResolutionPropertiesResponse struct {
 	// Gets the MoveResource ARM ID of
 	// the dependent resource if the resolution type is Automatic.
@@ -1144,7 +1137,6 @@ type AutomaticResolutionPropertiesResponseInput interface {
 	ToAutomaticResolutionPropertiesResponseOutputWithContext(context.Context) AutomaticResolutionPropertiesResponseOutput
 }
 
-// Defines the properties for automatic resolution.
 type AutomaticResolutionPropertiesResponseArgs struct {
 	// Gets the MoveResource ARM ID of
 	// the dependent resource if the resolution type is Automatic.
@@ -1204,7 +1196,6 @@ func (i *automaticResolutionPropertiesResponsePtrType) ToAutomaticResolutionProp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomaticResolutionPropertiesResponsePtrOutput)
 }
 
-// Defines the properties for automatic resolution.
 type AutomaticResolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomaticResolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1270,7 +1261,6 @@ func (o AutomaticResolutionPropertiesResponsePtrOutput) MoveResourceId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettings struct {
 	// Gets or sets the target fault domain.
 	FaultDomain *int `pulumi:"faultDomain"`
@@ -1294,7 +1284,6 @@ type AvailabilitySetResourceSettingsInput interface {
 	ToAvailabilitySetResourceSettingsOutputWithContext(context.Context) AvailabilitySetResourceSettingsOutput
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettingsArgs struct {
 	// Gets or sets the target fault domain.
 	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
@@ -1319,7 +1308,6 @@ func (i AvailabilitySetResourceSettingsArgs) ToAvailabilitySetResourceSettingsOu
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetResourceSettingsOutput)
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetResourceSettingsOutput) ElementType() reflect.Type {
@@ -1355,7 +1343,6 @@ func (o AvailabilitySetResourceSettingsOutput) UpdateDomain() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) *int { return v.UpdateDomain }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettingsResponse struct {
 	// Gets or sets the target fault domain.
 	FaultDomain *int `pulumi:"faultDomain"`
@@ -1379,7 +1366,6 @@ type AvailabilitySetResourceSettingsResponseInput interface {
 	ToAvailabilitySetResourceSettingsResponseOutputWithContext(context.Context) AvailabilitySetResourceSettingsResponseOutput
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettingsResponseArgs struct {
 	// Gets or sets the target fault domain.
 	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
@@ -1404,7 +1390,6 @@ func (i AvailabilitySetResourceSettingsResponseArgs) ToAvailabilitySetResourceSe
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetResourceSettingsResponseOutput)
 }
 
-// Gets or sets the availability set resource settings.
 type AvailabilitySetResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -2519,7 +2504,6 @@ func (o CollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The database project summary class.
 type DatabaseProjectSummaryResponse struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
@@ -2543,7 +2527,6 @@ type DatabaseProjectSummaryResponseInput interface {
 	ToDatabaseProjectSummaryResponseOutputWithContext(context.Context) DatabaseProjectSummaryResponseOutput
 }
 
-// The database project summary class.
 type DatabaseProjectSummaryResponseArgs struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
@@ -2568,7 +2551,6 @@ func (i DatabaseProjectSummaryResponseArgs) ToDatabaseProjectSummaryResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseProjectSummaryResponseOutput)
 }
 
-// The database project summary class.
 type DatabaseProjectSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseProjectSummaryResponseOutput) ElementType() reflect.Type {
@@ -2604,7 +2586,6 @@ func (o DatabaseProjectSummaryResponseOutput) RefreshSummaryState() pulumi.Strin
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponse struct {
 	// Gets or sets the count of database instances assessed.
 	DatabaseInstancesAssessedCount *int `pulumi:"databaseInstancesAssessedCount"`
@@ -2628,7 +2609,6 @@ type DatabasesSolutionSummaryResponseInput interface {
 	ToDatabasesSolutionSummaryResponseOutputWithContext(context.Context) DatabasesSolutionSummaryResponseOutput
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponseArgs struct {
 	// Gets or sets the count of database instances assessed.
 	DatabaseInstancesAssessedCount pulumi.IntPtrInput `pulumi:"databaseInstancesAssessedCount"`
@@ -2653,7 +2633,6 @@ func (i DatabasesSolutionSummaryResponseArgs) ToDatabasesSolutionSummaryResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasesSolutionSummaryResponseOutput)
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabasesSolutionSummaryResponseOutput) ElementType() reflect.Type {
@@ -2689,7 +2668,6 @@ func (o DatabasesSolutionSummaryResponseOutput) MigrationReadyCount() pulumi.Int
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.MigrationReadyCount }).(pulumi.IntPtrOutput)
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
@@ -2709,7 +2687,6 @@ type DiskEncryptionSetResourceSettingsInput interface {
 	ToDiskEncryptionSetResourceSettingsOutputWithContext(context.Context) DiskEncryptionSetResourceSettingsOutput
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
@@ -2730,7 +2707,6 @@ func (i DiskEncryptionSetResourceSettingsArgs) ToDiskEncryptionSetResourceSettin
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetResourceSettingsOutput)
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetResourceSettingsOutput) ElementType() reflect.Type {
@@ -2756,7 +2732,6 @@ func (o DiskEncryptionSetResourceSettingsOutput) TargetResourceName() pulumi.Str
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
@@ -2776,7 +2751,6 @@ type DiskEncryptionSetResourceSettingsResponseInput interface {
 	ToDiskEncryptionSetResourceSettingsResponseOutputWithContext(context.Context) DiskEncryptionSetResourceSettingsResponseOutput
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
@@ -2797,7 +2771,6 @@ func (i DiskEncryptionSetResourceSettingsResponseArgs) ToDiskEncryptionSetResour
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetResourceSettingsResponseOutput)
 }
 
-// Defines the disk encryption set resource settings.
 type DiskEncryptionSetResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -2823,7 +2796,6 @@ func (o DiskEncryptionSetResourceSettingsResponseOutput) TargetResourceName() pu
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Properties of group resource.
 type GroupProperties struct {
 	// The type of group.
 	GroupType *string `pulumi:"groupType"`
@@ -2840,7 +2812,6 @@ type GroupPropertiesInput interface {
 	ToGroupPropertiesOutputWithContext(context.Context) GroupPropertiesOutput
 }
 
-// Properties of group resource.
 type GroupPropertiesArgs struct {
 	// The type of group.
 	GroupType pulumi.StringPtrInput `pulumi:"groupType"`
@@ -2899,7 +2870,6 @@ func (i *groupPropertiesPtrType) ToGroupPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPropertiesPtrOutput)
 }
 
-// Properties of group resource.
 type GroupPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GroupPropertiesOutput) ElementType() reflect.Type {
@@ -2963,7 +2933,6 @@ func (o GroupPropertiesPtrOutput) GroupType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of group resource.
 type GroupPropertiesResponse struct {
 	// If the assessments are in running state.
 	AreAssessmentsRunning bool `pulumi:"areAssessmentsRunning"`
@@ -2992,7 +2961,6 @@ type GroupPropertiesResponseInput interface {
 	ToGroupPropertiesResponseOutputWithContext(context.Context) GroupPropertiesResponseOutput
 }
 
-// Properties of group resource.
 type GroupPropertiesResponseArgs struct {
 	// If the assessments are in running state.
 	AreAssessmentsRunning pulumi.BoolInput `pulumi:"areAssessmentsRunning"`
@@ -3063,7 +3031,6 @@ func (i *groupPropertiesResponsePtrType) ToGroupPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPropertiesResponsePtrOutput)
 }
 
-// Properties of group resource.
 type GroupPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GroupPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3217,7 +3184,6 @@ func (o GroupPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the MSI properties of the Move Collection.
 type Identity struct {
 	// Gets or sets the principal id.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3238,7 +3204,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Defines the MSI properties of the Move Collection.
 type IdentityArgs struct {
 	// Gets or sets the principal id.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3301,7 +3266,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Defines the MSI properties of the Move Collection.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -3395,7 +3359,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the MSI properties of the Move Collection.
 type IdentityResponse struct {
 	// Gets or sets the principal id.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3416,7 +3379,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Defines the MSI properties of the Move Collection.
 type IdentityResponseArgs struct {
 	// Gets or sets the principal id.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3479,7 +3441,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Defines the MSI properties of the Move Collection.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -3869,7 +3830,6 @@ func (o ImportCollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the job status.
 type JobStatusResponse struct {
 	// Defines the job name.
 	JobName string `pulumi:"jobName"`
@@ -3888,7 +3848,6 @@ type JobStatusResponseInput interface {
 	ToJobStatusResponseOutputWithContext(context.Context) JobStatusResponseOutput
 }
 
-// Defines the job status.
 type JobStatusResponseArgs struct {
 	// Defines the job name.
 	JobName pulumi.StringInput `pulumi:"jobName"`
@@ -3949,7 +3908,6 @@ func (i *jobStatusResponsePtrType) ToJobStatusResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JobStatusResponsePtrOutput)
 }
 
-// Defines the job status.
 type JobStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStatusResponseOutput) ElementType() reflect.Type {
@@ -4028,7 +3986,6 @@ func (o JobStatusResponsePtrOutput) JobProgress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.KeyVault/vaults'.
@@ -4048,7 +4005,6 @@ type KeyVaultResourceSettingsInput interface {
 	ToKeyVaultResourceSettingsOutputWithContext(context.Context) KeyVaultResourceSettingsOutput
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.KeyVault/vaults'.
@@ -4069,7 +4025,6 @@ func (i KeyVaultResourceSettingsArgs) ToKeyVaultResourceSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultResourceSettingsOutput)
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultResourceSettingsOutput) ElementType() reflect.Type {
@@ -4095,7 +4050,6 @@ func (o KeyVaultResourceSettingsOutput) TargetResourceName() pulumi.StringOutput
 	return o.ApplyT(func(v KeyVaultResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.KeyVault/vaults'.
@@ -4115,7 +4069,6 @@ type KeyVaultResourceSettingsResponseInput interface {
 	ToKeyVaultResourceSettingsResponseOutputWithContext(context.Context) KeyVaultResourceSettingsResponseOutput
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.KeyVault/vaults'.
@@ -4136,7 +4089,6 @@ func (i KeyVaultResourceSettingsResponseArgs) ToKeyVaultResourceSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultResourceSettingsResponseOutput)
 }
 
-// Defines the key vault resource settings.
 type KeyVaultResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -4162,7 +4114,6 @@ func (o KeyVaultResourceSettingsResponseOutput) TargetResourceName() pulumi.Stri
 	return o.ApplyT(func(v KeyVaultResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettings struct {
 	// Gets or sets the backend address pool name.
 	Name *string `pulumi:"name"`
@@ -4179,7 +4130,6 @@ type LBBackendAddressPoolResourceSettingsInput interface {
 	ToLBBackendAddressPoolResourceSettingsOutputWithContext(context.Context) LBBackendAddressPoolResourceSettingsOutput
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettingsArgs struct {
 	// Gets or sets the backend address pool name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4222,7 +4172,6 @@ func (i LBBackendAddressPoolResourceSettingsArray) ToLBBackendAddressPoolResourc
 	return pulumi.ToOutputWithContext(ctx, i).(LBBackendAddressPoolResourceSettingsArrayOutput)
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (LBBackendAddressPoolResourceSettingsOutput) ElementType() reflect.Type {
@@ -4262,7 +4211,6 @@ func (o LBBackendAddressPoolResourceSettingsArrayOutput) Index(i pulumi.IntInput
 	}).(LBBackendAddressPoolResourceSettingsOutput)
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettingsResponse struct {
 	// Gets or sets the backend address pool name.
 	Name *string `pulumi:"name"`
@@ -4279,7 +4227,6 @@ type LBBackendAddressPoolResourceSettingsResponseInput interface {
 	ToLBBackendAddressPoolResourceSettingsResponseOutputWithContext(context.Context) LBBackendAddressPoolResourceSettingsResponseOutput
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettingsResponseArgs struct {
 	// Gets or sets the backend address pool name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4322,7 +4269,6 @@ func (i LBBackendAddressPoolResourceSettingsResponseArray) ToLBBackendAddressPoo
 	return pulumi.ToOutputWithContext(ctx, i).(LBBackendAddressPoolResourceSettingsResponseArrayOutput)
 }
 
-// Defines load balancer backend address pool properties.
 type LBBackendAddressPoolResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LBBackendAddressPoolResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -4362,7 +4308,6 @@ func (o LBBackendAddressPoolResourceSettingsResponseArrayOutput) Index(i pulumi.
 	}).(LBBackendAddressPoolResourceSettingsResponseOutput)
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettings struct {
 	// Gets or sets the frontend IP configuration name.
 	Name *string `pulumi:"name"`
@@ -4388,7 +4333,6 @@ type LBFrontendIPConfigurationResourceSettingsInput interface {
 	ToLBFrontendIPConfigurationResourceSettingsOutputWithContext(context.Context) LBFrontendIPConfigurationResourceSettingsOutput
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettingsArgs struct {
 	// Gets or sets the frontend IP configuration name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4440,7 +4384,6 @@ func (i LBFrontendIPConfigurationResourceSettingsArray) ToLBFrontendIPConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(LBFrontendIPConfigurationResourceSettingsArrayOutput)
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (LBFrontendIPConfigurationResourceSettingsOutput) ElementType() reflect.Type {
@@ -4501,7 +4444,6 @@ func (o LBFrontendIPConfigurationResourceSettingsArrayOutput) Index(i pulumi.Int
 	}).(LBFrontendIPConfigurationResourceSettingsOutput)
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettingsResponse struct {
 	// Gets or sets the frontend IP configuration name.
 	Name *string `pulumi:"name"`
@@ -4527,7 +4469,6 @@ type LBFrontendIPConfigurationResourceSettingsResponseInput interface {
 	ToLBFrontendIPConfigurationResourceSettingsResponseOutputWithContext(context.Context) LBFrontendIPConfigurationResourceSettingsResponseOutput
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettingsResponseArgs struct {
 	// Gets or sets the frontend IP configuration name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4579,7 +4520,6 @@ func (i LBFrontendIPConfigurationResourceSettingsResponseArray) ToLBFrontendIPCo
 	return pulumi.ToOutputWithContext(ctx, i).(LBFrontendIPConfigurationResourceSettingsResponseArrayOutput)
 }
 
-// Defines load balancer frontend IP configuration properties.
 type LBFrontendIPConfigurationResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LBFrontendIPConfigurationResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -4640,7 +4580,6 @@ func (o LBFrontendIPConfigurationResourceSettingsResponseArrayOutput) Index(i pu
 	}).(LBFrontendIPConfigurationResourceSettingsResponseOutput)
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReference struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -4659,7 +4598,6 @@ type LoadBalancerBackendAddressPoolReferenceInput interface {
 	ToLoadBalancerBackendAddressPoolReferenceOutputWithContext(context.Context) LoadBalancerBackendAddressPoolReferenceOutput
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReferenceArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4704,7 +4642,6 @@ func (i LoadBalancerBackendAddressPoolReferenceArray) ToLoadBalancerBackendAddre
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendAddressPoolReferenceArrayOutput)
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReferenceOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendAddressPoolReferenceOutput) ElementType() reflect.Type {
@@ -4749,7 +4686,6 @@ func (o LoadBalancerBackendAddressPoolReferenceArrayOutput) Index(i pulumi.IntIn
 	}).(LoadBalancerBackendAddressPoolReferenceOutput)
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReferenceResponse struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -4768,7 +4704,6 @@ type LoadBalancerBackendAddressPoolReferenceResponseInput interface {
 	ToLoadBalancerBackendAddressPoolReferenceResponseOutputWithContext(context.Context) LoadBalancerBackendAddressPoolReferenceResponseOutput
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReferenceResponseArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4813,7 +4748,6 @@ func (i LoadBalancerBackendAddressPoolReferenceResponseArray) ToLoadBalancerBack
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendAddressPoolReferenceResponseArrayOutput)
 }
 
-// Defines reference to load balancer backend address pools.
 type LoadBalancerBackendAddressPoolReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendAddressPoolReferenceResponseOutput) ElementType() reflect.Type {
@@ -4858,7 +4792,6 @@ func (o LoadBalancerBackendAddressPoolReferenceResponseArrayOutput) Index(i pulu
 	}).(LoadBalancerBackendAddressPoolReferenceResponseOutput)
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReference struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -4877,7 +4810,6 @@ type LoadBalancerNatRuleReferenceInput interface {
 	ToLoadBalancerNatRuleReferenceOutputWithContext(context.Context) LoadBalancerNatRuleReferenceOutput
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReferenceArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4922,7 +4854,6 @@ func (i LoadBalancerNatRuleReferenceArray) ToLoadBalancerNatRuleReferenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceArrayOutput)
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReferenceOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNatRuleReferenceOutput) ElementType() reflect.Type {
@@ -4967,7 +4898,6 @@ func (o LoadBalancerNatRuleReferenceArrayOutput) Index(i pulumi.IntInput) LoadBa
 	}).(LoadBalancerNatRuleReferenceOutput)
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReferenceResponse struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -4986,7 +4916,6 @@ type LoadBalancerNatRuleReferenceResponseInput interface {
 	ToLoadBalancerNatRuleReferenceResponseOutputWithContext(context.Context) LoadBalancerNatRuleReferenceResponseOutput
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReferenceResponseArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -5031,7 +4960,6 @@ func (i LoadBalancerNatRuleReferenceResponseArray) ToLoadBalancerNatRuleReferenc
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceResponseArrayOutput)
 }
 
-// Defines reference to load balancer NAT rules.
 type LoadBalancerNatRuleReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNatRuleReferenceResponseOutput) ElementType() reflect.Type {
@@ -5076,7 +5004,6 @@ func (o LoadBalancerNatRuleReferenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(LoadBalancerNatRuleReferenceResponseOutput)
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettings struct {
 	// Gets or sets the backend address pools of the load balancer.
 	BackendAddressPools []LBBackendAddressPoolResourceSettings `pulumi:"backendAddressPools"`
@@ -5105,7 +5032,6 @@ type LoadBalancerResourceSettingsInput interface {
 	ToLoadBalancerResourceSettingsOutputWithContext(context.Context) LoadBalancerResourceSettingsOutput
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettingsArgs struct {
 	// Gets or sets the backend address pools of the load balancer.
 	BackendAddressPools LBBackendAddressPoolResourceSettingsArrayInput `pulumi:"backendAddressPools"`
@@ -5135,7 +5061,6 @@ func (i LoadBalancerResourceSettingsArgs) ToLoadBalancerResourceSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerResourceSettingsOutput)
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerResourceSettingsOutput) ElementType() reflect.Type {
@@ -5186,7 +5111,6 @@ func (o LoadBalancerResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettingsResponse struct {
 	// Gets or sets the backend address pools of the load balancer.
 	BackendAddressPools []LBBackendAddressPoolResourceSettingsResponse `pulumi:"backendAddressPools"`
@@ -5215,7 +5139,6 @@ type LoadBalancerResourceSettingsResponseInput interface {
 	ToLoadBalancerResourceSettingsResponseOutputWithContext(context.Context) LoadBalancerResourceSettingsResponseOutput
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettingsResponseArgs struct {
 	// Gets or sets the backend address pools of the load balancer.
 	BackendAddressPools LBBackendAddressPoolResourceSettingsResponseArrayInput `pulumi:"backendAddressPools"`
@@ -5245,7 +5168,6 @@ func (i LoadBalancerResourceSettingsResponseArgs) ToLoadBalancerResourceSettings
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerResourceSettingsResponseOutput)
 }
 
-// Defines the load balancer resource settings.
 type LoadBalancerResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -5296,7 +5218,6 @@ func (o LoadBalancerResourceSettingsResponseOutput) Zones() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
-// Defines the properties for manual resolution.
 type ManualResolutionPropertiesResponse struct {
 	// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 	TargetId *string `pulumi:"targetId"`
@@ -5313,7 +5234,6 @@ type ManualResolutionPropertiesResponseInput interface {
 	ToManualResolutionPropertiesResponseOutputWithContext(context.Context) ManualResolutionPropertiesResponseOutput
 }
 
-// Defines the properties for manual resolution.
 type ManualResolutionPropertiesResponseArgs struct {
 	// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
@@ -5372,7 +5292,6 @@ func (i *manualResolutionPropertiesResponsePtrType) ToManualResolutionProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ManualResolutionPropertiesResponsePtrOutput)
 }
 
-// Defines the properties for manual resolution.
 type ManualResolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManualResolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5436,7 +5355,6 @@ func (o ManualResolutionPropertiesResponsePtrOutput) TargetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectProperties struct {
 	// Provisioning state of the migrate project.
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -5455,7 +5373,6 @@ type MigrateProjectPropertiesInput interface {
 	ToMigrateProjectPropertiesOutputWithContext(context.Context) MigrateProjectPropertiesOutput
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesArgs struct {
 	// Provisioning state of the migrate project.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
@@ -5516,7 +5433,6 @@ func (i *migrateProjectPropertiesPtrType) ToMigrateProjectPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesOutput) ElementType() reflect.Type {
@@ -5595,7 +5511,6 @@ func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponse struct {
 	// Gets the last time the project summary was refreshed.
 	LastSummaryRefreshedTime string `pulumi:"lastSummaryRefreshedTime"`
@@ -5620,7 +5535,6 @@ type MigrateProjectPropertiesResponseInput interface {
 	ToMigrateProjectPropertiesResponseOutputWithContext(context.Context) MigrateProjectPropertiesResponseOutput
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponseArgs struct {
 	// Gets the last time the project summary was refreshed.
 	LastSummaryRefreshedTime pulumi.StringInput `pulumi:"lastSummaryRefreshedTime"`
@@ -5687,7 +5601,6 @@ func (i *migrateProjectPropertiesResponsePtrType) ToMigrateProjectPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5811,7 +5724,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) Summary() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTags struct {
 	AdditionalProperties *string `pulumi:"additionalProperties"`
 }
@@ -5827,7 +5739,6 @@ type MigrateProjectResponseTagsInput interface {
 	ToMigrateProjectResponseTagsOutputWithContext(context.Context) MigrateProjectResponseTagsOutput
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTagsArgs struct {
 	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
 }
@@ -5885,7 +5796,6 @@ func (i *migrateProjectResponseTagsPtrType) ToMigrateProjectResponseTagsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectResponseTagsPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTagsOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectResponseTagsOutput) ElementType() reflect.Type {
@@ -5947,7 +5857,6 @@ func (o MigrateProjectResponseTagsPtrOutput) AdditionalProperties() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectTags struct {
 	AdditionalProperties *string `pulumi:"additionalProperties"`
 }
@@ -5963,7 +5872,6 @@ type MigrateProjectTagsInput interface {
 	ToMigrateProjectTagsOutputWithContext(context.Context) MigrateProjectTagsOutput
 }
 
-// Gets or sets the tags.
 type MigrateProjectTagsArgs struct {
 	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
 }
@@ -6021,7 +5929,6 @@ func (i *migrateProjectTagsPtrType) ToMigrateProjectTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectTagsPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectTagsOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectTagsOutput) ElementType() reflect.Type {
@@ -6083,7 +5990,6 @@ func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the move collection properties.
 type MoveCollectionProperties struct {
 	// Gets or sets the source region.
 	SourceRegion string `pulumi:"sourceRegion"`
@@ -6102,7 +6008,6 @@ type MoveCollectionPropertiesInput interface {
 	ToMoveCollectionPropertiesOutputWithContext(context.Context) MoveCollectionPropertiesOutput
 }
 
-// Defines the move collection properties.
 type MoveCollectionPropertiesArgs struct {
 	// Gets or sets the source region.
 	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
@@ -6163,7 +6068,6 @@ func (i *moveCollectionPropertiesPtrType) ToMoveCollectionPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesPtrOutput)
 }
 
-// Defines the move collection properties.
 type MoveCollectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionPropertiesOutput) ElementType() reflect.Type {
@@ -6242,7 +6146,6 @@ func (o MoveCollectionPropertiesPtrOutput) TargetRegion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the move collection properties.
 type MoveCollectionPropertiesResponse struct {
 	// Defines the move collection errors.
 	Errors MoveCollectionPropertiesResponseErrors `pulumi:"errors"`
@@ -6265,7 +6168,6 @@ type MoveCollectionPropertiesResponseInput interface {
 	ToMoveCollectionPropertiesResponseOutputWithContext(context.Context) MoveCollectionPropertiesResponseOutput
 }
 
-// Defines the move collection properties.
 type MoveCollectionPropertiesResponseArgs struct {
 	// Defines the move collection errors.
 	Errors MoveCollectionPropertiesResponseErrorsInput `pulumi:"errors"`
@@ -6330,7 +6232,6 @@ func (i *moveCollectionPropertiesResponsePtrType) ToMoveCollectionPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesResponsePtrOutput)
 }
 
-// Defines the move collection properties.
 type MoveCollectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6439,7 +6340,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) TargetRegion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the move collection errors.
 type MoveCollectionPropertiesResponseErrors struct {
 	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
@@ -6456,7 +6356,6 @@ type MoveCollectionPropertiesResponseErrorsInput interface {
 	ToMoveCollectionPropertiesResponseErrorsOutputWithContext(context.Context) MoveCollectionPropertiesResponseErrorsOutput
 }
 
-// Defines the move collection errors.
 type MoveCollectionPropertiesResponseErrorsArgs struct {
 	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
@@ -6515,7 +6414,6 @@ func (i *moveCollectionPropertiesResponseErrorsPtrType) ToMoveCollectionProperti
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesResponseErrorsPtrOutput)
 }
 
-// Defines the move collection errors.
 type MoveCollectionPropertiesResponseErrorsOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionPropertiesResponseErrorsOutput) ElementType() reflect.Type {
@@ -6579,7 +6477,6 @@ func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Properties() MoveResour
 	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverride struct {
 	// Gets or sets the ARM ID of the dependent resource.
 	Id *string `pulumi:"id"`
@@ -6599,7 +6496,6 @@ type MoveResourceDependencyOverrideInput interface {
 	ToMoveResourceDependencyOverrideOutputWithContext(context.Context) MoveResourceDependencyOverrideOutput
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverrideArgs struct {
 	// Gets or sets the ARM ID of the dependent resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -6645,7 +6541,6 @@ func (i MoveResourceDependencyOverrideArray) ToMoveResourceDependencyOverrideArr
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceDependencyOverrideArrayOutput)
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverrideOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceDependencyOverrideOutput) ElementType() reflect.Type {
@@ -6691,7 +6586,6 @@ func (o MoveResourceDependencyOverrideArrayOutput) Index(i pulumi.IntInput) Move
 	}).(MoveResourceDependencyOverrideOutput)
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverrideResponse struct {
 	// Gets or sets the ARM ID of the dependent resource.
 	Id *string `pulumi:"id"`
@@ -6711,7 +6605,6 @@ type MoveResourceDependencyOverrideResponseInput interface {
 	ToMoveResourceDependencyOverrideResponseOutputWithContext(context.Context) MoveResourceDependencyOverrideResponseOutput
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverrideResponseArgs struct {
 	// Gets or sets the ARM ID of the dependent resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -6757,7 +6650,6 @@ func (i MoveResourceDependencyOverrideResponseArray) ToMoveResourceDependencyOve
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceDependencyOverrideResponseArrayOutput)
 }
 
-// Defines the dependency override of the move resource.
 type MoveResourceDependencyOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceDependencyOverrideResponseOutput) ElementType() reflect.Type {
@@ -6803,7 +6695,6 @@ func (o MoveResourceDependencyOverrideResponseArrayOutput) Index(i pulumi.IntInp
 	}).(MoveResourceDependencyOverrideResponseOutput)
 }
 
-// Defines the dependency of the move resource.
 type MoveResourceDependencyResponse struct {
 	// Defines the properties for automatic resolution.
 	AutomaticResolution *AutomaticResolutionPropertiesResponse `pulumi:"automaticResolution"`
@@ -6832,7 +6723,6 @@ type MoveResourceDependencyResponseInput interface {
 	ToMoveResourceDependencyResponseOutputWithContext(context.Context) MoveResourceDependencyResponseOutput
 }
 
-// Defines the dependency of the move resource.
 type MoveResourceDependencyResponseArgs struct {
 	// Defines the properties for automatic resolution.
 	AutomaticResolution AutomaticResolutionPropertiesResponsePtrInput `pulumi:"automaticResolution"`
@@ -6887,7 +6777,6 @@ func (i MoveResourceDependencyResponseArray) ToMoveResourceDependencyResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceDependencyResponseArrayOutput)
 }
 
-// Defines the dependency of the move resource.
 type MoveResourceDependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceDependencyResponseOutput) ElementType() reflect.Type {
@@ -6959,7 +6848,6 @@ func (o MoveResourceDependencyResponseArrayOutput) Index(i pulumi.IntInput) Move
 	}).(MoveResourceDependencyResponseOutput)
 }
 
-// An error response from the Azure Migrate service.
 type MoveResourceErrorBodyResponse struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code string `pulumi:"code"`
@@ -6982,7 +6870,6 @@ type MoveResourceErrorBodyResponseInput interface {
 	ToMoveResourceErrorBodyResponseOutputWithContext(context.Context) MoveResourceErrorBodyResponseOutput
 }
 
-// An error response from the Azure Migrate service.
 type MoveResourceErrorBodyResponseArgs struct {
 	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -7072,7 +6959,6 @@ func (i MoveResourceErrorBodyResponseArray) ToMoveResourceErrorBodyResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceErrorBodyResponseArrayOutput)
 }
 
-// An error response from the Azure Migrate service.
 type MoveResourceErrorBodyResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceErrorBodyResponseOutput) ElementType() reflect.Type {
@@ -7201,7 +7087,6 @@ func (o MoveResourceErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) MoveR
 	}).(MoveResourceErrorBodyResponseOutput)
 }
 
-// An error response from the azure resource mover service.
 type MoveResourceErrorResponse struct {
 	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
@@ -7218,7 +7103,6 @@ type MoveResourceErrorResponseInput interface {
 	ToMoveResourceErrorResponseOutputWithContext(context.Context) MoveResourceErrorResponseOutput
 }
 
-// An error response from the azure resource mover service.
 type MoveResourceErrorResponseArgs struct {
 	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
@@ -7277,7 +7161,6 @@ func (i *moveResourceErrorResponsePtrType) ToMoveResourceErrorResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceErrorResponsePtrOutput)
 }
 
-// An error response from the azure resource mover service.
 type MoveResourceErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceErrorResponseOutput) ElementType() reflect.Type {
@@ -7341,7 +7224,6 @@ func (o MoveResourceErrorResponsePtrOutput) Properties() MoveResourceErrorBodyRe
 	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
 
-// Defines the move resource properties.
 type MoveResourceProperties struct {
 	// Gets or sets the move resource dependencies overrides.
 	DependsOnOverrides []MoveResourceDependencyOverride `pulumi:"dependsOnOverrides"`
@@ -7364,7 +7246,6 @@ type MoveResourcePropertiesInput interface {
 	ToMoveResourcePropertiesOutputWithContext(context.Context) MoveResourcePropertiesOutput
 }
 
-// Defines the move resource properties.
 type MoveResourcePropertiesArgs struct {
 	// Gets or sets the move resource dependencies overrides.
 	DependsOnOverrides MoveResourceDependencyOverrideArrayInput `pulumi:"dependsOnOverrides"`
@@ -7429,7 +7310,6 @@ func (i *moveResourcePropertiesPtrType) ToMoveResourcePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesPtrOutput)
 }
 
-// Defines the move resource properties.
 type MoveResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (MoveResourcePropertiesOutput) ElementType() reflect.Type {
@@ -7538,7 +7418,6 @@ func (o MoveResourcePropertiesPtrOutput) SourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the move resource properties.
 type MoveResourcePropertiesResponse struct {
 	// Gets or sets the move resource dependencies.
 	DependsOn []MoveResourceDependencyResponse `pulumi:"dependsOn"`
@@ -7575,7 +7454,6 @@ type MoveResourcePropertiesResponseInput interface {
 	ToMoveResourcePropertiesResponseOutputWithContext(context.Context) MoveResourcePropertiesResponseOutput
 }
 
-// Defines the move resource properties.
 type MoveResourcePropertiesResponseArgs struct {
 	// Gets or sets the move resource dependencies.
 	DependsOn MoveResourceDependencyResponseArrayInput `pulumi:"dependsOn"`
@@ -7654,7 +7532,6 @@ func (i *moveResourcePropertiesResponsePtrType) ToMoveResourcePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponsePtrOutput)
 }
 
-// Defines the move resource properties.
 type MoveResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -7870,7 +7747,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the move resource errors.
 type MoveResourcePropertiesResponseErrors struct {
 	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
@@ -7887,7 +7763,6 @@ type MoveResourcePropertiesResponseErrorsInput interface {
 	ToMoveResourcePropertiesResponseErrorsOutputWithContext(context.Context) MoveResourcePropertiesResponseErrorsOutput
 }
 
-// Defines the move resource errors.
 type MoveResourcePropertiesResponseErrorsArgs struct {
 	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
@@ -7946,7 +7821,6 @@ func (i *moveResourcePropertiesResponseErrorsPtrType) ToMoveResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponseErrorsPtrOutput)
 }
 
-// Defines the move resource errors.
 type MoveResourcePropertiesResponseErrorsOutput struct{ *pulumi.OutputState }
 
 func (MoveResourcePropertiesResponseErrorsOutput) ElementType() reflect.Type {
@@ -8010,7 +7884,6 @@ func (o MoveResourcePropertiesResponseErrorsPtrOutput) Properties() MoveResource
 	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
 
-// Defines the move resource status.
 type MoveResourcePropertiesResponseMoveStatus struct {
 	// An error response from the azure resource mover service.
 	Errors *MoveResourceErrorResponse `pulumi:"errors"`
@@ -8031,7 +7904,6 @@ type MoveResourcePropertiesResponseMoveStatusInput interface {
 	ToMoveResourcePropertiesResponseMoveStatusOutputWithContext(context.Context) MoveResourcePropertiesResponseMoveStatusOutput
 }
 
-// Defines the move resource status.
 type MoveResourcePropertiesResponseMoveStatusArgs struct {
 	// An error response from the azure resource mover service.
 	Errors MoveResourceErrorResponsePtrInput `pulumi:"errors"`
@@ -8094,7 +7966,6 @@ func (i *moveResourcePropertiesResponseMoveStatusPtrType) ToMoveResourceProperti
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponseMoveStatusPtrOutput)
 }
 
-// Defines the move resource status.
 type MoveResourcePropertiesResponseMoveStatusOutput struct{ *pulumi.OutputState }
 
 func (MoveResourcePropertiesResponseMoveStatusOutput) ElementType() reflect.Type {
@@ -8188,7 +8059,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) MoveState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettings struct {
 	// Gets or sets a value indicating whether accelerated networking is enabled.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
@@ -8212,7 +8082,6 @@ type NetworkInterfaceResourceSettingsInput interface {
 	ToNetworkInterfaceResourceSettingsOutputWithContext(context.Context) NetworkInterfaceResourceSettingsOutput
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettingsArgs struct {
 	// Gets or sets a value indicating whether accelerated networking is enabled.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
@@ -8237,7 +8106,6 @@ func (i NetworkInterfaceResourceSettingsArgs) ToNetworkInterfaceResourceSettings
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResourceSettingsOutput)
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResourceSettingsOutput) ElementType() reflect.Type {
@@ -8275,7 +8143,6 @@ func (o NetworkInterfaceResourceSettingsOutput) TargetResourceName() pulumi.Stri
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettingsResponse struct {
 	// Gets or sets a value indicating whether accelerated networking is enabled.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
@@ -8299,7 +8166,6 @@ type NetworkInterfaceResourceSettingsResponseInput interface {
 	ToNetworkInterfaceResourceSettingsResponseOutputWithContext(context.Context) NetworkInterfaceResourceSettingsResponseOutput
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettingsResponseArgs struct {
 	// Gets or sets a value indicating whether accelerated networking is enabled.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
@@ -8324,7 +8190,6 @@ func (i NetworkInterfaceResourceSettingsResponseArgs) ToNetworkInterfaceResource
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResourceSettingsResponseOutput)
 }
 
-// Defines the network interface resource settings.
 type NetworkInterfaceResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -8362,7 +8227,6 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) TargetResourceName() pul
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
@@ -8384,7 +8248,6 @@ type NetworkSecurityGroupResourceSettingsInput interface {
 	ToNetworkSecurityGroupResourceSettingsOutputWithContext(context.Context) NetworkSecurityGroupResourceSettingsOutput
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
@@ -8407,7 +8270,6 @@ func (i NetworkSecurityGroupResourceSettingsArgs) ToNetworkSecurityGroupResource
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupResourceSettingsOutput)
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityGroupResourceSettingsOutput) ElementType() reflect.Type {
@@ -8438,7 +8300,6 @@ func (o NetworkSecurityGroupResourceSettingsOutput) TargetResourceName() pulumi.
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
@@ -8460,7 +8321,6 @@ type NetworkSecurityGroupResourceSettingsResponseInput interface {
 	ToNetworkSecurityGroupResourceSettingsResponseOutputWithContext(context.Context) NetworkSecurityGroupResourceSettingsResponseOutput
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
@@ -8483,7 +8343,6 @@ func (i NetworkSecurityGroupResourceSettingsResponseArgs) ToNetworkSecurityGroup
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupResourceSettingsResponseOutput)
 }
 
-// Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityGroupResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -8514,7 +8373,6 @@ func (o NetworkSecurityGroupResourceSettingsResponseOutput) TargetResourceName()
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettings struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReference `pulumi:"loadBalancerBackendAddressPools"`
@@ -8545,7 +8403,6 @@ type NicIpConfigurationResourceSettingsInput interface {
 	ToNicIpConfigurationResourceSettingsOutputWithContext(context.Context) NicIpConfigurationResourceSettingsOutput
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettingsArgs struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceArrayInput `pulumi:"loadBalancerBackendAddressPools"`
@@ -8602,7 +8459,6 @@ func (i NicIpConfigurationResourceSettingsArray) ToNicIpConfigurationResourceSet
 	return pulumi.ToOutputWithContext(ctx, i).(NicIpConfigurationResourceSettingsArrayOutput)
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (NicIpConfigurationResourceSettingsOutput) ElementType() reflect.Type {
@@ -8681,7 +8537,6 @@ func (o NicIpConfigurationResourceSettingsArrayOutput) Index(i pulumi.IntInput) 
 	}).(NicIpConfigurationResourceSettingsOutput)
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettingsResponse struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReferenceResponse `pulumi:"loadBalancerBackendAddressPools"`
@@ -8712,7 +8567,6 @@ type NicIpConfigurationResourceSettingsResponseInput interface {
 	ToNicIpConfigurationResourceSettingsResponseOutputWithContext(context.Context) NicIpConfigurationResourceSettingsResponseOutput
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettingsResponseArgs struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
@@ -8769,7 +8623,6 @@ func (i NicIpConfigurationResourceSettingsResponseArray) ToNicIpConfigurationRes
 	return pulumi.ToOutputWithContext(ctx, i).(NicIpConfigurationResourceSettingsResponseArrayOutput)
 }
 
-// Defines NIC IP configuration properties.
 type NicIpConfigurationResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NicIpConfigurationResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -8848,7 +8701,6 @@ func (o NicIpConfigurationResourceSettingsResponseArrayOutput) Index(i pulumi.In
 	}).(NicIpConfigurationResourceSettingsResponseOutput)
 }
 
-// Defines reference to NSG.
 type NsgReference struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
@@ -8865,7 +8717,6 @@ type NsgReferenceInput interface {
 	ToNsgReferenceOutputWithContext(context.Context) NsgReferenceOutput
 }
 
-// Defines reference to NSG.
 type NsgReferenceArgs struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
@@ -8924,7 +8775,6 @@ func (i *nsgReferencePtrType) ToNsgReferencePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NsgReferencePtrOutput)
 }
 
-// Defines reference to NSG.
 type NsgReferenceOutput struct{ *pulumi.OutputState }
 
 func (NsgReferenceOutput) ElementType() reflect.Type {
@@ -8988,7 +8838,6 @@ func (o NsgReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to NSG.
 type NsgReferenceResponse struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
@@ -9005,7 +8854,6 @@ type NsgReferenceResponseInput interface {
 	ToNsgReferenceResponseOutputWithContext(context.Context) NsgReferenceResponseOutput
 }
 
-// Defines reference to NSG.
 type NsgReferenceResponseArgs struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
@@ -9064,7 +8912,6 @@ func (i *nsgReferenceResponsePtrType) ToNsgReferenceResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceResponsePtrOutput)
 }
 
-// Defines reference to NSG.
 type NsgReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (NsgReferenceResponseOutput) ElementType() reflect.Type {
@@ -9128,7 +8975,6 @@ func (o NsgReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRule struct {
 	// Gets or sets whether network traffic is allowed or denied.
 	// Possible values are “Allow” and “Deny”.
@@ -9174,7 +9020,6 @@ type NsgSecurityRuleInput interface {
 	ToNsgSecurityRuleOutputWithContext(context.Context) NsgSecurityRuleOutput
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRuleArgs struct {
 	// Gets or sets whether network traffic is allowed or denied.
 	// Possible values are “Allow” and “Deny”.
@@ -9246,7 +9091,6 @@ func (i NsgSecurityRuleArray) ToNsgSecurityRuleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NsgSecurityRuleArrayOutput)
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (NsgSecurityRuleOutput) ElementType() reflect.Type {
@@ -9342,7 +9186,6 @@ func (o NsgSecurityRuleArrayOutput) Index(i pulumi.IntInput) NsgSecurityRuleOutp
 	}).(NsgSecurityRuleOutput)
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRuleResponse struct {
 	// Gets or sets whether network traffic is allowed or denied.
 	// Possible values are “Allow” and “Deny”.
@@ -9388,7 +9231,6 @@ type NsgSecurityRuleResponseInput interface {
 	ToNsgSecurityRuleResponseOutputWithContext(context.Context) NsgSecurityRuleResponseOutput
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRuleResponseArgs struct {
 	// Gets or sets whether network traffic is allowed or denied.
 	// Possible values are “Allow” and “Deny”.
@@ -9460,7 +9302,6 @@ func (i NsgSecurityRuleResponseArray) ToNsgSecurityRuleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NsgSecurityRuleResponseArrayOutput)
 }
 
-// Security Rule data model for Network Security Groups.
 type NsgSecurityRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (NsgSecurityRuleResponseOutput) ElementType() reflect.Type {
@@ -9556,7 +9397,6 @@ func (o NsgSecurityRuleResponseArrayOutput) Index(i pulumi.IntInput) NsgSecurity
 	}).(NsgSecurityRuleResponseOutput)
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionProperties struct {
 	// State of the private endpoint connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
@@ -9573,7 +9413,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesArgs struct {
 	// State of the private endpoint connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
@@ -9632,7 +9471,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -9698,7 +9536,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// ARM id for the private endpoint resource corresponding to the connection.
 	PrivateEndpoint ResourceIdResponse `pulumi:"privateEndpoint"`
@@ -9719,7 +9556,6 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
 	// ARM id for the private endpoint resource corresponding to the connection.
 	PrivateEndpoint ResourceIdResponseInput `pulumi:"privateEndpoint"`
@@ -9782,7 +9618,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -9878,7 +9713,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A private endpoint connection for a project.
 type PrivateEndpointConnectionResponse struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
@@ -9903,7 +9737,6 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// A private endpoint connection for a project.
 type PrivateEndpointConnectionResponseArgs struct {
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput `pulumi:"eTag"`
@@ -9954,7 +9787,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// A private endpoint connection for a project.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -10016,7 +9848,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionState struct {
 	// Actions required on the private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -10037,7 +9868,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// Actions required on the private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -10100,7 +9930,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -10194,7 +10023,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// Actions required on the private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -10215,7 +10043,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// Actions required on the private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
@@ -10278,7 +10105,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// State of a private endpoint connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -10372,7 +10198,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a project.
 type ProjectProperties struct {
 	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 	AssessmentSolutionId *string `pulumi:"assessmentSolutionId"`
@@ -10399,7 +10224,6 @@ type ProjectPropertiesInput interface {
 	ToProjectPropertiesOutputWithContext(context.Context) ProjectPropertiesOutput
 }
 
-// Properties of a project.
 type ProjectPropertiesArgs struct {
 	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 	AssessmentSolutionId pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
@@ -10468,7 +10292,6 @@ func (i *projectPropertiesPtrType) ToProjectPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPropertiesPtrOutput)
 }
 
-// Properties of a project.
 type ProjectPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ProjectPropertiesOutput) ElementType() reflect.Type {
@@ -10607,7 +10430,6 @@ func (o ProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a project.
 type ProjectPropertiesResponse struct {
 	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 	AssessmentSolutionId *string `pulumi:"assessmentSolutionId"`
@@ -10652,7 +10474,6 @@ type ProjectPropertiesResponseInput interface {
 	ToProjectPropertiesResponseOutputWithContext(context.Context) ProjectPropertiesResponseOutput
 }
 
-// Properties of a project.
 type ProjectPropertiesResponseArgs struct {
 	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 	AssessmentSolutionId pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
@@ -10739,7 +10560,6 @@ func (i *projectPropertiesResponsePtrType) ToProjectPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPropertiesResponsePtrOutput)
 }
 
-// Properties of a project.
 type ProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11015,7 +10835,6 @@ func (o ProjectPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettings struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
@@ -11045,7 +10864,6 @@ type PublicIPAddressResourceSettingsInput interface {
 	ToPublicIPAddressResourceSettingsOutputWithContext(context.Context) PublicIPAddressResourceSettingsOutput
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettingsArgs struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
@@ -11076,7 +10894,6 @@ func (i PublicIPAddressResourceSettingsArgs) ToPublicIPAddressResourceSettingsOu
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressResourceSettingsOutput)
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressResourceSettingsOutput) ElementType() reflect.Type {
@@ -11127,7 +10944,6 @@ func (o PublicIPAddressResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettingsResponse struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
@@ -11157,7 +10973,6 @@ type PublicIPAddressResourceSettingsResponseInput interface {
 	ToPublicIPAddressResourceSettingsResponseOutputWithContext(context.Context) PublicIPAddressResourceSettingsResponseOutput
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettingsResponseArgs struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
@@ -11188,7 +11003,6 @@ func (i PublicIPAddressResourceSettingsResponseArgs) ToPublicIPAddressResourceSe
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressResourceSettingsResponseOutput)
 }
 
-// Defines the public IP address resource settings.
 type PublicIPAddressResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -11239,7 +11053,6 @@ func (o PublicIPAddressResourceSettingsResponseOutput) Zones() pulumi.StringPtrO
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to a public IP.
 type PublicIpReference struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
@@ -11256,7 +11069,6 @@ type PublicIpReferenceInput interface {
 	ToPublicIpReferenceOutputWithContext(context.Context) PublicIpReferenceOutput
 }
 
-// Defines reference to a public IP.
 type PublicIpReferenceArgs struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
@@ -11315,7 +11127,6 @@ func (i *publicIpReferencePtrType) ToPublicIpReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferencePtrOutput)
 }
 
-// Defines reference to a public IP.
 type PublicIpReferenceOutput struct{ *pulumi.OutputState }
 
 func (PublicIpReferenceOutput) ElementType() reflect.Type {
@@ -11379,7 +11190,6 @@ func (o PublicIpReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to a public IP.
 type PublicIpReferenceResponse struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
@@ -11396,7 +11206,6 @@ type PublicIpReferenceResponseInput interface {
 	ToPublicIpReferenceResponseOutputWithContext(context.Context) PublicIpReferenceResponseOutput
 }
 
-// Defines reference to a public IP.
 type PublicIpReferenceResponseArgs struct {
 	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
@@ -11455,7 +11264,6 @@ func (i *publicIpReferenceResponsePtrType) ToPublicIpReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceResponsePtrOutput)
 }
 
-// Defines reference to a public IP.
 type PublicIpReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIpReferenceResponseOutput) ElementType() reflect.Type {
@@ -11519,7 +11327,6 @@ func (o PublicIpReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'resourceGroups'.
@@ -11539,7 +11346,6 @@ type ResourceGroupResourceSettingsInput interface {
 	ToResourceGroupResourceSettingsOutputWithContext(context.Context) ResourceGroupResourceSettingsOutput
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'resourceGroups'.
@@ -11560,7 +11366,6 @@ func (i ResourceGroupResourceSettingsArgs) ToResourceGroupResourceSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupResourceSettingsOutput)
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupResourceSettingsOutput) ElementType() reflect.Type {
@@ -11586,7 +11391,6 @@ func (o ResourceGroupResourceSettingsOutput) TargetResourceName() pulumi.StringO
 	return o.ApplyT(func(v ResourceGroupResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'resourceGroups'.
@@ -11606,7 +11410,6 @@ type ResourceGroupResourceSettingsResponseInput interface {
 	ToResourceGroupResourceSettingsResponseOutputWithContext(context.Context) ResourceGroupResourceSettingsResponseOutput
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'resourceGroups'.
@@ -11627,7 +11430,6 @@ func (i ResourceGroupResourceSettingsResponseArgs) ToResourceGroupResourceSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupResourceSettingsResponseOutput)
 }
 
-// Defines the resource group resource settings.
 type ResourceGroupResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -11653,7 +11455,6 @@ func (o ResourceGroupResourceSettingsResponseOutput) TargetResourceName() pulumi
 	return o.ApplyT(func(v ResourceGroupResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// ARM id for a resource.
 type ResourceIdResponse struct {
 	Id string `pulumi:"id"`
 }
@@ -11669,7 +11470,6 @@ type ResourceIdResponseInput interface {
 	ToResourceIdResponseOutputWithContext(context.Context) ResourceIdResponseOutput
 }
 
-// ARM id for a resource.
 type ResourceIdResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -11727,7 +11527,6 @@ func (i *resourceIdResponsePtrType) ToResourceIdResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponsePtrOutput)
 }
 
-// ARM id for a resource.
 type ResourceIdResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdResponseOutput) ElementType() reflect.Type {
@@ -11789,7 +11588,6 @@ func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponse struct {
 	// Gets or sets the count of entities assessed.
 	AssessedCount *int `pulumi:"assessedCount"`
@@ -11823,7 +11621,6 @@ type ServersProjectSummaryResponseInput interface {
 	ToServersProjectSummaryResponseOutputWithContext(context.Context) ServersProjectSummaryResponseOutput
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponseArgs struct {
 	// Gets or sets the count of entities assessed.
 	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
@@ -11858,7 +11655,6 @@ func (i ServersProjectSummaryResponseArgs) ToServersProjectSummaryResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServersProjectSummaryResponseOutput)
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (ServersProjectSummaryResponseOutput) ElementType() reflect.Type {
@@ -11919,7 +11715,6 @@ func (o ServersProjectSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponse struct {
 	// Gets or sets the count of servers assessed.
 	AssessedCount *int `pulumi:"assessedCount"`
@@ -11947,7 +11742,6 @@ type ServersSolutionSummaryResponseInput interface {
 	ToServersSolutionSummaryResponseOutputWithContext(context.Context) ServersSolutionSummaryResponseOutput
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponseArgs struct {
 	// Gets or sets the count of servers assessed.
 	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
@@ -11976,7 +11770,6 @@ func (i ServersSolutionSummaryResponseArgs) ToServersSolutionSummaryResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServersSolutionSummaryResponseOutput)
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (ServersSolutionSummaryResponseOutput) ElementType() reflect.Type {
@@ -12022,7 +11815,6 @@ func (o ServersSolutionSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrO
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetails struct {
 	// Gets or sets the count of assessments reported by the solution.
 	AssessmentCount *int `pulumi:"assessmentCount"`
@@ -12043,7 +11835,6 @@ type SolutionDetailsInput interface {
 	ToSolutionDetailsOutputWithContext(context.Context) SolutionDetailsOutput
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsArgs struct {
 	// Gets or sets the count of assessments reported by the solution.
 	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
@@ -12106,7 +11897,6 @@ func (i *solutionDetailsPtrType) ToSolutionDetailsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsOutput struct{ *pulumi.OutputState }
 
 func (SolutionDetailsOutput) ElementType() reflect.Type {
@@ -12200,7 +11990,6 @@ func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponse struct {
 	// Gets or sets the count of assessments reported by the solution.
 	AssessmentCount *int `pulumi:"assessmentCount"`
@@ -12221,7 +12010,6 @@ type SolutionDetailsResponseInput interface {
 	ToSolutionDetailsResponseOutputWithContext(context.Context) SolutionDetailsResponseOutput
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponseArgs struct {
 	// Gets or sets the count of assessments reported by the solution.
 	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
@@ -12284,7 +12072,6 @@ func (i *solutionDetailsResponsePtrType) ToSolutionDetailsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsResponsePtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionDetailsResponseOutput) ElementType() reflect.Type {
@@ -12378,7 +12165,6 @@ func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionProperties struct {
 	// Gets or sets the cleanup state of the solution.
 	CleanupState *string `pulumi:"cleanupState"`
@@ -12405,7 +12191,6 @@ type SolutionPropertiesInput interface {
 	ToSolutionPropertiesOutputWithContext(context.Context) SolutionPropertiesOutput
 }
 
-// Class for solution properties.
 type SolutionPropertiesArgs struct {
 	// Gets or sets the cleanup state of the solution.
 	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
@@ -12474,7 +12259,6 @@ func (i *solutionPropertiesPtrType) ToSolutionPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesOutput) ElementType() reflect.Type {
@@ -12613,7 +12397,6 @@ func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponse struct {
 	// Gets or sets the cleanup state of the solution.
 	CleanupState *string `pulumi:"cleanupState"`
@@ -12642,7 +12425,6 @@ type SolutionPropertiesResponseInput interface {
 	ToSolutionPropertiesResponseOutputWithContext(context.Context) SolutionPropertiesResponseOutput
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponseArgs struct {
 	// Gets or sets the cleanup state of the solution.
 	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
@@ -12713,7 +12495,6 @@ func (i *solutionPropertiesResponsePtrType) ToSolutionPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponsePtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -12867,7 +12648,6 @@ func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
@@ -12889,7 +12669,6 @@ type SqlDatabaseResourceSettingsInput interface {
 	ToSqlDatabaseResourceSettingsOutputWithContext(context.Context) SqlDatabaseResourceSettingsOutput
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
@@ -12912,7 +12691,6 @@ func (i SqlDatabaseResourceSettingsArgs) ToSqlDatabaseResourceSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseResourceSettingsOutput)
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseResourceSettingsOutput) ElementType() reflect.Type {
@@ -12943,7 +12721,6 @@ func (o SqlDatabaseResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
@@ -12965,7 +12742,6 @@ type SqlDatabaseResourceSettingsResponseInput interface {
 	ToSqlDatabaseResourceSettingsResponseOutputWithContext(context.Context) SqlDatabaseResourceSettingsResponseOutput
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
@@ -12988,7 +12764,6 @@ func (i SqlDatabaseResourceSettingsResponseArgs) ToSqlDatabaseResourceSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseResourceSettingsResponseOutput)
 }
 
-// Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -13019,7 +12794,6 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ZoneRedundant() pulumi.String
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
@@ -13041,7 +12815,6 @@ type SqlElasticPoolResourceSettingsInput interface {
 	ToSqlElasticPoolResourceSettingsOutputWithContext(context.Context) SqlElasticPoolResourceSettingsOutput
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
@@ -13064,7 +12837,6 @@ func (i SqlElasticPoolResourceSettingsArgs) ToSqlElasticPoolResourceSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SqlElasticPoolResourceSettingsOutput)
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (SqlElasticPoolResourceSettingsOutput) ElementType() reflect.Type {
@@ -13095,7 +12867,6 @@ func (o SqlElasticPoolResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOu
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
@@ -13117,7 +12888,6 @@ type SqlElasticPoolResourceSettingsResponseInput interface {
 	ToSqlElasticPoolResourceSettingsResponseOutputWithContext(context.Context) SqlElasticPoolResourceSettingsResponseOutput
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
@@ -13140,7 +12910,6 @@ func (i SqlElasticPoolResourceSettingsResponseArgs) ToSqlElasticPoolResourceSett
 	return pulumi.ToOutputWithContext(ctx, i).(SqlElasticPoolResourceSettingsResponseOutput)
 }
 
-// Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlElasticPoolResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -13171,7 +12940,6 @@ func (o SqlElasticPoolResourceSettingsResponseOutput) ZoneRedundant() pulumi.Str
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers'.
@@ -13191,7 +12959,6 @@ type SqlServerResourceSettingsInput interface {
 	ToSqlServerResourceSettingsOutputWithContext(context.Context) SqlServerResourceSettingsOutput
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers'.
@@ -13212,7 +12979,6 @@ func (i SqlServerResourceSettingsArgs) ToSqlServerResourceSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerResourceSettingsOutput)
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (SqlServerResourceSettingsOutput) ElementType() reflect.Type {
@@ -13238,7 +13004,6 @@ func (o SqlServerResourceSettingsOutput) TargetResourceName() pulumi.StringOutpu
 	return o.ApplyT(func(v SqlServerResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers'.
@@ -13258,7 +13023,6 @@ type SqlServerResourceSettingsResponseInput interface {
 	ToSqlServerResourceSettingsResponseOutputWithContext(context.Context) SqlServerResourceSettingsResponseOutput
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers'.
@@ -13279,7 +13043,6 @@ func (i SqlServerResourceSettingsResponseArgs) ToSqlServerResourceSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerResourceSettingsResponseOutput)
 }
 
-// Defines the SQL Server resource settings.
 type SqlServerResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlServerResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -13305,7 +13068,6 @@ func (o SqlServerResourceSettingsResponseOutput) TargetResourceName() pulumi.Str
 	return o.ApplyT(func(v SqlServerResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines reference to subnet.
 type SubnetReference struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -13324,7 +13086,6 @@ type SubnetReferenceInput interface {
 	ToSubnetReferenceOutputWithContext(context.Context) SubnetReferenceOutput
 }
 
-// Defines reference to subnet.
 type SubnetReferenceArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13385,7 +13146,6 @@ func (i *subnetReferencePtrType) ToSubnetReferencePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetReferencePtrOutput)
 }
 
-// Defines reference to subnet.
 type SubnetReferenceOutput struct{ *pulumi.OutputState }
 
 func (SubnetReferenceOutput) ElementType() reflect.Type {
@@ -13464,7 +13224,6 @@ func (o SubnetReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to subnet.
 type SubnetReferenceResponse struct {
 	// Gets the name of the proxy resource on the target side.
 	Name *string `pulumi:"name"`
@@ -13483,7 +13242,6 @@ type SubnetReferenceResponseInput interface {
 	ToSubnetReferenceResponseOutputWithContext(context.Context) SubnetReferenceResponseOutput
 }
 
-// Defines reference to subnet.
 type SubnetReferenceResponseArgs struct {
 	// Gets the name of the proxy resource on the target side.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13544,7 +13302,6 @@ func (i *subnetReferenceResponsePtrType) ToSubnetReferenceResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetReferenceResponsePtrOutput)
 }
 
-// Defines reference to subnet.
 type SubnetReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetReferenceResponseOutput) ElementType() reflect.Type {
@@ -13623,7 +13380,6 @@ func (o SubnetReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettings struct {
 	// Gets or sets address prefix for the subnet.
 	AddressPrefix *string `pulumi:"addressPrefix"`
@@ -13644,7 +13400,6 @@ type SubnetResourceSettingsInput interface {
 	ToSubnetResourceSettingsOutputWithContext(context.Context) SubnetResourceSettingsOutput
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettingsArgs struct {
 	// Gets or sets address prefix for the subnet.
 	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
@@ -13691,7 +13446,6 @@ func (i SubnetResourceSettingsArray) ToSubnetResourceSettingsArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResourceSettingsArrayOutput)
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (SubnetResourceSettingsOutput) ElementType() reflect.Type {
@@ -13741,7 +13495,6 @@ func (o SubnetResourceSettingsArrayOutput) Index(i pulumi.IntInput) SubnetResour
 	}).(SubnetResourceSettingsOutput)
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettingsResponse struct {
 	// Gets or sets address prefix for the subnet.
 	AddressPrefix *string `pulumi:"addressPrefix"`
@@ -13762,7 +13515,6 @@ type SubnetResourceSettingsResponseInput interface {
 	ToSubnetResourceSettingsResponseOutputWithContext(context.Context) SubnetResourceSettingsResponseOutput
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettingsResponseArgs struct {
 	// Gets or sets address prefix for the subnet.
 	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
@@ -13809,7 +13561,6 @@ func (i SubnetResourceSettingsResponseArray) ToSubnetResourceSettingsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResourceSettingsResponseArrayOutput)
 }
 
-// Defines the virtual network subnets resource settings.
 type SubnetResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -13859,7 +13610,6 @@ func (o SubnetResourceSettingsResponseArrayOutput) Index(i pulumi.IntInput) Subn
 	}).(SubnetResourceSettingsResponseOutput)
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
@@ -13885,7 +13635,6 @@ type VirtualMachineResourceSettingsInput interface {
 	ToVirtualMachineResourceSettingsOutputWithContext(context.Context) VirtualMachineResourceSettingsOutput
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
@@ -13912,7 +13661,6 @@ func (i VirtualMachineResourceSettingsArgs) ToVirtualMachineResourceSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceSettingsOutput)
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineResourceSettingsOutput) ElementType() reflect.Type {
@@ -13953,7 +13701,6 @@ func (o VirtualMachineResourceSettingsOutput) TargetVmSize() pulumi.StringPtrOut
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
@@ -13979,7 +13726,6 @@ type VirtualMachineResourceSettingsResponseInput interface {
 	ToVirtualMachineResourceSettingsResponseOutputWithContext(context.Context) VirtualMachineResourceSettingsResponseOutput
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
@@ -14006,7 +13752,6 @@ func (i VirtualMachineResourceSettingsResponseArgs) ToVirtualMachineResourceSett
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceSettingsResponseOutput)
 }
 
-// Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineResourceSettingsResponseOutput) ElementType() reflect.Type {
@@ -14047,7 +13792,6 @@ func (o VirtualMachineResourceSettingsResponseOutput) TargetVmSize() pulumi.Stri
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettings struct {
 	// Gets or sets the address prefixes for the virtual network.
 	AddressSpace []string `pulumi:"addressSpace"`
@@ -14077,7 +13821,6 @@ type VirtualNetworkResourceSettingsInput interface {
 	ToVirtualNetworkResourceSettingsOutputWithContext(context.Context) VirtualNetworkResourceSettingsOutput
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettingsArgs struct {
 	// Gets or sets the address prefixes for the virtual network.
 	AddressSpace pulumi.StringArrayInput `pulumi:"addressSpace"`
@@ -14108,7 +13851,6 @@ func (i VirtualNetworkResourceSettingsArgs) ToVirtualNetworkResourceSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResourceSettingsOutput)
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkResourceSettingsOutput) ElementType() reflect.Type {
@@ -14156,7 +13898,6 @@ func (o VirtualNetworkResourceSettingsOutput) TargetResourceName() pulumi.String
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettingsResponse struct {
 	// Gets or sets the address prefixes for the virtual network.
 	AddressSpace []string `pulumi:"addressSpace"`
@@ -14186,7 +13927,6 @@ type VirtualNetworkResourceSettingsResponseInput interface {
 	ToVirtualNetworkResourceSettingsResponseOutputWithContext(context.Context) VirtualNetworkResourceSettingsResponseOutput
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettingsResponseArgs struct {
 	// Gets or sets the address prefixes for the virtual network.
 	AddressSpace pulumi.StringArrayInput `pulumi:"addressSpace"`
@@ -14217,7 +13957,6 @@ func (i VirtualNetworkResourceSettingsResponseArgs) ToVirtualNetworkResourceSett
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResourceSettingsResponseOutput)
 }
 
-// Defines the virtual network resource settings.
 type VirtualNetworkResourceSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkResourceSettingsResponseOutput) ElementType() reflect.Type {

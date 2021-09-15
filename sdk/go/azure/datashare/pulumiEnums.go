@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kind of data set.
 type DataSetKind string
 
 const (
@@ -186,7 +185,6 @@ func (in *dataSetKindPtr) ToDataSetKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetKindPtrOutput)
 }
 
-// Kind of data set mapping.
 type DataSetMappingKind string
 
 const (
@@ -360,7 +358,6 @@ func (in *dataSetMappingKindPtr) ToDataSetMappingKindPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetMappingKindPtrOutput)
 }
 
-// File output type
 type OutputType string
 
 const (
@@ -525,7 +522,6 @@ func (in *outputTypePtr) ToOutputTypePtrOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, in).(OutputTypePtrOutput)
 }
 
-// Recurrence Interval
 type RecurrenceInterval string
 
 const (
@@ -690,7 +686,6 @@ func (in *recurrenceIntervalPtr) ToRecurrenceIntervalPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceIntervalPtrOutput)
 }
 
-// Share kind.
 type ShareKind string
 
 const (
@@ -855,7 +850,6 @@ func (in *shareKindPtr) ToShareKindPtrOutputWithContext(ctx context.Context) Sha
 	return pulumi.ToOutputWithContext(ctx, in).(ShareKindPtrOutput)
 }
 
-// Synchronization mode
 type SynchronizationMode string
 
 const (
@@ -1020,7 +1014,6 @@ func (in *synchronizationModePtr) ToSynchronizationModePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(SynchronizationModePtrOutput)
 }
 
-// Kind of synchronization setting.
 type SynchronizationSettingKind string
 
 const (
@@ -1184,7 +1177,6 @@ func (in *synchronizationSettingKindPtr) ToSynchronizationSettingKindPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(SynchronizationSettingKindPtrOutput)
 }
 
-// Kind of synchronization on trigger.
 type TriggerKind string
 
 const (
@@ -1348,7 +1340,6 @@ func (in *triggerKindPtr) ToTriggerKindPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(TriggerKindPtrOutput)
 }
 
-// Identity Type
 type Type string
 
 const (

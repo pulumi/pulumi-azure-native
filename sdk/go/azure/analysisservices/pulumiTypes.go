@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The gateway details.
 type GatewayDetails struct {
 	// Gateway resource to be associated with the server.
 	GatewayResourceId *string `pulumi:"gatewayResourceId"`
@@ -27,7 +26,6 @@ type GatewayDetailsInput interface {
 	ToGatewayDetailsOutputWithContext(context.Context) GatewayDetailsOutput
 }
 
-// The gateway details.
 type GatewayDetailsArgs struct {
 	// Gateway resource to be associated with the server.
 	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
@@ -86,7 +84,6 @@ func (i *gatewayDetailsPtrType) ToGatewayDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsPtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsOutput struct{ *pulumi.OutputState }
 
 func (GatewayDetailsOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsResponse struct {
 	// Uri of the DMTS cluster.
 	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
@@ -171,7 +167,6 @@ type GatewayDetailsResponseInput interface {
 	ToGatewayDetailsResponseOutputWithContext(context.Context) GatewayDetailsResponseOutput
 }
 
-// The gateway details.
 type GatewayDetailsResponseArgs struct {
 	// Uri of the DMTS cluster.
 	DmtsClusterUri pulumi.StringInput `pulumi:"dmtsClusterUri"`
@@ -234,7 +229,6 @@ func (i *gatewayDetailsResponsePtrType) ToGatewayDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsResponsePtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (GatewayDetailsResponseOutput) ElementType() reflect.Type {
@@ -328,7 +322,6 @@ func (o GatewayDetailsResponsePtrOutput) GatewayResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRule struct {
 	// The rule name.
 	FirewallRuleName *string `pulumi:"firewallRuleName"`
@@ -349,7 +342,6 @@ type IPv4FirewallRuleInput interface {
 	ToIPv4FirewallRuleOutputWithContext(context.Context) IPv4FirewallRuleOutput
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRuleArgs struct {
 	// The rule name.
 	FirewallRuleName pulumi.StringPtrInput `pulumi:"firewallRuleName"`
@@ -396,7 +388,6 @@ func (i IPv4FirewallRuleArray) ToIPv4FirewallRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallRuleArrayOutput)
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (IPv4FirewallRuleOutput) ElementType() reflect.Type {
@@ -446,7 +437,6 @@ func (o IPv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) IPv4FirewallRuleOu
 	}).(IPv4FirewallRuleOutput)
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRuleResponse struct {
 	// The rule name.
 	FirewallRuleName *string `pulumi:"firewallRuleName"`
@@ -467,7 +457,6 @@ type IPv4FirewallRuleResponseInput interface {
 	ToIPv4FirewallRuleResponseOutputWithContext(context.Context) IPv4FirewallRuleResponseOutput
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRuleResponseArgs struct {
 	// The rule name.
 	FirewallRuleName pulumi.StringPtrInput `pulumi:"firewallRuleName"`
@@ -514,7 +503,6 @@ func (i IPv4FirewallRuleResponseArray) ToIPv4FirewallRuleResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallRuleResponseArrayOutput)
 }
 
-// The detail of firewall rule.
 type IPv4FirewallRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IPv4FirewallRuleResponseOutput) ElementType() reflect.Type {
@@ -564,7 +552,6 @@ func (o IPv4FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) IPv4Firewa
 	}).(IPv4FirewallRuleResponseOutput)
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettings struct {
 	// The indicator of enabling PBI service.
 	EnablePowerBIService *bool `pulumi:"enablePowerBIService"`
@@ -583,7 +570,6 @@ type IPv4FirewallSettingsInput interface {
 	ToIPv4FirewallSettingsOutputWithContext(context.Context) IPv4FirewallSettingsOutput
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettingsArgs struct {
 	// The indicator of enabling PBI service.
 	EnablePowerBIService pulumi.BoolPtrInput `pulumi:"enablePowerBIService"`
@@ -644,7 +630,6 @@ func (i *ipv4FirewallSettingsPtrType) ToIPv4FirewallSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallSettingsPtrOutput)
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettingsOutput struct{ *pulumi.OutputState }
 
 func (IPv4FirewallSettingsOutput) ElementType() reflect.Type {
@@ -723,7 +708,6 @@ func (o IPv4FirewallSettingsPtrOutput) FirewallRules() IPv4FirewallRuleArrayOutp
 	}).(IPv4FirewallRuleArrayOutput)
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettingsResponse struct {
 	// The indicator of enabling PBI service.
 	EnablePowerBIService *bool `pulumi:"enablePowerBIService"`
@@ -742,7 +726,6 @@ type IPv4FirewallSettingsResponseInput interface {
 	ToIPv4FirewallSettingsResponseOutputWithContext(context.Context) IPv4FirewallSettingsResponseOutput
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettingsResponseArgs struct {
 	// The indicator of enabling PBI service.
 	EnablePowerBIService pulumi.BoolPtrInput `pulumi:"enablePowerBIService"`
@@ -803,7 +786,6 @@ func (i *ipv4FirewallSettingsResponsePtrType) ToIPv4FirewallSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallSettingsResponsePtrOutput)
 }
 
-// An array of firewall rules.
 type IPv4FirewallSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (IPv4FirewallSettingsResponseOutput) ElementType() reflect.Type {
@@ -882,7 +864,6 @@ func (o IPv4FirewallSettingsResponsePtrOutput) FirewallRules() IPv4FirewallRuleR
 	}).(IPv4FirewallRuleResponseArrayOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSku struct {
 	// The number of instances in the read only query pool.
 	Capacity *int `pulumi:"capacity"`
@@ -903,7 +884,6 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuArgs struct {
 	// The number of instances in the read only query pool.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -966,7 +946,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -1060,7 +1039,6 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
 	// The number of instances in the read only query pool.
 	Capacity *int `pulumi:"capacity"`
@@ -1081,7 +1059,6 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseArgs struct {
 	// The number of instances in the read only query pool.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -1144,7 +1121,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -1238,7 +1214,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of administrator user identities.
 type ServerAdministrators struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -1255,7 +1230,6 @@ type ServerAdministratorsInput interface {
 	ToServerAdministratorsOutputWithContext(context.Context) ServerAdministratorsOutput
 }
 
-// An array of administrator user identities.
 type ServerAdministratorsArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -1314,7 +1288,6 @@ func (i *serverAdministratorsPtrType) ToServerAdministratorsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities.
 type ServerAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsOutput) ElementType() reflect.Type {
@@ -1378,7 +1351,6 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of administrator user identities.
 type ServerAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -1395,7 +1367,6 @@ type ServerAdministratorsResponseInput interface {
 	ToServerAdministratorsResponseOutputWithContext(context.Context) ServerAdministratorsResponseOutput
 }
 
-// An array of administrator user identities.
 type ServerAdministratorsResponseArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -1454,7 +1425,6 @@ func (i *serverAdministratorsResponsePtrType) ToServerAdministratorsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities.
 type ServerAdministratorsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsResponseOutput) ElementType() reflect.Type {

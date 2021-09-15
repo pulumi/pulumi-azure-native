@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The API entity reference.
 type ApiEntityReference struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
@@ -27,7 +26,6 @@ type ApiEntityReferenceInput interface {
 	ToApiEntityReferenceOutputWithContext(context.Context) ApiEntityReferenceOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceArgs struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -86,7 +84,6 @@ func (i *apiEntityReferencePtrType) ToApiEntityReferencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferencePtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceOutput) ElementType() reflect.Type {
@@ -150,7 +147,6 @@ func (o ApiEntityReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponse struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
@@ -167,7 +163,6 @@ type ApiEntityReferenceResponseInput interface {
 	ToApiEntityReferenceResponseOutputWithContext(context.Context) ApiEntityReferenceResponseOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseArgs struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -226,7 +221,6 @@ func (i *apiEntityReferenceResponsePtrType) ToApiEntityReferenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceResponsePtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceResponseOutput) ElementType() reflect.Type {
@@ -290,7 +284,6 @@ func (o ApiEntityReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network interface definition.
 type NetworkInterface struct {
 	// Private Ip address of the interface
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -307,7 +300,6 @@ type NetworkInterfaceInput interface {
 	ToNetworkInterfaceOutputWithContext(context.Context) NetworkInterfaceOutput
 }
 
-// The network interface definition.
 type NetworkInterfaceArgs struct {
 	// Private Ip address of the interface
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -350,7 +342,6 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -390,7 +381,6 @@ func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOu
 	}).(NetworkInterfaceOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceResponse struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id string `pulumi:"id"`
@@ -409,7 +399,6 @@ type NetworkInterfaceResponseInput interface {
 	ToNetworkInterfaceResponseOutputWithContext(context.Context) NetworkInterfaceResponseOutput
 }
 
-// The network interface definition.
 type NetworkInterfaceResponseArgs struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringInput `pulumi:"id"`
@@ -454,7 +443,6 @@ func (i NetworkInterfaceResponseArray) ToNetworkInterfaceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResponseArrayOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResponseOutput) ElementType() reflect.Type {

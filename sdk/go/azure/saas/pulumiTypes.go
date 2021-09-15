@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// properties for creation saas
 type SaasCreationProperties struct {
 	// Whether the SaaS subscription will auto renew upon term end.
 	AutoRenew *bool `pulumi:"autoRenew"`
@@ -49,7 +48,6 @@ type SaasCreationPropertiesInput interface {
 	ToSaasCreationPropertiesOutputWithContext(context.Context) SaasCreationPropertiesOutput
 }
 
-// properties for creation saas
 type SaasCreationPropertiesArgs struct {
 	// Whether the SaaS subscription will auto renew upon term end.
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
@@ -130,7 +128,6 @@ func (i *saasCreationPropertiesPtrType) ToSaasCreationPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SaasCreationPropertiesPtrOutput)
 }
 
-// properties for creation saas
 type SaasCreationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SaasCreationPropertiesOutput) ElementType() reflect.Type {
@@ -359,7 +356,6 @@ func (o SaasCreationPropertiesPtrOutput) TermId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current Term object.
 type SaasPropertiesResponseTerm struct {
 	// The end date of the current term
 	EndDate *string `pulumi:"endDate"`
@@ -380,7 +376,6 @@ type SaasPropertiesResponseTermInput interface {
 	ToSaasPropertiesResponseTermOutputWithContext(context.Context) SaasPropertiesResponseTermOutput
 }
 
-// The current Term object.
 type SaasPropertiesResponseTermArgs struct {
 	// The end date of the current term
 	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
@@ -443,7 +438,6 @@ func (i *saasPropertiesResponseTermPtrType) ToSaasPropertiesResponseTermPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SaasPropertiesResponseTermPtrOutput)
 }
 
-// The current Term object.
 type SaasPropertiesResponseTermOutput struct{ *pulumi.OutputState }
 
 func (SaasPropertiesResponseTermOutput) ElementType() reflect.Type {
@@ -537,7 +531,6 @@ func (o SaasPropertiesResponseTermPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// saas properties
 type SaasResourceResponseProperties struct {
 	// Whether the SaaS subscription will auto renew upon term end.
 	AutoRenew *bool `pulumi:"autoRenew"`
@@ -586,7 +579,6 @@ type SaasResourceResponsePropertiesInput interface {
 	ToSaasResourceResponsePropertiesOutputWithContext(context.Context) SaasResourceResponsePropertiesOutput
 }
 
-// saas properties
 type SaasResourceResponsePropertiesArgs struct {
 	// Whether the SaaS subscription will auto renew upon term end.
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
@@ -677,7 +669,6 @@ func (i *saasResourceResponsePropertiesPtrType) ToSaasResourceResponseProperties
 	return pulumi.ToOutputWithContext(ctx, i).(SaasResourceResponsePropertiesPtrOutput)
 }
 
-// saas properties
 type SaasResourceResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SaasResourceResponsePropertiesOutput) ElementType() reflect.Type {

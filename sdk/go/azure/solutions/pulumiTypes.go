@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed application artifact.
 type ApplicationArtifactResponse struct {
 	// The managed application artifact name.
 	Name string `pulumi:"name"`
@@ -31,7 +30,6 @@ type ApplicationArtifactResponseInput interface {
 	ToApplicationArtifactResponseOutputWithContext(context.Context) ApplicationArtifactResponseOutput
 }
 
-// Managed application artifact.
 type ApplicationArtifactResponseArgs struct {
 	// The managed application artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -78,7 +76,6 @@ func (i ApplicationArtifactResponseArray) ToApplicationArtifactResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactResponseArrayOutput)
 }
 
-// Managed application artifact.
 type ApplicationArtifactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationArtifactResponseOutput) ElementType() reflect.Type {
@@ -128,7 +125,6 @@ func (o ApplicationArtifactResponseArrayOutput) Index(i pulumi.IntInput) Applica
 	}).(ApplicationArtifactResponseOutput)
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorization struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId string `pulumi:"principalId"`
@@ -147,7 +143,6 @@ type ApplicationAuthorizationInput interface {
 	ToApplicationAuthorizationOutputWithContext(context.Context) ApplicationAuthorizationOutput
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorizationArgs struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -192,7 +187,6 @@ func (i ApplicationAuthorizationArray) ToApplicationAuthorizationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationArrayOutput)
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAuthorizationOutput) ElementType() reflect.Type {
@@ -237,7 +231,6 @@ func (o ApplicationAuthorizationArrayOutput) Index(i pulumi.IntInput) Applicatio
 	}).(ApplicationAuthorizationOutput)
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorizationResponse struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId string `pulumi:"principalId"`
@@ -256,7 +249,6 @@ type ApplicationAuthorizationResponseInput interface {
 	ToApplicationAuthorizationResponseOutputWithContext(context.Context) ApplicationAuthorizationResponseOutput
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorizationResponseArgs struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -301,7 +293,6 @@ func (i ApplicationAuthorizationResponseArray) ToApplicationAuthorizationRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationResponseArrayOutput)
 }
 
-// The managed application provider authorization.
 type ApplicationAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -346,7 +337,6 @@ func (o ApplicationAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Ap
 	}).(ApplicationAuthorizationResponseOutput)
 }
 
-// Managed application billing details definition.
 type ApplicationBillingDetailsDefinitionResponse struct {
 	// The managed application resource usage Id.
 	ResourceUsageId *string `pulumi:"resourceUsageId"`
@@ -363,7 +353,6 @@ type ApplicationBillingDetailsDefinitionResponseInput interface {
 	ToApplicationBillingDetailsDefinitionResponseOutputWithContext(context.Context) ApplicationBillingDetailsDefinitionResponseOutput
 }
 
-// Managed application billing details definition.
 type ApplicationBillingDetailsDefinitionResponseArgs struct {
 	// The managed application resource usage Id.
 	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
@@ -422,7 +411,6 @@ func (i *applicationBillingDetailsDefinitionResponsePtrType) ToApplicationBillin
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionResponsePtrOutput)
 }
 
-// Managed application billing details definition.
 type ApplicationBillingDetailsDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationBillingDetailsDefinitionResponseOutput) ElementType() reflect.Type {
@@ -486,7 +474,6 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application client details to track the entity creating/updating the managed app resource.
 type ApplicationClientDetailsResponse struct {
 	// The client application Id.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -507,7 +494,6 @@ type ApplicationClientDetailsResponseInput interface {
 	ToApplicationClientDetailsResponseOutputWithContext(context.Context) ApplicationClientDetailsResponseOutput
 }
 
-// The application client details to track the entity creating/updating the managed app resource.
 type ApplicationClientDetailsResponseArgs struct {
 	// The client application Id.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
@@ -570,7 +556,6 @@ func (i *applicationClientDetailsResponsePtrType) ToApplicationClientDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsResponsePtrOutput)
 }
 
-// The application client details to track the entity creating/updating the managed app resource.
 type ApplicationClientDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationClientDetailsResponseOutput) ElementType() reflect.Type {
@@ -664,7 +649,6 @@ func (o ApplicationClientDetailsResponsePtrOutput) Puid() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifact struct {
 	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
@@ -685,7 +669,6 @@ type ApplicationDefinitionArtifactInput interface {
 	ToApplicationDefinitionArtifactOutputWithContext(context.Context) ApplicationDefinitionArtifactOutput
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifactArgs struct {
 	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -732,7 +715,6 @@ func (i ApplicationDefinitionArtifactArray) ToApplicationDefinitionArtifactArray
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactArrayOutput)
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifactOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinitionArtifactOutput) ElementType() reflect.Type {
@@ -782,7 +764,6 @@ func (o ApplicationDefinitionArtifactArrayOutput) Index(i pulumi.IntInput) Appli
 	}).(ApplicationDefinitionArtifactOutput)
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifactResponse struct {
 	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
@@ -803,7 +784,6 @@ type ApplicationDefinitionArtifactResponseInput interface {
 	ToApplicationDefinitionArtifactResponseOutputWithContext(context.Context) ApplicationDefinitionArtifactResponseOutput
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifactResponseArgs struct {
 	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -850,7 +830,6 @@ func (i ApplicationDefinitionArtifactResponseArray) ToApplicationDefinitionArtif
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactResponseArrayOutput)
 }
 
-// Application definition artifact.
 type ApplicationDefinitionArtifactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinitionArtifactResponseOutput) ElementType() reflect.Type {
@@ -900,7 +879,6 @@ func (o ApplicationDefinitionArtifactResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(ApplicationDefinitionArtifactResponseOutput)
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicy struct {
 	// The managed application deployment mode.
 	DeploymentMode string `pulumi:"deploymentMode"`
@@ -917,7 +895,6 @@ type ApplicationDeploymentPolicyInput interface {
 	ToApplicationDeploymentPolicyOutputWithContext(context.Context) ApplicationDeploymentPolicyOutput
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicyArgs struct {
 	// The managed application deployment mode.
 	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
@@ -976,7 +953,6 @@ func (i *applicationDeploymentPolicyPtrType) ToApplicationDeploymentPolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyPtrOutput)
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeploymentPolicyOutput) ElementType() reflect.Type {
@@ -1040,7 +1016,6 @@ func (o ApplicationDeploymentPolicyPtrOutput) DeploymentMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicyResponse struct {
 	// The managed application deployment mode.
 	DeploymentMode string `pulumi:"deploymentMode"`
@@ -1057,7 +1032,6 @@ type ApplicationDeploymentPolicyResponseInput interface {
 	ToApplicationDeploymentPolicyResponseOutputWithContext(context.Context) ApplicationDeploymentPolicyResponseOutput
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicyResponseArgs struct {
 	// The managed application deployment mode.
 	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
@@ -1116,7 +1090,6 @@ func (i *applicationDeploymentPolicyResponsePtrType) ToApplicationDeploymentPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyResponsePtrOutput)
 }
 
-// Managed application deployment policy.
 type ApplicationDeploymentPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeploymentPolicyResponseOutput) ElementType() reflect.Type {
@@ -1180,7 +1153,6 @@ func (o ApplicationDeploymentPolicyResponsePtrOutput) DeploymentMode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicy struct {
 	// Whether the JIT access is enabled.
 	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
@@ -1203,7 +1175,6 @@ type ApplicationJitAccessPolicyInput interface {
 	ToApplicationJitAccessPolicyOutputWithContext(context.Context) ApplicationJitAccessPolicyOutput
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicyArgs struct {
 	// Whether the JIT access is enabled.
 	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
@@ -1268,7 +1239,6 @@ func (i *applicationJitAccessPolicyPtrType) ToApplicationJitAccessPolicyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyPtrOutput)
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJitAccessPolicyOutput) ElementType() reflect.Type {
@@ -1377,7 +1347,6 @@ func (o ApplicationJitAccessPolicyPtrOutput) MaximumJitAccessDuration() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicyResponse struct {
 	// Whether the JIT access is enabled.
 	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
@@ -1400,7 +1369,6 @@ type ApplicationJitAccessPolicyResponseInput interface {
 	ToApplicationJitAccessPolicyResponseOutputWithContext(context.Context) ApplicationJitAccessPolicyResponseOutput
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicyResponseArgs struct {
 	// Whether the JIT access is enabled.
 	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
@@ -1465,7 +1433,6 @@ func (i *applicationJitAccessPolicyResponsePtrType) ToApplicationJitAccessPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
 
-// Managed application Jit access policy.
 type ApplicationJitAccessPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJitAccessPolicyResponseOutput) ElementType() reflect.Type {
@@ -1574,7 +1541,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) MaximumJitAccessDuration() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicy struct {
 	// The managed application management mode.
 	Mode *string `pulumi:"mode"`
@@ -1591,7 +1557,6 @@ type ApplicationManagementPolicyInput interface {
 	ToApplicationManagementPolicyOutputWithContext(context.Context) ApplicationManagementPolicyOutput
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicyArgs struct {
 	// The managed application management mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
@@ -1650,7 +1615,6 @@ func (i *applicationManagementPolicyPtrType) ToApplicationManagementPolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyPtrOutput)
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationManagementPolicyOutput) ElementType() reflect.Type {
@@ -1714,7 +1678,6 @@ func (o ApplicationManagementPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicyResponse struct {
 	// The managed application management mode.
 	Mode *string `pulumi:"mode"`
@@ -1731,7 +1694,6 @@ type ApplicationManagementPolicyResponseInput interface {
 	ToApplicationManagementPolicyResponseOutputWithContext(context.Context) ApplicationManagementPolicyResponseOutput
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicyResponseArgs struct {
 	// The managed application management mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
@@ -1790,7 +1752,6 @@ func (i *applicationManagementPolicyResponsePtrType) ToApplicationManagementPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyResponsePtrOutput)
 }
 
-// Managed application management policy.
 type ApplicationManagementPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationManagementPolicyResponseOutput) ElementType() reflect.Type {
@@ -1854,7 +1815,6 @@ func (o ApplicationManagementPolicyResponsePtrOutput) Mode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpoint struct {
 	// The managed application notification endpoint uri.
 	Uri string `pulumi:"uri"`
@@ -1871,7 +1831,6 @@ type ApplicationNotificationEndpointInput interface {
 	ToApplicationNotificationEndpointOutputWithContext(context.Context) ApplicationNotificationEndpointOutput
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpointArgs struct {
 	// The managed application notification endpoint uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -1914,7 +1873,6 @@ func (i ApplicationNotificationEndpointArray) ToApplicationNotificationEndpointA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointArrayOutput)
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpointOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNotificationEndpointOutput) ElementType() reflect.Type {
@@ -1954,7 +1912,6 @@ func (o ApplicationNotificationEndpointArrayOutput) Index(i pulumi.IntInput) App
 	}).(ApplicationNotificationEndpointOutput)
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpointResponse struct {
 	// The managed application notification endpoint uri.
 	Uri string `pulumi:"uri"`
@@ -1971,7 +1928,6 @@ type ApplicationNotificationEndpointResponseInput interface {
 	ToApplicationNotificationEndpointResponseOutputWithContext(context.Context) ApplicationNotificationEndpointResponseOutput
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpointResponseArgs struct {
 	// The managed application notification endpoint uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -2014,7 +1970,6 @@ func (i ApplicationNotificationEndpointResponseArray) ToApplicationNotificationE
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointResponseArrayOutput)
 }
 
-// Managed application notification endpoint.
 type ApplicationNotificationEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNotificationEndpointResponseOutput) ElementType() reflect.Type {
@@ -2054,7 +2009,6 @@ func (o ApplicationNotificationEndpointResponseArrayOutput) Index(i pulumi.IntIn
 	}).(ApplicationNotificationEndpointResponseOutput)
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicy struct {
 	// The managed application notification endpoint.
 	NotificationEndpoints []ApplicationNotificationEndpoint `pulumi:"notificationEndpoints"`
@@ -2071,7 +2025,6 @@ type ApplicationNotificationPolicyInput interface {
 	ToApplicationNotificationPolicyOutputWithContext(context.Context) ApplicationNotificationPolicyOutput
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicyArgs struct {
 	// The managed application notification endpoint.
 	NotificationEndpoints ApplicationNotificationEndpointArrayInput `pulumi:"notificationEndpoints"`
@@ -2130,7 +2083,6 @@ func (i *applicationNotificationPolicyPtrType) ToApplicationNotificationPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyPtrOutput)
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNotificationPolicyOutput) ElementType() reflect.Type {
@@ -2196,7 +2148,6 @@ func (o ApplicationNotificationPolicyPtrOutput) NotificationEndpoints() Applicat
 	}).(ApplicationNotificationEndpointArrayOutput)
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicyResponse struct {
 	// The managed application notification endpoint.
 	NotificationEndpoints []ApplicationNotificationEndpointResponse `pulumi:"notificationEndpoints"`
@@ -2213,7 +2164,6 @@ type ApplicationNotificationPolicyResponseInput interface {
 	ToApplicationNotificationPolicyResponseOutputWithContext(context.Context) ApplicationNotificationPolicyResponseOutput
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicyResponseArgs struct {
 	// The managed application notification endpoint.
 	NotificationEndpoints ApplicationNotificationEndpointResponseArrayInput `pulumi:"notificationEndpoints"`
@@ -2272,7 +2222,6 @@ func (i *applicationNotificationPolicyResponsePtrType) ToApplicationNotification
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyResponsePtrOutput)
 }
 
-// Managed application notification policy.
 type ApplicationNotificationPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNotificationPolicyResponseOutput) ElementType() reflect.Type {
@@ -2338,7 +2287,6 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) NotificationEndpoints() 
 	}).(ApplicationNotificationEndpointResponseArrayOutput)
 }
 
-// The application package contact information.
 type ApplicationPackageContactResponse struct {
 	// The contact name.
 	ContactName *string `pulumi:"contactName"`
@@ -2359,7 +2307,6 @@ type ApplicationPackageContactResponseInput interface {
 	ToApplicationPackageContactResponseOutputWithContext(context.Context) ApplicationPackageContactResponseOutput
 }
 
-// The application package contact information.
 type ApplicationPackageContactResponseArgs struct {
 	// The contact name.
 	ContactName pulumi.StringPtrInput `pulumi:"contactName"`
@@ -2422,7 +2369,6 @@ func (i *applicationPackageContactResponsePtrType) ToApplicationPackageContactRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactResponsePtrOutput)
 }
 
-// The application package contact information.
 type ApplicationPackageContactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageContactResponseOutput) ElementType() reflect.Type {
@@ -2516,7 +2462,6 @@ func (o ApplicationPackageContactResponsePtrOutput) Phone() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinition struct {
 	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
@@ -2533,7 +2478,6 @@ type ApplicationPackageLockingPolicyDefinitionInput interface {
 	ToApplicationPackageLockingPolicyDefinitionOutputWithContext(context.Context) ApplicationPackageLockingPolicyDefinitionOutput
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionArgs struct {
 	// The deny assignment excluded actions.
 	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
@@ -2592,7 +2536,6 @@ func (i *applicationPackageLockingPolicyDefinitionPtrType) ToApplicationPackageL
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionPtrOutput)
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageLockingPolicyDefinitionOutput) ElementType() reflect.Type {
@@ -2656,7 +2599,6 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedActions() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionResponse struct {
 	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
@@ -2673,7 +2615,6 @@ type ApplicationPackageLockingPolicyDefinitionResponseInput interface {
 	ToApplicationPackageLockingPolicyDefinitionResponseOutputWithContext(context.Context) ApplicationPackageLockingPolicyDefinitionResponseOutput
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionResponseArgs struct {
 	// The deny assignment excluded actions.
 	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
@@ -2732,7 +2673,6 @@ func (i *applicationPackageLockingPolicyDefinitionResponsePtrType) ToApplication
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
 }
 
-// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageLockingPolicyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2796,7 +2736,6 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActio
 	}).(pulumi.StringArrayOutput)
 }
 
-// The appliance package support URLs.
 type ApplicationPackageSupportUrlsResponse struct {
 	// The government cloud support URL.
 	GovernmentCloud *string `pulumi:"governmentCloud"`
@@ -2815,7 +2754,6 @@ type ApplicationPackageSupportUrlsResponseInput interface {
 	ToApplicationPackageSupportUrlsResponseOutputWithContext(context.Context) ApplicationPackageSupportUrlsResponseOutput
 }
 
-// The appliance package support URLs.
 type ApplicationPackageSupportUrlsResponseArgs struct {
 	// The government cloud support URL.
 	GovernmentCloud pulumi.StringPtrInput `pulumi:"governmentCloud"`
@@ -2876,7 +2814,6 @@ func (i *applicationPackageSupportUrlsResponsePtrType) ToApplicationPackageSuppo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsResponsePtrOutput)
 }
 
-// The appliance package support URLs.
 type ApplicationPackageSupportUrlsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageSupportUrlsResponseOutput) ElementType() reflect.Type {
@@ -2955,7 +2892,6 @@ func (o ApplicationPackageSupportUrlsResponsePtrOutput) PublicAzure() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed application policy.
 type ApplicationPolicy struct {
 	// The policy name
 	Name *string `pulumi:"name"`
@@ -2976,7 +2912,6 @@ type ApplicationPolicyInput interface {
 	ToApplicationPolicyOutputWithContext(context.Context) ApplicationPolicyOutput
 }
 
-// Managed application policy.
 type ApplicationPolicyArgs struct {
 	// The policy name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -3023,7 +2958,6 @@ func (i ApplicationPolicyArray) ToApplicationPolicyArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyArrayOutput)
 }
 
-// Managed application policy.
 type ApplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPolicyOutput) ElementType() reflect.Type {
@@ -3073,7 +3007,6 @@ func (o ApplicationPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationPolicy
 	}).(ApplicationPolicyOutput)
 }
 
-// Managed application policy.
 type ApplicationPolicyResponse struct {
 	// The policy name
 	Name *string `pulumi:"name"`
@@ -3094,7 +3027,6 @@ type ApplicationPolicyResponseInput interface {
 	ToApplicationPolicyResponseOutputWithContext(context.Context) ApplicationPolicyResponseOutput
 }
 
-// Managed application policy.
 type ApplicationPolicyResponseArgs struct {
 	// The policy name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -3141,7 +3073,6 @@ func (i ApplicationPolicyResponseArray) ToApplicationPolicyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyResponseArrayOutput)
 }
 
-// Managed application policy.
 type ApplicationPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPolicyResponseOutput) ElementType() reflect.Type {
@@ -3191,7 +3122,6 @@ func (o ApplicationPolicyResponseArrayOutput) Index(i pulumi.IntInput) Applicati
 	}).(ApplicationPolicyResponseOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
@@ -3210,7 +3140,6 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
@@ -3271,7 +3200,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -3350,7 +3278,6 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -3373,7 +3300,6 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -3438,7 +3364,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -3549,7 +3474,6 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedResource
 	}).(UserAssignedResourceIdentityResponseMapOutput)
 }
 
-// JIT approver definition.
 type JitApproverDefinition struct {
 	// The approver display name.
 	DisplayName *string `pulumi:"displayName"`
@@ -3570,7 +3494,6 @@ type JitApproverDefinitionInput interface {
 	ToJitApproverDefinitionOutputWithContext(context.Context) JitApproverDefinitionOutput
 }
 
-// JIT approver definition.
 type JitApproverDefinitionArgs struct {
 	// The approver display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -3617,7 +3540,6 @@ func (i JitApproverDefinitionArray) ToJitApproverDefinitionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionArrayOutput)
 }
 
-// JIT approver definition.
 type JitApproverDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JitApproverDefinitionOutput) ElementType() reflect.Type {
@@ -3667,7 +3589,6 @@ func (o JitApproverDefinitionArrayOutput) Index(i pulumi.IntInput) JitApproverDe
 	}).(JitApproverDefinitionOutput)
 }
 
-// JIT approver definition.
 type JitApproverDefinitionResponse struct {
 	// The approver display name.
 	DisplayName *string `pulumi:"displayName"`
@@ -3688,7 +3609,6 @@ type JitApproverDefinitionResponseInput interface {
 	ToJitApproverDefinitionResponseOutputWithContext(context.Context) JitApproverDefinitionResponseOutput
 }
 
-// JIT approver definition.
 type JitApproverDefinitionResponseArgs struct {
 	// The approver display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -3735,7 +3655,6 @@ func (i JitApproverDefinitionResponseArray) ToJitApproverDefinitionResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionResponseArrayOutput)
 }
 
-// JIT approver definition.
 type JitApproverDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (JitApproverDefinitionResponseOutput) ElementType() reflect.Type {
@@ -3785,7 +3704,6 @@ func (o JitApproverDefinitionResponseArrayOutput) Index(i pulumi.IntInput) JitAp
 	}).(JitApproverDefinitionResponseOutput)
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPolicies struct {
 	// The the principal id that will be granted JIT access.
 	PrincipalId string `pulumi:"principalId"`
@@ -3804,7 +3722,6 @@ type JitAuthorizationPoliciesInput interface {
 	ToJitAuthorizationPoliciesOutputWithContext(context.Context) JitAuthorizationPoliciesOutput
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPoliciesArgs struct {
 	// The the principal id that will be granted JIT access.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -3849,7 +3766,6 @@ func (i JitAuthorizationPoliciesArray) ToJitAuthorizationPoliciesArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesArrayOutput)
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPoliciesOutput struct{ *pulumi.OutputState }
 
 func (JitAuthorizationPoliciesOutput) ElementType() reflect.Type {
@@ -3894,7 +3810,6 @@ func (o JitAuthorizationPoliciesArrayOutput) Index(i pulumi.IntInput) JitAuthori
 	}).(JitAuthorizationPoliciesOutput)
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPoliciesResponse struct {
 	// The the principal id that will be granted JIT access.
 	PrincipalId string `pulumi:"principalId"`
@@ -3913,7 +3828,6 @@ type JitAuthorizationPoliciesResponseInput interface {
 	ToJitAuthorizationPoliciesResponseOutputWithContext(context.Context) JitAuthorizationPoliciesResponseOutput
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPoliciesResponseArgs struct {
 	// The the principal id that will be granted JIT access.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -3958,7 +3872,6 @@ func (i JitAuthorizationPoliciesResponseArray) ToJitAuthorizationPoliciesRespons
 	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesResponseArrayOutput)
 }
 
-// The JIT authorization policies.
 type JitAuthorizationPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (JitAuthorizationPoliciesResponseOutput) ElementType() reflect.Type {
@@ -4003,7 +3916,6 @@ func (o JitAuthorizationPoliciesResponseArrayOutput) Index(i pulumi.IntInput) Ji
 	}).(JitAuthorizationPoliciesResponseOutput)
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicy struct {
 	Duration string `pulumi:"duration"`
 	// The start time of the request.
@@ -4021,7 +3933,6 @@ type JitSchedulingPolicyInput interface {
 	ToJitSchedulingPolicyOutputWithContext(context.Context) JitSchedulingPolicyOutput
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicyArgs struct {
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// The start time of the request.
@@ -4081,7 +3992,6 @@ func (i *jitSchedulingPolicyPtrType) ToJitSchedulingPolicyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyPtrOutput)
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (JitSchedulingPolicyOutput) ElementType() reflect.Type {
@@ -4158,7 +4068,6 @@ func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicyResponse struct {
 	Duration string `pulumi:"duration"`
 	// The start time of the request.
@@ -4178,7 +4087,6 @@ type JitSchedulingPolicyResponseInput interface {
 	ToJitSchedulingPolicyResponseOutputWithContext(context.Context) JitSchedulingPolicyResponseOutput
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicyResponseArgs struct {
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// The start time of the request.
@@ -4240,7 +4148,6 @@ func (i *jitSchedulingPolicyResponsePtrType) ToJitSchedulingPolicyResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyResponsePtrOutput)
 }
 
-// The JIT scheduling policies.
 type JitSchedulingPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (JitSchedulingPolicyResponseOutput) ElementType() reflect.Type {
@@ -4332,7 +4239,6 @@ func (o JitSchedulingPolicyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the managed application.
 type Plan struct {
 	// The plan name.
 	Name string `pulumi:"name"`
@@ -4357,7 +4263,6 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Plan for the managed application.
 type PlanArgs struct {
 	// The plan name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4424,7 +4329,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Plan for the managed application.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -4548,7 +4452,6 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the managed application.
 type PlanResponse struct {
 	// The plan name.
 	Name string `pulumi:"name"`
@@ -4573,7 +4476,6 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Plan for the managed application.
 type PlanResponseArgs struct {
 	// The plan name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4640,7 +4542,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Plan for the managed application.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -4764,7 +4665,6 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the resource.
 type Sku struct {
 	// The SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -4791,7 +4691,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU for the resource.
 type SkuArgs struct {
 	// The SKU capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -4860,7 +4759,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU for the resource.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -4999,7 +4897,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the resource.
 type SkuResponse struct {
 	// The SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -5026,7 +4923,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU for the resource.
 type SkuResponseArgs struct {
 	// The SKU capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -5095,7 +4991,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU for the resource.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -5234,7 +5129,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
 type UserAssignedResourceIdentityResponse struct {
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -5253,7 +5147,6 @@ type UserAssignedResourceIdentityResponseInput interface {
 	ToUserAssignedResourceIdentityResponseOutputWithContext(context.Context) UserAssignedResourceIdentityResponseOutput
 }
 
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
 type UserAssignedResourceIdentityResponseArgs struct {
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -5298,7 +5191,6 @@ func (i UserAssignedResourceIdentityResponseMap) ToUserAssignedResourceIdentityR
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityResponseMapOutput)
 }
 
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
 type UserAssignedResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedResourceIdentityResponseOutput) ElementType() reflect.Type {

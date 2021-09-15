@@ -11,28 +11,28 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
     /// <summary>
-    /// Container group subnet information.
+    /// The HTTP headers.
     /// </summary>
     [OutputType]
-    public sealed class ContainerGroupSubnetIdResponse
+    public sealed class HttpHeadersResponse
     {
         /// <summary>
-        /// Resource ID of virtual network and subnet.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Friendly name for the subnet.
+        /// The header name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The header value.
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
-        private ContainerGroupSubnetIdResponse(
-            string id,
+        private HttpHeadersResponse(
+            string? name,
 
-            string? name)
+            string? value)
         {
-            Id = id;
             Name = name;
+            Value = value;
         }
     }
 }

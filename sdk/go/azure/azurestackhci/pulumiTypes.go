@@ -10,325 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Desired properties of the cluster.
-type ClusterDesiredProperties struct {
-	// Desired level of diagnostic data emitted by the cluster.
-	DiagnosticLevel *string `pulumi:"diagnosticLevel"`
-	// Desired state of Windows Server Subscription.
-	WindowsServerSubscription *string `pulumi:"windowsServerSubscription"`
-}
-
-// ClusterDesiredPropertiesInput is an input type that accepts ClusterDesiredPropertiesArgs and ClusterDesiredPropertiesOutput values.
-// You can construct a concrete instance of `ClusterDesiredPropertiesInput` via:
-//
-//          ClusterDesiredPropertiesArgs{...}
-type ClusterDesiredPropertiesInput interface {
-	pulumi.Input
-
-	ToClusterDesiredPropertiesOutput() ClusterDesiredPropertiesOutput
-	ToClusterDesiredPropertiesOutputWithContext(context.Context) ClusterDesiredPropertiesOutput
-}
-
-// Desired properties of the cluster.
-type ClusterDesiredPropertiesArgs struct {
-	// Desired level of diagnostic data emitted by the cluster.
-	DiagnosticLevel pulumi.StringPtrInput `pulumi:"diagnosticLevel"`
-	// Desired state of Windows Server Subscription.
-	WindowsServerSubscription pulumi.StringPtrInput `pulumi:"windowsServerSubscription"`
-}
-
-func (ClusterDesiredPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDesiredProperties)(nil)).Elem()
-}
-
-func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesOutput() ClusterDesiredPropertiesOutput {
-	return i.ToClusterDesiredPropertiesOutputWithContext(context.Background())
-}
-
-func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesOutputWithContext(ctx context.Context) ClusterDesiredPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesOutput)
-}
-
-func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesPtrOutput() ClusterDesiredPropertiesPtrOutput {
-	return i.ToClusterDesiredPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesPtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesOutput).ToClusterDesiredPropertiesPtrOutputWithContext(ctx)
-}
-
-// ClusterDesiredPropertiesPtrInput is an input type that accepts ClusterDesiredPropertiesArgs, ClusterDesiredPropertiesPtr and ClusterDesiredPropertiesPtrOutput values.
-// You can construct a concrete instance of `ClusterDesiredPropertiesPtrInput` via:
-//
-//          ClusterDesiredPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterDesiredPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToClusterDesiredPropertiesPtrOutput() ClusterDesiredPropertiesPtrOutput
-	ToClusterDesiredPropertiesPtrOutputWithContext(context.Context) ClusterDesiredPropertiesPtrOutput
-}
-
-type clusterDesiredPropertiesPtrType ClusterDesiredPropertiesArgs
-
-func ClusterDesiredPropertiesPtr(v *ClusterDesiredPropertiesArgs) ClusterDesiredPropertiesPtrInput {
-	return (*clusterDesiredPropertiesPtrType)(v)
-}
-
-func (*clusterDesiredPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterDesiredProperties)(nil)).Elem()
-}
-
-func (i *clusterDesiredPropertiesPtrType) ToClusterDesiredPropertiesPtrOutput() ClusterDesiredPropertiesPtrOutput {
-	return i.ToClusterDesiredPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterDesiredPropertiesPtrType) ToClusterDesiredPropertiesPtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesPtrOutput)
-}
-
-// Desired properties of the cluster.
-type ClusterDesiredPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ClusterDesiredPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDesiredProperties)(nil)).Elem()
-}
-
-func (o ClusterDesiredPropertiesOutput) ToClusterDesiredPropertiesOutput() ClusterDesiredPropertiesOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesOutput) ToClusterDesiredPropertiesOutputWithContext(ctx context.Context) ClusterDesiredPropertiesOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesOutput) ToClusterDesiredPropertiesPtrOutput() ClusterDesiredPropertiesPtrOutput {
-	return o.ToClusterDesiredPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterDesiredPropertiesOutput) ToClusterDesiredPropertiesPtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDesiredProperties) *ClusterDesiredProperties {
-		return &v
-	}).(ClusterDesiredPropertiesPtrOutput)
-}
-
-// Desired level of diagnostic data emitted by the cluster.
-func (o ClusterDesiredPropertiesOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDesiredProperties) *string { return v.DiagnosticLevel }).(pulumi.StringPtrOutput)
-}
-
-// Desired state of Windows Server Subscription.
-func (o ClusterDesiredPropertiesOutput) WindowsServerSubscription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDesiredProperties) *string { return v.WindowsServerSubscription }).(pulumi.StringPtrOutput)
-}
-
-type ClusterDesiredPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterDesiredPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterDesiredProperties)(nil)).Elem()
-}
-
-func (o ClusterDesiredPropertiesPtrOutput) ToClusterDesiredPropertiesPtrOutput() ClusterDesiredPropertiesPtrOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesPtrOutput) ToClusterDesiredPropertiesPtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesPtrOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesPtrOutput) Elem() ClusterDesiredPropertiesOutput {
-	return o.ApplyT(func(v *ClusterDesiredProperties) ClusterDesiredProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterDesiredProperties
-		return ret
-	}).(ClusterDesiredPropertiesOutput)
-}
-
-// Desired level of diagnostic data emitted by the cluster.
-func (o ClusterDesiredPropertiesPtrOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterDesiredProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiagnosticLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Desired state of Windows Server Subscription.
-func (o ClusterDesiredPropertiesPtrOutput) WindowsServerSubscription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterDesiredProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WindowsServerSubscription
-	}).(pulumi.StringPtrOutput)
-}
-
-// Desired properties of the cluster.
-type ClusterDesiredPropertiesResponse struct {
-	// Desired level of diagnostic data emitted by the cluster.
-	DiagnosticLevel *string `pulumi:"diagnosticLevel"`
-	// Desired state of Windows Server Subscription.
-	WindowsServerSubscription *string `pulumi:"windowsServerSubscription"`
-}
-
-// ClusterDesiredPropertiesResponseInput is an input type that accepts ClusterDesiredPropertiesResponseArgs and ClusterDesiredPropertiesResponseOutput values.
-// You can construct a concrete instance of `ClusterDesiredPropertiesResponseInput` via:
-//
-//          ClusterDesiredPropertiesResponseArgs{...}
-type ClusterDesiredPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToClusterDesiredPropertiesResponseOutput() ClusterDesiredPropertiesResponseOutput
-	ToClusterDesiredPropertiesResponseOutputWithContext(context.Context) ClusterDesiredPropertiesResponseOutput
-}
-
-// Desired properties of the cluster.
-type ClusterDesiredPropertiesResponseArgs struct {
-	// Desired level of diagnostic data emitted by the cluster.
-	DiagnosticLevel pulumi.StringPtrInput `pulumi:"diagnosticLevel"`
-	// Desired state of Windows Server Subscription.
-	WindowsServerSubscription pulumi.StringPtrInput `pulumi:"windowsServerSubscription"`
-}
-
-func (ClusterDesiredPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDesiredPropertiesResponse)(nil)).Elem()
-}
-
-func (i ClusterDesiredPropertiesResponseArgs) ToClusterDesiredPropertiesResponseOutput() ClusterDesiredPropertiesResponseOutput {
-	return i.ToClusterDesiredPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterDesiredPropertiesResponseArgs) ToClusterDesiredPropertiesResponseOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesResponseOutput)
-}
-
-func (i ClusterDesiredPropertiesResponseArgs) ToClusterDesiredPropertiesResponsePtrOutput() ClusterDesiredPropertiesResponsePtrOutput {
-	return i.ToClusterDesiredPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClusterDesiredPropertiesResponseArgs) ToClusterDesiredPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesResponseOutput).ToClusterDesiredPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ClusterDesiredPropertiesResponsePtrInput is an input type that accepts ClusterDesiredPropertiesResponseArgs, ClusterDesiredPropertiesResponsePtr and ClusterDesiredPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ClusterDesiredPropertiesResponsePtrInput` via:
-//
-//          ClusterDesiredPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterDesiredPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToClusterDesiredPropertiesResponsePtrOutput() ClusterDesiredPropertiesResponsePtrOutput
-	ToClusterDesiredPropertiesResponsePtrOutputWithContext(context.Context) ClusterDesiredPropertiesResponsePtrOutput
-}
-
-type clusterDesiredPropertiesResponsePtrType ClusterDesiredPropertiesResponseArgs
-
-func ClusterDesiredPropertiesResponsePtr(v *ClusterDesiredPropertiesResponseArgs) ClusterDesiredPropertiesResponsePtrInput {
-	return (*clusterDesiredPropertiesResponsePtrType)(v)
-}
-
-func (*clusterDesiredPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterDesiredPropertiesResponse)(nil)).Elem()
-}
-
-func (i *clusterDesiredPropertiesResponsePtrType) ToClusterDesiredPropertiesResponsePtrOutput() ClusterDesiredPropertiesResponsePtrOutput {
-	return i.ToClusterDesiredPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clusterDesiredPropertiesResponsePtrType) ToClusterDesiredPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDesiredPropertiesResponsePtrOutput)
-}
-
-// Desired properties of the cluster.
-type ClusterDesiredPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ClusterDesiredPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDesiredPropertiesResponse)(nil)).Elem()
-}
-
-func (o ClusterDesiredPropertiesResponseOutput) ToClusterDesiredPropertiesResponseOutput() ClusterDesiredPropertiesResponseOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesResponseOutput) ToClusterDesiredPropertiesResponseOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponseOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesResponseOutput) ToClusterDesiredPropertiesResponsePtrOutput() ClusterDesiredPropertiesResponsePtrOutput {
-	return o.ToClusterDesiredPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClusterDesiredPropertiesResponseOutput) ToClusterDesiredPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDesiredPropertiesResponse) *ClusterDesiredPropertiesResponse {
-		return &v
-	}).(ClusterDesiredPropertiesResponsePtrOutput)
-}
-
-// Desired level of diagnostic data emitted by the cluster.
-func (o ClusterDesiredPropertiesResponseOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDesiredPropertiesResponse) *string { return v.DiagnosticLevel }).(pulumi.StringPtrOutput)
-}
-
-// Desired state of Windows Server Subscription.
-func (o ClusterDesiredPropertiesResponseOutput) WindowsServerSubscription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDesiredPropertiesResponse) *string { return v.WindowsServerSubscription }).(pulumi.StringPtrOutput)
-}
-
-type ClusterDesiredPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterDesiredPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterDesiredPropertiesResponse)(nil)).Elem()
-}
-
-func (o ClusterDesiredPropertiesResponsePtrOutput) ToClusterDesiredPropertiesResponsePtrOutput() ClusterDesiredPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesResponsePtrOutput) ToClusterDesiredPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterDesiredPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ClusterDesiredPropertiesResponsePtrOutput) Elem() ClusterDesiredPropertiesResponseOutput {
-	return o.ApplyT(func(v *ClusterDesiredPropertiesResponse) ClusterDesiredPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterDesiredPropertiesResponse
-		return ret
-	}).(ClusterDesiredPropertiesResponseOutput)
-}
-
-// Desired level of diagnostic data emitted by the cluster.
-func (o ClusterDesiredPropertiesResponsePtrOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterDesiredPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiagnosticLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Desired state of Windows Server Subscription.
-func (o ClusterDesiredPropertiesResponsePtrOutput) WindowsServerSubscription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterDesiredPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WindowsServerSubscription
-	}).(pulumi.StringPtrOutput)
-}
-
-// Cluster node details.
 type ClusterNodeResponse struct {
 	// Number of physical cores on the cluster node.
 	CoreCount float64 `pulumi:"coreCount"`
@@ -348,8 +29,6 @@ type ClusterNodeResponse struct {
 	OsVersion string `pulumi:"osVersion"`
 	// Immutable id of the cluster node.
 	SerialNumber string `pulumi:"serialNumber"`
-	// State of Windows Server Subscription.
-	WindowsServerSubscription string `pulumi:"windowsServerSubscription"`
 }
 
 // ClusterNodeResponseInput is an input type that accepts ClusterNodeResponseArgs and ClusterNodeResponseOutput values.
@@ -363,7 +42,6 @@ type ClusterNodeResponseInput interface {
 	ToClusterNodeResponseOutputWithContext(context.Context) ClusterNodeResponseOutput
 }
 
-// Cluster node details.
 type ClusterNodeResponseArgs struct {
 	// Number of physical cores on the cluster node.
 	CoreCount pulumi.Float64Input `pulumi:"coreCount"`
@@ -383,8 +61,6 @@ type ClusterNodeResponseArgs struct {
 	OsVersion pulumi.StringInput `pulumi:"osVersion"`
 	// Immutable id of the cluster node.
 	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
-	// State of Windows Server Subscription.
-	WindowsServerSubscription pulumi.StringInput `pulumi:"windowsServerSubscription"`
 }
 
 func (ClusterNodeResponseArgs) ElementType() reflect.Type {
@@ -424,7 +100,6 @@ func (i ClusterNodeResponseArray) ToClusterNodeResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResponseArrayOutput)
 }
 
-// Cluster node details.
 type ClusterNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeResponseOutput) ElementType() reflect.Type {
@@ -484,11 +159,6 @@ func (o ClusterNodeResponseOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// State of Windows Server Subscription.
-func (o ClusterNodeResponseOutput) WindowsServerSubscription() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterNodeResponse) string { return v.WindowsServerSubscription }).(pulumi.StringOutput)
-}
-
 type ClusterNodeResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeResponseArrayOutput) ElementType() reflect.Type {
@@ -509,7 +179,6 @@ func (o ClusterNodeResponseArrayOutput) Index(i pulumi.IntInput) ClusterNodeResp
 	}).(ClusterNodeResponseOutput)
 }
 
-// Properties reported by cluster agent.
 type ClusterReportedPropertiesResponse struct {
 	// Unique id generated by the on-prem cluster.
 	ClusterId string `pulumi:"clusterId"`
@@ -517,10 +186,6 @@ type ClusterReportedPropertiesResponse struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Version of the cluster software.
 	ClusterVersion string `pulumi:"clusterVersion"`
-	// Level of diagnostic data emitted by the cluster.
-	DiagnosticLevel *string `pulumi:"diagnosticLevel"`
-	// IMDS attestation status of the cluster.
-	ImdsAttestation string `pulumi:"imdsAttestation"`
 	// Last time the cluster reported the data.
 	LastUpdated string `pulumi:"lastUpdated"`
 	// List of nodes reported by the cluster.
@@ -538,7 +203,6 @@ type ClusterReportedPropertiesResponseInput interface {
 	ToClusterReportedPropertiesResponseOutputWithContext(context.Context) ClusterReportedPropertiesResponseOutput
 }
 
-// Properties reported by cluster agent.
 type ClusterReportedPropertiesResponseArgs struct {
 	// Unique id generated by the on-prem cluster.
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
@@ -546,10 +210,6 @@ type ClusterReportedPropertiesResponseArgs struct {
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Version of the cluster software.
 	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
-	// Level of diagnostic data emitted by the cluster.
-	DiagnosticLevel pulumi.StringPtrInput `pulumi:"diagnosticLevel"`
-	// IMDS attestation status of the cluster.
-	ImdsAttestation pulumi.StringInput `pulumi:"imdsAttestation"`
 	// Last time the cluster reported the data.
 	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
 	// List of nodes reported by the cluster.
@@ -609,7 +269,6 @@ func (i *clusterReportedPropertiesResponsePtrType) ToClusterReportedPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReportedPropertiesResponsePtrOutput)
 }
 
-// Properties reported by cluster agent.
 type ClusterReportedPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterReportedPropertiesResponseOutput) ElementType() reflect.Type {
@@ -647,16 +306,6 @@ func (o ClusterReportedPropertiesResponseOutput) ClusterName() pulumi.StringOutp
 // Version of the cluster software.
 func (o ClusterReportedPropertiesResponseOutput) ClusterVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.ClusterVersion }).(pulumi.StringOutput)
-}
-
-// Level of diagnostic data emitted by the cluster.
-func (o ClusterReportedPropertiesResponseOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterReportedPropertiesResponse) *string { return v.DiagnosticLevel }).(pulumi.StringPtrOutput)
-}
-
-// IMDS attestation status of the cluster.
-func (o ClusterReportedPropertiesResponseOutput) ImdsAttestation() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.ImdsAttestation }).(pulumi.StringOutput)
 }
 
 // Last time the cluster reported the data.
@@ -723,26 +372,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) ClusterVersion() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of diagnostic data emitted by the cluster.
-func (o ClusterReportedPropertiesResponsePtrOutput) DiagnosticLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiagnosticLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// IMDS attestation status of the cluster.
-func (o ClusterReportedPropertiesResponsePtrOutput) ImdsAttestation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImdsAttestation
-	}).(pulumi.StringPtrOutput)
-}
-
 // Last time the cluster reported the data.
 func (o ClusterReportedPropertiesResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
@@ -763,7 +392,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseA
 	}).(ClusterNodeResponseArrayOutput)
 }
 
-// Status of Arc Extension for a particular node in HCI Cluster.
 type PerNodeExtensionStateResponse struct {
 	// Fully qualified resource ID for the particular Arc Extension on this node.
 	Extension string `pulumi:"extension"`
@@ -784,7 +412,6 @@ type PerNodeExtensionStateResponseInput interface {
 	ToPerNodeExtensionStateResponseOutputWithContext(context.Context) PerNodeExtensionStateResponseOutput
 }
 
-// Status of Arc Extension for a particular node in HCI Cluster.
 type PerNodeExtensionStateResponseArgs struct {
 	// Fully qualified resource ID for the particular Arc Extension on this node.
 	Extension pulumi.StringInput `pulumi:"extension"`
@@ -831,7 +458,6 @@ func (i PerNodeExtensionStateResponseArray) ToPerNodeExtensionStateResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(PerNodeExtensionStateResponseArrayOutput)
 }
 
-// Status of Arc Extension for a particular node in HCI Cluster.
 type PerNodeExtensionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PerNodeExtensionStateResponseOutput) ElementType() reflect.Type {
@@ -881,7 +507,6 @@ func (o PerNodeExtensionStateResponseArrayOutput) Index(i pulumi.IntInput) PerNo
 	}).(PerNodeExtensionStateResponseOutput)
 }
 
-// Status of Arc agent for a particular node in HCI Cluster.
 type PerNodeStateResponse struct {
 	// Fully qualified resource ID for the Arc agent of this node.
 	ArcInstance string `pulumi:"arcInstance"`
@@ -902,7 +527,6 @@ type PerNodeStateResponseInput interface {
 	ToPerNodeStateResponseOutputWithContext(context.Context) PerNodeStateResponseOutput
 }
 
-// Status of Arc agent for a particular node in HCI Cluster.
 type PerNodeStateResponseArgs struct {
 	// Fully qualified resource ID for the Arc agent of this node.
 	ArcInstance pulumi.StringInput `pulumi:"arcInstance"`
@@ -949,7 +573,6 @@ func (i PerNodeStateResponseArray) ToPerNodeStateResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PerNodeStateResponseArrayOutput)
 }
 
-// Status of Arc agent for a particular node in HCI Cluster.
 type PerNodeStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PerNodeStateResponseOutput) ElementType() reflect.Type {
@@ -1000,10 +623,6 @@ func (o PerNodeStateResponseArrayOutput) Index(i pulumi.IntInput) PerNodeStateRe
 }
 
 func init() {
-	pulumi.RegisterOutputType(ClusterDesiredPropertiesOutput{})
-	pulumi.RegisterOutputType(ClusterDesiredPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ClusterDesiredPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ClusterDesiredPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponseOutput{})

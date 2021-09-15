@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidence struct {
 	// The description for this piece of evidence.
 	Description *string `pulumi:"description"`
@@ -29,7 +28,6 @@ type AttestationEvidenceInput interface {
 	ToAttestationEvidenceOutputWithContext(context.Context) AttestationEvidenceOutput
 }
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidenceArgs struct {
 	// The description for this piece of evidence.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -74,7 +72,6 @@ func (i AttestationEvidenceArray) ToAttestationEvidenceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationEvidenceArrayOutput)
 }
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidenceOutput struct{ *pulumi.OutputState }
 
 func (AttestationEvidenceOutput) ElementType() reflect.Type {
@@ -119,7 +116,6 @@ func (o AttestationEvidenceArrayOutput) Index(i pulumi.IntInput) AttestationEvid
 	}).(AttestationEvidenceOutput)
 }
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidenceResponse struct {
 	// The description for this piece of evidence.
 	Description *string `pulumi:"description"`
@@ -138,7 +134,6 @@ type AttestationEvidenceResponseInput interface {
 	ToAttestationEvidenceResponseOutputWithContext(context.Context) AttestationEvidenceResponseOutput
 }
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidenceResponseArgs struct {
 	// The description for this piece of evidence.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -183,7 +178,6 @@ func (i AttestationEvidenceResponseArray) ToAttestationEvidenceResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationEvidenceResponseArrayOutput)
 }
 
-// A piece of evidence supporting the compliance state set in the attestation.
 type AttestationEvidenceResponseOutput struct{ *pulumi.OutputState }
 
 func (AttestationEvidenceResponseOutput) ElementType() reflect.Type {
@@ -228,7 +222,6 @@ func (o AttestationEvidenceResponseArrayOutput) Index(i pulumi.IntInput) Attesta
 	}).(AttestationEvidenceResponseOutput)
 }
 
-// Error definition.
 type ErrorDefinitionResponse struct {
 	// Additional scenario specific error details.
 	AdditionalInfo []TypedErrorInfoResponse `pulumi:"additionalInfo"`
@@ -253,7 +246,6 @@ type ErrorDefinitionResponseInput interface {
 	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
 }
 
-// Error definition.
 type ErrorDefinitionResponseArgs struct {
 	// Additional scenario specific error details.
 	AdditionalInfo TypedErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
@@ -304,7 +296,6 @@ func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseArrayOutput)
 }
 
-// Error definition.
 type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
@@ -364,7 +355,6 @@ func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefini
 	}).(ErrorDefinitionResponseOutput)
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponse struct {
 	// The time at which the remediation was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -393,7 +383,6 @@ type RemediationDeploymentResponseInput interface {
 	ToRemediationDeploymentResponseOutputWithContext(context.Context) RemediationDeploymentResponseOutput
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponseArgs struct {
 	// The time at which the remediation was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -448,7 +437,6 @@ func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseArrayOutput)
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationDeploymentResponseOutput) ElementType() reflect.Type {
@@ -518,7 +506,6 @@ func (o RemediationDeploymentResponseArrayOutput) Index(i pulumi.IntInput) Remed
 	}).(RemediationDeploymentResponseOutput)
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponse struct {
 	// The number of deployments required by the remediation that have failed.
 	FailedDeployments int `pulumi:"failedDeployments"`
@@ -539,7 +526,6 @@ type RemediationDeploymentSummaryResponseInput interface {
 	ToRemediationDeploymentSummaryResponseOutputWithContext(context.Context) RemediationDeploymentSummaryResponseOutput
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponseArgs struct {
 	// The number of deployments required by the remediation that have failed.
 	FailedDeployments pulumi.IntInput `pulumi:"failedDeployments"`
@@ -602,7 +588,6 @@ func (i *remediationDeploymentSummaryResponsePtrType) ToRemediationDeploymentSum
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryResponsePtrOutput)
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationDeploymentSummaryResponseOutput) ElementType() reflect.Type {
@@ -696,7 +681,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) TotalDeployments() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFilters struct {
 	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
@@ -713,7 +697,6 @@ type RemediationFiltersInput interface {
 	ToRemediationFiltersOutputWithContext(context.Context) RemediationFiltersOutput
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersArgs struct {
 	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
@@ -772,7 +755,6 @@ func (i *remediationFiltersPtrType) ToRemediationFiltersPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersPtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersOutput struct{ *pulumi.OutputState }
 
 func (RemediationFiltersOutput) ElementType() reflect.Type {
@@ -836,7 +818,6 @@ func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponse struct {
 	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
@@ -853,7 +834,6 @@ type RemediationFiltersResponseInput interface {
 	ToRemediationFiltersResponseOutputWithContext(context.Context) RemediationFiltersResponseOutput
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponseArgs struct {
 	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
@@ -912,7 +892,6 @@ func (i *remediationFiltersResponsePtrType) ToRemediationFiltersResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersResponsePtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationFiltersResponseOutput) ElementType() reflect.Type {
@@ -976,7 +955,6 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1003,7 +981,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1072,7 +1049,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1211,7 +1187,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponse struct {
 	// The scenario specific error details.
 	Info interface{} `pulumi:"info"`
@@ -1230,7 +1205,6 @@ type TypedErrorInfoResponseInput interface {
 	ToTypedErrorInfoResponseOutputWithContext(context.Context) TypedErrorInfoResponseOutput
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponseArgs struct {
 	// The scenario specific error details.
 	Info pulumi.Input `pulumi:"info"`
@@ -1275,7 +1249,6 @@ func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseArrayOutput)
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (TypedErrorInfoResponseOutput) ElementType() reflect.Type {

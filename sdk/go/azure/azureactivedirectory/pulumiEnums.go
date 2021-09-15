@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The name of the SKU for the tenant.
 type B2CResourceSKUName string
 
 const (
@@ -179,7 +178,6 @@ func (in *b2cresourceSKUNamePtr) ToB2CResourceSKUNamePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(B2CResourceSKUNamePtrOutput)
 }
 
-// The tier of the tenant.
 type B2CResourceSKUTier string
 
 const (

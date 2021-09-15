@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
 type EncryptionConfigType string
 
 const (
@@ -175,7 +174,6 @@ func (in *encryptionConfigTypePtr) ToEncryptionConfigTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionConfigTypePtrOutput)
 }
 
-// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
 type EncryptionIdentityType string
 
 const (
@@ -339,7 +337,6 @@ func (in *encryptionIdentityTypePtr) ToEncryptionIdentityTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionIdentityTypePtrOutput)
 }
 
-// The current state of encryption for this Data Lake Store account.
 type EncryptionState string
 
 const (
@@ -504,7 +501,6 @@ func (in *encryptionStatePtr) ToEncryptionStatePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionStatePtrOutput)
 }
 
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
 type FirewallAllowAzureIpsState string
 
 const (
@@ -669,7 +665,6 @@ func (in *firewallAllowAzureIpsStatePtr) ToFirewallAllowAzureIpsStatePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallAllowAzureIpsStatePtrOutput)
 }
 
-// The current state of the IP address firewall for this Data Lake Store account.
 type FirewallState string
 
 const (
@@ -834,7 +829,6 @@ func (in *firewallStatePtr) ToFirewallStatePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallStatePtrOutput)
 }
 
-// The commitment tier to use for next month.
 type TierType string
 
 const (
@@ -1004,7 +998,6 @@ func (in *tierTypePtr) ToTierTypePtrOutputWithContext(ctx context.Context) TierT
 	return pulumi.ToOutputWithContext(ctx, in).(TierTypePtrOutput)
 }
 
-// The current state of the trusted identity provider feature for this Data Lake Store account.
 type TrustedIdProviderStateEnum string
 
 const (

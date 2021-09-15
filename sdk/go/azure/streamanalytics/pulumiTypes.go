@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerialization struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
@@ -28,7 +27,6 @@ type AvroSerializationInput interface {
 	ToAvroSerializationOutputWithContext(context.Context) AvroSerializationOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationArgs struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
@@ -47,7 +45,6 @@ func (i AvroSerializationArgs) ToAvroSerializationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AvroSerializationOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationOutput struct{ *pulumi.OutputState }
 
 func (AvroSerializationOutput) ElementType() reflect.Type {
@@ -68,7 +65,6 @@ func (o AvroSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationResponse struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
@@ -86,7 +82,6 @@ type AvroSerializationResponseInput interface {
 	ToAvroSerializationResponseOutputWithContext(context.Context) AvroSerializationResponseOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationResponseArgs struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
@@ -105,7 +100,6 @@ func (i AvroSerializationResponseArgs) ToAvroSerializationResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AvroSerializationResponseOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationResponseOutput struct{ *pulumi.OutputState }
 
 func (AvroSerializationResponseOutput) ElementType() reflect.Type {
@@ -126,7 +120,6 @@ func (o AvroSerializationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSource struct {
 	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
 	AccountName *string `pulumi:"accountName"`
@@ -160,7 +153,6 @@ type AzureDataLakeStoreOutputDataSourceInput interface {
 	ToAzureDataLakeStoreOutputDataSourceOutputWithContext(context.Context) AzureDataLakeStoreOutputDataSourceOutput
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSourceArgs struct {
 	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
@@ -195,7 +187,6 @@ func (i AzureDataLakeStoreOutputDataSourceArgs) ToAzureDataLakeStoreOutputDataSo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeStoreOutputDataSourceOutput)
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (AzureDataLakeStoreOutputDataSourceOutput) ElementType() reflect.Type {
@@ -256,7 +247,6 @@ func (o AzureDataLakeStoreOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSourceResponse struct {
 	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
 	AccountName *string `pulumi:"accountName"`
@@ -290,7 +280,6 @@ type AzureDataLakeStoreOutputDataSourceResponseInput interface {
 	ToAzureDataLakeStoreOutputDataSourceResponseOutputWithContext(context.Context) AzureDataLakeStoreOutputDataSourceResponseOutput
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSourceResponseArgs struct {
 	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
@@ -325,7 +314,6 @@ func (i AzureDataLakeStoreOutputDataSourceResponseArgs) ToAzureDataLakeStoreOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeStoreOutputDataSourceResponseOutput)
 }
 
-// Describes an Azure Data Lake Store output data source.
 type AzureDataLakeStoreOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureDataLakeStoreOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -386,7 +374,6 @@ func (o AzureDataLakeStoreOutputDataSourceResponseOutput) Type() pulumi.StringOu
 	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBinding struct {
 	// The API key used to authenticate with Request-Response endpoint.
 	ApiKey *string `pulumi:"apiKey"`
@@ -414,7 +401,6 @@ type AzureMachineLearningWebServiceFunctionBindingInput interface {
 	ToAzureMachineLearningWebServiceFunctionBindingOutputWithContext(context.Context) AzureMachineLearningWebServiceFunctionBindingOutput
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBindingArgs struct {
 	// The API key used to authenticate with Request-Response endpoint.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
@@ -443,7 +429,6 @@ func (i AzureMachineLearningWebServiceFunctionBindingArgs) ToAzureMachineLearnin
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceFunctionBindingOutput)
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBindingOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceFunctionBindingOutput) ElementType() reflect.Type {
@@ -493,7 +478,6 @@ func (o AzureMachineLearningWebServiceFunctionBindingOutput) Type() pulumi.Strin
 	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBindingResponse struct {
 	// The API key used to authenticate with Request-Response endpoint.
 	ApiKey *string `pulumi:"apiKey"`
@@ -521,7 +505,6 @@ type AzureMachineLearningWebServiceFunctionBindingResponseInput interface {
 	ToAzureMachineLearningWebServiceFunctionBindingResponseOutputWithContext(context.Context) AzureMachineLearningWebServiceFunctionBindingResponseOutput
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBindingResponseArgs struct {
 	// The API key used to authenticate with Request-Response endpoint.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
@@ -550,7 +533,6 @@ func (i AzureMachineLearningWebServiceFunctionBindingResponseArgs) ToAzureMachin
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceFunctionBindingResponseOutput)
 }
 
-// The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBindingResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceFunctionBindingResponseOutput) ElementType() reflect.Type {
@@ -600,7 +582,6 @@ func (o AzureMachineLearningWebServiceFunctionBindingResponseOutput) Type() pulu
 	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBindingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumn struct {
 	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType *string `pulumi:"dataType"`
@@ -621,7 +602,6 @@ type AzureMachineLearningWebServiceInputColumnInput interface {
 	ToAzureMachineLearningWebServiceInputColumnOutputWithContext(context.Context) AzureMachineLearningWebServiceInputColumnOutput
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumnArgs struct {
 	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -668,7 +648,6 @@ func (i AzureMachineLearningWebServiceInputColumnArray) ToAzureMachineLearningWe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceInputColumnArrayOutput)
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumnOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceInputColumnOutput) ElementType() reflect.Type {
@@ -718,7 +697,6 @@ func (o AzureMachineLearningWebServiceInputColumnArrayOutput) Index(i pulumi.Int
 	}).(AzureMachineLearningWebServiceInputColumnOutput)
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumnResponse struct {
 	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType *string `pulumi:"dataType"`
@@ -739,7 +717,6 @@ type AzureMachineLearningWebServiceInputColumnResponseInput interface {
 	ToAzureMachineLearningWebServiceInputColumnResponseOutputWithContext(context.Context) AzureMachineLearningWebServiceInputColumnResponseOutput
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumnResponseArgs struct {
 	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -786,7 +763,6 @@ func (i AzureMachineLearningWebServiceInputColumnResponseArray) ToAzureMachineLe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceInputColumnResponseArrayOutput)
 }
 
-// Describes an input column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputColumnResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceInputColumnResponseOutput) ElementType() reflect.Type {
@@ -836,7 +812,6 @@ func (o AzureMachineLearningWebServiceInputColumnResponseArrayOutput) Index(i pu
 	}).(AzureMachineLearningWebServiceInputColumnResponseOutput)
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputs struct {
 	// A list of input columns for the Azure Machine Learning web service endpoint.
 	ColumnNames []AzureMachineLearningWebServiceInputColumn `pulumi:"columnNames"`
@@ -855,7 +830,6 @@ type AzureMachineLearningWebServiceInputsInput interface {
 	ToAzureMachineLearningWebServiceInputsOutputWithContext(context.Context) AzureMachineLearningWebServiceInputsOutput
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputsArgs struct {
 	// A list of input columns for the Azure Machine Learning web service endpoint.
 	ColumnNames AzureMachineLearningWebServiceInputColumnArrayInput `pulumi:"columnNames"`
@@ -916,7 +890,6 @@ func (i *azureMachineLearningWebServiceInputsPtrType) ToAzureMachineLearningWebS
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceInputsPtrOutput)
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputsOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceInputsOutput) ElementType() reflect.Type {
@@ -997,7 +970,6 @@ func (o AzureMachineLearningWebServiceInputsPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputsResponse struct {
 	// A list of input columns for the Azure Machine Learning web service endpoint.
 	ColumnNames []AzureMachineLearningWebServiceInputColumnResponse `pulumi:"columnNames"`
@@ -1016,7 +988,6 @@ type AzureMachineLearningWebServiceInputsResponseInput interface {
 	ToAzureMachineLearningWebServiceInputsResponseOutputWithContext(context.Context) AzureMachineLearningWebServiceInputsResponseOutput
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputsResponseArgs struct {
 	// A list of input columns for the Azure Machine Learning web service endpoint.
 	ColumnNames AzureMachineLearningWebServiceInputColumnResponseArrayInput `pulumi:"columnNames"`
@@ -1077,7 +1048,6 @@ func (i *azureMachineLearningWebServiceInputsResponsePtrType) ToAzureMachineLear
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceInputsResponsePtrOutput)
 }
 
-// The inputs for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceInputsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceInputsResponseOutput) ElementType() reflect.Type {
@@ -1158,7 +1128,6 @@ func (o AzureMachineLearningWebServiceInputsResponsePtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumn struct {
 	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType *string `pulumi:"dataType"`
@@ -1177,7 +1146,6 @@ type AzureMachineLearningWebServiceOutputColumnInput interface {
 	ToAzureMachineLearningWebServiceOutputColumnOutputWithContext(context.Context) AzureMachineLearningWebServiceOutputColumnOutput
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumnArgs struct {
 	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -1222,7 +1190,6 @@ func (i AzureMachineLearningWebServiceOutputColumnArray) ToAzureMachineLearningW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceOutputColumnArrayOutput)
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumnOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceOutputColumnOutput) ElementType() reflect.Type {
@@ -1267,7 +1234,6 @@ func (o AzureMachineLearningWebServiceOutputColumnArrayOutput) Index(i pulumi.In
 	}).(AzureMachineLearningWebServiceOutputColumnOutput)
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumnResponse struct {
 	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType *string `pulumi:"dataType"`
@@ -1286,7 +1252,6 @@ type AzureMachineLearningWebServiceOutputColumnResponseInput interface {
 	ToAzureMachineLearningWebServiceOutputColumnResponseOutputWithContext(context.Context) AzureMachineLearningWebServiceOutputColumnResponseOutput
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumnResponseArgs struct {
 	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -1331,7 +1296,6 @@ func (i AzureMachineLearningWebServiceOutputColumnResponseArray) ToAzureMachineL
 	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningWebServiceOutputColumnResponseArrayOutput)
 }
 
-// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningWebServiceOutputColumnResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMachineLearningWebServiceOutputColumnResponseOutput) ElementType() reflect.Type {
@@ -1376,7 +1340,6 @@ func (o AzureMachineLearningWebServiceOutputColumnResponseArrayOutput) Index(i p
 	}).(AzureMachineLearningWebServiceOutputColumnResponseOutput)
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSource struct {
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database *string `pulumi:"database"`
@@ -1404,7 +1367,6 @@ type AzureSqlDatabaseOutputDataSourceInput interface {
 	ToAzureSqlDatabaseOutputDataSourceOutputWithContext(context.Context) AzureSqlDatabaseOutputDataSourceOutput
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceArgs struct {
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database pulumi.StringPtrInput `pulumi:"database"`
@@ -1433,7 +1395,6 @@ func (i AzureSqlDatabaseOutputDataSourceArgs) ToAzureSqlDatabaseOutputDataSource
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseOutputDataSourceOutput)
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlDatabaseOutputDataSourceOutput) ElementType() reflect.Type {
@@ -1479,7 +1440,6 @@ func (o AzureSqlDatabaseOutputDataSourceOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSource) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceResponse struct {
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database *string `pulumi:"database"`
@@ -1507,7 +1467,6 @@ type AzureSqlDatabaseOutputDataSourceResponseInput interface {
 	ToAzureSqlDatabaseOutputDataSourceResponseOutputWithContext(context.Context) AzureSqlDatabaseOutputDataSourceResponseOutput
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceResponseArgs struct {
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database pulumi.StringPtrInput `pulumi:"database"`
@@ -1536,7 +1495,6 @@ func (i AzureSqlDatabaseOutputDataSourceResponseArgs) ToAzureSqlDatabaseOutputDa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseOutputDataSourceResponseOutput)
 }
 
-// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlDatabaseOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -1582,7 +1540,6 @@ func (o AzureSqlDatabaseOutputDataSourceResponseOutput) User() pulumi.StringPtrO
 	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceResponse) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSource struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
@@ -1614,7 +1571,6 @@ type AzureTableOutputDataSourceInput interface {
 	ToAzureTableOutputDataSourceOutputWithContext(context.Context) AzureTableOutputDataSourceOutput
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSourceArgs struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
@@ -1647,7 +1603,6 @@ func (i AzureTableOutputDataSourceArgs) ToAzureTableOutputDataSourceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTableOutputDataSourceOutput)
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (AzureTableOutputDataSourceOutput) ElementType() reflect.Type {
@@ -1703,7 +1658,6 @@ func (o AzureTableOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSourceResponse struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
@@ -1735,7 +1689,6 @@ type AzureTableOutputDataSourceResponseInput interface {
 	ToAzureTableOutputDataSourceResponseOutputWithContext(context.Context) AzureTableOutputDataSourceResponseOutput
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSourceResponseArgs struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
@@ -1768,7 +1721,6 @@ func (i AzureTableOutputDataSourceResponseArgs) ToAzureTableOutputDataSourceResp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTableOutputDataSourceResponseOutput)
 }
 
-// Describes an Azure Table output data source.
 type AzureTableOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureTableOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -1824,7 +1776,6 @@ func (o AzureTableOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSource struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -1852,7 +1803,6 @@ type BlobOutputDataSourceInput interface {
 	ToBlobOutputDataSourceOutputWithContext(context.Context) BlobOutputDataSourceOutput
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSourceArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -1881,7 +1831,6 @@ func (i BlobOutputDataSourceArgs) ToBlobOutputDataSourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BlobOutputDataSourceOutput)
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (BlobOutputDataSourceOutput) ElementType() reflect.Type {
@@ -1927,7 +1876,6 @@ func (o BlobOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSourceResponse struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -1955,7 +1903,6 @@ type BlobOutputDataSourceResponseInput interface {
 	ToBlobOutputDataSourceResponseOutputWithContext(context.Context) BlobOutputDataSourceResponseOutput
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSourceResponseArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -1984,7 +1931,6 @@ func (i BlobOutputDataSourceResponseArgs) ToBlobOutputDataSourceResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BlobOutputDataSourceResponseOutput)
 }
 
-// Describes a blob output data source.
 type BlobOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2030,7 +1976,6 @@ func (o BlobOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSource struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -2058,7 +2003,6 @@ type BlobReferenceInputDataSourceInput interface {
 	ToBlobReferenceInputDataSourceOutputWithContext(context.Context) BlobReferenceInputDataSourceOutput
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -2128,7 +2072,6 @@ func (i *blobReferenceInputDataSourcePtrType) ToBlobReferenceInputDataSourcePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BlobReferenceInputDataSourcePtrOutput)
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (BlobReferenceInputDataSourceOutput) ElementType() reflect.Type {
@@ -2269,7 +2212,6 @@ func (o BlobReferenceInputDataSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceResponse struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -2297,7 +2239,6 @@ type BlobReferenceInputDataSourceResponseInput interface {
 	ToBlobReferenceInputDataSourceResponseOutputWithContext(context.Context) BlobReferenceInputDataSourceResponseOutput
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceResponseArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -2367,7 +2308,6 @@ func (i *blobReferenceInputDataSourceResponsePtrType) ToBlobReferenceInputDataSo
 	return pulumi.ToOutputWithContext(ctx, i).(BlobReferenceInputDataSourceResponsePtrOutput)
 }
 
-// Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobReferenceInputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2508,7 +2448,6 @@ func (o BlobReferenceInputDataSourceResponsePtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSource struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -2538,7 +2477,6 @@ type BlobStreamInputDataSourceInput interface {
 	ToBlobStreamInputDataSourceOutputWithContext(context.Context) BlobStreamInputDataSourceOutput
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -2569,7 +2507,6 @@ func (i BlobStreamInputDataSourceArgs) ToBlobStreamInputDataSourceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStreamInputDataSourceOutput)
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (BlobStreamInputDataSourceOutput) ElementType() reflect.Type {
@@ -2620,7 +2557,6 @@ func (o BlobStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponse struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -2650,7 +2586,6 @@ type BlobStreamInputDataSourceResponseInput interface {
 	ToBlobStreamInputDataSourceResponseOutputWithContext(context.Context) BlobStreamInputDataSourceResponseOutput
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponseArgs struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container pulumi.StringPtrInput `pulumi:"container"`
@@ -2681,7 +2616,6 @@ func (i BlobStreamInputDataSourceResponseArgs) ToBlobStreamInputDataSourceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStreamInputDataSourceResponseOutput)
 }
 
-// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobStreamInputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2732,7 +2666,6 @@ func (o BlobStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A streaming job.
 type ClusterJobResponse struct {
 	// Resource ID of the streaming job.
 	Id string `pulumi:"id"`
@@ -2753,7 +2686,6 @@ type ClusterJobResponseInput interface {
 	ToClusterJobResponseOutputWithContext(context.Context) ClusterJobResponseOutput
 }
 
-// A streaming job.
 type ClusterJobResponseArgs struct {
 	// Resource ID of the streaming job.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2800,7 +2732,6 @@ func (i ClusterJobResponseArray) ToClusterJobResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobResponseArrayOutput)
 }
 
-// A streaming job.
 type ClusterJobResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterJobResponseOutput) ElementType() reflect.Type {
@@ -2850,7 +2781,6 @@ func (o ClusterJobResponseArrayOutput) Index(i pulumi.IntInput) ClusterJobRespon
 	}).(ClusterJobResponseOutput)
 }
 
-// The properties associated with a Stream Analytics cluster.
 type ClusterPropertiesResponse struct {
 	// Represents the number of streaming units currently being used on the cluster.
 	CapacityAllocated int `pulumi:"capacityAllocated"`
@@ -2875,7 +2805,6 @@ type ClusterPropertiesResponseInput interface {
 	ToClusterPropertiesResponseOutputWithContext(context.Context) ClusterPropertiesResponseOutput
 }
 
-// The properties associated with a Stream Analytics cluster.
 type ClusterPropertiesResponseArgs struct {
 	// Represents the number of streaming units currently being used on the cluster.
 	CapacityAllocated pulumi.IntInput `pulumi:"capacityAllocated"`
@@ -2942,7 +2871,6 @@ func (i *clusterPropertiesResponsePtrType) ToClusterPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPropertiesResponsePtrOutput)
 }
 
-// The properties associated with a Stream Analytics cluster.
 type ClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3066,7 +2994,6 @@ func (o ClusterPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSku struct {
 	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
 	Capacity *int `pulumi:"capacity"`
@@ -3085,7 +3012,6 @@ type ClusterSkuInput interface {
 	ToClusterSkuOutputWithContext(context.Context) ClusterSkuOutput
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuArgs struct {
 	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -3146,7 +3072,6 @@ func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
@@ -3225,7 +3150,6 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuResponse struct {
 	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
 	Capacity *int `pulumi:"capacity"`
@@ -3244,7 +3168,6 @@ type ClusterSkuResponseInput interface {
 	ToClusterSkuResponseOutputWithContext(context.Context) ClusterSkuResponseOutput
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuResponseArgs struct {
 	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -3305,7 +3228,6 @@ func (i *clusterSkuResponsePtrType) ToClusterSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponsePtrOutput)
 }
 
-// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuResponseOutput) ElementType() reflect.Type {
@@ -3384,7 +3306,6 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerialization struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -3406,7 +3327,6 @@ type CsvSerializationInput interface {
 	ToCsvSerializationOutputWithContext(context.Context) CsvSerializationOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationArgs struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
@@ -3429,7 +3349,6 @@ func (i CsvSerializationArgs) ToCsvSerializationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CsvSerializationOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationOutput struct{ *pulumi.OutputState }
 
 func (CsvSerializationOutput) ElementType() reflect.Type {
@@ -3460,7 +3379,6 @@ func (o CsvSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CsvSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationResponse struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -3482,7 +3400,6 @@ type CsvSerializationResponseInput interface {
 	ToCsvSerializationResponseOutputWithContext(context.Context) CsvSerializationResponseOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationResponseArgs struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
@@ -3505,7 +3422,6 @@ func (i CsvSerializationResponseArgs) ToCsvSerializationResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CsvSerializationResponseOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationResponseOutput struct{ *pulumi.OutputState }
 
 func (CsvSerializationResponseOutput) ElementType() reflect.Type {
@@ -3536,7 +3452,6 @@ func (o CsvSerializationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CsvSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
 type DiagnosticConditionResponse struct {
 	// The opaque diagnostic code.
 	Code string `pulumi:"code"`
@@ -3557,7 +3472,6 @@ type DiagnosticConditionResponseInput interface {
 	ToDiagnosticConditionResponseOutputWithContext(context.Context) DiagnosticConditionResponseOutput
 }
 
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
 type DiagnosticConditionResponseArgs struct {
 	// The opaque diagnostic code.
 	Code pulumi.StringInput `pulumi:"code"`
@@ -3604,7 +3518,6 @@ func (i DiagnosticConditionResponseArray) ToDiagnosticConditionResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConditionResponseArrayOutput)
 }
 
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
 type DiagnosticConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticConditionResponseOutput) ElementType() reflect.Type {
@@ -3654,7 +3567,6 @@ func (o DiagnosticConditionResponseArrayOutput) Index(i pulumi.IntInput) Diagnos
 	}).(DiagnosticConditionResponseOutput)
 }
 
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 type DiagnosticsResponse struct {
 	// A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
 	Conditions []DiagnosticConditionResponse `pulumi:"conditions"`
@@ -3671,7 +3583,6 @@ type DiagnosticsResponseInput interface {
 	ToDiagnosticsResponseOutputWithContext(context.Context) DiagnosticsResponseOutput
 }
 
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 type DiagnosticsResponseArgs struct {
 	// A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
 	Conditions DiagnosticConditionResponseArrayInput `pulumi:"conditions"`
@@ -3730,7 +3641,6 @@ func (i *diagnosticsResponsePtrType) ToDiagnosticsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsResponsePtrOutput)
 }
 
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 type DiagnosticsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsResponseOutput) ElementType() reflect.Type {
@@ -3794,7 +3704,6 @@ func (o DiagnosticsResponsePtrOutput) Conditions() DiagnosticConditionResponseAr
 	}).(DiagnosticConditionResponseArrayOutput)
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSource struct {
 	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
 	AccountId *string `pulumi:"accountId"`
@@ -3824,7 +3733,6 @@ type DocumentDbOutputDataSourceInput interface {
 	ToDocumentDbOutputDataSourceOutputWithContext(context.Context) DocumentDbOutputDataSourceOutput
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceArgs struct {
 	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -3855,7 +3763,6 @@ func (i DocumentDbOutputDataSourceArgs) ToDocumentDbOutputDataSourceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentDbOutputDataSourceOutput)
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (DocumentDbOutputDataSourceOutput) ElementType() reflect.Type {
@@ -3906,7 +3813,6 @@ func (o DocumentDbOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentDbOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceResponse struct {
 	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
 	AccountId *string `pulumi:"accountId"`
@@ -3936,7 +3842,6 @@ type DocumentDbOutputDataSourceResponseInput interface {
 	ToDocumentDbOutputDataSourceResponseOutputWithContext(context.Context) DocumentDbOutputDataSourceResponseOutput
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceResponseArgs struct {
 	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -3967,7 +3872,6 @@ func (i DocumentDbOutputDataSourceResponseArgs) ToDocumentDbOutputDataSourceResp
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentDbOutputDataSourceResponseOutput)
 }
 
-// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (DocumentDbOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -4018,7 +3922,6 @@ func (o DocumentDbOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentDbOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSource struct {
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
@@ -4046,7 +3949,6 @@ type EventHubOutputDataSourceInput interface {
 	ToEventHubOutputDataSourceOutputWithContext(context.Context) EventHubOutputDataSourceOutput
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSourceArgs struct {
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
@@ -4075,7 +3977,6 @@ func (i EventHubOutputDataSourceArgs) ToEventHubOutputDataSourceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutputDataSourceOutput)
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutputDataSourceOutput) ElementType() reflect.Type {
@@ -4121,7 +4022,6 @@ func (o EventHubOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSourceResponse struct {
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
@@ -4149,7 +4049,6 @@ type EventHubOutputDataSourceResponseInput interface {
 	ToEventHubOutputDataSourceResponseOutputWithContext(context.Context) EventHubOutputDataSourceResponseOutput
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSourceResponseArgs struct {
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
@@ -4178,7 +4077,6 @@ func (i EventHubOutputDataSourceResponseArgs) ToEventHubOutputDataSourceResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutputDataSourceResponseOutput)
 }
 
-// Describes an Event Hub output data source.
 type EventHubOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -4224,7 +4122,6 @@ func (o EventHubOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSource struct {
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
@@ -4252,7 +4149,6 @@ type EventHubStreamInputDataSourceInput interface {
 	ToEventHubStreamInputDataSourceOutputWithContext(context.Context) EventHubStreamInputDataSourceOutput
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceArgs struct {
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
 	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
@@ -4281,7 +4177,6 @@ func (i EventHubStreamInputDataSourceArgs) ToEventHubStreamInputDataSourceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubStreamInputDataSourceOutput)
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (EventHubStreamInputDataSourceOutput) ElementType() reflect.Type {
@@ -4327,7 +4222,6 @@ func (o EventHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceResponse struct {
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
@@ -4355,7 +4249,6 @@ type EventHubStreamInputDataSourceResponseInput interface {
 	ToEventHubStreamInputDataSourceResponseOutputWithContext(context.Context) EventHubStreamInputDataSourceResponseOutput
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceResponseArgs struct {
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
 	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
@@ -4384,7 +4277,6 @@ func (i EventHubStreamInputDataSourceResponseArgs) ToEventHubStreamInputDataSour
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubStreamInputDataSourceResponseOutput)
 }
 
-// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubStreamInputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -4430,7 +4322,6 @@ func (o EventHubStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput 
 	return o.ApplyT(func(v EventHubStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionType struct {
 	// Resource name
 	Name *string `pulumi:"name"`
@@ -4449,7 +4340,6 @@ type FunctionTypeInput interface {
 	ToFunctionTypeOutputWithContext(context.Context) FunctionTypeOutput
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionTypeArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -4494,7 +4384,6 @@ func (i FunctionTypeArray) ToFunctionTypeArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTypeArrayOutput)
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionTypeOutput) ElementType() reflect.Type {
@@ -4539,7 +4428,6 @@ func (o FunctionTypeArrayOutput) Index(i pulumi.IntInput) FunctionTypeOutput {
 	}).(FunctionTypeOutput)
 }
 
-// Describes one input parameter of a function.
 type FunctionInputType struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
@@ -4558,7 +4446,6 @@ type FunctionInputTypeInput interface {
 	ToFunctionInputTypeOutputWithContext(context.Context) FunctionInputTypeOutput
 }
 
-// Describes one input parameter of a function.
 type FunctionInputTypeArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -4603,7 +4490,6 @@ func (i FunctionInputTypeArray) ToFunctionInputTypeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputTypeArrayOutput)
 }
 
-// Describes one input parameter of a function.
 type FunctionInputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionInputTypeOutput) ElementType() reflect.Type {
@@ -4648,7 +4534,6 @@ func (o FunctionInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionInputType
 	}).(FunctionInputTypeOutput)
 }
 
-// Describes one input parameter of a function.
 type FunctionInputResponse struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
@@ -4667,7 +4552,6 @@ type FunctionInputResponseInput interface {
 	ToFunctionInputResponseOutputWithContext(context.Context) FunctionInputResponseOutput
 }
 
-// Describes one input parameter of a function.
 type FunctionInputResponseArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -4712,7 +4596,6 @@ func (i FunctionInputResponseArray) ToFunctionInputResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputResponseArrayOutput)
 }
 
-// Describes one input parameter of a function.
 type FunctionInputResponseOutput struct{ *pulumi.OutputState }
 
 func (FunctionInputResponseOutput) ElementType() reflect.Type {
@@ -4757,7 +4640,6 @@ func (o FunctionInputResponseArrayOutput) Index(i pulumi.IntInput) FunctionInput
 	}).(FunctionInputResponseOutput)
 }
 
-// Describes the output of a function.
 type FunctionOutputType struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
@@ -4774,7 +4656,6 @@ type FunctionOutputTypeInput interface {
 	ToFunctionOutputTypeOutputWithContext(context.Context) FunctionOutputTypeOutput
 }
 
-// Describes the output of a function.
 type FunctionOutputTypeArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -4833,7 +4714,6 @@ func (i *functionOutputTypePtrType) ToFunctionOutputTypePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputTypePtrOutput)
 }
 
-// Describes the output of a function.
 type FunctionOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutputTypeOutput) ElementType() reflect.Type {
@@ -4897,7 +4777,6 @@ func (o FunctionOutputTypePtrOutput) DataType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the output of a function.
 type FunctionOutputResponse struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
@@ -4914,7 +4793,6 @@ type FunctionOutputResponseInput interface {
 	ToFunctionOutputResponseOutputWithContext(context.Context) FunctionOutputResponseOutput
 }
 
-// Describes the output of a function.
 type FunctionOutputResponseArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
@@ -4973,7 +4851,6 @@ func (i *functionOutputResponsePtrType) ToFunctionOutputResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputResponsePtrOutput)
 }
 
-// Describes the output of a function.
 type FunctionOutputResponseOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutputResponseOutput) ElementType() reflect.Type {
@@ -5037,7 +4914,6 @@ func (o FunctionOutputResponsePtrOutput) DataType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionResponse struct {
 	// Resource Id
 	Id string `pulumi:"id"`
@@ -5060,7 +4936,6 @@ type FunctionResponseInput interface {
 	ToFunctionResponseOutputWithContext(context.Context) FunctionResponseOutput
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5109,7 +4984,6 @@ func (i FunctionResponseArray) ToFunctionResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionResponseArrayOutput)
 }
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionResponseOutput struct{ *pulumi.OutputState }
 
 func (FunctionResponseOutput) ElementType() reflect.Type {
@@ -5164,7 +5038,6 @@ func (o FunctionResponseArrayOutput) Index(i pulumi.IntInput) FunctionResponseOu
 	}).(FunctionResponseOutput)
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputType struct {
 	// Resource name
 	Name *string `pulumi:"name"`
@@ -5183,7 +5056,6 @@ type InputTypeInput interface {
 	ToInputTypeOutputWithContext(context.Context) InputTypeOutput
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputTypeArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -5228,7 +5100,6 @@ func (i InputTypeArray) ToInputTypeArrayOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(InputTypeArrayOutput)
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputTypeOutput struct{ *pulumi.OutputState }
 
 func (InputTypeOutput) ElementType() reflect.Type {
@@ -5273,7 +5144,6 @@ func (o InputTypeArrayOutput) Index(i pulumi.IntInput) InputTypeOutput {
 	}).(InputTypeOutput)
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputResponse struct {
 	// Resource Id
 	Id string `pulumi:"id"`
@@ -5296,7 +5166,6 @@ type InputResponseInput interface {
 	ToInputResponseOutputWithContext(context.Context) InputResponseOutput
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5345,7 +5214,6 @@ func (i InputResponseArray) ToInputResponseArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InputResponseArrayOutput)
 }
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputResponseOutput struct{ *pulumi.OutputState }
 
 func (InputResponseOutput) ElementType() reflect.Type {
@@ -5400,7 +5268,6 @@ func (o InputResponseArrayOutput) Index(i pulumi.IntInput) InputResponseOutput {
 	}).(InputResponseOutput)
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSource struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
@@ -5428,7 +5295,6 @@ type IoTHubStreamInputDataSourceInput interface {
 	ToIoTHubStreamInputDataSourceOutputWithContext(context.Context) IoTHubStreamInputDataSourceOutput
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceArgs struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
 	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
@@ -5457,7 +5323,6 @@ func (i IoTHubStreamInputDataSourceArgs) ToIoTHubStreamInputDataSourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubStreamInputDataSourceOutput)
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (IoTHubStreamInputDataSourceOutput) ElementType() reflect.Type {
@@ -5503,7 +5368,6 @@ func (o IoTHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceResponse struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
@@ -5531,7 +5395,6 @@ type IoTHubStreamInputDataSourceResponseInput interface {
 	ToIoTHubStreamInputDataSourceResponseOutputWithContext(context.Context) IoTHubStreamInputDataSourceResponseOutput
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceResponseArgs struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
 	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
@@ -5560,7 +5423,6 @@ func (i IoTHubStreamInputDataSourceResponseArgs) ToIoTHubStreamInputDataSourceRe
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubStreamInputDataSourceResponseOutput)
 }
 
-// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (IoTHubStreamInputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -5606,7 +5468,6 @@ func (o IoTHubStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBinding struct {
 	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
 	Script *string `pulumi:"script"`
@@ -5626,7 +5487,6 @@ type JavaScriptFunctionBindingInput interface {
 	ToJavaScriptFunctionBindingOutputWithContext(context.Context) JavaScriptFunctionBindingOutput
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBindingArgs struct {
 	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
 	Script pulumi.StringPtrInput `pulumi:"script"`
@@ -5647,7 +5507,6 @@ func (i JavaScriptFunctionBindingArgs) ToJavaScriptFunctionBindingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JavaScriptFunctionBindingOutput)
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBindingOutput struct{ *pulumi.OutputState }
 
 func (JavaScriptFunctionBindingOutput) ElementType() reflect.Type {
@@ -5673,7 +5532,6 @@ func (o JavaScriptFunctionBindingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JavaScriptFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBindingResponse struct {
 	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
 	Script *string `pulumi:"script"`
@@ -5693,7 +5551,6 @@ type JavaScriptFunctionBindingResponseInput interface {
 	ToJavaScriptFunctionBindingResponseOutputWithContext(context.Context) JavaScriptFunctionBindingResponseOutput
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBindingResponseArgs struct {
 	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
 	Script pulumi.StringPtrInput `pulumi:"script"`
@@ -5714,7 +5571,6 @@ func (i JavaScriptFunctionBindingResponseArgs) ToJavaScriptFunctionBindingRespon
 	return pulumi.ToOutputWithContext(ctx, i).(JavaScriptFunctionBindingResponseOutput)
 }
 
-// The binding to a JavaScript function.
 type JavaScriptFunctionBindingResponseOutput struct{ *pulumi.OutputState }
 
 func (JavaScriptFunctionBindingResponseOutput) ElementType() reflect.Type {
@@ -5740,7 +5596,6 @@ func (o JavaScriptFunctionBindingResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JavaScriptFunctionBindingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerialization struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -5762,7 +5617,6 @@ type JsonSerializationInput interface {
 	ToJsonSerializationOutputWithContext(context.Context) JsonSerializationOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationArgs struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
@@ -5785,7 +5639,6 @@ func (i JsonSerializationArgs) ToJsonSerializationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(JsonSerializationOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationOutput struct{ *pulumi.OutputState }
 
 func (JsonSerializationOutput) ElementType() reflect.Type {
@@ -5816,7 +5669,6 @@ func (o JsonSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationResponse struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -5838,7 +5690,6 @@ type JsonSerializationResponseInput interface {
 	ToJsonSerializationResponseOutputWithContext(context.Context) JsonSerializationResponseOutput
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationResponseArgs struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
@@ -5861,7 +5712,6 @@ func (i JsonSerializationResponseArgs) ToJsonSerializationResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JsonSerializationResponseOutput)
 }
 
-// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonSerializationResponseOutput) ElementType() reflect.Type {
@@ -5892,7 +5742,6 @@ func (o JsonSerializationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputType struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource interface{} `pulumi:"datasource"`
@@ -5913,7 +5762,6 @@ type OutputTypeInput interface {
 	ToOutputTypeOutputWithContext(context.Context) OutputTypeOutput
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputTypeArgs struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource pulumi.Input `pulumi:"datasource"`
@@ -5960,7 +5808,6 @@ func (i OutputTypeArray) ToOutputTypeArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OutputTypeArrayOutput)
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputTypeOutput struct{ *pulumi.OutputState }
 
 func (OutputTypeOutput) ElementType() reflect.Type {
@@ -6010,7 +5857,6 @@ func (o OutputTypeArrayOutput) Index(i pulumi.IntInput) OutputTypeOutput {
 	}).(OutputTypeOutput)
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputResponse struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource interface{} `pulumi:"datasource"`
@@ -6039,7 +5885,6 @@ type OutputResponseInput interface {
 	ToOutputResponseOutputWithContext(context.Context) OutputResponseOutput
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputResponseArgs struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource pulumi.Input `pulumi:"datasource"`
@@ -6094,7 +5939,6 @@ func (i OutputResponseArray) ToOutputResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OutputResponseArrayOutput)
 }
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputResponseOutput struct{ *pulumi.OutputState }
 
 func (OutputResponseOutput) ElementType() reflect.Type {
@@ -6164,7 +6008,6 @@ func (o OutputResponseArrayOutput) Index(i pulumi.IntInput) OutputResponseOutput
 	}).(OutputResponseOutput)
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSource struct {
 	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
 	Dataset *string `pulumi:"dataset"`
@@ -6196,7 +6039,6 @@ type PowerBIOutputDataSourceInput interface {
 	ToPowerBIOutputDataSourceOutputWithContext(context.Context) PowerBIOutputDataSourceOutput
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSourceArgs struct {
 	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
 	Dataset pulumi.StringPtrInput `pulumi:"dataset"`
@@ -6229,7 +6071,6 @@ func (i PowerBIOutputDataSourceArgs) ToPowerBIOutputDataSourceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PowerBIOutputDataSourceOutput)
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (PowerBIOutputDataSourceOutput) ElementType() reflect.Type {
@@ -6285,7 +6126,6 @@ func (o PowerBIOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerBIOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSourceResponse struct {
 	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
 	Dataset *string `pulumi:"dataset"`
@@ -6317,7 +6157,6 @@ type PowerBIOutputDataSourceResponseInput interface {
 	ToPowerBIOutputDataSourceResponseOutputWithContext(context.Context) PowerBIOutputDataSourceResponseOutput
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSourceResponseArgs struct {
 	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
 	Dataset pulumi.StringPtrInput `pulumi:"dataset"`
@@ -6350,7 +6189,6 @@ func (i PowerBIOutputDataSourceResponseArgs) ToPowerBIOutputDataSourceResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(PowerBIOutputDataSourceResponseOutput)
 }
 
-// Describes a Power BI output data source.
 type PowerBIOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PowerBIOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -6406,7 +6244,6 @@ func (o PowerBIOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerBIOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointProperties struct {
 	// A list of connections to the remote resource. Immutable after it is set.
 	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
@@ -6423,7 +6260,6 @@ type PrivateEndpointPropertiesInput interface {
 	ToPrivateEndpointPropertiesOutputWithContext(context.Context) PrivateEndpointPropertiesOutput
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesArgs struct {
 	// A list of connections to the remote resource. Immutable after it is set.
 	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput `pulumi:"manualPrivateLinkServiceConnections"`
@@ -6482,7 +6318,6 @@ func (i *privateEndpointPropertiesPtrType) ToPrivateEndpointPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertiesPtrOutput)
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointPropertiesOutput) ElementType() reflect.Type {
@@ -6548,7 +6383,6 @@ func (o PrivateEndpointPropertiesPtrOutput) ManualPrivateLinkServiceConnections(
 	}).(PrivateLinkServiceConnectionArrayOutput)
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesResponse struct {
 	// The date when this private endpoint was created.
 	CreatedDate string `pulumi:"createdDate"`
@@ -6567,7 +6401,6 @@ type PrivateEndpointPropertiesResponseInput interface {
 	ToPrivateEndpointPropertiesResponseOutputWithContext(context.Context) PrivateEndpointPropertiesResponseOutput
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesResponseArgs struct {
 	// The date when this private endpoint was created.
 	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
@@ -6628,7 +6461,6 @@ func (i *privateEndpointPropertiesResponsePtrType) ToPrivateEndpointPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertiesResponsePtrOutput)
 }
 
-// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6709,7 +6541,6 @@ func (o PrivateEndpointPropertiesResponsePtrOutput) ManualPrivateLinkServiceConn
 	}).(PrivateLinkServiceConnectionResponseArrayOutput)
 }
 
-// A collection of read-only information about the state of the connection to the private remote resource.
 type PrivateLinkConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -6730,7 +6561,6 @@ type PrivateLinkConnectionStateResponseInput interface {
 	ToPrivateLinkConnectionStateResponseOutputWithContext(context.Context) PrivateLinkConnectionStateResponseOutput
 }
 
-// A collection of read-only information about the state of the connection to the private remote resource.
 type PrivateLinkConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
@@ -6793,7 +6623,6 @@ func (i *privateLinkConnectionStateResponsePtrType) ToPrivateLinkConnectionState
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStateResponsePtrOutput)
 }
 
-// A collection of read-only information about the state of the connection to the private remote resource.
 type PrivateLinkConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -6887,7 +6716,6 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnection struct {
 	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
 	GroupIds []string `pulumi:"groupIds"`
@@ -6908,7 +6736,6 @@ type PrivateLinkServiceConnectionInput interface {
 	ToPrivateLinkServiceConnectionOutputWithContext(context.Context) PrivateLinkServiceConnectionOutput
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionArgs struct {
 	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
@@ -6955,7 +6782,6 @@ func (i PrivateLinkServiceConnectionArray) ToPrivateLinkServiceConnectionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionArrayOutput)
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionOutput) ElementType() reflect.Type {
@@ -7005,7 +6831,6 @@ func (o PrivateLinkServiceConnectionArrayOutput) Index(i pulumi.IntInput) Privat
 	}).(PrivateLinkServiceConnectionOutput)
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionResponse struct {
 	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
 	GroupIds []string `pulumi:"groupIds"`
@@ -7028,7 +6853,6 @@ type PrivateLinkServiceConnectionResponseInput interface {
 	ToPrivateLinkServiceConnectionResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionResponseOutput
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionResponseArgs struct {
 	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
@@ -7077,7 +6901,6 @@ func (i PrivateLinkServiceConnectionResponseArray) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionResponseArrayOutput)
 }
 
-// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionResponseOutput) ElementType() reflect.Type {
@@ -7134,7 +6957,6 @@ func (o PrivateLinkServiceConnectionResponseArrayOutput) Index(i pulumi.IntInput
 	}).(PrivateLinkServiceConnectionResponseOutput)
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputProperties struct {
 	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
 	Datasource *BlobReferenceInputDataSource `pulumi:"datasource"`
@@ -7156,7 +6978,6 @@ type ReferenceInputPropertiesInput interface {
 	ToReferenceInputPropertiesOutputWithContext(context.Context) ReferenceInputPropertiesOutput
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesArgs struct {
 	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
 	Datasource BlobReferenceInputDataSourcePtrInput `pulumi:"datasource"`
@@ -7179,7 +7000,6 @@ func (i ReferenceInputPropertiesArgs) ToReferenceInputPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputPropertiesOutput)
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputPropertiesOutput) ElementType() reflect.Type {
@@ -7210,7 +7030,6 @@ func (o ReferenceInputPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceInputProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesResponse struct {
 	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
 	Datasource *BlobReferenceInputDataSourceResponse `pulumi:"datasource"`
@@ -7236,7 +7055,6 @@ type ReferenceInputPropertiesResponseInput interface {
 	ToReferenceInputPropertiesResponseOutputWithContext(context.Context) ReferenceInputPropertiesResponseOutput
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesResponseArgs struct {
 	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
 	Datasource BlobReferenceInputDataSourceResponsePtrInput `pulumi:"datasource"`
@@ -7263,7 +7081,6 @@ func (i ReferenceInputPropertiesResponseArgs) ToReferenceInputPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputPropertiesResponseOutput)
 }
 
-// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7304,7 +7121,6 @@ func (o ReferenceInputPropertiesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceInputPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionProperties struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding interface{} `pulumi:"binding"`
@@ -7328,7 +7144,6 @@ type ScalarFunctionPropertiesInput interface {
 	ToScalarFunctionPropertiesOutputWithContext(context.Context) ScalarFunctionPropertiesOutput
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionPropertiesArgs struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding pulumi.Input `pulumi:"binding"`
@@ -7394,7 +7209,6 @@ func (i *scalarFunctionPropertiesPtrType) ToScalarFunctionPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ScalarFunctionPropertiesPtrOutput)
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ScalarFunctionPropertiesOutput) ElementType() reflect.Type {
@@ -7505,7 +7319,6 @@ func (o ScalarFunctionPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionPropertiesResponse struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding interface{} `pulumi:"binding"`
@@ -7531,7 +7344,6 @@ type ScalarFunctionPropertiesResponseInput interface {
 	ToScalarFunctionPropertiesResponseOutputWithContext(context.Context) ScalarFunctionPropertiesResponseOutput
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionPropertiesResponseArgs struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding pulumi.Input `pulumi:"binding"`
@@ -7599,7 +7411,6 @@ func (i *scalarFunctionPropertiesResponsePtrType) ToScalarFunctionPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(ScalarFunctionPropertiesResponsePtrOutput)
 }
 
-// The properties that are associated with a scalar function.
 type ScalarFunctionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ScalarFunctionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7725,7 +7536,6 @@ func (o ScalarFunctionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSource struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns []string `pulumi:"propertyColumns"`
@@ -7753,7 +7563,6 @@ type ServiceBusQueueOutputDataSourceInput interface {
 	ToServiceBusQueueOutputDataSourceOutputWithContext(context.Context) ServiceBusQueueOutputDataSourceOutput
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSourceArgs struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
@@ -7782,7 +7591,6 @@ func (i ServiceBusQueueOutputDataSourceArgs) ToServiceBusQueueOutputDataSourceOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueOutputDataSourceOutput)
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueOutputDataSourceOutput) ElementType() reflect.Type {
@@ -7828,7 +7636,6 @@ func (o ServiceBusQueueOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusQueueOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSourceResponse struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns []string `pulumi:"propertyColumns"`
@@ -7856,7 +7663,6 @@ type ServiceBusQueueOutputDataSourceResponseInput interface {
 	ToServiceBusQueueOutputDataSourceResponseOutputWithContext(context.Context) ServiceBusQueueOutputDataSourceResponseOutput
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSourceResponseArgs struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
@@ -7885,7 +7691,6 @@ func (i ServiceBusQueueOutputDataSourceResponseArgs) ToServiceBusQueueOutputData
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueOutputDataSourceResponseOutput)
 }
 
-// Describes a Service Bus Queue output data source.
 type ServiceBusQueueOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -7931,7 +7736,6 @@ func (o ServiceBusQueueOutputDataSourceResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSource struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns []string `pulumi:"propertyColumns"`
@@ -7959,7 +7763,6 @@ type ServiceBusTopicOutputDataSourceInput interface {
 	ToServiceBusTopicOutputDataSourceOutputWithContext(context.Context) ServiceBusTopicOutputDataSourceOutput
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSourceArgs struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
@@ -7988,7 +7791,6 @@ func (i ServiceBusTopicOutputDataSourceArgs) ToServiceBusTopicOutputDataSourceOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicOutputDataSourceOutput)
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusTopicOutputDataSourceOutput) ElementType() reflect.Type {
@@ -8034,7 +7836,6 @@ func (o ServiceBusTopicOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusTopicOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSourceResponse struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns []string `pulumi:"propertyColumns"`
@@ -8062,7 +7863,6 @@ type ServiceBusTopicOutputDataSourceResponseInput interface {
 	ToServiceBusTopicOutputDataSourceResponseOutputWithContext(context.Context) ServiceBusTopicOutputDataSourceResponseOutput
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSourceResponseArgs struct {
 	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
 	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
@@ -8091,7 +7891,6 @@ func (i ServiceBusTopicOutputDataSourceResponseArgs) ToServiceBusTopicOutputData
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicOutputDataSourceResponseOutput)
 }
 
-// Describes a Service Bus Topic output data source.
 type ServiceBusTopicOutputDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusTopicOutputDataSourceResponseOutput) ElementType() reflect.Type {
@@ -8137,7 +7936,6 @@ func (o ServiceBusTopicOutputDataSourceResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties that are associated with a SKU.
 type Sku struct {
 	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
 	Name *string `pulumi:"name"`
@@ -8154,7 +7952,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The properties that are associated with a SKU.
 type SkuArgs struct {
 	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -8213,7 +8010,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The properties that are associated with a SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -8277,7 +8073,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with a SKU.
 type SkuResponse struct {
 	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
 	Name *string `pulumi:"name"`
@@ -8294,7 +8089,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The properties that are associated with a SKU.
 type SkuResponseArgs struct {
 	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -8353,7 +8147,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The properties that are associated with a SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -8417,7 +8210,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccount struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
@@ -8436,7 +8228,6 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccountArgs struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
@@ -8481,7 +8272,6 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -8526,7 +8316,6 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	}).(StorageAccountOutput)
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccountResponse struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
@@ -8545,7 +8334,6 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccountResponseArgs struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
@@ -8590,7 +8378,6 @@ func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
-// The properties that are associated with an Azure Storage account
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -8635,7 +8422,6 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputProperties struct {
 	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
 	Datasource interface{} `pulumi:"datasource"`
@@ -8657,7 +8443,6 @@ type StreamInputPropertiesInput interface {
 	ToStreamInputPropertiesOutputWithContext(context.Context) StreamInputPropertiesOutput
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesArgs struct {
 	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
 	Datasource pulumi.Input `pulumi:"datasource"`
@@ -8680,7 +8465,6 @@ func (i StreamInputPropertiesArgs) ToStreamInputPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputPropertiesOutput)
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StreamInputPropertiesOutput) ElementType() reflect.Type {
@@ -8711,7 +8495,6 @@ func (o StreamInputPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamInputProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesResponse struct {
 	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
 	Datasource interface{} `pulumi:"datasource"`
@@ -8737,7 +8520,6 @@ type StreamInputPropertiesResponseInput interface {
 	ToStreamInputPropertiesResponseOutputWithContext(context.Context) StreamInputPropertiesResponseOutput
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesResponseArgs struct {
 	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
 	Datasource pulumi.Input `pulumi:"datasource"`
@@ -8764,7 +8546,6 @@ func (i StreamInputPropertiesResponseArgs) ToStreamInputPropertiesResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputPropertiesResponseOutput)
 }
 
-// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamInputPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8805,7 +8586,6 @@ func (o StreamInputPropertiesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamInputPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type Transformation struct {
 	// Resource name
 	Name *string `pulumi:"name"`
@@ -8826,7 +8606,6 @@ type TransformationInput interface {
 	ToTransformationOutputWithContext(context.Context) TransformationOutput
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -8889,7 +8668,6 @@ func (i *transformationPtrType) ToTransformationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TransformationPtrOutput)
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationOutput struct{ *pulumi.OutputState }
 
 func (TransformationOutput) ElementType() reflect.Type {
@@ -8983,7 +8761,6 @@ func (o TransformationPtrOutput) StreamingUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponse struct {
 	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
@@ -9010,7 +8787,6 @@ type TransformationResponseInput interface {
 	ToTransformationResponseOutputWithContext(context.Context) TransformationResponseOutput
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponseArgs struct {
 	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag pulumi.StringInput `pulumi:"etag"`
@@ -9079,7 +8855,6 @@ func (i *transformationResponsePtrType) ToTransformationResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TransformationResponsePtrOutput)
 }
 
-// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponseOutput struct{ *pulumi.OutputState }
 
 func (TransformationResponseOutput) ElementType() reflect.Type {

@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties to configure capture description for eventhub
 type CaptureDescription struct {
 	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 	Destination *Destination `pulumi:"destination"`
@@ -37,7 +36,6 @@ type CaptureDescriptionInput interface {
 	ToCaptureDescriptionOutputWithContext(context.Context) CaptureDescriptionOutput
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionArgs struct {
 	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 	Destination DestinationPtrInput `pulumi:"destination"`
@@ -106,7 +104,6 @@ func (i *captureDescriptionPtrType) ToCaptureDescriptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionPtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionOutput struct{ *pulumi.OutputState }
 
 func (CaptureDescriptionOutput) ElementType() reflect.Type {
@@ -245,7 +242,6 @@ func (o CaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponse struct {
 	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 	Destination *DestinationResponse `pulumi:"destination"`
@@ -272,7 +268,6 @@ type CaptureDescriptionResponseInput interface {
 	ToCaptureDescriptionResponseOutputWithContext(context.Context) CaptureDescriptionResponseOutput
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponseArgs struct {
 	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 	Destination DestinationResponsePtrInput `pulumi:"destination"`
@@ -341,7 +336,6 @@ func (i *captureDescriptionResponsePtrType) ToCaptureDescriptionResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionResponsePtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CaptureDescriptionResponseOutput) ElementType() reflect.Type {
@@ -480,7 +474,6 @@ func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSku struct {
 	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity *int `pulumi:"capacity"`
@@ -499,7 +492,6 @@ type ClusterSkuInput interface {
 	ToClusterSkuOutputWithContext(context.Context) ClusterSkuOutput
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuArgs struct {
 	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -560,7 +552,6 @@ func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
@@ -639,7 +630,6 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponse struct {
 	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity *int `pulumi:"capacity"`
@@ -658,7 +648,6 @@ type ClusterSkuResponseInput interface {
 	ToClusterSkuResponseOutputWithContext(context.Context) ClusterSkuResponseOutput
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponseArgs struct {
 	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -719,7 +708,6 @@ func (i *clusterSkuResponsePtrType) ToClusterSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponsePtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuResponseOutput) ElementType() reflect.Type {
@@ -798,7 +786,6 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionState struct {
 	// Description of the connection state.
 	Description *string `pulumi:"description"`
@@ -817,7 +804,6 @@ type ConnectionStateInput interface {
 	ToConnectionStateOutputWithContext(context.Context) ConnectionStateOutput
 }
 
-// ConnectionState information.
 type ConnectionStateArgs struct {
 	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -878,7 +864,6 @@ func (i *connectionStatePtrType) ToConnectionStatePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateOutput) ElementType() reflect.Type {
@@ -957,7 +942,6 @@ func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponse struct {
 	// Description of the connection state.
 	Description *string `pulumi:"description"`
@@ -976,7 +960,6 @@ type ConnectionStateResponseInput interface {
 	ToConnectionStateResponseOutputWithContext(context.Context) ConnectionStateResponseOutput
 }
 
-// ConnectionState information.
 type ConnectionStateResponseArgs struct {
 	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1037,7 +1020,6 @@ func (i *connectionStateResponsePtrType) ToConnectionStateResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateResponsePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1116,7 +1098,6 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Capture storage details for capture description
 type Destination struct {
 	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
@@ -1139,7 +1120,6 @@ type DestinationInput interface {
 	ToDestinationOutputWithContext(context.Context) DestinationOutput
 }
 
-// Capture storage details for capture description
 type DestinationArgs struct {
 	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
@@ -1204,7 +1184,6 @@ func (i *destinationPtrType) ToDestinationPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationPtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationOutput struct{ *pulumi.OutputState }
 
 func (DestinationOutput) ElementType() reflect.Type {
@@ -1313,7 +1292,6 @@ func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationResponse struct {
 	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
@@ -1336,7 +1314,6 @@ type DestinationResponseInput interface {
 	ToDestinationResponseOutputWithContext(context.Context) DestinationResponseOutput
 }
 
-// Capture storage details for capture description
 type DestinationResponseArgs struct {
 	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
@@ -1401,7 +1378,6 @@ func (i *destinationResponsePtrType) ToDestinationResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationResponsePtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (DestinationResponseOutput) ElementType() reflect.Type {
@@ -1510,7 +1486,6 @@ func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRules struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1529,7 +1504,6 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -1574,7 +1548,6 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -1619,7 +1592,6 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1638,7 +1610,6 @@ type NWRuleSetIpRulesResponseInput interface {
 	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -1683,7 +1654,6 @@ func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -1728,7 +1698,6 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRules struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1747,7 +1716,6 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesArgs struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1792,7 +1760,6 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -1837,7 +1804,6 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponse struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1856,7 +1822,6 @@ type NWRuleSetVirtualNetworkRulesResponseInput interface {
 	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseArgs struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1901,7 +1866,6 @@ func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -1946,7 +1910,6 @@ func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) Index(i pulumi.IntInput
 	}).(NWRuleSetVirtualNetworkRulesResponseOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpoint struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -1963,7 +1926,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2022,7 +1984,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -2086,7 +2047,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -2103,7 +2063,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2162,7 +2121,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -2226,7 +2184,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type Sku struct {
 	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 	Capacity *int `pulumi:"capacity"`
@@ -2247,7 +2204,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuArgs struct {
 	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2310,7 +2266,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2404,7 +2359,6 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponse struct {
 	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 	Capacity *int `pulumi:"capacity"`
@@ -2425,7 +2379,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponseArgs struct {
 	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2488,7 +2441,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2582,7 +2534,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type Subnet struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -2599,7 +2550,6 @@ type SubnetInput interface {
 	ToSubnetOutputWithContext(context.Context) SubnetOutput
 }
 
-// Properties supplied for Subnet
 type SubnetArgs struct {
 	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2658,7 +2608,6 @@ func (i *subnetPtrType) ToSubnetPtrOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -2722,7 +2671,6 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -2739,7 +2687,6 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Properties supplied for Subnet
 type SubnetResponseArgs struct {
 	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2798,7 +2745,6 @@ func (i *subnetResponsePtrType) ToSubnetResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponsePtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {

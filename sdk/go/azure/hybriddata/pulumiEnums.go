@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This is the preferred geo location for the job to run.
 type RunLocation string
 
 const (
@@ -200,7 +199,6 @@ func (in *runLocationPtr) ToRunLocationPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(RunLocationPtrOutput)
 }
 
-// State of the job definition.
 type State string
 
 const (
@@ -366,7 +364,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
 }
 
-// The encryption algorithm used to encrypt data.
 type SupportedAlgorithm string
 
 const (
@@ -533,7 +530,6 @@ func (in *supportedAlgorithmPtr) ToSupportedAlgorithmPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(SupportedAlgorithmPtrOutput)
 }
 
-// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
 type UserConfirmation string
 
 const (

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// ArcSetting details.
-        /// API Version: 2021-09-01.
+        /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithVersion());

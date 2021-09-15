@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     public sealed class ImageRegistryCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity for the private registry.
-        /// </summary>
-        [Input("identity")]
-        public Input<string>? Identity { get; set; }
-
-        /// <summary>
-        /// The identity URL for the private registry.
-        /// </summary>
-        [Input("identityUrl")]
-        public Input<string>? IdentityUrl { get; set; }
-
-        /// <summary>
         /// The password for the private registry.
         /// </summary>
         [Input("password")]

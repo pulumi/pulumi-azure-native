@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The recurrence type : weekly, monthly, etc.
 type AccessReviewRecurrencePatternType string
 
 const (
@@ -175,7 +174,6 @@ func (in *accessReviewRecurrencePatternTypePtr) ToAccessReviewRecurrencePatternT
 	return pulumi.ToOutputWithContext(ctx, in).(AccessReviewRecurrencePatternTypePtrOutput)
 }
 
-// The recurrence range type. The possible values are: endDate, noEnd, numbered.
 type AccessReviewRecurrenceRangeType string
 
 const (
@@ -341,7 +339,6 @@ func (in *accessReviewRecurrenceRangeTypePtr) ToAccessReviewRecurrenceRangeTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(AccessReviewRecurrenceRangeTypePtrOutput)
 }
 
-// This specifies the behavior for the autoReview feature when an access review completes.
 type DefaultDecisionType string
 
 const (
@@ -507,7 +504,6 @@ func (in *defaultDecisionTypePtr) ToDefaultDecisionTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultDecisionTypePtrOutput)
 }
 
-// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
 type EnforcementMode string
 
 const (
@@ -674,7 +670,6 @@ func (in *enforcementModePtr) ToEnforcementModePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(EnforcementModePtrOutput)
 }
 
-// The policy exemption category. Possible values are Waiver and Mitigated.
 type ExemptionCategory string
 
 const (
@@ -841,7 +836,6 @@ func (in *exemptionCategoryPtr) ToExemptionCategoryPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ExemptionCategoryPtrOutput)
 }
 
-// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
 type LockLevel string
 
 const (
@@ -1007,7 +1001,6 @@ func (in *lockLevelPtr) ToLockLevelPtrOutputWithContext(ctx context.Context) Loc
 	return pulumi.ToOutputWithContext(ctx, in).(LockLevelPtrOutput)
 }
 
-// The data type of the parameter.
 type ParameterType string
 
 const (
@@ -1177,7 +1170,6 @@ func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
 }
 
-// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 type PolicyType string
 
 const (
@@ -1344,7 +1336,6 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
 }
 
-// The principal type of the assigned principal ID.
 type PrincipalType string
 
 const (
@@ -1511,7 +1502,6 @@ func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PrincipalTypePtrOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
 type ResourceIdentityType string
 
 const (

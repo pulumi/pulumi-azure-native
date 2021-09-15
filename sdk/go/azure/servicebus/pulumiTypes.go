@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type Action struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -31,7 +30,6 @@ type ActionInput interface {
 	ToActionOutputWithContext(context.Context) ActionOutput
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionArgs struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
@@ -94,7 +92,6 @@ func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) Action
 	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionOutput struct{ *pulumi.OutputState }
 
 func (ActionOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o ActionPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponse struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -209,7 +205,6 @@ type ActionResponseInput interface {
 	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponseArgs struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
@@ -272,7 +267,6 @@ func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o ActionResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionState struct {
 	// Description of the connection state.
 	Description *string `pulumi:"description"`
@@ -385,7 +378,6 @@ type ConnectionStateInput interface {
 	ToConnectionStateOutputWithContext(context.Context) ConnectionStateOutput
 }
 
-// ConnectionState information.
 type ConnectionStateArgs struct {
 	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -446,7 +438,6 @@ func (i *connectionStatePtrType) ToConnectionStatePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateOutput) ElementType() reflect.Type {
@@ -525,7 +516,6 @@ func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponse struct {
 	// Description of the connection state.
 	Description *string `pulumi:"description"`
@@ -544,7 +534,6 @@ type ConnectionStateResponseInput interface {
 	ToConnectionStateResponseOutputWithContext(context.Context) ConnectionStateResponseOutput
 }
 
-// ConnectionState information.
 type ConnectionStateResponseArgs struct {
 	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -605,7 +594,6 @@ func (i *connectionStateResponsePtrType) ToConnectionStateResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateResponsePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -684,7 +672,6 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilter struct {
 	// Content type of the message.
 	ContentType *string `pulumi:"contentType"`
@@ -719,7 +706,6 @@ type CorrelationFilterInput interface {
 	ToCorrelationFilterOutputWithContext(context.Context) CorrelationFilterOutput
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterArgs struct {
 	// Content type of the message.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
@@ -796,7 +782,6 @@ func (i *correlationFilterPtrType) ToCorrelationFilterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (CorrelationFilterOutput) ElementType() reflect.Type {
@@ -995,7 +980,6 @@ func (o CorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponse struct {
 	// Content type of the message.
 	ContentType *string `pulumi:"contentType"`
@@ -1030,7 +1014,6 @@ type CorrelationFilterResponseInput interface {
 	ToCorrelationFilterResponseOutputWithContext(context.Context) CorrelationFilterResponseOutput
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponseArgs struct {
 	// Content type of the message.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
@@ -1107,7 +1090,6 @@ func (i *correlationFilterResponsePtrType) ToCorrelationFilterResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterResponsePtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (CorrelationFilterResponseOutput) ElementType() reflect.Type {
@@ -1306,7 +1288,6 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Message Count Details.
 type MessageCountDetailsResponse struct {
 	// Number of active messages in the queue, topic, or subscription.
 	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
@@ -1331,7 +1312,6 @@ type MessageCountDetailsResponseInput interface {
 	ToMessageCountDetailsResponseOutputWithContext(context.Context) MessageCountDetailsResponseOutput
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseArgs struct {
 	// Number of active messages in the queue, topic, or subscription.
 	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
@@ -1398,7 +1378,6 @@ func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponsePtrOutput)
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MessageCountDetailsResponseOutput) ElementType() reflect.Type {
@@ -1522,7 +1501,6 @@ func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRules struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1541,7 +1519,6 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -1586,7 +1563,6 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -1631,7 +1607,6 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1650,7 +1625,6 @@ type NWRuleSetIpRulesResponseInput interface {
 	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -1695,7 +1669,6 @@ func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -1740,7 +1713,6 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRules struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1759,7 +1731,6 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesArgs struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1804,7 +1775,6 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -1849,7 +1819,6 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponse struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1868,7 +1837,6 @@ type NWRuleSetVirtualNetworkRulesResponseInput interface {
 	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseArgs struct {
 	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -1913,7 +1881,6 @@ func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -1958,7 +1925,6 @@ func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) Index(i pulumi.IntInput
 	}).(NWRuleSetVirtualNetworkRulesResponseOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpoint struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -1975,7 +1941,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2034,7 +1999,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -2098,7 +2062,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
@@ -2115,7 +2078,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseArgs struct {
 	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2174,7 +2136,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -2238,7 +2199,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU of the namespace.
 type SBSku struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity *int `pulumi:"capacity"`
@@ -2259,7 +2219,6 @@ type SBSkuInput interface {
 	ToSBSkuOutputWithContext(context.Context) SBSkuOutput
 }
 
-// SKU of the namespace.
 type SBSkuArgs struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2322,7 +2281,6 @@ func (i *sbskuPtrType) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPtr
 	return pulumi.ToOutputWithContext(ctx, i).(SBSkuPtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuOutput struct{ *pulumi.OutputState }
 
 func (SBSkuOutput) ElementType() reflect.Type {
@@ -2416,7 +2374,6 @@ func (o SBSkuPtrOutput) Tier() SkuTierPtrOutput {
 	}).(SkuTierPtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuResponse struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity *int `pulumi:"capacity"`
@@ -2437,7 +2394,6 @@ type SBSkuResponseInput interface {
 	ToSBSkuResponseOutputWithContext(context.Context) SBSkuResponseOutput
 }
 
-// SKU of the namespace.
 type SBSkuResponseArgs struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -2500,7 +2456,6 @@ func (i *sbskuResponsePtrType) ToSBSkuResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SBSkuResponsePtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SBSkuResponseOutput) ElementType() reflect.Type {
@@ -2594,7 +2549,6 @@ func (o SBSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilter struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -2615,7 +2569,6 @@ type SqlFilterInput interface {
 	ToSqlFilterOutputWithContext(context.Context) SqlFilterOutput
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterArgs struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
@@ -2678,7 +2631,6 @@ func (i *sqlFilterPtrType) ToSqlFilterPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterOutput struct{ *pulumi.OutputState }
 
 func (SqlFilterOutput) ElementType() reflect.Type {
@@ -2772,7 +2724,6 @@ func (o SqlFilterPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponse struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -2793,7 +2744,6 @@ type SqlFilterResponseInput interface {
 	ToSqlFilterResponseOutputWithContext(context.Context) SqlFilterResponseOutput
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponseArgs struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
@@ -2856,7 +2806,6 @@ func (i *sqlFilterResponsePtrType) ToSqlFilterResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterResponsePtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlFilterResponseOutput) ElementType() reflect.Type {
@@ -2950,7 +2899,6 @@ func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type Subnet struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -2967,7 +2915,6 @@ type SubnetInput interface {
 	ToSubnetOutputWithContext(context.Context) SubnetOutput
 }
 
-// Properties supplied for Subnet
 type SubnetArgs struct {
 	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3026,7 +2973,6 @@ func (i *subnetPtrType) ToSubnetPtrOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -3090,7 +3036,6 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -3107,7 +3052,6 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Properties supplied for Subnet
 type SubnetResponseArgs struct {
 	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3166,7 +3110,6 @@ func (i *subnetResponsePtrType) ToSubnetResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponsePtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {

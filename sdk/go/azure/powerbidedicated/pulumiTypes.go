@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSku struct {
 	// The capacity of an auto scale v-core resource.
 	Capacity *int `pulumi:"capacity"`
@@ -31,7 +30,6 @@ type AutoScaleVCoreSkuInput interface {
 	ToAutoScaleVCoreSkuOutputWithContext(context.Context) AutoScaleVCoreSkuOutput
 }
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSkuArgs struct {
 	// The capacity of an auto scale v-core resource.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -94,7 +92,6 @@ func (i *autoScaleVCoreSkuPtrType) ToAutoScaleVCoreSkuPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleVCoreSkuPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSkuOutput struct{ *pulumi.OutputState }
 
 func (AutoScaleVCoreSkuOutput) ElementType() reflect.Type {
@@ -188,7 +185,6 @@ func (o AutoScaleVCoreSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSkuResponse struct {
 	// The capacity of an auto scale v-core resource.
 	Capacity *int `pulumi:"capacity"`
@@ -209,7 +205,6 @@ type AutoScaleVCoreSkuResponseInput interface {
 	ToAutoScaleVCoreSkuResponseOutputWithContext(context.Context) AutoScaleVCoreSkuResponseOutput
 }
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSkuResponseArgs struct {
 	// The capacity of an auto scale v-core resource.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -272,7 +267,6 @@ func (i *autoScaleVCoreSkuResponsePtrType) ToAutoScaleVCoreSkuResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleVCoreSkuResponsePtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 type AutoScaleVCoreSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoScaleVCoreSkuResponseOutput) ElementType() reflect.Type {
@@ -366,7 +360,6 @@ func (o AutoScaleVCoreSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySku struct {
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
@@ -385,7 +378,6 @@ type CapacitySkuInput interface {
 	ToCapacitySkuOutputWithContext(context.Context) CapacitySkuOutput
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuArgs struct {
 	// Name of the SKU level.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -446,7 +438,6 @@ func (i *capacitySkuPtrType) ToCapacitySkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CapacitySkuPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuOutput struct{ *pulumi.OutputState }
 
 func (CapacitySkuOutput) ElementType() reflect.Type {
@@ -525,7 +516,6 @@ func (o CapacitySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuResponse struct {
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
@@ -544,7 +534,6 @@ type CapacitySkuResponseInput interface {
 	ToCapacitySkuResponseOutputWithContext(context.Context) CapacitySkuResponseOutput
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuResponseArgs struct {
 	// Name of the SKU level.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -605,7 +594,6 @@ func (i *capacitySkuResponsePtrType) ToCapacitySkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CapacitySkuResponsePtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuResponseOutput struct{ *pulumi.OutputState }
 
 func (CapacitySkuResponseOutput) ElementType() reflect.Type {
@@ -684,7 +672,6 @@ func (o CapacitySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministrators struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -701,7 +688,6 @@ type DedicatedCapacityAdministratorsInput interface {
 	ToDedicatedCapacityAdministratorsOutputWithContext(context.Context) DedicatedCapacityAdministratorsOutput
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministratorsArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -760,7 +746,6 @@ func (i *dedicatedCapacityAdministratorsPtrType) ToDedicatedCapacityAdministrato
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCapacityAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCapacityAdministratorsOutput) ElementType() reflect.Type {
@@ -824,7 +809,6 @@ func (o DedicatedCapacityAdministratorsPtrOutput) Members() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -841,7 +825,6 @@ type DedicatedCapacityAdministratorsResponseInput interface {
 	ToDedicatedCapacityAdministratorsResponseOutputWithContext(context.Context) DedicatedCapacityAdministratorsResponseOutput
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministratorsResponseArgs struct {
 	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
@@ -900,7 +883,6 @@ func (i *dedicatedCapacityAdministratorsResponsePtrType) ToDedicatedCapacityAdmi
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCapacityAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities
 type DedicatedCapacityAdministratorsResponseOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCapacityAdministratorsResponseOutput) ElementType() reflect.Type {
@@ -964,7 +946,6 @@ func (o DedicatedCapacityAdministratorsResponsePtrOutput) Members() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemData struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -991,7 +972,6 @@ type SystemDataInput interface {
 	ToSystemDataOutputWithContext(context.Context) SystemDataOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1060,7 +1040,6 @@ func (i *systemDataPtrType) ToSystemDataPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataOutput struct{ *pulumi.OutputState }
 
 func (SystemDataOutput) ElementType() reflect.Type {
@@ -1199,7 +1178,6 @@ func (o SystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -1226,7 +1204,6 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
@@ -1295,7 +1272,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {

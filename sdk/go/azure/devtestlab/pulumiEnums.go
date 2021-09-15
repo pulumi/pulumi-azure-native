@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The OS type of the custom image (i.e. Windows, Linux)
 type CustomImageOsType string
 
 const (
@@ -176,7 +175,6 @@ func (in *customImageOsTypePtr) ToCustomImageOsTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CustomImageOsTypePtrOutput)
 }
 
-// The status of the schedule (i.e. Enabled, Disabled)
 type EnableStatus string
 
 const (
@@ -341,7 +339,6 @@ func (in *enableStatusPtr) ToEnableStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EnableStatusPtrOutput)
 }
 
-// The access rights to be granted to the user when provisioning an environment
 type EnvironmentPermission string
 
 const (
@@ -506,7 +503,6 @@ func (in *environmentPermissionPtr) ToEnvironmentPermissionPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentPermissionPtrOutput)
 }
 
-// Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
 type HostCachingOptions string
 
 const (
@@ -672,7 +668,6 @@ func (in *hostCachingOptionsPtr) ToHostCachingOptionsPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(HostCachingOptionsPtrOutput)
 }
 
-// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 type LinuxOsState string
 
 const (
@@ -838,7 +833,6 @@ func (in *linuxOsStatePtr) ToLinuxOsStatePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(LinuxOsStatePtrOutput)
 }
 
-// Managed identity.
 type ManagedIdentityType string
 
 const (
@@ -1005,7 +999,6 @@ func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
 }
 
-// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 type NotificationChannelEventType string
 
 const (
@@ -1170,7 +1163,6 @@ func (in *notificationChannelEventTypePtr) ToNotificationChannelEventTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationChannelEventTypePtrOutput)
 }
 
-// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
 type PolicyEvaluatorType string
 
 const (
@@ -1335,7 +1327,6 @@ func (in *policyEvaluatorTypePtr) ToPolicyEvaluatorTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyEvaluatorTypePtrOutput)
 }
 
-// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
 type PolicyFactName string
 
 const (
@@ -1508,7 +1499,6 @@ func (in *policyFactNamePtr) ToPolicyFactNamePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyFactNamePtrOutput)
 }
 
-// The status of the policy.
 type PolicyStatus string
 
 const (
@@ -1673,9 +1663,6 @@ func (in *policyStatusPtr) ToPolicyStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyStatusPtrOutput)
 }
 
-// The setting to enable usage of premium data disks.
-// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-// When its value is 'Disabled', only creation of standard data disks is allowed.
 type PremiumDataDisk string
 
 const (
@@ -1840,7 +1827,6 @@ func (in *premiumDataDiskPtr) ToPremiumDataDiskPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(PremiumDataDiskPtrOutput)
 }
 
-// The artifact source's type.
 type SourceControlType string
 
 const (
@@ -2006,7 +1992,6 @@ func (in *sourceControlTypePtr) ToSourceControlTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(SourceControlTypePtrOutput)
 }
 
-// The storage type for the disk (i.e. Standard, Premium).
 type StorageType string
 
 const (
@@ -2172,7 +2157,6 @@ func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(StorageTypePtrOutput)
 }
 
-// Protocol type of the port.
 type TransportProtocol string
 
 const (
@@ -2337,7 +2321,6 @@ func (in *transportProtocolPtr) ToTransportProtocolPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(TransportProtocolPtrOutput)
 }
 
-// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
 type UsagePermissionType string
 
 const (
@@ -2503,7 +2486,6 @@ func (in *usagePermissionTypePtr) ToUsagePermissionTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(UsagePermissionTypePtrOutput)
 }
 
-// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 type WindowsOsState string
 
 const (

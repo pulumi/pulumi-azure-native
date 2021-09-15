@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponse struct {
 	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString string `pulumi:"connectionString"`
@@ -37,7 +36,6 @@ type ApiKeyResponseInput interface {
 	ToApiKeyResponseOutputWithContext(context.Context) ApiKeyResponseOutput
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseArgs struct {
 	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
@@ -90,7 +88,6 @@ func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseArrayOutput)
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyResponseOutput) ElementType() reflect.Type {
@@ -155,7 +152,6 @@ func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput
 	}).(ApiKeyResponseOutput)
 }
 
-// The encryption settings for a configuration store.
 type EncryptionProperties struct {
 	// Key vault properties.
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
@@ -172,7 +168,6 @@ type EncryptionPropertiesInput interface {
 	ToEncryptionPropertiesOutputWithContext(context.Context) EncryptionPropertiesOutput
 }
 
-// The encryption settings for a configuration store.
 type EncryptionPropertiesArgs struct {
 	// Key vault properties.
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
@@ -231,7 +226,6 @@ func (i *encryptionPropertiesPtrType) ToEncryptionPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type EncryptionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesOutput) ElementType() reflect.Type {
@@ -295,7 +289,6 @@ func (o EncryptionPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPt
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type EncryptionPropertiesResponse struct {
 	// Key vault properties.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
@@ -312,7 +305,6 @@ type EncryptionPropertiesResponseInput interface {
 	ToEncryptionPropertiesResponseOutputWithContext(context.Context) EncryptionPropertiesResponseOutput
 }
 
-// The encryption settings for a configuration store.
 type EncryptionPropertiesResponseArgs struct {
 	// Key vault properties.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
@@ -371,7 +363,6 @@ func (i *encryptionPropertiesResponsePtrType) ToEncryptionPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesResponsePtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type EncryptionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -435,7 +426,6 @@ func (o EncryptionPropertiesResponsePtrOutput) KeyVaultProperties() KeyVaultProp
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultProperties struct {
 	// The client id of the identity which will be used to access key vault.
 	IdentityClientId *string `pulumi:"identityClientId"`
@@ -454,7 +444,6 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesArgs struct {
 	// The client id of the identity which will be used to access key vault.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
@@ -515,7 +504,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -594,7 +582,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponse struct {
 	// The client id of the identity which will be used to access key vault.
 	IdentityClientId *string `pulumi:"identityClientId"`
@@ -613,7 +600,6 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseArgs struct {
 	// The client id of the identity which will be used to access key vault.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
@@ -674,7 +660,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -753,7 +738,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpoint struct {
 	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
@@ -770,7 +754,6 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointArgs struct {
 	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -829,7 +812,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -893,7 +875,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A reference to a related private endpoint connection.
 type PrivateEndpointConnectionReferenceResponse struct {
 	// The resource ID.
 	Id string `pulumi:"id"`
@@ -920,7 +901,6 @@ type PrivateEndpointConnectionReferenceResponseInput interface {
 	ToPrivateEndpointConnectionReferenceResponseOutputWithContext(context.Context) PrivateEndpointConnectionReferenceResponseOutput
 }
 
-// A reference to a related private endpoint connection.
 type PrivateEndpointConnectionReferenceResponseArgs struct {
 	// The resource ID.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -973,7 +953,6 @@ func (i PrivateEndpointConnectionReferenceResponseArray) ToPrivateEndpointConnec
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionReferenceResponseArrayOutput)
 }
 
-// A reference to a related private endpoint connection.
 type PrivateEndpointConnectionReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionReferenceResponseOutput) ElementType() reflect.Type {
@@ -1040,7 +1019,6 @@ func (o PrivateEndpointConnectionReferenceResponseArrayOutput) Index(i pulumi.In
 	}).(PrivateEndpointConnectionReferenceResponseOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponse struct {
 	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
@@ -1057,7 +1035,6 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponseArgs struct {
 	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1116,7 +1093,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint which a connection belongs to.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1180,7 +1156,6 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionState struct {
 	// The private link service connection description.
 	Description *string `pulumi:"description"`
@@ -1199,7 +1174,6 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1260,7 +1234,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1339,7 +1312,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -1360,7 +1332,6 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
@@ -1423,7 +1394,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The state of a private link service connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1517,7 +1487,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
@@ -1536,7 +1505,6 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1597,7 +1565,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -1676,7 +1643,6 @@ func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentityResponse struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1699,7 +1665,6 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentityResponseArgs struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -1764,7 +1729,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// An identity that can be associated with a resource.
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1873,7 +1837,6 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentity
 	}).(UserIdentityResponseMapOutput)
 }
 
-// Describes a configuration store SKU.
 type Sku struct {
 	// The SKU name of the configuration store.
 	Name string `pulumi:"name"`
@@ -1890,7 +1853,6 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Describes a configuration store SKU.
 type SkuArgs struct {
 	// The SKU name of the configuration store.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1949,7 +1911,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2013,7 +1974,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuResponse struct {
 	// The SKU name of the configuration store.
 	Name string `pulumi:"name"`
@@ -2030,7 +1990,6 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Describes a configuration store SKU.
 type SkuResponseArgs struct {
 	// The SKU name of the configuration store.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2089,7 +2048,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2153,7 +2111,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponse struct {
 	// The client ID of the user-assigned identity.
 	ClientId string `pulumi:"clientId"`
@@ -2172,7 +2129,6 @@ type UserIdentityResponseInput interface {
 	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponseArgs struct {
 	// The client ID of the user-assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -2217,7 +2173,6 @@ func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseMapOutput)
 }
 
-// A resource identity that is managed by the user of the service.
 type UserIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityResponseOutput) ElementType() reflect.Type {
