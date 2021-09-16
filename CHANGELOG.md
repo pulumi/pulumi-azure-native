@@ -6,15 +6,21 @@ CHANGELOG
 #### New resources:
 
 - `hdinsight.PrivateEndpointConnection`
+- `azure-native.labservices:LabPlan`
+- `azure-native.labservices:Schedule`
 
 #### New functions:
 
 - `hdinsight.getPrivateEndpointConnection`
+- `labservices.getLabPlan`
+- `labservices.getSchedule`
 
 #### Breaking Changes published by Microsoft:
 
 - The shape of the `documentdb.Service` resource adjusted to match API expectations
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15971))
+- `redis.Redis` now has configuration properties specified correctly
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15674))
 
 ---
 
