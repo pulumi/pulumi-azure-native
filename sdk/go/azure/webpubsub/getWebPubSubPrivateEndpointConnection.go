@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection to an azure resource
-// API Version: 2021-04-01-preview.
 func LookupWebPubSubPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebPubSubPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubPrivateEndpointConnectionResult, error) {
 	var rv LookupWebPubSubPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupWebPubSubPrivateEndpointConnection(ctx *pulumi.Context, args *LookupW
 }
 
 type LookupWebPubSubPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ResourceName                  string `pulumi:"resourceName"`
 }
 
 // A private endpoint connection to an azure resource
 type LookupWebPubSubPrivateEndpointConnectionResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
+	Id                                string                                     `pulumi:"id"`
+	Name                              string                                     `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponse                         `pulumi:"systemData"`
+	Type                              string                                     `pulumi:"type"`
 }

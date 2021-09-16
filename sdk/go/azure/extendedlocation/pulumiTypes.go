@@ -11,9 +11,7 @@ import (
 )
 
 type CustomLocationPropertiesAuthentication struct {
-	// The type of the Custom Locations authentication
-	Type *string `pulumi:"type"`
-	// The kubeconfig value.
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -29,9 +27,7 @@ type CustomLocationPropertiesAuthenticationInput interface {
 }
 
 type CustomLocationPropertiesAuthenticationArgs struct {
-	// The type of the Custom Locations authentication
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The kubeconfig value.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -112,12 +108,10 @@ func (o CustomLocationPropertiesAuthenticationOutput) ToCustomLocationProperties
 	}).(CustomLocationPropertiesAuthenticationPtrOutput)
 }
 
-// The type of the Custom Locations authentication
 func (o CustomLocationPropertiesAuthenticationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLocationPropertiesAuthentication) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The kubeconfig value.
 func (o CustomLocationPropertiesAuthenticationOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLocationPropertiesAuthentication) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +140,6 @@ func (o CustomLocationPropertiesAuthenticationPtrOutput) Elem() CustomLocationPr
 	}).(CustomLocationPropertiesAuthenticationOutput)
 }
 
-// The type of the Custom Locations authentication
 func (o CustomLocationPropertiesAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLocationPropertiesAuthentication) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o CustomLocationPropertiesAuthenticationPtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kubeconfig value.
 func (o CustomLocationPropertiesAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLocationPropertiesAuthentication) *string {
 		if v == nil {
@@ -167,7 +159,6 @@ func (o CustomLocationPropertiesAuthenticationPtrOutput) Value() pulumi.StringPt
 }
 
 type CustomLocationPropertiesResponseAuthentication struct {
-	// The type of the Custom Locations authentication
 	Type *string `pulumi:"type"`
 }
 
@@ -183,7 +174,6 @@ type CustomLocationPropertiesResponseAuthenticationInput interface {
 }
 
 type CustomLocationPropertiesResponseAuthenticationArgs struct {
-	// The type of the Custom Locations authentication
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -264,7 +254,6 @@ func (o CustomLocationPropertiesResponseAuthenticationOutput) ToCustomLocationPr
 	}).(CustomLocationPropertiesResponseAuthenticationPtrOutput)
 }
 
-// The type of the Custom Locations authentication
 func (o CustomLocationPropertiesResponseAuthenticationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLocationPropertiesResponseAuthentication) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -293,7 +282,6 @@ func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Elem() CustomLo
 	}).(CustomLocationPropertiesResponseAuthenticationOutput)
 }
 
-// The type of the Custom Locations authentication
 func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLocationPropertiesResponseAuthentication) *string {
 		if v == nil {
@@ -304,17 +292,11 @@ func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Type() pulumi.S
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -330,17 +312,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -421,32 +397,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +445,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -485,7 +454,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -495,7 +463,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -505,7 +472,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -515,7 +481,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -525,7 +490,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

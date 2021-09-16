@@ -38,6 +38,7 @@ type LookupPrivateLinkServiceResult struct {
 	NetworkInterfaces                    []NetworkInterfaceResponse                        `pulumi:"networkInterfaces"`
 	PrivateEndpointConnections           []PrivateEndpointConnectionResponse               `pulumi:"privateEndpointConnections"`
 	ProvisioningState                    string                                            `pulumi:"provisioningState"`
+	ResourceGuid                         *string                                           `pulumi:"resourceGuid"`
 	Tags                                 map[string]string                                 `pulumi:"tags"`
 	Type                                 string                                            `pulumi:"type"`
 	Visibility                           *PrivateLinkServicePropertiesResponseVisibility   `pulumi:"visibility"`

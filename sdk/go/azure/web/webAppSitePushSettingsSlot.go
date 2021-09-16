@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Push settings for the App.
-// API Version: 2020-12-01.
 type WebAppSitePushSettingsSlot struct {
 	pulumi.CustomResourceState
 

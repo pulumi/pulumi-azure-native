@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Sql pool transparent data encryption configuration.
-// API Version: 2021-03-01.
 type SqlPoolTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 

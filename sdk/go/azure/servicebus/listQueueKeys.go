@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/ServiceBus Connection String
-// API Version: 2017-04-01.
 func ListQueueKeys(ctx *pulumi.Context, args *ListQueueKeysArgs, opts ...pulumi.InvokeOption) (*ListQueueKeysResult, error) {
 	var rv ListQueueKeysResult
 	err := ctx.Invoke("azure-native:servicebus:listQueueKeys", args, &rv, opts...)
@@ -19,30 +17,19 @@ func ListQueueKeys(ctx *pulumi.Context, args *ListQueueKeysArgs, opts ...pulumi.
 }
 
 type ListQueueKeysArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The queue name.
-	QueueName string `pulumi:"queueName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	QueueName             string `pulumi:"queueName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/ServiceBus Connection String
 type ListQueueKeysResult struct {
-	// Primary connection string of the alias if GEO DR is enabled
-	AliasPrimaryConnectionString string `pulumi:"aliasPrimaryConnectionString"`
-	// Secondary  connection string of the alias if GEO DR is enabled
+	AliasPrimaryConnectionString   string `pulumi:"aliasPrimaryConnectionString"`
 	AliasSecondaryConnectionString string `pulumi:"aliasSecondaryConnectionString"`
-	// A string that describes the authorization rule.
-	KeyName string `pulumi:"keyName"`
-	// Primary connection string of the created namespace authorization rule.
-	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// Secondary connection string of the created namespace authorization rule.
-	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
+	KeyName                        string `pulumi:"keyName"`
+	PrimaryConnectionString        string `pulumi:"primaryConnectionString"`
+	PrimaryKey                     string `pulumi:"primaryKey"`
+	SecondaryConnectionString      string `pulumi:"secondaryConnectionString"`
+	SecondaryKey                   string `pulumi:"secondaryKey"`
 }

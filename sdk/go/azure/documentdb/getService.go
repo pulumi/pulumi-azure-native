@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for the database account.
-// API Version: 2021-04-01-preview.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:documentdb:getService", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cosmos DB service name.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Properties for the database account.
 type LookupServiceResult struct {
-	// The unique resource identifier of the database account.
-	Id string `pulumi:"id"`
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// Services response resource.
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

@@ -99,6 +99,10 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly provisioningState: string;
     /**
+     * The resource id of private link service.
+     */
+    readonly resourceGuid?: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The privateStore offer data structure.
-// API Version: 2020-01-01.
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 

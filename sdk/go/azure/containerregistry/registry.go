@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a container registry.
-// API Version: 2019-05-01.
 type Registry struct {
 	pulumi.CustomResourceState
 

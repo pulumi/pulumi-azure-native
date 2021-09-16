@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The notification registration definition.
-// API Version: 2020-11-20.
 type NotificationRegistration struct {
 	pulumi.CustomResourceState
 

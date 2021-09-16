@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Datasources under OMS Workspace.
-// API Version: 2020-08-01.
 type DataSource struct {
 	pulumi.CustomResourceState
 

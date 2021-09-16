@@ -11,17 +11,11 @@ import (
 )
 
 type ActiveDirectoryProperties struct {
-	// Specifies the security identifier (SID) for Azure Storage.
-	AzureStorageSid string `pulumi:"azureStorageSid"`
-	// Specifies the domain GUID.
-	DomainGuid string `pulumi:"domainGuid"`
-	// Specifies the primary domain that the AD DNS server is authoritative for.
-	DomainName string `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid string `pulumi:"domainSid"`
-	// Specifies the Active Directory forest to get.
-	ForestName string `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
+	AzureStorageSid   string `pulumi:"azureStorageSid"`
+	DomainGuid        string `pulumi:"domainGuid"`
+	DomainName        string `pulumi:"domainName"`
+	DomainSid         string `pulumi:"domainSid"`
+	ForestName        string `pulumi:"forestName"`
 	NetBiosDomainName string `pulumi:"netBiosDomainName"`
 }
 
@@ -37,17 +31,11 @@ type ActiveDirectoryPropertiesInput interface {
 }
 
 type ActiveDirectoryPropertiesArgs struct {
-	// Specifies the security identifier (SID) for Azure Storage.
-	AzureStorageSid pulumi.StringInput `pulumi:"azureStorageSid"`
-	// Specifies the domain GUID.
-	DomainGuid pulumi.StringInput `pulumi:"domainGuid"`
-	// Specifies the primary domain that the AD DNS server is authoritative for.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid pulumi.StringInput `pulumi:"domainSid"`
-	// Specifies the Active Directory forest to get.
-	ForestName pulumi.StringInput `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
+	AzureStorageSid   pulumi.StringInput `pulumi:"azureStorageSid"`
+	DomainGuid        pulumi.StringInput `pulumi:"domainGuid"`
+	DomainName        pulumi.StringInput `pulumi:"domainName"`
+	DomainSid         pulumi.StringInput `pulumi:"domainSid"`
+	ForestName        pulumi.StringInput `pulumi:"forestName"`
 	NetBiosDomainName pulumi.StringInput `pulumi:"netBiosDomainName"`
 }
 
@@ -128,32 +116,26 @@ func (o ActiveDirectoryPropertiesOutput) ToActiveDirectoryPropertiesPtrOutputWit
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
 func (o ActiveDirectoryPropertiesOutput) AzureStorageSid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.AzureStorageSid }).(pulumi.StringOutput)
 }
 
-// Specifies the domain GUID.
 func (o ActiveDirectoryPropertiesOutput) DomainGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.DomainGuid }).(pulumi.StringOutput)
 }
 
-// Specifies the primary domain that the AD DNS server is authoritative for.
 func (o ActiveDirectoryPropertiesOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Specifies the security identifier (SID).
 func (o ActiveDirectoryPropertiesOutput) DomainSid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.DomainSid }).(pulumi.StringOutput)
 }
 
-// Specifies the Active Directory forest to get.
 func (o ActiveDirectoryPropertiesOutput) ForestName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.ForestName }).(pulumi.StringOutput)
 }
 
-// Specifies the NetBIOS domain name.
 func (o ActiveDirectoryPropertiesOutput) NetBiosDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.NetBiosDomainName }).(pulumi.StringOutput)
 }
@@ -182,7 +164,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) Elem() ActiveDirectoryPropertiesOutp
 	}).(ActiveDirectoryPropertiesOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
 func (o ActiveDirectoryPropertiesPtrOutput) AzureStorageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -192,7 +173,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) AzureStorageSid() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the domain GUID.
 func (o ActiveDirectoryPropertiesPtrOutput) DomainGuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -202,7 +182,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) DomainGuid() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the primary domain that the AD DNS server is authoritative for.
 func (o ActiveDirectoryPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -212,7 +191,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security identifier (SID).
 func (o ActiveDirectoryPropertiesPtrOutput) DomainSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -222,7 +200,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) DomainSid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Active Directory forest to get.
 func (o ActiveDirectoryPropertiesPtrOutput) ForestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -232,7 +209,6 @@ func (o ActiveDirectoryPropertiesPtrOutput) ForestName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the NetBIOS domain name.
 func (o ActiveDirectoryPropertiesPtrOutput) NetBiosDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
 		if v == nil {
@@ -243,17 +219,11 @@ func (o ActiveDirectoryPropertiesPtrOutput) NetBiosDomainName() pulumi.StringPtr
 }
 
 type ActiveDirectoryPropertiesResponse struct {
-	// Specifies the security identifier (SID) for Azure Storage.
-	AzureStorageSid string `pulumi:"azureStorageSid"`
-	// Specifies the domain GUID.
-	DomainGuid string `pulumi:"domainGuid"`
-	// Specifies the primary domain that the AD DNS server is authoritative for.
-	DomainName string `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid string `pulumi:"domainSid"`
-	// Specifies the Active Directory forest to get.
-	ForestName string `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
+	AzureStorageSid   string `pulumi:"azureStorageSid"`
+	DomainGuid        string `pulumi:"domainGuid"`
+	DomainName        string `pulumi:"domainName"`
+	DomainSid         string `pulumi:"domainSid"`
+	ForestName        string `pulumi:"forestName"`
 	NetBiosDomainName string `pulumi:"netBiosDomainName"`
 }
 
@@ -269,17 +239,11 @@ type ActiveDirectoryPropertiesResponseInput interface {
 }
 
 type ActiveDirectoryPropertiesResponseArgs struct {
-	// Specifies the security identifier (SID) for Azure Storage.
-	AzureStorageSid pulumi.StringInput `pulumi:"azureStorageSid"`
-	// Specifies the domain GUID.
-	DomainGuid pulumi.StringInput `pulumi:"domainGuid"`
-	// Specifies the primary domain that the AD DNS server is authoritative for.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid pulumi.StringInput `pulumi:"domainSid"`
-	// Specifies the Active Directory forest to get.
-	ForestName pulumi.StringInput `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
+	AzureStorageSid   pulumi.StringInput `pulumi:"azureStorageSid"`
+	DomainGuid        pulumi.StringInput `pulumi:"domainGuid"`
+	DomainName        pulumi.StringInput `pulumi:"domainName"`
+	DomainSid         pulumi.StringInput `pulumi:"domainSid"`
+	ForestName        pulumi.StringInput `pulumi:"forestName"`
 	NetBiosDomainName pulumi.StringInput `pulumi:"netBiosDomainName"`
 }
 
@@ -360,32 +324,26 @@ func (o ActiveDirectoryPropertiesResponseOutput) ToActiveDirectoryPropertiesResp
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
 func (o ActiveDirectoryPropertiesResponseOutput) AzureStorageSid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.AzureStorageSid }).(pulumi.StringOutput)
 }
 
-// Specifies the domain GUID.
 func (o ActiveDirectoryPropertiesResponseOutput) DomainGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.DomainGuid }).(pulumi.StringOutput)
 }
 
-// Specifies the primary domain that the AD DNS server is authoritative for.
 func (o ActiveDirectoryPropertiesResponseOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Specifies the security identifier (SID).
 func (o ActiveDirectoryPropertiesResponseOutput) DomainSid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.DomainSid }).(pulumi.StringOutput)
 }
 
-// Specifies the Active Directory forest to get.
 func (o ActiveDirectoryPropertiesResponseOutput) ForestName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.ForestName }).(pulumi.StringOutput)
 }
 
-// Specifies the NetBIOS domain name.
 func (o ActiveDirectoryPropertiesResponseOutput) NetBiosDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.NetBiosDomainName }).(pulumi.StringOutput)
 }
@@ -414,7 +372,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) Elem() ActiveDirectoryProper
 	}).(ActiveDirectoryPropertiesResponseOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
 func (o ActiveDirectoryPropertiesResponsePtrOutput) AzureStorageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -424,7 +381,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) AzureStorageSid() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the domain GUID.
 func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainGuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -434,7 +390,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainGuid() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the primary domain that the AD DNS server is authoritative for.
 func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -444,7 +399,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security identifier (SID).
 func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -454,7 +408,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) DomainSid() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Active Directory forest to get.
 func (o ActiveDirectoryPropertiesResponsePtrOutput) ForestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -464,7 +417,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) ForestName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the NetBIOS domain name.
 func (o ActiveDirectoryPropertiesResponsePtrOutput) NetBiosDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
 		if v == nil {
@@ -475,10 +427,8 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) NetBiosDomainName() pulumi.S
 }
 
 type AzureFilesIdentityBasedAuthentication struct {
-	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryProperties `pulumi:"activeDirectoryProperties"`
-	// Indicates the directory service used.
-	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
+	DirectoryServiceOptions   string                     `pulumi:"directoryServiceOptions"`
 }
 
 // AzureFilesIdentityBasedAuthenticationInput is an input type that accepts AzureFilesIdentityBasedAuthenticationArgs and AzureFilesIdentityBasedAuthenticationOutput values.
@@ -493,10 +443,8 @@ type AzureFilesIdentityBasedAuthenticationInput interface {
 }
 
 type AzureFilesIdentityBasedAuthenticationArgs struct {
-	// Required if choose AD.
 	ActiveDirectoryProperties ActiveDirectoryPropertiesPtrInput `pulumi:"activeDirectoryProperties"`
-	// Indicates the directory service used.
-	DirectoryServiceOptions pulumi.StringInput `pulumi:"directoryServiceOptions"`
+	DirectoryServiceOptions   pulumi.StringInput                `pulumi:"directoryServiceOptions"`
 }
 
 func (AzureFilesIdentityBasedAuthenticationArgs) ElementType() reflect.Type {
@@ -576,14 +524,12 @@ func (o AzureFilesIdentityBasedAuthenticationOutput) ToAzureFilesIdentityBasedAu
 	}).(AzureFilesIdentityBasedAuthenticationPtrOutput)
 }
 
-// Required if choose AD.
 func (o AzureFilesIdentityBasedAuthenticationOutput) ActiveDirectoryProperties() ActiveDirectoryPropertiesPtrOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) *ActiveDirectoryProperties {
 		return v.ActiveDirectoryProperties
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
-// Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationOutput) DirectoryServiceOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) string { return v.DirectoryServiceOptions }).(pulumi.StringOutput)
 }
@@ -612,7 +558,6 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) Elem() AzureFilesIdentit
 	}).(AzureFilesIdentityBasedAuthenticationOutput)
 }
 
-// Required if choose AD.
 func (o AzureFilesIdentityBasedAuthenticationPtrOutput) ActiveDirectoryProperties() ActiveDirectoryPropertiesPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *ActiveDirectoryProperties {
 		if v == nil {
@@ -622,7 +567,6 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) ActiveDirectoryPropertie
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
-// Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *string {
 		if v == nil {
@@ -633,10 +577,8 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions(
 }
 
 type AzureFilesIdentityBasedAuthenticationResponse struct {
-	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryPropertiesResponse `pulumi:"activeDirectoryProperties"`
-	// Indicates the directory service used.
-	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
+	DirectoryServiceOptions   string                             `pulumi:"directoryServiceOptions"`
 }
 
 // AzureFilesIdentityBasedAuthenticationResponseInput is an input type that accepts AzureFilesIdentityBasedAuthenticationResponseArgs and AzureFilesIdentityBasedAuthenticationResponseOutput values.
@@ -651,10 +593,8 @@ type AzureFilesIdentityBasedAuthenticationResponseInput interface {
 }
 
 type AzureFilesIdentityBasedAuthenticationResponseArgs struct {
-	// Required if choose AD.
 	ActiveDirectoryProperties ActiveDirectoryPropertiesResponsePtrInput `pulumi:"activeDirectoryProperties"`
-	// Indicates the directory service used.
-	DirectoryServiceOptions pulumi.StringInput `pulumi:"directoryServiceOptions"`
+	DirectoryServiceOptions   pulumi.StringInput                        `pulumi:"directoryServiceOptions"`
 }
 
 func (AzureFilesIdentityBasedAuthenticationResponseArgs) ElementType() reflect.Type {
@@ -734,14 +674,12 @@ func (o AzureFilesIdentityBasedAuthenticationResponseOutput) ToAzureFilesIdentit
 	}).(AzureFilesIdentityBasedAuthenticationResponsePtrOutput)
 }
 
-// Required if choose AD.
 func (o AzureFilesIdentityBasedAuthenticationResponseOutput) ActiveDirectoryProperties() ActiveDirectoryPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) *ActiveDirectoryPropertiesResponse {
 		return v.ActiveDirectoryProperties
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
-// Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationResponseOutput) DirectoryServiceOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) string { return v.DirectoryServiceOptions }).(pulumi.StringOutput)
 }
@@ -770,7 +708,6 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) Elem() AzureFile
 	}).(AzureFilesIdentityBasedAuthenticationResponseOutput)
 }
 
-// Required if choose AD.
 func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) ActiveDirectoryProperties() ActiveDirectoryPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *ActiveDirectoryPropertiesResponse {
 		if v == nil {
@@ -780,7 +717,6 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) ActiveDirectoryP
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
-// Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *string {
 		if v == nil {
@@ -791,7 +727,6 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryService
 }
 
 type BlobInventoryPolicyDefinition struct {
-	// An object that defines the filter set.
 	Filters BlobInventoryPolicyFilter `pulumi:"filters"`
 }
 
@@ -807,7 +742,6 @@ type BlobInventoryPolicyDefinitionInput interface {
 }
 
 type BlobInventoryPolicyDefinitionArgs struct {
-	// An object that defines the filter set.
 	Filters BlobInventoryPolicyFilterInput `pulumi:"filters"`
 }
 
@@ -837,13 +771,11 @@ func (o BlobInventoryPolicyDefinitionOutput) ToBlobInventoryPolicyDefinitionOutp
 	return o
 }
 
-// An object that defines the filter set.
 func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyDefinition) BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterOutput)
 }
 
 type BlobInventoryPolicyDefinitionResponse struct {
-	// An object that defines the filter set.
 	Filters BlobInventoryPolicyFilterResponse `pulumi:"filters"`
 }
 
@@ -859,7 +791,6 @@ type BlobInventoryPolicyDefinitionResponseInput interface {
 }
 
 type BlobInventoryPolicyDefinitionResponseArgs struct {
-	// An object that defines the filter set.
 	Filters BlobInventoryPolicyFilterResponseInput `pulumi:"filters"`
 }
 
@@ -889,20 +820,15 @@ func (o BlobInventoryPolicyDefinitionResponseOutput) ToBlobInventoryPolicyDefini
 	return o
 }
 
-// An object that defines the filter set.
 func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponseOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponseOutput)
 }
 
 type BlobInventoryPolicyFilter struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
-	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
-	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
-	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	BlobTypes           []string `pulumi:"blobTypes"`
+	IncludeBlobVersions *bool    `pulumi:"includeBlobVersions"`
+	IncludeSnapshots    *bool    `pulumi:"includeSnapshots"`
+	PrefixMatch         []string `pulumi:"prefixMatch"`
 }
 
 // BlobInventoryPolicyFilterInput is an input type that accepts BlobInventoryPolicyFilterArgs and BlobInventoryPolicyFilterOutput values.
@@ -917,14 +843,10 @@ type BlobInventoryPolicyFilterInput interface {
 }
 
 type BlobInventoryPolicyFilterArgs struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
-	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
-	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
-	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	BlobTypes           pulumi.StringArrayInput `pulumi:"blobTypes"`
+	IncludeBlobVersions pulumi.BoolPtrInput     `pulumi:"includeBlobVersions"`
+	IncludeSnapshots    pulumi.BoolPtrInput     `pulumi:"includeSnapshots"`
+	PrefixMatch         pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
 func (BlobInventoryPolicyFilterArgs) ElementType() reflect.Type {
@@ -953,35 +875,27 @@ func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterOutputWithCo
 	return o
 }
 
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 func (o BlobInventoryPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// An array of strings for blob prefixes to be matched.
 func (o BlobInventoryPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
 
 type BlobInventoryPolicyFilterResponse struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
-	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
-	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
-	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	BlobTypes           []string `pulumi:"blobTypes"`
+	IncludeBlobVersions *bool    `pulumi:"includeBlobVersions"`
+	IncludeSnapshots    *bool    `pulumi:"includeSnapshots"`
+	PrefixMatch         []string `pulumi:"prefixMatch"`
 }
 
 // BlobInventoryPolicyFilterResponseInput is an input type that accepts BlobInventoryPolicyFilterResponseArgs and BlobInventoryPolicyFilterResponseOutput values.
@@ -996,14 +910,10 @@ type BlobInventoryPolicyFilterResponseInput interface {
 }
 
 type BlobInventoryPolicyFilterResponseArgs struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
-	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
-	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
-	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	BlobTypes           pulumi.StringArrayInput `pulumi:"blobTypes"`
+	IncludeBlobVersions pulumi.BoolPtrInput     `pulumi:"includeBlobVersions"`
+	IncludeSnapshots    pulumi.BoolPtrInput     `pulumi:"includeSnapshots"`
+	PrefixMatch         pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
 func (BlobInventoryPolicyFilterResponseArgs) ElementType() reflect.Type {
@@ -1032,33 +942,26 @@ func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResp
 	return o
 }
 
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 func (o BlobInventoryPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// An array of strings for blob prefixes to be matched.
 func (o BlobInventoryPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
 
 type BlobInventoryPolicyRule struct {
-	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinition `pulumi:"definition"`
-	// Rule is enabled when set to true.
-	Enabled bool `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name string `pulumi:"name"`
+	Enabled    bool                          `pulumi:"enabled"`
+	Name       string                        `pulumi:"name"`
 }
 
 // BlobInventoryPolicyRuleInput is an input type that accepts BlobInventoryPolicyRuleArgs and BlobInventoryPolicyRuleOutput values.
@@ -1073,12 +976,9 @@ type BlobInventoryPolicyRuleInput interface {
 }
 
 type BlobInventoryPolicyRuleArgs struct {
-	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionInput `pulumi:"definition"`
-	// Rule is enabled when set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name pulumi.StringInput `pulumi:"name"`
+	Enabled    pulumi.BoolInput                   `pulumi:"enabled"`
+	Name       pulumi.StringInput                 `pulumi:"name"`
 }
 
 func (BlobInventoryPolicyRuleArgs) ElementType() reflect.Type {
@@ -1132,17 +1032,14 @@ func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContex
 	return o
 }
 
-// An object that defines the blob inventory policy rule.
 func (o BlobInventoryPolicyRuleOutput) Definition() BlobInventoryPolicyDefinitionOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyDefinition { return v.Definition }).(BlobInventoryPolicyDefinitionOutput)
 }
 
-// Rule is enabled when set to true.
 func (o BlobInventoryPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o BlobInventoryPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1168,12 +1065,9 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 }
 
 type BlobInventoryPolicyRuleResponse struct {
-	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionResponse `pulumi:"definition"`
-	// Rule is enabled when set to true.
-	Enabled bool `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name string `pulumi:"name"`
+	Enabled    bool                                  `pulumi:"enabled"`
+	Name       string                                `pulumi:"name"`
 }
 
 // BlobInventoryPolicyRuleResponseInput is an input type that accepts BlobInventoryPolicyRuleResponseArgs and BlobInventoryPolicyRuleResponseOutput values.
@@ -1188,12 +1082,9 @@ type BlobInventoryPolicyRuleResponseInput interface {
 }
 
 type BlobInventoryPolicyRuleResponseArgs struct {
-	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionResponseInput `pulumi:"definition"`
-	// Rule is enabled when set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name pulumi.StringInput `pulumi:"name"`
+	Enabled    pulumi.BoolInput                           `pulumi:"enabled"`
+	Name       pulumi.StringInput                         `pulumi:"name"`
 }
 
 func (BlobInventoryPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -1247,17 +1138,14 @@ func (o BlobInventoryPolicyRuleResponseOutput) ToBlobInventoryPolicyRuleResponse
 	return o
 }
 
-// An object that defines the blob inventory policy rule.
 func (o BlobInventoryPolicyRuleResponseOutput) Definition() BlobInventoryPolicyDefinitionResponseOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) BlobInventoryPolicyDefinitionResponse { return v.Definition }).(BlobInventoryPolicyDefinitionResponseOutput)
 }
 
-// Rule is enabled when set to true.
 func (o BlobInventoryPolicyRuleResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o BlobInventoryPolicyRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1283,14 +1171,10 @@ func (o BlobInventoryPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) Blo
 }
 
 type BlobInventoryPolicySchema struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination string `pulumi:"destination"`
-	// Policy is enabled if set to true.
-	Enabled bool `pulumi:"enabled"`
-	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
-	Rules []BlobInventoryPolicyRule `pulumi:"rules"`
-	// The valid value is Inventory
-	Type string `pulumi:"type"`
+	Destination string                    `pulumi:"destination"`
+	Enabled     bool                      `pulumi:"enabled"`
+	Rules       []BlobInventoryPolicyRule `pulumi:"rules"`
+	Type        string                    `pulumi:"type"`
 }
 
 // BlobInventoryPolicySchemaInput is an input type that accepts BlobInventoryPolicySchemaArgs and BlobInventoryPolicySchemaOutput values.
@@ -1305,14 +1189,10 @@ type BlobInventoryPolicySchemaInput interface {
 }
 
 type BlobInventoryPolicySchemaArgs struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// Policy is enabled if set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
-	Rules BlobInventoryPolicyRuleArrayInput `pulumi:"rules"`
-	// The valid value is Inventory
-	Type pulumi.StringInput `pulumi:"type"`
+	Destination pulumi.StringInput                `pulumi:"destination"`
+	Enabled     pulumi.BoolInput                  `pulumi:"enabled"`
+	Rules       BlobInventoryPolicyRuleArrayInput `pulumi:"rules"`
+	Type        pulumi.StringInput                `pulumi:"type"`
 }
 
 func (BlobInventoryPolicySchemaArgs) ElementType() reflect.Type {
@@ -1392,22 +1272,18 @@ func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaPtrOutputWit
 	}).(BlobInventoryPolicySchemaPtrOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
 func (o BlobInventoryPolicySchemaOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The storage account blob inventory policy rules. The rule is applied when it is enabled.
 func (o BlobInventoryPolicySchemaOutput) Rules() BlobInventoryPolicyRuleArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) []BlobInventoryPolicyRule { return v.Rules }).(BlobInventoryPolicyRuleArrayOutput)
 }
 
-// The valid value is Inventory
 func (o BlobInventoryPolicySchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1436,7 +1312,6 @@ func (o BlobInventoryPolicySchemaPtrOutput) Elem() BlobInventoryPolicySchemaOutp
 	}).(BlobInventoryPolicySchemaOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
 func (o BlobInventoryPolicySchemaPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchema) *string {
 		if v == nil {
@@ -1446,7 +1321,6 @@ func (o BlobInventoryPolicySchemaPtrOutput) Destination() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchema) *bool {
 		if v == nil {
@@ -1456,7 +1330,6 @@ func (o BlobInventoryPolicySchemaPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The storage account blob inventory policy rules. The rule is applied when it is enabled.
 func (o BlobInventoryPolicySchemaPtrOutput) Rules() BlobInventoryPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchema) []BlobInventoryPolicyRule {
 		if v == nil {
@@ -1466,7 +1339,6 @@ func (o BlobInventoryPolicySchemaPtrOutput) Rules() BlobInventoryPolicyRuleArray
 	}).(BlobInventoryPolicyRuleArrayOutput)
 }
 
-// The valid value is Inventory
 func (o BlobInventoryPolicySchemaPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchema) *string {
 		if v == nil {
@@ -1477,14 +1349,10 @@ func (o BlobInventoryPolicySchemaPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type BlobInventoryPolicySchemaResponse struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination string `pulumi:"destination"`
-	// Policy is enabled if set to true.
-	Enabled bool `pulumi:"enabled"`
-	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
-	Rules []BlobInventoryPolicyRuleResponse `pulumi:"rules"`
-	// The valid value is Inventory
-	Type string `pulumi:"type"`
+	Destination string                            `pulumi:"destination"`
+	Enabled     bool                              `pulumi:"enabled"`
+	Rules       []BlobInventoryPolicyRuleResponse `pulumi:"rules"`
+	Type        string                            `pulumi:"type"`
 }
 
 // BlobInventoryPolicySchemaResponseInput is an input type that accepts BlobInventoryPolicySchemaResponseArgs and BlobInventoryPolicySchemaResponseOutput values.
@@ -1499,14 +1367,10 @@ type BlobInventoryPolicySchemaResponseInput interface {
 }
 
 type BlobInventoryPolicySchemaResponseArgs struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// Policy is enabled if set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
-	Rules BlobInventoryPolicyRuleResponseArrayInput `pulumi:"rules"`
-	// The valid value is Inventory
-	Type pulumi.StringInput `pulumi:"type"`
+	Destination pulumi.StringInput                        `pulumi:"destination"`
+	Enabled     pulumi.BoolInput                          `pulumi:"enabled"`
+	Rules       BlobInventoryPolicyRuleResponseArrayInput `pulumi:"rules"`
+	Type        pulumi.StringInput                        `pulumi:"type"`
 }
 
 func (BlobInventoryPolicySchemaResponseArgs) ElementType() reflect.Type {
@@ -1586,22 +1450,18 @@ func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResp
 	}).(BlobInventoryPolicySchemaResponsePtrOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
 func (o BlobInventoryPolicySchemaResponseOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The storage account blob inventory policy rules. The rule is applied when it is enabled.
 func (o BlobInventoryPolicySchemaResponseOutput) Rules() BlobInventoryPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) []BlobInventoryPolicyRuleResponse { return v.Rules }).(BlobInventoryPolicyRuleResponseArrayOutput)
 }
 
-// The valid value is Inventory
 func (o BlobInventoryPolicySchemaResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1630,7 +1490,6 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) Elem() BlobInventoryPolicySc
 	}).(BlobInventoryPolicySchemaResponseOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
 func (o BlobInventoryPolicySchemaResponsePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *string {
 		if v == nil {
@@ -1640,7 +1499,6 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) Destination() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *bool {
 		if v == nil {
@@ -1650,7 +1508,6 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The storage account blob inventory policy rules. The rule is applied when it is enabled.
 func (o BlobInventoryPolicySchemaResponsePtrOutput) Rules() BlobInventoryPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) []BlobInventoryPolicyRuleResponse {
 		if v == nil {
@@ -1660,7 +1517,6 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) Rules() BlobInventoryPolicyR
 	}).(BlobInventoryPolicyRuleResponseArrayOutput)
 }
 
-// The valid value is Inventory
 func (o BlobInventoryPolicySchemaResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *string {
 		if v == nil {
@@ -1671,10 +1527,8 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) Type() pulumi.StringPtrOutpu
 }
 
 type BlobRestoreParametersResponse struct {
-	// Blob ranges to restore.
-	BlobRanges []BlobRestoreRangeResponse `pulumi:"blobRanges"`
-	// Restore blob to the specified time.
-	TimeToRestore string `pulumi:"timeToRestore"`
+	BlobRanges    []BlobRestoreRangeResponse `pulumi:"blobRanges"`
+	TimeToRestore string                     `pulumi:"timeToRestore"`
 }
 
 // BlobRestoreParametersResponseInput is an input type that accepts BlobRestoreParametersResponseArgs and BlobRestoreParametersResponseOutput values.
@@ -1689,10 +1543,8 @@ type BlobRestoreParametersResponseInput interface {
 }
 
 type BlobRestoreParametersResponseArgs struct {
-	// Blob ranges to restore.
-	BlobRanges BlobRestoreRangeResponseArrayInput `pulumi:"blobRanges"`
-	// Restore blob to the specified time.
-	TimeToRestore pulumi.StringInput `pulumi:"timeToRestore"`
+	BlobRanges    BlobRestoreRangeResponseArrayInput `pulumi:"blobRanges"`
+	TimeToRestore pulumi.StringInput                 `pulumi:"timeToRestore"`
 }
 
 func (BlobRestoreParametersResponseArgs) ElementType() reflect.Type {
@@ -1772,12 +1624,10 @@ func (o BlobRestoreParametersResponseOutput) ToBlobRestoreParametersResponsePtrO
 	}).(BlobRestoreParametersResponsePtrOutput)
 }
 
-// Blob ranges to restore.
 func (o BlobRestoreParametersResponseOutput) BlobRanges() BlobRestoreRangeResponseArrayOutput {
 	return o.ApplyT(func(v BlobRestoreParametersResponse) []BlobRestoreRangeResponse { return v.BlobRanges }).(BlobRestoreRangeResponseArrayOutput)
 }
 
-// Restore blob to the specified time.
 func (o BlobRestoreParametersResponseOutput) TimeToRestore() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreParametersResponse) string { return v.TimeToRestore }).(pulumi.StringOutput)
 }
@@ -1806,7 +1656,6 @@ func (o BlobRestoreParametersResponsePtrOutput) Elem() BlobRestoreParametersResp
 	}).(BlobRestoreParametersResponseOutput)
 }
 
-// Blob ranges to restore.
 func (o BlobRestoreParametersResponsePtrOutput) BlobRanges() BlobRestoreRangeResponseArrayOutput {
 	return o.ApplyT(func(v *BlobRestoreParametersResponse) []BlobRestoreRangeResponse {
 		if v == nil {
@@ -1816,7 +1665,6 @@ func (o BlobRestoreParametersResponsePtrOutput) BlobRanges() BlobRestoreRangeRes
 	}).(BlobRestoreRangeResponseArrayOutput)
 }
 
-// Restore blob to the specified time.
 func (o BlobRestoreParametersResponsePtrOutput) TimeToRestore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobRestoreParametersResponse) *string {
 		if v == nil {
@@ -1827,9 +1675,7 @@ func (o BlobRestoreParametersResponsePtrOutput) TimeToRestore() pulumi.StringPtr
 }
 
 type BlobRestoreRangeResponse struct {
-	// Blob end range. This is exclusive. Empty means account end.
-	EndRange string `pulumi:"endRange"`
-	// Blob start range. This is inclusive. Empty means account start.
+	EndRange   string `pulumi:"endRange"`
 	StartRange string `pulumi:"startRange"`
 }
 
@@ -1845,9 +1691,7 @@ type BlobRestoreRangeResponseInput interface {
 }
 
 type BlobRestoreRangeResponseArgs struct {
-	// Blob end range. This is exclusive. Empty means account end.
-	EndRange pulumi.StringInput `pulumi:"endRange"`
-	// Blob start range. This is inclusive. Empty means account start.
+	EndRange   pulumi.StringInput `pulumi:"endRange"`
 	StartRange pulumi.StringInput `pulumi:"startRange"`
 }
 
@@ -1902,12 +1746,10 @@ func (o BlobRestoreRangeResponseOutput) ToBlobRestoreRangeResponseOutputWithCont
 	return o
 }
 
-// Blob end range. This is exclusive. Empty means account end.
 func (o BlobRestoreRangeResponseOutput) EndRange() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreRangeResponse) string { return v.EndRange }).(pulumi.StringOutput)
 }
 
-// Blob start range. This is inclusive. Empty means account start.
 func (o BlobRestoreRangeResponseOutput) StartRange() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreRangeResponse) string { return v.StartRange }).(pulumi.StringOutput)
 }
@@ -1933,14 +1775,10 @@ func (o BlobRestoreRangeResponseArrayOutput) Index(i pulumi.IntInput) BlobRestor
 }
 
 type BlobRestoreStatusResponse struct {
-	// Failure reason when blob restore is failed.
-	FailureReason string `pulumi:"failureReason"`
-	// Blob restore request parameters.
-	Parameters BlobRestoreParametersResponse `pulumi:"parameters"`
-	// Id for tracking blob restore request.
-	RestoreId string `pulumi:"restoreId"`
-	// The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
-	Status string `pulumi:"status"`
+	FailureReason string                        `pulumi:"failureReason"`
+	Parameters    BlobRestoreParametersResponse `pulumi:"parameters"`
+	RestoreId     string                        `pulumi:"restoreId"`
+	Status        string                        `pulumi:"status"`
 }
 
 // BlobRestoreStatusResponseInput is an input type that accepts BlobRestoreStatusResponseArgs and BlobRestoreStatusResponseOutput values.
@@ -1955,14 +1793,10 @@ type BlobRestoreStatusResponseInput interface {
 }
 
 type BlobRestoreStatusResponseArgs struct {
-	// Failure reason when blob restore is failed.
-	FailureReason pulumi.StringInput `pulumi:"failureReason"`
-	// Blob restore request parameters.
-	Parameters BlobRestoreParametersResponseInput `pulumi:"parameters"`
-	// Id for tracking blob restore request.
-	RestoreId pulumi.StringInput `pulumi:"restoreId"`
-	// The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
-	Status pulumi.StringInput `pulumi:"status"`
+	FailureReason pulumi.StringInput                 `pulumi:"failureReason"`
+	Parameters    BlobRestoreParametersResponseInput `pulumi:"parameters"`
+	RestoreId     pulumi.StringInput                 `pulumi:"restoreId"`
+	Status        pulumi.StringInput                 `pulumi:"status"`
 }
 
 func (BlobRestoreStatusResponseArgs) ElementType() reflect.Type {
@@ -2042,22 +1876,18 @@ func (o BlobRestoreStatusResponseOutput) ToBlobRestoreStatusResponsePtrOutputWit
 	}).(BlobRestoreStatusResponsePtrOutput)
 }
 
-// Failure reason when blob restore is failed.
 func (o BlobRestoreStatusResponseOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreStatusResponse) string { return v.FailureReason }).(pulumi.StringOutput)
 }
 
-// Blob restore request parameters.
 func (o BlobRestoreStatusResponseOutput) Parameters() BlobRestoreParametersResponseOutput {
 	return o.ApplyT(func(v BlobRestoreStatusResponse) BlobRestoreParametersResponse { return v.Parameters }).(BlobRestoreParametersResponseOutput)
 }
 
-// Id for tracking blob restore request.
 func (o BlobRestoreStatusResponseOutput) RestoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreStatusResponse) string { return v.RestoreId }).(pulumi.StringOutput)
 }
 
-// The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
 func (o BlobRestoreStatusResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobRestoreStatusResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2086,7 +1916,6 @@ func (o BlobRestoreStatusResponsePtrOutput) Elem() BlobRestoreStatusResponseOutp
 	}).(BlobRestoreStatusResponseOutput)
 }
 
-// Failure reason when blob restore is failed.
 func (o BlobRestoreStatusResponsePtrOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobRestoreStatusResponse) *string {
 		if v == nil {
@@ -2096,7 +1925,6 @@ func (o BlobRestoreStatusResponsePtrOutput) FailureReason() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Blob restore request parameters.
 func (o BlobRestoreStatusResponsePtrOutput) Parameters() BlobRestoreParametersResponsePtrOutput {
 	return o.ApplyT(func(v *BlobRestoreStatusResponse) *BlobRestoreParametersResponse {
 		if v == nil {
@@ -2106,7 +1934,6 @@ func (o BlobRestoreStatusResponsePtrOutput) Parameters() BlobRestoreParametersRe
 	}).(BlobRestoreParametersResponsePtrOutput)
 }
 
-// Id for tracking blob restore request.
 func (o BlobRestoreStatusResponsePtrOutput) RestoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobRestoreStatusResponse) *string {
 		if v == nil {
@@ -2116,7 +1943,6 @@ func (o BlobRestoreStatusResponsePtrOutput) RestoreId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
 func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobRestoreStatusResponse) *string {
 		if v == nil {
@@ -2127,10 +1953,8 @@ func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type ChangeFeed struct {
-	// Indicates whether change feed event logging is enabled for the Blob service.
-	Enabled *bool `pulumi:"enabled"`
-	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
-	RetentionInDays *int `pulumi:"retentionInDays"`
+	Enabled         *bool `pulumi:"enabled"`
+	RetentionInDays *int  `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedInput is an input type that accepts ChangeFeedArgs and ChangeFeedOutput values.
@@ -2145,10 +1969,8 @@ type ChangeFeedInput interface {
 }
 
 type ChangeFeedArgs struct {
-	// Indicates whether change feed event logging is enabled for the Blob service.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput  `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedArgs) ElementType() reflect.Type {
@@ -2228,12 +2050,10 @@ func (o ChangeFeedOutput) ToChangeFeedPtrOutputWithContext(ctx context.Context) 
 	}).(ChangeFeedPtrOutput)
 }
 
-// Indicates whether change feed event logging is enabled for the Blob service.
 func (o ChangeFeedOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeed) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
 func (o ChangeFeedOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChangeFeed) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -2262,7 +2082,6 @@ func (o ChangeFeedPtrOutput) Elem() ChangeFeedOutput {
 	}).(ChangeFeedOutput)
 }
 
-// Indicates whether change feed event logging is enabled for the Blob service.
 func (o ChangeFeedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChangeFeed) *bool {
 		if v == nil {
@@ -2272,7 +2091,6 @@ func (o ChangeFeedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
 func (o ChangeFeedPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChangeFeed) *int {
 		if v == nil {
@@ -2283,10 +2101,8 @@ func (o ChangeFeedPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 }
 
 type ChangeFeedResponse struct {
-	// Indicates whether change feed event logging is enabled for the Blob service.
-	Enabled *bool `pulumi:"enabled"`
-	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
-	RetentionInDays *int `pulumi:"retentionInDays"`
+	Enabled         *bool `pulumi:"enabled"`
+	RetentionInDays *int  `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedResponseInput is an input type that accepts ChangeFeedResponseArgs and ChangeFeedResponseOutput values.
@@ -2301,10 +2117,8 @@ type ChangeFeedResponseInput interface {
 }
 
 type ChangeFeedResponseArgs struct {
-	// Indicates whether change feed event logging is enabled for the Blob service.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput  `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedResponseArgs) ElementType() reflect.Type {
@@ -2384,12 +2198,10 @@ func (o ChangeFeedResponseOutput) ToChangeFeedResponsePtrOutputWithContext(ctx c
 	}).(ChangeFeedResponsePtrOutput)
 }
 
-// Indicates whether change feed event logging is enabled for the Blob service.
 func (o ChangeFeedResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeedResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
 func (o ChangeFeedResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChangeFeedResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -2418,7 +2230,6 @@ func (o ChangeFeedResponsePtrOutput) Elem() ChangeFeedResponseOutput {
 	}).(ChangeFeedResponseOutput)
 }
 
-// Indicates whether change feed event logging is enabled for the Blob service.
 func (o ChangeFeedResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChangeFeedResponse) *bool {
 		if v == nil {
@@ -2428,7 +2239,6 @@ func (o ChangeFeedResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
 func (o ChangeFeedResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChangeFeedResponse) *int {
 		if v == nil {
@@ -2439,16 +2249,11 @@ func (o ChangeFeedResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 }
 
 type CorsRule struct {
-	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
-	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
-	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
-	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  []string `pulumi:"allowedHeaders"`
+	AllowedMethods  []string `pulumi:"allowedMethods"`
+	AllowedOrigins  []string `pulumi:"allowedOrigins"`
+	ExposedHeaders  []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
 }
 
 // CorsRuleInput is an input type that accepts CorsRuleArgs and CorsRuleOutput values.
@@ -2463,16 +2268,11 @@ type CorsRuleInput interface {
 }
 
 type CorsRuleArgs struct {
-	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
-	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
-	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
-	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
 }
 
 func (CorsRuleArgs) ElementType() reflect.Type {
@@ -2526,27 +2326,22 @@ func (o CorsRuleOutput) ToCorsRuleOutputWithContext(ctx context.Context) CorsRul
 	return o
 }
 
-// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
 func (o CorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
 func (o CorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
 func (o CorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
 func (o CorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
 func (o CorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v CorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
 }
@@ -2572,16 +2367,11 @@ func (o CorsRuleArrayOutput) Index(i pulumi.IntInput) CorsRuleOutput {
 }
 
 type CorsRuleResponse struct {
-	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
-	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
-	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
-	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  []string `pulumi:"allowedHeaders"`
+	AllowedMethods  []string `pulumi:"allowedMethods"`
+	AllowedOrigins  []string `pulumi:"allowedOrigins"`
+	ExposedHeaders  []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
 }
 
 // CorsRuleResponseInput is an input type that accepts CorsRuleResponseArgs and CorsRuleResponseOutput values.
@@ -2596,16 +2386,11 @@ type CorsRuleResponseInput interface {
 }
 
 type CorsRuleResponseArgs struct {
-	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
-	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
-	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
-	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
 }
 
 func (CorsRuleResponseArgs) ElementType() reflect.Type {
@@ -2659,27 +2444,22 @@ func (o CorsRuleResponseOutput) ToCorsRuleResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
 func (o CorsRuleResponseOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
 func (o CorsRuleResponseOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
 func (o CorsRuleResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
 func (o CorsRuleResponseOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsRuleResponse) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
 func (o CorsRuleResponseOutput) MaxAgeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v CorsRuleResponse) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
 }
@@ -2705,7 +2485,6 @@ func (o CorsRuleResponseArrayOutput) Index(i pulumi.IntInput) CorsRuleResponseOu
 }
 
 type CorsRules struct {
-	// The List of CORS rules. You can include up to five CorsRule elements in the request.
 	CorsRules []CorsRule `pulumi:"corsRules"`
 }
 
@@ -2721,7 +2500,6 @@ type CorsRulesInput interface {
 }
 
 type CorsRulesArgs struct {
-	// The List of CORS rules. You can include up to five CorsRule elements in the request.
 	CorsRules CorsRuleArrayInput `pulumi:"corsRules"`
 }
 
@@ -2802,7 +2580,6 @@ func (o CorsRulesOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) Co
 	}).(CorsRulesPtrOutput)
 }
 
-// The List of CORS rules. You can include up to five CorsRule elements in the request.
 func (o CorsRulesOutput) CorsRules() CorsRuleArrayOutput {
 	return o.ApplyT(func(v CorsRules) []CorsRule { return v.CorsRules }).(CorsRuleArrayOutput)
 }
@@ -2831,7 +2608,6 @@ func (o CorsRulesPtrOutput) Elem() CorsRulesOutput {
 	}).(CorsRulesOutput)
 }
 
-// The List of CORS rules. You can include up to five CorsRule elements in the request.
 func (o CorsRulesPtrOutput) CorsRules() CorsRuleArrayOutput {
 	return o.ApplyT(func(v *CorsRules) []CorsRule {
 		if v == nil {
@@ -2842,7 +2618,6 @@ func (o CorsRulesPtrOutput) CorsRules() CorsRuleArrayOutput {
 }
 
 type CorsRulesResponse struct {
-	// The List of CORS rules. You can include up to five CorsRule elements in the request.
 	CorsRules []CorsRuleResponse `pulumi:"corsRules"`
 }
 
@@ -2858,7 +2633,6 @@ type CorsRulesResponseInput interface {
 }
 
 type CorsRulesResponseArgs struct {
-	// The List of CORS rules. You can include up to five CorsRule elements in the request.
 	CorsRules CorsRuleResponseArrayInput `pulumi:"corsRules"`
 }
 
@@ -2939,7 +2713,6 @@ func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutputWithContext(ctx con
 	}).(CorsRulesResponsePtrOutput)
 }
 
-// The List of CORS rules. You can include up to five CorsRule elements in the request.
 func (o CorsRulesResponseOutput) CorsRules() CorsRuleResponseArrayOutput {
 	return o.ApplyT(func(v CorsRulesResponse) []CorsRuleResponse { return v.CorsRules }).(CorsRuleResponseArrayOutput)
 }
@@ -2968,7 +2741,6 @@ func (o CorsRulesResponsePtrOutput) Elem() CorsRulesResponseOutput {
 	}).(CorsRulesResponseOutput)
 }
 
-// The List of CORS rules. You can include up to five CorsRule elements in the request.
 func (o CorsRulesResponsePtrOutput) CorsRules() CorsRuleResponseArrayOutput {
 	return o.ApplyT(func(v *CorsRulesResponse) []CorsRuleResponse {
 		if v == nil {
@@ -2979,10 +2751,8 @@ func (o CorsRulesResponsePtrOutput) CorsRules() CorsRuleResponseArrayOutput {
 }
 
 type CustomDomain struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainInput is an input type that accepts CustomDomainArgs and CustomDomainOutput values.
@@ -2997,9 +2767,7 @@ type CustomDomainInput interface {
 }
 
 type CustomDomainArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -3080,12 +2848,10 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Conte
 	}).(CustomDomainPtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomain) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -3114,7 +2880,6 @@ func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
 	}).(CustomDomainOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *string {
 		if v == nil {
@@ -3124,7 +2889,6 @@ func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *bool {
 		if v == nil {
@@ -3135,10 +2899,8 @@ func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 }
 
 type CustomDomainResponse struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainResponseInput is an input type that accepts CustomDomainResponseArgs and CustomDomainResponseOutput values.
@@ -3153,9 +2915,7 @@ type CustomDomainResponseInput interface {
 }
 
 type CustomDomainResponseArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -3236,12 +2996,10 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(c
 	}).(CustomDomainResponsePtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -3270,7 +3028,6 @@ func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
 	}).(CustomDomainResponseOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *string {
 		if v == nil {
@@ -3280,7 +3037,6 @@ func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *bool {
 		if v == nil {
@@ -3291,7 +3047,6 @@ func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 }
 
 type DateAfterCreation struct {
-	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan float64 `pulumi:"daysAfterCreationGreaterThan"`
 }
 
@@ -3307,7 +3062,6 @@ type DateAfterCreationInput interface {
 }
 
 type DateAfterCreationArgs struct {
-	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan pulumi.Float64Input `pulumi:"daysAfterCreationGreaterThan"`
 }
 
@@ -3388,7 +3142,6 @@ func (o DateAfterCreationOutput) ToDateAfterCreationPtrOutputWithContext(ctx con
 	}).(DateAfterCreationPtrOutput)
 }
 
-// Value indicating the age in days after creation
 func (o DateAfterCreationOutput) DaysAfterCreationGreaterThan() pulumi.Float64Output {
 	return o.ApplyT(func(v DateAfterCreation) float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64Output)
 }
@@ -3417,7 +3170,6 @@ func (o DateAfterCreationPtrOutput) Elem() DateAfterCreationOutput {
 	}).(DateAfterCreationOutput)
 }
 
-// Value indicating the age in days after creation
 func (o DateAfterCreationPtrOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterCreation) *float64 {
 		if v == nil {
@@ -3428,7 +3180,6 @@ func (o DateAfterCreationPtrOutput) DaysAfterCreationGreaterThan() pulumi.Float6
 }
 
 type DateAfterCreationResponse struct {
-	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan float64 `pulumi:"daysAfterCreationGreaterThan"`
 }
 
@@ -3444,7 +3195,6 @@ type DateAfterCreationResponseInput interface {
 }
 
 type DateAfterCreationResponseArgs struct {
-	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan pulumi.Float64Input `pulumi:"daysAfterCreationGreaterThan"`
 }
 
@@ -3525,7 +3275,6 @@ func (o DateAfterCreationResponseOutput) ToDateAfterCreationResponsePtrOutputWit
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
-// Value indicating the age in days after creation
 func (o DateAfterCreationResponseOutput) DaysAfterCreationGreaterThan() pulumi.Float64Output {
 	return o.ApplyT(func(v DateAfterCreationResponse) float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64Output)
 }
@@ -3554,7 +3303,6 @@ func (o DateAfterCreationResponsePtrOutput) Elem() DateAfterCreationResponseOutp
 	}).(DateAfterCreationResponseOutput)
 }
 
-// Value indicating the age in days after creation
 func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterCreationResponse) *float64 {
 		if v == nil {
@@ -3565,10 +3313,8 @@ func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulum
 }
 
 type DateAfterModification struct {
-	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
-	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan   *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationInput is an input type that accepts DateAfterModificationArgs and DateAfterModificationOutput values.
@@ -3583,10 +3329,8 @@ type DateAfterModificationInput interface {
 }
 
 type DateAfterModificationArgs struct {
-	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
-	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan   pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationArgs) ElementType() reflect.Type {
@@ -3666,12 +3410,10 @@ func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutputWithContext
 	}).(DateAfterModificationPtrOutput)
 }
 
-// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
-// Value indicating the age in days after last modification
 func (o DateAfterModificationOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
@@ -3700,7 +3442,6 @@ func (o DateAfterModificationPtrOutput) Elem() DateAfterModificationOutput {
 	}).(DateAfterModificationOutput)
 }
 
-// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModification) *float64 {
 		if v == nil {
@@ -3710,7 +3451,6 @@ func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Value indicating the age in days after last modification
 func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModification) *float64 {
 		if v == nil {
@@ -3721,10 +3461,8 @@ func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulum
 }
 
 type DateAfterModificationResponse struct {
-	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
-	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan   *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationResponseInput is an input type that accepts DateAfterModificationResponseArgs and DateAfterModificationResponseOutput values.
@@ -3739,10 +3477,8 @@ type DateAfterModificationResponseInput interface {
 }
 
 type DateAfterModificationResponseArgs struct {
-	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
-	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan   pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationResponseArgs) ElementType() reflect.Type {
@@ -3822,12 +3558,10 @@ func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponsePtrO
 	}).(DateAfterModificationResponsePtrOutput)
 }
 
-// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationResponseOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
-// Value indicating the age in days after last modification
 func (o DateAfterModificationResponseOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
@@ -3856,7 +3590,6 @@ func (o DateAfterModificationResponsePtrOutput) Elem() DateAfterModificationResp
 	}).(DateAfterModificationResponseOutput)
 }
 
-// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
 		if v == nil {
@@ -3866,7 +3599,6 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterTh
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Value indicating the age in days after last modification
 func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
 		if v == nil {
@@ -3877,9 +3609,7 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan
 }
 
 type DeleteRetentionPolicy struct {
-	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
-	Days *int `pulumi:"days"`
-	// Indicates whether DeleteRetentionPolicy is enabled.
+	Days    *int  `pulumi:"days"`
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3895,9 +3625,7 @@ type DeleteRetentionPolicyInput interface {
 }
 
 type DeleteRetentionPolicyArgs struct {
-	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Indicates whether DeleteRetentionPolicy is enabled.
+	Days    pulumi.IntPtrInput  `pulumi:"days"`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3978,12 +3706,10 @@ func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutputWithContext
 	}).(DeleteRetentionPolicyPtrOutput)
 }
 
-// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether DeleteRetentionPolicy is enabled.
 func (o DeleteRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeleteRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4012,7 +3738,6 @@ func (o DeleteRetentionPolicyPtrOutput) Elem() DeleteRetentionPolicyOutput {
 	}).(DeleteRetentionPolicyOutput)
 }
 
-// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeleteRetentionPolicy) *int {
 		if v == nil {
@@ -4022,7 +3747,6 @@ func (o DeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether DeleteRetentionPolicy is enabled.
 func (o DeleteRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeleteRetentionPolicy) *bool {
 		if v == nil {
@@ -4033,9 +3757,7 @@ func (o DeleteRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type DeleteRetentionPolicyResponse struct {
-	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
-	Days *int `pulumi:"days"`
-	// Indicates whether DeleteRetentionPolicy is enabled.
+	Days    *int  `pulumi:"days"`
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -4051,9 +3773,7 @@ type DeleteRetentionPolicyResponseInput interface {
 }
 
 type DeleteRetentionPolicyResponseArgs struct {
-	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Indicates whether DeleteRetentionPolicy is enabled.
+	Days    pulumi.IntPtrInput  `pulumi:"days"`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -4134,12 +3854,10 @@ func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrO
 	}).(DeleteRetentionPolicyResponsePtrOutput)
 }
 
-// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyResponseOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether DeleteRetentionPolicy is enabled.
 func (o DeleteRetentionPolicyResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4168,7 +3886,6 @@ func (o DeleteRetentionPolicyResponsePtrOutput) Elem() DeleteRetentionPolicyResp
 	}).(DeleteRetentionPolicyResponseOutput)
 }
 
-// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *int {
 		if v == nil {
@@ -4178,7 +3895,6 @@ func (o DeleteRetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether DeleteRetentionPolicy is enabled.
 func (o DeleteRetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *bool {
 		if v == nil {
@@ -4189,16 +3905,11 @@ func (o DeleteRetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type Encryption struct {
-	// The identity to be used with service-side encryption at rest.
-	EncryptionIdentity *EncryptionIdentity `pulumi:"encryptionIdentity"`
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource string `pulumi:"keySource"`
-	// Properties provided by key vault.
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
-	// List of services which support encryption.
-	Services *EncryptionServices `pulumi:"services"`
+	EncryptionIdentity              *EncryptionIdentity `pulumi:"encryptionIdentity"`
+	KeySource                       string              `pulumi:"keySource"`
+	KeyVaultProperties              *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	RequireInfrastructureEncryption *bool               `pulumi:"requireInfrastructureEncryption"`
+	Services                        *EncryptionServices `pulumi:"services"`
 }
 
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
@@ -4213,16 +3924,11 @@ type EncryptionInput interface {
 }
 
 type EncryptionArgs struct {
-	// The identity to be used with service-side encryption at rest.
-	EncryptionIdentity EncryptionIdentityPtrInput `pulumi:"encryptionIdentity"`
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// Properties provided by key vault.
-	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption pulumi.BoolPtrInput `pulumi:"requireInfrastructureEncryption"`
-	// List of services which support encryption.
-	Services EncryptionServicesPtrInput `pulumi:"services"`
+	EncryptionIdentity              EncryptionIdentityPtrInput `pulumi:"encryptionIdentity"`
+	KeySource                       pulumi.StringInput         `pulumi:"keySource"`
+	KeyVaultProperties              KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	RequireInfrastructureEncryption pulumi.BoolPtrInput        `pulumi:"requireInfrastructureEncryption"`
+	Services                        EncryptionServicesPtrInput `pulumi:"services"`
 }
 
 func (EncryptionArgs) ElementType() reflect.Type {
@@ -4302,27 +4008,22 @@ func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) 
 	}).(EncryptionPtrOutput)
 }
 
-// The identity to be used with service-side encryption at rest.
 func (o EncryptionOutput) EncryptionIdentity() EncryptionIdentityPtrOutput {
 	return o.ApplyT(func(v Encryption) *EncryptionIdentity { return v.EncryptionIdentity }).(EncryptionIdentityPtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v Encryption) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
 
-// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 func (o EncryptionOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Encryption) *bool { return v.RequireInfrastructureEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v Encryption) *EncryptionServices { return v.Services }).(EncryptionServicesPtrOutput)
 }
@@ -4351,7 +4052,6 @@ func (o EncryptionPtrOutput) Elem() EncryptionOutput {
 	}).(EncryptionOutput)
 }
 
-// The identity to be used with service-side encryption at rest.
 func (o EncryptionPtrOutput) EncryptionIdentity() EncryptionIdentityPtrOutput {
 	return o.ApplyT(func(v *Encryption) *EncryptionIdentity {
 		if v == nil {
@@ -4361,7 +4061,6 @@ func (o EncryptionPtrOutput) EncryptionIdentity() EncryptionIdentityPtrOutput {
 	}).(EncryptionIdentityPtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -4371,7 +4070,6 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *KeyVaultProperties {
 		if v == nil {
@@ -4381,7 +4079,6 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 func (o EncryptionPtrOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Encryption) *bool {
 		if v == nil {
@@ -4391,7 +4088,6 @@ func (o EncryptionPtrOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *EncryptionServices {
 		if v == nil {
@@ -4402,7 +4098,6 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 }
 
 type EncryptionIdentity struct {
-	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
 }
 
@@ -4418,7 +4113,6 @@ type EncryptionIdentityInput interface {
 }
 
 type EncryptionIdentityArgs struct {
-	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity pulumi.StringPtrInput `pulumi:"encryptionUserAssignedIdentity"`
 }
 
@@ -4499,7 +4193,6 @@ func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutputWithContext(ctx c
 	}).(EncryptionIdentityPtrOutput)
 }
 
-// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionIdentity) *string { return v.EncryptionUserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -4528,7 +4221,6 @@ func (o EncryptionIdentityPtrOutput) Elem() EncryptionIdentityOutput {
 	}).(EncryptionIdentityOutput)
 }
 
-// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityPtrOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionIdentity) *string {
 		if v == nil {
@@ -4539,7 +4231,6 @@ func (o EncryptionIdentityPtrOutput) EncryptionUserAssignedIdentity() pulumi.Str
 }
 
 type EncryptionIdentityResponse struct {
-	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
 }
 
@@ -4555,7 +4246,6 @@ type EncryptionIdentityResponseInput interface {
 }
 
 type EncryptionIdentityResponseArgs struct {
-	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity pulumi.StringPtrInput `pulumi:"encryptionUserAssignedIdentity"`
 }
 
@@ -4636,7 +4326,6 @@ func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutputW
 	}).(EncryptionIdentityResponsePtrOutput)
 }
 
-// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityResponseOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionIdentityResponse) *string { return v.EncryptionUserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -4665,7 +4354,6 @@ func (o EncryptionIdentityResponsePtrOutput) Elem() EncryptionIdentityResponseOu
 	}).(EncryptionIdentityResponseOutput)
 }
 
-// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityResponsePtrOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
 		if v == nil {
@@ -4676,16 +4364,11 @@ func (o EncryptionIdentityResponsePtrOutput) EncryptionUserAssignedIdentity() pu
 }
 
 type EncryptionResponse struct {
-	// The identity to be used with service-side encryption at rest.
-	EncryptionIdentity *EncryptionIdentityResponse `pulumi:"encryptionIdentity"`
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource string `pulumi:"keySource"`
-	// Properties provided by key vault.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
-	// List of services which support encryption.
-	Services *EncryptionServicesResponse `pulumi:"services"`
+	EncryptionIdentity              *EncryptionIdentityResponse `pulumi:"encryptionIdentity"`
+	KeySource                       string                      `pulumi:"keySource"`
+	KeyVaultProperties              *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	RequireInfrastructureEncryption *bool                       `pulumi:"requireInfrastructureEncryption"`
+	Services                        *EncryptionServicesResponse `pulumi:"services"`
 }
 
 // EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
@@ -4700,16 +4383,11 @@ type EncryptionResponseInput interface {
 }
 
 type EncryptionResponseArgs struct {
-	// The identity to be used with service-side encryption at rest.
-	EncryptionIdentity EncryptionIdentityResponsePtrInput `pulumi:"encryptionIdentity"`
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// Properties provided by key vault.
-	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption pulumi.BoolPtrInput `pulumi:"requireInfrastructureEncryption"`
-	// List of services which support encryption.
-	Services EncryptionServicesResponsePtrInput `pulumi:"services"`
+	EncryptionIdentity              EncryptionIdentityResponsePtrInput `pulumi:"encryptionIdentity"`
+	KeySource                       pulumi.StringInput                 `pulumi:"keySource"`
+	KeyVaultProperties              KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+	RequireInfrastructureEncryption pulumi.BoolPtrInput                `pulumi:"requireInfrastructureEncryption"`
+	Services                        EncryptionServicesResponsePtrInput `pulumi:"services"`
 }
 
 func (EncryptionResponseArgs) ElementType() reflect.Type {
@@ -4789,27 +4467,22 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx c
 	}).(EncryptionResponsePtrOutput)
 }
 
-// The identity to be used with service-side encryption at rest.
 func (o EncryptionResponseOutput) EncryptionIdentity() EncryptionIdentityResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *EncryptionIdentityResponse { return v.EncryptionIdentity }).(EncryptionIdentityResponsePtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionResponseOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionResponse) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 func (o EncryptionResponseOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *bool { return v.RequireInfrastructureEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponseOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *EncryptionServicesResponse { return v.Services }).(EncryptionServicesResponsePtrOutput)
 }
@@ -4838,7 +4511,6 @@ func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
 	}).(EncryptionResponseOutput)
 }
 
-// The identity to be used with service-side encryption at rest.
 func (o EncryptionResponsePtrOutput) EncryptionIdentity() EncryptionIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *EncryptionIdentityResponse {
 		if v == nil {
@@ -4848,7 +4520,6 @@ func (o EncryptionResponsePtrOutput) EncryptionIdentity() EncryptionIdentityResp
 	}).(EncryptionIdentityResponsePtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -4858,7 +4529,6 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -4868,7 +4538,6 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 func (o EncryptionResponsePtrOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *bool {
 		if v == nil {
@@ -4878,7 +4547,6 @@ func (o EncryptionResponsePtrOutput) RequireInfrastructureEncryption() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *EncryptionServicesResponse {
 		if v == nil {
@@ -4889,7 +4557,6 @@ func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOut
 }
 
 type EncryptionScopeKeyVaultProperties struct {
-	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 	KeyUri *string `pulumi:"keyUri"`
 }
 
@@ -4905,7 +4572,6 @@ type EncryptionScopeKeyVaultPropertiesInput interface {
 }
 
 type EncryptionScopeKeyVaultPropertiesArgs struct {
-	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
 }
 
@@ -4986,7 +4652,6 @@ func (o EncryptionScopeKeyVaultPropertiesOutput) ToEncryptionScopeKeyVaultProper
 	}).(EncryptionScopeKeyVaultPropertiesPtrOutput)
 }
 
-// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 func (o EncryptionScopeKeyVaultPropertiesOutput) KeyUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionScopeKeyVaultProperties) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
 }
@@ -5015,7 +4680,6 @@ func (o EncryptionScopeKeyVaultPropertiesPtrOutput) Elem() EncryptionScopeKeyVau
 	}).(EncryptionScopeKeyVaultPropertiesOutput)
 }
 
-// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 func (o EncryptionScopeKeyVaultPropertiesPtrOutput) KeyUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionScopeKeyVaultProperties) *string {
 		if v == nil {
@@ -5026,12 +4690,9 @@ func (o EncryptionScopeKeyVaultPropertiesPtrOutput) KeyUri() pulumi.StringPtrOut
 }
 
 type EncryptionScopeKeyVaultPropertiesResponse struct {
-	// The object identifier of the current versioned Key Vault Key in use.
-	CurrentVersionedKeyIdentifier string `pulumi:"currentVersionedKeyIdentifier"`
-	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-	KeyUri *string `pulumi:"keyUri"`
-	// Timestamp of last rotation of the Key Vault Key.
-	LastKeyRotationTimestamp string `pulumi:"lastKeyRotationTimestamp"`
+	CurrentVersionedKeyIdentifier string  `pulumi:"currentVersionedKeyIdentifier"`
+	KeyUri                        *string `pulumi:"keyUri"`
+	LastKeyRotationTimestamp      string  `pulumi:"lastKeyRotationTimestamp"`
 }
 
 // EncryptionScopeKeyVaultPropertiesResponseInput is an input type that accepts EncryptionScopeKeyVaultPropertiesResponseArgs and EncryptionScopeKeyVaultPropertiesResponseOutput values.
@@ -5046,12 +4707,9 @@ type EncryptionScopeKeyVaultPropertiesResponseInput interface {
 }
 
 type EncryptionScopeKeyVaultPropertiesResponseArgs struct {
-	// The object identifier of the current versioned Key Vault Key in use.
-	CurrentVersionedKeyIdentifier pulumi.StringInput `pulumi:"currentVersionedKeyIdentifier"`
-	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
-	// Timestamp of last rotation of the Key Vault Key.
-	LastKeyRotationTimestamp pulumi.StringInput `pulumi:"lastKeyRotationTimestamp"`
+	CurrentVersionedKeyIdentifier pulumi.StringInput    `pulumi:"currentVersionedKeyIdentifier"`
+	KeyUri                        pulumi.StringPtrInput `pulumi:"keyUri"`
+	LastKeyRotationTimestamp      pulumi.StringInput    `pulumi:"lastKeyRotationTimestamp"`
 }
 
 func (EncryptionScopeKeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5131,17 +4789,14 @@ func (o EncryptionScopeKeyVaultPropertiesResponseOutput) ToEncryptionScopeKeyVau
 	}).(EncryptionScopeKeyVaultPropertiesResponsePtrOutput)
 }
 
-// The object identifier of the current versioned Key Vault Key in use.
 func (o EncryptionScopeKeyVaultPropertiesResponseOutput) CurrentVersionedKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionScopeKeyVaultPropertiesResponse) string { return v.CurrentVersionedKeyIdentifier }).(pulumi.StringOutput)
 }
 
-// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 func (o EncryptionScopeKeyVaultPropertiesResponseOutput) KeyUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionScopeKeyVaultPropertiesResponse) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of last rotation of the Key Vault Key.
 func (o EncryptionScopeKeyVaultPropertiesResponseOutput) LastKeyRotationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionScopeKeyVaultPropertiesResponse) string { return v.LastKeyRotationTimestamp }).(pulumi.StringOutput)
 }
@@ -5170,7 +4825,6 @@ func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) Elem() EncryptionSco
 	}).(EncryptionScopeKeyVaultPropertiesResponseOutput)
 }
 
-// The object identifier of the current versioned Key Vault Key in use.
 func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionScopeKeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -5180,7 +4834,6 @@ func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyI
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
 func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) KeyUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionScopeKeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -5190,7 +4843,6 @@ func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) KeyUri() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of last rotation of the Key Vault Key.
 func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionScopeKeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -5201,9 +4853,7 @@ func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimes
 }
 
 type EncryptionService struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled *bool `pulumi:"enabled"`
-	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+	Enabled *bool   `pulumi:"enabled"`
 	KeyType *string `pulumi:"keyType"`
 }
 
@@ -5219,9 +4869,7 @@ type EncryptionServiceInput interface {
 }
 
 type EncryptionServiceArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
 }
 
@@ -5302,12 +4950,10 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx con
 	}).(EncryptionServicePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionService) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 func (o EncryptionServiceOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionService) *string { return v.KeyType }).(pulumi.StringPtrOutput)
 }
@@ -5336,7 +4982,6 @@ func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
 	}).(EncryptionServiceOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionService) *bool {
 		if v == nil {
@@ -5346,7 +4991,6 @@ func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 func (o EncryptionServicePtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionService) *string {
 		if v == nil {
@@ -5357,12 +5001,9 @@ func (o EncryptionServicePtrOutput) KeyType() pulumi.StringPtrOutput {
 }
 
 type EncryptionServiceResponse struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled *bool `pulumi:"enabled"`
-	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-	KeyType *string `pulumi:"keyType"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-	LastEnabledTime string `pulumi:"lastEnabledTime"`
+	Enabled         *bool   `pulumi:"enabled"`
+	KeyType         *string `pulumi:"keyType"`
+	LastEnabledTime string  `pulumi:"lastEnabledTime"`
 }
 
 // EncryptionServiceResponseInput is an input type that accepts EncryptionServiceResponseArgs and EncryptionServiceResponseOutput values.
@@ -5377,12 +5018,9 @@ type EncryptionServiceResponseInput interface {
 }
 
 type EncryptionServiceResponseArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
+	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	KeyType         pulumi.StringPtrInput `pulumi:"keyType"`
+	LastEnabledTime pulumi.StringInput    `pulumi:"lastEnabledTime"`
 }
 
 func (EncryptionServiceResponseArgs) ElementType() reflect.Type {
@@ -5462,17 +5100,14 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutputWit
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 func (o EncryptionServiceResponseOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *string { return v.KeyType }).(pulumi.StringPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponseOutput) LastEnabledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
 }
@@ -5501,7 +5136,6 @@ func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutp
 	}).(EncryptionServiceResponseOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *bool {
 		if v == nil {
@@ -5511,7 +5145,6 @@ func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 func (o EncryptionServiceResponsePtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *string {
 		if v == nil {
@@ -5521,7 +5154,6 @@ func (o EncryptionServiceResponsePtrOutput) KeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *string {
 		if v == nil {
@@ -5532,13 +5164,9 @@ func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOu
 }
 
 type EncryptionServices struct {
-	// The encryption function of the blob storage service.
-	Blob *EncryptionService `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File *EncryptionService `pulumi:"file"`
-	// The encryption function of the queue storage service.
+	Blob  *EncryptionService `pulumi:"blob"`
+	File  *EncryptionService `pulumi:"file"`
 	Queue *EncryptionService `pulumi:"queue"`
-	// The encryption function of the table storage service.
 	Table *EncryptionService `pulumi:"table"`
 }
 
@@ -5554,13 +5182,9 @@ type EncryptionServicesInput interface {
 }
 
 type EncryptionServicesArgs struct {
-	// The encryption function of the blob storage service.
-	Blob EncryptionServicePtrInput `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File EncryptionServicePtrInput `pulumi:"file"`
-	// The encryption function of the queue storage service.
+	Blob  EncryptionServicePtrInput `pulumi:"blob"`
+	File  EncryptionServicePtrInput `pulumi:"file"`
 	Queue EncryptionServicePtrInput `pulumi:"queue"`
-	// The encryption function of the table storage service.
 	Table EncryptionServicePtrInput `pulumi:"table"`
 }
 
@@ -5641,22 +5265,18 @@ func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutputWithContext(ctx c
 	}).(EncryptionServicesPtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.Blob }).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesOutput) File() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.File }).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesOutput) Queue() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.Queue }).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesOutput) Table() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.Table }).(EncryptionServicePtrOutput)
 }
@@ -5685,7 +5305,6 @@ func (o EncryptionServicesPtrOutput) Elem() EncryptionServicesOutput {
 	}).(EncryptionServicesOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -5695,7 +5314,6 @@ func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesPtrOutput) File() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -5705,7 +5323,6 @@ func (o EncryptionServicesPtrOutput) File() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesPtrOutput) Queue() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -5715,7 +5332,6 @@ func (o EncryptionServicesPtrOutput) Queue() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesPtrOutput) Table() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -5726,13 +5342,9 @@ func (o EncryptionServicesPtrOutput) Table() EncryptionServicePtrOutput {
 }
 
 type EncryptionServicesResponse struct {
-	// The encryption function of the blob storage service.
-	Blob *EncryptionServiceResponse `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File *EncryptionServiceResponse `pulumi:"file"`
-	// The encryption function of the queue storage service.
+	Blob  *EncryptionServiceResponse `pulumi:"blob"`
+	File  *EncryptionServiceResponse `pulumi:"file"`
 	Queue *EncryptionServiceResponse `pulumi:"queue"`
-	// The encryption function of the table storage service.
 	Table *EncryptionServiceResponse `pulumi:"table"`
 }
 
@@ -5748,13 +5360,9 @@ type EncryptionServicesResponseInput interface {
 }
 
 type EncryptionServicesResponseArgs struct {
-	// The encryption function of the blob storage service.
-	Blob EncryptionServiceResponsePtrInput `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File EncryptionServiceResponsePtrInput `pulumi:"file"`
-	// The encryption function of the queue storage service.
+	Blob  EncryptionServiceResponsePtrInput `pulumi:"blob"`
+	File  EncryptionServiceResponsePtrInput `pulumi:"file"`
 	Queue EncryptionServiceResponsePtrInput `pulumi:"queue"`
-	// The encryption function of the table storage service.
 	Table EncryptionServiceResponsePtrInput `pulumi:"table"`
 }
 
@@ -5835,22 +5443,18 @@ func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutputW
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponseOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.Blob }).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesResponseOutput) File() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.File }).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesResponseOutput) Queue() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.Queue }).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesResponseOutput) Table() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.Table }).(EncryptionServiceResponsePtrOutput)
 }
@@ -5879,7 +5483,6 @@ func (o EncryptionServicesResponsePtrOutput) Elem() EncryptionServicesResponseOu
 	}).(EncryptionServicesResponseOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -5889,7 +5492,6 @@ func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtr
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesResponsePtrOutput) File() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -5899,7 +5501,6 @@ func (o EncryptionServicesResponsePtrOutput) File() EncryptionServiceResponsePtr
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesResponsePtrOutput) Queue() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -5909,7 +5510,6 @@ func (o EncryptionServicesResponsePtrOutput) Queue() EncryptionServiceResponsePt
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesResponsePtrOutput) Table() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -5920,22 +5520,14 @@ func (o EncryptionServicesResponsePtrOutput) Table() EncryptionServiceResponsePt
 }
 
 type EndpointsResponse struct {
-	// Gets the blob endpoint.
-	Blob string `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs string `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File string `pulumi:"file"`
-	// Gets the internet routing storage endpoints
-	InternetEndpoints *StorageAccountInternetEndpointsResponse `pulumi:"internetEndpoints"`
-	// Gets the microsoft routing storage endpoints.
+	Blob               string                                    `pulumi:"blob"`
+	Dfs                string                                    `pulumi:"dfs"`
+	File               string                                    `pulumi:"file"`
+	InternetEndpoints  *StorageAccountInternetEndpointsResponse  `pulumi:"internetEndpoints"`
 	MicrosoftEndpoints *StorageAccountMicrosoftEndpointsResponse `pulumi:"microsoftEndpoints"`
-	// Gets the queue endpoint.
-	Queue string `pulumi:"queue"`
-	// Gets the table endpoint.
-	Table string `pulumi:"table"`
-	// Gets the web endpoint.
-	Web string `pulumi:"web"`
+	Queue              string                                    `pulumi:"queue"`
+	Table              string                                    `pulumi:"table"`
+	Web                string                                    `pulumi:"web"`
 }
 
 // EndpointsResponseInput is an input type that accepts EndpointsResponseArgs and EndpointsResponseOutput values.
@@ -5950,22 +5542,14 @@ type EndpointsResponseInput interface {
 }
 
 type EndpointsResponseArgs struct {
-	// Gets the blob endpoint.
-	Blob pulumi.StringInput `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs pulumi.StringInput `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File pulumi.StringInput `pulumi:"file"`
-	// Gets the internet routing storage endpoints
-	InternetEndpoints StorageAccountInternetEndpointsResponsePtrInput `pulumi:"internetEndpoints"`
-	// Gets the microsoft routing storage endpoints.
+	Blob               pulumi.StringInput                               `pulumi:"blob"`
+	Dfs                pulumi.StringInput                               `pulumi:"dfs"`
+	File               pulumi.StringInput                               `pulumi:"file"`
+	InternetEndpoints  StorageAccountInternetEndpointsResponsePtrInput  `pulumi:"internetEndpoints"`
 	MicrosoftEndpoints StorageAccountMicrosoftEndpointsResponsePtrInput `pulumi:"microsoftEndpoints"`
-	// Gets the queue endpoint.
-	Queue pulumi.StringInput `pulumi:"queue"`
-	// Gets the table endpoint.
-	Table pulumi.StringInput `pulumi:"table"`
-	// Gets the web endpoint.
-	Web pulumi.StringInput `pulumi:"web"`
+	Queue              pulumi.StringInput                               `pulumi:"queue"`
+	Table              pulumi.StringInput                               `pulumi:"table"`
+	Web                pulumi.StringInput                               `pulumi:"web"`
 }
 
 func (EndpointsResponseArgs) ElementType() reflect.Type {
@@ -6045,42 +5629,34 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx con
 	}).(EndpointsResponsePtrOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponseOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Blob }).(pulumi.StringOutput)
 }
 
-// Gets the dfs endpoint.
 func (o EndpointsResponseOutput) Dfs() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Dfs }).(pulumi.StringOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponseOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Gets the internet routing storage endpoints
 func (o EndpointsResponseOutput) InternetEndpoints() StorageAccountInternetEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *StorageAccountInternetEndpointsResponse { return v.InternetEndpoints }).(StorageAccountInternetEndpointsResponsePtrOutput)
 }
 
-// Gets the microsoft routing storage endpoints.
 func (o EndpointsResponseOutput) MicrosoftEndpoints() StorageAccountMicrosoftEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *StorageAccountMicrosoftEndpointsResponse { return v.MicrosoftEndpoints }).(StorageAccountMicrosoftEndpointsResponsePtrOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponseOutput) Queue() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Queue }).(pulumi.StringOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponseOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Table }).(pulumi.StringOutput)
 }
 
-// Gets the web endpoint.
 func (o EndpointsResponseOutput) Web() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Web }).(pulumi.StringOutput)
 }
@@ -6109,7 +5685,6 @@ func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
 	}).(EndpointsResponseOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6119,7 +5694,6 @@ func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the dfs endpoint.
 func (o EndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6129,7 +5703,6 @@ func (o EndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6139,7 +5712,6 @@ func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the internet routing storage endpoints
 func (o EndpointsResponsePtrOutput) InternetEndpoints() StorageAccountInternetEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *StorageAccountInternetEndpointsResponse {
 		if v == nil {
@@ -6149,7 +5721,6 @@ func (o EndpointsResponsePtrOutput) InternetEndpoints() StorageAccountInternetEn
 	}).(StorageAccountInternetEndpointsResponsePtrOutput)
 }
 
-// Gets the microsoft routing storage endpoints.
 func (o EndpointsResponsePtrOutput) MicrosoftEndpoints() StorageAccountMicrosoftEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *StorageAccountMicrosoftEndpointsResponse {
 		if v == nil {
@@ -6159,7 +5730,6 @@ func (o EndpointsResponsePtrOutput) MicrosoftEndpoints() StorageAccountMicrosoft
 	}).(StorageAccountMicrosoftEndpointsResponsePtrOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6169,7 +5739,6 @@ func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6179,7 +5748,6 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the web endpoint.
 func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -6190,9 +5758,7 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 }
 
 type ExtendedLocation struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -6208,9 +5774,7 @@ type ExtendedLocationInput interface {
 }
 
 type ExtendedLocationArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6291,12 +5855,10 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx conte
 	}).(ExtendedLocationPtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6325,7 +5887,6 @@ func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
 	}).(ExtendedLocationOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -6335,7 +5896,6 @@ func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -6346,9 +5906,7 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ExtendedLocationResponse struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -6364,9 +5922,7 @@ type ExtendedLocationResponseInput interface {
 }
 
 type ExtendedLocationResponseArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6447,12 +6003,10 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithC
 	}).(ExtendedLocationResponsePtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6481,7 +6035,6 @@ func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput
 	}).(ExtendedLocationResponseOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -6491,7 +6044,6 @@ func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -6502,12 +6054,9 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GeoReplicationStatsResponse struct {
-	// A boolean flag which indicates whether or not account failover is supported for the account.
-	CanFailover bool `pulumi:"canFailover"`
-	// All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
+	CanFailover  bool   `pulumi:"canFailover"`
 	LastSyncTime string `pulumi:"lastSyncTime"`
-	// The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
-	Status string `pulumi:"status"`
+	Status       string `pulumi:"status"`
 }
 
 // GeoReplicationStatsResponseInput is an input type that accepts GeoReplicationStatsResponseArgs and GeoReplicationStatsResponseOutput values.
@@ -6522,12 +6071,9 @@ type GeoReplicationStatsResponseInput interface {
 }
 
 type GeoReplicationStatsResponseArgs struct {
-	// A boolean flag which indicates whether or not account failover is supported for the account.
-	CanFailover pulumi.BoolInput `pulumi:"canFailover"`
-	// All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
+	CanFailover  pulumi.BoolInput   `pulumi:"canFailover"`
 	LastSyncTime pulumi.StringInput `pulumi:"lastSyncTime"`
-	// The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (GeoReplicationStatsResponseArgs) ElementType() reflect.Type {
@@ -6607,17 +6153,14 @@ func (o GeoReplicationStatsResponseOutput) ToGeoReplicationStatsResponsePtrOutpu
 	}).(GeoReplicationStatsResponsePtrOutput)
 }
 
-// A boolean flag which indicates whether or not account failover is supported for the account.
 func (o GeoReplicationStatsResponseOutput) CanFailover() pulumi.BoolOutput {
 	return o.ApplyT(func(v GeoReplicationStatsResponse) bool { return v.CanFailover }).(pulumi.BoolOutput)
 }
 
-// All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
 func (o GeoReplicationStatsResponseOutput) LastSyncTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoReplicationStatsResponse) string { return v.LastSyncTime }).(pulumi.StringOutput)
 }
 
-// The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
 func (o GeoReplicationStatsResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoReplicationStatsResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6646,7 +6189,6 @@ func (o GeoReplicationStatsResponsePtrOutput) Elem() GeoReplicationStatsResponse
 	}).(GeoReplicationStatsResponseOutput)
 }
 
-// A boolean flag which indicates whether or not account failover is supported for the account.
 func (o GeoReplicationStatsResponsePtrOutput) CanFailover() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GeoReplicationStatsResponse) *bool {
 		if v == nil {
@@ -6656,7 +6198,6 @@ func (o GeoReplicationStatsResponsePtrOutput) CanFailover() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
 func (o GeoReplicationStatsResponsePtrOutput) LastSyncTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeoReplicationStatsResponse) *string {
 		if v == nil {
@@ -6666,7 +6207,6 @@ func (o GeoReplicationStatsResponsePtrOutput) LastSyncTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
 func (o GeoReplicationStatsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeoReplicationStatsResponse) *string {
 		if v == nil {
@@ -6677,10 +6217,8 @@ func (o GeoReplicationStatsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type IPRule struct {
-	// The action of IP ACL rule.
-	Action *Action `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
+	Action           *Action `pulumi:"action"`
+	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
@@ -6695,9 +6233,7 @@ type IPRuleInput interface {
 }
 
 type IPRuleArgs struct {
-	// The action of IP ACL rule.
-	Action ActionPtrInput `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+	Action           ActionPtrInput     `pulumi:"action"`
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
@@ -6752,12 +6288,10 @@ func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutpu
 	return o
 }
 
-// The action of IP ACL rule.
 func (o IPRuleOutput) Action() ActionPtrOutput {
 	return o.ApplyT(func(v IPRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
-// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 func (o IPRuleOutput) IPAddressOrRange() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRule) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
@@ -6783,10 +6317,8 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 }
 
 type IPRuleResponse struct {
-	// The action of IP ACL rule.
-	Action *string `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
+	Action           *string `pulumi:"action"`
+	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleResponseInput is an input type that accepts IPRuleResponseArgs and IPRuleResponseOutput values.
@@ -6801,10 +6333,8 @@ type IPRuleResponseInput interface {
 }
 
 type IPRuleResponseArgs struct {
-	// The action of IP ACL rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
+	Action           pulumi.StringPtrInput `pulumi:"action"`
+	IPAddressOrRange pulumi.StringInput    `pulumi:"iPAddressOrRange"`
 }
 
 func (IPRuleResponseArgs) ElementType() reflect.Type {
@@ -6858,12 +6388,10 @@ func (o IPRuleResponseOutput) ToIPRuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The action of IP ACL rule.
 func (o IPRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 func (o IPRuleResponseOutput) IPAddressOrRange() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRuleResponse) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
@@ -6889,9 +6417,7 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 }
 
 type Identity struct {
-	// The identity type.
-	Type string `pulumi:"type"`
-	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	Type                   string                 `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -6907,10 +6433,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -6990,12 +6514,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -7024,7 +6546,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -7034,7 +6555,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -7045,13 +6565,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type string `pulumi:"type"`
-	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   string                                  `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -7067,13 +6583,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                   `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -7154,22 +6666,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
 func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
 }
@@ -7198,7 +6706,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -7208,7 +6715,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -7218,7 +6724,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -7228,7 +6733,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
@@ -7239,16 +6743,11 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentity
 }
 
 type ImmutabilityPolicyPropertiesResponse struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
-	// ImmutabilityPolicy Etag.
-	Etag string `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State string `pulumi:"state"`
-	// The ImmutabilityPolicy update history of the blob container.
-	UpdateHistory []UpdateHistoryPropertyResponse `pulumi:"updateHistory"`
+	AllowProtectedAppendWrites            *bool                           `pulumi:"allowProtectedAppendWrites"`
+	Etag                                  string                          `pulumi:"etag"`
+	ImmutabilityPeriodSinceCreationInDays *int                            `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	State                                 string                          `pulumi:"state"`
+	UpdateHistory                         []UpdateHistoryPropertyResponse `pulumi:"updateHistory"`
 }
 
 // ImmutabilityPolicyPropertiesResponseInput is an input type that accepts ImmutabilityPolicyPropertiesResponseArgs and ImmutabilityPolicyPropertiesResponseOutput values.
@@ -7263,16 +6762,11 @@ type ImmutabilityPolicyPropertiesResponseInput interface {
 }
 
 type ImmutabilityPolicyPropertiesResponseArgs struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites pulumi.BoolPtrInput `pulumi:"allowProtectedAppendWrites"`
-	// ImmutabilityPolicy Etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State pulumi.StringInput `pulumi:"state"`
-	// The ImmutabilityPolicy update history of the blob container.
-	UpdateHistory UpdateHistoryPropertyResponseArrayInput `pulumi:"updateHistory"`
+	AllowProtectedAppendWrites            pulumi.BoolPtrInput                     `pulumi:"allowProtectedAppendWrites"`
+	Etag                                  pulumi.StringInput                      `pulumi:"etag"`
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput                      `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	State                                 pulumi.StringInput                      `pulumi:"state"`
+	UpdateHistory                         UpdateHistoryPropertyResponseArrayInput `pulumi:"updateHistory"`
 }
 
 func (ImmutabilityPolicyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7352,27 +6846,22 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyProperti
 	}).(ImmutabilityPolicyPropertiesResponsePtrOutput)
 }
 
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
 func (o ImmutabilityPolicyPropertiesResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
 }
 
-// ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o ImmutabilityPolicyPropertiesResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntPtrOutput)
 }
 
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 func (o ImmutabilityPolicyPropertiesResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The ImmutabilityPolicy update history of the blob container.
 func (o ImmutabilityPolicyPropertiesResponseOutput) UpdateHistory() UpdateHistoryPropertyResponseArrayOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) []UpdateHistoryPropertyResponse { return v.UpdateHistory }).(UpdateHistoryPropertyResponseArrayOutput)
 }
@@ -7401,7 +6890,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Elem() ImmutabilityPolicy
 	}).(ImmutabilityPolicyPropertiesResponseOutput)
 }
 
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *bool {
 		if v == nil {
@@ -7411,7 +6899,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) AllowProtectedAppendWrite
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -7421,7 +6908,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *int {
 		if v == nil {
@@ -7431,7 +6917,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -7441,7 +6926,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ImmutabilityPolicy update history of the blob container.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHistoryPropertyResponseArrayOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) []UpdateHistoryPropertyResponse {
 		if v == nil {
@@ -7600,7 +7084,6 @@ func (o KeyCreationTimeResponsePtrOutput) Key2() pulumi.StringPtrOutput {
 }
 
 type KeyPolicy struct {
-	// The key expiration period in days.
 	KeyExpirationPeriodInDays int `pulumi:"keyExpirationPeriodInDays"`
 }
 
@@ -7616,7 +7099,6 @@ type KeyPolicyInput interface {
 }
 
 type KeyPolicyArgs struct {
-	// The key expiration period in days.
 	KeyExpirationPeriodInDays pulumi.IntInput `pulumi:"keyExpirationPeriodInDays"`
 }
 
@@ -7697,7 +7179,6 @@ func (o KeyPolicyOutput) ToKeyPolicyPtrOutputWithContext(ctx context.Context) Ke
 	}).(KeyPolicyPtrOutput)
 }
 
-// The key expiration period in days.
 func (o KeyPolicyOutput) KeyExpirationPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v KeyPolicy) int { return v.KeyExpirationPeriodInDays }).(pulumi.IntOutput)
 }
@@ -7726,7 +7207,6 @@ func (o KeyPolicyPtrOutput) Elem() KeyPolicyOutput {
 	}).(KeyPolicyOutput)
 }
 
-// The key expiration period in days.
 func (o KeyPolicyPtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyPolicy) *int {
 		if v == nil {
@@ -7737,7 +7217,6 @@ func (o KeyPolicyPtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOutput {
 }
 
 type KeyPolicyResponse struct {
-	// The key expiration period in days.
 	KeyExpirationPeriodInDays int `pulumi:"keyExpirationPeriodInDays"`
 }
 
@@ -7753,7 +7232,6 @@ type KeyPolicyResponseInput interface {
 }
 
 type KeyPolicyResponseArgs struct {
-	// The key expiration period in days.
 	KeyExpirationPeriodInDays pulumi.IntInput `pulumi:"keyExpirationPeriodInDays"`
 }
 
@@ -7834,7 +7312,6 @@ func (o KeyPolicyResponseOutput) ToKeyPolicyResponsePtrOutputWithContext(ctx con
 	}).(KeyPolicyResponsePtrOutput)
 }
 
-// The key expiration period in days.
 func (o KeyPolicyResponseOutput) KeyExpirationPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v KeyPolicyResponse) int { return v.KeyExpirationPeriodInDays }).(pulumi.IntOutput)
 }
@@ -7863,7 +7340,6 @@ func (o KeyPolicyResponsePtrOutput) Elem() KeyPolicyResponseOutput {
 	}).(KeyPolicyResponseOutput)
 }
 
-// The key expiration period in days.
 func (o KeyPolicyResponsePtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyPolicyResponse) *int {
 		if v == nil {
@@ -7874,12 +7350,9 @@ func (o KeyPolicyResponsePtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOut
 }
 
 type KeyVaultProperties struct {
-	// The name of KeyVault key.
-	KeyName *string `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -7894,12 +7367,9 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -7979,17 +7449,14 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -8018,7 +7485,6 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 	}).(KeyVaultPropertiesOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -8028,7 +7494,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -8038,7 +7503,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -8049,16 +7513,11 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// The object identifier of the current versioned Key Vault Key in use.
-	CurrentVersionedKeyIdentifier string `pulumi:"currentVersionedKeyIdentifier"`
-	// The name of KeyVault key.
-	KeyName *string `pulumi:"keyName"`
-	// The Uri of KeyVault.
-	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion *string `pulumi:"keyVersion"`
-	// Timestamp of last rotation of the Key Vault Key.
-	LastKeyRotationTimestamp string `pulumi:"lastKeyRotationTimestamp"`
+	CurrentVersionedKeyIdentifier string  `pulumi:"currentVersionedKeyIdentifier"`
+	KeyName                       *string `pulumi:"keyName"`
+	KeyVaultUri                   *string `pulumi:"keyVaultUri"`
+	KeyVersion                    *string `pulumi:"keyVersion"`
+	LastKeyRotationTimestamp      string  `pulumi:"lastKeyRotationTimestamp"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -8073,16 +7532,11 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// The object identifier of the current versioned Key Vault Key in use.
-	CurrentVersionedKeyIdentifier pulumi.StringInput `pulumi:"currentVersionedKeyIdentifier"`
-	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Uri of KeyVault.
-	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// Timestamp of last rotation of the Key Vault Key.
-	LastKeyRotationTimestamp pulumi.StringInput `pulumi:"lastKeyRotationTimestamp"`
+	CurrentVersionedKeyIdentifier pulumi.StringInput    `pulumi:"currentVersionedKeyIdentifier"`
+	KeyName                       pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyVaultUri                   pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	KeyVersion                    pulumi.StringPtrInput `pulumi:"keyVersion"`
+	LastKeyRotationTimestamp      pulumi.StringInput    `pulumi:"lastKeyRotationTimestamp"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8162,27 +7616,22 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputW
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The object identifier of the current versioned Key Vault Key in use.
 func (o KeyVaultPropertiesResponseOutput) CurrentVersionedKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.CurrentVersionedKeyIdentifier }).(pulumi.StringOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of last rotation of the Key Vault Key.
 func (o KeyVaultPropertiesResponseOutput) LastKeyRotationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.LastKeyRotationTimestamp }).(pulumi.StringOutput)
 }
@@ -8211,7 +7660,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The object identifier of the current versioned Key Vault Key in use.
 func (o KeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -8221,7 +7669,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyIdentifier() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -8231,7 +7678,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -8241,7 +7687,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -8251,7 +7696,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of last rotation of the Key Vault Key.
 func (o KeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -8262,14 +7706,10 @@ func (o KeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimestamp() pulumi.S
 }
 
 type LastAccessTimeTrackingPolicy struct {
-	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
-	BlobType []string `pulumi:"blobType"`
-	// When set to true last access time based tracking is enabled.
-	Enable bool `pulumi:"enable"`
-	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
-	Name *string `pulumi:"name"`
-	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
-	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+	BlobType                  []string `pulumi:"blobType"`
+	Enable                    bool     `pulumi:"enable"`
+	Name                      *string  `pulumi:"name"`
+	TrackingGranularityInDays *int     `pulumi:"trackingGranularityInDays"`
 }
 
 // LastAccessTimeTrackingPolicyInput is an input type that accepts LastAccessTimeTrackingPolicyArgs and LastAccessTimeTrackingPolicyOutput values.
@@ -8284,14 +7724,10 @@ type LastAccessTimeTrackingPolicyInput interface {
 }
 
 type LastAccessTimeTrackingPolicyArgs struct {
-	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
-	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
-	// When set to true last access time based tracking is enabled.
-	Enable pulumi.BoolInput `pulumi:"enable"`
-	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
-	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+	BlobType                  pulumi.StringArrayInput `pulumi:"blobType"`
+	Enable                    pulumi.BoolInput        `pulumi:"enable"`
+	Name                      pulumi.StringPtrInput   `pulumi:"name"`
+	TrackingGranularityInDays pulumi.IntPtrInput      `pulumi:"trackingGranularityInDays"`
 }
 
 func (LastAccessTimeTrackingPolicyArgs) ElementType() reflect.Type {
@@ -8371,22 +7807,18 @@ func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyPtrOut
 	}).(LastAccessTimeTrackingPolicyPtrOutput)
 }
 
-// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
 func (o LastAccessTimeTrackingPolicyOutput) BlobType() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) []string { return v.BlobType }).(pulumi.StringArrayOutput)
 }
 
-// When set to true last access time based tracking is enabled.
 func (o LastAccessTimeTrackingPolicyOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
 func (o LastAccessTimeTrackingPolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
 func (o LastAccessTimeTrackingPolicyOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
 }
@@ -8415,7 +7847,6 @@ func (o LastAccessTimeTrackingPolicyPtrOutput) Elem() LastAccessTimeTrackingPoli
 	}).(LastAccessTimeTrackingPolicyOutput)
 }
 
-// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
 func (o LastAccessTimeTrackingPolicyPtrOutput) BlobType() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) []string {
 		if v == nil {
@@ -8425,7 +7856,6 @@ func (o LastAccessTimeTrackingPolicyPtrOutput) BlobType() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// When set to true last access time based tracking is enabled.
 func (o LastAccessTimeTrackingPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *bool {
 		if v == nil {
@@ -8435,7 +7865,6 @@ func (o LastAccessTimeTrackingPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
 func (o LastAccessTimeTrackingPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *string {
 		if v == nil {
@@ -8445,7 +7874,6 @@ func (o LastAccessTimeTrackingPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
 func (o LastAccessTimeTrackingPolicyPtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *int {
 		if v == nil {
@@ -8456,14 +7884,10 @@ func (o LastAccessTimeTrackingPolicyPtrOutput) TrackingGranularityInDays() pulum
 }
 
 type LastAccessTimeTrackingPolicyResponse struct {
-	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
-	BlobType []string `pulumi:"blobType"`
-	// When set to true last access time based tracking is enabled.
-	Enable bool `pulumi:"enable"`
-	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
-	Name *string `pulumi:"name"`
-	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
-	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+	BlobType                  []string `pulumi:"blobType"`
+	Enable                    bool     `pulumi:"enable"`
+	Name                      *string  `pulumi:"name"`
+	TrackingGranularityInDays *int     `pulumi:"trackingGranularityInDays"`
 }
 
 // LastAccessTimeTrackingPolicyResponseInput is an input type that accepts LastAccessTimeTrackingPolicyResponseArgs and LastAccessTimeTrackingPolicyResponseOutput values.
@@ -8478,14 +7902,10 @@ type LastAccessTimeTrackingPolicyResponseInput interface {
 }
 
 type LastAccessTimeTrackingPolicyResponseArgs struct {
-	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
-	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
-	// When set to true last access time based tracking is enabled.
-	Enable pulumi.BoolInput `pulumi:"enable"`
-	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
-	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+	BlobType                  pulumi.StringArrayInput `pulumi:"blobType"`
+	Enable                    pulumi.BoolInput        `pulumi:"enable"`
+	Name                      pulumi.StringPtrInput   `pulumi:"name"`
+	TrackingGranularityInDays pulumi.IntPtrInput      `pulumi:"trackingGranularityInDays"`
 }
 
 func (LastAccessTimeTrackingPolicyResponseArgs) ElementType() reflect.Type {
@@ -8565,22 +7985,18 @@ func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPoli
 	}).(LastAccessTimeTrackingPolicyResponsePtrOutput)
 }
 
-// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
 func (o LastAccessTimeTrackingPolicyResponseOutput) BlobType() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) []string { return v.BlobType }).(pulumi.StringArrayOutput)
 }
 
-// When set to true last access time based tracking is enabled.
 func (o LastAccessTimeTrackingPolicyResponseOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
 func (o LastAccessTimeTrackingPolicyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
 func (o LastAccessTimeTrackingPolicyResponseOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
 }
@@ -8609,7 +8025,6 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Elem() LastAccessTimeTrac
 	}).(LastAccessTimeTrackingPolicyResponseOutput)
 }
 
-// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
 func (o LastAccessTimeTrackingPolicyResponsePtrOutput) BlobType() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) []string {
 		if v == nil {
@@ -8619,7 +8034,6 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) BlobType() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// When set to true last access time based tracking is enabled.
 func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *bool {
 		if v == nil {
@@ -8629,7 +8043,6 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Enable() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
 func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *string {
 		if v == nil {
@@ -8639,7 +8052,6 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
 func (o LastAccessTimeTrackingPolicyResponsePtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *int {
 		if v == nil {
@@ -8650,10 +8062,8 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) TrackingGranularityInDays
 }
 
 type LegalHoldPropertiesResponse struct {
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold bool `pulumi:"hasLegalHold"`
-	// The list of LegalHold tags of a blob container.
-	Tags []TagPropertyResponse `pulumi:"tags"`
+	HasLegalHold bool                  `pulumi:"hasLegalHold"`
+	Tags         []TagPropertyResponse `pulumi:"tags"`
 }
 
 // LegalHoldPropertiesResponseInput is an input type that accepts LegalHoldPropertiesResponseArgs and LegalHoldPropertiesResponseOutput values.
@@ -8668,10 +8078,8 @@ type LegalHoldPropertiesResponseInput interface {
 }
 
 type LegalHoldPropertiesResponseArgs struct {
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold pulumi.BoolInput `pulumi:"hasLegalHold"`
-	// The list of LegalHold tags of a blob container.
-	Tags TagPropertyResponseArrayInput `pulumi:"tags"`
+	HasLegalHold pulumi.BoolInput              `pulumi:"hasLegalHold"`
+	Tags         TagPropertyResponseArrayInput `pulumi:"tags"`
 }
 
 func (LegalHoldPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8751,12 +8159,10 @@ func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponsePtrOutpu
 	}).(LegalHoldPropertiesResponsePtrOutput)
 }
 
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 func (o LegalHoldPropertiesResponseOutput) HasLegalHold() pulumi.BoolOutput {
 	return o.ApplyT(func(v LegalHoldPropertiesResponse) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
 }
 
-// The list of LegalHold tags of a blob container.
 func (o LegalHoldPropertiesResponseOutput) Tags() TagPropertyResponseArrayOutput {
 	return o.ApplyT(func(v LegalHoldPropertiesResponse) []TagPropertyResponse { return v.Tags }).(TagPropertyResponseArrayOutput)
 }
@@ -8785,7 +8191,6 @@ func (o LegalHoldPropertiesResponsePtrOutput) Elem() LegalHoldPropertiesResponse
 	}).(LegalHoldPropertiesResponseOutput)
 }
 
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 func (o LegalHoldPropertiesResponsePtrOutput) HasLegalHold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LegalHoldPropertiesResponse) *bool {
 		if v == nil {
@@ -8795,7 +8200,6 @@ func (o LegalHoldPropertiesResponsePtrOutput) HasLegalHold() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The list of LegalHold tags of a blob container.
 func (o LegalHoldPropertiesResponsePtrOutput) Tags() TagPropertyResponseArrayOutput {
 	return o.ApplyT(func(v *LegalHoldPropertiesResponse) []TagPropertyResponse {
 		if v == nil {
@@ -8806,12 +8210,9 @@ func (o LegalHoldPropertiesResponsePtrOutput) Tags() TagPropertyResponseArrayOut
 }
 
 type ManagementPolicyAction struct {
-	// The management policy action for base blob
 	BaseBlob *ManagementPolicyBaseBlob `pulumi:"baseBlob"`
-	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShot `pulumi:"snapshot"`
-	// The management policy action for version
-	Version *ManagementPolicyVersion `pulumi:"version"`
+	Version  *ManagementPolicyVersion  `pulumi:"version"`
 }
 
 // ManagementPolicyActionInput is an input type that accepts ManagementPolicyActionArgs and ManagementPolicyActionOutput values.
@@ -8826,12 +8227,9 @@ type ManagementPolicyActionInput interface {
 }
 
 type ManagementPolicyActionArgs struct {
-	// The management policy action for base blob
 	BaseBlob ManagementPolicyBaseBlobPtrInput `pulumi:"baseBlob"`
-	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotPtrInput `pulumi:"snapshot"`
-	// The management policy action for version
-	Version ManagementPolicyVersionPtrInput `pulumi:"version"`
+	Version  ManagementPolicyVersionPtrInput  `pulumi:"version"`
 }
 
 func (ManagementPolicyActionArgs) ElementType() reflect.Type {
@@ -8860,28 +8258,22 @@ func (o ManagementPolicyActionOutput) ToManagementPolicyActionOutputWithContext(
 	return o
 }
 
-// The management policy action for base blob
 func (o ManagementPolicyActionOutput) BaseBlob() ManagementPolicyBaseBlobPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicyBaseBlob { return v.BaseBlob }).(ManagementPolicyBaseBlobPtrOutput)
 }
 
-// The management policy action for snapshot
 func (o ManagementPolicyActionOutput) Snapshot() ManagementPolicySnapShotPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicySnapShot { return v.Snapshot }).(ManagementPolicySnapShotPtrOutput)
 }
 
-// The management policy action for version
 func (o ManagementPolicyActionOutput) Version() ManagementPolicyVersionPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicyVersion { return v.Version }).(ManagementPolicyVersionPtrOutput)
 }
 
 type ManagementPolicyActionResponse struct {
-	// The management policy action for base blob
 	BaseBlob *ManagementPolicyBaseBlobResponse `pulumi:"baseBlob"`
-	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShotResponse `pulumi:"snapshot"`
-	// The management policy action for version
-	Version *ManagementPolicyVersionResponse `pulumi:"version"`
+	Version  *ManagementPolicyVersionResponse  `pulumi:"version"`
 }
 
 // ManagementPolicyActionResponseInput is an input type that accepts ManagementPolicyActionResponseArgs and ManagementPolicyActionResponseOutput values.
@@ -8896,12 +8288,9 @@ type ManagementPolicyActionResponseInput interface {
 }
 
 type ManagementPolicyActionResponseArgs struct {
-	// The management policy action for base blob
 	BaseBlob ManagementPolicyBaseBlobResponsePtrInput `pulumi:"baseBlob"`
-	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotResponsePtrInput `pulumi:"snapshot"`
-	// The management policy action for version
-	Version ManagementPolicyVersionResponsePtrInput `pulumi:"version"`
+	Version  ManagementPolicyVersionResponsePtrInput  `pulumi:"version"`
 }
 
 func (ManagementPolicyActionResponseArgs) ElementType() reflect.Type {
@@ -8930,30 +8319,23 @@ func (o ManagementPolicyActionResponseOutput) ToManagementPolicyActionResponseOu
 	return o
 }
 
-// The management policy action for base blob
 func (o ManagementPolicyActionResponseOutput) BaseBlob() ManagementPolicyBaseBlobResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicyBaseBlobResponse { return v.BaseBlob }).(ManagementPolicyBaseBlobResponsePtrOutput)
 }
 
-// The management policy action for snapshot
 func (o ManagementPolicyActionResponseOutput) Snapshot() ManagementPolicySnapShotResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicySnapShotResponse { return v.Snapshot }).(ManagementPolicySnapShotResponsePtrOutput)
 }
 
-// The management policy action for version
 func (o ManagementPolicyActionResponseOutput) Version() ManagementPolicyVersionResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicyVersionResponse { return v.Version }).(ManagementPolicyVersionResponsePtrOutput)
 }
 
 type ManagementPolicyBaseBlob struct {
-	// The function to delete the blob
-	Delete *DateAfterModification `pulumi:"delete"`
-	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
-	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-	TierToArchive *DateAfterModification `pulumi:"tierToArchive"`
-	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
-	TierToCool *DateAfterModification `pulumi:"tierToCool"`
+	Delete                      *DateAfterModification `pulumi:"delete"`
+	EnableAutoTierToHotFromCool *bool                  `pulumi:"enableAutoTierToHotFromCool"`
+	TierToArchive               *DateAfterModification `pulumi:"tierToArchive"`
+	TierToCool                  *DateAfterModification `pulumi:"tierToCool"`
 }
 
 // ManagementPolicyBaseBlobInput is an input type that accepts ManagementPolicyBaseBlobArgs and ManagementPolicyBaseBlobOutput values.
@@ -8968,14 +8350,10 @@ type ManagementPolicyBaseBlobInput interface {
 }
 
 type ManagementPolicyBaseBlobArgs struct {
-	// The function to delete the blob
-	Delete DateAfterModificationPtrInput `pulumi:"delete"`
-	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
-	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-	TierToArchive DateAfterModificationPtrInput `pulumi:"tierToArchive"`
-	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
-	TierToCool DateAfterModificationPtrInput `pulumi:"tierToCool"`
+	Delete                      DateAfterModificationPtrInput `pulumi:"delete"`
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput           `pulumi:"enableAutoTierToHotFromCool"`
+	TierToArchive               DateAfterModificationPtrInput `pulumi:"tierToArchive"`
+	TierToCool                  DateAfterModificationPtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicyBaseBlobArgs) ElementType() reflect.Type {
@@ -9055,22 +8433,18 @@ func (o ManagementPolicyBaseBlobOutput) ToManagementPolicyBaseBlobPtrOutputWithC
 	}).(ManagementPolicyBaseBlobPtrOutput)
 }
 
-// The function to delete the blob
 func (o ManagementPolicyBaseBlobOutput) Delete() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.Delete }).(DateAfterModificationPtrOutput)
 }
 
-// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
 func (o ManagementPolicyBaseBlobOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
 }
 
-// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.TierToArchive }).(DateAfterModificationPtrOutput)
 }
 
-// The function to tier blobs to cool storage. Support blobs currently at Hot tier
 func (o ManagementPolicyBaseBlobOutput) TierToCool() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.TierToCool }).(DateAfterModificationPtrOutput)
 }
@@ -9099,7 +8473,6 @@ func (o ManagementPolicyBaseBlobPtrOutput) Elem() ManagementPolicyBaseBlobOutput
 	}).(ManagementPolicyBaseBlobOutput)
 }
 
-// The function to delete the blob
 func (o ManagementPolicyBaseBlobPtrOutput) Delete() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *DateAfterModification {
 		if v == nil {
@@ -9109,7 +8482,6 @@ func (o ManagementPolicyBaseBlobPtrOutput) Delete() DateAfterModificationPtrOutp
 	}).(DateAfterModificationPtrOutput)
 }
 
-// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
 func (o ManagementPolicyBaseBlobPtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *bool {
 		if v == nil {
@@ -9119,7 +8491,6 @@ func (o ManagementPolicyBaseBlobPtrOutput) EnableAutoTierToHotFromCool() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobPtrOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *DateAfterModification {
 		if v == nil {
@@ -9129,7 +8500,6 @@ func (o ManagementPolicyBaseBlobPtrOutput) TierToArchive() DateAfterModification
 	}).(DateAfterModificationPtrOutput)
 }
 
-// The function to tier blobs to cool storage. Support blobs currently at Hot tier
 func (o ManagementPolicyBaseBlobPtrOutput) TierToCool() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *DateAfterModification {
 		if v == nil {
@@ -9140,14 +8510,10 @@ func (o ManagementPolicyBaseBlobPtrOutput) TierToCool() DateAfterModificationPtr
 }
 
 type ManagementPolicyBaseBlobResponse struct {
-	// The function to delete the blob
-	Delete *DateAfterModificationResponse `pulumi:"delete"`
-	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
-	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-	TierToArchive *DateAfterModificationResponse `pulumi:"tierToArchive"`
-	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
-	TierToCool *DateAfterModificationResponse `pulumi:"tierToCool"`
+	Delete                      *DateAfterModificationResponse `pulumi:"delete"`
+	EnableAutoTierToHotFromCool *bool                          `pulumi:"enableAutoTierToHotFromCool"`
+	TierToArchive               *DateAfterModificationResponse `pulumi:"tierToArchive"`
+	TierToCool                  *DateAfterModificationResponse `pulumi:"tierToCool"`
 }
 
 // ManagementPolicyBaseBlobResponseInput is an input type that accepts ManagementPolicyBaseBlobResponseArgs and ManagementPolicyBaseBlobResponseOutput values.
@@ -9162,14 +8528,10 @@ type ManagementPolicyBaseBlobResponseInput interface {
 }
 
 type ManagementPolicyBaseBlobResponseArgs struct {
-	// The function to delete the blob
-	Delete DateAfterModificationResponsePtrInput `pulumi:"delete"`
-	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
-	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-	TierToArchive DateAfterModificationResponsePtrInput `pulumi:"tierToArchive"`
-	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
-	TierToCool DateAfterModificationResponsePtrInput `pulumi:"tierToCool"`
+	Delete                      DateAfterModificationResponsePtrInput `pulumi:"delete"`
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput                   `pulumi:"enableAutoTierToHotFromCool"`
+	TierToArchive               DateAfterModificationResponsePtrInput `pulumi:"tierToArchive"`
+	TierToCool                  DateAfterModificationResponsePtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicyBaseBlobResponseArgs) ElementType() reflect.Type {
@@ -9249,22 +8611,18 @@ func (o ManagementPolicyBaseBlobResponseOutput) ToManagementPolicyBaseBlobRespon
 	}).(ManagementPolicyBaseBlobResponsePtrOutput)
 }
 
-// The function to delete the blob
 func (o ManagementPolicyBaseBlobResponseOutput) Delete() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.Delete }).(DateAfterModificationResponsePtrOutput)
 }
 
-// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
 func (o ManagementPolicyBaseBlobResponseOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
 }
 
-// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobResponseOutput) TierToArchive() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.TierToArchive }).(DateAfterModificationResponsePtrOutput)
 }
 
-// The function to tier blobs to cool storage. Support blobs currently at Hot tier
 func (o ManagementPolicyBaseBlobResponseOutput) TierToCool() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.TierToCool }).(DateAfterModificationResponsePtrOutput)
 }
@@ -9293,7 +8651,6 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) Elem() ManagementPolicyBaseBl
 	}).(ManagementPolicyBaseBlobResponseOutput)
 }
 
-// The function to delete the blob
 func (o ManagementPolicyBaseBlobResponsePtrOutput) Delete() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse {
 		if v == nil {
@@ -9303,7 +8660,6 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) Delete() DateAfterModificatio
 	}).(DateAfterModificationResponsePtrOutput)
 }
 
-// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
 func (o ManagementPolicyBaseBlobResponsePtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *bool {
 		if v == nil {
@@ -9313,7 +8669,6 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) EnableAutoTierToHotFromCool()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobResponsePtrOutput) TierToArchive() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse {
 		if v == nil {
@@ -9323,7 +8678,6 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) TierToArchive() DateAfterModi
 	}).(DateAfterModificationResponsePtrOutput)
 }
 
-// The function to tier blobs to cool storage. Support blobs currently at Hot tier
 func (o ManagementPolicyBaseBlobResponsePtrOutput) TierToCool() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse {
 		if v == nil {
@@ -9334,9 +8688,7 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) TierToCool() DateAfterModific
 }
 
 type ManagementPolicyDefinition struct {
-	// An object that defines the action set.
-	Actions ManagementPolicyAction `pulumi:"actions"`
-	// An object that defines the filter set.
+	Actions ManagementPolicyAction  `pulumi:"actions"`
 	Filters *ManagementPolicyFilter `pulumi:"filters"`
 }
 
@@ -9352,9 +8704,7 @@ type ManagementPolicyDefinitionInput interface {
 }
 
 type ManagementPolicyDefinitionArgs struct {
-	// An object that defines the action set.
-	Actions ManagementPolicyActionInput `pulumi:"actions"`
-	// An object that defines the filter set.
+	Actions ManagementPolicyActionInput    `pulumi:"actions"`
 	Filters ManagementPolicyFilterPtrInput `pulumi:"filters"`
 }
 
@@ -9384,20 +8734,16 @@ func (o ManagementPolicyDefinitionOutput) ToManagementPolicyDefinitionOutputWith
 	return o
 }
 
-// An object that defines the action set.
 func (o ManagementPolicyDefinitionOutput) Actions() ManagementPolicyActionOutput {
 	return o.ApplyT(func(v ManagementPolicyDefinition) ManagementPolicyAction { return v.Actions }).(ManagementPolicyActionOutput)
 }
 
-// An object that defines the filter set.
 func (o ManagementPolicyDefinitionOutput) Filters() ManagementPolicyFilterPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyDefinition) *ManagementPolicyFilter { return v.Filters }).(ManagementPolicyFilterPtrOutput)
 }
 
 type ManagementPolicyDefinitionResponse struct {
-	// An object that defines the action set.
-	Actions ManagementPolicyActionResponse `pulumi:"actions"`
-	// An object that defines the filter set.
+	Actions ManagementPolicyActionResponse  `pulumi:"actions"`
 	Filters *ManagementPolicyFilterResponse `pulumi:"filters"`
 }
 
@@ -9413,9 +8759,7 @@ type ManagementPolicyDefinitionResponseInput interface {
 }
 
 type ManagementPolicyDefinitionResponseArgs struct {
-	// An object that defines the action set.
-	Actions ManagementPolicyActionResponseInput `pulumi:"actions"`
-	// An object that defines the filter set.
+	Actions ManagementPolicyActionResponseInput    `pulumi:"actions"`
 	Filters ManagementPolicyFilterResponsePtrInput `pulumi:"filters"`
 }
 
@@ -9445,23 +8789,18 @@ func (o ManagementPolicyDefinitionResponseOutput) ToManagementPolicyDefinitionRe
 	return o
 }
 
-// An object that defines the action set.
 func (o ManagementPolicyDefinitionResponseOutput) Actions() ManagementPolicyActionResponseOutput {
 	return o.ApplyT(func(v ManagementPolicyDefinitionResponse) ManagementPolicyActionResponse { return v.Actions }).(ManagementPolicyActionResponseOutput)
 }
 
-// An object that defines the filter set.
 func (o ManagementPolicyDefinitionResponseOutput) Filters() ManagementPolicyFilterResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyDefinitionResponse) *ManagementPolicyFilterResponse { return v.Filters }).(ManagementPolicyFilterResponsePtrOutput)
 }
 
 type ManagementPolicyFilter struct {
-	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilter `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-	BlobTypes []string `pulumi:"blobTypes"`
-	// An array of strings for prefixes to be match.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	BlobTypes      []string    `pulumi:"blobTypes"`
+	PrefixMatch    []string    `pulumi:"prefixMatch"`
 }
 
 // ManagementPolicyFilterInput is an input type that accepts ManagementPolicyFilterArgs and ManagementPolicyFilterOutput values.
@@ -9476,12 +8815,9 @@ type ManagementPolicyFilterInput interface {
 }
 
 type ManagementPolicyFilterArgs struct {
-	// An array of blob index tag based filters, there can be at most 10 tag filters
-	BlobIndexMatch TagFilterArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// An array of strings for prefixes to be match.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	BlobIndexMatch TagFilterArrayInput     `pulumi:"blobIndexMatch"`
+	BlobTypes      pulumi.StringArrayInput `pulumi:"blobTypes"`
+	PrefixMatch    pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
 func (ManagementPolicyFilterArgs) ElementType() reflect.Type {
@@ -9561,17 +8897,14 @@ func (o ManagementPolicyFilterOutput) ToManagementPolicyFilterPtrOutputWithConte
 	}).(ManagementPolicyFilterPtrOutput)
 }
 
-// An array of blob index tag based filters, there can be at most 10 tag filters
 func (o ManagementPolicyFilterOutput) BlobIndexMatch() TagFilterArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []TagFilter { return v.BlobIndexMatch }).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// An array of strings for prefixes to be match.
 func (o ManagementPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
@@ -9600,7 +8933,6 @@ func (o ManagementPolicyFilterPtrOutput) Elem() ManagementPolicyFilterOutput {
 	}).(ManagementPolicyFilterOutput)
 }
 
-// An array of blob index tag based filters, there can be at most 10 tag filters
 func (o ManagementPolicyFilterPtrOutput) BlobIndexMatch() TagFilterArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilter) []TagFilter {
 		if v == nil {
@@ -9610,7 +8942,6 @@ func (o ManagementPolicyFilterPtrOutput) BlobIndexMatch() TagFilterArrayOutput {
 	}).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilter) []string {
 		if v == nil {
@@ -9620,7 +8951,6 @@ func (o ManagementPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings for prefixes to be match.
 func (o ManagementPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilter) []string {
 		if v == nil {
@@ -9631,12 +8961,9 @@ func (o ManagementPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput 
 }
 
 type ManagementPolicyFilterResponse struct {
-	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilterResponse `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-	BlobTypes []string `pulumi:"blobTypes"`
-	// An array of strings for prefixes to be match.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	BlobTypes      []string            `pulumi:"blobTypes"`
+	PrefixMatch    []string            `pulumi:"prefixMatch"`
 }
 
 // ManagementPolicyFilterResponseInput is an input type that accepts ManagementPolicyFilterResponseArgs and ManagementPolicyFilterResponseOutput values.
@@ -9651,12 +8978,9 @@ type ManagementPolicyFilterResponseInput interface {
 }
 
 type ManagementPolicyFilterResponseArgs struct {
-	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch TagFilterResponseArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// An array of strings for prefixes to be match.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	BlobTypes      pulumi.StringArrayInput     `pulumi:"blobTypes"`
+	PrefixMatch    pulumi.StringArrayInput     `pulumi:"prefixMatch"`
 }
 
 func (ManagementPolicyFilterResponseArgs) ElementType() reflect.Type {
@@ -9736,17 +9060,14 @@ func (o ManagementPolicyFilterResponseOutput) ToManagementPolicyFilterResponsePt
 	}).(ManagementPolicyFilterResponsePtrOutput)
 }
 
-// An array of blob index tag based filters, there can be at most 10 tag filters
 func (o ManagementPolicyFilterResponseOutput) BlobIndexMatch() TagFilterResponseArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []TagFilterResponse { return v.BlobIndexMatch }).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// An array of strings for prefixes to be match.
 func (o ManagementPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
@@ -9775,7 +9096,6 @@ func (o ManagementPolicyFilterResponsePtrOutput) Elem() ManagementPolicyFilterRe
 	}).(ManagementPolicyFilterResponseOutput)
 }
 
-// An array of blob index tag based filters, there can be at most 10 tag filters
 func (o ManagementPolicyFilterResponsePtrOutput) BlobIndexMatch() TagFilterResponseArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilterResponse) []TagFilterResponse {
 		if v == nil {
@@ -9785,7 +9105,6 @@ func (o ManagementPolicyFilterResponsePtrOutput) BlobIndexMatch() TagFilterRespo
 	}).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilterResponse) []string {
 		if v == nil {
@@ -9795,7 +9114,6 @@ func (o ManagementPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings for prefixes to be match.
 func (o ManagementPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilterResponse) []string {
 		if v == nil {
@@ -9806,14 +9124,10 @@ func (o ManagementPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArra
 }
 
 type ManagementPolicyRule struct {
-	// An object that defines the Lifecycle rule.
 	Definition ManagementPolicyDefinition `pulumi:"definition"`
-	// Rule is enabled if set to true.
-	Enabled *bool `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name string `pulumi:"name"`
-	// The valid value is Lifecycle
-	Type string `pulumi:"type"`
+	Enabled    *bool                      `pulumi:"enabled"`
+	Name       string                     `pulumi:"name"`
+	Type       string                     `pulumi:"type"`
 }
 
 // ManagementPolicyRuleInput is an input type that accepts ManagementPolicyRuleArgs and ManagementPolicyRuleOutput values.
@@ -9828,14 +9142,10 @@ type ManagementPolicyRuleInput interface {
 }
 
 type ManagementPolicyRuleArgs struct {
-	// An object that defines the Lifecycle rule.
 	Definition ManagementPolicyDefinitionInput `pulumi:"definition"`
-	// Rule is enabled if set to true.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The valid value is Lifecycle
-	Type pulumi.StringInput `pulumi:"type"`
+	Enabled    pulumi.BoolPtrInput             `pulumi:"enabled"`
+	Name       pulumi.StringInput              `pulumi:"name"`
+	Type       pulumi.StringInput              `pulumi:"type"`
 }
 
 func (ManagementPolicyRuleArgs) ElementType() reflect.Type {
@@ -9889,22 +9199,18 @@ func (o ManagementPolicyRuleOutput) ToManagementPolicyRuleOutputWithContext(ctx 
 	return o
 }
 
-// An object that defines the Lifecycle rule.
 func (o ManagementPolicyRuleOutput) Definition() ManagementPolicyDefinitionOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) ManagementPolicyDefinition { return v.Definition }).(ManagementPolicyDefinitionOutput)
 }
 
-// Rule is enabled if set to true.
 func (o ManagementPolicyRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o ManagementPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The valid value is Lifecycle
 func (o ManagementPolicyRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9930,14 +9236,10 @@ func (o ManagementPolicyRuleArrayOutput) Index(i pulumi.IntInput) ManagementPoli
 }
 
 type ManagementPolicyRuleResponse struct {
-	// An object that defines the Lifecycle rule.
 	Definition ManagementPolicyDefinitionResponse `pulumi:"definition"`
-	// Rule is enabled if set to true.
-	Enabled *bool `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name string `pulumi:"name"`
-	// The valid value is Lifecycle
-	Type string `pulumi:"type"`
+	Enabled    *bool                              `pulumi:"enabled"`
+	Name       string                             `pulumi:"name"`
+	Type       string                             `pulumi:"type"`
 }
 
 // ManagementPolicyRuleResponseInput is an input type that accepts ManagementPolicyRuleResponseArgs and ManagementPolicyRuleResponseOutput values.
@@ -9952,14 +9254,10 @@ type ManagementPolicyRuleResponseInput interface {
 }
 
 type ManagementPolicyRuleResponseArgs struct {
-	// An object that defines the Lifecycle rule.
 	Definition ManagementPolicyDefinitionResponseInput `pulumi:"definition"`
-	// Rule is enabled if set to true.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The valid value is Lifecycle
-	Type pulumi.StringInput `pulumi:"type"`
+	Enabled    pulumi.BoolPtrInput                     `pulumi:"enabled"`
+	Name       pulumi.StringInput                      `pulumi:"name"`
+	Type       pulumi.StringInput                      `pulumi:"type"`
 }
 
 func (ManagementPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -10013,22 +9311,18 @@ func (o ManagementPolicyRuleResponseOutput) ToManagementPolicyRuleResponseOutput
 	return o
 }
 
-// An object that defines the Lifecycle rule.
 func (o ManagementPolicyRuleResponseOutput) Definition() ManagementPolicyDefinitionResponseOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleResponse) ManagementPolicyDefinitionResponse { return v.Definition }).(ManagementPolicyDefinitionResponseOutput)
 }
 
-// Rule is enabled if set to true.
 func (o ManagementPolicyRuleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o ManagementPolicyRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The valid value is Lifecycle
 func (o ManagementPolicyRuleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10054,7 +9348,6 @@ func (o ManagementPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) Manage
 }
 
 type ManagementPolicySchema struct {
-	// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Rules []ManagementPolicyRule `pulumi:"rules"`
 }
 
@@ -10070,7 +9363,6 @@ type ManagementPolicySchemaInput interface {
 }
 
 type ManagementPolicySchemaArgs struct {
-	// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Rules ManagementPolicyRuleArrayInput `pulumi:"rules"`
 }
 
@@ -10151,7 +9443,6 @@ func (o ManagementPolicySchemaOutput) ToManagementPolicySchemaPtrOutputWithConte
 	}).(ManagementPolicySchemaPtrOutput)
 }
 
-// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 func (o ManagementPolicySchemaOutput) Rules() ManagementPolicyRuleArrayOutput {
 	return o.ApplyT(func(v ManagementPolicySchema) []ManagementPolicyRule { return v.Rules }).(ManagementPolicyRuleArrayOutput)
 }
@@ -10180,7 +9471,6 @@ func (o ManagementPolicySchemaPtrOutput) Elem() ManagementPolicySchemaOutput {
 	}).(ManagementPolicySchemaOutput)
 }
 
-// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 func (o ManagementPolicySchemaPtrOutput) Rules() ManagementPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicySchema) []ManagementPolicyRule {
 		if v == nil {
@@ -10191,7 +9481,6 @@ func (o ManagementPolicySchemaPtrOutput) Rules() ManagementPolicyRuleArrayOutput
 }
 
 type ManagementPolicySchemaResponse struct {
-	// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Rules []ManagementPolicyRuleResponse `pulumi:"rules"`
 }
 
@@ -10207,7 +9496,6 @@ type ManagementPolicySchemaResponseInput interface {
 }
 
 type ManagementPolicySchemaResponseArgs struct {
-	// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Rules ManagementPolicyRuleResponseArrayInput `pulumi:"rules"`
 }
 
@@ -10288,7 +9576,6 @@ func (o ManagementPolicySchemaResponseOutput) ToManagementPolicySchemaResponsePt
 	}).(ManagementPolicySchemaResponsePtrOutput)
 }
 
-// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 func (o ManagementPolicySchemaResponseOutput) Rules() ManagementPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v ManagementPolicySchemaResponse) []ManagementPolicyRuleResponse { return v.Rules }).(ManagementPolicyRuleResponseArrayOutput)
 }
@@ -10317,7 +9604,6 @@ func (o ManagementPolicySchemaResponsePtrOutput) Elem() ManagementPolicySchemaRe
 	}).(ManagementPolicySchemaResponseOutput)
 }
 
-// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 func (o ManagementPolicySchemaResponsePtrOutput) Rules() ManagementPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicySchemaResponse) []ManagementPolicyRuleResponse {
 		if v == nil {
@@ -10328,12 +9614,9 @@ func (o ManagementPolicySchemaResponsePtrOutput) Rules() ManagementPolicyRuleRes
 }
 
 type ManagementPolicySnapShot struct {
-	// The function to delete the blob snapshot
-	Delete *DateAfterCreation `pulumi:"delete"`
-	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	Delete        *DateAfterCreation `pulumi:"delete"`
 	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
-	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
-	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
+	TierToCool    *DateAfterCreation `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotInput is an input type that accepts ManagementPolicySnapShotArgs and ManagementPolicySnapShotOutput values.
@@ -10348,12 +9631,9 @@ type ManagementPolicySnapShotInput interface {
 }
 
 type ManagementPolicySnapShotArgs struct {
-	// The function to delete the blob snapshot
-	Delete DateAfterCreationPtrInput `pulumi:"delete"`
-	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	Delete        DateAfterCreationPtrInput `pulumi:"delete"`
 	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
-	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
-	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
+	TierToCool    DateAfterCreationPtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotArgs) ElementType() reflect.Type {
@@ -10433,17 +9713,14 @@ func (o ManagementPolicySnapShotOutput) ToManagementPolicySnapShotPtrOutputWithC
 	}).(ManagementPolicySnapShotPtrOutput)
 }
 
-// The function to delete the blob snapshot
 func (o ManagementPolicySnapShotOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
 func (o ManagementPolicySnapShotOutput) TierToArchive() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
 func (o ManagementPolicySnapShotOutput) TierToCool() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
 }
@@ -10472,7 +9749,6 @@ func (o ManagementPolicySnapShotPtrOutput) Elem() ManagementPolicySnapShotOutput
 	}).(ManagementPolicySnapShotOutput)
 }
 
-// The function to delete the blob snapshot
 func (o ManagementPolicySnapShotPtrOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
 		if v == nil {
@@ -10482,7 +9758,6 @@ func (o ManagementPolicySnapShotPtrOutput) Delete() DateAfterCreationPtrOutput {
 	}).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
 func (o ManagementPolicySnapShotPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
 		if v == nil {
@@ -10492,7 +9767,6 @@ func (o ManagementPolicySnapShotPtrOutput) TierToArchive() DateAfterCreationPtrO
 	}).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
 func (o ManagementPolicySnapShotPtrOutput) TierToCool() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
 		if v == nil {
@@ -10503,12 +9777,9 @@ func (o ManagementPolicySnapShotPtrOutput) TierToCool() DateAfterCreationPtrOutp
 }
 
 type ManagementPolicySnapShotResponse struct {
-	// The function to delete the blob snapshot
-	Delete *DateAfterCreationResponse `pulumi:"delete"`
-	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	Delete        *DateAfterCreationResponse `pulumi:"delete"`
 	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
-	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
-	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
+	TierToCool    *DateAfterCreationResponse `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotResponseInput is an input type that accepts ManagementPolicySnapShotResponseArgs and ManagementPolicySnapShotResponseOutput values.
@@ -10523,12 +9794,9 @@ type ManagementPolicySnapShotResponseInput interface {
 }
 
 type ManagementPolicySnapShotResponseArgs struct {
-	// The function to delete the blob snapshot
-	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
-	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	Delete        DateAfterCreationResponsePtrInput `pulumi:"delete"`
 	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
-	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
-	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
+	TierToCool    DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotResponseArgs) ElementType() reflect.Type {
@@ -10608,17 +9876,14 @@ func (o ManagementPolicySnapShotResponseOutput) ToManagementPolicySnapShotRespon
 	}).(ManagementPolicySnapShotResponsePtrOutput)
 }
 
-// The function to delete the blob snapshot
 func (o ManagementPolicySnapShotResponseOutput) Delete() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
 func (o ManagementPolicySnapShotResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
 func (o ManagementPolicySnapShotResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
 }
@@ -10647,7 +9912,6 @@ func (o ManagementPolicySnapShotResponsePtrOutput) Elem() ManagementPolicySnapSh
 	}).(ManagementPolicySnapShotResponseOutput)
 }
 
-// The function to delete the blob snapshot
 func (o ManagementPolicySnapShotResponsePtrOutput) Delete() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -10657,7 +9921,6 @@ func (o ManagementPolicySnapShotResponsePtrOutput) Delete() DateAfterCreationRes
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
 func (o ManagementPolicySnapShotResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -10667,7 +9930,6 @@ func (o ManagementPolicySnapShotResponsePtrOutput) TierToArchive() DateAfterCrea
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
 func (o ManagementPolicySnapShotResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -10678,12 +9940,9 @@ func (o ManagementPolicySnapShotResponsePtrOutput) TierToCool() DateAfterCreatio
 }
 
 type ManagementPolicyVersion struct {
-	// The function to delete the blob version
-	Delete *DateAfterCreation `pulumi:"delete"`
-	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	Delete        *DateAfterCreation `pulumi:"delete"`
 	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
-	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
-	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
+	TierToCool    *DateAfterCreation `pulumi:"tierToCool"`
 }
 
 // ManagementPolicyVersionInput is an input type that accepts ManagementPolicyVersionArgs and ManagementPolicyVersionOutput values.
@@ -10698,12 +9957,9 @@ type ManagementPolicyVersionInput interface {
 }
 
 type ManagementPolicyVersionArgs struct {
-	// The function to delete the blob version
-	Delete DateAfterCreationPtrInput `pulumi:"delete"`
-	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	Delete        DateAfterCreationPtrInput `pulumi:"delete"`
 	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
-	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
-	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
+	TierToCool    DateAfterCreationPtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicyVersionArgs) ElementType() reflect.Type {
@@ -10783,17 +10039,14 @@ func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionPtrOutputWithCon
 	}).(ManagementPolicyVersionPtrOutput)
 }
 
-// The function to delete the blob version
 func (o ManagementPolicyVersionOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
 func (o ManagementPolicyVersionOutput) TierToArchive() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob version to cool storage. Support blob version currently at Hot tier
 func (o ManagementPolicyVersionOutput) TierToCool() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
 }
@@ -10822,7 +10075,6 @@ func (o ManagementPolicyVersionPtrOutput) Elem() ManagementPolicyVersionOutput {
 	}).(ManagementPolicyVersionOutput)
 }
 
-// The function to delete the blob version
 func (o ManagementPolicyVersionPtrOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
 		if v == nil {
@@ -10832,7 +10084,6 @@ func (o ManagementPolicyVersionPtrOutput) Delete() DateAfterCreationPtrOutput {
 	}).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
 func (o ManagementPolicyVersionPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
 		if v == nil {
@@ -10842,7 +10093,6 @@ func (o ManagementPolicyVersionPtrOutput) TierToArchive() DateAfterCreationPtrOu
 	}).(DateAfterCreationPtrOutput)
 }
 
-// The function to tier blob version to cool storage. Support blob version currently at Hot tier
 func (o ManagementPolicyVersionPtrOutput) TierToCool() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
 		if v == nil {
@@ -10853,12 +10103,9 @@ func (o ManagementPolicyVersionPtrOutput) TierToCool() DateAfterCreationPtrOutpu
 }
 
 type ManagementPolicyVersionResponse struct {
-	// The function to delete the blob version
-	Delete *DateAfterCreationResponse `pulumi:"delete"`
-	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	Delete        *DateAfterCreationResponse `pulumi:"delete"`
 	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
-	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
-	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
+	TierToCool    *DateAfterCreationResponse `pulumi:"tierToCool"`
 }
 
 // ManagementPolicyVersionResponseInput is an input type that accepts ManagementPolicyVersionResponseArgs and ManagementPolicyVersionResponseOutput values.
@@ -10873,12 +10120,9 @@ type ManagementPolicyVersionResponseInput interface {
 }
 
 type ManagementPolicyVersionResponseArgs struct {
-	// The function to delete the blob version
-	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
-	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	Delete        DateAfterCreationResponsePtrInput `pulumi:"delete"`
 	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
-	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
-	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
+	TierToCool    DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicyVersionResponseArgs) ElementType() reflect.Type {
@@ -10958,17 +10202,14 @@ func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponse
 	}).(ManagementPolicyVersionResponsePtrOutput)
 }
 
-// The function to delete the blob version
 func (o ManagementPolicyVersionResponseOutput) Delete() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
 func (o ManagementPolicyVersionResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob version to cool storage. Support blob version currently at Hot tier
 func (o ManagementPolicyVersionResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
 }
@@ -10997,7 +10238,6 @@ func (o ManagementPolicyVersionResponsePtrOutput) Elem() ManagementPolicyVersion
 	}).(ManagementPolicyVersionResponseOutput)
 }
 
-// The function to delete the blob version
 func (o ManagementPolicyVersionResponsePtrOutput) Delete() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -11007,7 +10247,6 @@ func (o ManagementPolicyVersionResponsePtrOutput) Delete() DateAfterCreationResp
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
 func (o ManagementPolicyVersionResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -11017,7 +10256,6 @@ func (o ManagementPolicyVersionResponsePtrOutput) TierToArchive() DateAfterCreat
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
-// The function to tier blob version to cool storage. Support blob version currently at Hot tier
 func (o ManagementPolicyVersionResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
 		if v == nil {
@@ -11028,7 +10266,6 @@ func (o ManagementPolicyVersionResponsePtrOutput) TierToCool() DateAfterCreation
 }
 
 type Multichannel struct {
-	// Indicates whether multichannel is enabled
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -11044,7 +10281,6 @@ type MultichannelInput interface {
 }
 
 type MultichannelArgs struct {
-	// Indicates whether multichannel is enabled
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -11125,7 +10361,6 @@ func (o MultichannelOutput) ToMultichannelPtrOutputWithContext(ctx context.Conte
 	}).(MultichannelPtrOutput)
 }
 
-// Indicates whether multichannel is enabled
 func (o MultichannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Multichannel) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11154,7 +10389,6 @@ func (o MultichannelPtrOutput) Elem() MultichannelOutput {
 	}).(MultichannelOutput)
 }
 
-// Indicates whether multichannel is enabled
 func (o MultichannelPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Multichannel) *bool {
 		if v == nil {
@@ -11165,7 +10399,6 @@ func (o MultichannelPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type MultichannelResponse struct {
-	// Indicates whether multichannel is enabled
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -11181,7 +10414,6 @@ type MultichannelResponseInput interface {
 }
 
 type MultichannelResponseArgs struct {
-	// Indicates whether multichannel is enabled
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -11262,7 +10494,6 @@ func (o MultichannelResponseOutput) ToMultichannelResponsePtrOutputWithContext(c
 	}).(MultichannelResponsePtrOutput)
 }
 
-// Indicates whether multichannel is enabled
 func (o MultichannelResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultichannelResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11291,7 +10522,6 @@ func (o MultichannelResponsePtrOutput) Elem() MultichannelResponseOutput {
 	}).(MultichannelResponseOutput)
 }
 
-// Indicates whether multichannel is enabled
 func (o MultichannelResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultichannelResponse) *bool {
 		if v == nil {
@@ -11302,15 +10532,10 @@ func (o MultichannelResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type NetworkRuleSet struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass *string `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction DefaultAction `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules []IPRule `pulumi:"ipRules"`
-	// Sets the resource access rules
+	Bypass              *string              `pulumi:"bypass"`
+	DefaultAction       DefaultAction        `pulumi:"defaultAction"`
+	IpRules             []IPRule             `pulumi:"ipRules"`
 	ResourceAccessRules []ResourceAccessRule `pulumi:"resourceAccessRules"`
-	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -11326,15 +10551,10 @@ type NetworkRuleSetInput interface {
 }
 
 type NetworkRuleSetArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction DefaultActionInput `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules IPRuleArrayInput `pulumi:"ipRules"`
-	// Sets the resource access rules
+	Bypass              pulumi.StringPtrInput        `pulumi:"bypass"`
+	DefaultAction       DefaultActionInput           `pulumi:"defaultAction"`
+	IpRules             IPRuleArrayInput             `pulumi:"ipRules"`
 	ResourceAccessRules ResourceAccessRuleArrayInput `pulumi:"resourceAccessRules"`
-	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -11415,27 +10635,22 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.C
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetOutput) DefaultAction() DefaultActionOutput {
 	return o.ApplyT(func(v NetworkRuleSet) DefaultAction { return v.DefaultAction }).(DefaultActionOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
 }
 
-// Sets the resource access rules
 func (o NetworkRuleSetOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []ResourceAccessRule { return v.ResourceAccessRules }).(ResourceAccessRuleArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
 }
@@ -11464,7 +10679,6 @@ func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
 	}).(NetworkRuleSetOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -11474,7 +10688,6 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetPtrOutput) DefaultAction() DefaultActionPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *DefaultAction {
 		if v == nil {
@@ -11484,7 +10697,6 @@ func (o NetworkRuleSetPtrOutput) DefaultAction() DefaultActionPtrOutput {
 	}).(DefaultActionPtrOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []IPRule {
 		if v == nil {
@@ -11494,7 +10706,6 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	}).(IPRuleArrayOutput)
 }
 
-// Sets the resource access rules
 func (o NetworkRuleSetPtrOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []ResourceAccessRule {
 		if v == nil {
@@ -11504,7 +10715,6 @@ func (o NetworkRuleSetPtrOutput) ResourceAccessRules() ResourceAccessRuleArrayOu
 	}).(ResourceAccessRuleArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
 		if v == nil {
@@ -11515,15 +10725,10 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 }
 
 type NetworkRuleSetResponse struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass *string `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction string `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules []IPRuleResponse `pulumi:"ipRules"`
-	// Sets the resource access rules
+	Bypass              *string                      `pulumi:"bypass"`
+	DefaultAction       string                       `pulumi:"defaultAction"`
+	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
 	ResourceAccessRules []ResourceAccessRuleResponse `pulumi:"resourceAccessRules"`
-	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
 
@@ -11539,15 +10744,10 @@ type NetworkRuleSetResponseInput interface {
 }
 
 type NetworkRuleSetResponseArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules IPRuleResponseArrayInput `pulumi:"ipRules"`
-	// Sets the resource access rules
+	Bypass              pulumi.StringPtrInput                `pulumi:"bypass"`
+	DefaultAction       pulumi.StringInput                   `pulumi:"defaultAction"`
+	IpRules             IPRuleResponseArrayInput             `pulumi:"ipRules"`
 	ResourceAccessRules ResourceAccessRuleResponseArrayInput `pulumi:"resourceAccessRules"`
-	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -11628,27 +10828,22 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithConte
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetResponseOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetResponseOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
 }
 
-// Sets the resource access rules
 func (o NetworkRuleSetResponseOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []ResourceAccessRuleResponse { return v.ResourceAccessRules }).(ResourceAccessRuleResponseArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
 }
@@ -11677,7 +10872,6 @@ func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
 	}).(NetworkRuleSetResponseOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -11687,7 +10881,6 @@ func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -11697,7 +10890,6 @@ func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []IPRuleResponse {
 		if v == nil {
@@ -11707,7 +10899,6 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	}).(IPRuleResponseArrayOutput)
 }
 
-// Sets the resource access rules
 func (o NetworkRuleSetResponsePtrOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []ResourceAccessRuleResponse {
 		if v == nil {
@@ -11717,7 +10908,6 @@ func (o NetworkRuleSetResponsePtrOutput) ResourceAccessRules() ResourceAccessRul
 	}).(ResourceAccessRuleResponseArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []VirtualNetworkRuleResponse {
 		if v == nil {
@@ -11728,10 +10918,8 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 }
 
 type ObjectReplicationPolicyFilter struct {
-	// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-	MinCreationTime *string `pulumi:"minCreationTime"`
-	// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	MinCreationTime *string  `pulumi:"minCreationTime"`
+	PrefixMatch     []string `pulumi:"prefixMatch"`
 }
 
 // ObjectReplicationPolicyFilterInput is an input type that accepts ObjectReplicationPolicyFilterArgs and ObjectReplicationPolicyFilterOutput values.
@@ -11746,10 +10934,8 @@ type ObjectReplicationPolicyFilterInput interface {
 }
 
 type ObjectReplicationPolicyFilterArgs struct {
-	// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-	MinCreationTime pulumi.StringPtrInput `pulumi:"minCreationTime"`
-	// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	MinCreationTime pulumi.StringPtrInput   `pulumi:"minCreationTime"`
+	PrefixMatch     pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
 func (ObjectReplicationPolicyFilterArgs) ElementType() reflect.Type {
@@ -11829,12 +11015,10 @@ func (o ObjectReplicationPolicyFilterOutput) ToObjectReplicationPolicyFilterPtrO
 	}).(ObjectReplicationPolicyFilterPtrOutput)
 }
 
-// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
 func (o ObjectReplicationPolicyFilterOutput) MinCreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyFilter) *string { return v.MinCreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 func (o ObjectReplicationPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
@@ -11863,7 +11047,6 @@ func (o ObjectReplicationPolicyFilterPtrOutput) Elem() ObjectReplicationPolicyFi
 	}).(ObjectReplicationPolicyFilterOutput)
 }
 
-// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
 func (o ObjectReplicationPolicyFilterPtrOutput) MinCreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectReplicationPolicyFilter) *string {
 		if v == nil {
@@ -11873,7 +11056,6 @@ func (o ObjectReplicationPolicyFilterPtrOutput) MinCreationTime() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 func (o ObjectReplicationPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ObjectReplicationPolicyFilter) []string {
 		if v == nil {
@@ -11884,10 +11066,8 @@ func (o ObjectReplicationPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArray
 }
 
 type ObjectReplicationPolicyFilterResponse struct {
-	// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-	MinCreationTime *string `pulumi:"minCreationTime"`
-	// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-	PrefixMatch []string `pulumi:"prefixMatch"`
+	MinCreationTime *string  `pulumi:"minCreationTime"`
+	PrefixMatch     []string `pulumi:"prefixMatch"`
 }
 
 // ObjectReplicationPolicyFilterResponseInput is an input type that accepts ObjectReplicationPolicyFilterResponseArgs and ObjectReplicationPolicyFilterResponseOutput values.
@@ -11902,10 +11082,8 @@ type ObjectReplicationPolicyFilterResponseInput interface {
 }
 
 type ObjectReplicationPolicyFilterResponseArgs struct {
-	// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-	MinCreationTime pulumi.StringPtrInput `pulumi:"minCreationTime"`
-	// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+	MinCreationTime pulumi.StringPtrInput   `pulumi:"minCreationTime"`
+	PrefixMatch     pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
 func (ObjectReplicationPolicyFilterResponseArgs) ElementType() reflect.Type {
@@ -11985,12 +11163,10 @@ func (o ObjectReplicationPolicyFilterResponseOutput) ToObjectReplicationPolicyFi
 	}).(ObjectReplicationPolicyFilterResponsePtrOutput)
 }
 
-// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
 func (o ObjectReplicationPolicyFilterResponseOutput) MinCreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyFilterResponse) *string { return v.MinCreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 func (o ObjectReplicationPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
@@ -12019,7 +11195,6 @@ func (o ObjectReplicationPolicyFilterResponsePtrOutput) Elem() ObjectReplication
 	}).(ObjectReplicationPolicyFilterResponseOutput)
 }
 
-// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
 func (o ObjectReplicationPolicyFilterResponsePtrOutput) MinCreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectReplicationPolicyFilterResponse) *string {
 		if v == nil {
@@ -12029,7 +11204,6 @@ func (o ObjectReplicationPolicyFilterResponsePtrOutput) MinCreationTime() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 func (o ObjectReplicationPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ObjectReplicationPolicyFilterResponse) []string {
 		if v == nil {
@@ -12040,14 +11214,10 @@ func (o ObjectReplicationPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.Str
 }
 
 type ObjectReplicationPolicyRule struct {
-	// Required. Destination container name.
-	DestinationContainer string `pulumi:"destinationContainer"`
-	// Optional. An object that defines the filter set.
-	Filters *ObjectReplicationPolicyFilter `pulumi:"filters"`
-	// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-	RuleId *string `pulumi:"ruleId"`
-	// Required. Source container name.
-	SourceContainer string `pulumi:"sourceContainer"`
+	DestinationContainer string                         `pulumi:"destinationContainer"`
+	Filters              *ObjectReplicationPolicyFilter `pulumi:"filters"`
+	RuleId               *string                        `pulumi:"ruleId"`
+	SourceContainer      string                         `pulumi:"sourceContainer"`
 }
 
 // ObjectReplicationPolicyRuleInput is an input type that accepts ObjectReplicationPolicyRuleArgs and ObjectReplicationPolicyRuleOutput values.
@@ -12062,14 +11232,10 @@ type ObjectReplicationPolicyRuleInput interface {
 }
 
 type ObjectReplicationPolicyRuleArgs struct {
-	// Required. Destination container name.
-	DestinationContainer pulumi.StringInput `pulumi:"destinationContainer"`
-	// Optional. An object that defines the filter set.
-	Filters ObjectReplicationPolicyFilterPtrInput `pulumi:"filters"`
-	// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
-	// Required. Source container name.
-	SourceContainer pulumi.StringInput `pulumi:"sourceContainer"`
+	DestinationContainer pulumi.StringInput                    `pulumi:"destinationContainer"`
+	Filters              ObjectReplicationPolicyFilterPtrInput `pulumi:"filters"`
+	RuleId               pulumi.StringPtrInput                 `pulumi:"ruleId"`
+	SourceContainer      pulumi.StringInput                    `pulumi:"sourceContainer"`
 }
 
 func (ObjectReplicationPolicyRuleArgs) ElementType() reflect.Type {
@@ -12123,22 +11289,18 @@ func (o ObjectReplicationPolicyRuleOutput) ToObjectReplicationPolicyRuleOutputWi
 	return o
 }
 
-// Required. Destination container name.
 func (o ObjectReplicationPolicyRuleOutput) DestinationContainer() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRule) string { return v.DestinationContainer }).(pulumi.StringOutput)
 }
 
-// Optional. An object that defines the filter set.
 func (o ObjectReplicationPolicyRuleOutput) Filters() ObjectReplicationPolicyFilterPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRule) *ObjectReplicationPolicyFilter { return v.Filters }).(ObjectReplicationPolicyFilterPtrOutput)
 }
 
-// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
 func (o ObjectReplicationPolicyRuleOutput) RuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRule) *string { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
-// Required. Source container name.
 func (o ObjectReplicationPolicyRuleOutput) SourceContainer() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRule) string { return v.SourceContainer }).(pulumi.StringOutput)
 }
@@ -12164,14 +11326,10 @@ func (o ObjectReplicationPolicyRuleArrayOutput) Index(i pulumi.IntInput) ObjectR
 }
 
 type ObjectReplicationPolicyRuleResponse struct {
-	// Required. Destination container name.
-	DestinationContainer string `pulumi:"destinationContainer"`
-	// Optional. An object that defines the filter set.
-	Filters *ObjectReplicationPolicyFilterResponse `pulumi:"filters"`
-	// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-	RuleId *string `pulumi:"ruleId"`
-	// Required. Source container name.
-	SourceContainer string `pulumi:"sourceContainer"`
+	DestinationContainer string                                 `pulumi:"destinationContainer"`
+	Filters              *ObjectReplicationPolicyFilterResponse `pulumi:"filters"`
+	RuleId               *string                                `pulumi:"ruleId"`
+	SourceContainer      string                                 `pulumi:"sourceContainer"`
 }
 
 // ObjectReplicationPolicyRuleResponseInput is an input type that accepts ObjectReplicationPolicyRuleResponseArgs and ObjectReplicationPolicyRuleResponseOutput values.
@@ -12186,14 +11344,10 @@ type ObjectReplicationPolicyRuleResponseInput interface {
 }
 
 type ObjectReplicationPolicyRuleResponseArgs struct {
-	// Required. Destination container name.
-	DestinationContainer pulumi.StringInput `pulumi:"destinationContainer"`
-	// Optional. An object that defines the filter set.
-	Filters ObjectReplicationPolicyFilterResponsePtrInput `pulumi:"filters"`
-	// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
-	// Required. Source container name.
-	SourceContainer pulumi.StringInput `pulumi:"sourceContainer"`
+	DestinationContainer pulumi.StringInput                            `pulumi:"destinationContainer"`
+	Filters              ObjectReplicationPolicyFilterResponsePtrInput `pulumi:"filters"`
+	RuleId               pulumi.StringPtrInput                         `pulumi:"ruleId"`
+	SourceContainer      pulumi.StringInput                            `pulumi:"sourceContainer"`
 }
 
 func (ObjectReplicationPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -12247,22 +11401,18 @@ func (o ObjectReplicationPolicyRuleResponseOutput) ToObjectReplicationPolicyRule
 	return o
 }
 
-// Required. Destination container name.
 func (o ObjectReplicationPolicyRuleResponseOutput) DestinationContainer() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRuleResponse) string { return v.DestinationContainer }).(pulumi.StringOutput)
 }
 
-// Optional. An object that defines the filter set.
 func (o ObjectReplicationPolicyRuleResponseOutput) Filters() ObjectReplicationPolicyFilterResponsePtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRuleResponse) *ObjectReplicationPolicyFilterResponse { return v.Filters }).(ObjectReplicationPolicyFilterResponsePtrOutput)
 }
 
-// Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
 func (o ObjectReplicationPolicyRuleResponseOutput) RuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRuleResponse) *string { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
-// Required. Source container name.
 func (o ObjectReplicationPolicyRuleResponseOutput) SourceContainer() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationPolicyRuleResponse) string { return v.SourceContainer }).(pulumi.StringOutput)
 }
@@ -12288,18 +11438,12 @@ func (o ObjectReplicationPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -12314,18 +11458,12 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -12379,34 +11517,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12432,7 +11564,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -12448,7 +11579,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -12529,7 +11659,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -12558,7 +11687,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -12569,12 +11697,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -12589,12 +11714,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -12674,17 +11796,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -12713,7 +11832,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -12723,7 +11841,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -12733,7 +11850,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -12744,12 +11860,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -12764,12 +11877,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -12849,17 +11959,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -12888,7 +11995,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -12898,7 +12004,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -12908,7 +12013,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -12919,7 +12023,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type ProtocolSettings struct {
-	// Setting for SMB protocol
 	Smb *SmbSetting `pulumi:"smb"`
 }
 
@@ -12935,7 +12038,6 @@ type ProtocolSettingsInput interface {
 }
 
 type ProtocolSettingsArgs struct {
-	// Setting for SMB protocol
 	Smb SmbSettingPtrInput `pulumi:"smb"`
 }
 
@@ -13016,7 +12118,6 @@ func (o ProtocolSettingsOutput) ToProtocolSettingsPtrOutputWithContext(ctx conte
 	}).(ProtocolSettingsPtrOutput)
 }
 
-// Setting for SMB protocol
 func (o ProtocolSettingsOutput) Smb() SmbSettingPtrOutput {
 	return o.ApplyT(func(v ProtocolSettings) *SmbSetting { return v.Smb }).(SmbSettingPtrOutput)
 }
@@ -13045,7 +12146,6 @@ func (o ProtocolSettingsPtrOutput) Elem() ProtocolSettingsOutput {
 	}).(ProtocolSettingsOutput)
 }
 
-// Setting for SMB protocol
 func (o ProtocolSettingsPtrOutput) Smb() SmbSettingPtrOutput {
 	return o.ApplyT(func(v *ProtocolSettings) *SmbSetting {
 		if v == nil {
@@ -13056,7 +12156,6 @@ func (o ProtocolSettingsPtrOutput) Smb() SmbSettingPtrOutput {
 }
 
 type ProtocolSettingsResponse struct {
-	// Setting for SMB protocol
 	Smb *SmbSettingResponse `pulumi:"smb"`
 }
 
@@ -13072,7 +12171,6 @@ type ProtocolSettingsResponseInput interface {
 }
 
 type ProtocolSettingsResponseArgs struct {
-	// Setting for SMB protocol
 	Smb SmbSettingResponsePtrInput `pulumi:"smb"`
 }
 
@@ -13153,7 +12251,6 @@ func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponsePtrOutputWithC
 	}).(ProtocolSettingsResponsePtrOutput)
 }
 
-// Setting for SMB protocol
 func (o ProtocolSettingsResponseOutput) Smb() SmbSettingResponsePtrOutput {
 	return o.ApplyT(func(v ProtocolSettingsResponse) *SmbSettingResponse { return v.Smb }).(SmbSettingResponsePtrOutput)
 }
@@ -13182,7 +12279,6 @@ func (o ProtocolSettingsResponsePtrOutput) Elem() ProtocolSettingsResponseOutput
 	}).(ProtocolSettingsResponseOutput)
 }
 
-// Setting for SMB protocol
 func (o ProtocolSettingsResponsePtrOutput) Smb() SmbSettingResponsePtrOutput {
 	return o.ApplyT(func(v *ProtocolSettingsResponse) *SmbSettingResponse {
 		if v == nil {
@@ -13193,10 +12289,8 @@ func (o ProtocolSettingsResponsePtrOutput) Smb() SmbSettingResponsePtrOutput {
 }
 
 type ResourceAccessRule struct {
-	// Resource Id
 	ResourceId *string `pulumi:"resourceId"`
-	// Tenant Id
-	TenantId *string `pulumi:"tenantId"`
+	TenantId   *string `pulumi:"tenantId"`
 }
 
 // ResourceAccessRuleInput is an input type that accepts ResourceAccessRuleArgs and ResourceAccessRuleOutput values.
@@ -13211,10 +12305,8 @@ type ResourceAccessRuleInput interface {
 }
 
 type ResourceAccessRuleArgs struct {
-	// Resource Id
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// Tenant Id
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId   pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ResourceAccessRuleArgs) ElementType() reflect.Type {
@@ -13268,12 +12360,10 @@ func (o ResourceAccessRuleOutput) ToResourceAccessRuleOutputWithContext(ctx cont
 	return o
 }
 
-// Resource Id
 func (o ResourceAccessRuleOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceAccessRule) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o ResourceAccessRuleOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceAccessRule) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -13299,10 +12389,8 @@ func (o ResourceAccessRuleArrayOutput) Index(i pulumi.IntInput) ResourceAccessRu
 }
 
 type ResourceAccessRuleResponse struct {
-	// Resource Id
 	ResourceId *string `pulumi:"resourceId"`
-	// Tenant Id
-	TenantId *string `pulumi:"tenantId"`
+	TenantId   *string `pulumi:"tenantId"`
 }
 
 // ResourceAccessRuleResponseInput is an input type that accepts ResourceAccessRuleResponseArgs and ResourceAccessRuleResponseOutput values.
@@ -13317,10 +12405,8 @@ type ResourceAccessRuleResponseInput interface {
 }
 
 type ResourceAccessRuleResponseArgs struct {
-	// Resource Id
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// Tenant Id
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId   pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ResourceAccessRuleResponseArgs) ElementType() reflect.Type {
@@ -13374,12 +12460,10 @@ func (o ResourceAccessRuleResponseOutput) ToResourceAccessRuleResponseOutputWith
 	return o
 }
 
-// Resource Id
 func (o ResourceAccessRuleResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o ResourceAccessRuleResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -13405,9 +12489,7 @@ func (o ResourceAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) Resource
 }
 
 type RestorePolicyProperties struct {
-	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
-	Days *int `pulumi:"days"`
-	// Blob restore is enabled if set to true.
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -13423,10 +12505,8 @@ type RestorePolicyPropertiesInput interface {
 }
 
 type RestorePolicyPropertiesArgs struct {
-	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Blob restore is enabled if set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (RestorePolicyPropertiesArgs) ElementType() reflect.Type {
@@ -13506,12 +12586,10 @@ func (o RestorePolicyPropertiesOutput) ToRestorePolicyPropertiesPtrOutputWithCon
 	}).(RestorePolicyPropertiesPtrOutput)
 }
 
-// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
 func (o RestorePolicyPropertiesOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RestorePolicyProperties) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Blob restore is enabled if set to true.
 func (o RestorePolicyPropertiesOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RestorePolicyProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -13540,7 +12618,6 @@ func (o RestorePolicyPropertiesPtrOutput) Elem() RestorePolicyPropertiesOutput {
 	}).(RestorePolicyPropertiesOutput)
 }
 
-// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
 func (o RestorePolicyPropertiesPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyProperties) *int {
 		if v == nil {
@@ -13550,7 +12627,6 @@ func (o RestorePolicyPropertiesPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Blob restore is enabled if set to true.
 func (o RestorePolicyPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyProperties) *bool {
 		if v == nil {
@@ -13561,14 +12637,10 @@ func (o RestorePolicyPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type RestorePolicyPropertiesResponse struct {
-	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
-	Days *int `pulumi:"days"`
-	// Blob restore is enabled if set to true.
-	Enabled bool `pulumi:"enabled"`
-	// Deprecated in favor of minRestoreTime property.
+	Days            *int   `pulumi:"days"`
+	Enabled         bool   `pulumi:"enabled"`
 	LastEnabledTime string `pulumi:"lastEnabledTime"`
-	// Returns the minimum date and time that the restore can be started.
-	MinRestoreTime string `pulumi:"minRestoreTime"`
+	MinRestoreTime  string `pulumi:"minRestoreTime"`
 }
 
 // RestorePolicyPropertiesResponseInput is an input type that accepts RestorePolicyPropertiesResponseArgs and RestorePolicyPropertiesResponseOutput values.
@@ -13583,14 +12655,10 @@ type RestorePolicyPropertiesResponseInput interface {
 }
 
 type RestorePolicyPropertiesResponseArgs struct {
-	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Blob restore is enabled if set to true.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Deprecated in favor of minRestoreTime property.
+	Days            pulumi.IntPtrInput `pulumi:"days"`
+	Enabled         pulumi.BoolInput   `pulumi:"enabled"`
 	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
-	// Returns the minimum date and time that the restore can be started.
-	MinRestoreTime pulumi.StringInput `pulumi:"minRestoreTime"`
+	MinRestoreTime  pulumi.StringInput `pulumi:"minRestoreTime"`
 }
 
 func (RestorePolicyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -13670,22 +12738,18 @@ func (o RestorePolicyPropertiesResponseOutput) ToRestorePolicyPropertiesResponse
 	}).(RestorePolicyPropertiesResponsePtrOutput)
 }
 
-// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
 func (o RestorePolicyPropertiesResponseOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RestorePolicyPropertiesResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Blob restore is enabled if set to true.
 func (o RestorePolicyPropertiesResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RestorePolicyPropertiesResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Deprecated in favor of minRestoreTime property.
 func (o RestorePolicyPropertiesResponseOutput) LastEnabledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RestorePolicyPropertiesResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
 }
 
-// Returns the minimum date and time that the restore can be started.
 func (o RestorePolicyPropertiesResponseOutput) MinRestoreTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RestorePolicyPropertiesResponse) string { return v.MinRestoreTime }).(pulumi.StringOutput)
 }
@@ -13714,7 +12778,6 @@ func (o RestorePolicyPropertiesResponsePtrOutput) Elem() RestorePolicyProperties
 	}).(RestorePolicyPropertiesResponseOutput)
 }
 
-// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
 func (o RestorePolicyPropertiesResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *int {
 		if v == nil {
@@ -13724,7 +12787,6 @@ func (o RestorePolicyPropertiesResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Blob restore is enabled if set to true.
 func (o RestorePolicyPropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *bool {
 		if v == nil {
@@ -13734,7 +12796,6 @@ func (o RestorePolicyPropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated in favor of minRestoreTime property.
 func (o RestorePolicyPropertiesResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *string {
 		if v == nil {
@@ -13744,7 +12805,6 @@ func (o RestorePolicyPropertiesResponsePtrOutput) LastEnabledTime() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Returns the minimum date and time that the restore can be started.
 func (o RestorePolicyPropertiesResponsePtrOutput) MinRestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *string {
 		if v == nil {
@@ -13755,12 +12815,9 @@ func (o RestorePolicyPropertiesResponsePtrOutput) MinRestoreTime() pulumi.String
 }
 
 type RoutingPreference struct {
-	// A boolean flag which indicates whether internet routing storage endpoints are to be published
-	PublishInternetEndpoints *bool `pulumi:"publishInternetEndpoints"`
-	// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-	PublishMicrosoftEndpoints *bool `pulumi:"publishMicrosoftEndpoints"`
-	// Routing Choice defines the kind of network routing opted by the user.
-	RoutingChoice *string `pulumi:"routingChoice"`
+	PublishInternetEndpoints  *bool   `pulumi:"publishInternetEndpoints"`
+	PublishMicrosoftEndpoints *bool   `pulumi:"publishMicrosoftEndpoints"`
+	RoutingChoice             *string `pulumi:"routingChoice"`
 }
 
 // RoutingPreferenceInput is an input type that accepts RoutingPreferenceArgs and RoutingPreferenceOutput values.
@@ -13775,12 +12832,9 @@ type RoutingPreferenceInput interface {
 }
 
 type RoutingPreferenceArgs struct {
-	// A boolean flag which indicates whether internet routing storage endpoints are to be published
-	PublishInternetEndpoints pulumi.BoolPtrInput `pulumi:"publishInternetEndpoints"`
-	// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-	PublishMicrosoftEndpoints pulumi.BoolPtrInput `pulumi:"publishMicrosoftEndpoints"`
-	// Routing Choice defines the kind of network routing opted by the user.
-	RoutingChoice pulumi.StringPtrInput `pulumi:"routingChoice"`
+	PublishInternetEndpoints  pulumi.BoolPtrInput   `pulumi:"publishInternetEndpoints"`
+	PublishMicrosoftEndpoints pulumi.BoolPtrInput   `pulumi:"publishMicrosoftEndpoints"`
+	RoutingChoice             pulumi.StringPtrInput `pulumi:"routingChoice"`
 }
 
 func (RoutingPreferenceArgs) ElementType() reflect.Type {
@@ -13860,17 +12914,14 @@ func (o RoutingPreferenceOutput) ToRoutingPreferencePtrOutputWithContext(ctx con
 	}).(RoutingPreferencePtrOutput)
 }
 
-// A boolean flag which indicates whether internet routing storage endpoints are to be published
 func (o RoutingPreferenceOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingPreference) *bool { return v.PublishInternetEndpoints }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
 func (o RoutingPreferenceOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingPreference) *bool { return v.PublishMicrosoftEndpoints }).(pulumi.BoolPtrOutput)
 }
 
-// Routing Choice defines the kind of network routing opted by the user.
 func (o RoutingPreferenceOutput) RoutingChoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingPreference) *string { return v.RoutingChoice }).(pulumi.StringPtrOutput)
 }
@@ -13899,7 +12950,6 @@ func (o RoutingPreferencePtrOutput) Elem() RoutingPreferenceOutput {
 	}).(RoutingPreferenceOutput)
 }
 
-// A boolean flag which indicates whether internet routing storage endpoints are to be published
 func (o RoutingPreferencePtrOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoutingPreference) *bool {
 		if v == nil {
@@ -13909,7 +12959,6 @@ func (o RoutingPreferencePtrOutput) PublishInternetEndpoints() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
 func (o RoutingPreferencePtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoutingPreference) *bool {
 		if v == nil {
@@ -13919,7 +12968,6 @@ func (o RoutingPreferencePtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Routing Choice defines the kind of network routing opted by the user.
 func (o RoutingPreferencePtrOutput) RoutingChoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoutingPreference) *string {
 		if v == nil {
@@ -13930,12 +12978,9 @@ func (o RoutingPreferencePtrOutput) RoutingChoice() pulumi.StringPtrOutput {
 }
 
 type RoutingPreferenceResponse struct {
-	// A boolean flag which indicates whether internet routing storage endpoints are to be published
-	PublishInternetEndpoints *bool `pulumi:"publishInternetEndpoints"`
-	// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-	PublishMicrosoftEndpoints *bool `pulumi:"publishMicrosoftEndpoints"`
-	// Routing Choice defines the kind of network routing opted by the user.
-	RoutingChoice *string `pulumi:"routingChoice"`
+	PublishInternetEndpoints  *bool   `pulumi:"publishInternetEndpoints"`
+	PublishMicrosoftEndpoints *bool   `pulumi:"publishMicrosoftEndpoints"`
+	RoutingChoice             *string `pulumi:"routingChoice"`
 }
 
 // RoutingPreferenceResponseInput is an input type that accepts RoutingPreferenceResponseArgs and RoutingPreferenceResponseOutput values.
@@ -13950,12 +12995,9 @@ type RoutingPreferenceResponseInput interface {
 }
 
 type RoutingPreferenceResponseArgs struct {
-	// A boolean flag which indicates whether internet routing storage endpoints are to be published
-	PublishInternetEndpoints pulumi.BoolPtrInput `pulumi:"publishInternetEndpoints"`
-	// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-	PublishMicrosoftEndpoints pulumi.BoolPtrInput `pulumi:"publishMicrosoftEndpoints"`
-	// Routing Choice defines the kind of network routing opted by the user.
-	RoutingChoice pulumi.StringPtrInput `pulumi:"routingChoice"`
+	PublishInternetEndpoints  pulumi.BoolPtrInput   `pulumi:"publishInternetEndpoints"`
+	PublishMicrosoftEndpoints pulumi.BoolPtrInput   `pulumi:"publishMicrosoftEndpoints"`
+	RoutingChoice             pulumi.StringPtrInput `pulumi:"routingChoice"`
 }
 
 func (RoutingPreferenceResponseArgs) ElementType() reflect.Type {
@@ -14035,17 +13077,14 @@ func (o RoutingPreferenceResponseOutput) ToRoutingPreferenceResponsePtrOutputWit
 	}).(RoutingPreferenceResponsePtrOutput)
 }
 
-// A boolean flag which indicates whether internet routing storage endpoints are to be published
 func (o RoutingPreferenceResponseOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingPreferenceResponse) *bool { return v.PublishInternetEndpoints }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
 func (o RoutingPreferenceResponseOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingPreferenceResponse) *bool { return v.PublishMicrosoftEndpoints }).(pulumi.BoolPtrOutput)
 }
 
-// Routing Choice defines the kind of network routing opted by the user.
 func (o RoutingPreferenceResponseOutput) RoutingChoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingPreferenceResponse) *string { return v.RoutingChoice }).(pulumi.StringPtrOutput)
 }
@@ -14074,7 +13113,6 @@ func (o RoutingPreferenceResponsePtrOutput) Elem() RoutingPreferenceResponseOutp
 	}).(RoutingPreferenceResponseOutput)
 }
 
-// A boolean flag which indicates whether internet routing storage endpoints are to be published
 func (o RoutingPreferenceResponsePtrOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoutingPreferenceResponse) *bool {
 		if v == nil {
@@ -14084,7 +13122,6 @@ func (o RoutingPreferenceResponsePtrOutput) PublishInternetEndpoints() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean flag which indicates whether microsoft routing storage endpoints are to be published
 func (o RoutingPreferenceResponsePtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoutingPreferenceResponse) *bool {
 		if v == nil {
@@ -14094,7 +13131,6 @@ func (o RoutingPreferenceResponsePtrOutput) PublishMicrosoftEndpoints() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Routing Choice defines the kind of network routing opted by the user.
 func (o RoutingPreferenceResponsePtrOutput) RoutingChoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoutingPreferenceResponse) *string {
 		if v == nil {
@@ -14105,9 +13141,7 @@ func (o RoutingPreferenceResponsePtrOutput) RoutingChoice() pulumi.StringPtrOutp
 }
 
 type SasPolicy struct {
-	// The SAS expiration action. Can only be Log.
-	ExpirationAction string `pulumi:"expirationAction"`
-	// The SAS expiration period, DD.HH:MM:SS.
+	ExpirationAction    string `pulumi:"expirationAction"`
 	SasExpirationPeriod string `pulumi:"sasExpirationPeriod"`
 }
 
@@ -14123,9 +13157,7 @@ type SasPolicyInput interface {
 }
 
 type SasPolicyArgs struct {
-	// The SAS expiration action. Can only be Log.
-	ExpirationAction pulumi.StringInput `pulumi:"expirationAction"`
-	// The SAS expiration period, DD.HH:MM:SS.
+	ExpirationAction    pulumi.StringInput `pulumi:"expirationAction"`
 	SasExpirationPeriod pulumi.StringInput `pulumi:"sasExpirationPeriod"`
 }
 
@@ -14206,12 +13238,10 @@ func (o SasPolicyOutput) ToSasPolicyPtrOutputWithContext(ctx context.Context) Sa
 	}).(SasPolicyPtrOutput)
 }
 
-// The SAS expiration action. Can only be Log.
 func (o SasPolicyOutput) ExpirationAction() pulumi.StringOutput {
 	return o.ApplyT(func(v SasPolicy) string { return v.ExpirationAction }).(pulumi.StringOutput)
 }
 
-// The SAS expiration period, DD.HH:MM:SS.
 func (o SasPolicyOutput) SasExpirationPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v SasPolicy) string { return v.SasExpirationPeriod }).(pulumi.StringOutput)
 }
@@ -14240,7 +13270,6 @@ func (o SasPolicyPtrOutput) Elem() SasPolicyOutput {
 	}).(SasPolicyOutput)
 }
 
-// The SAS expiration action. Can only be Log.
 func (o SasPolicyPtrOutput) ExpirationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasPolicy) *string {
 		if v == nil {
@@ -14250,7 +13279,6 @@ func (o SasPolicyPtrOutput) ExpirationAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SAS expiration period, DD.HH:MM:SS.
 func (o SasPolicyPtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasPolicy) *string {
 		if v == nil {
@@ -14261,9 +13289,7 @@ func (o SasPolicyPtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput {
 }
 
 type SasPolicyResponse struct {
-	// The SAS expiration action. Can only be Log.
-	ExpirationAction string `pulumi:"expirationAction"`
-	// The SAS expiration period, DD.HH:MM:SS.
+	ExpirationAction    string `pulumi:"expirationAction"`
 	SasExpirationPeriod string `pulumi:"sasExpirationPeriod"`
 }
 
@@ -14279,9 +13305,7 @@ type SasPolicyResponseInput interface {
 }
 
 type SasPolicyResponseArgs struct {
-	// The SAS expiration action. Can only be Log.
-	ExpirationAction pulumi.StringInput `pulumi:"expirationAction"`
-	// The SAS expiration period, DD.HH:MM:SS.
+	ExpirationAction    pulumi.StringInput `pulumi:"expirationAction"`
 	SasExpirationPeriod pulumi.StringInput `pulumi:"sasExpirationPeriod"`
 }
 
@@ -14362,12 +13386,10 @@ func (o SasPolicyResponseOutput) ToSasPolicyResponsePtrOutputWithContext(ctx con
 	}).(SasPolicyResponsePtrOutput)
 }
 
-// The SAS expiration action. Can only be Log.
 func (o SasPolicyResponseOutput) ExpirationAction() pulumi.StringOutput {
 	return o.ApplyT(func(v SasPolicyResponse) string { return v.ExpirationAction }).(pulumi.StringOutput)
 }
 
-// The SAS expiration period, DD.HH:MM:SS.
 func (o SasPolicyResponseOutput) SasExpirationPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v SasPolicyResponse) string { return v.SasExpirationPeriod }).(pulumi.StringOutput)
 }
@@ -14396,7 +13418,6 @@ func (o SasPolicyResponsePtrOutput) Elem() SasPolicyResponseOutput {
 	}).(SasPolicyResponseOutput)
 }
 
-// The SAS expiration action. Can only be Log.
 func (o SasPolicyResponsePtrOutput) ExpirationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasPolicyResponse) *string {
 		if v == nil {
@@ -14406,7 +13427,6 @@ func (o SasPolicyResponsePtrOutput) ExpirationAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SAS expiration period, DD.HH:MM:SS.
 func (o SasPolicyResponsePtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasPolicyResponse) *string {
 		if v == nil {
@@ -14417,7 +13437,6 @@ func (o SasPolicyResponsePtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput
 }
 
 type Sku struct {
-	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name string `pulumi:"name"`
 }
 
@@ -14433,7 +13452,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14514,7 +13532,6 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14543,7 +13560,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -14554,9 +13570,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name string `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -14572,9 +13586,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -14655,12 +13667,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -14689,7 +13699,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -14699,7 +13708,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -14710,16 +13718,11 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SmbSetting struct {
-	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
-	AuthenticationMethods *string `pulumi:"authenticationMethods"`
-	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
-	ChannelEncryption *string `pulumi:"channelEncryption"`
-	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
-	KerberosTicketEncryption *string `pulumi:"kerberosTicketEncryption"`
-	// Multichannel setting. Applies to Premium FileStorage only.
-	Multichannel *Multichannel `pulumi:"multichannel"`
-	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
-	Versions *string `pulumi:"versions"`
+	AuthenticationMethods    *string       `pulumi:"authenticationMethods"`
+	ChannelEncryption        *string       `pulumi:"channelEncryption"`
+	KerberosTicketEncryption *string       `pulumi:"kerberosTicketEncryption"`
+	Multichannel             *Multichannel `pulumi:"multichannel"`
+	Versions                 *string       `pulumi:"versions"`
 }
 
 // SmbSettingInput is an input type that accepts SmbSettingArgs and SmbSettingOutput values.
@@ -14734,16 +13737,11 @@ type SmbSettingInput interface {
 }
 
 type SmbSettingArgs struct {
-	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
-	AuthenticationMethods pulumi.StringPtrInput `pulumi:"authenticationMethods"`
-	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
-	ChannelEncryption pulumi.StringPtrInput `pulumi:"channelEncryption"`
-	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+	AuthenticationMethods    pulumi.StringPtrInput `pulumi:"authenticationMethods"`
+	ChannelEncryption        pulumi.StringPtrInput `pulumi:"channelEncryption"`
 	KerberosTicketEncryption pulumi.StringPtrInput `pulumi:"kerberosTicketEncryption"`
-	// Multichannel setting. Applies to Premium FileStorage only.
-	Multichannel MultichannelPtrInput `pulumi:"multichannel"`
-	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
-	Versions pulumi.StringPtrInput `pulumi:"versions"`
+	Multichannel             MultichannelPtrInput  `pulumi:"multichannel"`
+	Versions                 pulumi.StringPtrInput `pulumi:"versions"`
 }
 
 func (SmbSettingArgs) ElementType() reflect.Type {
@@ -14823,27 +13821,22 @@ func (o SmbSettingOutput) ToSmbSettingPtrOutputWithContext(ctx context.Context) 
 	}).(SmbSettingPtrOutput)
 }
 
-// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
 func (o SmbSettingOutput) AuthenticationMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSetting) *string { return v.AuthenticationMethods }).(pulumi.StringPtrOutput)
 }
 
-// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
 func (o SmbSettingOutput) ChannelEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSetting) *string { return v.ChannelEncryption }).(pulumi.StringPtrOutput)
 }
 
-// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
 func (o SmbSettingOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSetting) *string { return v.KerberosTicketEncryption }).(pulumi.StringPtrOutput)
 }
 
-// Multichannel setting. Applies to Premium FileStorage only.
 func (o SmbSettingOutput) Multichannel() MultichannelPtrOutput {
 	return o.ApplyT(func(v SmbSetting) *Multichannel { return v.Multichannel }).(MultichannelPtrOutput)
 }
 
-// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
 func (o SmbSettingOutput) Versions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSetting) *string { return v.Versions }).(pulumi.StringPtrOutput)
 }
@@ -14872,7 +13865,6 @@ func (o SmbSettingPtrOutput) Elem() SmbSettingOutput {
 	}).(SmbSettingOutput)
 }
 
-// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
 func (o SmbSettingPtrOutput) AuthenticationMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSetting) *string {
 		if v == nil {
@@ -14882,7 +13874,6 @@ func (o SmbSettingPtrOutput) AuthenticationMethods() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
 func (o SmbSettingPtrOutput) ChannelEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSetting) *string {
 		if v == nil {
@@ -14892,7 +13883,6 @@ func (o SmbSettingPtrOutput) ChannelEncryption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
 func (o SmbSettingPtrOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSetting) *string {
 		if v == nil {
@@ -14902,7 +13892,6 @@ func (o SmbSettingPtrOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multichannel setting. Applies to Premium FileStorage only.
 func (o SmbSettingPtrOutput) Multichannel() MultichannelPtrOutput {
 	return o.ApplyT(func(v *SmbSetting) *Multichannel {
 		if v == nil {
@@ -14912,7 +13901,6 @@ func (o SmbSettingPtrOutput) Multichannel() MultichannelPtrOutput {
 	}).(MultichannelPtrOutput)
 }
 
-// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
 func (o SmbSettingPtrOutput) Versions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSetting) *string {
 		if v == nil {
@@ -14923,16 +13911,11 @@ func (o SmbSettingPtrOutput) Versions() pulumi.StringPtrOutput {
 }
 
 type SmbSettingResponse struct {
-	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
-	AuthenticationMethods *string `pulumi:"authenticationMethods"`
-	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
-	ChannelEncryption *string `pulumi:"channelEncryption"`
-	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
-	KerberosTicketEncryption *string `pulumi:"kerberosTicketEncryption"`
-	// Multichannel setting. Applies to Premium FileStorage only.
-	Multichannel *MultichannelResponse `pulumi:"multichannel"`
-	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
-	Versions *string `pulumi:"versions"`
+	AuthenticationMethods    *string               `pulumi:"authenticationMethods"`
+	ChannelEncryption        *string               `pulumi:"channelEncryption"`
+	KerberosTicketEncryption *string               `pulumi:"kerberosTicketEncryption"`
+	Multichannel             *MultichannelResponse `pulumi:"multichannel"`
+	Versions                 *string               `pulumi:"versions"`
 }
 
 // SmbSettingResponseInput is an input type that accepts SmbSettingResponseArgs and SmbSettingResponseOutput values.
@@ -14947,16 +13930,11 @@ type SmbSettingResponseInput interface {
 }
 
 type SmbSettingResponseArgs struct {
-	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
-	AuthenticationMethods pulumi.StringPtrInput `pulumi:"authenticationMethods"`
-	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
-	ChannelEncryption pulumi.StringPtrInput `pulumi:"channelEncryption"`
-	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
-	KerberosTicketEncryption pulumi.StringPtrInput `pulumi:"kerberosTicketEncryption"`
-	// Multichannel setting. Applies to Premium FileStorage only.
-	Multichannel MultichannelResponsePtrInput `pulumi:"multichannel"`
-	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
-	Versions pulumi.StringPtrInput `pulumi:"versions"`
+	AuthenticationMethods    pulumi.StringPtrInput        `pulumi:"authenticationMethods"`
+	ChannelEncryption        pulumi.StringPtrInput        `pulumi:"channelEncryption"`
+	KerberosTicketEncryption pulumi.StringPtrInput        `pulumi:"kerberosTicketEncryption"`
+	Multichannel             MultichannelResponsePtrInput `pulumi:"multichannel"`
+	Versions                 pulumi.StringPtrInput        `pulumi:"versions"`
 }
 
 func (SmbSettingResponseArgs) ElementType() reflect.Type {
@@ -15036,27 +14014,22 @@ func (o SmbSettingResponseOutput) ToSmbSettingResponsePtrOutputWithContext(ctx c
 	}).(SmbSettingResponsePtrOutput)
 }
 
-// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponseOutput) AuthenticationMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSettingResponse) *string { return v.AuthenticationMethods }).(pulumi.StringPtrOutput)
 }
 
-// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponseOutput) ChannelEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSettingResponse) *string { return v.ChannelEncryption }).(pulumi.StringPtrOutput)
 }
 
-// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
 func (o SmbSettingResponseOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSettingResponse) *string { return v.KerberosTicketEncryption }).(pulumi.StringPtrOutput)
 }
 
-// Multichannel setting. Applies to Premium FileStorage only.
 func (o SmbSettingResponseOutput) Multichannel() MultichannelResponsePtrOutput {
 	return o.ApplyT(func(v SmbSettingResponse) *MultichannelResponse { return v.Multichannel }).(MultichannelResponsePtrOutput)
 }
 
-// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponseOutput) Versions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmbSettingResponse) *string { return v.Versions }).(pulumi.StringPtrOutput)
 }
@@ -15085,7 +14058,6 @@ func (o SmbSettingResponsePtrOutput) Elem() SmbSettingResponseOutput {
 	}).(SmbSettingResponseOutput)
 }
 
-// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponsePtrOutput) AuthenticationMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSettingResponse) *string {
 		if v == nil {
@@ -15095,7 +14067,6 @@ func (o SmbSettingResponsePtrOutput) AuthenticationMethods() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponsePtrOutput) ChannelEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSettingResponse) *string {
 		if v == nil {
@@ -15105,7 +14076,6 @@ func (o SmbSettingResponsePtrOutput) ChannelEncryption() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
 func (o SmbSettingResponsePtrOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSettingResponse) *string {
 		if v == nil {
@@ -15115,7 +14085,6 @@ func (o SmbSettingResponsePtrOutput) KerberosTicketEncryption() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multichannel setting. Applies to Premium FileStorage only.
 func (o SmbSettingResponsePtrOutput) Multichannel() MultichannelResponsePtrOutput {
 	return o.ApplyT(func(v *SmbSettingResponse) *MultichannelResponse {
 		if v == nil {
@@ -15125,7 +14094,6 @@ func (o SmbSettingResponsePtrOutput) Multichannel() MultichannelResponsePtrOutpu
 	}).(MultichannelResponsePtrOutput)
 }
 
-// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
 func (o SmbSettingResponsePtrOutput) Versions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbSettingResponse) *string {
 		if v == nil {
@@ -15136,14 +14104,10 @@ func (o SmbSettingResponsePtrOutput) Versions() pulumi.StringPtrOutput {
 }
 
 type StorageAccountInternetEndpointsResponse struct {
-	// Gets the blob endpoint.
 	Blob string `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs string `pulumi:"dfs"`
-	// Gets the file endpoint.
+	Dfs  string `pulumi:"dfs"`
 	File string `pulumi:"file"`
-	// Gets the web endpoint.
-	Web string `pulumi:"web"`
+	Web  string `pulumi:"web"`
 }
 
 // StorageAccountInternetEndpointsResponseInput is an input type that accepts StorageAccountInternetEndpointsResponseArgs and StorageAccountInternetEndpointsResponseOutput values.
@@ -15158,14 +14122,10 @@ type StorageAccountInternetEndpointsResponseInput interface {
 }
 
 type StorageAccountInternetEndpointsResponseArgs struct {
-	// Gets the blob endpoint.
 	Blob pulumi.StringInput `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs pulumi.StringInput `pulumi:"dfs"`
-	// Gets the file endpoint.
+	Dfs  pulumi.StringInput `pulumi:"dfs"`
 	File pulumi.StringInput `pulumi:"file"`
-	// Gets the web endpoint.
-	Web pulumi.StringInput `pulumi:"web"`
+	Web  pulumi.StringInput `pulumi:"web"`
 }
 
 func (StorageAccountInternetEndpointsResponseArgs) ElementType() reflect.Type {
@@ -15245,22 +14205,18 @@ func (o StorageAccountInternetEndpointsResponseOutput) ToStorageAccountInternetE
 	}).(StorageAccountInternetEndpointsResponsePtrOutput)
 }
 
-// Gets the blob endpoint.
 func (o StorageAccountInternetEndpointsResponseOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInternetEndpointsResponse) string { return v.Blob }).(pulumi.StringOutput)
 }
 
-// Gets the dfs endpoint.
 func (o StorageAccountInternetEndpointsResponseOutput) Dfs() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInternetEndpointsResponse) string { return v.Dfs }).(pulumi.StringOutput)
 }
 
-// Gets the file endpoint.
 func (o StorageAccountInternetEndpointsResponseOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInternetEndpointsResponse) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Gets the web endpoint.
 func (o StorageAccountInternetEndpointsResponseOutput) Web() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInternetEndpointsResponse) string { return v.Web }).(pulumi.StringOutput)
 }
@@ -15289,7 +14245,6 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Elem() StorageAccountI
 	}).(StorageAccountInternetEndpointsResponseOutput)
 }
 
-// Gets the blob endpoint.
 func (o StorageAccountInternetEndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountInternetEndpointsResponse) *string {
 		if v == nil {
@@ -15299,7 +14254,6 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Blob() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the dfs endpoint.
 func (o StorageAccountInternetEndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountInternetEndpointsResponse) *string {
 		if v == nil {
@@ -15309,7 +14263,6 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Dfs() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the file endpoint.
 func (o StorageAccountInternetEndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountInternetEndpointsResponse) *string {
 		if v == nil {
@@ -15319,7 +14272,6 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) File() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the web endpoint.
 func (o StorageAccountInternetEndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountInternetEndpointsResponse) *string {
 		if v == nil {
@@ -15330,14 +14282,10 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Web() pulumi.StringPtr
 }
 
 type StorageAccountKeyResponse struct {
-	// Creation time of the key, in round trip date format.
 	CreationTime string `pulumi:"creationTime"`
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
-	Permissions string `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value string `pulumi:"value"`
+	KeyName      string `pulumi:"keyName"`
+	Permissions  string `pulumi:"permissions"`
+	Value        string `pulumi:"value"`
 }
 
 // StorageAccountKeyResponseInput is an input type that accepts StorageAccountKeyResponseArgs and StorageAccountKeyResponseOutput values.
@@ -15352,14 +14300,10 @@ type StorageAccountKeyResponseInput interface {
 }
 
 type StorageAccountKeyResponseArgs struct {
-	// Creation time of the key, in round trip date format.
 	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// Name of the key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
-	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value pulumi.StringInput `pulumi:"value"`
+	KeyName      pulumi.StringInput `pulumi:"keyName"`
+	Permissions  pulumi.StringInput `pulumi:"permissions"`
+	Value        pulumi.StringInput `pulumi:"value"`
 }
 
 func (StorageAccountKeyResponseArgs) ElementType() reflect.Type {
@@ -15413,22 +14357,18 @@ func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithCo
 	return o
 }
 
-// Creation time of the key, in round trip date format.
 func (o StorageAccountKeyResponseOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Name of the key.
 func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Permissions for the key -- read-only or full permissions.
 func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// Base 64-encoded value of the key.
 func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15454,18 +14394,12 @@ func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAc
 }
 
 type StorageAccountMicrosoftEndpointsResponse struct {
-	// Gets the blob endpoint.
-	Blob string `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs string `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File string `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  string `pulumi:"blob"`
+	Dfs   string `pulumi:"dfs"`
+	File  string `pulumi:"file"`
 	Queue string `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table string `pulumi:"table"`
-	// Gets the web endpoint.
-	Web string `pulumi:"web"`
+	Web   string `pulumi:"web"`
 }
 
 // StorageAccountMicrosoftEndpointsResponseInput is an input type that accepts StorageAccountMicrosoftEndpointsResponseArgs and StorageAccountMicrosoftEndpointsResponseOutput values.
@@ -15480,18 +14414,12 @@ type StorageAccountMicrosoftEndpointsResponseInput interface {
 }
 
 type StorageAccountMicrosoftEndpointsResponseArgs struct {
-	// Gets the blob endpoint.
-	Blob pulumi.StringInput `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs pulumi.StringInput `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File pulumi.StringInput `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  pulumi.StringInput `pulumi:"blob"`
+	Dfs   pulumi.StringInput `pulumi:"dfs"`
+	File  pulumi.StringInput `pulumi:"file"`
 	Queue pulumi.StringInput `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table pulumi.StringInput `pulumi:"table"`
-	// Gets the web endpoint.
-	Web pulumi.StringInput `pulumi:"web"`
+	Web   pulumi.StringInput `pulumi:"web"`
 }
 
 func (StorageAccountMicrosoftEndpointsResponseArgs) ElementType() reflect.Type {
@@ -15571,32 +14499,26 @@ func (o StorageAccountMicrosoftEndpointsResponseOutput) ToStorageAccountMicrosof
 	}).(StorageAccountMicrosoftEndpointsResponsePtrOutput)
 }
 
-// Gets the blob endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.Blob }).(pulumi.StringOutput)
 }
 
-// Gets the dfs endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) Dfs() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.Dfs }).(pulumi.StringOutput)
 }
 
-// Gets the file endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Gets the queue endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) Queue() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.Queue }).(pulumi.StringOutput)
 }
 
-// Gets the table endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.Table }).(pulumi.StringOutput)
 }
 
-// Gets the web endpoint.
 func (o StorageAccountMicrosoftEndpointsResponseOutput) Web() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountMicrosoftEndpointsResponse) string { return v.Web }).(pulumi.StringOutput)
 }
@@ -15625,7 +14547,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Elem() StorageAccount
 	}).(StorageAccountMicrosoftEndpointsResponseOutput)
 }
 
-// Gets the blob endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15635,7 +14556,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Blob() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the dfs endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15645,7 +14565,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Dfs() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the file endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15655,7 +14574,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) File() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the queue endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15665,7 +14583,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Queue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the table endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15675,7 +14592,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Table() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the web endpoint.
 func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountMicrosoftEndpointsResponse) *string {
 		if v == nil {
@@ -15686,17 +14602,11 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPt
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -15712,17 +14622,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -15803,32 +14707,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -15857,7 +14755,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15867,7 +14764,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15877,7 +14773,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15887,7 +14782,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15897,7 +14791,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15907,7 +14800,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -15918,11 +14810,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TagFilter struct {
-	// This is the filter tag name, it can have 1 - 128 characters
-	Name string `pulumi:"name"`
-	// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-	Op string `pulumi:"op"`
-	// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+	Name  string `pulumi:"name"`
+	Op    string `pulumi:"op"`
 	Value string `pulumi:"value"`
 }
 
@@ -15938,11 +14827,8 @@ type TagFilterInput interface {
 }
 
 type TagFilterArgs struct {
-	// This is the filter tag name, it can have 1 - 128 characters
-	Name pulumi.StringInput `pulumi:"name"`
-	// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-	Op pulumi.StringInput `pulumi:"op"`
-	// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+	Name  pulumi.StringInput `pulumi:"name"`
+	Op    pulumi.StringInput `pulumi:"op"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15997,17 +14883,14 @@ func (o TagFilterOutput) ToTagFilterOutputWithContext(ctx context.Context) TagFi
 	return o
 }
 
-// This is the filter tag name, it can have 1 - 128 characters
 func (o TagFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
 func (o TagFilterOutput) Op() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilter) string { return v.Op }).(pulumi.StringOutput)
 }
 
-// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
 func (o TagFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -16033,11 +14916,8 @@ func (o TagFilterArrayOutput) Index(i pulumi.IntInput) TagFilterOutput {
 }
 
 type TagFilterResponse struct {
-	// This is the filter tag name, it can have 1 - 128 characters
-	Name string `pulumi:"name"`
-	// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-	Op string `pulumi:"op"`
-	// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+	Name  string `pulumi:"name"`
+	Op    string `pulumi:"op"`
 	Value string `pulumi:"value"`
 }
 
@@ -16053,11 +14933,8 @@ type TagFilterResponseInput interface {
 }
 
 type TagFilterResponseArgs struct {
-	// This is the filter tag name, it can have 1 - 128 characters
-	Name pulumi.StringInput `pulumi:"name"`
-	// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-	Op pulumi.StringInput `pulumi:"op"`
-	// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+	Name  pulumi.StringInput `pulumi:"name"`
+	Op    pulumi.StringInput `pulumi:"op"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -16112,17 +14989,14 @@ func (o TagFilterResponseOutput) ToTagFilterResponseOutputWithContext(ctx contex
 	return o
 }
 
-// This is the filter tag name, it can have 1 - 128 characters
 func (o TagFilterResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilterResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
 func (o TagFilterResponseOutput) Op() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilterResponse) string { return v.Op }).(pulumi.StringOutput)
 }
 
-// This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
 func (o TagFilterResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagFilterResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -16148,16 +15022,11 @@ func (o TagFilterResponseArrayOutput) Index(i pulumi.IntInput) TagFilterResponse
 }
 
 type TagPropertyResponse struct {
-	// Returns the Object ID of the user who added the tag.
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	// The tag value.
-	Tag string `pulumi:"tag"`
-	// Returns the Tenant ID that issued the token for the user who added the tag.
-	TenantId string `pulumi:"tenantId"`
-	// Returns the date and time the tag was added.
-	Timestamp string `pulumi:"timestamp"`
-	// Returns the User Principal Name of the user who added the tag.
-	Upn string `pulumi:"upn"`
+	Tag              string `pulumi:"tag"`
+	TenantId         string `pulumi:"tenantId"`
+	Timestamp        string `pulumi:"timestamp"`
+	Upn              string `pulumi:"upn"`
 }
 
 // TagPropertyResponseInput is an input type that accepts TagPropertyResponseArgs and TagPropertyResponseOutput values.
@@ -16172,16 +15041,11 @@ type TagPropertyResponseInput interface {
 }
 
 type TagPropertyResponseArgs struct {
-	// Returns the Object ID of the user who added the tag.
 	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
-	// The tag value.
-	Tag pulumi.StringInput `pulumi:"tag"`
-	// Returns the Tenant ID that issued the token for the user who added the tag.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Returns the date and time the tag was added.
-	Timestamp pulumi.StringInput `pulumi:"timestamp"`
-	// Returns the User Principal Name of the user who added the tag.
-	Upn pulumi.StringInput `pulumi:"upn"`
+	Tag              pulumi.StringInput `pulumi:"tag"`
+	TenantId         pulumi.StringInput `pulumi:"tenantId"`
+	Timestamp        pulumi.StringInput `pulumi:"timestamp"`
+	Upn              pulumi.StringInput `pulumi:"upn"`
 }
 
 func (TagPropertyResponseArgs) ElementType() reflect.Type {
@@ -16235,27 +15099,22 @@ func (o TagPropertyResponseOutput) ToTagPropertyResponseOutputWithContext(ctx co
 	return o
 }
 
-// Returns the Object ID of the user who added the tag.
 func (o TagPropertyResponseOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagPropertyResponseOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Tag }).(pulumi.StringOutput)
 }
 
-// Returns the Tenant ID that issued the token for the user who added the tag.
 func (o TagPropertyResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Returns the date and time the tag was added.
 func (o TagPropertyResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
 
-// Returns the User Principal Name of the user who added the tag.
 func (o TagPropertyResponseOutput) Upn() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Upn }).(pulumi.StringOutput)
 }
@@ -16281,18 +15140,12 @@ func (o TagPropertyResponseArrayOutput) Index(i pulumi.IntInput) TagPropertyResp
 }
 
 type UpdateHistoryPropertyResponse struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// Returns the Object ID of the user who updated the ImmutabilityPolicy.
-	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-	TenantId string `pulumi:"tenantId"`
-	// Returns the date and time the ImmutabilityPolicy was updated.
-	Timestamp string `pulumi:"timestamp"`
-	// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-	Update string `pulumi:"update"`
-	// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-	Upn string `pulumi:"upn"`
+	ImmutabilityPeriodSinceCreationInDays int    `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	ObjectIdentifier                      string `pulumi:"objectIdentifier"`
+	TenantId                              string `pulumi:"tenantId"`
+	Timestamp                             string `pulumi:"timestamp"`
+	Update                                string `pulumi:"update"`
+	Upn                                   string `pulumi:"upn"`
 }
 
 // UpdateHistoryPropertyResponseInput is an input type that accepts UpdateHistoryPropertyResponseArgs and UpdateHistoryPropertyResponseOutput values.
@@ -16307,18 +15160,12 @@ type UpdateHistoryPropertyResponseInput interface {
 }
 
 type UpdateHistoryPropertyResponseArgs struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// Returns the Object ID of the user who updated the ImmutabilityPolicy.
-	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
-	// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Returns the date and time the ImmutabilityPolicy was updated.
-	Timestamp pulumi.StringInput `pulumi:"timestamp"`
-	// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-	Update pulumi.StringInput `pulumi:"update"`
-	// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-	Upn pulumi.StringInput `pulumi:"upn"`
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput    `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	ObjectIdentifier                      pulumi.StringInput `pulumi:"objectIdentifier"`
+	TenantId                              pulumi.StringInput `pulumi:"tenantId"`
+	Timestamp                             pulumi.StringInput `pulumi:"timestamp"`
+	Update                                pulumi.StringInput `pulumi:"update"`
+	Upn                                   pulumi.StringInput `pulumi:"upn"`
 }
 
 func (UpdateHistoryPropertyResponseArgs) ElementType() reflect.Type {
@@ -16372,32 +15219,26 @@ func (o UpdateHistoryPropertyResponseOutput) ToUpdateHistoryPropertyResponseOutp
 	return o
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o UpdateHistoryPropertyResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
-// Returns the Object ID of the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
-// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Returns the date and time the ImmutabilityPolicy was updated.
 func (o UpdateHistoryPropertyResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
 
-// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
 func (o UpdateHistoryPropertyResponseOutput) Update() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Update }).(pulumi.StringOutput)
 }
 
-// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) Upn() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Upn }).(pulumi.StringOutput)
 }
@@ -16423,9 +15264,7 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 }
 
 type UserAssignedIdentityResponse struct {
-	// The client ID of the identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of the identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -16441,9 +15280,7 @@ type UserAssignedIdentityResponseInput interface {
 }
 
 type UserAssignedIdentityResponseArgs struct {
-	// The client ID of the identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of the identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -16498,12 +15335,10 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// The client ID of the identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of the identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -16529,12 +15364,9 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 type VirtualNetworkRule struct {
-	// The action of virtual network rule.
-	Action *Action `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
+	Action                   *Action `pulumi:"action"`
+	State                    *string `pulumi:"state"`
+	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -16549,12 +15381,9 @@ type VirtualNetworkRuleInput interface {
 }
 
 type VirtualNetworkRuleArgs struct {
-	// The action of virtual network rule.
-	Action ActionPtrInput `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
+	Action                   ActionPtrInput        `pulumi:"action"`
+	State                    pulumi.StringPtrInput `pulumi:"state"`
+	VirtualNetworkResourceId pulumi.StringInput    `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -16608,17 +15437,14 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// The action of virtual network rule.
 func (o VirtualNetworkRuleOutput) Action() ActionPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
-// Gets the state of virtual network rule.
 func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleOutput) VirtualNetworkResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }
@@ -16644,12 +15470,9 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 }
 
 type VirtualNetworkRuleResponse struct {
-	// The action of virtual network rule.
-	Action *string `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
+	Action                   *string `pulumi:"action"`
+	State                    *string `pulumi:"state"`
+	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -16664,12 +15487,9 @@ type VirtualNetworkRuleResponseInput interface {
 }
 
 type VirtualNetworkRuleResponseArgs struct {
-	// The action of virtual network rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
+	Action                   pulumi.StringPtrInput `pulumi:"action"`
+	State                    pulumi.StringPtrInput `pulumi:"state"`
+	VirtualNetworkResourceId pulumi.StringInput    `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -16723,17 +15543,14 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// The action of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Gets the state of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleResponseOutput) VirtualNetworkResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }

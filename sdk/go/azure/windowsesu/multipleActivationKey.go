@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MAK key details.
-// API Version: 2019-09-16-preview.
 type MultipleActivationKey struct {
 	pulumi.CustomResourceState
 

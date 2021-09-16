@@ -60,7 +60,6 @@ export type Odatatype = (typeof Odatatype)[keyof typeof Odatatype];
 
 export const Operator = {
     Equals: "Equals",
-    NotEquals: "NotEquals",
     GreaterThan: "GreaterThan",
     GreaterThanOrEqual: "GreaterThanOrEqual",
     LessThan: "LessThan",

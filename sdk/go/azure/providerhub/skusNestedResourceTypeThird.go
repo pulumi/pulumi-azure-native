@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-11-20.
 type SkusNestedResourceTypeThird struct {
 	pulumi.CustomResourceState
 

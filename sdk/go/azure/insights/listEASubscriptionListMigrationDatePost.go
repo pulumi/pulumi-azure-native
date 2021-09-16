@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription migrate date information properties
-// API Version: 2017-10-01.
 func ListEASubscriptionListMigrationDatePost(ctx *pulumi.Context, args *ListEASubscriptionListMigrationDatePostArgs, opts ...pulumi.InvokeOption) (*ListEASubscriptionListMigrationDatePostResult, error) {
 	var rv ListEASubscriptionListMigrationDatePostResult
 	err := ctx.Invoke("azure-native:insights:listEASubscriptionListMigrationDatePost", args, &rv, opts...)
@@ -23,8 +21,6 @@ type ListEASubscriptionListMigrationDatePostArgs struct {
 
 // Subscription migrate date information properties
 type ListEASubscriptionListMigrationDatePostResult struct {
-	// Is subscription in the grand fatherable subscription list.
-	IsGrandFatherableSubscription *bool `pulumi:"isGrandFatherableSubscription"`
-	// Time to start using new pricing model.
-	OptedInDate *string `pulumi:"optedInDate"`
+	IsGrandFatherableSubscription *bool   `pulumi:"isGrandFatherableSubscription"`
+	OptedInDate                   *string `pulumi:"optedInDate"`
 }

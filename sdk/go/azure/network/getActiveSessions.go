@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for GetActiveSessions.
-// API Version: 2020-11-01.
 func GetActiveSessions(ctx *pulumi.Context, args *GetActiveSessionsArgs, opts ...pulumi.InvokeOption) (*GetActiveSessionsResult, error) {
 	var rv GetActiveSessionsResult
 	err := ctx.Invoke("azure-native:network:getActiveSessions", args, &rv, opts...)
@@ -19,16 +17,12 @@ func GetActiveSessions(ctx *pulumi.Context, args *GetActiveSessionsArgs, opts ..
 }
 
 type GetActiveSessionsArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName string `pulumi:"bastionHostName"`
-	// The name of the resource group.
+	BastionHostName   string `pulumi:"bastionHostName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response for GetActiveSessions.
 type GetActiveSessionsResult struct {
-	// The URL to get the next set of results.
-	NextLink *string `pulumi:"nextLink"`
-	// List of active sessions on the bastion.
-	Value []BastionActiveSessionResponse `pulumi:"value"`
+	NextLink *string                        `pulumi:"nextLink"`
+	Value    []BastionActiveSessionResponse `pulumi:"value"`
 }

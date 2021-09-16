@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API connection
-// API Version: 2016-06-01.
 type Connection struct {
 	pulumi.CustomResourceState
 

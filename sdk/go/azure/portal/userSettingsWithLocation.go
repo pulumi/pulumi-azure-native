@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to get user settings
-// API Version: 2018-10-01.
 type UserSettingsWithLocation struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a database data masking policy.
-// API Version: 2014-04-01.
 type DataMaskingPolicy struct {
 	pulumi.CustomResourceState
 

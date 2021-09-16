@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoute Circuit Authorization
-// API Version: 2020-03-20.
 type Authorization struct {
 	pulumi.CustomResourceState
 

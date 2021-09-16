@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Content Key Policy resource.
-// API Version: 2020-05-01.
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 

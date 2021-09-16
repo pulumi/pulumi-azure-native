@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define a ProactiveDetection configuration.
-// API Version: 2015-05-01.
 func LookupProactiveDetectionConfiguration(ctx *pulumi.Context, args *LookupProactiveDetectionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupProactiveDetectionConfigurationResult, error) {
 	var rv LookupProactiveDetectionConfigurationResult
 	err := ctx.Invoke("azure-native:insights:getProactiveDetectionConfiguration", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupProactiveDetectionConfiguration(ctx *pulumi.Context, args *LookupProa
 }
 
 type LookupProactiveDetectionConfigurationArgs struct {
-	// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
-	ConfigurationId string `pulumi:"configurationId"`
-	// The name of the resource group. The name is case insensitive.
+	ConfigurationId   string `pulumi:"configurationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Properties that define a ProactiveDetection configuration.
 type LookupProactiveDetectionConfigurationResult struct {
-	// Custom email addresses for this rule notifications
-	CustomEmails []string `pulumi:"customEmails"`
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled *bool `pulumi:"enabled"`
-	// The last time this rule was updated
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions `pulumi:"ruleDefinitions"`
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners *bool `pulumi:"sendEmailsToSubscriptionOwners"`
+	CustomEmails                   []string                                                                            `pulumi:"customEmails"`
+	Enabled                        *bool                                                                               `pulumi:"enabled"`
+	LastUpdatedTime                *string                                                                             `pulumi:"lastUpdatedTime"`
+	Name                           *string                                                                             `pulumi:"name"`
+	RuleDefinitions                *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions `pulumi:"ruleDefinitions"`
+	SendEmailsToSubscriptionOwners *bool                                                                               `pulumi:"sendEmailsToSubscriptionOwners"`
 }

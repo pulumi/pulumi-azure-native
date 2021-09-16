@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Logger details.
-// API Version: 2018-01-01.
 type DiagnosticLogger struct {
 	pulumi.CustomResourceState
 

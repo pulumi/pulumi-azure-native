@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// iOS Policy entity for Intune MAM.
-// API Version: 2015-01-14-preview.
 type IoMAMPolicyByName struct {
 	pulumi.CustomResourceState
 

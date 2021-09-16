@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-// API Version: 2020-11-01.
 type ExpressRouteCircuitConnection struct {
 	pulumi.CustomResourceState
 

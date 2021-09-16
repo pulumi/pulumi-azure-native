@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of hybrid runbook worker group.
-// API Version: 2021-06-22.
 func LookupHybridRunbookWorkerGroup(ctx *pulumi.Context, args *LookupHybridRunbookWorkerGroupArgs, opts ...pulumi.InvokeOption) (*LookupHybridRunbookWorkerGroupResult, error) {
 	var rv LookupHybridRunbookWorkerGroupResult
 	err := ctx.Invoke("azure-native:automation:getHybridRunbookWorkerGroup", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupHybridRunbookWorkerGroup(ctx *pulumi.Context, args *LookupHybridRunbo
 }
 
 type LookupHybridRunbookWorkerGroupArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The hybrid runbook worker group name
+	AutomationAccountName        string `pulumi:"automationAccountName"`
 	HybridRunbookWorkerGroupName string `pulumi:"hybridRunbookWorkerGroupName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName            string `pulumi:"resourceGroupName"`
 }
 
 // Definition of hybrid runbook worker group.
 type LookupHybridRunbookWorkerGroupResult struct {
-	// Sets the credential of a worker group.
-	Credential *RunAsCredentialAssociationPropertyResponse `pulumi:"credential"`
-	// Type of the HybridWorkerGroup.
-	GroupType *string `pulumi:"groupType"`
-	// Gets or sets the list of hybrid runbook workers.
-	HybridRunbookWorkers []HybridRunbookWorkerLegacyResponse `pulumi:"hybridRunbookWorkers"`
-	// Gets or sets the id of the resource.
-	Id *string `pulumi:"id"`
-	// Gets or sets the name of the group.
-	Name *string `pulumi:"name"`
-	// Resource system metadata.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Credential           *RunAsCredentialAssociationPropertyResponse `pulumi:"credential"`
+	GroupType            *string                                     `pulumi:"groupType"`
+	HybridRunbookWorkers []HybridRunbookWorkerLegacyResponse         `pulumi:"hybridRunbookWorkers"`
+	Id                   *string                                     `pulumi:"id"`
+	Name                 *string                                     `pulumi:"name"`
+	SystemData           SystemDataResponse                          `pulumi:"systemData"`
+	Type                 string                                      `pulumi:"type"`
 }

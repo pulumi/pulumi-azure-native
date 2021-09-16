@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the serial port of the parent resource.
-// API Version: 2018-05-01.
 func LookupSerialPort(ctx *pulumi.Context, args *LookupSerialPortArgs, opts ...pulumi.InvokeOption) (*LookupSerialPortResult, error) {
 	var rv LookupSerialPortResult
 	err := ctx.Invoke("azure-native:serialconsole:getSerialPort", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupSerialPort(ctx *pulumi.Context, args *LookupSerialPortArgs, opts ...p
 }
 
 type LookupSerialPortArgs struct {
-	// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
-	ParentResource string `pulumi:"parentResource"`
-	// The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
-	ParentResourceType string `pulumi:"parentResourceType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The namespace of the resource provider.
+	ParentResource            string `pulumi:"parentResource"`
+	ParentResourceType        string `pulumi:"parentResourceType"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// The name of the serial port to connect to.
-	SerialPort string `pulumi:"serialPort"`
+	SerialPort                string `pulumi:"serialPort"`
 }
 
 // Represents the serial port of the parent resource.
 type LookupSerialPortResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Specifies whether the port is enabled for a serial console connection.
+	Id    string  `pulumi:"id"`
+	Name  string  `pulumi:"name"`
 	State *string `pulumi:"state"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type  string  `pulumi:"type"`
 }

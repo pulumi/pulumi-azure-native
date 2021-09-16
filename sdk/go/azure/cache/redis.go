@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A single Redis item in List or Get Operation.
-// API Version: 2020-06-01.
 type Redis struct {
 	pulumi.CustomResourceState
 
@@ -41,7 +39,7 @@ type Redis struct {
 	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration pulumi.StringMapOutput `pulumi:"redisConfiguration"`
+	RedisConfiguration RedisCommonPropertiesResponseRedisConfigurationPtrOutput `pulumi:"redisConfiguration"`
 	// Redis version.
 	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
 	// The number of replicas to be created per master.
@@ -176,7 +174,7 @@ type redisArgs struct {
 	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
+	RedisConfiguration *RedisCommonPropertiesRedisConfiguration `pulumi:"redisConfiguration"`
 	// The number of replicas to be created per master.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The name of the resource group.
@@ -210,7 +208,7 @@ type RedisArgs struct {
 	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
 	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration pulumi.StringMapInput
+	RedisConfiguration RedisCommonPropertiesRedisConfigurationPtrInput
 	// The number of replicas to be created per master.
 	ReplicasPerMaster pulumi.IntPtrInput
 	// The name of the resource group.

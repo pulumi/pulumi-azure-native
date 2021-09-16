@@ -11,12 +11,9 @@ import (
 )
 
 type ApplicationArtifactResponse struct {
-	// The managed application artifact name.
 	Name string `pulumi:"name"`
-	// The managed application artifact type.
 	Type string `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri string `pulumi:"uri"`
+	Uri  string `pulumi:"uri"`
 }
 
 // ApplicationArtifactResponseInput is an input type that accepts ApplicationArtifactResponseArgs and ApplicationArtifactResponseOutput values.
@@ -31,12 +28,9 @@ type ApplicationArtifactResponseInput interface {
 }
 
 type ApplicationArtifactResponseArgs struct {
-	// The managed application artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The managed application artifact type.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri  pulumi.StringInput `pulumi:"uri"`
 }
 
 func (ApplicationArtifactResponseArgs) ElementType() reflect.Type {
@@ -90,17 +84,14 @@ func (o ApplicationArtifactResponseOutput) ToApplicationArtifactResponseOutputWi
 	return o
 }
 
-// The managed application artifact name.
 func (o ApplicationArtifactResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The managed application artifact type.
 func (o ApplicationArtifactResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The managed application artifact blob uri.
 func (o ApplicationArtifactResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -126,9 +117,7 @@ func (o ApplicationArtifactResponseArrayOutput) Index(i pulumi.IntInput) Applica
 }
 
 type ApplicationAuthorization struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-	PrincipalId string `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -144,9 +133,7 @@ type ApplicationAuthorizationInput interface {
 }
 
 type ApplicationAuthorizationArgs struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -201,12 +188,10 @@ func (o ApplicationAuthorizationOutput) ToApplicationAuthorizationOutputWithCont
 	return o
 }
 
-// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 func (o ApplicationAuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
 func (o ApplicationAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -232,9 +217,7 @@ func (o ApplicationAuthorizationArrayOutput) Index(i pulumi.IntInput) Applicatio
 }
 
 type ApplicationAuthorizationResponse struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-	PrincipalId string `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -250,9 +233,7 @@ type ApplicationAuthorizationResponseInput interface {
 }
 
 type ApplicationAuthorizationResponseArgs struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -307,12 +288,10 @@ func (o ApplicationAuthorizationResponseOutput) ToApplicationAuthorizationRespon
 	return o
 }
 
-// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 func (o ApplicationAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
 func (o ApplicationAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -338,7 +317,6 @@ func (o ApplicationAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Ap
 }
 
 type ApplicationBillingDetailsDefinitionResponse struct {
-	// The managed application resource usage Id.
 	ResourceUsageId *string `pulumi:"resourceUsageId"`
 }
 
@@ -354,7 +332,6 @@ type ApplicationBillingDetailsDefinitionResponseInput interface {
 }
 
 type ApplicationBillingDetailsDefinitionResponseArgs struct {
-	// The managed application resource usage Id.
 	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
 }
 
@@ -435,7 +412,6 @@ func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingD
 	}).(ApplicationBillingDetailsDefinitionResponsePtrOutput)
 }
 
-// The managed application resource usage Id.
 func (o ApplicationBillingDetailsDefinitionResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBillingDetailsDefinitionResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
 }
@@ -464,7 +440,6 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) Elem() Application
 	}).(ApplicationBillingDetailsDefinitionResponseOutput)
 }
 
-// The managed application resource usage Id.
 func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationBillingDetailsDefinitionResponse) *string {
 		if v == nil {
@@ -475,12 +450,9 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() 
 }
 
 type ApplicationClientDetailsResponse struct {
-	// The client application Id.
 	ApplicationId *string `pulumi:"applicationId"`
-	// The client Oid.
-	Oid *string `pulumi:"oid"`
-	// The client Puid
-	Puid *string `pulumi:"puid"`
+	Oid           *string `pulumi:"oid"`
+	Puid          *string `pulumi:"puid"`
 }
 
 // ApplicationClientDetailsResponseInput is an input type that accepts ApplicationClientDetailsResponseArgs and ApplicationClientDetailsResponseOutput values.
@@ -495,12 +467,9 @@ type ApplicationClientDetailsResponseInput interface {
 }
 
 type ApplicationClientDetailsResponseArgs struct {
-	// The client application Id.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The client Oid.
-	Oid pulumi.StringPtrInput `pulumi:"oid"`
-	// The client Puid
-	Puid pulumi.StringPtrInput `pulumi:"puid"`
+	Oid           pulumi.StringPtrInput `pulumi:"oid"`
+	Puid          pulumi.StringPtrInput `pulumi:"puid"`
 }
 
 func (ApplicationClientDetailsResponseArgs) ElementType() reflect.Type {
@@ -580,17 +549,14 @@ func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsRespon
 	}).(ApplicationClientDetailsResponsePtrOutput)
 }
 
-// The client application Id.
 func (o ApplicationClientDetailsResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The client Oid.
 func (o ApplicationClientDetailsResponseOutput) Oid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.Oid }).(pulumi.StringPtrOutput)
 }
 
-// The client Puid
 func (o ApplicationClientDetailsResponseOutput) Puid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.Puid }).(pulumi.StringPtrOutput)
 }
@@ -619,7 +585,6 @@ func (o ApplicationClientDetailsResponsePtrOutput) Elem() ApplicationClientDetai
 	}).(ApplicationClientDetailsResponseOutput)
 }
 
-// The client application Id.
 func (o ApplicationClientDetailsResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
 		if v == nil {
@@ -629,7 +594,6 @@ func (o ApplicationClientDetailsResponsePtrOutput) ApplicationId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client Oid.
 func (o ApplicationClientDetailsResponsePtrOutput) Oid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
 		if v == nil {
@@ -639,7 +603,6 @@ func (o ApplicationClientDetailsResponsePtrOutput) Oid() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client Puid
 func (o ApplicationClientDetailsResponsePtrOutput) Puid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
 		if v == nil {
@@ -650,12 +613,9 @@ func (o ApplicationClientDetailsResponsePtrOutput) Puid() pulumi.StringPtrOutput
 }
 
 type ApplicationDefinitionArtifact struct {
-	// The managed application definition artifact name.
-	Name string `pulumi:"name"`
-	// The managed application definition artifact type.
+	Name string                  `pulumi:"name"`
 	Type ApplicationArtifactType `pulumi:"type"`
-	// The managed application definition artifact blob uri.
-	Uri string `pulumi:"uri"`
+	Uri  string                  `pulumi:"uri"`
 }
 
 // ApplicationDefinitionArtifactInput is an input type that accepts ApplicationDefinitionArtifactArgs and ApplicationDefinitionArtifactOutput values.
@@ -670,12 +630,9 @@ type ApplicationDefinitionArtifactInput interface {
 }
 
 type ApplicationDefinitionArtifactArgs struct {
-	// The managed application definition artifact name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The managed application definition artifact type.
+	Name pulumi.StringInput           `pulumi:"name"`
 	Type ApplicationArtifactTypeInput `pulumi:"type"`
-	// The managed application definition artifact blob uri.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri  pulumi.StringInput           `pulumi:"uri"`
 }
 
 func (ApplicationDefinitionArtifactArgs) ElementType() reflect.Type {
@@ -729,17 +686,14 @@ func (o ApplicationDefinitionArtifactOutput) ToApplicationDefinitionArtifactOutp
 	return o
 }
 
-// The managed application definition artifact name.
 func (o ApplicationDefinitionArtifactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The managed application definition artifact type.
 func (o ApplicationDefinitionArtifactOutput) Type() ApplicationArtifactTypeOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifact) ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypeOutput)
 }
 
-// The managed application definition artifact blob uri.
 func (o ApplicationDefinitionArtifactOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -765,12 +719,9 @@ func (o ApplicationDefinitionArtifactArrayOutput) Index(i pulumi.IntInput) Appli
 }
 
 type ApplicationDefinitionArtifactResponse struct {
-	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
-	// The managed application definition artifact type.
 	Type string `pulumi:"type"`
-	// The managed application definition artifact blob uri.
-	Uri string `pulumi:"uri"`
+	Uri  string `pulumi:"uri"`
 }
 
 // ApplicationDefinitionArtifactResponseInput is an input type that accepts ApplicationDefinitionArtifactResponseArgs and ApplicationDefinitionArtifactResponseOutput values.
@@ -785,12 +736,9 @@ type ApplicationDefinitionArtifactResponseInput interface {
 }
 
 type ApplicationDefinitionArtifactResponseArgs struct {
-	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The managed application definition artifact type.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The managed application definition artifact blob uri.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri  pulumi.StringInput `pulumi:"uri"`
 }
 
 func (ApplicationDefinitionArtifactResponseArgs) ElementType() reflect.Type {
@@ -844,17 +792,14 @@ func (o ApplicationDefinitionArtifactResponseOutput) ToApplicationDefinitionArti
 	return o
 }
 
-// The managed application definition artifact name.
 func (o ApplicationDefinitionArtifactResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The managed application definition artifact type.
 func (o ApplicationDefinitionArtifactResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The managed application definition artifact blob uri.
 func (o ApplicationDefinitionArtifactResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -880,7 +825,6 @@ func (o ApplicationDefinitionArtifactResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ApplicationDeploymentPolicy struct {
-	// The managed application deployment mode.
 	DeploymentMode string `pulumi:"deploymentMode"`
 }
 
@@ -896,7 +840,6 @@ type ApplicationDeploymentPolicyInput interface {
 }
 
 type ApplicationDeploymentPolicyArgs struct {
-	// The managed application deployment mode.
 	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 }
 
@@ -977,7 +920,6 @@ func (o ApplicationDeploymentPolicyOutput) ToApplicationDeploymentPolicyPtrOutpu
 	}).(ApplicationDeploymentPolicyPtrOutput)
 }
 
-// The managed application deployment mode.
 func (o ApplicationDeploymentPolicyOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDeploymentPolicy) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
@@ -1006,7 +948,6 @@ func (o ApplicationDeploymentPolicyPtrOutput) Elem() ApplicationDeploymentPolicy
 	}).(ApplicationDeploymentPolicyOutput)
 }
 
-// The managed application deployment mode.
 func (o ApplicationDeploymentPolicyPtrOutput) DeploymentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationDeploymentPolicy) *string {
 		if v == nil {
@@ -1017,7 +958,6 @@ func (o ApplicationDeploymentPolicyPtrOutput) DeploymentMode() pulumi.StringPtrO
 }
 
 type ApplicationDeploymentPolicyResponse struct {
-	// The managed application deployment mode.
 	DeploymentMode string `pulumi:"deploymentMode"`
 }
 
@@ -1033,7 +973,6 @@ type ApplicationDeploymentPolicyResponseInput interface {
 }
 
 type ApplicationDeploymentPolicyResponseArgs struct {
-	// The managed application deployment mode.
 	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 }
 
@@ -1114,7 +1053,6 @@ func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicy
 	}).(ApplicationDeploymentPolicyResponsePtrOutput)
 }
 
-// The managed application deployment mode.
 func (o ApplicationDeploymentPolicyResponseOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDeploymentPolicyResponse) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
@@ -1143,7 +1081,6 @@ func (o ApplicationDeploymentPolicyResponsePtrOutput) Elem() ApplicationDeployme
 	}).(ApplicationDeploymentPolicyResponseOutput)
 }
 
-// The managed application deployment mode.
 func (o ApplicationDeploymentPolicyResponsePtrOutput) DeploymentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationDeploymentPolicyResponse) *string {
 		if v == nil {
@@ -1154,14 +1091,10 @@ func (o ApplicationDeploymentPolicyResponsePtrOutput) DeploymentMode() pulumi.St
 }
 
 type ApplicationJitAccessPolicy struct {
-	// Whether the JIT access is enabled.
-	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
-	// JIT approval mode.
-	JitApprovalMode *string `pulumi:"jitApprovalMode"`
-	// The JIT approvers
-	JitApprovers []JitApproverDefinition `pulumi:"jitApprovers"`
-	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
-	MaximumJitAccessDuration *string `pulumi:"maximumJitAccessDuration"`
+	JitAccessEnabled         bool                    `pulumi:"jitAccessEnabled"`
+	JitApprovalMode          *string                 `pulumi:"jitApprovalMode"`
+	JitApprovers             []JitApproverDefinition `pulumi:"jitApprovers"`
+	MaximumJitAccessDuration *string                 `pulumi:"maximumJitAccessDuration"`
 }
 
 // ApplicationJitAccessPolicyInput is an input type that accepts ApplicationJitAccessPolicyArgs and ApplicationJitAccessPolicyOutput values.
@@ -1176,14 +1109,10 @@ type ApplicationJitAccessPolicyInput interface {
 }
 
 type ApplicationJitAccessPolicyArgs struct {
-	// Whether the JIT access is enabled.
-	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
-	// JIT approval mode.
-	JitApprovalMode pulumi.StringPtrInput `pulumi:"jitApprovalMode"`
-	// The JIT approvers
-	JitApprovers JitApproverDefinitionArrayInput `pulumi:"jitApprovers"`
-	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
-	MaximumJitAccessDuration pulumi.StringPtrInput `pulumi:"maximumJitAccessDuration"`
+	JitAccessEnabled         pulumi.BoolInput                `pulumi:"jitAccessEnabled"`
+	JitApprovalMode          pulumi.StringPtrInput           `pulumi:"jitApprovalMode"`
+	JitApprovers             JitApproverDefinitionArrayInput `pulumi:"jitApprovers"`
+	MaximumJitAccessDuration pulumi.StringPtrInput           `pulumi:"maximumJitAccessDuration"`
 }
 
 func (ApplicationJitAccessPolicyArgs) ElementType() reflect.Type {
@@ -1263,22 +1192,18 @@ func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyPtrOutputW
 	}).(ApplicationJitAccessPolicyPtrOutput)
 }
 
-// Whether the JIT access is enabled.
 func (o ApplicationJitAccessPolicyOutput) JitAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicy) bool { return v.JitAccessEnabled }).(pulumi.BoolOutput)
 }
 
-// JIT approval mode.
 func (o ApplicationJitAccessPolicyOutput) JitApprovalMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicy) *string { return v.JitApprovalMode }).(pulumi.StringPtrOutput)
 }
 
-// The JIT approvers
 func (o ApplicationJitAccessPolicyOutput) JitApprovers() JitApproverDefinitionArrayOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicy) []JitApproverDefinition { return v.JitApprovers }).(JitApproverDefinitionArrayOutput)
 }
 
-// The maximum duration JIT access is granted. This is an ISO8601 time period value.
 func (o ApplicationJitAccessPolicyOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicy) *string { return v.MaximumJitAccessDuration }).(pulumi.StringPtrOutput)
 }
@@ -1307,7 +1232,6 @@ func (o ApplicationJitAccessPolicyPtrOutput) Elem() ApplicationJitAccessPolicyOu
 	}).(ApplicationJitAccessPolicyOutput)
 }
 
-// Whether the JIT access is enabled.
 func (o ApplicationJitAccessPolicyPtrOutput) JitAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *bool {
 		if v == nil {
@@ -1317,7 +1241,6 @@ func (o ApplicationJitAccessPolicyPtrOutput) JitAccessEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// JIT approval mode.
 func (o ApplicationJitAccessPolicyPtrOutput) JitApprovalMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *string {
 		if v == nil {
@@ -1327,7 +1250,6 @@ func (o ApplicationJitAccessPolicyPtrOutput) JitApprovalMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JIT approvers
 func (o ApplicationJitAccessPolicyPtrOutput) JitApprovers() JitApproverDefinitionArrayOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicy) []JitApproverDefinition {
 		if v == nil {
@@ -1337,7 +1259,6 @@ func (o ApplicationJitAccessPolicyPtrOutput) JitApprovers() JitApproverDefinitio
 	}).(JitApproverDefinitionArrayOutput)
 }
 
-// The maximum duration JIT access is granted. This is an ISO8601 time period value.
 func (o ApplicationJitAccessPolicyPtrOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *string {
 		if v == nil {
@@ -1348,14 +1269,10 @@ func (o ApplicationJitAccessPolicyPtrOutput) MaximumJitAccessDuration() pulumi.S
 }
 
 type ApplicationJitAccessPolicyResponse struct {
-	// Whether the JIT access is enabled.
-	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
-	// JIT approval mode.
-	JitApprovalMode *string `pulumi:"jitApprovalMode"`
-	// The JIT approvers
-	JitApprovers []JitApproverDefinitionResponse `pulumi:"jitApprovers"`
-	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
-	MaximumJitAccessDuration *string `pulumi:"maximumJitAccessDuration"`
+	JitAccessEnabled         bool                            `pulumi:"jitAccessEnabled"`
+	JitApprovalMode          *string                         `pulumi:"jitApprovalMode"`
+	JitApprovers             []JitApproverDefinitionResponse `pulumi:"jitApprovers"`
+	MaximumJitAccessDuration *string                         `pulumi:"maximumJitAccessDuration"`
 }
 
 // ApplicationJitAccessPolicyResponseInput is an input type that accepts ApplicationJitAccessPolicyResponseArgs and ApplicationJitAccessPolicyResponseOutput values.
@@ -1370,14 +1287,10 @@ type ApplicationJitAccessPolicyResponseInput interface {
 }
 
 type ApplicationJitAccessPolicyResponseArgs struct {
-	// Whether the JIT access is enabled.
-	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
-	// JIT approval mode.
-	JitApprovalMode pulumi.StringPtrInput `pulumi:"jitApprovalMode"`
-	// The JIT approvers
-	JitApprovers JitApproverDefinitionResponseArrayInput `pulumi:"jitApprovers"`
-	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
-	MaximumJitAccessDuration pulumi.StringPtrInput `pulumi:"maximumJitAccessDuration"`
+	JitAccessEnabled         pulumi.BoolInput                        `pulumi:"jitAccessEnabled"`
+	JitApprovalMode          pulumi.StringPtrInput                   `pulumi:"jitApprovalMode"`
+	JitApprovers             JitApproverDefinitionResponseArrayInput `pulumi:"jitApprovers"`
+	MaximumJitAccessDuration pulumi.StringPtrInput                   `pulumi:"maximumJitAccessDuration"`
 }
 
 func (ApplicationJitAccessPolicyResponseArgs) ElementType() reflect.Type {
@@ -1457,22 +1370,18 @@ func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyRe
 	}).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
 
-// Whether the JIT access is enabled.
 func (o ApplicationJitAccessPolicyResponseOutput) JitAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) bool { return v.JitAccessEnabled }).(pulumi.BoolOutput)
 }
 
-// JIT approval mode.
 func (o ApplicationJitAccessPolicyResponseOutput) JitApprovalMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) *string { return v.JitApprovalMode }).(pulumi.StringPtrOutput)
 }
 
-// The JIT approvers
 func (o ApplicationJitAccessPolicyResponseOutput) JitApprovers() JitApproverDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) []JitApproverDefinitionResponse { return v.JitApprovers }).(JitApproverDefinitionResponseArrayOutput)
 }
 
-// The maximum duration JIT access is granted. This is an ISO8601 time period value.
 func (o ApplicationJitAccessPolicyResponseOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) *string { return v.MaximumJitAccessDuration }).(pulumi.StringPtrOutput)
 }
@@ -1501,7 +1410,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) Elem() ApplicationJitAccess
 	}).(ApplicationJitAccessPolicyResponseOutput)
 }
 
-// Whether the JIT access is enabled.
 func (o ApplicationJitAccessPolicyResponsePtrOutput) JitAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *bool {
 		if v == nil {
@@ -1511,7 +1419,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) JitAccessEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// JIT approval mode.
 func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovalMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *string {
 		if v == nil {
@@ -1521,7 +1428,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovalMode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JIT approvers
 func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovers() JitApproverDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) []JitApproverDefinitionResponse {
 		if v == nil {
@@ -1531,7 +1437,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovers() JitApproverD
 	}).(JitApproverDefinitionResponseArrayOutput)
 }
 
-// The maximum duration JIT access is granted. This is an ISO8601 time period value.
 func (o ApplicationJitAccessPolicyResponsePtrOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *string {
 		if v == nil {
@@ -1542,7 +1447,6 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) MaximumJitAccessDuration() 
 }
 
 type ApplicationManagementPolicy struct {
-	// The managed application management mode.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1558,7 +1462,6 @@ type ApplicationManagementPolicyInput interface {
 }
 
 type ApplicationManagementPolicyArgs struct {
-	// The managed application management mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1639,7 +1542,6 @@ func (o ApplicationManagementPolicyOutput) ToApplicationManagementPolicyPtrOutpu
 	}).(ApplicationManagementPolicyPtrOutput)
 }
 
-// The managed application management mode.
 func (o ApplicationManagementPolicyOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationManagementPolicy) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1668,7 +1570,6 @@ func (o ApplicationManagementPolicyPtrOutput) Elem() ApplicationManagementPolicy
 	}).(ApplicationManagementPolicyOutput)
 }
 
-// The managed application management mode.
 func (o ApplicationManagementPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationManagementPolicy) *string {
 		if v == nil {
@@ -1679,7 +1580,6 @@ func (o ApplicationManagementPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ApplicationManagementPolicyResponse struct {
-	// The managed application management mode.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1695,7 +1595,6 @@ type ApplicationManagementPolicyResponseInput interface {
 }
 
 type ApplicationManagementPolicyResponseArgs struct {
-	// The managed application management mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1776,7 +1675,6 @@ func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicy
 	}).(ApplicationManagementPolicyResponsePtrOutput)
 }
 
-// The managed application management mode.
 func (o ApplicationManagementPolicyResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationManagementPolicyResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1805,7 +1703,6 @@ func (o ApplicationManagementPolicyResponsePtrOutput) Elem() ApplicationManageme
 	}).(ApplicationManagementPolicyResponseOutput)
 }
 
-// The managed application management mode.
 func (o ApplicationManagementPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationManagementPolicyResponse) *string {
 		if v == nil {
@@ -1816,7 +1713,6 @@ func (o ApplicationManagementPolicyResponsePtrOutput) Mode() pulumi.StringPtrOut
 }
 
 type ApplicationNotificationEndpoint struct {
-	// The managed application notification endpoint uri.
 	Uri string `pulumi:"uri"`
 }
 
@@ -1832,7 +1728,6 @@ type ApplicationNotificationEndpointInput interface {
 }
 
 type ApplicationNotificationEndpointArgs struct {
-	// The managed application notification endpoint uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -1887,7 +1782,6 @@ func (o ApplicationNotificationEndpointOutput) ToApplicationNotificationEndpoint
 	return o
 }
 
-// The managed application notification endpoint uri.
 func (o ApplicationNotificationEndpointOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationNotificationEndpoint) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -1913,7 +1807,6 @@ func (o ApplicationNotificationEndpointArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type ApplicationNotificationEndpointResponse struct {
-	// The managed application notification endpoint uri.
 	Uri string `pulumi:"uri"`
 }
 
@@ -1929,7 +1822,6 @@ type ApplicationNotificationEndpointResponseInput interface {
 }
 
 type ApplicationNotificationEndpointResponseArgs struct {
-	// The managed application notification endpoint uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -1984,7 +1876,6 @@ func (o ApplicationNotificationEndpointResponseOutput) ToApplicationNotification
 	return o
 }
 
-// The managed application notification endpoint uri.
 func (o ApplicationNotificationEndpointResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationNotificationEndpointResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -2010,7 +1901,6 @@ func (o ApplicationNotificationEndpointResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type ApplicationNotificationPolicy struct {
-	// The managed application notification endpoint.
 	NotificationEndpoints []ApplicationNotificationEndpoint `pulumi:"notificationEndpoints"`
 }
 
@@ -2026,7 +1916,6 @@ type ApplicationNotificationPolicyInput interface {
 }
 
 type ApplicationNotificationPolicyArgs struct {
-	// The managed application notification endpoint.
 	NotificationEndpoints ApplicationNotificationEndpointArrayInput `pulumi:"notificationEndpoints"`
 }
 
@@ -2107,7 +1996,6 @@ func (o ApplicationNotificationPolicyOutput) ToApplicationNotificationPolicyPtrO
 	}).(ApplicationNotificationPolicyPtrOutput)
 }
 
-// The managed application notification endpoint.
 func (o ApplicationNotificationPolicyOutput) NotificationEndpoints() ApplicationNotificationEndpointArrayOutput {
 	return o.ApplyT(func(v ApplicationNotificationPolicy) []ApplicationNotificationEndpoint {
 		return v.NotificationEndpoints
@@ -2138,7 +2026,6 @@ func (o ApplicationNotificationPolicyPtrOutput) Elem() ApplicationNotificationPo
 	}).(ApplicationNotificationPolicyOutput)
 }
 
-// The managed application notification endpoint.
 func (o ApplicationNotificationPolicyPtrOutput) NotificationEndpoints() ApplicationNotificationEndpointArrayOutput {
 	return o.ApplyT(func(v *ApplicationNotificationPolicy) []ApplicationNotificationEndpoint {
 		if v == nil {
@@ -2149,7 +2036,6 @@ func (o ApplicationNotificationPolicyPtrOutput) NotificationEndpoints() Applicat
 }
 
 type ApplicationNotificationPolicyResponse struct {
-	// The managed application notification endpoint.
 	NotificationEndpoints []ApplicationNotificationEndpointResponse `pulumi:"notificationEndpoints"`
 }
 
@@ -2165,7 +2051,6 @@ type ApplicationNotificationPolicyResponseInput interface {
 }
 
 type ApplicationNotificationPolicyResponseArgs struct {
-	// The managed application notification endpoint.
 	NotificationEndpoints ApplicationNotificationEndpointResponseArrayInput `pulumi:"notificationEndpoints"`
 }
 
@@ -2246,7 +2131,6 @@ func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPo
 	}).(ApplicationNotificationPolicyResponsePtrOutput)
 }
 
-// The managed application notification endpoint.
 func (o ApplicationNotificationPolicyResponseOutput) NotificationEndpoints() ApplicationNotificationEndpointResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationNotificationPolicyResponse) []ApplicationNotificationEndpointResponse {
 		return v.NotificationEndpoints
@@ -2277,7 +2161,6 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) Elem() ApplicationNotifi
 	}).(ApplicationNotificationPolicyResponseOutput)
 }
 
-// The managed application notification endpoint.
 func (o ApplicationNotificationPolicyResponsePtrOutput) NotificationEndpoints() ApplicationNotificationEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *ApplicationNotificationPolicyResponse) []ApplicationNotificationEndpointResponse {
 		if v == nil {
@@ -2288,12 +2171,9 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) NotificationEndpoints() 
 }
 
 type ApplicationPackageContactResponse struct {
-	// The contact name.
 	ContactName *string `pulumi:"contactName"`
-	// The contact email.
-	Email string `pulumi:"email"`
-	// The contact phone number.
-	Phone string `pulumi:"phone"`
+	Email       string  `pulumi:"email"`
+	Phone       string  `pulumi:"phone"`
 }
 
 // ApplicationPackageContactResponseInput is an input type that accepts ApplicationPackageContactResponseArgs and ApplicationPackageContactResponseOutput values.
@@ -2308,12 +2188,9 @@ type ApplicationPackageContactResponseInput interface {
 }
 
 type ApplicationPackageContactResponseArgs struct {
-	// The contact name.
 	ContactName pulumi.StringPtrInput `pulumi:"contactName"`
-	// The contact email.
-	Email pulumi.StringInput `pulumi:"email"`
-	// The contact phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
+	Email       pulumi.StringInput    `pulumi:"email"`
+	Phone       pulumi.StringInput    `pulumi:"phone"`
 }
 
 func (ApplicationPackageContactResponseArgs) ElementType() reflect.Type {
@@ -2393,17 +2270,14 @@ func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResp
 	}).(ApplicationPackageContactResponsePtrOutput)
 }
 
-// The contact name.
 func (o ApplicationPackageContactResponseOutput) ContactName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageContactResponse) *string { return v.ContactName }).(pulumi.StringPtrOutput)
 }
 
-// The contact email.
 func (o ApplicationPackageContactResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageContactResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The contact phone number.
 func (o ApplicationPackageContactResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageContactResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
@@ -2432,7 +2306,6 @@ func (o ApplicationPackageContactResponsePtrOutput) Elem() ApplicationPackageCon
 	}).(ApplicationPackageContactResponseOutput)
 }
 
-// The contact name.
 func (o ApplicationPackageContactResponsePtrOutput) ContactName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
 		if v == nil {
@@ -2442,7 +2315,6 @@ func (o ApplicationPackageContactResponsePtrOutput) ContactName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The contact email.
 func (o ApplicationPackageContactResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
 		if v == nil {
@@ -2452,7 +2324,6 @@ func (o ApplicationPackageContactResponsePtrOutput) Email() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The contact phone number.
 func (o ApplicationPackageContactResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
 		if v == nil {
@@ -2463,7 +2334,6 @@ func (o ApplicationPackageContactResponsePtrOutput) Phone() pulumi.StringPtrOutp
 }
 
 type ApplicationPackageLockingPolicyDefinition struct {
-	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
 }
 
@@ -2479,7 +2349,6 @@ type ApplicationPackageLockingPolicyDefinitionInput interface {
 }
 
 type ApplicationPackageLockingPolicyDefinitionArgs struct {
-	// The deny assignment excluded actions.
 	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
 }
 
@@ -2560,7 +2429,6 @@ func (o ApplicationPackageLockingPolicyDefinitionOutput) ToApplicationPackageLoc
 	}).(ApplicationPackageLockingPolicyDefinitionPtrOutput)
 }
 
-// The deny assignment excluded actions.
 func (o ApplicationPackageLockingPolicyDefinitionOutput) AllowedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinition) []string { return v.AllowedActions }).(pulumi.StringArrayOutput)
 }
@@ -2589,7 +2457,6 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) Elem() ApplicationPa
 	}).(ApplicationPackageLockingPolicyDefinitionOutput)
 }
 
-// The deny assignment excluded actions.
 func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinition) []string {
 		if v == nil {
@@ -2600,7 +2467,6 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedActions() pul
 }
 
 type ApplicationPackageLockingPolicyDefinitionResponse struct {
-	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
 }
 
@@ -2616,7 +2482,6 @@ type ApplicationPackageLockingPolicyDefinitionResponseInput interface {
 }
 
 type ApplicationPackageLockingPolicyDefinitionResponseArgs struct {
-	// The deny assignment excluded actions.
 	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
 }
 
@@ -2697,7 +2562,6 @@ func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPa
 	}).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
 }
 
-// The deny assignment excluded actions.
 func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) AllowedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinitionResponse) []string { return v.AllowedActions }).(pulumi.StringArrayOutput)
 }
@@ -2726,7 +2590,6 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) Elem() Appli
 	}).(ApplicationPackageLockingPolicyDefinitionResponseOutput)
 }
 
-// The deny assignment excluded actions.
 func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinitionResponse) []string {
 		if v == nil {
@@ -2737,10 +2600,8 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActio
 }
 
 type ApplicationPackageSupportUrlsResponse struct {
-	// The government cloud support URL.
 	GovernmentCloud *string `pulumi:"governmentCloud"`
-	// The public azure support URL.
-	PublicAzure *string `pulumi:"publicAzure"`
+	PublicAzure     *string `pulumi:"publicAzure"`
 }
 
 // ApplicationPackageSupportUrlsResponseInput is an input type that accepts ApplicationPackageSupportUrlsResponseArgs and ApplicationPackageSupportUrlsResponseOutput values.
@@ -2755,10 +2616,8 @@ type ApplicationPackageSupportUrlsResponseInput interface {
 }
 
 type ApplicationPackageSupportUrlsResponseArgs struct {
-	// The government cloud support URL.
 	GovernmentCloud pulumi.StringPtrInput `pulumi:"governmentCloud"`
-	// The public azure support URL.
-	PublicAzure pulumi.StringPtrInput `pulumi:"publicAzure"`
+	PublicAzure     pulumi.StringPtrInput `pulumi:"publicAzure"`
 }
 
 func (ApplicationPackageSupportUrlsResponseArgs) ElementType() reflect.Type {
@@ -2838,12 +2697,10 @@ func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupport
 	}).(ApplicationPackageSupportUrlsResponsePtrOutput)
 }
 
-// The government cloud support URL.
 func (o ApplicationPackageSupportUrlsResponseOutput) GovernmentCloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.GovernmentCloud }).(pulumi.StringPtrOutput)
 }
 
-// The public azure support URL.
 func (o ApplicationPackageSupportUrlsResponseOutput) PublicAzure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.PublicAzure }).(pulumi.StringPtrOutput)
 }
@@ -2872,7 +2729,6 @@ func (o ApplicationPackageSupportUrlsResponsePtrOutput) Elem() ApplicationPackag
 	}).(ApplicationPackageSupportUrlsResponseOutput)
 }
 
-// The government cloud support URL.
 func (o ApplicationPackageSupportUrlsResponsePtrOutput) GovernmentCloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) *string {
 		if v == nil {
@@ -2882,7 +2738,6 @@ func (o ApplicationPackageSupportUrlsResponsePtrOutput) GovernmentCloud() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The public azure support URL.
 func (o ApplicationPackageSupportUrlsResponsePtrOutput) PublicAzure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) *string {
 		if v == nil {
@@ -2893,11 +2748,8 @@ func (o ApplicationPackageSupportUrlsResponsePtrOutput) PublicAzure() pulumi.Str
 }
 
 type ApplicationPolicy struct {
-	// The policy name
-	Name *string `pulumi:"name"`
-	// The policy parameters.
-	Parameters *string `pulumi:"parameters"`
-	// The policy definition Id.
+	Name               *string `pulumi:"name"`
+	Parameters         *string `pulumi:"parameters"`
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
 
@@ -2913,11 +2765,8 @@ type ApplicationPolicyInput interface {
 }
 
 type ApplicationPolicyArgs struct {
-	// The policy name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The policy parameters.
-	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
-	// The policy definition Id.
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	Parameters         pulumi.StringPtrInput `pulumi:"parameters"`
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
 
@@ -2972,17 +2821,14 @@ func (o ApplicationPolicyOutput) ToApplicationPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// The policy name
 func (o ApplicationPolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The policy parameters.
 func (o ApplicationPolicyOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicy) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
-// The policy definition Id.
 func (o ApplicationPolicyOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicy) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
@@ -3008,11 +2854,8 @@ func (o ApplicationPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationPolicy
 }
 
 type ApplicationPolicyResponse struct {
-	// The policy name
-	Name *string `pulumi:"name"`
-	// The policy parameters.
-	Parameters *string `pulumi:"parameters"`
-	// The policy definition Id.
+	Name               *string `pulumi:"name"`
+	Parameters         *string `pulumi:"parameters"`
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
 
@@ -3028,11 +2871,8 @@ type ApplicationPolicyResponseInput interface {
 }
 
 type ApplicationPolicyResponseArgs struct {
-	// The policy name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The policy parameters.
-	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
-	// The policy definition Id.
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	Parameters         pulumi.StringPtrInput `pulumi:"parameters"`
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
 
@@ -3087,17 +2927,14 @@ func (o ApplicationPolicyResponseOutput) ToApplicationPolicyResponseOutputWithCo
 	return o
 }
 
-// The policy name
 func (o ApplicationPolicyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The policy parameters.
 func (o ApplicationPolicyResponseOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
-// The policy definition Id.
 func (o ApplicationPolicyResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
@@ -3123,9 +2960,7 @@ func (o ApplicationPolicyResponseArrayOutput) Index(i pulumi.IntInput) Applicati
 }
 
 type Identity struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -3141,10 +2976,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -3224,12 +3057,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
 func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -3258,7 +3089,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type.
 func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
@@ -3268,7 +3098,6 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -3279,13 +3108,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                          `pulumi:"principalId"`
+	TenantId               string                                          `pulumi:"tenantId"`
+	Type                   *string                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedResourceIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -3301,13 +3126,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                        `pulumi:"type"`
 	UserAssignedIdentities UserAssignedResourceIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -3388,22 +3209,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
 		return v.UserAssignedIdentities
@@ -3434,7 +3251,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3444,7 +3260,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3454,7 +3269,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3464,7 +3278,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
 		if v == nil {
@@ -3475,12 +3288,9 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedResource
 }
 
 type JitApproverDefinition struct {
-	// The approver display name.
 	DisplayName *string `pulumi:"displayName"`
-	// The approver service principal Id.
-	Id string `pulumi:"id"`
-	// The approver type.
-	Type *string `pulumi:"type"`
+	Id          string  `pulumi:"id"`
+	Type        *string `pulumi:"type"`
 }
 
 // JitApproverDefinitionInput is an input type that accepts JitApproverDefinitionArgs and JitApproverDefinitionOutput values.
@@ -3495,12 +3305,9 @@ type JitApproverDefinitionInput interface {
 }
 
 type JitApproverDefinitionArgs struct {
-	// The approver display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The approver service principal Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The approver type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id          pulumi.StringInput    `pulumi:"id"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JitApproverDefinitionArgs) ElementType() reflect.Type {
@@ -3554,17 +3361,14 @@ func (o JitApproverDefinitionOutput) ToJitApproverDefinitionOutputWithContext(ct
 	return o
 }
 
-// The approver display name.
 func (o JitApproverDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitApproverDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The approver service principal Id.
 func (o JitApproverDefinitionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitApproverDefinition) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The approver type.
 func (o JitApproverDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitApproverDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3590,12 +3394,9 @@ func (o JitApproverDefinitionArrayOutput) Index(i pulumi.IntInput) JitApproverDe
 }
 
 type JitApproverDefinitionResponse struct {
-	// The approver display name.
 	DisplayName *string `pulumi:"displayName"`
-	// The approver service principal Id.
-	Id string `pulumi:"id"`
-	// The approver type.
-	Type *string `pulumi:"type"`
+	Id          string  `pulumi:"id"`
+	Type        *string `pulumi:"type"`
 }
 
 // JitApproverDefinitionResponseInput is an input type that accepts JitApproverDefinitionResponseArgs and JitApproverDefinitionResponseOutput values.
@@ -3610,12 +3411,9 @@ type JitApproverDefinitionResponseInput interface {
 }
 
 type JitApproverDefinitionResponseArgs struct {
-	// The approver display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The approver service principal Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The approver type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id          pulumi.StringInput    `pulumi:"id"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JitApproverDefinitionResponseArgs) ElementType() reflect.Type {
@@ -3669,17 +3467,14 @@ func (o JitApproverDefinitionResponseOutput) ToJitApproverDefinitionResponseOutp
 	return o
 }
 
-// The approver display name.
 func (o JitApproverDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitApproverDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The approver service principal Id.
 func (o JitApproverDefinitionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitApproverDefinitionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The approver type.
 func (o JitApproverDefinitionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitApproverDefinitionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3705,9 +3500,7 @@ func (o JitApproverDefinitionResponseArrayOutput) Index(i pulumi.IntInput) JitAp
 }
 
 type JitAuthorizationPolicies struct {
-	// The the principal id that will be granted JIT access.
-	PrincipalId string `pulumi:"principalId"`
-	// The role definition id that will be granted to the Principal.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -3723,9 +3516,7 @@ type JitAuthorizationPoliciesInput interface {
 }
 
 type JitAuthorizationPoliciesArgs struct {
-	// The the principal id that will be granted JIT access.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The role definition id that will be granted to the Principal.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -3780,12 +3571,10 @@ func (o JitAuthorizationPoliciesOutput) ToJitAuthorizationPoliciesOutputWithCont
 	return o
 }
 
-// The the principal id that will be granted JIT access.
 func (o JitAuthorizationPoliciesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v JitAuthorizationPolicies) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The role definition id that will be granted to the Principal.
 func (o JitAuthorizationPoliciesOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v JitAuthorizationPolicies) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -3811,9 +3600,7 @@ func (o JitAuthorizationPoliciesArrayOutput) Index(i pulumi.IntInput) JitAuthori
 }
 
 type JitAuthorizationPoliciesResponse struct {
-	// The the principal id that will be granted JIT access.
-	PrincipalId string `pulumi:"principalId"`
-	// The role definition id that will be granted to the Principal.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -3829,9 +3616,7 @@ type JitAuthorizationPoliciesResponseInput interface {
 }
 
 type JitAuthorizationPoliciesResponseArgs struct {
-	// The the principal id that will be granted JIT access.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The role definition id that will be granted to the Principal.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -3886,12 +3671,10 @@ func (o JitAuthorizationPoliciesResponseOutput) ToJitAuthorizationPoliciesRespon
 	return o
 }
 
-// The the principal id that will be granted JIT access.
 func (o JitAuthorizationPoliciesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v JitAuthorizationPoliciesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The role definition id that will be granted to the Principal.
 func (o JitAuthorizationPoliciesResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v JitAuthorizationPoliciesResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -3917,8 +3700,7 @@ func (o JitAuthorizationPoliciesResponseArrayOutput) Index(i pulumi.IntInput) Ji
 }
 
 type JitSchedulingPolicy struct {
-	Duration string `pulumi:"duration"`
-	// The start time of the request.
+	Duration  string `pulumi:"duration"`
 	StartTime string `pulumi:"startTime"`
 }
 
@@ -3934,8 +3716,7 @@ type JitSchedulingPolicyInput interface {
 }
 
 type JitSchedulingPolicyArgs struct {
-	Duration pulumi.StringInput `pulumi:"duration"`
-	// The start time of the request.
+	Duration  pulumi.StringInput `pulumi:"duration"`
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
@@ -4020,7 +3801,6 @@ func (o JitSchedulingPolicyOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// The start time of the request.
 func (o JitSchedulingPolicyOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.StartTime }).(pulumi.StringOutput)
 }
@@ -4058,7 +3838,6 @@ func (o JitSchedulingPolicyPtrOutput) Duration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start time of the request.
 func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JitSchedulingPolicy) *string {
 		if v == nil {
@@ -4069,11 +3848,9 @@ func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 type JitSchedulingPolicyResponse struct {
-	Duration string `pulumi:"duration"`
-	// The start time of the request.
+	Duration  string `pulumi:"duration"`
 	StartTime string `pulumi:"startTime"`
-	// The type of JIT schedule.
-	Type string `pulumi:"type"`
+	Type      string `pulumi:"type"`
 }
 
 // JitSchedulingPolicyResponseInput is an input type that accepts JitSchedulingPolicyResponseArgs and JitSchedulingPolicyResponseOutput values.
@@ -4088,11 +3865,9 @@ type JitSchedulingPolicyResponseInput interface {
 }
 
 type JitSchedulingPolicyResponseArgs struct {
-	Duration pulumi.StringInput `pulumi:"duration"`
-	// The start time of the request.
+	Duration  pulumi.StringInput `pulumi:"duration"`
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// The type of JIT schedule.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type      pulumi.StringInput `pulumi:"type"`
 }
 
 func (JitSchedulingPolicyResponseArgs) ElementType() reflect.Type {
@@ -4176,12 +3951,10 @@ func (o JitSchedulingPolicyResponseOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// The start time of the request.
 func (o JitSchedulingPolicyResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The type of JIT schedule.
 func (o JitSchedulingPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4219,7 +3992,6 @@ func (o JitSchedulingPolicyResponsePtrOutput) Duration() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start time of the request.
 func (o JitSchedulingPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JitSchedulingPolicyResponse) *string {
 		if v == nil {
@@ -4229,7 +4001,6 @@ func (o JitSchedulingPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of JIT schedule.
 func (o JitSchedulingPolicyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JitSchedulingPolicyResponse) *string {
 		if v == nil {
@@ -4240,16 +4011,11 @@ func (o JitSchedulingPolicyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type Plan struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The promotion code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       string  `pulumi:"version"`
 }
 
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
@@ -4264,16 +4030,11 @@ type PlanInput interface {
 }
 
 type PlanArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringInput    `pulumi:"version"`
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -4353,27 +4114,22 @@ func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutpu
 	}).(PlanPtrOutput)
 }
 
-// The plan name.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The promotion code.
 func (o PlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -4402,7 +4158,6 @@ func (o PlanPtrOutput) Elem() PlanOutput {
 	}).(PlanOutput)
 }
 
-// The plan name.
 func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -4412,7 +4167,6 @@ func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -4422,7 +4176,6 @@ func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -4432,7 +4185,6 @@ func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -4442,7 +4194,6 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -4453,16 +4204,11 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type PlanResponse struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The promotion code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       string  `pulumi:"version"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -4477,16 +4223,11 @@ type PlanResponseInput interface {
 }
 
 type PlanResponseArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringInput    `pulumi:"version"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -4566,27 +4307,22 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Conte
 	}).(PlanResponsePtrOutput)
 }
 
-// The plan name.
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanResponseOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The promotion code.
 func (o PlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -4615,7 +4351,6 @@ func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
 	}).(PlanResponseOutput)
 }
 
-// The plan name.
 func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -4625,7 +4360,6 @@ func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -4635,7 +4369,6 @@ func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -4645,7 +4378,6 @@ func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -4655,7 +4387,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -4666,18 +4397,12 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type Sku struct {
-	// The SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU family.
-	Family *string `pulumi:"family"`
-	// The SKU model.
-	Model *string `pulumi:"model"`
-	// The SKU name.
-	Name string `pulumi:"name"`
-	// The SKU size.
-	Size *string `pulumi:"size"`
-	// The SKU tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Model    *string `pulumi:"model"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -4692,18 +4417,12 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The SKU model.
-	Model pulumi.StringPtrInput `pulumi:"model"`
-	// The SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SKU tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Model    pulumi.StringPtrInput `pulumi:"model"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -4783,32 +4502,26 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The SKU capacity.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size.
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -4837,7 +4550,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The SKU capacity.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -4847,7 +4559,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4857,7 +4568,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4867,7 +4577,6 @@ func (o SkuPtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4877,7 +4586,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size.
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4887,7 +4595,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4898,18 +4605,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU family.
-	Family *string `pulumi:"family"`
-	// The SKU model.
-	Model *string `pulumi:"model"`
-	// The SKU name.
-	Name string `pulumi:"name"`
-	// The SKU size.
-	Size *string `pulumi:"size"`
-	// The SKU tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Model    *string `pulumi:"model"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -4924,18 +4625,12 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The SKU model.
-	Model pulumi.StringPtrInput `pulumi:"model"`
-	// The SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SKU tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Model    pulumi.StringPtrInput `pulumi:"model"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -5015,32 +4710,26 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU capacity.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuResponseOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size.
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -5069,7 +4758,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The SKU capacity.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -5079,7 +4767,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5089,7 +4776,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuResponsePtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5099,7 +4785,6 @@ func (o SkuResponsePtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5109,7 +4794,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size.
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5119,7 +4803,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5130,10 +4813,8 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type UserAssignedResourceIdentityResponse struct {
-	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of user assigned identity.
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // UserAssignedResourceIdentityResponseInput is an input type that accepts UserAssignedResourceIdentityResponseArgs and UserAssignedResourceIdentityResponseOutput values.
@@ -5148,10 +4829,8 @@ type UserAssignedResourceIdentityResponseInput interface {
 }
 
 type UserAssignedResourceIdentityResponseArgs struct {
-	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of user assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (UserAssignedResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -5205,12 +4884,10 @@ func (o UserAssignedResourceIdentityResponseOutput) ToUserAssignedResourceIdenti
 	return o
 }
 
-// The principal id of user assigned identity.
 func (o UserAssignedResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of user assigned identity.
 func (o UserAssignedResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }

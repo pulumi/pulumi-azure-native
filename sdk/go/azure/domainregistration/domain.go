@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a domain.
-// API Version: 2020-10-01.
 type Domain struct {
 	pulumi.CustomResourceState
 

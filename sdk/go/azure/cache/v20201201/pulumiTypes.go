@@ -743,6 +743,559 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type RedisCommonPropertiesRedisConfiguration struct {
+	AofStorageConnectionString0    *string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    *string `pulumi:"aofStorageConnectionString1"`
+	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta                 *string `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                *string `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              *string `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               *string `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             *string `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      *string `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     *string `pulumi:"rdbStorageConnectionString"`
+}
+
+// RedisCommonPropertiesRedisConfigurationInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs and RedisCommonPropertiesRedisConfigurationOutput values.
+// You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationInput` via:
+//
+//          RedisCommonPropertiesRedisConfigurationArgs{...}
+type RedisCommonPropertiesRedisConfigurationInput interface {
+	pulumi.Input
+
+	ToRedisCommonPropertiesRedisConfigurationOutput() RedisCommonPropertiesRedisConfigurationOutput
+	ToRedisCommonPropertiesRedisConfigurationOutputWithContext(context.Context) RedisCommonPropertiesRedisConfigurationOutput
+}
+
+type RedisCommonPropertiesRedisConfigurationArgs struct {
+	AofStorageConnectionString0    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta                 pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+}
+
+func (RedisCommonPropertiesRedisConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisCommonPropertiesRedisConfiguration)(nil)).Elem()
+}
+
+func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedisConfigurationOutput() RedisCommonPropertiesRedisConfigurationOutput {
+	return i.ToRedisCommonPropertiesRedisConfigurationOutputWithContext(context.Background())
+}
+
+func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedisConfigurationOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesRedisConfigurationOutput)
+}
+
+func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedisConfigurationPtrOutput() RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return i.ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesRedisConfigurationOutput).ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(ctx)
+}
+
+// RedisCommonPropertiesRedisConfigurationPtrInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs, RedisCommonPropertiesRedisConfigurationPtr and RedisCommonPropertiesRedisConfigurationPtrOutput values.
+// You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationPtrInput` via:
+//
+//          RedisCommonPropertiesRedisConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RedisCommonPropertiesRedisConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRedisCommonPropertiesRedisConfigurationPtrOutput() RedisCommonPropertiesRedisConfigurationPtrOutput
+	ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(context.Context) RedisCommonPropertiesRedisConfigurationPtrOutput
+}
+
+type redisCommonPropertiesRedisConfigurationPtrType RedisCommonPropertiesRedisConfigurationArgs
+
+func RedisCommonPropertiesRedisConfigurationPtr(v *RedisCommonPropertiesRedisConfigurationArgs) RedisCommonPropertiesRedisConfigurationPtrInput {
+	return (*redisCommonPropertiesRedisConfigurationPtrType)(v)
+}
+
+func (*redisCommonPropertiesRedisConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RedisCommonPropertiesRedisConfiguration)(nil)).Elem()
+}
+
+func (i *redisCommonPropertiesRedisConfigurationPtrType) ToRedisCommonPropertiesRedisConfigurationPtrOutput() RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return i.ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *redisCommonPropertiesRedisConfigurationPtrType) ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesRedisConfigurationPtrOutput)
+}
+
+type RedisCommonPropertiesRedisConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RedisCommonPropertiesRedisConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisCommonPropertiesRedisConfiguration)(nil)).Elem()
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRedisConfigurationOutput() RedisCommonPropertiesRedisConfigurationOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRedisConfigurationOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRedisConfigurationPtrOutput() RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return o.ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisCommonPropertiesRedisConfiguration) *RedisCommonPropertiesRedisConfiguration {
+		return &v
+	}).(RedisCommonPropertiesRedisConfigurationPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxfragmentationmemoryReserved }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryDelta }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryReserved }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupFrequency }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupMaxSnapshotCount }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+}
+
+type RedisCommonPropertiesRedisConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RedisCommonPropertiesRedisConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RedisCommonPropertiesRedisConfiguration)(nil)).Elem()
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) ToRedisCommonPropertiesRedisConfigurationPtrOutput() RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) ToRedisCommonPropertiesRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesRedisConfigurationPtrOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Elem() RedisCommonPropertiesRedisConfigurationOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) RedisCommonPropertiesRedisConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RedisCommonPropertiesRedisConfiguration
+		return ret
+	}).(RedisCommonPropertiesRedisConfigurationOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString0
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxfragmentationmemoryReserved
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryDelta
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryReserved
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupMaxSnapshotCount
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbStorageConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+type RedisCommonPropertiesResponseRedisConfiguration struct {
+	AofStorageConnectionString0    *string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    *string `pulumi:"aofStorageConnectionString1"`
+	Maxclients                     string  `pulumi:"maxclients"`
+	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta                 *string `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                *string `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              *string `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               *string `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             *string `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      *string `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     *string `pulumi:"rdbStorageConnectionString"`
+}
+
+// RedisCommonPropertiesResponseRedisConfigurationInput is an input type that accepts RedisCommonPropertiesResponseRedisConfigurationArgs and RedisCommonPropertiesResponseRedisConfigurationOutput values.
+// You can construct a concrete instance of `RedisCommonPropertiesResponseRedisConfigurationInput` via:
+//
+//          RedisCommonPropertiesResponseRedisConfigurationArgs{...}
+type RedisCommonPropertiesResponseRedisConfigurationInput interface {
+	pulumi.Input
+
+	ToRedisCommonPropertiesResponseRedisConfigurationOutput() RedisCommonPropertiesResponseRedisConfigurationOutput
+	ToRedisCommonPropertiesResponseRedisConfigurationOutputWithContext(context.Context) RedisCommonPropertiesResponseRedisConfigurationOutput
+}
+
+type RedisCommonPropertiesResponseRedisConfigurationArgs struct {
+	AofStorageConnectionString0    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	Maxclients                     pulumi.StringInput    `pulumi:"maxclients"`
+	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta                 pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+}
+
+func (RedisCommonPropertiesResponseRedisConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisCommonPropertiesResponseRedisConfiguration)(nil)).Elem()
+}
+
+func (i RedisCommonPropertiesResponseRedisConfigurationArgs) ToRedisCommonPropertiesResponseRedisConfigurationOutput() RedisCommonPropertiesResponseRedisConfigurationOutput {
+	return i.ToRedisCommonPropertiesResponseRedisConfigurationOutputWithContext(context.Background())
+}
+
+func (i RedisCommonPropertiesResponseRedisConfigurationArgs) ToRedisCommonPropertiesResponseRedisConfigurationOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesResponseRedisConfigurationOutput)
+}
+
+func (i RedisCommonPropertiesResponseRedisConfigurationArgs) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutput() RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return i.ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RedisCommonPropertiesResponseRedisConfigurationArgs) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesResponseRedisConfigurationOutput).ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(ctx)
+}
+
+// RedisCommonPropertiesResponseRedisConfigurationPtrInput is an input type that accepts RedisCommonPropertiesResponseRedisConfigurationArgs, RedisCommonPropertiesResponseRedisConfigurationPtr and RedisCommonPropertiesResponseRedisConfigurationPtrOutput values.
+// You can construct a concrete instance of `RedisCommonPropertiesResponseRedisConfigurationPtrInput` via:
+//
+//          RedisCommonPropertiesResponseRedisConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RedisCommonPropertiesResponseRedisConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRedisCommonPropertiesResponseRedisConfigurationPtrOutput() RedisCommonPropertiesResponseRedisConfigurationPtrOutput
+	ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(context.Context) RedisCommonPropertiesResponseRedisConfigurationPtrOutput
+}
+
+type redisCommonPropertiesResponseRedisConfigurationPtrType RedisCommonPropertiesResponseRedisConfigurationArgs
+
+func RedisCommonPropertiesResponseRedisConfigurationPtr(v *RedisCommonPropertiesResponseRedisConfigurationArgs) RedisCommonPropertiesResponseRedisConfigurationPtrInput {
+	return (*redisCommonPropertiesResponseRedisConfigurationPtrType)(v)
+}
+
+func (*redisCommonPropertiesResponseRedisConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RedisCommonPropertiesResponseRedisConfiguration)(nil)).Elem()
+}
+
+func (i *redisCommonPropertiesResponseRedisConfigurationPtrType) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutput() RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return i.ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *redisCommonPropertiesResponseRedisConfigurationPtrType) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
+}
+
+type RedisCommonPropertiesResponseRedisConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RedisCommonPropertiesResponseRedisConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisCommonPropertiesResponseRedisConfiguration)(nil)).Elem()
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonPropertiesResponseRedisConfigurationOutput() RedisCommonPropertiesResponseRedisConfigurationOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonPropertiesResponseRedisConfigurationOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutput() RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return o.ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisCommonPropertiesResponseRedisConfiguration) *RedisCommonPropertiesResponseRedisConfiguration {
+		return &v
+	}).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) Maxclients() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string { return v.Maxclients }).(pulumi.StringOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string {
+		return v.MaxfragmentationmemoryReserved
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryDelta }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryReserved }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupFrequency }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupMaxSnapshotCount }).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+}
+
+type RedisCommonPropertiesResponseRedisConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RedisCommonPropertiesResponseRedisConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RedisCommonPropertiesResponseRedisConfiguration)(nil)).Elem()
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutput() RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) ToRedisCommonPropertiesResponseRedisConfigurationPtrOutputWithContext(ctx context.Context) RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return o
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Elem() RedisCommonPropertiesResponseRedisConfigurationOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) RedisCommonPropertiesResponseRedisConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RedisCommonPropertiesResponseRedisConfiguration
+		return ret
+	}).(RedisCommonPropertiesResponseRedisConfigurationOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString0
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Maxclients() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Maxclients
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxfragmentationmemoryReserved
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryDelta
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryReserved
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupMaxSnapshotCount
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbStorageConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
 type RedisInstanceDetailsResponse struct {
 	IsMaster   bool   `pulumi:"isMaster"`
 	IsPrimary  bool   `pulumi:"isPrimary"`
@@ -1510,6 +2063,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
+	pulumi.RegisterOutputType(RedisCommonPropertiesRedisConfigurationOutput{})
+	pulumi.RegisterOutputType(RedisCommonPropertiesRedisConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RedisCommonPropertiesResponseRedisConfigurationOutput{})
+	pulumi.RegisterOutputType(RedisCommonPropertiesResponseRedisConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RedisInstanceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RedisInstanceDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseOutput{})

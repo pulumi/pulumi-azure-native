@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A node pool snapshot resource.
-// API Version: 2021-08-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 

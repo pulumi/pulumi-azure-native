@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource that defines the source location where the artifacts are located.
-// API Version: 2019-11-01-preview.
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 

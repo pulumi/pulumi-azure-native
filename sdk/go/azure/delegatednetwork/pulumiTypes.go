@@ -11,7 +11,6 @@ import (
 )
 
 type ControllerDetailsType struct {
-	// controller arm resource id
 	Id *string `pulumi:"id"`
 }
 
@@ -27,7 +26,6 @@ type ControllerDetailsTypeInput interface {
 }
 
 type ControllerDetailsTypeArgs struct {
-	// controller arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -108,7 +106,6 @@ func (o ControllerDetailsTypeOutput) ToControllerDetailsTypePtrOutputWithContext
 	}).(ControllerDetailsTypePtrOutput)
 }
 
-// controller arm resource id
 func (o ControllerDetailsTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControllerDetailsType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o ControllerDetailsTypePtrOutput) Elem() ControllerDetailsTypeOutput {
 	}).(ControllerDetailsTypeOutput)
 }
 
-// controller arm resource id
 func (o ControllerDetailsTypePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControllerDetailsType) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o ControllerDetailsTypePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ControllerDetailsResponse struct {
-	// controller arm resource id
 	Id *string `pulumi:"id"`
 }
 
@@ -164,7 +159,6 @@ type ControllerDetailsResponseInput interface {
 }
 
 type ControllerDetailsResponseArgs struct {
-	// controller arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -245,7 +239,6 @@ func (o ControllerDetailsResponseOutput) ToControllerDetailsResponsePtrOutputWit
 	}).(ControllerDetailsResponsePtrOutput)
 }
 
-// controller arm resource id
 func (o ControllerDetailsResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControllerDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o ControllerDetailsResponsePtrOutput) Elem() ControllerDetailsResponseOutp
 	}).(ControllerDetailsResponseOutput)
 }
 
-// controller arm resource id
 func (o ControllerDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControllerDetailsResponse) *string {
 		if v == nil {
@@ -285,7 +277,6 @@ func (o ControllerDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type OrchestratorIdentity struct {
-	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -301,7 +292,6 @@ type OrchestratorIdentityInput interface {
 }
 
 type OrchestratorIdentityArgs struct {
-	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -382,7 +372,6 @@ func (o OrchestratorIdentityOutput) ToOrchestratorIdentityPtrOutputWithContext(c
 	}).(OrchestratorIdentityPtrOutput)
 }
 
-// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 func (o OrchestratorIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v OrchestratorIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -411,7 +400,6 @@ func (o OrchestratorIdentityPtrOutput) Elem() OrchestratorIdentityOutput {
 	}).(OrchestratorIdentityOutput)
 }
 
-// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 func (o OrchestratorIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *OrchestratorIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -422,12 +410,9 @@ func (o OrchestratorIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 type OrchestratorIdentityResponse struct {
-	// The principal id of the system assigned identity which is used by orchestrator.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by orchestrator.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // OrchestratorIdentityResponseInput is an input type that accepts OrchestratorIdentityResponseArgs and OrchestratorIdentityResponseOutput values.
@@ -442,12 +427,9 @@ type OrchestratorIdentityResponseInput interface {
 }
 
 type OrchestratorIdentityResponseArgs struct {
-	// The principal id of the system assigned identity which is used by orchestrator.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by orchestrator.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (OrchestratorIdentityResponseArgs) ElementType() reflect.Type {
@@ -527,17 +509,14 @@ func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponsePtrOut
 	}).(OrchestratorIdentityResponsePtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by orchestrator.
 func (o OrchestratorIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratorIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by orchestrator.
 func (o OrchestratorIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratorIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 func (o OrchestratorIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratorIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -566,7 +545,6 @@ func (o OrchestratorIdentityResponsePtrOutput) Elem() OrchestratorIdentityRespon
 	}).(OrchestratorIdentityResponseOutput)
 }
 
-// The principal id of the system assigned identity which is used by orchestrator.
 func (o OrchestratorIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratorIdentityResponse) *string {
 		if v == nil {
@@ -576,7 +554,6 @@ func (o OrchestratorIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by orchestrator.
 func (o OrchestratorIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratorIdentityResponse) *string {
 		if v == nil {
@@ -586,7 +563,6 @@ func (o OrchestratorIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
 func (o OrchestratorIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratorIdentityResponse) *string {
 		if v == nil {
@@ -597,7 +573,6 @@ func (o OrchestratorIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type SubnetDetails struct {
-	// subnet arm resource id
 	Id *string `pulumi:"id"`
 }
 
@@ -613,7 +588,6 @@ type SubnetDetailsInput interface {
 }
 
 type SubnetDetailsArgs struct {
-	// subnet arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -694,7 +668,6 @@ func (o SubnetDetailsOutput) ToSubnetDetailsPtrOutputWithContext(ctx context.Con
 	}).(SubnetDetailsPtrOutput)
 }
 
-// subnet arm resource id
 func (o SubnetDetailsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetDetails) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -723,7 +696,6 @@ func (o SubnetDetailsPtrOutput) Elem() SubnetDetailsOutput {
 	}).(SubnetDetailsOutput)
 }
 
-// subnet arm resource id
 func (o SubnetDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetDetails) *string {
 		if v == nil {
@@ -734,7 +706,6 @@ func (o SubnetDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SubnetDetailsResponse struct {
-	// subnet arm resource id
 	Id *string `pulumi:"id"`
 }
 
@@ -750,7 +721,6 @@ type SubnetDetailsResponseInput interface {
 }
 
 type SubnetDetailsResponseArgs struct {
-	// subnet arm resource id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -831,7 +801,6 @@ func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponsePtrOutputWithContext
 	}).(SubnetDetailsResponsePtrOutput)
 }
 
-// subnet arm resource id
 func (o SubnetDetailsResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -860,7 +829,6 @@ func (o SubnetDetailsResponsePtrOutput) Elem() SubnetDetailsResponseOutput {
 	}).(SubnetDetailsResponseOutput)
 }
 
-// subnet arm resource id
 func (o SubnetDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetDetailsResponse) *string {
 		if v == nil {

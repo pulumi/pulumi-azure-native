@@ -24,6 +24,7 @@ class PrivateEndpointArgs:
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -36,6 +37,7 @@ class PrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param pulumi.Input[str] resource_guid: The resource id of private endpoint.
         :param pulumi.Input['SubnetArgs'] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -54,6 +56,8 @@ class PrivateEndpointArgs:
             pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
@@ -156,6 +160,18 @@ class PrivateEndpointArgs:
         pulumi.set(self, "private_link_service_connections", value)
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of private endpoint.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @resource_guid.setter
+    def resource_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guid", value)
+
+    @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
         """
@@ -193,6 +209,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -209,6 +226,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_guid: The resource id of private endpoint.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -244,6 +262,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -268,6 +287,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
@@ -308,6 +328,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["private_link_service_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["subnet"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -384,6 +405,14 @@ class PrivateEndpoint(pulumi.CustomResource):
         The provisioning state of the private endpoint resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of private endpoint.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

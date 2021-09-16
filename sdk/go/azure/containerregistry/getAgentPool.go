@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The agentpool that has the ARM resource and properties.
-// The agentpool will have all information to create an agent pool.
-// API Version: 2019-06-01-preview.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
 	err := ctx.Invoke("azure-native:containerregistry:getAgentPool", args, &rv, opts...)
@@ -20,37 +17,23 @@ func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pul
 }
 
 type LookupAgentPoolArgs struct {
-	// The name of the agent pool.
-	AgentPoolName string `pulumi:"agentPoolName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	AgentPoolName     string `pulumi:"agentPoolName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The agentpool that has the ARM resource and properties.
 // The agentpool will have all information to create an agent pool.
 type LookupAgentPoolResult struct {
-	// The count of agent machine
-	Count *int `pulumi:"count"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The OS of agent machine
-	Os *string `pulumi:"os"`
-	// The provisioning state of this agent pool
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The Tier of agent machine
-	Tier *string `pulumi:"tier"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The Virtual Network Subnet Resource Id of the agent machine
-	VirtualNetworkSubnetResourceId *string `pulumi:"virtualNetworkSubnetResourceId"`
+	Count                          *int               `pulumi:"count"`
+	Id                             string             `pulumi:"id"`
+	Location                       string             `pulumi:"location"`
+	Name                           string             `pulumi:"name"`
+	Os                             *string            `pulumi:"os"`
+	ProvisioningState              string             `pulumi:"provisioningState"`
+	SystemData                     SystemDataResponse `pulumi:"systemData"`
+	Tags                           map[string]string  `pulumi:"tags"`
+	Tier                           *string            `pulumi:"tier"`
+	Type                           string             `pulumi:"type"`
+	VirtualNetworkSubnetResourceId *string            `pulumi:"virtualNetworkSubnetResourceId"`
 }

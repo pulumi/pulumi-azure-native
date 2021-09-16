@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The shared dashboard resource definition.
-// API Version: 2020-09-01-preview.
 type Dashboard struct {
 	pulumi.CustomResourceState
 

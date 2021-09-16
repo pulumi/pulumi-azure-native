@@ -11,7 +11,6 @@ import (
 )
 
 type CreatorPropertiesResponse struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -27,7 +26,6 @@ type CreatorPropertiesResponseInput interface {
 }
 
 type CreatorPropertiesResponseArgs struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -108,7 +106,6 @@ func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWit
 	}).(CreatorPropertiesResponsePtrOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreatorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o CreatorPropertiesResponsePtrOutput) Elem() CreatorPropertiesResponseOutp
 	}).(CreatorPropertiesResponseOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreatorPropertiesResponse) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 }
 
 type MapsAccountPropertiesResponse struct {
-	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
 }
 
@@ -164,7 +159,6 @@ type MapsAccountPropertiesResponseInput interface {
 }
 
 type MapsAccountPropertiesResponseArgs struct {
-	// A unique identifier for the maps account
 	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
 }
 
@@ -245,7 +239,6 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponseOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResp
 	}).(MapsAccountPropertiesResponseOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
@@ -285,7 +277,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 }
 
 type PrivateAtlasPropertiesResponse struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -301,7 +292,6 @@ type PrivateAtlasPropertiesResponseInput interface {
 }
 
 type PrivateAtlasPropertiesResponseArgs struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -382,7 +372,6 @@ func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponsePt
 	}).(PrivateAtlasPropertiesResponsePtrOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o PrivateAtlasPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateAtlasPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -411,7 +400,6 @@ func (o PrivateAtlasPropertiesResponsePtrOutput) Elem() PrivateAtlasPropertiesRe
 	}).(PrivateAtlasPropertiesResponseOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) *string {
 		if v == nil {
@@ -422,7 +410,6 @@ func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 }
 
 type Sku struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
 }
 
@@ -438,7 +425,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -519,7 +505,6 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -548,7 +533,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -559,9 +543,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -577,9 +559,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -660,12 +640,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -694,7 +672,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -704,7 +681,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

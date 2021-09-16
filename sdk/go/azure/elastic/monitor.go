@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Monitor resource.
-// API Version: 2020-07-01.
 type Monitor struct {
 	pulumi.CustomResourceState
 

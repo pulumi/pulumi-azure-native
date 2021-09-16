@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The streaming endpoint.
-// API Version: 2020-05-01.
 type StreamingEndpoint struct {
 	pulumi.CustomResourceState
 

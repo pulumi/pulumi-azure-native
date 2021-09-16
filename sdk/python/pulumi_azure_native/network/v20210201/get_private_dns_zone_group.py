@@ -20,7 +20,7 @@ class GetPrivateDnsZoneGroupResult:
     """
     Private dns zone group resource.
     """
-    def __init__(__self__, etag=None, id=None, name=None, private_dns_zone_configs=None, provisioning_state=None):
+    def __init__(__self__, etag=None, id=None, name=None, private_dns_zone_configs=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -36,6 +36,9 @@ class GetPrivateDnsZoneGroupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -77,6 +80,14 @@ class GetPrivateDnsZoneGroupResult:
         """
         return pulumi.get(self, "provisioning_state")
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of resource. Will be specified as private dns zone groups.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
     # pylint: disable=using-constant-test
@@ -88,7 +99,8 @@ class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
             id=self.id,
             name=self.name,
             private_dns_zone_configs=self.private_dns_zone_configs,
-            provisioning_state=self.provisioning_state)
+            provisioning_state=self.provisioning_state,
+            type=self.type)
 
 
 def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None,
@@ -118,4 +130,5 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
         id=__ret__.id,
         name=__ret__.name,
         private_dns_zone_configs=__ret__.private_dns_zone_configs,
-        provisioning_state=__ret__.provisioning_state)
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

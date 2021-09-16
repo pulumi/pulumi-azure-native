@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Shared Private Link Resource
-// API Version: 2021-04-01-preview.
 type WebPubSubSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 

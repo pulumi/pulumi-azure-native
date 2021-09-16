@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response model from the GetRegionalAvailability action
-// API Version: 2018-10-15.
 func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountRegionalAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetLabAccountRegionalAvailabilityResult, error) {
 	var rv GetLabAccountRegionalAvailabilityResult
 	err := ctx.Invoke("azure-native:labservices:getLabAccountRegionalAvailability", args, &rv, opts...)
@@ -19,14 +17,11 @@ func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountR
 }
 
 type GetLabAccountRegionalAvailabilityArgs struct {
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the resource group.
+	LabAccountName    string `pulumi:"labAccountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The response model from the GetRegionalAvailability action
 type GetLabAccountRegionalAvailabilityResult struct {
-	// Availability information for different size categories per region
 	RegionalAvailability []RegionalAvailabilityResponse `pulumi:"regionalAvailability"`
 }

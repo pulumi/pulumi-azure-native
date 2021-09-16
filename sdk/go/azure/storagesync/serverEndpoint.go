@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server Endpoint object.
-// API Version: 2020-03-01.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 

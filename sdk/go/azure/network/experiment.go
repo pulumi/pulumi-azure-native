@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the properties of an Experiment
-// API Version: 2019-11-01.
 type Experiment struct {
 	pulumi.CustomResourceState
 

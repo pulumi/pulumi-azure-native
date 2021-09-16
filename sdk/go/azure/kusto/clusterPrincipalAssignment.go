@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a cluster principal assignment.
-// API Version: 2021-01-01.
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 

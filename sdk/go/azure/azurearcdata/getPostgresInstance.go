@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Postgres Instance.
-// API Version: 2021-06-01-preview.
 func LookupPostgresInstance(ctx *pulumi.Context, args *LookupPostgresInstanceArgs, opts ...pulumi.InvokeOption) (*LookupPostgresInstanceResult, error) {
 	var rv LookupPostgresInstanceResult
 	err := ctx.Invoke("azure-native:azurearcdata:getPostgresInstance", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupPostgresInstance(ctx *pulumi.Context, args *LookupPostgresInstanceArg
 }
 
 type LookupPostgresInstanceArgs struct {
-	// Name of Postgres Instance
 	PostgresInstanceName string `pulumi:"postgresInstanceName"`
-	// The name of the Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // A Postgres Instance.
 type LookupPostgresInstanceResult struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// null
-	Properties PostgresInstancePropertiesResponse `pulumi:"properties"`
-	// Resource sku.
-	Sku *PostgresInstanceSkuResponse `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	ExtendedLocation *ExtendedLocationResponse          `pulumi:"extendedLocation"`
+	Id               string                             `pulumi:"id"`
+	Location         string                             `pulumi:"location"`
+	Name             string                             `pulumi:"name"`
+	Properties       PostgresInstancePropertiesResponse `pulumi:"properties"`
+	Sku              *PostgresInstanceSkuResponse       `pulumi:"sku"`
+	SystemData       SystemDataResponse                 `pulumi:"systemData"`
+	Tags             map[string]string                  `pulumi:"tags"`
+	Type             string                             `pulumi:"type"`
 }

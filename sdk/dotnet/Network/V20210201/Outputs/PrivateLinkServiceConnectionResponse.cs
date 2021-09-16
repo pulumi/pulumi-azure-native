@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.Network.V20210201.Outputs
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
+        /// The location for the resolved private link service.
+        /// </summary>
+        public readonly string? ResolvedPrivateLinkServiceLocation;
+        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.Network.V20210201.Outputs
 
             string? requestMessage,
 
+            string? resolvedPrivateLinkServiceLocation,
+
             string type)
         {
             Etag = etag;
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Outputs
             PrivateLinkServiceId = privateLinkServiceId;
             ProvisioningState = provisioningState;
             RequestMessage = requestMessage;
+            ResolvedPrivateLinkServiceLocation = resolvedPrivateLinkServiceLocation;
             Type = type;
         }
     }

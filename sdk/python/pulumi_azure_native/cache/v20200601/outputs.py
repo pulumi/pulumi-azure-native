@@ -15,6 +15,7 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'RedisAccessKeysResponse',
+    'RedisCommonPropertiesResponseRedisConfiguration',
     'RedisInstanceDetailsResponse',
     'RedisLinkedServerResponse',
     'ScheduleEntryResponse',
@@ -256,6 +257,183 @@ class RedisAccessKeysResponse(dict):
         The current secondary key that clients can use to authenticate with Redis cache.
         """
         return pulumi.get(self, "secondary_key")
+
+
+@pulumi.output_type
+class RedisCommonPropertiesResponseRedisConfiguration(dict):
+    """
+    All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aofStorageConnectionString0":
+            suggest = "aof_storage_connection_string0"
+        elif key == "aofStorageConnectionString1":
+            suggest = "aof_storage_connection_string1"
+        elif key == "maxfragmentationmemoryReserved":
+            suggest = "maxfragmentationmemory_reserved"
+        elif key == "maxmemoryDelta":
+            suggest = "maxmemory_delta"
+        elif key == "maxmemoryPolicy":
+            suggest = "maxmemory_policy"
+        elif key == "maxmemoryReserved":
+            suggest = "maxmemory_reserved"
+        elif key == "rdbBackupEnabled":
+            suggest = "rdb_backup_enabled"
+        elif key == "rdbBackupFrequency":
+            suggest = "rdb_backup_frequency"
+        elif key == "rdbBackupMaxSnapshotCount":
+            suggest = "rdb_backup_max_snapshot_count"
+        elif key == "rdbStorageConnectionString":
+            suggest = "rdb_storage_connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisCommonPropertiesResponseRedisConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisCommonPropertiesResponseRedisConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisCommonPropertiesResponseRedisConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maxclients: str,
+                 aof_storage_connection_string0: Optional[str] = None,
+                 aof_storage_connection_string1: Optional[str] = None,
+                 maxfragmentationmemory_reserved: Optional[str] = None,
+                 maxmemory_delta: Optional[str] = None,
+                 maxmemory_policy: Optional[str] = None,
+                 maxmemory_reserved: Optional[str] = None,
+                 rdb_backup_enabled: Optional[str] = None,
+                 rdb_backup_frequency: Optional[str] = None,
+                 rdb_backup_max_snapshot_count: Optional[str] = None,
+                 rdb_storage_connection_string: Optional[str] = None):
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param str maxclients: The max clients config
+        :param str aof_storage_connection_string0: First storage account connection string
+        :param str aof_storage_connection_string1: Second storage account connection string
+        :param str maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
+        :param str maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param str maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
+        :param str maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param str rdb_backup_enabled: Specifies whether the rdb backup is enabled
+        :param str rdb_backup_frequency: Specifies the frequency for creating rdb backup
+        :param str rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
+        :param str rdb_storage_connection_string: The storage account connection string for storing rdb file
+        """
+        pulumi.set(__self__, "maxclients", maxclients)
+        if aof_storage_connection_string0 is not None:
+            pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
+        if aof_storage_connection_string1 is not None:
+            pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if maxfragmentationmemory_reserved is not None:
+            pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+        if maxmemory_delta is not None:
+            pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
+        if maxmemory_policy is not None:
+            pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
+        if maxmemory_reserved is not None:
+            pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if rdb_backup_enabled is not None:
+            pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
+        if rdb_backup_frequency is not None:
+            pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
+        if rdb_backup_max_snapshot_count is not None:
+            pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+        if rdb_storage_connection_string is not None:
+            pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+
+    @property
+    @pulumi.getter
+    def maxclients(self) -> str:
+        """
+        The max clients config
+        """
+        return pulumi.get(self, "maxclients")
+
+    @property
+    @pulumi.getter(name="aofStorageConnectionString0")
+    def aof_storage_connection_string0(self) -> Optional[str]:
+        """
+        First storage account connection string
+        """
+        return pulumi.get(self, "aof_storage_connection_string0")
+
+    @property
+    @pulumi.getter(name="aofStorageConnectionString1")
+    def aof_storage_connection_string1(self) -> Optional[str]:
+        """
+        Second storage account connection string
+        """
+        return pulumi.get(self, "aof_storage_connection_string1")
+
+    @property
+    @pulumi.getter(name="maxfragmentationmemoryReserved")
+    def maxfragmentationmemory_reserved(self) -> Optional[str]:
+        """
+        Value in megabytes reserved for fragmentation per shard
+        """
+        return pulumi.get(self, "maxfragmentationmemory_reserved")
+
+    @property
+    @pulumi.getter(name="maxmemoryDelta")
+    def maxmemory_delta(self) -> Optional[str]:
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        return pulumi.get(self, "maxmemory_delta")
+
+    @property
+    @pulumi.getter(name="maxmemoryPolicy")
+    def maxmemory_policy(self) -> Optional[str]:
+        """
+        The eviction strategy used when your data won't fit within its memory limit.
+        """
+        return pulumi.get(self, "maxmemory_policy")
+
+    @property
+    @pulumi.getter(name="maxmemoryReserved")
+    def maxmemory_reserved(self) -> Optional[str]:
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        return pulumi.get(self, "maxmemory_reserved")
+
+    @property
+    @pulumi.getter(name="rdbBackupEnabled")
+    def rdb_backup_enabled(self) -> Optional[str]:
+        """
+        Specifies whether the rdb backup is enabled
+        """
+        return pulumi.get(self, "rdb_backup_enabled")
+
+    @property
+    @pulumi.getter(name="rdbBackupFrequency")
+    def rdb_backup_frequency(self) -> Optional[str]:
+        """
+        Specifies the frequency for creating rdb backup
+        """
+        return pulumi.get(self, "rdb_backup_frequency")
+
+    @property
+    @pulumi.getter(name="rdbBackupMaxSnapshotCount")
+    def rdb_backup_max_snapshot_count(self) -> Optional[str]:
+        """
+        Specifies the maximum number of snapshots for rdb backup
+        """
+        return pulumi.get(self, "rdb_backup_max_snapshot_count")
+
+    @property
+    @pulumi.getter(name="rdbStorageConnectionString")
+    def rdb_storage_connection_string(self) -> Optional[str]:
+        """
+        The storage account connection string for storing rdb file
+        """
+        return pulumi.get(self, "rdb_storage_connection_string")
 
 
 @pulumi.output_type

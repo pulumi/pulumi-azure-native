@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Credentials to resources in the cluster.
-// API Version: 2017-08-01-preview.
 func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationalizationClusterKeysArgs, opts ...pulumi.InvokeOption) (*ListOperationalizationClusterKeysResult, error) {
 	var rv ListOperationalizationClusterKeysResult
 	err := ctx.Invoke("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args, &rv, opts...)
@@ -19,24 +17,16 @@ func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationa
 }
 
 type ListOperationalizationClusterKeysArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Name of the resource group in which the cluster is located.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Credentials to resources in the cluster.
 type ListOperationalizationClusterKeysResult struct {
-	// Credentials for Azure AppInsights.
-	AppInsights *AppInsightsCredentialsResponse `pulumi:"appInsights"`
-	// Credentials for Azure Container Registry.
-	ContainerRegistry *ContainerRegistryCredentialsResponse `pulumi:"containerRegistry"`
-	// Credentials for Azure Container Service.
-	ContainerService *ContainerServiceCredentialsResponse `pulumi:"containerService"`
-	// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
-	ServiceAuthConfiguration *ServiceAuthConfigurationResponse `pulumi:"serviceAuthConfiguration"`
-	// The SSL configuration for the services.
-	SslConfiguration *SslConfigurationResponse `pulumi:"sslConfiguration"`
-	// Credentials for the Storage Account.
-	StorageAccount *StorageAccountCredentialsResponse `pulumi:"storageAccount"`
+	AppInsights              *AppInsightsCredentialsResponse       `pulumi:"appInsights"`
+	ContainerRegistry        *ContainerRegistryCredentialsResponse `pulumi:"containerRegistry"`
+	ContainerService         *ContainerServiceCredentialsResponse  `pulumi:"containerService"`
+	ServiceAuthConfiguration *ServiceAuthConfigurationResponse     `pulumi:"serviceAuthConfiguration"`
+	SslConfiguration         *SslConfigurationResponse             `pulumi:"sslConfiguration"`
+	StorageAccount           *StorageAccountCredentialsResponse    `pulumi:"storageAccount"`
 }

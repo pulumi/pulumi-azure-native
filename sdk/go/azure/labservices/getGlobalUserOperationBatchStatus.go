@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Status Details of the long running operation for an environment
-// API Version: 2018-10-15.
 func GetGlobalUserOperationBatchStatus(ctx *pulumi.Context, args *GetGlobalUserOperationBatchStatusArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserOperationBatchStatusResult, error) {
 	var rv GetGlobalUserOperationBatchStatusResult
 	err := ctx.Invoke("azure-native:labservices:getGlobalUserOperationBatchStatus", args, &rv, opts...)
@@ -19,14 +17,11 @@ func GetGlobalUserOperationBatchStatus(ctx *pulumi.Context, args *GetGlobalUserO
 }
 
 type GetGlobalUserOperationBatchStatusArgs struct {
-	// The operation url of long running operation
-	Urls []string `pulumi:"urls"`
-	// The name of the user.
-	UserName string `pulumi:"userName"`
+	Urls     []string `pulumi:"urls"`
+	UserName string   `pulumi:"userName"`
 }
 
 // Status Details of the long running operation for an environment
 type GetGlobalUserOperationBatchStatusResult struct {
-	// Gets a collection of items that contain the operation url and status.
 	Items []OperationBatchStatusResponseItemResponse `pulumi:"items"`
 }

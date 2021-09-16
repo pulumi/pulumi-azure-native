@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for Disk pool request.
-// API Version: 2020-03-15-preview.
 func LookupDiskPool(ctx *pulumi.Context, args *LookupDiskPoolArgs, opts ...pulumi.InvokeOption) (*LookupDiskPoolResult, error) {
 	var rv LookupDiskPoolResult
 	err := ctx.Invoke("azure-native:storagepool:getDiskPool", args, &rv, opts...)
@@ -19,38 +17,23 @@ func LookupDiskPool(ctx *pulumi.Context, args *LookupDiskPoolArgs, opts ...pulum
 }
 
 type LookupDiskPoolArgs struct {
-	// The name of the Disk pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	DiskPoolName      string `pulumi:"diskPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response for Disk pool request.
 type LookupDiskPoolResult struct {
-	// List of additional capabilities for Disk pool.
-	AdditionalCapabilities []string `pulumi:"additionalCapabilities"`
-	// Logical zone for Disk pool resource; example: ["1"].
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
-	Disks []DiskResponse `pulumi:"disks"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives.
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// State of the operation on the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Operational status of the Disk pool.
-	Status string `pulumi:"status"`
-	// Azure Resource ID of a Subnet for the Disk pool.
-	SubnetId string `pulumi:"subnetId"`
-	// Resource metadata required by ARM RPC
-	SystemData SystemMetadataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Determines the SKU of VM deployed for Disk pool
-	Tier string `pulumi:"tier"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	AdditionalCapabilities []string               `pulumi:"additionalCapabilities"`
+	AvailabilityZones      []string               `pulumi:"availabilityZones"`
+	Disks                  []DiskResponse         `pulumi:"disks"`
+	Id                     string                 `pulumi:"id"`
+	Location               string                 `pulumi:"location"`
+	Name                   string                 `pulumi:"name"`
+	ProvisioningState      string                 `pulumi:"provisioningState"`
+	Status                 string                 `pulumi:"status"`
+	SubnetId               string                 `pulumi:"subnetId"`
+	SystemData             SystemMetadataResponse `pulumi:"systemData"`
+	Tags                   map[string]string      `pulumi:"tags"`
+	Tier                   string                 `pulumi:"tier"`
+	Type                   string                 `pulumi:"type"`
 }

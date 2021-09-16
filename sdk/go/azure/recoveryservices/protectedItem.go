@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for backup items.
-// API Version: 2021-02-01.
 type ProtectedItem struct {
 	pulumi.CustomResourceState
 

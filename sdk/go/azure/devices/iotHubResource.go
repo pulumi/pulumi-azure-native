@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the IoT hub.
-// API Version: 2020-08-31.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 

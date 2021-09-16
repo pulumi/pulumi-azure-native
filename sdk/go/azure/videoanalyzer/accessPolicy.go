@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy that determines how a video can be accessed.
-// API Version: 2021-05-01-preview.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Representation of a managed Cassandra cluster.
-// API Version: 2021-03-01-preview.
 type CassandraCluster struct {
 	pulumi.CustomResourceState
 

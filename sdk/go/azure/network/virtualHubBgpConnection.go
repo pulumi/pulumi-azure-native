@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Appliance Site resource.
-// API Version: 2020-11-01.
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 

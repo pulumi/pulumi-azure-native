@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the serial port of the parent resource.
-// API Version: 2018-05-01.
 type SerialPort struct {
 	pulumi.CustomResourceState
 

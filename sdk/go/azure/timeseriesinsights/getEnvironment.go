@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-// API Version: 2020-05-15.
-//
 // Deprecated: Please use one of the variants: Gen1Environment, Gen2Environment.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
@@ -21,28 +18,18 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
-	Expand *string `pulumi:"expand"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EnvironmentName   string  `pulumi:"environmentName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type LookupEnvironmentResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The kind of the environment.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id       string            `pulumi:"id"`
+	Kind     string            `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     string            `pulumi:"name"`
+	Sku      SkuResponse       `pulumi:"sku"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     string            `pulumi:"type"`
 }

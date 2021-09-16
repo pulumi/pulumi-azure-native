@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-// API Version: 2021-02-01.
 type ObjectReplicationPolicy struct {
 	pulumi.CustomResourceState
 

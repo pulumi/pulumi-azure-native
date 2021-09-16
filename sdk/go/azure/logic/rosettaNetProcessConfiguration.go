@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account RosettaNet process configuration.
-// API Version: 2016-06-01.
 type RosettaNetProcessConfiguration struct {
 	pulumi.CustomResourceState
 

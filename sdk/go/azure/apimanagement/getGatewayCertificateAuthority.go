@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway certificate authority details.
-// API Version: 2020-12-01.
 func LookupGatewayCertificateAuthority(ctx *pulumi.Context, args *LookupGatewayCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupGatewayCertificateAuthorityResult, error) {
 	var rv LookupGatewayCertificateAuthorityResult
 	err := ctx.Invoke("azure-native:apimanagement:getGatewayCertificateAuthority", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupGatewayCertificateAuthority(ctx *pulumi.Context, args *LookupGatewayC
 }
 
 type LookupGatewayCertificateAuthorityArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId string `pulumi:"certificateId"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// The name of the resource group.
+	CertificateId     string `pulumi:"certificateId"`
+	GatewayId         string `pulumi:"gatewayId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Gateway certificate authority details.
 type LookupGatewayCertificateAuthorityResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Determines whether certificate authority is trusted.
-	IsTrusted *bool `pulumi:"isTrusted"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Id        string `pulumi:"id"`
+	IsTrusted *bool  `pulumi:"isTrusted"`
+	Name      string `pulumi:"name"`
+	Type      string `pulumi:"type"`
 }

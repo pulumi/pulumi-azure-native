@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Migrate Project.
-// API Version: 2019-10-01.
 type Project struct {
 	pulumi.CustomResourceState
 

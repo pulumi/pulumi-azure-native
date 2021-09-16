@@ -11,7 +11,6 @@ import (
 )
 
 type ActivityEntityQueriesPropertiesQueryDefinitions struct {
-	// The Activity query to run on a given entity
 	Query *string `pulumi:"query"`
 }
 
@@ -27,7 +26,6 @@ type ActivityEntityQueriesPropertiesQueryDefinitionsInput interface {
 }
 
 type ActivityEntityQueriesPropertiesQueryDefinitionsArgs struct {
-	// The Activity query to run on a given entity
 	Query pulumi.StringPtrInput `pulumi:"query"`
 }
 
@@ -108,7 +106,6 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQ
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Elem() Activit
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Query() pulumi
 }
 
 type ActivityEntityQueriesPropertiesResponseQueryDefinitions struct {
-	// The Activity query to run on a given entity
 	Query *string `pulumi:"query"`
 }
 
@@ -164,7 +159,6 @@ type ActivityEntityQueriesPropertiesResponseQueryDefinitionsInput interface {
 }
 
 type ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs struct {
-	// The Activity query to run on a given entity
 	Query pulumi.StringPtrInput `pulumi:"query"`
 }
 
@@ -245,7 +239,6 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivit
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Elem()
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string {
 		if v == nil {
@@ -285,23 +277,14 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query(
 }
 
 type ActivityTimelineItemResponse struct {
-	// The grouping bucket end time.
-	BucketEndTimeUTC string `pulumi:"bucketEndTimeUTC"`
-	// The grouping bucket start time.
-	BucketStartTimeUTC string `pulumi:"bucketStartTimeUTC"`
-	// The activity timeline content.
-	Content string `pulumi:"content"`
-	// The time of the first activity in the grouping bucket.
+	BucketEndTimeUTC     string `pulumi:"bucketEndTimeUTC"`
+	BucketStartTimeUTC   string `pulumi:"bucketStartTimeUTC"`
+	Content              string `pulumi:"content"`
 	FirstActivityTimeUTC string `pulumi:"firstActivityTimeUTC"`
-	// The entity query kind
-	// Expected value is 'Activity'.
-	Kind string `pulumi:"kind"`
-	// The time of the last activity in the grouping bucket.
-	LastActivityTimeUTC string `pulumi:"lastActivityTimeUTC"`
-	// The activity query id.
-	QueryId string `pulumi:"queryId"`
-	// The activity timeline title.
-	Title string `pulumi:"title"`
+	Kind                 string `pulumi:"kind"`
+	LastActivityTimeUTC  string `pulumi:"lastActivityTimeUTC"`
+	QueryId              string `pulumi:"queryId"`
+	Title                string `pulumi:"title"`
 }
 
 // ActivityTimelineItemResponseInput is an input type that accepts ActivityTimelineItemResponseArgs and ActivityTimelineItemResponseOutput values.
@@ -316,23 +299,14 @@ type ActivityTimelineItemResponseInput interface {
 }
 
 type ActivityTimelineItemResponseArgs struct {
-	// The grouping bucket end time.
-	BucketEndTimeUTC pulumi.StringInput `pulumi:"bucketEndTimeUTC"`
-	// The grouping bucket start time.
-	BucketStartTimeUTC pulumi.StringInput `pulumi:"bucketStartTimeUTC"`
-	// The activity timeline content.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The time of the first activity in the grouping bucket.
+	BucketEndTimeUTC     pulumi.StringInput `pulumi:"bucketEndTimeUTC"`
+	BucketStartTimeUTC   pulumi.StringInput `pulumi:"bucketStartTimeUTC"`
+	Content              pulumi.StringInput `pulumi:"content"`
 	FirstActivityTimeUTC pulumi.StringInput `pulumi:"firstActivityTimeUTC"`
-	// The entity query kind
-	// Expected value is 'Activity'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The time of the last activity in the grouping bucket.
-	LastActivityTimeUTC pulumi.StringInput `pulumi:"lastActivityTimeUTC"`
-	// The activity query id.
-	QueryId pulumi.StringInput `pulumi:"queryId"`
-	// The activity timeline title.
-	Title pulumi.StringInput `pulumi:"title"`
+	Kind                 pulumi.StringInput `pulumi:"kind"`
+	LastActivityTimeUTC  pulumi.StringInput `pulumi:"lastActivityTimeUTC"`
+	QueryId              pulumi.StringInput `pulumi:"queryId"`
+	Title                pulumi.StringInput `pulumi:"title"`
 }
 
 func (ActivityTimelineItemResponseArgs) ElementType() reflect.Type {
@@ -361,49 +335,39 @@ func (o ActivityTimelineItemResponseOutput) ToActivityTimelineItemResponseOutput
 	return o
 }
 
-// The grouping bucket end time.
 func (o ActivityTimelineItemResponseOutput) BucketEndTimeUTC() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.BucketEndTimeUTC }).(pulumi.StringOutput)
 }
 
-// The grouping bucket start time.
 func (o ActivityTimelineItemResponseOutput) BucketStartTimeUTC() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.BucketStartTimeUTC }).(pulumi.StringOutput)
 }
 
-// The activity timeline content.
 func (o ActivityTimelineItemResponseOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The time of the first activity in the grouping bucket.
 func (o ActivityTimelineItemResponseOutput) FirstActivityTimeUTC() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.FirstActivityTimeUTC }).(pulumi.StringOutput)
 }
 
-// The entity query kind
-// Expected value is 'Activity'.
 func (o ActivityTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The time of the last activity in the grouping bucket.
 func (o ActivityTimelineItemResponseOutput) LastActivityTimeUTC() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.LastActivityTimeUTC }).(pulumi.StringOutput)
 }
 
-// The activity query id.
 func (o ActivityTimelineItemResponseOutput) QueryId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.QueryId }).(pulumi.StringOutput)
 }
 
-// The activity timeline title.
 func (o ActivityTimelineItemResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Title }).(pulumi.StringOutput)
 }
 
 type AlertsDataTypeOfDataConnector struct {
-	// Alerts data type connection.
 	Alerts *DataConnectorDataTypeCommon `pulumi:"alerts"`
 }
 
@@ -419,7 +383,6 @@ type AlertsDataTypeOfDataConnectorInput interface {
 }
 
 type AlertsDataTypeOfDataConnectorArgs struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommonPtrInput `pulumi:"alerts"`
 }
 
@@ -500,7 +463,6 @@ func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrO
 	}).(AlertsDataTypeOfDataConnectorPtrOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) *DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonPtrOutput)
 }
@@ -529,7 +491,6 @@ func (o AlertsDataTypeOfDataConnectorPtrOutput) Elem() AlertsDataTypeOfDataConne
 	}).(AlertsDataTypeOfDataConnectorOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -540,7 +501,6 @@ func (o AlertsDataTypeOfDataConnectorPtrOutput) Alerts() DataConnectorDataTypeCo
 }
 
 type AlertsDataTypeOfDataConnectorResponse struct {
-	// Alerts data type connection.
 	Alerts *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
 }
 
@@ -556,7 +516,6 @@ type AlertsDataTypeOfDataConnectorResponseInput interface {
 }
 
 type AlertsDataTypeOfDataConnectorResponseArgs struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
 }
 
@@ -637,7 +596,6 @@ func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConne
 	}).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) *DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
@@ -666,7 +624,6 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Elem() AlertsDataTypeOfD
 	}).(AlertsDataTypeOfDataConnectorResponseOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -677,13 +634,9 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDa
 }
 
 type AutomationRuleModifyPropertiesAction struct {
-	// The configuration of the modify properties automation rule action
 	ActionConfiguration AutomationRuleModifyPropertiesActionActionConfiguration `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'ModifyProperties'.
-	ActionType string `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order int `pulumi:"order"`
+	ActionType          string                                                  `pulumi:"actionType"`
+	Order               int                                                     `pulumi:"order"`
 }
 
 // AutomationRuleModifyPropertiesActionInput is an input type that accepts AutomationRuleModifyPropertiesActionArgs and AutomationRuleModifyPropertiesActionOutput values.
@@ -698,13 +651,9 @@ type AutomationRuleModifyPropertiesActionInput interface {
 }
 
 type AutomationRuleModifyPropertiesActionArgs struct {
-	// The configuration of the modify properties automation rule action
 	ActionConfiguration AutomationRuleModifyPropertiesActionActionConfigurationInput `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'ModifyProperties'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order pulumi.IntInput `pulumi:"order"`
+	ActionType          pulumi.StringInput                                           `pulumi:"actionType"`
+	Order               pulumi.IntInput                                              `pulumi:"order"`
 }
 
 func (AutomationRuleModifyPropertiesActionArgs) ElementType() reflect.Type {
@@ -733,39 +682,28 @@ func (o AutomationRuleModifyPropertiesActionOutput) ToAutomationRuleModifyProper
 	return o
 }
 
-// The configuration of the modify properties automation rule action
 func (o AutomationRuleModifyPropertiesActionOutput) ActionConfiguration() AutomationRuleModifyPropertiesActionActionConfigurationOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) AutomationRuleModifyPropertiesActionActionConfiguration {
 		return v.ActionConfiguration
 	}).(AutomationRuleModifyPropertiesActionActionConfigurationOutput)
 }
 
-// The type of the automation rule action
-// Expected value is 'ModifyProperties'.
 func (o AutomationRuleModifyPropertiesActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The order of execution of the automation rule action
 func (o AutomationRuleModifyPropertiesActionOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) int { return v.Order }).(pulumi.IntOutput)
 }
 
 type AutomationRuleModifyPropertiesActionActionConfiguration struct {
-	// The reason the incident was closed
-	Classification *string `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment *string `pulumi:"classificationComment"`
-	// The classification reason to close the incident with
-	ClassificationReason *string `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels []IncidentLabel `pulumi:"labels"`
-	// Describes a user that the incident is assigned to
-	Owner *IncidentOwnerInfo `pulumi:"owner"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The status of the incident
-	Status *string `pulumi:"status"`
+	Classification        *string            `pulumi:"classification"`
+	ClassificationComment *string            `pulumi:"classificationComment"`
+	ClassificationReason  *string            `pulumi:"classificationReason"`
+	Labels                []IncidentLabel    `pulumi:"labels"`
+	Owner                 *IncidentOwnerInfo `pulumi:"owner"`
+	Severity              *string            `pulumi:"severity"`
+	Status                *string            `pulumi:"status"`
 }
 
 // AutomationRuleModifyPropertiesActionActionConfigurationInput is an input type that accepts AutomationRuleModifyPropertiesActionActionConfigurationArgs and AutomationRuleModifyPropertiesActionActionConfigurationOutput values.
@@ -780,20 +718,13 @@ type AutomationRuleModifyPropertiesActionActionConfigurationInput interface {
 }
 
 type AutomationRuleModifyPropertiesActionActionConfigurationArgs struct {
-	// The reason the incident was closed
-	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
-	// The classification reason to close the incident with
-	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels IncidentLabelArrayInput `pulumi:"labels"`
-	// Describes a user that the incident is assigned to
-	Owner IncidentOwnerInfoPtrInput `pulumi:"owner"`
-	// The severity of the incident
-	Severity pulumi.StringPtrInput `pulumi:"severity"`
-	// The status of the incident
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Classification        pulumi.StringPtrInput     `pulumi:"classification"`
+	ClassificationComment pulumi.StringPtrInput     `pulumi:"classificationComment"`
+	ClassificationReason  pulumi.StringPtrInput     `pulumi:"classificationReason"`
+	Labels                IncidentLabelArrayInput   `pulumi:"labels"`
+	Owner                 IncidentOwnerInfoPtrInput `pulumi:"owner"`
+	Severity              pulumi.StringPtrInput     `pulumi:"severity"`
+	Status                pulumi.StringPtrInput     `pulumi:"status"`
 }
 
 func (AutomationRuleModifyPropertiesActionActionConfigurationArgs) ElementType() reflect.Type {
@@ -822,51 +753,40 @@ func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ToAutomat
 	return o
 }
 
-// The reason the incident was closed
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-// Describes the reason the incident was closed
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ClassificationComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string {
 		return v.ClassificationComment
 	}).(pulumi.StringPtrOutput)
 }
 
-// The classification reason to close the incident with
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ClassificationReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.ClassificationReason }).(pulumi.StringPtrOutput)
 }
 
-// List of labels to add to the incident
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Labels() IncidentLabelArrayOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) []IncidentLabel { return v.Labels }).(IncidentLabelArrayOutput)
 }
 
-// Describes a user that the incident is assigned to
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Owner() IncidentOwnerInfoPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *IncidentOwnerInfo { return v.Owner }).(IncidentOwnerInfoPtrOutput)
 }
 
-// The severity of the incident
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
-// The status of the incident
 func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type AutomationRuleModifyPropertiesActionResponse struct {
-	// The configuration of the modify properties automation rule action
 	ActionConfiguration AutomationRuleModifyPropertiesActionResponseActionConfiguration `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'ModifyProperties'.
-	ActionType string `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order int `pulumi:"order"`
+	ActionType          string                                                          `pulumi:"actionType"`
+	Order               int                                                             `pulumi:"order"`
 }
 
 // AutomationRuleModifyPropertiesActionResponseInput is an input type that accepts AutomationRuleModifyPropertiesActionResponseArgs and AutomationRuleModifyPropertiesActionResponseOutput values.
@@ -881,13 +801,9 @@ type AutomationRuleModifyPropertiesActionResponseInput interface {
 }
 
 type AutomationRuleModifyPropertiesActionResponseArgs struct {
-	// The configuration of the modify properties automation rule action
 	ActionConfiguration AutomationRuleModifyPropertiesActionResponseActionConfigurationInput `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'ModifyProperties'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order pulumi.IntInput `pulumi:"order"`
+	ActionType          pulumi.StringInput                                                   `pulumi:"actionType"`
+	Order               pulumi.IntInput                                                      `pulumi:"order"`
 }
 
 func (AutomationRuleModifyPropertiesActionResponseArgs) ElementType() reflect.Type {
@@ -916,39 +832,28 @@ func (o AutomationRuleModifyPropertiesActionResponseOutput) ToAutomationRuleModi
 	return o
 }
 
-// The configuration of the modify properties automation rule action
 func (o AutomationRuleModifyPropertiesActionResponseOutput) ActionConfiguration() AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) AutomationRuleModifyPropertiesActionResponseActionConfiguration {
 		return v.ActionConfiguration
 	}).(AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput)
 }
 
-// The type of the automation rule action
-// Expected value is 'ModifyProperties'.
 func (o AutomationRuleModifyPropertiesActionResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The order of execution of the automation rule action
 func (o AutomationRuleModifyPropertiesActionResponseOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) int { return v.Order }).(pulumi.IntOutput)
 }
 
 type AutomationRuleModifyPropertiesActionResponseActionConfiguration struct {
-	// The reason the incident was closed
-	Classification *string `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment *string `pulumi:"classificationComment"`
-	// The classification reason to close the incident with
-	ClassificationReason *string `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels []IncidentLabelResponse `pulumi:"labels"`
-	// Describes a user that the incident is assigned to
-	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The status of the incident
-	Status *string `pulumi:"status"`
+	Classification        *string                    `pulumi:"classification"`
+	ClassificationComment *string                    `pulumi:"classificationComment"`
+	ClassificationReason  *string                    `pulumi:"classificationReason"`
+	Labels                []IncidentLabelResponse    `pulumi:"labels"`
+	Owner                 *IncidentOwnerInfoResponse `pulumi:"owner"`
+	Severity              *string                    `pulumi:"severity"`
+	Status                *string                    `pulumi:"status"`
 }
 
 // AutomationRuleModifyPropertiesActionResponseActionConfigurationInput is an input type that accepts AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs and AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput values.
@@ -963,20 +868,13 @@ type AutomationRuleModifyPropertiesActionResponseActionConfigurationInput interf
 }
 
 type AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs struct {
-	// The reason the incident was closed
-	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
-	// The classification reason to close the incident with
-	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels IncidentLabelResponseArrayInput `pulumi:"labels"`
-	// Describes a user that the incident is assigned to
-	Owner IncidentOwnerInfoResponsePtrInput `pulumi:"owner"`
-	// The severity of the incident
-	Severity pulumi.StringPtrInput `pulumi:"severity"`
-	// The status of the incident
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Classification        pulumi.StringPtrInput             `pulumi:"classification"`
+	ClassificationComment pulumi.StringPtrInput             `pulumi:"classificationComment"`
+	ClassificationReason  pulumi.StringPtrInput             `pulumi:"classificationReason"`
+	Labels                IncidentLabelResponseArrayInput   `pulumi:"labels"`
+	Owner                 IncidentOwnerInfoResponsePtrInput `pulumi:"owner"`
+	Severity              pulumi.StringPtrInput             `pulumi:"severity"`
+	Status                pulumi.StringPtrInput             `pulumi:"status"`
 }
 
 func (AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs) ElementType() reflect.Type {
@@ -1005,57 +903,47 @@ func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) T
 	return o
 }
 
-// The reason the incident was closed
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
 		return v.Classification
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the reason the incident was closed
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ClassificationComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
 		return v.ClassificationComment
 	}).(pulumi.StringPtrOutput)
 }
 
-// The classification reason to close the incident with
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ClassificationReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
 		return v.ClassificationReason
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of labels to add to the incident
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Labels() IncidentLabelResponseArrayOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) []IncidentLabelResponse {
 		return v.Labels
 	}).(IncidentLabelResponseArrayOutput)
 }
 
-// Describes a user that the incident is assigned to
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *IncidentOwnerInfoResponse {
 		return v.Owner
 	}).(IncidentOwnerInfoResponsePtrOutput)
 }
 
-// The severity of the incident
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
-// The status of the incident
 func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type AutomationRulePropertyValuesCondition struct {
-	// The configuration of the automation rule condition
 	ConditionProperties AutomationRulePropertyValuesConditionConditionProperties `pulumi:"conditionProperties"`
-	// The type of the automation rule condition
-	// Expected value is 'Property'.
-	ConditionType string `pulumi:"conditionType"`
+	ConditionType       string                                                   `pulumi:"conditionType"`
 }
 
 // AutomationRulePropertyValuesConditionInput is an input type that accepts AutomationRulePropertyValuesConditionArgs and AutomationRulePropertyValuesConditionOutput values.
@@ -1070,11 +958,8 @@ type AutomationRulePropertyValuesConditionInput interface {
 }
 
 type AutomationRulePropertyValuesConditionArgs struct {
-	// The configuration of the automation rule condition
 	ConditionProperties AutomationRulePropertyValuesConditionConditionPropertiesInput `pulumi:"conditionProperties"`
-	// The type of the automation rule condition
-	// Expected value is 'Property'.
-	ConditionType pulumi.StringInput `pulumi:"conditionType"`
+	ConditionType       pulumi.StringInput                                            `pulumi:"conditionType"`
 }
 
 func (AutomationRulePropertyValuesConditionArgs) ElementType() reflect.Type {
@@ -1128,15 +1013,12 @@ func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyVal
 	return o
 }
 
-// The configuration of the automation rule condition
 func (o AutomationRulePropertyValuesConditionOutput) ConditionProperties() AutomationRulePropertyValuesConditionConditionPropertiesOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) AutomationRulePropertyValuesConditionConditionProperties {
 		return v.ConditionProperties
 	}).(AutomationRulePropertyValuesConditionConditionPropertiesOutput)
 }
 
-// The type of the automation rule condition
-// Expected value is 'Property'.
 func (o AutomationRulePropertyValuesConditionOutput) ConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) string { return v.ConditionType }).(pulumi.StringOutput)
 }
@@ -1162,11 +1044,8 @@ func (o AutomationRulePropertyValuesConditionArrayOutput) Index(i pulumi.IntInpu
 }
 
 type AutomationRulePropertyValuesConditionConditionProperties struct {
-	// The operator to use for evaluation the condition
-	Operator *string `pulumi:"operator"`
-	// The property to evaluate
-	PropertyName *string `pulumi:"propertyName"`
-	// The values to use for evaluating the condition
+	Operator       *string  `pulumi:"operator"`
+	PropertyName   *string  `pulumi:"propertyName"`
 	PropertyValues []string `pulumi:"propertyValues"`
 }
 
@@ -1182,11 +1061,8 @@ type AutomationRulePropertyValuesConditionConditionPropertiesInput interface {
 }
 
 type AutomationRulePropertyValuesConditionConditionPropertiesArgs struct {
-	// The operator to use for evaluation the condition
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The property to evaluate
-	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
-	// The values to use for evaluating the condition
+	Operator       pulumi.StringPtrInput   `pulumi:"operator"`
+	PropertyName   pulumi.StringPtrInput   `pulumi:"propertyName"`
 	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
 }
 
@@ -1216,27 +1092,21 @@ func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) ToAutoma
 	return o
 }
 
-// The operator to use for evaluation the condition
 func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The property to evaluate
 func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
 
-// The values to use for evaluating the condition
 func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) PropertyValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
 }
 
 type AutomationRulePropertyValuesConditionResponse struct {
-	// The configuration of the automation rule condition
 	ConditionProperties AutomationRulePropertyValuesConditionResponseConditionProperties `pulumi:"conditionProperties"`
-	// The type of the automation rule condition
-	// Expected value is 'Property'.
-	ConditionType string `pulumi:"conditionType"`
+	ConditionType       string                                                           `pulumi:"conditionType"`
 }
 
 // AutomationRulePropertyValuesConditionResponseInput is an input type that accepts AutomationRulePropertyValuesConditionResponseArgs and AutomationRulePropertyValuesConditionResponseOutput values.
@@ -1251,11 +1121,8 @@ type AutomationRulePropertyValuesConditionResponseInput interface {
 }
 
 type AutomationRulePropertyValuesConditionResponseArgs struct {
-	// The configuration of the automation rule condition
 	ConditionProperties AutomationRulePropertyValuesConditionResponseConditionPropertiesInput `pulumi:"conditionProperties"`
-	// The type of the automation rule condition
-	// Expected value is 'Property'.
-	ConditionType pulumi.StringInput `pulumi:"conditionType"`
+	ConditionType       pulumi.StringInput                                                    `pulumi:"conditionType"`
 }
 
 func (AutomationRulePropertyValuesConditionResponseArgs) ElementType() reflect.Type {
@@ -1309,15 +1176,12 @@ func (o AutomationRulePropertyValuesConditionResponseOutput) ToAutomationRulePro
 	return o
 }
 
-// The configuration of the automation rule condition
 func (o AutomationRulePropertyValuesConditionResponseOutput) ConditionProperties() AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) AutomationRulePropertyValuesConditionResponseConditionProperties {
 		return v.ConditionProperties
 	}).(AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput)
 }
 
-// The type of the automation rule condition
-// Expected value is 'Property'.
 func (o AutomationRulePropertyValuesConditionResponseOutput) ConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) string { return v.ConditionType }).(pulumi.StringOutput)
 }
@@ -1343,11 +1207,8 @@ func (o AutomationRulePropertyValuesConditionResponseArrayOutput) Index(i pulumi
 }
 
 type AutomationRulePropertyValuesConditionResponseConditionProperties struct {
-	// The operator to use for evaluation the condition
-	Operator *string `pulumi:"operator"`
-	// The property to evaluate
-	PropertyName *string `pulumi:"propertyName"`
-	// The values to use for evaluating the condition
+	Operator       *string  `pulumi:"operator"`
+	PropertyName   *string  `pulumi:"propertyName"`
 	PropertyValues []string `pulumi:"propertyValues"`
 }
 
@@ -1363,11 +1224,8 @@ type AutomationRulePropertyValuesConditionResponseConditionPropertiesInput inter
 }
 
 type AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs struct {
-	// The operator to use for evaluation the condition
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The property to evaluate
-	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
-	// The values to use for evaluating the condition
+	Operator       pulumi.StringPtrInput   `pulumi:"operator"`
+	PropertyName   pulumi.StringPtrInput   `pulumi:"propertyName"`
 	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
 }
 
@@ -1397,19 +1255,16 @@ func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) 
 	return o
 }
 
-// The operator to use for evaluation the condition
 func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The property to evaluate
 func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) *string {
 		return v.PropertyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The values to use for evaluating the condition
 func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) PropertyValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) []string {
 		return v.PropertyValues
@@ -1417,13 +1272,9 @@ func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) 
 }
 
 type AutomationRuleRunPlaybookAction struct {
-	// The configuration of the run playbook automation rule action
 	ActionConfiguration AutomationRuleRunPlaybookActionActionConfiguration `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'RunPlaybook'.
-	ActionType string `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order int `pulumi:"order"`
+	ActionType          string                                             `pulumi:"actionType"`
+	Order               int                                                `pulumi:"order"`
 }
 
 // AutomationRuleRunPlaybookActionInput is an input type that accepts AutomationRuleRunPlaybookActionArgs and AutomationRuleRunPlaybookActionOutput values.
@@ -1438,13 +1289,9 @@ type AutomationRuleRunPlaybookActionInput interface {
 }
 
 type AutomationRuleRunPlaybookActionArgs struct {
-	// The configuration of the run playbook automation rule action
 	ActionConfiguration AutomationRuleRunPlaybookActionActionConfigurationInput `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'RunPlaybook'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order pulumi.IntInput `pulumi:"order"`
+	ActionType          pulumi.StringInput                                      `pulumi:"actionType"`
+	Order               pulumi.IntInput                                         `pulumi:"order"`
 }
 
 func (AutomationRuleRunPlaybookActionArgs) ElementType() reflect.Type {
@@ -1473,29 +1320,23 @@ func (o AutomationRuleRunPlaybookActionOutput) ToAutomationRuleRunPlaybookAction
 	return o
 }
 
-// The configuration of the run playbook automation rule action
 func (o AutomationRuleRunPlaybookActionOutput) ActionConfiguration() AutomationRuleRunPlaybookActionActionConfigurationOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) AutomationRuleRunPlaybookActionActionConfiguration {
 		return v.ActionConfiguration
 	}).(AutomationRuleRunPlaybookActionActionConfigurationOutput)
 }
 
-// The type of the automation rule action
-// Expected value is 'RunPlaybook'.
 func (o AutomationRuleRunPlaybookActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The order of execution of the automation rule action
 func (o AutomationRuleRunPlaybookActionOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) int { return v.Order }).(pulumi.IntOutput)
 }
 
 type AutomationRuleRunPlaybookActionActionConfiguration struct {
-	// The resource id of the playbook resource
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	// The tenant id of the playbook resource
-	TenantId *string `pulumi:"tenantId"`
+	TenantId           *string `pulumi:"tenantId"`
 }
 
 // AutomationRuleRunPlaybookActionActionConfigurationInput is an input type that accepts AutomationRuleRunPlaybookActionActionConfigurationArgs and AutomationRuleRunPlaybookActionActionConfigurationOutput values.
@@ -1510,10 +1351,8 @@ type AutomationRuleRunPlaybookActionActionConfigurationInput interface {
 }
 
 type AutomationRuleRunPlaybookActionActionConfigurationArgs struct {
-	// The resource id of the playbook resource
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
-	// The tenant id of the playbook resource
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId           pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AutomationRuleRunPlaybookActionActionConfigurationArgs) ElementType() reflect.Type {
@@ -1542,24 +1381,18 @@ func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) ToAutomationRu
 	return o
 }
 
-// The resource id of the playbook resource
 func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionActionConfiguration) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the playbook resource
 func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionActionConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 type AutomationRuleRunPlaybookActionResponse struct {
-	// The configuration of the run playbook automation rule action
 	ActionConfiguration AutomationRuleRunPlaybookActionResponseActionConfiguration `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'RunPlaybook'.
-	ActionType string `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order int `pulumi:"order"`
+	ActionType          string                                                     `pulumi:"actionType"`
+	Order               int                                                        `pulumi:"order"`
 }
 
 // AutomationRuleRunPlaybookActionResponseInput is an input type that accepts AutomationRuleRunPlaybookActionResponseArgs and AutomationRuleRunPlaybookActionResponseOutput values.
@@ -1574,13 +1407,9 @@ type AutomationRuleRunPlaybookActionResponseInput interface {
 }
 
 type AutomationRuleRunPlaybookActionResponseArgs struct {
-	// The configuration of the run playbook automation rule action
 	ActionConfiguration AutomationRuleRunPlaybookActionResponseActionConfigurationInput `pulumi:"actionConfiguration"`
-	// The type of the automation rule action
-	// Expected value is 'RunPlaybook'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The order of execution of the automation rule action
-	Order pulumi.IntInput `pulumi:"order"`
+	ActionType          pulumi.StringInput                                              `pulumi:"actionType"`
+	Order               pulumi.IntInput                                                 `pulumi:"order"`
 }
 
 func (AutomationRuleRunPlaybookActionResponseArgs) ElementType() reflect.Type {
@@ -1609,29 +1438,23 @@ func (o AutomationRuleRunPlaybookActionResponseOutput) ToAutomationRuleRunPlaybo
 	return o
 }
 
-// The configuration of the run playbook automation rule action
 func (o AutomationRuleRunPlaybookActionResponseOutput) ActionConfiguration() AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) AutomationRuleRunPlaybookActionResponseActionConfiguration {
 		return v.ActionConfiguration
 	}).(AutomationRuleRunPlaybookActionResponseActionConfigurationOutput)
 }
 
-// The type of the automation rule action
-// Expected value is 'RunPlaybook'.
 func (o AutomationRuleRunPlaybookActionResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The order of execution of the automation rule action
 func (o AutomationRuleRunPlaybookActionResponseOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) int { return v.Order }).(pulumi.IntOutput)
 }
 
 type AutomationRuleRunPlaybookActionResponseActionConfiguration struct {
-	// The resource id of the playbook resource
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	// The tenant id of the playbook resource
-	TenantId *string `pulumi:"tenantId"`
+	TenantId           *string `pulumi:"tenantId"`
 }
 
 // AutomationRuleRunPlaybookActionResponseActionConfigurationInput is an input type that accepts AutomationRuleRunPlaybookActionResponseActionConfigurationArgs and AutomationRuleRunPlaybookActionResponseActionConfigurationOutput values.
@@ -1646,10 +1469,8 @@ type AutomationRuleRunPlaybookActionResponseActionConfigurationInput interface {
 }
 
 type AutomationRuleRunPlaybookActionResponseActionConfigurationArgs struct {
-	// The resource id of the playbook resource
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
-	// The tenant id of the playbook resource
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId           pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AutomationRuleRunPlaybookActionResponseActionConfigurationArgs) ElementType() reflect.Type {
@@ -1678,29 +1499,22 @@ func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) ToAuto
 	return o
 }
 
-// The resource id of the playbook resource
 func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponseActionConfiguration) *string {
 		return v.LogicAppResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the playbook resource
 func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponseActionConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 type AutomationRuleTriggeringLogic struct {
-	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
-	Conditions []AutomationRulePropertyValuesCondition `pulumi:"conditions"`
-	// Determines when the automation rule should automatically expire and be disabled.
-	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// Determines whether the automation rule is enabled or disabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of object the automation rule triggers on
-	TriggersOn string `pulumi:"triggersOn"`
-	// The type of event the automation rule triggers on
-	TriggersWhen string `pulumi:"triggersWhen"`
+	Conditions        []AutomationRulePropertyValuesCondition `pulumi:"conditions"`
+	ExpirationTimeUtc *string                                 `pulumi:"expirationTimeUtc"`
+	IsEnabled         bool                                    `pulumi:"isEnabled"`
+	TriggersOn        string                                  `pulumi:"triggersOn"`
+	TriggersWhen      string                                  `pulumi:"triggersWhen"`
 }
 
 // AutomationRuleTriggeringLogicInput is an input type that accepts AutomationRuleTriggeringLogicArgs and AutomationRuleTriggeringLogicOutput values.
@@ -1715,16 +1529,11 @@ type AutomationRuleTriggeringLogicInput interface {
 }
 
 type AutomationRuleTriggeringLogicArgs struct {
-	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
-	Conditions AutomationRulePropertyValuesConditionArrayInput `pulumi:"conditions"`
-	// Determines when the automation rule should automatically expire and be disabled.
-	ExpirationTimeUtc pulumi.StringPtrInput `pulumi:"expirationTimeUtc"`
-	// Determines whether the automation rule is enabled or disabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of object the automation rule triggers on
-	TriggersOn pulumi.StringInput `pulumi:"triggersOn"`
-	// The type of event the automation rule triggers on
-	TriggersWhen pulumi.StringInput `pulumi:"triggersWhen"`
+	Conditions        AutomationRulePropertyValuesConditionArrayInput `pulumi:"conditions"`
+	ExpirationTimeUtc pulumi.StringPtrInput                           `pulumi:"expirationTimeUtc"`
+	IsEnabled         pulumi.BoolInput                                `pulumi:"isEnabled"`
+	TriggersOn        pulumi.StringInput                              `pulumi:"triggersOn"`
+	TriggersWhen      pulumi.StringInput                              `pulumi:"triggersWhen"`
 }
 
 func (AutomationRuleTriggeringLogicArgs) ElementType() reflect.Type {
@@ -1804,27 +1613,22 @@ func (o AutomationRuleTriggeringLogicOutput) ToAutomationRuleTriggeringLogicPtrO
 	}).(AutomationRuleTriggeringLogicPtrOutput)
 }
 
-// The conditions to evaluate to determine if the automation rule should be triggered on a given object
 func (o AutomationRuleTriggeringLogicOutput) Conditions() AutomationRulePropertyValuesConditionArrayOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogic) []AutomationRulePropertyValuesCondition { return v.Conditions }).(AutomationRulePropertyValuesConditionArrayOutput)
 }
 
-// Determines when the automation rule should automatically expire and be disabled.
 func (o AutomationRuleTriggeringLogicOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogic) *string { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the automation rule is enabled or disabled.
 func (o AutomationRuleTriggeringLogicOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogic) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of object the automation rule triggers on
 func (o AutomationRuleTriggeringLogicOutput) TriggersOn() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogic) string { return v.TriggersOn }).(pulumi.StringOutput)
 }
 
-// The type of event the automation rule triggers on
 func (o AutomationRuleTriggeringLogicOutput) TriggersWhen() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogic) string { return v.TriggersWhen }).(pulumi.StringOutput)
 }
@@ -1853,7 +1657,6 @@ func (o AutomationRuleTriggeringLogicPtrOutput) Elem() AutomationRuleTriggeringL
 	}).(AutomationRuleTriggeringLogicOutput)
 }
 
-// The conditions to evaluate to determine if the automation rule should be triggered on a given object
 func (o AutomationRuleTriggeringLogicPtrOutput) Conditions() AutomationRulePropertyValuesConditionArrayOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) []AutomationRulePropertyValuesCondition {
 		if v == nil {
@@ -1863,7 +1666,6 @@ func (o AutomationRuleTriggeringLogicPtrOutput) Conditions() AutomationRulePrope
 	}).(AutomationRulePropertyValuesConditionArrayOutput)
 }
 
-// Determines when the automation rule should automatically expire and be disabled.
 func (o AutomationRuleTriggeringLogicPtrOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
 		if v == nil {
@@ -1873,7 +1675,6 @@ func (o AutomationRuleTriggeringLogicPtrOutput) ExpirationTimeUtc() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the automation rule is enabled or disabled.
 func (o AutomationRuleTriggeringLogicPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *bool {
 		if v == nil {
@@ -1883,7 +1684,6 @@ func (o AutomationRuleTriggeringLogicPtrOutput) IsEnabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of object the automation rule triggers on
 func (o AutomationRuleTriggeringLogicPtrOutput) TriggersOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
 		if v == nil {
@@ -1893,7 +1693,6 @@ func (o AutomationRuleTriggeringLogicPtrOutput) TriggersOn() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of event the automation rule triggers on
 func (o AutomationRuleTriggeringLogicPtrOutput) TriggersWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
 		if v == nil {
@@ -1904,16 +1703,11 @@ func (o AutomationRuleTriggeringLogicPtrOutput) TriggersWhen() pulumi.StringPtrO
 }
 
 type AutomationRuleTriggeringLogicResponse struct {
-	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
-	Conditions []AutomationRulePropertyValuesConditionResponse `pulumi:"conditions"`
-	// Determines when the automation rule should automatically expire and be disabled.
-	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// Determines whether the automation rule is enabled or disabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of object the automation rule triggers on
-	TriggersOn string `pulumi:"triggersOn"`
-	// The type of event the automation rule triggers on
-	TriggersWhen string `pulumi:"triggersWhen"`
+	Conditions        []AutomationRulePropertyValuesConditionResponse `pulumi:"conditions"`
+	ExpirationTimeUtc *string                                         `pulumi:"expirationTimeUtc"`
+	IsEnabled         bool                                            `pulumi:"isEnabled"`
+	TriggersOn        string                                          `pulumi:"triggersOn"`
+	TriggersWhen      string                                          `pulumi:"triggersWhen"`
 }
 
 // AutomationRuleTriggeringLogicResponseInput is an input type that accepts AutomationRuleTriggeringLogicResponseArgs and AutomationRuleTriggeringLogicResponseOutput values.
@@ -1928,16 +1722,11 @@ type AutomationRuleTriggeringLogicResponseInput interface {
 }
 
 type AutomationRuleTriggeringLogicResponseArgs struct {
-	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
-	Conditions AutomationRulePropertyValuesConditionResponseArrayInput `pulumi:"conditions"`
-	// Determines when the automation rule should automatically expire and be disabled.
-	ExpirationTimeUtc pulumi.StringPtrInput `pulumi:"expirationTimeUtc"`
-	// Determines whether the automation rule is enabled or disabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of object the automation rule triggers on
-	TriggersOn pulumi.StringInput `pulumi:"triggersOn"`
-	// The type of event the automation rule triggers on
-	TriggersWhen pulumi.StringInput `pulumi:"triggersWhen"`
+	Conditions        AutomationRulePropertyValuesConditionResponseArrayInput `pulumi:"conditions"`
+	ExpirationTimeUtc pulumi.StringPtrInput                                   `pulumi:"expirationTimeUtc"`
+	IsEnabled         pulumi.BoolInput                                        `pulumi:"isEnabled"`
+	TriggersOn        pulumi.StringInput                                      `pulumi:"triggersOn"`
+	TriggersWhen      pulumi.StringInput                                      `pulumi:"triggersWhen"`
 }
 
 func (AutomationRuleTriggeringLogicResponseArgs) ElementType() reflect.Type {
@@ -2017,29 +1806,24 @@ func (o AutomationRuleTriggeringLogicResponseOutput) ToAutomationRuleTriggeringL
 	}).(AutomationRuleTriggeringLogicResponsePtrOutput)
 }
 
-// The conditions to evaluate to determine if the automation rule should be triggered on a given object
 func (o AutomationRuleTriggeringLogicResponseOutput) Conditions() AutomationRulePropertyValuesConditionResponseArrayOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) []AutomationRulePropertyValuesConditionResponse {
 		return v.Conditions
 	}).(AutomationRulePropertyValuesConditionResponseArrayOutput)
 }
 
-// Determines when the automation rule should automatically expire and be disabled.
 func (o AutomationRuleTriggeringLogicResponseOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) *string { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the automation rule is enabled or disabled.
 func (o AutomationRuleTriggeringLogicResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of object the automation rule triggers on
 func (o AutomationRuleTriggeringLogicResponseOutput) TriggersOn() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) string { return v.TriggersOn }).(pulumi.StringOutput)
 }
 
-// The type of event the automation rule triggers on
 func (o AutomationRuleTriggeringLogicResponseOutput) TriggersWhen() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) string { return v.TriggersWhen }).(pulumi.StringOutput)
 }
@@ -2068,7 +1852,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) Elem() AutomationRuleTri
 	}).(AutomationRuleTriggeringLogicResponseOutput)
 }
 
-// The conditions to evaluate to determine if the automation rule should be triggered on a given object
 func (o AutomationRuleTriggeringLogicResponsePtrOutput) Conditions() AutomationRulePropertyValuesConditionResponseArrayOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) []AutomationRulePropertyValuesConditionResponse {
 		if v == nil {
@@ -2078,7 +1861,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) Conditions() AutomationR
 	}).(AutomationRulePropertyValuesConditionResponseArrayOutput)
 }
 
-// Determines when the automation rule should automatically expire and be disabled.
 func (o AutomationRuleTriggeringLogicResponsePtrOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
 		if v == nil {
@@ -2088,7 +1870,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) ExpirationTimeUtc() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the automation rule is enabled or disabled.
 func (o AutomationRuleTriggeringLogicResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *bool {
 		if v == nil {
@@ -2098,7 +1879,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) IsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of object the automation rule triggers on
 func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
 		if v == nil {
@@ -2108,7 +1888,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersOn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of event the automation rule triggers on
 func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
 		if v == nil {
@@ -2119,7 +1898,6 @@ func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersWhen() pulumi.St
 }
 
 type AwsCloudTrailDataConnectorDataTypes struct {
-	// Logs data type.
 	Logs *AwsCloudTrailDataConnectorDataTypesLogs `pulumi:"logs"`
 }
 
@@ -2135,7 +1913,6 @@ type AwsCloudTrailDataConnectorDataTypesInput interface {
 }
 
 type AwsCloudTrailDataConnectorDataTypesArgs struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesLogsPtrInput `pulumi:"logs"`
 }
 
@@ -2216,7 +1993,6 @@ func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorD
 	}).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypesLogs { return v.Logs }).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
@@ -2245,7 +2021,6 @@ func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Elem() AwsCloudTrailDataCo
 	}).(AwsCloudTrailDataConnectorDataTypesOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypesLogs {
 		if v == nil {
@@ -2256,7 +2031,6 @@ func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Logs() AwsCloudTrailDataCo
 }
 
 type AwsCloudTrailDataConnectorDataTypesLogs struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -2272,7 +2046,6 @@ type AwsCloudTrailDataConnectorDataTypesLogsInput interface {
 }
 
 type AwsCloudTrailDataConnectorDataTypesLogsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -2353,7 +2126,6 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnec
 	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2382,7 +2154,6 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) Elem() AwsCloudTrailDa
 	}).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) *string {
 		if v == nil {
@@ -2393,7 +2164,6 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) State() pulumi.StringP
 }
 
 type AwsCloudTrailDataConnectorDataTypesResponse struct {
-	// Logs data type.
 	Logs *AwsCloudTrailDataConnectorDataTypesResponseLogs `pulumi:"logs"`
 }
 
@@ -2409,7 +2179,6 @@ type AwsCloudTrailDataConnectorDataTypesResponseInput interface {
 }
 
 type AwsCloudTrailDataConnectorDataTypesResponseArgs struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput `pulumi:"logs"`
 }
 
@@ -2490,7 +2259,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataCo
 	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		return v.Logs
@@ -2521,7 +2289,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Elem() AwsCloudTra
 	}).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		if v == nil {
@@ -2532,7 +2299,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Logs() AwsCloudTra
 }
 
 type AwsCloudTrailDataConnectorDataTypesResponseLogs struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -2548,7 +2314,6 @@ type AwsCloudTrailDataConnectorDataTypesResponseLogsInput interface {
 }
 
 type AwsCloudTrailDataConnectorDataTypesResponseLogsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -2629,7 +2394,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDa
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2658,7 +2422,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) Elem() AwsClou
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) *string {
 		if v == nil {
@@ -2669,25 +2432,15 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi
 }
 
 type BookmarkTimelineItemResponse struct {
-	// The bookmark azure resource id.
-	AzureResourceId string `pulumi:"azureResourceId"`
-	// Describes a user that created the bookmark
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
-	// The bookmark display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The bookmark end time.
-	EndTimeUtc *string `pulumi:"endTimeUtc"`
-	// The bookmark event time.
-	EventTime *string `pulumi:"eventTime"`
-	// The entity query kind
-	// Expected value is 'Bookmark'.
-	Kind string `pulumi:"kind"`
-	// List of labels relevant to this bookmark
-	Labels []string `pulumi:"labels"`
-	// The notes of the bookmark
-	Notes *string `pulumi:"notes"`
-	// The bookmark start time.
-	StartTimeUtc *string `pulumi:"startTimeUtc"`
+	AzureResourceId string            `pulumi:"azureResourceId"`
+	CreatedBy       *UserInfoResponse `pulumi:"createdBy"`
+	DisplayName     *string           `pulumi:"displayName"`
+	EndTimeUtc      *string           `pulumi:"endTimeUtc"`
+	EventTime       *string           `pulumi:"eventTime"`
+	Kind            string            `pulumi:"kind"`
+	Labels          []string          `pulumi:"labels"`
+	Notes           *string           `pulumi:"notes"`
+	StartTimeUtc    *string           `pulumi:"startTimeUtc"`
 }
 
 // BookmarkTimelineItemResponseInput is an input type that accepts BookmarkTimelineItemResponseArgs and BookmarkTimelineItemResponseOutput values.
@@ -2702,25 +2455,15 @@ type BookmarkTimelineItemResponseInput interface {
 }
 
 type BookmarkTimelineItemResponseArgs struct {
-	// The bookmark azure resource id.
-	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
-	// Describes a user that created the bookmark
-	CreatedBy UserInfoResponsePtrInput `pulumi:"createdBy"`
-	// The bookmark display name.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The bookmark end time.
-	EndTimeUtc pulumi.StringPtrInput `pulumi:"endTimeUtc"`
-	// The bookmark event time.
-	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
-	// The entity query kind
-	// Expected value is 'Bookmark'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// List of labels relevant to this bookmark
-	Labels pulumi.StringArrayInput `pulumi:"labels"`
-	// The notes of the bookmark
-	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The bookmark start time.
-	StartTimeUtc pulumi.StringPtrInput `pulumi:"startTimeUtc"`
+	AzureResourceId pulumi.StringInput       `pulumi:"azureResourceId"`
+	CreatedBy       UserInfoResponsePtrInput `pulumi:"createdBy"`
+	DisplayName     pulumi.StringPtrInput    `pulumi:"displayName"`
+	EndTimeUtc      pulumi.StringPtrInput    `pulumi:"endTimeUtc"`
+	EventTime       pulumi.StringPtrInput    `pulumi:"eventTime"`
+	Kind            pulumi.StringInput       `pulumi:"kind"`
+	Labels          pulumi.StringArrayInput  `pulumi:"labels"`
+	Notes           pulumi.StringPtrInput    `pulumi:"notes"`
+	StartTimeUtc    pulumi.StringPtrInput    `pulumi:"startTimeUtc"`
 }
 
 func (BookmarkTimelineItemResponseArgs) ElementType() reflect.Type {
@@ -2749,60 +2492,46 @@ func (o BookmarkTimelineItemResponseOutput) ToBookmarkTimelineItemResponseOutput
 	return o
 }
 
-// The bookmark azure resource id.
 func (o BookmarkTimelineItemResponseOutput) AzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.AzureResourceId }).(pulumi.StringOutput)
 }
 
-// Describes a user that created the bookmark
 func (o BookmarkTimelineItemResponseOutput) CreatedBy() UserInfoResponsePtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *UserInfoResponse { return v.CreatedBy }).(UserInfoResponsePtrOutput)
 }
 
-// The bookmark display name.
 func (o BookmarkTimelineItemResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The bookmark end time.
 func (o BookmarkTimelineItemResponseOutput) EndTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.EndTimeUtc }).(pulumi.StringPtrOutput)
 }
 
-// The bookmark event time.
 func (o BookmarkTimelineItemResponseOutput) EventTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.EventTime }).(pulumi.StringPtrOutput)
 }
 
-// The entity query kind
-// Expected value is 'Bookmark'.
 func (o BookmarkTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// List of labels relevant to this bookmark
 func (o BookmarkTimelineItemResponseOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// The notes of the bookmark
 func (o BookmarkTimelineItemResponseOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The bookmark start time.
 func (o BookmarkTimelineItemResponseOutput) StartTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.StartTimeUtc }).(pulumi.StringPtrOutput)
 }
 
 type ClientInfoResponse struct {
-	// The email of the client.
-	Email *string `pulumi:"email"`
-	// The name of the client.
-	Name *string `pulumi:"name"`
-	// The object id of the client.
-	ObjectId *string `pulumi:"objectId"`
-	// The user principal name of the client.
+	Email             *string `pulumi:"email"`
+	Name              *string `pulumi:"name"`
+	ObjectId          *string `pulumi:"objectId"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -2818,13 +2547,9 @@ type ClientInfoResponseInput interface {
 }
 
 type ClientInfoResponseArgs struct {
-	// The email of the client.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The name of the client.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The object id of the client.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The user principal name of the client.
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -2905,22 +2630,18 @@ func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx c
 	}).(ClientInfoResponsePtrOutput)
 }
 
-// The email of the client.
 func (o ClientInfoResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The name of the client.
 func (o ClientInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the client.
 func (o ClientInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the client.
 func (o ClientInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -2949,7 +2670,6 @@ func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
 	}).(ClientInfoResponseOutput)
 }
 
-// The email of the client.
 func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -2959,7 +2679,6 @@ func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the client.
 func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -2969,7 +2688,6 @@ func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the client.
 func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -2979,7 +2697,6 @@ func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the client.
 func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -2990,10 +2707,8 @@ func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput 
 }
 
 type ContentPathMap struct {
-	// Content type.
 	ContentType *string `pulumi:"contentType"`
-	// The path to the content.
-	Path *string `pulumi:"path"`
+	Path        *string `pulumi:"path"`
 }
 
 // ContentPathMapInput is an input type that accepts ContentPathMap and ContentPathMapOutput values.
@@ -3008,10 +2723,8 @@ type ContentPathMapInput interface {
 }
 
 type ContentPathMapArgs struct {
-	// Content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The path to the content.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (ContentPathMapArgs) ElementType() reflect.Type {
@@ -3065,12 +2778,10 @@ func (o ContentPathMapOutput) ToContentPathMapOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Content type.
 func (o ContentPathMapOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMap) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The path to the content.
 func (o ContentPathMapOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMap) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -3096,10 +2807,8 @@ func (o ContentPathMapArrayOutput) Index(i pulumi.IntInput) ContentPathMapOutput
 }
 
 type ContentPathMapResponse struct {
-	// Content type.
 	ContentType *string `pulumi:"contentType"`
-	// The path to the content.
-	Path *string `pulumi:"path"`
+	Path        *string `pulumi:"path"`
 }
 
 // ContentPathMapResponseInput is an input type that accepts ContentPathMapResponseArgs and ContentPathMapResponseOutput values.
@@ -3114,10 +2823,8 @@ type ContentPathMapResponseInput interface {
 }
 
 type ContentPathMapResponseArgs struct {
-	// Content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The path to the content.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (ContentPathMapResponseArgs) ElementType() reflect.Type {
@@ -3171,12 +2878,10 @@ func (o ContentPathMapResponseOutput) ToContentPathMapResponseOutputWithContext(
 	return o
 }
 
-// Content type.
 func (o ContentPathMapResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The path to the content.
 func (o ContentPathMapResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -3202,7 +2907,6 @@ func (o ContentPathMapResponseArrayOutput) Index(i pulumi.IntInput) ContentPathM
 }
 
 type DataConnectorDataTypeCommon struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -3218,7 +2922,6 @@ type DataConnectorDataTypeCommonInput interface {
 }
 
 type DataConnectorDataTypeCommonArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -3299,7 +3002,6 @@ func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutpu
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataConnectorDataTypeCommon) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -3328,7 +3030,6 @@ func (o DataConnectorDataTypeCommonPtrOutput) Elem() DataConnectorDataTypeCommon
 	}).(DataConnectorDataTypeCommonOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorDataTypeCommon) *string {
 		if v == nil {
@@ -3339,7 +3040,6 @@ func (o DataConnectorDataTypeCommonPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type DataConnectorDataTypeCommonResponse struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -3355,7 +3055,6 @@ type DataConnectorDataTypeCommonResponseInput interface {
 }
 
 type DataConnectorDataTypeCommonResponseArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -3436,7 +3135,6 @@ func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommon
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -3465,7 +3163,6 @@ func (o DataConnectorDataTypeCommonResponsePtrOutput) Elem() DataConnectorDataTy
 	}).(DataConnectorDataTypeCommonResponseOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) *string {
 		if v == nil {
@@ -3476,14 +3173,10 @@ func (o DataConnectorDataTypeCommonResponsePtrOutput) State() pulumi.StringPtrOu
 }
 
 type EntityInsightItemResponse struct {
-	// Query results for table insights query.
-	ChartQueryResults []InsightsTableResultResponse `pulumi:"chartQueryResults"`
-	// The query id of the insight
-	QueryId *string `pulumi:"queryId"`
-	// The Time interval that the query actually executed on.
+	ChartQueryResults []InsightsTableResultResponse               `pulumi:"chartQueryResults"`
+	QueryId           *string                                     `pulumi:"queryId"`
 	QueryTimeInterval *EntityInsightItemResponseQueryTimeInterval `pulumi:"queryTimeInterval"`
-	// Query results for table insights query.
-	TableQueryResults *InsightsTableResultResponse `pulumi:"tableQueryResults"`
+	TableQueryResults *InsightsTableResultResponse                `pulumi:"tableQueryResults"`
 }
 
 // EntityInsightItemResponseInput is an input type that accepts EntityInsightItemResponseArgs and EntityInsightItemResponseOutput values.
@@ -3498,14 +3191,10 @@ type EntityInsightItemResponseInput interface {
 }
 
 type EntityInsightItemResponseArgs struct {
-	// Query results for table insights query.
-	ChartQueryResults InsightsTableResultResponseArrayInput `pulumi:"chartQueryResults"`
-	// The query id of the insight
-	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
-	// The Time interval that the query actually executed on.
+	ChartQueryResults InsightsTableResultResponseArrayInput              `pulumi:"chartQueryResults"`
+	QueryId           pulumi.StringPtrInput                              `pulumi:"queryId"`
 	QueryTimeInterval EntityInsightItemResponseQueryTimeIntervalPtrInput `pulumi:"queryTimeInterval"`
-	// Query results for table insights query.
-	TableQueryResults InsightsTableResultResponsePtrInput `pulumi:"tableQueryResults"`
+	TableQueryResults InsightsTableResultResponsePtrInput                `pulumi:"tableQueryResults"`
 }
 
 func (EntityInsightItemResponseArgs) ElementType() reflect.Type {
@@ -3559,24 +3248,20 @@ func (o EntityInsightItemResponseOutput) ToEntityInsightItemResponseOutputWithCo
 	return o
 }
 
-// Query results for table insights query.
 func (o EntityInsightItemResponseOutput) ChartQueryResults() InsightsTableResultResponseArrayOutput {
 	return o.ApplyT(func(v EntityInsightItemResponse) []InsightsTableResultResponse { return v.ChartQueryResults }).(InsightsTableResultResponseArrayOutput)
 }
 
-// The query id of the insight
 func (o EntityInsightItemResponseOutput) QueryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInsightItemResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
 }
 
-// The Time interval that the query actually executed on.
 func (o EntityInsightItemResponseOutput) QueryTimeInterval() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
 	return o.ApplyT(func(v EntityInsightItemResponse) *EntityInsightItemResponseQueryTimeInterval {
 		return v.QueryTimeInterval
 	}).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
 }
 
-// Query results for table insights query.
 func (o EntityInsightItemResponseOutput) TableQueryResults() InsightsTableResultResponsePtrOutput {
 	return o.ApplyT(func(v EntityInsightItemResponse) *InsightsTableResultResponse { return v.TableQueryResults }).(InsightsTableResultResponsePtrOutput)
 }
@@ -3602,9 +3287,7 @@ func (o EntityInsightItemResponseArrayOutput) Index(i pulumi.IntInput) EntityIns
 }
 
 type EntityInsightItemResponseQueryTimeInterval struct {
-	// Insight query end time
-	EndTime *string `pulumi:"endTime"`
-	// Insight query start time
+	EndTime   *string `pulumi:"endTime"`
 	StartTime *string `pulumi:"startTime"`
 }
 
@@ -3620,9 +3303,7 @@ type EntityInsightItemResponseQueryTimeIntervalInput interface {
 }
 
 type EntityInsightItemResponseQueryTimeIntervalArgs struct {
-	// Insight query end time
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Insight query start time
+	EndTime   pulumi.StringPtrInput `pulumi:"endTime"`
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
@@ -3703,12 +3384,10 @@ func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemRes
 	}).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
 }
 
-// Insight query end time
 func (o EntityInsightItemResponseQueryTimeIntervalOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Insight query start time
 func (o EntityInsightItemResponseQueryTimeIntervalOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -3737,7 +3416,6 @@ func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) Elem() EntityInsigh
 	}).(EntityInsightItemResponseQueryTimeIntervalOutput)
 }
 
-// Insight query end time
 func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
 		if v == nil {
@@ -3747,7 +3425,6 @@ func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) EndTime() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Insight query start time
 func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
 		if v == nil {
@@ -3758,12 +3435,9 @@ func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) StartTime() pulumi.
 }
 
 type GetInsightsErrorResponse struct {
-	// the error message
-	ErrorMessage string `pulumi:"errorMessage"`
-	// the query kind
-	Kind string `pulumi:"kind"`
-	// the query id
-	QueryId *string `pulumi:"queryId"`
+	ErrorMessage string  `pulumi:"errorMessage"`
+	Kind         string  `pulumi:"kind"`
+	QueryId      *string `pulumi:"queryId"`
 }
 
 // GetInsightsErrorResponseInput is an input type that accepts GetInsightsErrorResponseArgs and GetInsightsErrorResponseOutput values.
@@ -3778,12 +3452,9 @@ type GetInsightsErrorResponseInput interface {
 }
 
 type GetInsightsErrorResponseArgs struct {
-	// the error message
-	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// the query kind
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// the query id
-	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
+	ErrorMessage pulumi.StringInput    `pulumi:"errorMessage"`
+	Kind         pulumi.StringInput    `pulumi:"kind"`
+	QueryId      pulumi.StringPtrInput `pulumi:"queryId"`
 }
 
 func (GetInsightsErrorResponseArgs) ElementType() reflect.Type {
@@ -3837,17 +3508,14 @@ func (o GetInsightsErrorResponseOutput) ToGetInsightsErrorResponseOutputWithCont
 	return o
 }
 
-// the error message
 func (o GetInsightsErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// the query kind
 func (o GetInsightsErrorResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// the query id
 func (o GetInsightsErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInsightsErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
 }
@@ -3873,10 +3541,8 @@ func (o GetInsightsErrorResponseArrayOutput) Index(i pulumi.IntInput) GetInsight
 }
 
 type GetInsightsResultsMetadataResponse struct {
-	// information about the failed queries
-	Errors []GetInsightsErrorResponse `pulumi:"errors"`
-	// the total items found for the insights request
-	TotalCount int `pulumi:"totalCount"`
+	Errors     []GetInsightsErrorResponse `pulumi:"errors"`
+	TotalCount int                        `pulumi:"totalCount"`
 }
 
 // GetInsightsResultsMetadataResponseInput is an input type that accepts GetInsightsResultsMetadataResponseArgs and GetInsightsResultsMetadataResponseOutput values.
@@ -3891,10 +3557,8 @@ type GetInsightsResultsMetadataResponseInput interface {
 }
 
 type GetInsightsResultsMetadataResponseArgs struct {
-	// information about the failed queries
-	Errors GetInsightsErrorResponseArrayInput `pulumi:"errors"`
-	// the total items found for the insights request
-	TotalCount pulumi.IntInput `pulumi:"totalCount"`
+	Errors     GetInsightsErrorResponseArrayInput `pulumi:"errors"`
+	TotalCount pulumi.IntInput                    `pulumi:"totalCount"`
 }
 
 func (GetInsightsResultsMetadataResponseArgs) ElementType() reflect.Type {
@@ -3923,27 +3587,20 @@ func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataRe
 	return o
 }
 
-// information about the failed queries
 func (o GetInsightsResultsMetadataResponseOutput) Errors() GetInsightsErrorResponseArrayOutput {
 	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse { return v.Errors }).(GetInsightsErrorResponseArrayOutput)
 }
 
-// the total items found for the insights request
 func (o GetInsightsResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
 }
 
 type IncidentAdditionalDataResponse struct {
-	// List of product names of alerts in the incident
 	AlertProductNames []string `pulumi:"alertProductNames"`
-	// The number of alerts in the incident
-	AlertsCount int `pulumi:"alertsCount"`
-	// The number of bookmarks in the incident
-	BookmarksCount int `pulumi:"bookmarksCount"`
-	// The number of comments in the incident
-	CommentsCount int `pulumi:"commentsCount"`
-	// The tactics associated with incident
-	Tactics []string `pulumi:"tactics"`
+	AlertsCount       int      `pulumi:"alertsCount"`
+	BookmarksCount    int      `pulumi:"bookmarksCount"`
+	CommentsCount     int      `pulumi:"commentsCount"`
+	Tactics           []string `pulumi:"tactics"`
 }
 
 // IncidentAdditionalDataResponseInput is an input type that accepts IncidentAdditionalDataResponseArgs and IncidentAdditionalDataResponseOutput values.
@@ -3958,16 +3615,11 @@ type IncidentAdditionalDataResponseInput interface {
 }
 
 type IncidentAdditionalDataResponseArgs struct {
-	// List of product names of alerts in the incident
 	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
-	// The number of alerts in the incident
-	AlertsCount pulumi.IntInput `pulumi:"alertsCount"`
-	// The number of bookmarks in the incident
-	BookmarksCount pulumi.IntInput `pulumi:"bookmarksCount"`
-	// The number of comments in the incident
-	CommentsCount pulumi.IntInput `pulumi:"commentsCount"`
-	// The tactics associated with incident
-	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+	AlertsCount       pulumi.IntInput         `pulumi:"alertsCount"`
+	BookmarksCount    pulumi.IntInput         `pulumi:"bookmarksCount"`
+	CommentsCount     pulumi.IntInput         `pulumi:"commentsCount"`
+	Tactics           pulumi.StringArrayInput `pulumi:"tactics"`
 }
 
 func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
@@ -4047,27 +3699,22 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePt
 	}).(IncidentAdditionalDataResponsePtrOutput)
 }
 
-// List of product names of alerts in the incident
 func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.AlertProductNames }).(pulumi.StringArrayOutput)
 }
 
-// The number of alerts in the incident
 func (o IncidentAdditionalDataResponseOutput) AlertsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.AlertsCount }).(pulumi.IntOutput)
 }
 
-// The number of bookmarks in the incident
 func (o IncidentAdditionalDataResponseOutput) BookmarksCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.BookmarksCount }).(pulumi.IntOutput)
 }
 
-// The number of comments in the incident
 func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.CommentsCount }).(pulumi.IntOutput)
 }
 
-// The tactics associated with incident
 func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
 }
@@ -4096,7 +3743,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataRe
 	}).(IncidentAdditionalDataResponseOutput)
 }
 
-// List of product names of alerts in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
 		if v == nil {
@@ -4106,7 +3752,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The number of alerts in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -4116,7 +3761,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of bookmarks in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -4126,7 +3770,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of comments in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -4136,7 +3779,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The tactics associated with incident
 func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
 		if v == nil {
@@ -4147,14 +3789,10 @@ func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOut
 }
 
 type IncidentInfo struct {
-	// Incident Id
-	IncidentId *string `pulumi:"incidentId"`
-	// Relation Name
+	IncidentId   *string `pulumi:"incidentId"`
 	RelationName *string `pulumi:"relationName"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The title of the incident
-	Title *string `pulumi:"title"`
+	Severity     *string `pulumi:"severity"`
+	Title        *string `pulumi:"title"`
 }
 
 // IncidentInfoInput is an input type that accepts IncidentInfoArgs and IncidentInfoOutput values.
@@ -4169,14 +3807,10 @@ type IncidentInfoInput interface {
 }
 
 type IncidentInfoArgs struct {
-	// Incident Id
-	IncidentId pulumi.StringPtrInput `pulumi:"incidentId"`
-	// Relation Name
+	IncidentId   pulumi.StringPtrInput `pulumi:"incidentId"`
 	RelationName pulumi.StringPtrInput `pulumi:"relationName"`
-	// The severity of the incident
-	Severity pulumi.StringPtrInput `pulumi:"severity"`
-	// The title of the incident
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Severity     pulumi.StringPtrInput `pulumi:"severity"`
+	Title        pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (IncidentInfoArgs) ElementType() reflect.Type {
@@ -4256,22 +3890,18 @@ func (o IncidentInfoOutput) ToIncidentInfoPtrOutputWithContext(ctx context.Conte
 	}).(IncidentInfoPtrOutput)
 }
 
-// Incident Id
 func (o IncidentInfoOutput) IncidentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfo) *string { return v.IncidentId }).(pulumi.StringPtrOutput)
 }
 
-// Relation Name
 func (o IncidentInfoOutput) RelationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfo) *string { return v.RelationName }).(pulumi.StringPtrOutput)
 }
 
-// The severity of the incident
 func (o IncidentInfoOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfo) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
-// The title of the incident
 func (o IncidentInfoOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfo) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -4300,7 +3930,6 @@ func (o IncidentInfoPtrOutput) Elem() IncidentInfoOutput {
 	}).(IncidentInfoOutput)
 }
 
-// Incident Id
 func (o IncidentInfoPtrOutput) IncidentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfo) *string {
 		if v == nil {
@@ -4310,7 +3939,6 @@ func (o IncidentInfoPtrOutput) IncidentId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Relation Name
 func (o IncidentInfoPtrOutput) RelationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfo) *string {
 		if v == nil {
@@ -4320,7 +3948,6 @@ func (o IncidentInfoPtrOutput) RelationName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The severity of the incident
 func (o IncidentInfoPtrOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfo) *string {
 		if v == nil {
@@ -4330,7 +3957,6 @@ func (o IncidentInfoPtrOutput) Severity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the incident
 func (o IncidentInfoPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfo) *string {
 		if v == nil {
@@ -4341,14 +3967,10 @@ func (o IncidentInfoPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type IncidentInfoResponse struct {
-	// Incident Id
-	IncidentId *string `pulumi:"incidentId"`
-	// Relation Name
+	IncidentId   *string `pulumi:"incidentId"`
 	RelationName *string `pulumi:"relationName"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The title of the incident
-	Title *string `pulumi:"title"`
+	Severity     *string `pulumi:"severity"`
+	Title        *string `pulumi:"title"`
 }
 
 // IncidentInfoResponseInput is an input type that accepts IncidentInfoResponseArgs and IncidentInfoResponseOutput values.
@@ -4363,14 +3985,10 @@ type IncidentInfoResponseInput interface {
 }
 
 type IncidentInfoResponseArgs struct {
-	// Incident Id
-	IncidentId pulumi.StringPtrInput `pulumi:"incidentId"`
-	// Relation Name
+	IncidentId   pulumi.StringPtrInput `pulumi:"incidentId"`
 	RelationName pulumi.StringPtrInput `pulumi:"relationName"`
-	// The severity of the incident
-	Severity pulumi.StringPtrInput `pulumi:"severity"`
-	// The title of the incident
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Severity     pulumi.StringPtrInput `pulumi:"severity"`
+	Title        pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (IncidentInfoResponseArgs) ElementType() reflect.Type {
@@ -4450,22 +4068,18 @@ func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutputWithContext(c
 	}).(IncidentInfoResponsePtrOutput)
 }
 
-// Incident Id
 func (o IncidentInfoResponseOutput) IncidentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.IncidentId }).(pulumi.StringPtrOutput)
 }
 
-// Relation Name
 func (o IncidentInfoResponseOutput) RelationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.RelationName }).(pulumi.StringPtrOutput)
 }
 
-// The severity of the incident
 func (o IncidentInfoResponseOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
-// The title of the incident
 func (o IncidentInfoResponseOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -4494,7 +4108,6 @@ func (o IncidentInfoResponsePtrOutput) Elem() IncidentInfoResponseOutput {
 	}).(IncidentInfoResponseOutput)
 }
 
-// Incident Id
 func (o IncidentInfoResponsePtrOutput) IncidentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfoResponse) *string {
 		if v == nil {
@@ -4504,7 +4117,6 @@ func (o IncidentInfoResponsePtrOutput) IncidentId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Relation Name
 func (o IncidentInfoResponsePtrOutput) RelationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfoResponse) *string {
 		if v == nil {
@@ -4514,7 +4126,6 @@ func (o IncidentInfoResponsePtrOutput) RelationName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The severity of the incident
 func (o IncidentInfoResponsePtrOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfoResponse) *string {
 		if v == nil {
@@ -4524,7 +4135,6 @@ func (o IncidentInfoResponsePtrOutput) Severity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the incident
 func (o IncidentInfoResponsePtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentInfoResponse) *string {
 		if v == nil {
@@ -4535,7 +4145,6 @@ func (o IncidentInfoResponsePtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type IncidentLabel struct {
-	// The name of the label
 	LabelName string `pulumi:"labelName"`
 }
 
@@ -4551,7 +4160,6 @@ type IncidentLabelInput interface {
 }
 
 type IncidentLabelArgs struct {
-	// The name of the label
 	LabelName pulumi.StringInput `pulumi:"labelName"`
 }
 
@@ -4606,7 +4214,6 @@ func (o IncidentLabelOutput) ToIncidentLabelOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the label
 func (o IncidentLabelOutput) LabelName() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabel) string { return v.LabelName }).(pulumi.StringOutput)
 }
@@ -4632,9 +4239,7 @@ func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
 }
 
 type IncidentLabelResponse struct {
-	// The name of the label
 	LabelName string `pulumi:"labelName"`
-	// The type of the label
 	LabelType string `pulumi:"labelType"`
 }
 
@@ -4650,9 +4255,7 @@ type IncidentLabelResponseInput interface {
 }
 
 type IncidentLabelResponseArgs struct {
-	// The name of the label
 	LabelName pulumi.StringInput `pulumi:"labelName"`
-	// The type of the label
 	LabelType pulumi.StringInput `pulumi:"labelType"`
 }
 
@@ -4707,12 +4310,10 @@ func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the label
 func (o IncidentLabelResponseOutput) LabelName() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelName }).(pulumi.StringOutput)
 }
 
-// The type of the label
 func (o IncidentLabelResponseOutput) LabelType() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelType }).(pulumi.StringOutput)
 }
@@ -4738,13 +4339,9 @@ func (o IncidentLabelResponseArrayOutput) Index(i pulumi.IntInput) IncidentLabel
 }
 
 type IncidentOwnerInfo struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo *string `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email *string `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId *string `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        *string `pulumi:"assignedTo"`
+	Email             *string `pulumi:"email"`
+	ObjectId          *string `pulumi:"objectId"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -4760,13 +4357,9 @@ type IncidentOwnerInfoInput interface {
 }
 
 type IncidentOwnerInfoArgs struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -4847,22 +4440,18 @@ func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx con
 	}).(IncidentOwnerInfoPtrOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -4891,7 +4480,6 @@ func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
 	}).(IncidentOwnerInfoOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -4901,7 +4489,6 @@ func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -4911,7 +4498,6 @@ func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -4921,7 +4507,6 @@ func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -4932,13 +4517,9 @@ func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 }
 
 type IncidentOwnerInfoResponse struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo *string `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email *string `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId *string `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        *string `pulumi:"assignedTo"`
+	Email             *string `pulumi:"email"`
+	ObjectId          *string `pulumi:"objectId"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -4954,13 +4535,9 @@ type IncidentOwnerInfoResponseInput interface {
 }
 
 type IncidentOwnerInfoResponseArgs struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -5041,22 +4618,18 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWit
 	}).(IncidentOwnerInfoResponsePtrOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -5085,7 +4658,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutp
 	}).(IncidentOwnerInfoResponseOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -5095,7 +4667,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -5105,7 +4676,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -5115,7 +4685,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -5126,10 +4695,8 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 }
 
 type InsightsTableResultResponse struct {
-	// Columns Metadata of the table
 	Columns []InsightsTableResultResponseColumns `pulumi:"columns"`
-	// Rows data of the table
-	Rows [][]string `pulumi:"rows"`
+	Rows    [][]string                           `pulumi:"rows"`
 }
 
 // InsightsTableResultResponseInput is an input type that accepts InsightsTableResultResponseArgs and InsightsTableResultResponseOutput values.
@@ -5144,10 +4711,8 @@ type InsightsTableResultResponseInput interface {
 }
 
 type InsightsTableResultResponseArgs struct {
-	// Columns Metadata of the table
 	Columns InsightsTableResultResponseColumnsArrayInput `pulumi:"columns"`
-	// Rows data of the table
-	Rows pulumi.StringArrayArrayInput `pulumi:"rows"`
+	Rows    pulumi.StringArrayArrayInput                 `pulumi:"rows"`
 }
 
 func (InsightsTableResultResponseArgs) ElementType() reflect.Type {
@@ -5252,12 +4817,10 @@ func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponsePtrOutpu
 	}).(InsightsTableResultResponsePtrOutput)
 }
 
-// Columns Metadata of the table
 func (o InsightsTableResultResponseOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
 	return o.ApplyT(func(v InsightsTableResultResponse) []InsightsTableResultResponseColumns { return v.Columns }).(InsightsTableResultResponseColumnsArrayOutput)
 }
 
-// Rows data of the table
 func (o InsightsTableResultResponseOutput) Rows() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v InsightsTableResultResponse) [][]string { return v.Rows }).(pulumi.StringArrayArrayOutput)
 }
@@ -5286,7 +4849,6 @@ func (o InsightsTableResultResponsePtrOutput) Elem() InsightsTableResultResponse
 	}).(InsightsTableResultResponseOutput)
 }
 
-// Columns Metadata of the table
 func (o InsightsTableResultResponsePtrOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
 	return o.ApplyT(func(v *InsightsTableResultResponse) []InsightsTableResultResponseColumns {
 		if v == nil {
@@ -5296,7 +4858,6 @@ func (o InsightsTableResultResponsePtrOutput) Columns() InsightsTableResultRespo
 	}).(InsightsTableResultResponseColumnsArrayOutput)
 }
 
-// Rows data of the table
 func (o InsightsTableResultResponsePtrOutput) Rows() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v *InsightsTableResultResponse) [][]string {
 		if v == nil {
@@ -5327,9 +4888,7 @@ func (o InsightsTableResultResponseArrayOutput) Index(i pulumi.IntInput) Insight
 }
 
 type InsightsTableResultResponseColumns struct {
-	// the name of the colum
 	Name *string `pulumi:"name"`
-	// the type of the colum
 	Type *string `pulumi:"type"`
 }
 
@@ -5345,9 +4904,7 @@ type InsightsTableResultResponseColumnsInput interface {
 }
 
 type InsightsTableResultResponseColumnsArgs struct {
-	// the name of the colum
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// the type of the colum
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -5402,12 +4959,10 @@ func (o InsightsTableResultResponseColumnsOutput) ToInsightsTableResultResponseC
 	return o
 }
 
-// the name of the colum
 func (o InsightsTableResultResponseColumnsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// the type of the colum
 func (o InsightsTableResultResponseColumnsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5433,9 +4988,7 @@ func (o InsightsTableResultResponseColumnsArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type MCASDataConnectorDataTypes struct {
-	// Alerts data type connection.
-	Alerts *DataConnectorDataTypeCommon `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        *DataConnectorDataTypeCommon `pulumi:"alerts"`
 	DiscoveryLogs *DataConnectorDataTypeCommon `pulumi:"discoveryLogs"`
 }
 
@@ -5451,9 +5004,7 @@ type MCASDataConnectorDataTypesInput interface {
 }
 
 type MCASDataConnectorDataTypesArgs struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommonPtrInput `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommonPtrInput `pulumi:"alerts"`
 	DiscoveryLogs DataConnectorDataTypeCommonPtrInput `pulumi:"discoveryLogs"`
 }
 
@@ -5534,12 +5085,10 @@ func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutputW
 	}).(MCASDataConnectorDataTypesPtrOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon { return v.DiscoveryLogs }).(DataConnectorDataTypeCommonPtrOutput)
 }
@@ -5568,7 +5117,6 @@ func (o MCASDataConnectorDataTypesPtrOutput) Elem() MCASDataConnectorDataTypesOu
 	}).(MCASDataConnectorDataTypesOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -5578,7 +5126,6 @@ func (o MCASDataConnectorDataTypesPtrOutput) Alerts() DataConnectorDataTypeCommo
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesPtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -5589,9 +5136,7 @@ func (o MCASDataConnectorDataTypesPtrOutput) DiscoveryLogs() DataConnectorDataTy
 }
 
 type MCASDataConnectorDataTypesResponse struct {
-	// Alerts data type connection.
-	Alerts *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
 	DiscoveryLogs *DataConnectorDataTypeCommonResponse `pulumi:"discoveryLogs"`
 }
 
@@ -5607,9 +5152,7 @@ type MCASDataConnectorDataTypesResponseInput interface {
 }
 
 type MCASDataConnectorDataTypesResponseArgs struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
 	DiscoveryLogs DataConnectorDataTypeCommonResponsePtrInput `pulumi:"discoveryLogs"`
 }
 
@@ -5690,12 +5233,10 @@ func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesRe
 	}).(MCASDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesResponseOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		return v.DiscoveryLogs
@@ -5726,7 +5267,6 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) Elem() MCASDataConnectorDat
 	}).(MCASDataConnectorDataTypesResponseOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -5736,7 +5276,6 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) Alerts() DataConnectorDataT
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesResponsePtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -5747,12 +5286,9 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) DiscoveryLogs() DataConnect
 }
 
 type MetadataAuthor struct {
-	// Email of author contact
 	Email *string `pulumi:"email"`
-	// Link for author/vendor page
-	Link *string `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name *string `pulumi:"name"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
 }
 
 // MetadataAuthorInput is an input type that accepts MetadataAuthorArgs and MetadataAuthorOutput values.
@@ -5767,12 +5303,9 @@ type MetadataAuthorInput interface {
 }
 
 type MetadataAuthorArgs struct {
-	// Email of author contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for author/vendor page
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (MetadataAuthorArgs) ElementType() reflect.Type {
@@ -5852,17 +5385,14 @@ func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.C
 	}).(MetadataAuthorPtrOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5891,7 +5421,6 @@ func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
 	}).(MetadataAuthorOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -5901,7 +5430,6 @@ func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -5911,7 +5439,6 @@ func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -5922,12 +5449,9 @@ func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type MetadataAuthorResponse struct {
-	// Email of author contact
 	Email *string `pulumi:"email"`
-	// Link for author/vendor page
-	Link *string `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name *string `pulumi:"name"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
 }
 
 // MetadataAuthorResponseInput is an input type that accepts MetadataAuthorResponseArgs and MetadataAuthorResponseOutput values.
@@ -5942,12 +5466,9 @@ type MetadataAuthorResponseInput interface {
 }
 
 type MetadataAuthorResponseArgs struct {
-	// Email of author contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for author/vendor page
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (MetadataAuthorResponseArgs) ElementType() reflect.Type {
@@ -6027,17 +5548,14 @@ func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutputWithConte
 	}).(MetadataAuthorResponsePtrOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6066,7 +5584,6 @@ func (o MetadataAuthorResponsePtrOutput) Elem() MetadataAuthorResponseOutput {
 	}).(MetadataAuthorResponseOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -6076,7 +5593,6 @@ func (o MetadataAuthorResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -6086,7 +5602,6 @@ func (o MetadataAuthorResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -6097,18 +5612,12 @@ func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type MetadataDependencies struct {
-	// Id of the content item we depend on
-	ContentId *string `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria []MetadataDependencies `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind *string `pulumi:"kind"`
-	// Name of the content item
-	Name *string `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator *string `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version *string `pulumi:"version"`
+	ContentId *string                `pulumi:"contentId"`
+	Criteria  []MetadataDependencies `pulumi:"criteria"`
+	Kind      *string                `pulumi:"kind"`
+	Name      *string                `pulumi:"name"`
+	Operator  *string                `pulumi:"operator"`
+	Version   *string                `pulumi:"version"`
 }
 
 // MetadataDependenciesInput is an input type that accepts MetadataDependenciesArgs and MetadataDependenciesOutput values.
@@ -6123,18 +5632,12 @@ type MetadataDependenciesInput interface {
 }
 
 type MetadataDependenciesArgs struct {
-	// Id of the content item we depend on
-	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria MetadataDependenciesArrayInput `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the content item
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentId pulumi.StringPtrInput          `pulumi:"contentId"`
+	Criteria  MetadataDependenciesArrayInput `pulumi:"criteria"`
+	Kind      pulumi.StringPtrInput          `pulumi:"kind"`
+	Name      pulumi.StringPtrInput          `pulumi:"name"`
+	Operator  pulumi.StringPtrInput          `pulumi:"operator"`
+	Version   pulumi.StringPtrInput          `pulumi:"version"`
 }
 
 func (MetadataDependenciesArgs) ElementType() reflect.Type {
@@ -6239,32 +5742,26 @@ func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutputWithContext(c
 	}).(MetadataDependenciesPtrOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.ContentId }).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesOutput) Criteria() MetadataDependenciesArrayOutput {
 	return o.ApplyT(func(v MetadataDependencies) []MetadataDependencies { return v.Criteria }).(MetadataDependenciesArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -6293,7 +5790,6 @@ func (o MetadataDependenciesPtrOutput) Elem() MetadataDependenciesOutput {
 	}).(MetadataDependenciesOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesPtrOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -6303,7 +5799,6 @@ func (o MetadataDependenciesPtrOutput) ContentId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesPtrOutput) Criteria() MetadataDependenciesArrayOutput {
 	return o.ApplyT(func(v *MetadataDependencies) []MetadataDependencies {
 		if v == nil {
@@ -6313,7 +5808,6 @@ func (o MetadataDependenciesPtrOutput) Criteria() MetadataDependenciesArrayOutpu
 	}).(MetadataDependenciesArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -6323,7 +5817,6 @@ func (o MetadataDependenciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -6333,7 +5826,6 @@ func (o MetadataDependenciesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -6343,7 +5835,6 @@ func (o MetadataDependenciesPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -6374,18 +5865,12 @@ func (o MetadataDependenciesArrayOutput) Index(i pulumi.IntInput) MetadataDepend
 }
 
 type MetadataDependenciesResponse struct {
-	// Id of the content item we depend on
-	ContentId *string `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria []MetadataDependenciesResponse `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind *string `pulumi:"kind"`
-	// Name of the content item
-	Name *string `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator *string `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version *string `pulumi:"version"`
+	ContentId *string                        `pulumi:"contentId"`
+	Criteria  []MetadataDependenciesResponse `pulumi:"criteria"`
+	Kind      *string                        `pulumi:"kind"`
+	Name      *string                        `pulumi:"name"`
+	Operator  *string                        `pulumi:"operator"`
+	Version   *string                        `pulumi:"version"`
 }
 
 // MetadataDependenciesResponseInput is an input type that accepts MetadataDependenciesResponseArgs and MetadataDependenciesResponseOutput values.
@@ -6400,18 +5885,12 @@ type MetadataDependenciesResponseInput interface {
 }
 
 type MetadataDependenciesResponseArgs struct {
-	// Id of the content item we depend on
-	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria MetadataDependenciesResponseArrayInput `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the content item
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentId pulumi.StringPtrInput                  `pulumi:"contentId"`
+	Criteria  MetadataDependenciesResponseArrayInput `pulumi:"criteria"`
+	Kind      pulumi.StringPtrInput                  `pulumi:"kind"`
+	Name      pulumi.StringPtrInput                  `pulumi:"name"`
+	Operator  pulumi.StringPtrInput                  `pulumi:"operator"`
+	Version   pulumi.StringPtrInput                  `pulumi:"version"`
 }
 
 func (MetadataDependenciesResponseArgs) ElementType() reflect.Type {
@@ -6516,32 +5995,26 @@ func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOut
 	}).(MetadataDependenciesResponsePtrOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesResponseOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.ContentId }).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesResponseOutput) Criteria() MetadataDependenciesResponseArrayOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) []MetadataDependenciesResponse { return v.Criteria }).(MetadataDependenciesResponseArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -6570,7 +6043,6 @@ func (o MetadataDependenciesResponsePtrOutput) Elem() MetadataDependenciesRespon
 	}).(MetadataDependenciesResponseOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesResponsePtrOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -6580,7 +6052,6 @@ func (o MetadataDependenciesResponsePtrOutput) ContentId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesResponsePtrOutput) Criteria() MetadataDependenciesResponseArrayOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) []MetadataDependenciesResponse {
 		if v == nil {
@@ -6590,7 +6061,6 @@ func (o MetadataDependenciesResponsePtrOutput) Criteria() MetadataDependenciesRe
 	}).(MetadataDependenciesResponseArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -6600,7 +6070,6 @@ func (o MetadataDependenciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -6610,7 +6079,6 @@ func (o MetadataDependenciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -6620,7 +6088,6 @@ func (o MetadataDependenciesResponsePtrOutput) Operator() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -6651,11 +6118,8 @@ func (o MetadataDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Metada
 }
 
 type MetadataSource struct {
-	// Source type of the content
-	Kind string `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name *string `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     string  `pulumi:"kind"`
+	Name     *string `pulumi:"name"`
 	SourceId *string `pulumi:"sourceId"`
 }
 
@@ -6671,11 +6135,8 @@ type MetadataSourceInput interface {
 }
 
 type MetadataSourceArgs struct {
-	// Source type of the content
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     pulumi.StringInput    `pulumi:"kind"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
 }
 
@@ -6756,17 +6217,14 @@ func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.C
 	}).(MetadataSourcePtrOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSource) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
@@ -6795,7 +6253,6 @@ func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
 	}).(MetadataSourceOutput)
 }
 
-// Source type of the content
 func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -6805,7 +6262,6 @@ func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -6815,7 +6271,6 @@ func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -6826,11 +6281,8 @@ func (o MetadataSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
 }
 
 type MetadataSourceResponse struct {
-	// Source type of the content
-	Kind string `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name *string `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     string  `pulumi:"kind"`
+	Name     *string `pulumi:"name"`
 	SourceId *string `pulumi:"sourceId"`
 }
 
@@ -6846,11 +6298,8 @@ type MetadataSourceResponseInput interface {
 }
 
 type MetadataSourceResponseArgs struct {
-	// Source type of the content
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     pulumi.StringInput    `pulumi:"kind"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
 }
 
@@ -6931,17 +6380,14 @@ func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutputWithConte
 	}).(MetadataSourceResponsePtrOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceResponseOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
@@ -6970,7 +6416,6 @@ func (o MetadataSourceResponsePtrOutput) Elem() MetadataSourceResponseOutput {
 	}).(MetadataSourceResponseOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -6980,7 +6425,6 @@ func (o MetadataSourceResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -6990,7 +6434,6 @@ func (o MetadataSourceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -7001,14 +6444,10 @@ func (o MetadataSourceResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
 }
 
 type MetadataSupport struct {
-	// Email of support contact
 	Email *string `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link *string `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name *string `pulumi:"name"`
-	// Type of support for content item
-	Tier string `pulumi:"tier"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
+	Tier  string  `pulumi:"tier"`
 }
 
 // MetadataSupportInput is an input type that accepts MetadataSupportArgs and MetadataSupportOutput values.
@@ -7023,14 +6462,10 @@ type MetadataSupportInput interface {
 }
 
 type MetadataSupportArgs struct {
-	// Email of support contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of support for content item
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Tier  pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (MetadataSupportArgs) ElementType() reflect.Type {
@@ -7110,22 +6545,18 @@ func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context
 	}).(MetadataSupportPtrOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSupport) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -7154,7 +6585,6 @@ func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
 	}).(MetadataSupportOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -7164,7 +6594,6 @@ func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -7174,7 +6603,6 @@ func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -7184,7 +6612,6 @@ func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -7195,14 +6622,10 @@ func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type MetadataSupportResponse struct {
-	// Email of support contact
 	Email *string `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link *string `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name *string `pulumi:"name"`
-	// Type of support for content item
-	Tier string `pulumi:"tier"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
+	Tier  string  `pulumi:"tier"`
 }
 
 // MetadataSupportResponseInput is an input type that accepts MetadataSupportResponseArgs and MetadataSupportResponseOutput values.
@@ -7217,14 +6640,10 @@ type MetadataSupportResponseInput interface {
 }
 
 type MetadataSupportResponseArgs struct {
-	// Email of support contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of support for content item
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Tier  pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (MetadataSupportResponseArgs) ElementType() reflect.Type {
@@ -7304,22 +6723,18 @@ func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutputWithCon
 	}).(MetadataSupportResponsePtrOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -7348,7 +6763,6 @@ func (o MetadataSupportResponsePtrOutput) Elem() MetadataSupportResponseOutput {
 	}).(MetadataSupportResponseOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -7358,7 +6772,6 @@ func (o MetadataSupportResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -7368,7 +6781,6 @@ func (o MetadataSupportResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -7378,7 +6790,6 @@ func (o MetadataSupportResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -7389,12 +6800,9 @@ func (o MetadataSupportResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type OfficeDataConnectorDataTypes struct {
-	// Exchange data type connection.
-	Exchange *OfficeDataConnectorDataTypesExchange `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   *OfficeDataConnectorDataTypesExchange   `pulumi:"exchange"`
 	SharePoint *OfficeDataConnectorDataTypesSharePoint `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams *OfficeDataConnectorDataTypesTeams `pulumi:"teams"`
+	Teams      *OfficeDataConnectorDataTypesTeams      `pulumi:"teams"`
 }
 
 // OfficeDataConnectorDataTypesInput is an input type that accepts OfficeDataConnectorDataTypesArgs and OfficeDataConnectorDataTypesOutput values.
@@ -7409,12 +6817,9 @@ type OfficeDataConnectorDataTypesInput interface {
 }
 
 type OfficeDataConnectorDataTypesArgs struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesExchangePtrInput `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesExchangePtrInput   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesSharePointPtrInput `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesTeamsPtrInput `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesTeamsPtrInput      `pulumi:"teams"`
 }
 
 func (OfficeDataConnectorDataTypesArgs) ElementType() reflect.Type {
@@ -7494,17 +6899,14 @@ func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOut
 	}).(OfficeDataConnectorDataTypesPtrOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesOutput) Exchange() OfficeDataConnectorDataTypesExchangePtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesExchange { return v.Exchange }).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesOutput) SharePoint() OfficeDataConnectorDataTypesSharePointPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesSharePoint { return v.SharePoint }).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesOutput) Teams() OfficeDataConnectorDataTypesTeamsPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesTeams { return v.Teams }).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
@@ -7533,7 +6935,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) Elem() OfficeDataConnectorDataTyp
 	}).(OfficeDataConnectorDataTypesOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) Exchange() OfficeDataConnectorDataTypesExchangePtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesExchange {
 		if v == nil {
@@ -7543,7 +6944,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) Exchange() OfficeDataConnectorDat
 	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) SharePoint() OfficeDataConnectorDataTypesSharePointPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesSharePoint {
 		if v == nil {
@@ -7553,7 +6953,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) SharePoint() OfficeDataConnectorD
 	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) Teams() OfficeDataConnectorDataTypesTeamsPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesTeams {
 		if v == nil {
@@ -7564,7 +6963,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) Teams() OfficeDataConnectorDataTy
 }
 
 type OfficeDataConnectorDataTypesExchange struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -7580,7 +6978,6 @@ type OfficeDataConnectorDataTypesExchangeInput interface {
 }
 
 type OfficeDataConnectorDataTypesExchangeArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -7661,7 +7058,6 @@ func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTyp
 	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesExchangeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -7690,7 +7086,6 @@ func (o OfficeDataConnectorDataTypesExchangePtrOutput) Elem() OfficeDataConnecto
 	}).(OfficeDataConnectorDataTypesExchangeOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesExchangePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) *string {
 		if v == nil {
@@ -7701,12 +7096,9 @@ func (o OfficeDataConnectorDataTypesExchangePtrOutput) State() pulumi.StringPtrO
 }
 
 type OfficeDataConnectorDataTypesResponse struct {
-	// Exchange data type connection.
-	Exchange *OfficeDataConnectorDataTypesResponseExchange `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   *OfficeDataConnectorDataTypesResponseExchange   `pulumi:"exchange"`
 	SharePoint *OfficeDataConnectorDataTypesResponseSharePoint `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams *OfficeDataConnectorDataTypesResponseTeams `pulumi:"teams"`
+	Teams      *OfficeDataConnectorDataTypesResponseTeams      `pulumi:"teams"`
 }
 
 // OfficeDataConnectorDataTypesResponseInput is an input type that accepts OfficeDataConnectorDataTypesResponseArgs and OfficeDataConnectorDataTypesResponseOutput values.
@@ -7721,12 +7113,9 @@ type OfficeDataConnectorDataTypesResponseInput interface {
 }
 
 type OfficeDataConnectorDataTypesResponseArgs struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesResponseExchangePtrInput `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesResponseExchangePtrInput   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesResponseSharePointPtrInput `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesResponseTeamsPtrInput `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesResponseTeamsPtrInput      `pulumi:"teams"`
 }
 
 func (OfficeDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
@@ -7806,21 +7195,18 @@ func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTyp
 	}).(OfficeDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseExchange {
 		return v.Exchange
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseSharePoint {
 		return v.SharePoint
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseTeams {
 		return v.Teams
@@ -7851,7 +7237,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) Elem() OfficeDataConnecto
 	}).(OfficeDataConnectorDataTypesResponseOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseExchange {
 		if v == nil {
@@ -7861,7 +7246,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) Exchange() OfficeDataConn
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseSharePoint {
 		if v == nil {
@@ -7871,7 +7255,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) SharePoint() OfficeDataCo
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseTeams {
 		if v == nil {
@@ -7882,7 +7265,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) Teams() OfficeDataConnect
 }
 
 type OfficeDataConnectorDataTypesResponseExchange struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -7898,7 +7280,6 @@ type OfficeDataConnectorDataTypesResponseExchangeInput interface {
 }
 
 type OfficeDataConnectorDataTypesResponseExchangeArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -7979,7 +7360,6 @@ func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnecto
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8008,7 +7388,6 @@ func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) Elem() OfficeData
 	}).(OfficeDataConnectorDataTypesResponseExchangeOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) *string {
 		if v == nil {
@@ -8019,7 +7398,6 @@ func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) State() pulumi.St
 }
 
 type OfficeDataConnectorDataTypesResponseSharePoint struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -8035,7 +7413,6 @@ type OfficeDataConnectorDataTypesResponseSharePointInput interface {
 }
 
 type OfficeDataConnectorDataTypesResponseSharePointArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -8116,7 +7493,6 @@ func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnec
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8145,7 +7521,6 @@ func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) Elem() OfficeDa
 	}).(OfficeDataConnectorDataTypesResponseSharePointOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) *string {
 		if v == nil {
@@ -8156,7 +7531,6 @@ func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) State() pulumi.
 }
 
 type OfficeDataConnectorDataTypesResponseTeams struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -8172,7 +7546,6 @@ type OfficeDataConnectorDataTypesResponseTeamsInput interface {
 }
 
 type OfficeDataConnectorDataTypesResponseTeamsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -8253,7 +7626,6 @@ func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDa
 	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8282,7 +7654,6 @@ func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) Elem() OfficeDataCon
 	}).(OfficeDataConnectorDataTypesResponseTeamsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) *string {
 		if v == nil {
@@ -8293,7 +7664,6 @@ func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) State() pulumi.Strin
 }
 
 type OfficeDataConnectorDataTypesSharePoint struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -8309,7 +7679,6 @@ type OfficeDataConnectorDataTypesSharePointInput interface {
 }
 
 type OfficeDataConnectorDataTypesSharePointArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -8390,7 +7759,6 @@ func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataT
 	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesSharePointOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8419,7 +7787,6 @@ func (o OfficeDataConnectorDataTypesSharePointPtrOutput) Elem() OfficeDataConnec
 	}).(OfficeDataConnectorDataTypesSharePointOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesSharePointPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) *string {
 		if v == nil {
@@ -8430,7 +7797,6 @@ func (o OfficeDataConnectorDataTypesSharePointPtrOutput) State() pulumi.StringPt
 }
 
 type OfficeDataConnectorDataTypesTeams struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -8446,7 +7812,6 @@ type OfficeDataConnectorDataTypesTeamsInput interface {
 }
 
 type OfficeDataConnectorDataTypesTeamsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -8527,7 +7892,6 @@ func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesT
 	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesTeamsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8556,7 +7920,6 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) Elem() OfficeDataConnectorDa
 	}).(OfficeDataConnectorDataTypesTeamsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) *string {
 		if v == nil {
@@ -8567,12 +7930,9 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutp
 }
 
 type RepoResponse struct {
-	// Array of branches.
 	Branches []string `pulumi:"branches"`
-	// The name of the repository.
-	FullName *string `pulumi:"fullName"`
-	// The url to access the repository.
-	Url *string `pulumi:"url"`
+	FullName *string  `pulumi:"fullName"`
+	Url      *string  `pulumi:"url"`
 }
 
 // RepoResponseInput is an input type that accepts RepoResponseArgs and RepoResponseOutput values.
@@ -8587,12 +7947,9 @@ type RepoResponseInput interface {
 }
 
 type RepoResponseArgs struct {
-	// Array of branches.
 	Branches pulumi.StringArrayInput `pulumi:"branches"`
-	// The name of the repository.
-	FullName pulumi.StringPtrInput `pulumi:"fullName"`
-	// The url to access the repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	FullName pulumi.StringPtrInput   `pulumi:"fullName"`
+	Url      pulumi.StringPtrInput   `pulumi:"url"`
 }
 
 func (RepoResponseArgs) ElementType() reflect.Type {
@@ -8646,17 +8003,14 @@ func (o RepoResponseOutput) ToRepoResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Array of branches.
 func (o RepoResponseOutput) Branches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepoResponse) []string { return v.Branches }).(pulumi.StringArrayOutput)
 }
 
-// The name of the repository.
 func (o RepoResponseOutput) FullName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepoResponse) *string { return v.FullName }).(pulumi.StringPtrOutput)
 }
 
-// The url to access the repository.
 func (o RepoResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -8682,12 +8036,9 @@ func (o RepoResponseArrayOutput) Index(i pulumi.IntInput) RepoResponseOutput {
 }
 
 type Repository struct {
-	// Branch name of repository.
-	Branch *string `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      *string          `pulumi:"branch"`
 	PathMapping []ContentPathMap `pulumi:"pathMapping"`
-	// Url of repository.
-	Url *string `pulumi:"url"`
+	Url         *string          `pulumi:"url"`
 }
 
 // RepositoryInput is an input type that accepts RepositoryArgs and RepositoryOutput values.
@@ -8702,12 +8053,9 @@ type RepositoryInput interface {
 }
 
 type RepositoryArgs struct {
-	// Branch name of repository.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      pulumi.StringPtrInput    `pulumi:"branch"`
 	PathMapping ContentPathMapArrayInput `pulumi:"pathMapping"`
-	// Url of repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url         pulumi.StringPtrInput    `pulumi:"url"`
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -8787,17 +8135,14 @@ func (o RepositoryOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) 
 	}).(RepositoryPtrOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Repository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v Repository) []ContentPathMap { return v.PathMapping }).(ContentPathMapArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Repository) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -8826,7 +8171,6 @@ func (o RepositoryPtrOutput) Elem() RepositoryOutput {
 	}).(RepositoryOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) *string {
 		if v == nil {
@@ -8836,7 +8180,6 @@ func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v *Repository) []ContentPathMap {
 		if v == nil {
@@ -8846,7 +8189,6 @@ func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
 	}).(ContentPathMapArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) *string {
 		if v == nil {
@@ -8857,12 +8199,9 @@ func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type RepositoryResponse struct {
-	// Branch name of repository.
-	Branch *string `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      *string                  `pulumi:"branch"`
 	PathMapping []ContentPathMapResponse `pulumi:"pathMapping"`
-	// Url of repository.
-	Url *string `pulumi:"url"`
+	Url         *string                  `pulumi:"url"`
 }
 
 // RepositoryResponseInput is an input type that accepts RepositoryResponseArgs and RepositoryResponseOutput values.
@@ -8877,12 +8216,9 @@ type RepositoryResponseInput interface {
 }
 
 type RepositoryResponseArgs struct {
-	// Branch name of repository.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      pulumi.StringPtrInput            `pulumi:"branch"`
 	PathMapping ContentPathMapResponseArrayInput `pulumi:"pathMapping"`
-	// Url of repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url         pulumi.StringPtrInput            `pulumi:"url"`
 }
 
 func (RepositoryResponseArgs) ElementType() reflect.Type {
@@ -8962,17 +8298,14 @@ func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutputWithContext(ctx c
 	}).(RepositoryResponsePtrOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryResponseOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryResponseOutput) PathMapping() ContentPathMapResponseArrayOutput {
 	return o.ApplyT(func(v RepositoryResponse) []ContentPathMapResponse { return v.PathMapping }).(ContentPathMapResponseArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -9001,7 +8334,6 @@ func (o RepositoryResponsePtrOutput) Elem() RepositoryResponseOutput {
 	}).(RepositoryResponseOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryResponse) *string {
 		if v == nil {
@@ -9011,7 +8343,6 @@ func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryResponsePtrOutput) PathMapping() ContentPathMapResponseArrayOutput {
 	return o.ApplyT(func(v *RepositoryResponse) []ContentPathMapResponse {
 		if v == nil {
@@ -9021,7 +8352,6 @@ func (o RepositoryResponsePtrOutput) PathMapping() ContentPathMapResponseArrayOu
 	}).(ContentPathMapResponseArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryResponse) *string {
 		if v == nil {
@@ -9032,27 +8362,16 @@ func (o RepositoryResponsePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type SecurityAlertTimelineItemResponse struct {
-	// The name of the alert type.
-	AlertType string `pulumi:"alertType"`
-	// The alert azure resource id.
-	AzureResourceId string `pulumi:"azureResourceId"`
-	// The alert description.
-	Description *string `pulumi:"description"`
-	// The alert name.
-	DisplayName string `pulumi:"displayName"`
-	// The alert end time.
-	EndTimeUtc string `pulumi:"endTimeUtc"`
-	// The entity query kind
-	// Expected value is 'SecurityAlert'.
-	Kind string `pulumi:"kind"`
-	// The alert product name.
-	ProductName *string `pulumi:"productName"`
-	// The alert severity.
-	Severity string `pulumi:"severity"`
-	// The alert start time.
-	StartTimeUtc string `pulumi:"startTimeUtc"`
-	// The alert generated time.
-	TimeGenerated string `pulumi:"timeGenerated"`
+	AlertType       string  `pulumi:"alertType"`
+	AzureResourceId string  `pulumi:"azureResourceId"`
+	Description     *string `pulumi:"description"`
+	DisplayName     string  `pulumi:"displayName"`
+	EndTimeUtc      string  `pulumi:"endTimeUtc"`
+	Kind            string  `pulumi:"kind"`
+	ProductName     *string `pulumi:"productName"`
+	Severity        string  `pulumi:"severity"`
+	StartTimeUtc    string  `pulumi:"startTimeUtc"`
+	TimeGenerated   string  `pulumi:"timeGenerated"`
 }
 
 // SecurityAlertTimelineItemResponseInput is an input type that accepts SecurityAlertTimelineItemResponseArgs and SecurityAlertTimelineItemResponseOutput values.
@@ -9067,27 +8386,16 @@ type SecurityAlertTimelineItemResponseInput interface {
 }
 
 type SecurityAlertTimelineItemResponseArgs struct {
-	// The name of the alert type.
-	AlertType pulumi.StringInput `pulumi:"alertType"`
-	// The alert azure resource id.
-	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
-	// The alert description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The alert name.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The alert end time.
-	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
-	// The entity query kind
-	// Expected value is 'SecurityAlert'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The alert product name.
-	ProductName pulumi.StringPtrInput `pulumi:"productName"`
-	// The alert severity.
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// The alert start time.
-	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
-	// The alert generated time.
-	TimeGenerated pulumi.StringInput `pulumi:"timeGenerated"`
+	AlertType       pulumi.StringInput    `pulumi:"alertType"`
+	AzureResourceId pulumi.StringInput    `pulumi:"azureResourceId"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName     pulumi.StringInput    `pulumi:"displayName"`
+	EndTimeUtc      pulumi.StringInput    `pulumi:"endTimeUtc"`
+	Kind            pulumi.StringInput    `pulumi:"kind"`
+	ProductName     pulumi.StringPtrInput `pulumi:"productName"`
+	Severity        pulumi.StringInput    `pulumi:"severity"`
+	StartTimeUtc    pulumi.StringInput    `pulumi:"startTimeUtc"`
+	TimeGenerated   pulumi.StringInput    `pulumi:"timeGenerated"`
 }
 
 func (SecurityAlertTimelineItemResponseArgs) ElementType() reflect.Type {
@@ -9116,69 +8424,52 @@ func (o SecurityAlertTimelineItemResponseOutput) ToSecurityAlertTimelineItemResp
 	return o
 }
 
-// The name of the alert type.
 func (o SecurityAlertTimelineItemResponseOutput) AlertType() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.AlertType }).(pulumi.StringOutput)
 }
 
-// The alert azure resource id.
 func (o SecurityAlertTimelineItemResponseOutput) AzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.AzureResourceId }).(pulumi.StringOutput)
 }
 
-// The alert description.
 func (o SecurityAlertTimelineItemResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The alert name.
 func (o SecurityAlertTimelineItemResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The alert end time.
 func (o SecurityAlertTimelineItemResponseOutput) EndTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
 }
 
-// The entity query kind
-// Expected value is 'SecurityAlert'.
 func (o SecurityAlertTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The alert product name.
 func (o SecurityAlertTimelineItemResponseOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
-// The alert severity.
 func (o SecurityAlertTimelineItemResponseOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.Severity }).(pulumi.StringOutput)
 }
 
-// The alert start time.
 func (o SecurityAlertTimelineItemResponseOutput) StartTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
 }
 
-// The alert generated time.
 func (o SecurityAlertTimelineItemResponseOutput) TimeGenerated() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.TimeGenerated }).(pulumi.StringOutput)
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -9194,17 +8485,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -9285,32 +8570,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -9339,7 +8618,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9349,7 +8627,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9359,7 +8636,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9369,7 +8645,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9379,7 +8654,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9389,7 +8663,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9400,7 +8673,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TIDataConnectorDataTypes struct {
-	// Data type for indicators connection.
 	Indicators *TIDataConnectorDataTypesIndicators `pulumi:"indicators"`
 }
 
@@ -9416,7 +8688,6 @@ type TIDataConnectorDataTypesInput interface {
 }
 
 type TIDataConnectorDataTypesArgs struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesIndicatorsPtrInput `pulumi:"indicators"`
 }
 
@@ -9497,7 +8768,6 @@ func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutputWithC
 	}).(TIDataConnectorDataTypesPtrOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesOutput) Indicators() TIDataConnectorDataTypesIndicatorsPtrOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypes) *TIDataConnectorDataTypesIndicators { return v.Indicators }).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
@@ -9526,7 +8796,6 @@ func (o TIDataConnectorDataTypesPtrOutput) Elem() TIDataConnectorDataTypesOutput
 	}).(TIDataConnectorDataTypesOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesPtrOutput) Indicators() TIDataConnectorDataTypesIndicatorsPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypes) *TIDataConnectorDataTypesIndicators {
 		if v == nil {
@@ -9537,7 +8806,6 @@ func (o TIDataConnectorDataTypesPtrOutput) Indicators() TIDataConnectorDataTypes
 }
 
 type TIDataConnectorDataTypesIndicators struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -9553,7 +8821,6 @@ type TIDataConnectorDataTypesIndicatorsInput interface {
 }
 
 type TIDataConnectorDataTypesIndicatorsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -9634,7 +8901,6 @@ func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndi
 	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesIndicatorsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -9663,7 +8929,6 @@ func (o TIDataConnectorDataTypesIndicatorsPtrOutput) Elem() TIDataConnectorDataT
 	}).(TIDataConnectorDataTypesIndicatorsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) *string {
 		if v == nil {
@@ -9674,7 +8939,6 @@ func (o TIDataConnectorDataTypesIndicatorsPtrOutput) State() pulumi.StringPtrOut
 }
 
 type TIDataConnectorDataTypesResponse struct {
-	// Data type for indicators connection.
 	Indicators *TIDataConnectorDataTypesResponseIndicators `pulumi:"indicators"`
 }
 
@@ -9690,7 +8954,6 @@ type TIDataConnectorDataTypesResponseInput interface {
 }
 
 type TIDataConnectorDataTypesResponseArgs struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesResponseIndicatorsPtrInput `pulumi:"indicators"`
 }
 
@@ -9771,7 +9034,6 @@ func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesRespon
 	}).(TIDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesResponseOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponseIndicators {
 		return v.Indicators
@@ -9802,7 +9064,6 @@ func (o TIDataConnectorDataTypesResponsePtrOutput) Elem() TIDataConnectorDataTyp
 	}).(TIDataConnectorDataTypesResponseOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesResponsePtrOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponseIndicators {
 		if v == nil {
@@ -9813,7 +9074,6 @@ func (o TIDataConnectorDataTypesResponsePtrOutput) Indicators() TIDataConnectorD
 }
 
 type TIDataConnectorDataTypesResponseIndicators struct {
-	// Describe whether this data type connection is enabled or not.
 	State *string `pulumi:"state"`
 }
 
@@ -9829,7 +9089,6 @@ type TIDataConnectorDataTypesResponseIndicatorsInput interface {
 }
 
 type TIDataConnectorDataTypesResponseIndicatorsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -9910,7 +9169,6 @@ func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataT
 	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -9939,7 +9197,6 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) Elem() TIDataConnec
 	}).(TIDataConnectorDataTypesResponseIndicatorsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) *string {
 		if v == nil {
@@ -9950,16 +9207,11 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.Stri
 }
 
 type ThreatIntelligenceExternalReference struct {
-	// External reference description
-	Description *string `pulumi:"description"`
-	// External reference ID
-	ExternalId *string `pulumi:"externalId"`
-	// External reference hashes
-	Hashes map[string]string `pulumi:"hashes"`
-	// External reference source name
-	SourceName *string `pulumi:"sourceName"`
-	// External reference URL
-	Url *string `pulumi:"url"`
+	Description *string           `pulumi:"description"`
+	ExternalId  *string           `pulumi:"externalId"`
+	Hashes      map[string]string `pulumi:"hashes"`
+	SourceName  *string           `pulumi:"sourceName"`
+	Url         *string           `pulumi:"url"`
 }
 
 // ThreatIntelligenceExternalReferenceInput is an input type that accepts ThreatIntelligenceExternalReferenceArgs and ThreatIntelligenceExternalReferenceOutput values.
@@ -9974,16 +9226,11 @@ type ThreatIntelligenceExternalReferenceInput interface {
 }
 
 type ThreatIntelligenceExternalReferenceArgs struct {
-	// External reference description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// External reference ID
-	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// External reference hashes
-	Hashes pulumi.StringMapInput `pulumi:"hashes"`
-	// External reference source name
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
-	// External reference URL
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	ExternalId  pulumi.StringPtrInput `pulumi:"externalId"`
+	Hashes      pulumi.StringMapInput `pulumi:"hashes"`
+	SourceName  pulumi.StringPtrInput `pulumi:"sourceName"`
+	Url         pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (ThreatIntelligenceExternalReferenceArgs) ElementType() reflect.Type {
@@ -10037,27 +9284,22 @@ func (o ThreatIntelligenceExternalReferenceOutput) ToThreatIntelligenceExternalR
 	return o
 }
 
-// External reference description
 func (o ThreatIntelligenceExternalReferenceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// External reference ID
 func (o ThreatIntelligenceExternalReferenceOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// External reference hashes
 func (o ThreatIntelligenceExternalReferenceOutput) Hashes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ThreatIntelligenceExternalReference) map[string]string { return v.Hashes }).(pulumi.StringMapOutput)
 }
 
-// External reference source name
 func (o ThreatIntelligenceExternalReferenceOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.SourceName }).(pulumi.StringPtrOutput)
 }
 
-// External reference URL
 func (o ThreatIntelligenceExternalReferenceOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -10083,12 +9325,9 @@ func (o ThreatIntelligenceExternalReferenceArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ThreatIntelligenceGranularMarkingModel struct {
-	// Language granular marking model
-	Language *string `pulumi:"language"`
-	// marking reference granular marking model
-	MarkingRef *int `pulumi:"markingRef"`
-	// granular marking model selectors
-	Selectors []string `pulumi:"selectors"`
+	Language   *string  `pulumi:"language"`
+	MarkingRef *int     `pulumi:"markingRef"`
+	Selectors  []string `pulumi:"selectors"`
 }
 
 // ThreatIntelligenceGranularMarkingModelInput is an input type that accepts ThreatIntelligenceGranularMarkingModelArgs and ThreatIntelligenceGranularMarkingModelOutput values.
@@ -10103,12 +9342,9 @@ type ThreatIntelligenceGranularMarkingModelInput interface {
 }
 
 type ThreatIntelligenceGranularMarkingModelArgs struct {
-	// Language granular marking model
-	Language pulumi.StringPtrInput `pulumi:"language"`
-	// marking reference granular marking model
-	MarkingRef pulumi.IntPtrInput `pulumi:"markingRef"`
-	// granular marking model selectors
-	Selectors pulumi.StringArrayInput `pulumi:"selectors"`
+	Language   pulumi.StringPtrInput   `pulumi:"language"`
+	MarkingRef pulumi.IntPtrInput      `pulumi:"markingRef"`
+	Selectors  pulumi.StringArrayInput `pulumi:"selectors"`
 }
 
 func (ThreatIntelligenceGranularMarkingModelArgs) ElementType() reflect.Type {
@@ -10162,17 +9398,14 @@ func (o ThreatIntelligenceGranularMarkingModelOutput) ToThreatIntelligenceGranul
 	return o
 }
 
-// Language granular marking model
 func (o ThreatIntelligenceGranularMarkingModelOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// marking reference granular marking model
 func (o ThreatIntelligenceGranularMarkingModelOutput) MarkingRef() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) *int { return v.MarkingRef }).(pulumi.IntPtrOutput)
 }
 
-// granular marking model selectors
 func (o ThreatIntelligenceGranularMarkingModelOutput) Selectors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) []string { return v.Selectors }).(pulumi.StringArrayOutput)
 }
@@ -10198,10 +9431,8 @@ func (o ThreatIntelligenceGranularMarkingModelArrayOutput) Index(i pulumi.IntInp
 }
 
 type ThreatIntelligenceKillChainPhase struct {
-	// Kill chainName name
 	KillChainName *string `pulumi:"killChainName"`
-	// Phase name
-	PhaseName *string `pulumi:"phaseName"`
+	PhaseName     *string `pulumi:"phaseName"`
 }
 
 // ThreatIntelligenceKillChainPhaseInput is an input type that accepts ThreatIntelligenceKillChainPhaseArgs and ThreatIntelligenceKillChainPhaseOutput values.
@@ -10216,10 +9447,8 @@ type ThreatIntelligenceKillChainPhaseInput interface {
 }
 
 type ThreatIntelligenceKillChainPhaseArgs struct {
-	// Kill chainName name
 	KillChainName pulumi.StringPtrInput `pulumi:"killChainName"`
-	// Phase name
-	PhaseName pulumi.StringPtrInput `pulumi:"phaseName"`
+	PhaseName     pulumi.StringPtrInput `pulumi:"phaseName"`
 }
 
 func (ThreatIntelligenceKillChainPhaseArgs) ElementType() reflect.Type {
@@ -10273,12 +9502,10 @@ func (o ThreatIntelligenceKillChainPhaseOutput) ToThreatIntelligenceKillChainPha
 	return o
 }
 
-// Kill chainName name
 func (o ThreatIntelligenceKillChainPhaseOutput) KillChainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceKillChainPhase) *string { return v.KillChainName }).(pulumi.StringPtrOutput)
 }
 
-// Phase name
 func (o ThreatIntelligenceKillChainPhaseOutput) PhaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceKillChainPhase) *string { return v.PhaseName }).(pulumi.StringPtrOutput)
 }
@@ -10304,9 +9531,7 @@ func (o ThreatIntelligenceKillChainPhaseArrayOutput) Index(i pulumi.IntInput) Th
 }
 
 type ThreatIntelligenceParsedPattern struct {
-	// Pattern type key
-	PatternTypeKey *string `pulumi:"patternTypeKey"`
-	// Pattern type keys
+	PatternTypeKey    *string                                    `pulumi:"patternTypeKey"`
 	PatternTypeValues []ThreatIntelligenceParsedPatternTypeValue `pulumi:"patternTypeValues"`
 }
 
@@ -10322,9 +9547,7 @@ type ThreatIntelligenceParsedPatternInput interface {
 }
 
 type ThreatIntelligenceParsedPatternArgs struct {
-	// Pattern type key
-	PatternTypeKey pulumi.StringPtrInput `pulumi:"patternTypeKey"`
-	// Pattern type keys
+	PatternTypeKey    pulumi.StringPtrInput                              `pulumi:"patternTypeKey"`
 	PatternTypeValues ThreatIntelligenceParsedPatternTypeValueArrayInput `pulumi:"patternTypeValues"`
 }
 
@@ -10379,12 +9602,10 @@ func (o ThreatIntelligenceParsedPatternOutput) ToThreatIntelligenceParsedPattern
 	return o
 }
 
-// Pattern type key
 func (o ThreatIntelligenceParsedPatternOutput) PatternTypeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceParsedPattern) *string { return v.PatternTypeKey }).(pulumi.StringPtrOutput)
 }
 
-// Pattern type keys
 func (o ThreatIntelligenceParsedPatternOutput) PatternTypeValues() ThreatIntelligenceParsedPatternTypeValueArrayOutput {
 	return o.ApplyT(func(v ThreatIntelligenceParsedPattern) []ThreatIntelligenceParsedPatternTypeValue {
 		return v.PatternTypeValues
@@ -10412,9 +9633,7 @@ func (o ThreatIntelligenceParsedPatternArrayOutput) Index(i pulumi.IntInput) Thr
 }
 
 type ThreatIntelligenceParsedPatternTypeValue struct {
-	// Value of parsed pattern
-	Value *string `pulumi:"value"`
-	// Type of the value
+	Value     *string `pulumi:"value"`
 	ValueType *string `pulumi:"valueType"`
 }
 
@@ -10430,9 +9649,7 @@ type ThreatIntelligenceParsedPatternTypeValueInput interface {
 }
 
 type ThreatIntelligenceParsedPatternTypeValueArgs struct {
-	// Value of parsed pattern
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	// Type of the value
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 	ValueType pulumi.StringPtrInput `pulumi:"valueType"`
 }
 
@@ -10487,12 +9704,10 @@ func (o ThreatIntelligenceParsedPatternTypeValueOutput) ToThreatIntelligencePars
 	return o
 }
 
-// Value of parsed pattern
 func (o ThreatIntelligenceParsedPatternTypeValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceParsedPatternTypeValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// Type of the value
 func (o ThreatIntelligenceParsedPatternTypeValueOutput) ValueType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThreatIntelligenceParsedPatternTypeValue) *string { return v.ValueType }).(pulumi.StringPtrOutput)
 }
@@ -10518,10 +9733,8 @@ func (o ThreatIntelligenceParsedPatternTypeValueArrayOutput) Index(i pulumi.IntI
 }
 
 type TimelineAggregationResponse struct {
-	// the total items found for a kind
-	Count int `pulumi:"count"`
-	// the query kind
-	Kind string `pulumi:"kind"`
+	Count int    `pulumi:"count"`
+	Kind  string `pulumi:"kind"`
 }
 
 // TimelineAggregationResponseInput is an input type that accepts TimelineAggregationResponseArgs and TimelineAggregationResponseOutput values.
@@ -10536,10 +9749,8 @@ type TimelineAggregationResponseInput interface {
 }
 
 type TimelineAggregationResponseArgs struct {
-	// the total items found for a kind
-	Count pulumi.IntInput `pulumi:"count"`
-	// the query kind
-	Kind pulumi.StringInput `pulumi:"kind"`
+	Count pulumi.IntInput    `pulumi:"count"`
+	Kind  pulumi.StringInput `pulumi:"kind"`
 }
 
 func (TimelineAggregationResponseArgs) ElementType() reflect.Type {
@@ -10593,12 +9804,10 @@ func (o TimelineAggregationResponseOutput) ToTimelineAggregationResponseOutputWi
 	return o
 }
 
-// the total items found for a kind
 func (o TimelineAggregationResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v TimelineAggregationResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// the query kind
 func (o TimelineAggregationResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v TimelineAggregationResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -10624,12 +9833,9 @@ func (o TimelineAggregationResponseArrayOutput) Index(i pulumi.IntInput) Timelin
 }
 
 type TimelineErrorResponse struct {
-	// the error message
-	ErrorMessage string `pulumi:"errorMessage"`
-	// the query kind
-	Kind string `pulumi:"kind"`
-	// the query id
-	QueryId *string `pulumi:"queryId"`
+	ErrorMessage string  `pulumi:"errorMessage"`
+	Kind         string  `pulumi:"kind"`
+	QueryId      *string `pulumi:"queryId"`
 }
 
 // TimelineErrorResponseInput is an input type that accepts TimelineErrorResponseArgs and TimelineErrorResponseOutput values.
@@ -10644,12 +9850,9 @@ type TimelineErrorResponseInput interface {
 }
 
 type TimelineErrorResponseArgs struct {
-	// the error message
-	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// the query kind
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// the query id
-	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
+	ErrorMessage pulumi.StringInput    `pulumi:"errorMessage"`
+	Kind         pulumi.StringInput    `pulumi:"kind"`
+	QueryId      pulumi.StringPtrInput `pulumi:"queryId"`
 }
 
 func (TimelineErrorResponseArgs) ElementType() reflect.Type {
@@ -10703,17 +9906,14 @@ func (o TimelineErrorResponseOutput) ToTimelineErrorResponseOutputWithContext(ct
 	return o
 }
 
-// the error message
 func (o TimelineErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v TimelineErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// the query kind
 func (o TimelineErrorResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v TimelineErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// the query id
 func (o TimelineErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimelineErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
 }
@@ -10739,12 +9939,9 @@ func (o TimelineErrorResponseArrayOutput) Index(i pulumi.IntInput) TimelineError
 }
 
 type TimelineResultsMetadataResponse struct {
-	// timeline aggregation per kind
 	Aggregations []TimelineAggregationResponse `pulumi:"aggregations"`
-	// information about the failure queries
-	Errors []TimelineErrorResponse `pulumi:"errors"`
-	// the total items found for the timeline request
-	TotalCount int `pulumi:"totalCount"`
+	Errors       []TimelineErrorResponse       `pulumi:"errors"`
+	TotalCount   int                           `pulumi:"totalCount"`
 }
 
 // TimelineResultsMetadataResponseInput is an input type that accepts TimelineResultsMetadataResponseArgs and TimelineResultsMetadataResponseOutput values.
@@ -10759,12 +9956,9 @@ type TimelineResultsMetadataResponseInput interface {
 }
 
 type TimelineResultsMetadataResponseArgs struct {
-	// timeline aggregation per kind
 	Aggregations TimelineAggregationResponseArrayInput `pulumi:"aggregations"`
-	// information about the failure queries
-	Errors TimelineErrorResponseArrayInput `pulumi:"errors"`
-	// the total items found for the timeline request
-	TotalCount pulumi.IntInput `pulumi:"totalCount"`
+	Errors       TimelineErrorResponseArrayInput       `pulumi:"errors"`
+	TotalCount   pulumi.IntInput                       `pulumi:"totalCount"`
 }
 
 func (TimelineResultsMetadataResponseArgs) ElementType() reflect.Type {
@@ -10793,23 +9987,19 @@ func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponse
 	return o
 }
 
-// timeline aggregation per kind
 func (o TimelineResultsMetadataResponseOutput) Aggregations() TimelineAggregationResponseArrayOutput {
 	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineAggregationResponse { return v.Aggregations }).(TimelineAggregationResponseArrayOutput)
 }
 
-// information about the failure queries
 func (o TimelineResultsMetadataResponseOutput) Errors() TimelineErrorResponseArrayOutput {
 	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineErrorResponse { return v.Errors }).(TimelineErrorResponseArrayOutput)
 }
 
-// the total items found for the timeline request
 func (o TimelineResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
 	return o.ApplyT(func(v TimelineResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
 }
 
 type UserInfo struct {
-	// The object id of the user.
 	ObjectId string `pulumi:"objectId"`
 }
 
@@ -10825,7 +10015,6 @@ type UserInfoInput interface {
 }
 
 type UserInfoArgs struct {
-	// The object id of the user.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
 }
 
@@ -10906,7 +10095,6 @@ func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) User
 	}).(UserInfoPtrOutput)
 }
 
-// The object id of the user.
 func (o UserInfoOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserInfo) string { return v.ObjectId }).(pulumi.StringOutput)
 }
@@ -10935,7 +10123,6 @@ func (o UserInfoPtrOutput) Elem() UserInfoOutput {
 	}).(UserInfoOutput)
 }
 
-// The object id of the user.
 func (o UserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -10946,11 +10133,8 @@ func (o UserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 type UserInfoResponse struct {
-	// The email of the user.
-	Email string `pulumi:"email"`
-	// The name of the user.
-	Name string `pulumi:"name"`
-	// The object id of the user.
+	Email    string  `pulumi:"email"`
+	Name     string  `pulumi:"name"`
 	ObjectId *string `pulumi:"objectId"`
 }
 
@@ -10966,11 +10150,8 @@ type UserInfoResponseInput interface {
 }
 
 type UserInfoResponseArgs struct {
-	// The email of the user.
-	Email pulumi.StringInput `pulumi:"email"`
-	// The name of the user.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The object id of the user.
+	Email    pulumi.StringInput    `pulumi:"email"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 }
 
@@ -11051,17 +10232,14 @@ func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx conte
 	}).(UserInfoResponsePtrOutput)
 }
 
-// The email of the user.
 func (o UserInfoResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v UserInfoResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The name of the user.
 func (o UserInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The object id of the user.
 func (o UserInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -11090,7 +10268,6 @@ func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
 	}).(UserInfoResponseOutput)
 }
 
-// The email of the user.
 func (o UserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {
@@ -11100,7 +10277,6 @@ func (o UserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
 func (o UserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {
@@ -11110,7 +10286,6 @@ func (o UserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user.
 func (o UserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {
@@ -11121,7 +10296,6 @@ func (o UserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 type WatchlistUserInfo struct {
-	// The object id of the user.
 	ObjectId *string `pulumi:"objectId"`
 }
 
@@ -11137,7 +10311,6 @@ type WatchlistUserInfoInput interface {
 }
 
 type WatchlistUserInfoArgs struct {
-	// The object id of the user.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 }
 
@@ -11218,7 +10391,6 @@ func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx con
 	}).(WatchlistUserInfoPtrOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WatchlistUserInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -11247,7 +10419,6 @@ func (o WatchlistUserInfoPtrOutput) Elem() WatchlistUserInfoOutput {
 	}).(WatchlistUserInfoOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfo) *string {
 		if v == nil {
@@ -11258,11 +10429,8 @@ func (o WatchlistUserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 type WatchlistUserInfoResponse struct {
-	// The email of the user.
-	Email string `pulumi:"email"`
-	// The name of the user.
-	Name string `pulumi:"name"`
-	// The object id of the user.
+	Email    string  `pulumi:"email"`
+	Name     string  `pulumi:"name"`
 	ObjectId *string `pulumi:"objectId"`
 }
 
@@ -11278,11 +10446,8 @@ type WatchlistUserInfoResponseInput interface {
 }
 
 type WatchlistUserInfoResponseArgs struct {
-	// The email of the user.
-	Email pulumi.StringInput `pulumi:"email"`
-	// The name of the user.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The object id of the user.
+	Email    pulumi.StringInput    `pulumi:"email"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 }
 
@@ -11363,17 +10528,14 @@ func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutputWit
 	}).(WatchlistUserInfoResponsePtrOutput)
 }
 
-// The email of the user.
 func (o WatchlistUserInfoResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The name of the user.
 func (o WatchlistUserInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -11402,7 +10564,6 @@ func (o WatchlistUserInfoResponsePtrOutput) Elem() WatchlistUserInfoResponseOutp
 	}).(WatchlistUserInfoResponseOutput)
 }
 
-// The email of the user.
 func (o WatchlistUserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {
@@ -11412,7 +10573,6 @@ func (o WatchlistUserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
 func (o WatchlistUserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {
@@ -11422,7 +10582,6 @@ func (o WatchlistUserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {

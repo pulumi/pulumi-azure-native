@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an application in a Batch account.
-// API Version: 2021-01-01.
 type Application struct {
 	pulumi.CustomResourceState
 

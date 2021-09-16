@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment script object.
-// API Version: 2020-10-01.
-//
 // Deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.
 type DeploymentScript struct {
 	pulumi.CustomResourceState

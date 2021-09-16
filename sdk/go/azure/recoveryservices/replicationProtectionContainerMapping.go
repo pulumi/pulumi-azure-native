@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Protection container mapping object.
-// API Version: 2018-07-10.
 type ReplicationProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// External OAuth authorization server settings.
-// API Version: 2020-12-01.
 type AuthorizationServer struct {
 	pulumi.CustomResourceState
 

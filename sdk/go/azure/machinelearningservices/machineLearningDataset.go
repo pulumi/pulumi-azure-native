@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning dataset object wrapped into ARM resource envelope.
-// API Version: 2020-05-01-preview.
 type MachineLearningDataset struct {
 	pulumi.CustomResourceState
 

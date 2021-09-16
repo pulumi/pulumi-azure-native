@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The EngagementFabric account
-// API Version: 2018-09-01-preview.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:engagementfabric:getAccount", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// Account Name
-	AccountName string `pulumi:"accountName"`
-	// Resource Group Name
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The EngagementFabric account
 type LookupAccountResult struct {
-	// The ID of the resource
-	Id string `pulumi:"id"`
-	// The location of the resource
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The SKU of the resource
-	Sku SKUResponse `pulumi:"sku"`
-	// The tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// The fully qualified type of the resource
-	Type string `pulumi:"type"`
+	Id       string            `pulumi:"id"`
+	Location string            `pulumi:"location"`
+	Name     string            `pulumi:"name"`
+	Sku      SKUResponse       `pulumi:"sku"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     string            `pulumi:"type"`
 }

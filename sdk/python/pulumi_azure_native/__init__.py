@@ -8502,6 +8502,8 @@ _utilities.register(
    "azure-native:labservices:GalleryImage": "GalleryImage",
    "azure-native:labservices:Lab": "Lab",
    "azure-native:labservices:LabAccount": "LabAccount",
+   "azure-native:labservices:LabPlan": "LabPlan",
+   "azure-native:labservices:Schedule": "Schedule",
    "azure-native:labservices:User": "User"
   }
  },
@@ -8516,6 +8518,17 @@ _utilities.register(
    "azure-native:labservices/v20181015:Lab": "Lab",
    "azure-native:labservices/v20181015:LabAccount": "LabAccount",
    "azure-native:labservices/v20181015:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "labservices/v20211001preview",
+  "fqn": "pulumi_azure_native.labservices.v20211001preview",
+  "classes": {
+   "azure-native:labservices/v20211001preview:Lab": "Lab",
+   "azure-native:labservices/v20211001preview:LabPlan": "LabPlan",
+   "azure-native:labservices/v20211001preview:Schedule": "Schedule",
+   "azure-native:labservices/v20211001preview:User": "User"
   }
  },
  {
@@ -14267,6 +14280,16 @@ _utilities.register(
    "azure-native:signalrservice/v20210601preview:SignalR": "SignalR",
    "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20210901preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20210901preview",
+  "classes": {
+   "azure-native:signalrservice/v20210901preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level storage insight resource container.
-// API Version: 2020-08-01.
 type StorageInsightConfig struct {
 	pulumi.CustomResourceState
 

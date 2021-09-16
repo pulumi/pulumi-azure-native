@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription feature registration details
-// API Version: 2021-07-01.
 type SubscriptionFeatureRegistration struct {
 	pulumi.CustomResourceState
 

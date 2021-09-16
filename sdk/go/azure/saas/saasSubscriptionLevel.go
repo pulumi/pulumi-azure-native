@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SaaS REST API resource definition.
-// API Version: 2018-03-01-beta.
 type SaasSubscriptionLevel struct {
 	pulumi.CustomResourceState
 

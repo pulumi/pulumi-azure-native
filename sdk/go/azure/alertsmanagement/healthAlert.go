@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The health alert resource.
-// API Version: 2020-08-04-preview.
 type HealthAlert struct {
 	pulumi.CustomResourceState
 

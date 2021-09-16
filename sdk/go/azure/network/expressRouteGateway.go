@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoute gateway resource.
-// API Version: 2020-11-01.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 

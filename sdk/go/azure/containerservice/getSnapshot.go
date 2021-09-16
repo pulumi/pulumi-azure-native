@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A node pool snapshot resource.
-// API Version: 2021-08-01.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("azure-native:containerservice:getSnapshot", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 }
 
 type LookupSnapshotArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // A node pool snapshot resource.
 type LookupSnapshotResult struct {
-	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The type of a snapshot. The default is NodePool.
-	SnapshotType *string `pulumi:"snapshotType"`
-	// The system metadata relating to this snapshot.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id           string                `pulumi:"id"`
+	Location     string                `pulumi:"location"`
+	Name         string                `pulumi:"name"`
+	SnapshotType *string               `pulumi:"snapshotType"`
+	SystemData   SystemDataResponse    `pulumi:"systemData"`
+	Tags         map[string]string     `pulumi:"tags"`
+	Type         string                `pulumi:"type"`
 }

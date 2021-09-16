@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The essential information related to the peer's ASN.
-// API Version: 2021-01-01.
 type PeerAsn struct {
 	pulumi.CustomResourceState
 

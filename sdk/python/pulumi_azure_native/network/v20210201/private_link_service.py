@@ -25,6 +25,7 @@ class PrivateLinkServiceInitArgs:
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]] = None,
                  load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs']] = None):
@@ -39,6 +40,7 @@ class PrivateLinkServiceInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]] ip_configurations: An array of private link service IP configurations.
         :param pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] resource_guid: The resource id of private link service.
         :param pulumi.Input[str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs'] visibility: The visibility list of the private link service.
@@ -60,6 +62,8 @@ class PrivateLinkServiceInitArgs:
             pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
@@ -176,6 +180,18 @@ class PrivateLinkServiceInitArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of private link service.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @resource_guid.setter
+    def resource_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guid", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -226,6 +242,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
@@ -244,6 +261,7 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_guid: The resource id of private link service.
         :param pulumi.Input[str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']] visibility: The visibility list of the private link service.
@@ -281,6 +299,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
@@ -307,6 +326,7 @@ class PrivateLinkService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility
@@ -354,6 +374,7 @@ class PrivateLinkService(pulumi.CustomResource):
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["visibility"] = None
@@ -462,6 +483,14 @@ class PrivateLinkService(pulumi.CustomResource):
         The provisioning state of the private link service resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of private link service.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace resource.
-// API Version: 2017-04-01.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:servicebus:getNamespace", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 }
 
 type LookupNamespaceArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of a namespace resource.
 type LookupNamespaceResult struct {
-	// The time the namespace was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The Geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Identifier for Azure Insights metrics
-	MetricId string `pulumi:"metricId"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning state of the namespace.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
-	// Properties of Sku
-	Sku *SBSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	CreatedAt          string            `pulumi:"createdAt"`
+	Id                 string            `pulumi:"id"`
+	Location           string            `pulumi:"location"`
+	MetricId           string            `pulumi:"metricId"`
+	Name               string            `pulumi:"name"`
+	ProvisioningState  string            `pulumi:"provisioningState"`
+	ServiceBusEndpoint string            `pulumi:"serviceBusEndpoint"`
+	Sku                *SBSkuResponse    `pulumi:"sku"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
+	UpdatedAt          string            `pulumi:"updatedAt"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup Vault Resource
-// API Version: 2021-01-01.
 type BackupVault struct {
 	pulumi.CustomResourceState
 

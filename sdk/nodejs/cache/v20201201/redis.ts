@@ -86,7 +86,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    public readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly redisConfiguration!: pulumi.Output<outputs.cache.v20201201.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
     /**
      * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
      */
@@ -242,7 +242,7 @@ export interface RedisArgs {
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    redisConfiguration?: pulumi.Input<inputs.cache.v20201201.RedisCommonPropertiesRedisConfigurationArgs>;
     /**
      * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
      */

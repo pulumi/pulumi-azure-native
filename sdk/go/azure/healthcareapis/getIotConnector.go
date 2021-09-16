@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Connector definition.
-// API Version: 2021-06-01-preview.
 func LookupIotConnector(ctx *pulumi.Context, args *LookupIotConnectorArgs, opts ...pulumi.InvokeOption) (*LookupIotConnectorResult, error) {
 	var rv LookupIotConnectorResult
 	err := ctx.Invoke("azure-native:healthcareapis:getIotConnector", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupIotConnector(ctx *pulumi.Context, args *LookupIotConnectorArgs, opts 
 }
 
 type LookupIotConnectorArgs struct {
-	// The name of IoT Connector resource.
-	IotConnectorName string `pulumi:"iotConnectorName"`
-	// The name of the resource group that contains the service instance.
+	IotConnectorName  string `pulumi:"iotConnectorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // IoT Connector definition.
 type LookupIotConnectorResult struct {
-	// Device Mappings.
-	DeviceMapping *IotMappingPropertiesResponse `pulumi:"deviceMapping"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServiceManagedIdentityResponseIdentity `pulumi:"identity"`
-	// Source configuration.
+	DeviceMapping                  *IotMappingPropertiesResponse                      `pulumi:"deviceMapping"`
+	Etag                           *string                                            `pulumi:"etag"`
+	Id                             string                                             `pulumi:"id"`
+	Identity                       *ServiceManagedIdentityResponseIdentity            `pulumi:"identity"`
 	IngestionEndpointConfiguration *IotEventHubIngestionEndpointConfigurationResponse `pulumi:"ingestionEndpointConfiguration"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Location                       *string                                            `pulumi:"location"`
+	Name                           string                                             `pulumi:"name"`
+	ProvisioningState              string                                             `pulumi:"provisioningState"`
+	SystemData                     SystemDataResponse                                 `pulumi:"systemData"`
+	Tags                           map[string]string                                  `pulumi:"tags"`
+	Type                           string                                             `pulumi:"type"`
 }

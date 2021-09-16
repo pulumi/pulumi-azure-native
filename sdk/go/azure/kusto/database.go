@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto database.
-// API Version: 2021-01-01.
-//
 // Deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.
 type Database struct {
 	pulumi.CustomResourceState

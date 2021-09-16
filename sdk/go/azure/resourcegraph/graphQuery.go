@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Graph Query entity definition.
-// API Version: 2018-09-01-preview.
 type GraphQuery struct {
 	pulumi.CustomResourceState
 

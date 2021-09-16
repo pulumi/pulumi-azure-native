@@ -11,10 +11,8 @@ import (
 )
 
 type AzurePlanResponse struct {
-	// The sku description.
-	SkuDescription string `pulumi:"skuDescription"`
-	// The sku id.
-	SkuId *string `pulumi:"skuId"`
+	SkuDescription string  `pulumi:"skuDescription"`
+	SkuId          *string `pulumi:"skuId"`
 }
 
 // AzurePlanResponseInput is an input type that accepts AzurePlanResponseArgs and AzurePlanResponseOutput values.
@@ -29,10 +27,8 @@ type AzurePlanResponseInput interface {
 }
 
 type AzurePlanResponseArgs struct {
-	// The sku description.
-	SkuDescription pulumi.StringInput `pulumi:"skuDescription"`
-	// The sku id.
-	SkuId pulumi.StringPtrInput `pulumi:"skuId"`
+	SkuDescription pulumi.StringInput    `pulumi:"skuDescription"`
+	SkuId          pulumi.StringPtrInput `pulumi:"skuId"`
 }
 
 func (AzurePlanResponseArgs) ElementType() reflect.Type {
@@ -86,12 +82,10 @@ func (o AzurePlanResponseOutput) ToAzurePlanResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The sku description.
 func (o AzurePlanResponseOutput) SkuDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v AzurePlanResponse) string { return v.SkuDescription }).(pulumi.StringOutput)
 }
 
-// The sku id.
 func (o AzurePlanResponseOutput) SkuId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzurePlanResponse) *string { return v.SkuId }).(pulumi.StringPtrOutput)
 }
@@ -117,26 +111,16 @@ func (o AzurePlanResponseArrayOutput) Index(i pulumi.IntInput) AzurePlanResponse
 }
 
 type InvoiceSectionWithCreateSubPermissionResponse struct {
-	// The name of the billing profile for the invoice section.
-	BillingProfileDisplayName string `pulumi:"billingProfileDisplayName"`
-	// The ID of the billing profile for the invoice section.
-	BillingProfileId string `pulumi:"billingProfileId"`
-	// The billing profile spending limit.
-	BillingProfileSpendingLimit string `pulumi:"billingProfileSpendingLimit"`
-	// The status of the billing profile.
-	BillingProfileStatus string `pulumi:"billingProfileStatus"`
-	// Reason for the specified billing profile status.
-	BillingProfileStatusReasonCode string `pulumi:"billingProfileStatusReasonCode"`
-	// The system generated unique identifier for a billing profile.
-	BillingProfileSystemId string `pulumi:"billingProfileSystemId"`
-	// Enabled azure plans for the associated billing profile.
-	EnabledAzurePlans []AzurePlanResponse `pulumi:"enabledAzurePlans"`
-	// The name of the invoice section.
-	InvoiceSectionDisplayName string `pulumi:"invoiceSectionDisplayName"`
-	// The ID of the invoice section.
-	InvoiceSectionId string `pulumi:"invoiceSectionId"`
-	// The system generated unique identifier for an invoice section.
-	InvoiceSectionSystemId string `pulumi:"invoiceSectionSystemId"`
+	BillingProfileDisplayName      string              `pulumi:"billingProfileDisplayName"`
+	BillingProfileId               string              `pulumi:"billingProfileId"`
+	BillingProfileSpendingLimit    string              `pulumi:"billingProfileSpendingLimit"`
+	BillingProfileStatus           string              `pulumi:"billingProfileStatus"`
+	BillingProfileStatusReasonCode string              `pulumi:"billingProfileStatusReasonCode"`
+	BillingProfileSystemId         string              `pulumi:"billingProfileSystemId"`
+	EnabledAzurePlans              []AzurePlanResponse `pulumi:"enabledAzurePlans"`
+	InvoiceSectionDisplayName      string              `pulumi:"invoiceSectionDisplayName"`
+	InvoiceSectionId               string              `pulumi:"invoiceSectionId"`
+	InvoiceSectionSystemId         string              `pulumi:"invoiceSectionSystemId"`
 }
 
 // InvoiceSectionWithCreateSubPermissionResponseInput is an input type that accepts InvoiceSectionWithCreateSubPermissionResponseArgs and InvoiceSectionWithCreateSubPermissionResponseOutput values.
@@ -151,26 +135,16 @@ type InvoiceSectionWithCreateSubPermissionResponseInput interface {
 }
 
 type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
-	// The name of the billing profile for the invoice section.
-	BillingProfileDisplayName pulumi.StringInput `pulumi:"billingProfileDisplayName"`
-	// The ID of the billing profile for the invoice section.
-	BillingProfileId pulumi.StringInput `pulumi:"billingProfileId"`
-	// The billing profile spending limit.
-	BillingProfileSpendingLimit pulumi.StringInput `pulumi:"billingProfileSpendingLimit"`
-	// The status of the billing profile.
-	BillingProfileStatus pulumi.StringInput `pulumi:"billingProfileStatus"`
-	// Reason for the specified billing profile status.
-	BillingProfileStatusReasonCode pulumi.StringInput `pulumi:"billingProfileStatusReasonCode"`
-	// The system generated unique identifier for a billing profile.
-	BillingProfileSystemId pulumi.StringInput `pulumi:"billingProfileSystemId"`
-	// Enabled azure plans for the associated billing profile.
-	EnabledAzurePlans AzurePlanResponseArrayInput `pulumi:"enabledAzurePlans"`
-	// The name of the invoice section.
-	InvoiceSectionDisplayName pulumi.StringInput `pulumi:"invoiceSectionDisplayName"`
-	// The ID of the invoice section.
-	InvoiceSectionId pulumi.StringInput `pulumi:"invoiceSectionId"`
-	// The system generated unique identifier for an invoice section.
-	InvoiceSectionSystemId pulumi.StringInput `pulumi:"invoiceSectionSystemId"`
+	BillingProfileDisplayName      pulumi.StringInput          `pulumi:"billingProfileDisplayName"`
+	BillingProfileId               pulumi.StringInput          `pulumi:"billingProfileId"`
+	BillingProfileSpendingLimit    pulumi.StringInput          `pulumi:"billingProfileSpendingLimit"`
+	BillingProfileStatus           pulumi.StringInput          `pulumi:"billingProfileStatus"`
+	BillingProfileStatusReasonCode pulumi.StringInput          `pulumi:"billingProfileStatusReasonCode"`
+	BillingProfileSystemId         pulumi.StringInput          `pulumi:"billingProfileSystemId"`
+	EnabledAzurePlans              AzurePlanResponseArrayInput `pulumi:"enabledAzurePlans"`
+	InvoiceSectionDisplayName      pulumi.StringInput          `pulumi:"invoiceSectionDisplayName"`
+	InvoiceSectionId               pulumi.StringInput          `pulumi:"invoiceSectionId"`
+	InvoiceSectionSystemId         pulumi.StringInput          `pulumi:"invoiceSectionSystemId"`
 }
 
 func (InvoiceSectionWithCreateSubPermissionResponseArgs) ElementType() reflect.Type {
@@ -224,52 +198,42 @@ func (o InvoiceSectionWithCreateSubPermissionResponseOutput) ToInvoiceSectionWit
 	return o
 }
 
-// The name of the billing profile for the invoice section.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileDisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the billing profile for the invoice section.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileId }).(pulumi.StringOutput)
 }
 
-// The billing profile spending limit.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileSpendingLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileSpendingLimit }).(pulumi.StringOutput)
 }
 
-// The status of the billing profile.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileStatus }).(pulumi.StringOutput)
 }
 
-// Reason for the specified billing profile status.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatusReasonCode() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileStatusReasonCode }).(pulumi.StringOutput)
 }
 
-// The system generated unique identifier for a billing profile.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileSystemId }).(pulumi.StringOutput)
 }
 
-// Enabled azure plans for the associated billing profile.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) EnabledAzurePlans() AzurePlanResponseArrayOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) []AzurePlanResponse { return v.EnabledAzurePlans }).(AzurePlanResponseArrayOutput)
 }
 
-// The name of the invoice section.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionDisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the invoice section.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionId }).(pulumi.StringOutput)
 }
 
-// The system generated unique identifier for an invoice section.
 func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionSystemId }).(pulumi.StringOutput)
 }

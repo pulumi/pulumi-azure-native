@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB userDefinedFunction.
-// API Version: 2021-03-15.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 

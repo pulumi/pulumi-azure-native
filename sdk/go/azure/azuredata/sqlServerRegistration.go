@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server registration.
-// API Version: 2019-07-24-preview.
 type SqlServerRegistration struct {
 	pulumi.CustomResourceState
 

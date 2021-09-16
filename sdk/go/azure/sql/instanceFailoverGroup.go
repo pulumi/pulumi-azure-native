@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An instance failover group.
-// API Version: 2020-11-01-preview.
 type InstanceFailoverGroup struct {
 	pulumi.CustomResourceState
 

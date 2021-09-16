@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the dsc node configuration.
-// API Version: 2019-06-01.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 

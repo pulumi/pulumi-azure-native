@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an incident in Azure Security Insights.
-// API Version: 2020-01-01.
 type Incident struct {
 	pulumi.CustomResourceState
 

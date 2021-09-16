@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-// API Version: 2016-03-01.
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	var rv LookupFunctionResult
 	err := ctx.Invoke("azure-native:streamanalytics:getFunction", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
-	// The name of the function.
-	FunctionName string `pulumi:"functionName"`
-	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	FunctionName      string `pulumi:"functionName"`
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type LookupFunctionResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with a function.
+	Id         string                           `pulumi:"id"`
+	Name       *string                          `pulumi:"name"`
 	Properties ScalarFunctionPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type       string                           `pulumi:"type"`
 }

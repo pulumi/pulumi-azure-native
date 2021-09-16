@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 

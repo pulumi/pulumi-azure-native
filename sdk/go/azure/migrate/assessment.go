@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An assessment created for a group in the Migration project.
-// API Version: 2019-10-01.
 type Assessment struct {
 	pulumi.CustomResourceState
 

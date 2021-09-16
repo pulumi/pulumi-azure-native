@@ -11,9 +11,7 @@ import (
 )
 
 type AccessReviewInstance struct {
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// The DateTime when the review instance is scheduled to be start.
+	EndDateTime   *string `pulumi:"endDateTime"`
 	StartDateTime *string `pulumi:"startDateTime"`
 }
 
@@ -29,9 +27,7 @@ type AccessReviewInstanceInput interface {
 }
 
 type AccessReviewInstanceArgs struct {
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
-	// The DateTime when the review instance is scheduled to be start.
+	EndDateTime   pulumi.StringPtrInput `pulumi:"endDateTime"`
 	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
 }
 
@@ -86,12 +82,10 @@ func (o AccessReviewInstanceOutput) ToAccessReviewInstanceOutputWithContext(ctx 
 	return o
 }
 
-// The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstance) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
 
-// The DateTime when the review instance is scheduled to be start.
 func (o AccessReviewInstanceOutput) StartDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstance) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
 }
@@ -117,18 +111,12 @@ func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewIn
 }
 
 type AccessReviewInstanceResponse struct {
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// The access review instance id.
-	Id string `pulumi:"id"`
-	// The access review instance name.
-	Name string `pulumi:"name"`
-	// The DateTime when the review instance is scheduled to be start.
+	EndDateTime   *string `pulumi:"endDateTime"`
+	Id            string  `pulumi:"id"`
+	Name          string  `pulumi:"name"`
 	StartDateTime *string `pulumi:"startDateTime"`
-	// This read-only field specifies the status of an access review instance.
-	Status string `pulumi:"status"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Status        string  `pulumi:"status"`
+	Type          string  `pulumi:"type"`
 }
 
 // AccessReviewInstanceResponseInput is an input type that accepts AccessReviewInstanceResponseArgs and AccessReviewInstanceResponseOutput values.
@@ -143,18 +131,12 @@ type AccessReviewInstanceResponseInput interface {
 }
 
 type AccessReviewInstanceResponseArgs struct {
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
-	// The access review instance id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The access review instance name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The DateTime when the review instance is scheduled to be start.
+	EndDateTime   pulumi.StringPtrInput `pulumi:"endDateTime"`
+	Id            pulumi.StringInput    `pulumi:"id"`
+	Name          pulumi.StringInput    `pulumi:"name"`
 	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
-	// This read-only field specifies the status of an access review instance.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Status        pulumi.StringInput    `pulumi:"status"`
+	Type          pulumi.StringInput    `pulumi:"type"`
 }
 
 func (AccessReviewInstanceResponseArgs) ElementType() reflect.Type {
@@ -208,32 +190,26 @@ func (o AccessReviewInstanceResponseOutput) ToAccessReviewInstanceResponseOutput
 	return o
 }
 
-// The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceResponseOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
 
-// The access review instance id.
 func (o AccessReviewInstanceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The access review instance name.
 func (o AccessReviewInstanceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The DateTime when the review instance is scheduled to be start.
 func (o AccessReviewInstanceResponseOutput) StartDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
 }
 
-// This read-only field specifies the status of an access review instance.
 func (o AccessReviewInstanceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o AccessReviewInstanceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -259,7 +235,6 @@ func (o AccessReviewInstanceResponseArrayOutput) Index(i pulumi.IntInput) Access
 }
 
 type AccessReviewReviewer struct {
-	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -275,7 +250,6 @@ type AccessReviewReviewerInput interface {
 }
 
 type AccessReviewReviewerArgs struct {
-	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -330,7 +304,6 @@ func (o AccessReviewReviewerOutput) ToAccessReviewReviewerOutputWithContext(ctx 
 	return o
 }
 
-// The id of the reviewer(user/servicePrincipal)
 func (o AccessReviewReviewerOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewReviewer) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -356,10 +329,8 @@ func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewRe
 }
 
 type AccessReviewReviewerResponse struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId *string `pulumi:"principalId"`
-	// The identity type : user/servicePrincipal
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalId   *string `pulumi:"principalId"`
+	PrincipalType string  `pulumi:"principalType"`
 }
 
 // AccessReviewReviewerResponseInput is an input type that accepts AccessReviewReviewerResponseArgs and AccessReviewReviewerResponseOutput values.
@@ -374,10 +345,8 @@ type AccessReviewReviewerResponseInput interface {
 }
 
 type AccessReviewReviewerResponseArgs struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The identity type : user/servicePrincipal
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalId   pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalType pulumi.StringInput    `pulumi:"principalType"`
 }
 
 func (AccessReviewReviewerResponseArgs) ElementType() reflect.Type {
@@ -431,12 +400,10 @@ func (o AccessReviewReviewerResponseOutput) ToAccessReviewReviewerResponseOutput
 	return o
 }
 
-// The id of the reviewer(user/servicePrincipal)
 func (o AccessReviewReviewerResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewReviewerResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type : user/servicePrincipal
 func (o AccessReviewReviewerResponseOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewReviewerResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
 }
@@ -462,7 +429,6 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 }
 
 type Identity struct {
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -478,7 +444,6 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -559,7 +524,6 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
 func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -588,7 +552,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
 func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
@@ -599,12 +562,9 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of the resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of the resource identity.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -619,12 +579,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of the resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of the resource identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -704,17 +661,14 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of the resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of the resource identity.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -743,7 +697,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of the resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -753,7 +706,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of the resource identity.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -763,7 +715,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -774,7 +725,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ManagementLockOwner struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -790,7 +740,6 @@ type ManagementLockOwnerInput interface {
 }
 
 type ManagementLockOwnerArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -845,7 +794,6 @@ func (o ManagementLockOwnerOutput) ToManagementLockOwnerOutputWithContext(ctx co
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwner) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -871,7 +819,6 @@ func (o ManagementLockOwnerArrayOutput) Index(i pulumi.IntInput) ManagementLockO
 }
 
 type ManagementLockOwnerResponse struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -887,7 +834,6 @@ type ManagementLockOwnerResponseInput interface {
 }
 
 type ManagementLockOwnerResponseArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -942,7 +888,6 @@ func (o ManagementLockOwnerResponseOutput) ToManagementLockOwnerResponseOutputWi
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwnerResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -968,9 +913,7 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 }
 
 type NonComplianceMessage struct {
-	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-	Message string `pulumi:"message"`
-	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	Message                     string  `pulumi:"message"`
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 }
 
@@ -986,9 +929,7 @@ type NonComplianceMessageInput interface {
 }
 
 type NonComplianceMessageArgs struct {
-	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	Message                     pulumi.StringInput    `pulumi:"message"`
 	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
 }
 
@@ -1043,12 +984,10 @@ func (o NonComplianceMessageOutput) ToNonComplianceMessageOutputWithContext(ctx 
 	return o
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 func (o NonComplianceMessageOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v NonComplianceMessage) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
 func (o NonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonComplianceMessage) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -1074,9 +1013,7 @@ func (o NonComplianceMessageArrayOutput) Index(i pulumi.IntInput) NonComplianceM
 }
 
 type NonComplianceMessageResponse struct {
-	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-	Message string `pulumi:"message"`
-	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	Message                     string  `pulumi:"message"`
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 }
 
@@ -1092,9 +1029,7 @@ type NonComplianceMessageResponseInput interface {
 }
 
 type NonComplianceMessageResponseArgs struct {
-	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	Message                     pulumi.StringInput    `pulumi:"message"`
 	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
 }
 
@@ -1149,12 +1084,10 @@ func (o NonComplianceMessageResponseOutput) ToNonComplianceMessageResponseOutput
 	return o
 }
 
-// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 func (o NonComplianceMessageResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v NonComplianceMessageResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
 func (o NonComplianceMessageResponseOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonComplianceMessageResponse) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -1180,14 +1113,10 @@ func (o NonComplianceMessageResponseArrayOutput) Index(i pulumi.IntInput) NonCom
 }
 
 type ParameterDefinitionsValue struct {
-	// The allowed values for the parameter.
-	AllowedValues []interface{} `pulumi:"allowedValues"`
-	// The default value for the parameter if no value is provided.
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// General metadata for the parameter.
-	Metadata *ParameterDefinitionsValueMetadata `pulumi:"metadata"`
-	// The data type of the parameter.
-	Type *string `pulumi:"type"`
+	AllowedValues []interface{}                      `pulumi:"allowedValues"`
+	DefaultValue  interface{}                        `pulumi:"defaultValue"`
+	Metadata      *ParameterDefinitionsValueMetadata `pulumi:"metadata"`
+	Type          *string                            `pulumi:"type"`
 }
 
 // ParameterDefinitionsValueInput is an input type that accepts ParameterDefinitionsValueArgs and ParameterDefinitionsValueOutput values.
@@ -1202,14 +1131,10 @@ type ParameterDefinitionsValueInput interface {
 }
 
 type ParameterDefinitionsValueArgs struct {
-	// The allowed values for the parameter.
-	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
-	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// General metadata for the parameter.
-	Metadata ParameterDefinitionsValueMetadataPtrInput `pulumi:"metadata"`
-	// The data type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	AllowedValues pulumi.ArrayInput                         `pulumi:"allowedValues"`
+	DefaultValue  pulumi.Input                              `pulumi:"defaultValue"`
+	Metadata      ParameterDefinitionsValueMetadataPtrInput `pulumi:"metadata"`
+	Type          pulumi.StringPtrInput                     `pulumi:"type"`
 }
 
 func (ParameterDefinitionsValueArgs) ElementType() reflect.Type {
@@ -1263,22 +1188,18 @@ func (o ParameterDefinitionsValueOutput) ToParameterDefinitionsValueOutputWithCo
 	return o
 }
 
-// The allowed values for the parameter.
 func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValue) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
-// The default value for the parameter if no value is provided.
 func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValue) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// General metadata for the parameter.
 func (o ParameterDefinitionsValueOutput) Metadata() ParameterDefinitionsValueMetadataPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValue) *ParameterDefinitionsValueMetadata { return v.Metadata }).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
-// The data type of the parameter.
 func (o ParameterDefinitionsValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1304,14 +1225,10 @@ func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) Param
 }
 
 type ParameterDefinitionsValueMetadata struct {
-	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-	AssignPermissions *bool `pulumi:"assignPermissions"`
-	// The description of the parameter.
-	Description *string `pulumi:"description"`
-	// The display name for the parameter.
-	DisplayName *string `pulumi:"displayName"`
-	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-	StrongType *string `pulumi:"strongType"`
+	AssignPermissions *bool   `pulumi:"assignPermissions"`
+	Description       *string `pulumi:"description"`
+	DisplayName       *string `pulumi:"displayName"`
+	StrongType        *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
@@ -1326,14 +1243,10 @@ type ParameterDefinitionsValueMetadataInput interface {
 }
 
 type ParameterDefinitionsValueMetadataArgs struct {
-	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
-	// The description of the parameter.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name for the parameter.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
+	AssignPermissions pulumi.BoolPtrInput   `pulumi:"assignPermissions"`
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName       pulumi.StringPtrInput `pulumi:"displayName"`
+	StrongType        pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueMetadataArgs) ElementType() reflect.Type {
@@ -1413,22 +1326,18 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
-// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 func (o ParameterDefinitionsValueMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
 }
 
-// The description of the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name for the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
 func (o ParameterDefinitionsValueMetadataOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
@@ -1457,7 +1366,6 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsV
 	}).(ParameterDefinitionsValueMetadataOutput)
 }
 
-// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 func (o ParameterDefinitionsValueMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *bool {
 		if v == nil {
@@ -1467,7 +1375,6 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) AssignPermissions() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The description of the parameter.
 func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
 		if v == nil {
@@ -1477,7 +1384,6 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name for the parameter.
 func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
 		if v == nil {
@@ -1487,7 +1393,6 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
 func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
 		if v == nil {
@@ -1498,14 +1403,10 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPt
 }
 
 type ParameterDefinitionsValueResponse struct {
-	// The allowed values for the parameter.
-	AllowedValues []interface{} `pulumi:"allowedValues"`
-	// The default value for the parameter if no value is provided.
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// General metadata for the parameter.
-	Metadata *ParameterDefinitionsValueResponseMetadata `pulumi:"metadata"`
-	// The data type of the parameter.
-	Type *string `pulumi:"type"`
+	AllowedValues []interface{}                              `pulumi:"allowedValues"`
+	DefaultValue  interface{}                                `pulumi:"defaultValue"`
+	Metadata      *ParameterDefinitionsValueResponseMetadata `pulumi:"metadata"`
+	Type          *string                                    `pulumi:"type"`
 }
 
 // ParameterDefinitionsValueResponseInput is an input type that accepts ParameterDefinitionsValueResponseArgs and ParameterDefinitionsValueResponseOutput values.
@@ -1520,14 +1421,10 @@ type ParameterDefinitionsValueResponseInput interface {
 }
 
 type ParameterDefinitionsValueResponseArgs struct {
-	// The allowed values for the parameter.
-	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
-	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// General metadata for the parameter.
-	Metadata ParameterDefinitionsValueResponseMetadataPtrInput `pulumi:"metadata"`
-	// The data type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	AllowedValues pulumi.ArrayInput                                 `pulumi:"allowedValues"`
+	DefaultValue  pulumi.Input                                      `pulumi:"defaultValue"`
+	Metadata      ParameterDefinitionsValueResponseMetadataPtrInput `pulumi:"metadata"`
+	Type          pulumi.StringPtrInput                             `pulumi:"type"`
 }
 
 func (ParameterDefinitionsValueResponseArgs) ElementType() reflect.Type {
@@ -1581,24 +1478,20 @@ func (o ParameterDefinitionsValueResponseOutput) ToParameterDefinitionsValueResp
 	return o
 }
 
-// The allowed values for the parameter.
 func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
-// The default value for the parameter if no value is provided.
 func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// General metadata for the parameter.
 func (o ParameterDefinitionsValueResponseOutput) Metadata() ParameterDefinitionsValueResponseMetadataPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponse) *ParameterDefinitionsValueResponseMetadata {
 		return v.Metadata
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
-// The data type of the parameter.
 func (o ParameterDefinitionsValueResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1624,14 +1517,10 @@ func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 type ParameterDefinitionsValueResponseMetadata struct {
-	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-	AssignPermissions *bool `pulumi:"assignPermissions"`
-	// The description of the parameter.
-	Description *string `pulumi:"description"`
-	// The display name for the parameter.
-	DisplayName *string `pulumi:"displayName"`
-	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-	StrongType *string `pulumi:"strongType"`
+	AssignPermissions *bool   `pulumi:"assignPermissions"`
+	Description       *string `pulumi:"description"`
+	DisplayName       *string `pulumi:"displayName"`
+	StrongType        *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueResponseMetadataInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs and ParameterDefinitionsValueResponseMetadataOutput values.
@@ -1646,14 +1535,10 @@ type ParameterDefinitionsValueResponseMetadataInput interface {
 }
 
 type ParameterDefinitionsValueResponseMetadataArgs struct {
-	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
-	// The description of the parameter.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name for the parameter.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
+	AssignPermissions pulumi.BoolPtrInput   `pulumi:"assignPermissions"`
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName       pulumi.StringPtrInput `pulumi:"displayName"`
+	StrongType        pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueResponseMetadataArgs) ElementType() reflect.Type {
@@ -1733,22 +1618,18 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
-// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 func (o ParameterDefinitionsValueResponseMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
 }
 
-// The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name for the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
 func (o ParameterDefinitionsValueResponseMetadataOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
@@ -1777,7 +1658,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefi
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
-// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *bool {
 		if v == nil {
@@ -1787,7 +1667,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) AssignPermissions() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
 		if v == nil {
@@ -1797,7 +1676,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name for the parameter.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
 		if v == nil {
@@ -1807,7 +1685,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
 		if v == nil {
@@ -1818,7 +1695,6 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.
 }
 
 type ParameterValuesValue struct {
-	// The value of the parameter.
 	Value interface{} `pulumi:"value"`
 }
 
@@ -1834,7 +1710,6 @@ type ParameterValuesValueInput interface {
 }
 
 type ParameterValuesValueArgs struct {
-	// The value of the parameter.
 	Value pulumi.Input `pulumi:"value"`
 }
 
@@ -1889,7 +1764,6 @@ func (o ParameterValuesValueOutput) ToParameterValuesValueOutputWithContext(ctx 
 	return o
 }
 
-// The value of the parameter.
 func (o ParameterValuesValueOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterValuesValue) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -1915,7 +1789,6 @@ func (o ParameterValuesValueMapOutput) MapIndex(k pulumi.StringInput) ParameterV
 }
 
 type ParameterValuesValueResponse struct {
-	// The value of the parameter.
 	Value interface{} `pulumi:"value"`
 }
 
@@ -1931,7 +1804,6 @@ type ParameterValuesValueResponseInput interface {
 }
 
 type ParameterValuesValueResponseArgs struct {
-	// The value of the parameter.
 	Value pulumi.Input `pulumi:"value"`
 }
 
@@ -1986,7 +1858,6 @@ func (o ParameterValuesValueResponseOutput) ToParameterValuesValueResponseOutput
 	return o
 }
 
-// The value of the parameter.
 func (o ParameterValuesValueResponseOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterValuesValueResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -2012,13 +1883,9 @@ func (o ParameterValuesValueResponseMapOutput) MapIndex(k pulumi.StringInput) Pa
 }
 
 type Permission struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions []string `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions []string `pulumi:"notActions"`
-	// Denied Data actions.
+	Actions        []string `pulumi:"actions"`
+	DataActions    []string `pulumi:"dataActions"`
+	NotActions     []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -2034,13 +1901,9 @@ type PermissionInput interface {
 }
 
 type PermissionArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Denied Data actions.
+	Actions        pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -2095,22 +1958,18 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// Allowed actions.
 func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// Allowed Data actions.
 func (o PermissionOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// Denied actions.
 func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// Denied Data actions.
 func (o PermissionOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
@@ -2136,13 +1995,9 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 }
 
 type PermissionResponse struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions []string `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions []string `pulumi:"notActions"`
-	// Denied Data actions.
+	Actions        []string `pulumi:"actions"`
+	DataActions    []string `pulumi:"dataActions"`
+	NotActions     []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -2158,13 +2013,9 @@ type PermissionResponseInput interface {
 }
 
 type PermissionResponseArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Denied Data actions.
+	Actions        pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -2219,22 +2070,18 @@ func (o PermissionResponseOutput) ToPermissionResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Allowed actions.
 func (o PermissionResponseOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// Allowed Data actions.
 func (o PermissionResponseOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// Denied actions.
 func (o PermissionResponseOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// Denied Data actions.
 func (o PermissionResponseOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
@@ -2260,12 +2107,9 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 }
 
 type PolicyAssignmentPropertiesResponse struct {
-	// Details of the policy
-	Policy *PolicyAssignmentPropertiesResponsePolicy `pulumi:"policy"`
-	// Details of role definition
+	Policy         *PolicyAssignmentPropertiesResponsePolicy         `pulumi:"policy"`
 	RoleDefinition *PolicyAssignmentPropertiesResponseRoleDefinition `pulumi:"roleDefinition"`
-	// Details of the resource scope
-	Scope *PolicyAssignmentPropertiesResponseScope `pulumi:"scope"`
+	Scope          *PolicyAssignmentPropertiesResponseScope          `pulumi:"scope"`
 }
 
 // PolicyAssignmentPropertiesResponseInput is an input type that accepts PolicyAssignmentPropertiesResponseArgs and PolicyAssignmentPropertiesResponseOutput values.
@@ -2280,12 +2124,9 @@ type PolicyAssignmentPropertiesResponseInput interface {
 }
 
 type PolicyAssignmentPropertiesResponseArgs struct {
-	// Details of the policy
-	Policy PolicyAssignmentPropertiesResponsePolicyPtrInput `pulumi:"policy"`
-	// Details of role definition
+	Policy         PolicyAssignmentPropertiesResponsePolicyPtrInput         `pulumi:"policy"`
 	RoleDefinition PolicyAssignmentPropertiesResponseRoleDefinitionPtrInput `pulumi:"roleDefinition"`
-	// Details of the resource scope
-	Scope PolicyAssignmentPropertiesResponseScopePtrInput `pulumi:"scope"`
+	Scope          PolicyAssignmentPropertiesResponseScopePtrInput          `pulumi:"scope"`
 }
 
 func (PolicyAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2365,19 +2206,16 @@ func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesRe
 	}).(PolicyAssignmentPropertiesResponsePtrOutput)
 }
 
-// Details of the policy
 func (o PolicyAssignmentPropertiesResponseOutput) Policy() PolicyAssignmentPropertiesResponsePolicyPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponsePolicy { return v.Policy }).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
 
-// Details of role definition
 func (o PolicyAssignmentPropertiesResponseOutput) RoleDefinition() PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponseRoleDefinition {
 		return v.RoleDefinition
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
 
-// Details of the resource scope
 func (o PolicyAssignmentPropertiesResponseOutput) Scope() PolicyAssignmentPropertiesResponseScopePtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponseScope { return v.Scope }).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
@@ -2406,7 +2244,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Elem() PolicyAssignmentProp
 	}).(PolicyAssignmentPropertiesResponseOutput)
 }
 
-// Details of the policy
 func (o PolicyAssignmentPropertiesResponsePtrOutput) Policy() PolicyAssignmentPropertiesResponsePolicyPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponsePolicy {
 		if v == nil {
@@ -2416,7 +2253,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Policy() PolicyAssignmentPr
 	}).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
 
-// Details of role definition
 func (o PolicyAssignmentPropertiesResponsePtrOutput) RoleDefinition() PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponseRoleDefinition {
 		if v == nil {
@@ -2426,7 +2262,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) RoleDefinition() PolicyAssi
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
 
-// Details of the resource scope
 func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() PolicyAssignmentPropertiesResponseScopePtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponseScope {
 		if v == nil {
@@ -2437,12 +2272,9 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() PolicyAssignmentPro
 }
 
 type PolicyAssignmentPropertiesResponsePolicy struct {
-	// Id of the policy
-	Id *string `pulumi:"id"`
-	// The name of the entity last modified it
-	LastModifiedBy PrincipalResponse `pulumi:"lastModifiedBy"`
-	// The last modified date time.
-	LastModifiedDateTime *string `pulumi:"lastModifiedDateTime"`
+	Id                   *string           `pulumi:"id"`
+	LastModifiedBy       PrincipalResponse `pulumi:"lastModifiedBy"`
+	LastModifiedDateTime *string           `pulumi:"lastModifiedDateTime"`
 }
 
 // PolicyAssignmentPropertiesResponsePolicyInput is an input type that accepts PolicyAssignmentPropertiesResponsePolicyArgs and PolicyAssignmentPropertiesResponsePolicyOutput values.
@@ -2457,12 +2289,9 @@ type PolicyAssignmentPropertiesResponsePolicyInput interface {
 }
 
 type PolicyAssignmentPropertiesResponsePolicyArgs struct {
-	// Id of the policy
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the entity last modified it
-	LastModifiedBy PrincipalResponseInput `pulumi:"lastModifiedBy"`
-	// The last modified date time.
-	LastModifiedDateTime pulumi.StringPtrInput `pulumi:"lastModifiedDateTime"`
+	Id                   pulumi.StringPtrInput  `pulumi:"id"`
+	LastModifiedBy       PrincipalResponseInput `pulumi:"lastModifiedBy"`
+	LastModifiedDateTime pulumi.StringPtrInput  `pulumi:"lastModifiedDateTime"`
 }
 
 func (PolicyAssignmentPropertiesResponsePolicyArgs) ElementType() reflect.Type {
@@ -2542,17 +2371,14 @@ func (o PolicyAssignmentPropertiesResponsePolicyOutput) ToPolicyAssignmentProper
 	}).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
 
-// Id of the policy
 func (o PolicyAssignmentPropertiesResponsePolicyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponsePolicy) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the entity last modified it
 func (o PolicyAssignmentPropertiesResponsePolicyOutput) LastModifiedBy() PrincipalResponseOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponsePolicy) PrincipalResponse { return v.LastModifiedBy }).(PrincipalResponseOutput)
 }
 
-// The last modified date time.
 func (o PolicyAssignmentPropertiesResponsePolicyOutput) LastModifiedDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponsePolicy) *string { return v.LastModifiedDateTime }).(pulumi.StringPtrOutput)
 }
@@ -2581,7 +2407,6 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) Elem() PolicyAssignme
 	}).(PolicyAssignmentPropertiesResponsePolicyOutput)
 }
 
-// Id of the policy
 func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) *string {
 		if v == nil {
@@ -2591,7 +2416,6 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) Id() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the entity last modified it
 func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) LastModifiedBy() PrincipalResponsePtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) *PrincipalResponse {
 		if v == nil {
@@ -2601,7 +2425,6 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) LastModifiedBy() Prin
 	}).(PrincipalResponsePtrOutput)
 }
 
-// The last modified date time.
 func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) LastModifiedDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) *string {
 		if v == nil {
@@ -2612,12 +2435,9 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) LastModifiedDateTime(
 }
 
 type PolicyAssignmentPropertiesResponseRoleDefinition struct {
-	// Display name of the role definition
 	DisplayName *string `pulumi:"displayName"`
-	// Id of the role definition
-	Id *string `pulumi:"id"`
-	// Type of the role definition
-	Type *string `pulumi:"type"`
+	Id          *string `pulumi:"id"`
+	Type        *string `pulumi:"type"`
 }
 
 // PolicyAssignmentPropertiesResponseRoleDefinitionInput is an input type that accepts PolicyAssignmentPropertiesResponseRoleDefinitionArgs and PolicyAssignmentPropertiesResponseRoleDefinitionOutput values.
@@ -2632,12 +2452,9 @@ type PolicyAssignmentPropertiesResponseRoleDefinitionInput interface {
 }
 
 type PolicyAssignmentPropertiesResponseRoleDefinitionArgs struct {
-	// Display name of the role definition
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Id of the role definition
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Type of the role definition
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PolicyAssignmentPropertiesResponseRoleDefinitionArgs) ElementType() reflect.Type {
@@ -2717,17 +2534,14 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ToPolicyAssignme
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
 
-// Display name of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseRoleDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Id of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseRoleDefinition) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Type of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseRoleDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2756,7 +2570,6 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Elem() Policy
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionOutput)
 }
 
-// Display name of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseRoleDefinition) *string {
 		if v == nil {
@@ -2766,7 +2579,6 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) DisplayName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseRoleDefinition) *string {
 		if v == nil {
@@ -2776,7 +2588,6 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Id() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the role definition
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseRoleDefinition) *string {
 		if v == nil {
@@ -2787,12 +2598,9 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Type() pulumi
 }
 
 type PolicyAssignmentPropertiesResponseScope struct {
-	// Display name of the resource
 	DisplayName *string `pulumi:"displayName"`
-	// Scope id of the resource
-	Id *string `pulumi:"id"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
+	Id          *string `pulumi:"id"`
+	Type        *string `pulumi:"type"`
 }
 
 // PolicyAssignmentPropertiesResponseScopeInput is an input type that accepts PolicyAssignmentPropertiesResponseScopeArgs and PolicyAssignmentPropertiesResponseScopeOutput values.
@@ -2807,12 +2615,9 @@ type PolicyAssignmentPropertiesResponseScopeInput interface {
 }
 
 type PolicyAssignmentPropertiesResponseScopeArgs struct {
-	// Display name of the resource
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Scope id of the resource
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Type of the resource
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PolicyAssignmentPropertiesResponseScopeArgs) ElementType() reflect.Type {
@@ -2892,17 +2697,14 @@ func (o PolicyAssignmentPropertiesResponseScopeOutput) ToPolicyAssignmentPropert
 	}).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
 
-// Display name of the resource
 func (o PolicyAssignmentPropertiesResponseScopeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseScope) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Scope id of the resource
 func (o PolicyAssignmentPropertiesResponseScopeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseScope) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Type of the resource
 func (o PolicyAssignmentPropertiesResponseScopeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseScope) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2931,7 +2733,6 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Elem() PolicyAssignmen
 	}).(PolicyAssignmentPropertiesResponseScopeOutput)
 }
 
-// Display name of the resource
 func (o PolicyAssignmentPropertiesResponseScopePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) *string {
 		if v == nil {
@@ -2941,7 +2742,6 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) DisplayName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scope id of the resource
 func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) *string {
 		if v == nil {
@@ -2951,7 +2751,6 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Id() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the resource
 func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) *string {
 		if v == nil {
@@ -2962,16 +2761,11 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Type() pulumi.StringPt
 }
 
 type PolicyDefinitionGroup struct {
-	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId *string `pulumi:"additionalMetadataId"`
-	// The group's category.
-	Category *string `pulumi:"category"`
-	// The group's description.
-	Description *string `pulumi:"description"`
-	// The group's display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the group.
-	Name string `pulumi:"name"`
+	Category             *string `pulumi:"category"`
+	Description          *string `pulumi:"description"`
+	DisplayName          *string `pulumi:"displayName"`
+	Name                 string  `pulumi:"name"`
 }
 
 // PolicyDefinitionGroupInput is an input type that accepts PolicyDefinitionGroupArgs and PolicyDefinitionGroupOutput values.
@@ -2986,16 +2780,11 @@ type PolicyDefinitionGroupInput interface {
 }
 
 type PolicyDefinitionGroupArgs struct {
-	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId pulumi.StringPtrInput `pulumi:"additionalMetadataId"`
-	// The group's category.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// The group's description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The group's display name.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The name of the group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Category             pulumi.StringPtrInput `pulumi:"category"`
+	Description          pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName          pulumi.StringPtrInput `pulumi:"displayName"`
+	Name                 pulumi.StringInput    `pulumi:"name"`
 }
 
 func (PolicyDefinitionGroupArgs) ElementType() reflect.Type {
@@ -3049,27 +2838,22 @@ func (o PolicyDefinitionGroupOutput) ToPolicyDefinitionGroupOutputWithContext(ct
 	return o
 }
 
-// A resource ID of a resource that contains additional metadata about the group.
 func (o PolicyDefinitionGroupOutput) AdditionalMetadataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroup) *string { return v.AdditionalMetadataId }).(pulumi.StringPtrOutput)
 }
 
-// The group's category.
 func (o PolicyDefinitionGroupOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroup) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// The group's description.
 func (o PolicyDefinitionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The group's display name.
 func (o PolicyDefinitionGroupOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroup) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the group.
 func (o PolicyDefinitionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3095,16 +2879,11 @@ func (o PolicyDefinitionGroupArrayOutput) Index(i pulumi.IntInput) PolicyDefinit
 }
 
 type PolicyDefinitionGroupResponse struct {
-	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId *string `pulumi:"additionalMetadataId"`
-	// The group's category.
-	Category *string `pulumi:"category"`
-	// The group's description.
-	Description *string `pulumi:"description"`
-	// The group's display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the group.
-	Name string `pulumi:"name"`
+	Category             *string `pulumi:"category"`
+	Description          *string `pulumi:"description"`
+	DisplayName          *string `pulumi:"displayName"`
+	Name                 string  `pulumi:"name"`
 }
 
 // PolicyDefinitionGroupResponseInput is an input type that accepts PolicyDefinitionGroupResponseArgs and PolicyDefinitionGroupResponseOutput values.
@@ -3119,16 +2898,11 @@ type PolicyDefinitionGroupResponseInput interface {
 }
 
 type PolicyDefinitionGroupResponseArgs struct {
-	// A resource ID of a resource that contains additional metadata about the group.
 	AdditionalMetadataId pulumi.StringPtrInput `pulumi:"additionalMetadataId"`
-	// The group's category.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// The group's description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The group's display name.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The name of the group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Category             pulumi.StringPtrInput `pulumi:"category"`
+	Description          pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName          pulumi.StringPtrInput `pulumi:"displayName"`
+	Name                 pulumi.StringInput    `pulumi:"name"`
 }
 
 func (PolicyDefinitionGroupResponseArgs) ElementType() reflect.Type {
@@ -3182,27 +2956,22 @@ func (o PolicyDefinitionGroupResponseOutput) ToPolicyDefinitionGroupResponseOutp
 	return o
 }
 
-// A resource ID of a resource that contains additional metadata about the group.
 func (o PolicyDefinitionGroupResponseOutput) AdditionalMetadataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroupResponse) *string { return v.AdditionalMetadataId }).(pulumi.StringPtrOutput)
 }
 
-// The group's category.
 func (o PolicyDefinitionGroupResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroupResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// The group's description.
 func (o PolicyDefinitionGroupResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroupResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The group's display name.
 func (o PolicyDefinitionGroupResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroupResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the group.
 func (o PolicyDefinitionGroupResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionGroupResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3228,14 +2997,10 @@ func (o PolicyDefinitionGroupResponseArrayOutput) Index(i pulumi.IntInput) Polic
 }
 
 type PolicyDefinitionReference struct {
-	// The name of the groups that this policy definition reference belongs to.
-	GroupNames []string `pulumi:"groupNames"`
-	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterValuesValue `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// A unique id (within the policy set definition) for this policy definition reference.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	GroupNames                  []string                        `pulumi:"groupNames"`
+	Parameters                  map[string]ParameterValuesValue `pulumi:"parameters"`
+	PolicyDefinitionId          string                          `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string                         `pulumi:"policyDefinitionReferenceId"`
 }
 
 // PolicyDefinitionReferenceInput is an input type that accepts PolicyDefinitionReferenceArgs and PolicyDefinitionReferenceOutput values.
@@ -3250,14 +3015,10 @@ type PolicyDefinitionReferenceInput interface {
 }
 
 type PolicyDefinitionReferenceArgs struct {
-	// The name of the groups that this policy definition reference belongs to.
-	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
-	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters ParameterValuesValueMapInput `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
-	// A unique id (within the policy set definition) for this policy definition reference.
-	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+	GroupNames                  pulumi.StringArrayInput      `pulumi:"groupNames"`
+	Parameters                  ParameterValuesValueMapInput `pulumi:"parameters"`
+	PolicyDefinitionId          pulumi.StringInput           `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrInput        `pulumi:"policyDefinitionReferenceId"`
 }
 
 func (PolicyDefinitionReferenceArgs) ElementType() reflect.Type {
@@ -3311,22 +3072,18 @@ func (o PolicyDefinitionReferenceOutput) ToPolicyDefinitionReferenceOutputWithCo
 	return o
 }
 
-// The name of the groups that this policy definition reference belongs to.
 func (o PolicyDefinitionReferenceOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) []string { return v.GroupNames }).(pulumi.StringArrayOutput)
 }
 
-// The parameter values for the referenced policy rule. The keys are the parameter names.
 func (o PolicyDefinitionReferenceOutput) Parameters() ParameterValuesValueMapOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) map[string]ParameterValuesValue { return v.Parameters }).(ParameterValuesValueMapOutput)
 }
 
-// The ID of the policy definition or policy set definition.
 func (o PolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
 }
 
-// A unique id (within the policy set definition) for this policy definition reference.
 func (o PolicyDefinitionReferenceOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -3352,14 +3109,10 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 }
 
 type PolicyDefinitionReferenceResponse struct {
-	// The name of the groups that this policy definition reference belongs to.
-	GroupNames []string `pulumi:"groupNames"`
-	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterValuesValueResponse `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// A unique id (within the policy set definition) for this policy definition reference.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	GroupNames                  []string                                `pulumi:"groupNames"`
+	Parameters                  map[string]ParameterValuesValueResponse `pulumi:"parameters"`
+	PolicyDefinitionId          string                                  `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string                                 `pulumi:"policyDefinitionReferenceId"`
 }
 
 // PolicyDefinitionReferenceResponseInput is an input type that accepts PolicyDefinitionReferenceResponseArgs and PolicyDefinitionReferenceResponseOutput values.
@@ -3374,14 +3127,10 @@ type PolicyDefinitionReferenceResponseInput interface {
 }
 
 type PolicyDefinitionReferenceResponseArgs struct {
-	// The name of the groups that this policy definition reference belongs to.
-	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
-	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters ParameterValuesValueResponseMapInput `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
-	// A unique id (within the policy set definition) for this policy definition reference.
-	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+	GroupNames                  pulumi.StringArrayInput              `pulumi:"groupNames"`
+	Parameters                  ParameterValuesValueResponseMapInput `pulumi:"parameters"`
+	PolicyDefinitionId          pulumi.StringInput                   `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrInput                `pulumi:"policyDefinitionReferenceId"`
 }
 
 func (PolicyDefinitionReferenceResponseArgs) ElementType() reflect.Type {
@@ -3435,22 +3184,18 @@ func (o PolicyDefinitionReferenceResponseOutput) ToPolicyDefinitionReferenceResp
 	return o
 }
 
-// The name of the groups that this policy definition reference belongs to.
 func (o PolicyDefinitionReferenceResponseOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) []string { return v.GroupNames }).(pulumi.StringArrayOutput)
 }
 
-// The parameter values for the referenced policy rule. The keys are the parameter names.
 func (o PolicyDefinitionReferenceResponseOutput) Parameters() ParameterValuesValueResponseMapOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) map[string]ParameterValuesValueResponse { return v.Parameters }).(ParameterValuesValueResponseMapOutput)
 }
 
-// The ID of the policy definition or policy set definition.
 func (o PolicyDefinitionReferenceResponseOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
 }
 
-// A unique id (within the policy set definition) for this policy definition reference.
 func (o PolicyDefinitionReferenceResponseOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -3476,14 +3221,10 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrincipalResponse struct {
-	// The name of the principal made changes
 	DisplayName *string `pulumi:"displayName"`
-	// Email of principal
-	Email *string `pulumi:"email"`
-	// The id of the principal made changes
-	Id *string `pulumi:"id"`
-	// Type of principal such as user , group etc
-	Type *string `pulumi:"type"`
+	Email       *string `pulumi:"email"`
+	Id          *string `pulumi:"id"`
+	Type        *string `pulumi:"type"`
 }
 
 // PrincipalResponseInput is an input type that accepts PrincipalResponseArgs and PrincipalResponseOutput values.
@@ -3498,14 +3239,10 @@ type PrincipalResponseInput interface {
 }
 
 type PrincipalResponseArgs struct {
-	// The name of the principal made changes
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Email of principal
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The id of the principal made changes
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Type of principal such as user , group etc
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Email       pulumi.StringPtrInput `pulumi:"email"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PrincipalResponseArgs) ElementType() reflect.Type {
@@ -3585,22 +3322,18 @@ func (o PrincipalResponseOutput) ToPrincipalResponsePtrOutputWithContext(ctx con
 	}).(PrincipalResponsePtrOutput)
 }
 
-// The name of the principal made changes
 func (o PrincipalResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Email of principal
 func (o PrincipalResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The id of the principal made changes
 func (o PrincipalResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Type of principal such as user , group etc
 func (o PrincipalResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3629,7 +3362,6 @@ func (o PrincipalResponsePtrOutput) Elem() PrincipalResponseOutput {
 	}).(PrincipalResponseOutput)
 }
 
-// The name of the principal made changes
 func (o PrincipalResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalResponse) *string {
 		if v == nil {
@@ -3639,7 +3371,6 @@ func (o PrincipalResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email of principal
 func (o PrincipalResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalResponse) *string {
 		if v == nil {
@@ -3649,7 +3380,6 @@ func (o PrincipalResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The id of the principal made changes
 func (o PrincipalResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalResponse) *string {
 		if v == nil {
@@ -3659,7 +3389,6 @@ func (o PrincipalResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of principal such as user , group etc
 func (o PrincipalResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalResponse) *string {
 		if v == nil {
@@ -3670,7 +3399,6 @@ func (o PrincipalResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ResourceManagementPrivateLinkEndpointConnectionsResponse struct {
-	// The private endpoint connections.
 	PrivateEndpointConnections []string `pulumi:"privateEndpointConnections"`
 }
 
@@ -3686,7 +3414,6 @@ type ResourceManagementPrivateLinkEndpointConnectionsResponseInput interface {
 }
 
 type ResourceManagementPrivateLinkEndpointConnectionsResponseArgs struct {
-	// The private endpoint connections.
 	PrivateEndpointConnections pulumi.StringArrayInput `pulumi:"privateEndpointConnections"`
 }
 
@@ -3767,7 +3494,6 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResour
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput)
 }
 
-// The private endpoint connections.
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) PrivateEndpointConnections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceManagementPrivateLinkEndpointConnectionsResponse) []string {
 		return v.PrivateEndpointConnections
@@ -3798,7 +3524,6 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Elem(
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
 }
 
-// The private endpoint connections.
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) PrivateEndpointConnections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceManagementPrivateLinkEndpointConnectionsResponse) []string {
 		if v == nil {
@@ -3809,17 +3534,11 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Priva
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -3835,17 +3554,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3926,32 +3639,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -3980,7 +3687,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3990,7 +3696,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4000,7 +3705,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4010,7 +3714,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4020,7 +3723,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4030,7 +3732,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

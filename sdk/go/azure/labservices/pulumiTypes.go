@@ -10,24 +10,787 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AutoShutdownProfile struct {
+	DisconnectDelay          *string             `pulumi:"disconnectDelay"`
+	IdleDelay                *string             `pulumi:"idleDelay"`
+	NoConnectDelay           *string             `pulumi:"noConnectDelay"`
+	ShutdownOnDisconnect     *EnableState        `pulumi:"shutdownOnDisconnect"`
+	ShutdownOnIdle           *ShutdownOnIdleMode `pulumi:"shutdownOnIdle"`
+	ShutdownWhenNotConnected *EnableState        `pulumi:"shutdownWhenNotConnected"`
+}
+
+// AutoShutdownProfileInput is an input type that accepts AutoShutdownProfileArgs and AutoShutdownProfileOutput values.
+// You can construct a concrete instance of `AutoShutdownProfileInput` via:
+//
+//          AutoShutdownProfileArgs{...}
+type AutoShutdownProfileInput interface {
+	pulumi.Input
+
+	ToAutoShutdownProfileOutput() AutoShutdownProfileOutput
+	ToAutoShutdownProfileOutputWithContext(context.Context) AutoShutdownProfileOutput
+}
+
+type AutoShutdownProfileArgs struct {
+	DisconnectDelay          pulumi.StringPtrInput      `pulumi:"disconnectDelay"`
+	IdleDelay                pulumi.StringPtrInput      `pulumi:"idleDelay"`
+	NoConnectDelay           pulumi.StringPtrInput      `pulumi:"noConnectDelay"`
+	ShutdownOnDisconnect     EnableStatePtrInput        `pulumi:"shutdownOnDisconnect"`
+	ShutdownOnIdle           ShutdownOnIdleModePtrInput `pulumi:"shutdownOnIdle"`
+	ShutdownWhenNotConnected EnableStatePtrInput        `pulumi:"shutdownWhenNotConnected"`
+}
+
+func (AutoShutdownProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoShutdownProfile)(nil)).Elem()
+}
+
+func (i AutoShutdownProfileArgs) ToAutoShutdownProfileOutput() AutoShutdownProfileOutput {
+	return i.ToAutoShutdownProfileOutputWithContext(context.Background())
+}
+
+func (i AutoShutdownProfileArgs) ToAutoShutdownProfileOutputWithContext(ctx context.Context) AutoShutdownProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfileOutput)
+}
+
+func (i AutoShutdownProfileArgs) ToAutoShutdownProfilePtrOutput() AutoShutdownProfilePtrOutput {
+	return i.ToAutoShutdownProfilePtrOutputWithContext(context.Background())
+}
+
+func (i AutoShutdownProfileArgs) ToAutoShutdownProfilePtrOutputWithContext(ctx context.Context) AutoShutdownProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfileOutput).ToAutoShutdownProfilePtrOutputWithContext(ctx)
+}
+
+// AutoShutdownProfilePtrInput is an input type that accepts AutoShutdownProfileArgs, AutoShutdownProfilePtr and AutoShutdownProfilePtrOutput values.
+// You can construct a concrete instance of `AutoShutdownProfilePtrInput` via:
+//
+//          AutoShutdownProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type AutoShutdownProfilePtrInput interface {
+	pulumi.Input
+
+	ToAutoShutdownProfilePtrOutput() AutoShutdownProfilePtrOutput
+	ToAutoShutdownProfilePtrOutputWithContext(context.Context) AutoShutdownProfilePtrOutput
+}
+
+type autoShutdownProfilePtrType AutoShutdownProfileArgs
+
+func AutoShutdownProfilePtr(v *AutoShutdownProfileArgs) AutoShutdownProfilePtrInput {
+	return (*autoShutdownProfilePtrType)(v)
+}
+
+func (*autoShutdownProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoShutdownProfile)(nil)).Elem()
+}
+
+func (i *autoShutdownProfilePtrType) ToAutoShutdownProfilePtrOutput() AutoShutdownProfilePtrOutput {
+	return i.ToAutoShutdownProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *autoShutdownProfilePtrType) ToAutoShutdownProfilePtrOutputWithContext(ctx context.Context) AutoShutdownProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfilePtrOutput)
+}
+
+type AutoShutdownProfileOutput struct{ *pulumi.OutputState }
+
+func (AutoShutdownProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoShutdownProfile)(nil)).Elem()
+}
+
+func (o AutoShutdownProfileOutput) ToAutoShutdownProfileOutput() AutoShutdownProfileOutput {
+	return o
+}
+
+func (o AutoShutdownProfileOutput) ToAutoShutdownProfileOutputWithContext(ctx context.Context) AutoShutdownProfileOutput {
+	return o
+}
+
+func (o AutoShutdownProfileOutput) ToAutoShutdownProfilePtrOutput() AutoShutdownProfilePtrOutput {
+	return o.ToAutoShutdownProfilePtrOutputWithContext(context.Background())
+}
+
+func (o AutoShutdownProfileOutput) ToAutoShutdownProfilePtrOutputWithContext(ctx context.Context) AutoShutdownProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoShutdownProfile) *AutoShutdownProfile {
+		return &v
+	}).(AutoShutdownProfilePtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *string { return v.DisconnectDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *string { return v.IdleDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *string { return v.NoConnectDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) ShutdownOnDisconnect() EnableStatePtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *EnableState { return v.ShutdownOnDisconnect }).(EnableStatePtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) ShutdownOnIdle() ShutdownOnIdleModePtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *ShutdownOnIdleMode { return v.ShutdownOnIdle }).(ShutdownOnIdleModePtrOutput)
+}
+
+func (o AutoShutdownProfileOutput) ShutdownWhenNotConnected() EnableStatePtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfile) *EnableState { return v.ShutdownWhenNotConnected }).(EnableStatePtrOutput)
+}
+
+type AutoShutdownProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (AutoShutdownProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoShutdownProfile)(nil)).Elem()
+}
+
+func (o AutoShutdownProfilePtrOutput) ToAutoShutdownProfilePtrOutput() AutoShutdownProfilePtrOutput {
+	return o
+}
+
+func (o AutoShutdownProfilePtrOutput) ToAutoShutdownProfilePtrOutputWithContext(ctx context.Context) AutoShutdownProfilePtrOutput {
+	return o
+}
+
+func (o AutoShutdownProfilePtrOutput) Elem() AutoShutdownProfileOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) AutoShutdownProfile {
+		if v != nil {
+			return *v
+		}
+		var ret AutoShutdownProfile
+		return ret
+	}).(AutoShutdownProfileOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisconnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdleDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NoConnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) ShutdownOnDisconnect() EnableStatePtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *EnableState {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownOnDisconnect
+	}).(EnableStatePtrOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) ShutdownOnIdle() ShutdownOnIdleModePtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *ShutdownOnIdleMode {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownOnIdle
+	}).(ShutdownOnIdleModePtrOutput)
+}
+
+func (o AutoShutdownProfilePtrOutput) ShutdownWhenNotConnected() EnableStatePtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfile) *EnableState {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownWhenNotConnected
+	}).(EnableStatePtrOutput)
+}
+
+type AutoShutdownProfileResponse struct {
+	DisconnectDelay          *string `pulumi:"disconnectDelay"`
+	IdleDelay                *string `pulumi:"idleDelay"`
+	NoConnectDelay           *string `pulumi:"noConnectDelay"`
+	ShutdownOnDisconnect     *string `pulumi:"shutdownOnDisconnect"`
+	ShutdownOnIdle           *string `pulumi:"shutdownOnIdle"`
+	ShutdownWhenNotConnected *string `pulumi:"shutdownWhenNotConnected"`
+}
+
+// AutoShutdownProfileResponseInput is an input type that accepts AutoShutdownProfileResponseArgs and AutoShutdownProfileResponseOutput values.
+// You can construct a concrete instance of `AutoShutdownProfileResponseInput` via:
+//
+//          AutoShutdownProfileResponseArgs{...}
+type AutoShutdownProfileResponseInput interface {
+	pulumi.Input
+
+	ToAutoShutdownProfileResponseOutput() AutoShutdownProfileResponseOutput
+	ToAutoShutdownProfileResponseOutputWithContext(context.Context) AutoShutdownProfileResponseOutput
+}
+
+type AutoShutdownProfileResponseArgs struct {
+	DisconnectDelay          pulumi.StringPtrInput `pulumi:"disconnectDelay"`
+	IdleDelay                pulumi.StringPtrInput `pulumi:"idleDelay"`
+	NoConnectDelay           pulumi.StringPtrInput `pulumi:"noConnectDelay"`
+	ShutdownOnDisconnect     pulumi.StringPtrInput `pulumi:"shutdownOnDisconnect"`
+	ShutdownOnIdle           pulumi.StringPtrInput `pulumi:"shutdownOnIdle"`
+	ShutdownWhenNotConnected pulumi.StringPtrInput `pulumi:"shutdownWhenNotConnected"`
+}
+
+func (AutoShutdownProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoShutdownProfileResponse)(nil)).Elem()
+}
+
+func (i AutoShutdownProfileResponseArgs) ToAutoShutdownProfileResponseOutput() AutoShutdownProfileResponseOutput {
+	return i.ToAutoShutdownProfileResponseOutputWithContext(context.Background())
+}
+
+func (i AutoShutdownProfileResponseArgs) ToAutoShutdownProfileResponseOutputWithContext(ctx context.Context) AutoShutdownProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfileResponseOutput)
+}
+
+func (i AutoShutdownProfileResponseArgs) ToAutoShutdownProfileResponsePtrOutput() AutoShutdownProfileResponsePtrOutput {
+	return i.ToAutoShutdownProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AutoShutdownProfileResponseArgs) ToAutoShutdownProfileResponsePtrOutputWithContext(ctx context.Context) AutoShutdownProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfileResponseOutput).ToAutoShutdownProfileResponsePtrOutputWithContext(ctx)
+}
+
+// AutoShutdownProfileResponsePtrInput is an input type that accepts AutoShutdownProfileResponseArgs, AutoShutdownProfileResponsePtr and AutoShutdownProfileResponsePtrOutput values.
+// You can construct a concrete instance of `AutoShutdownProfileResponsePtrInput` via:
+//
+//          AutoShutdownProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AutoShutdownProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToAutoShutdownProfileResponsePtrOutput() AutoShutdownProfileResponsePtrOutput
+	ToAutoShutdownProfileResponsePtrOutputWithContext(context.Context) AutoShutdownProfileResponsePtrOutput
+}
+
+type autoShutdownProfileResponsePtrType AutoShutdownProfileResponseArgs
+
+func AutoShutdownProfileResponsePtr(v *AutoShutdownProfileResponseArgs) AutoShutdownProfileResponsePtrInput {
+	return (*autoShutdownProfileResponsePtrType)(v)
+}
+
+func (*autoShutdownProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoShutdownProfileResponse)(nil)).Elem()
+}
+
+func (i *autoShutdownProfileResponsePtrType) ToAutoShutdownProfileResponsePtrOutput() AutoShutdownProfileResponsePtrOutput {
+	return i.ToAutoShutdownProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *autoShutdownProfileResponsePtrType) ToAutoShutdownProfileResponsePtrOutputWithContext(ctx context.Context) AutoShutdownProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoShutdownProfileResponsePtrOutput)
+}
+
+type AutoShutdownProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoShutdownProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoShutdownProfileResponse)(nil)).Elem()
+}
+
+func (o AutoShutdownProfileResponseOutput) ToAutoShutdownProfileResponseOutput() AutoShutdownProfileResponseOutput {
+	return o
+}
+
+func (o AutoShutdownProfileResponseOutput) ToAutoShutdownProfileResponseOutputWithContext(ctx context.Context) AutoShutdownProfileResponseOutput {
+	return o
+}
+
+func (o AutoShutdownProfileResponseOutput) ToAutoShutdownProfileResponsePtrOutput() AutoShutdownProfileResponsePtrOutput {
+	return o.ToAutoShutdownProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AutoShutdownProfileResponseOutput) ToAutoShutdownProfileResponsePtrOutputWithContext(ctx context.Context) AutoShutdownProfileResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoShutdownProfileResponse) *AutoShutdownProfileResponse {
+		return &v
+	}).(AutoShutdownProfileResponsePtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.DisconnectDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.IdleDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.NoConnectDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) ShutdownOnDisconnect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.ShutdownOnDisconnect }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.ShutdownOnIdle }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponseOutput) ShutdownWhenNotConnected() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoShutdownProfileResponse) *string { return v.ShutdownWhenNotConnected }).(pulumi.StringPtrOutput)
+}
+
+type AutoShutdownProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AutoShutdownProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoShutdownProfileResponse)(nil)).Elem()
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) ToAutoShutdownProfileResponsePtrOutput() AutoShutdownProfileResponsePtrOutput {
+	return o
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) ToAutoShutdownProfileResponsePtrOutputWithContext(ctx context.Context) AutoShutdownProfileResponsePtrOutput {
+	return o
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) Elem() AutoShutdownProfileResponseOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) AutoShutdownProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoShutdownProfileResponse
+		return ret
+	}).(AutoShutdownProfileResponseOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisconnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdleDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NoConnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) ShutdownOnDisconnect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownOnDisconnect
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownOnIdle
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoShutdownProfileResponsePtrOutput) ShutdownWhenNotConnected() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoShutdownProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownWhenNotConnected
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfile struct {
+	ClientRdpAccess *ConnectionType `pulumi:"clientRdpAccess"`
+	ClientSshAccess *ConnectionType `pulumi:"clientSshAccess"`
+	WebRdpAccess    *ConnectionType `pulumi:"webRdpAccess"`
+	WebSshAccess    *ConnectionType `pulumi:"webSshAccess"`
+}
+
+// ConnectionProfileInput is an input type that accepts ConnectionProfileArgs and ConnectionProfileOutput values.
+// You can construct a concrete instance of `ConnectionProfileInput` via:
+//
+//          ConnectionProfileArgs{...}
+type ConnectionProfileInput interface {
+	pulumi.Input
+
+	ToConnectionProfileOutput() ConnectionProfileOutput
+	ToConnectionProfileOutputWithContext(context.Context) ConnectionProfileOutput
+}
+
+type ConnectionProfileArgs struct {
+	ClientRdpAccess ConnectionTypePtrInput `pulumi:"clientRdpAccess"`
+	ClientSshAccess ConnectionTypePtrInput `pulumi:"clientSshAccess"`
+	WebRdpAccess    ConnectionTypePtrInput `pulumi:"webRdpAccess"`
+	WebSshAccess    ConnectionTypePtrInput `pulumi:"webSshAccess"`
+}
+
+func (ConnectionProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfile)(nil)).Elem()
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfileOutput() ConnectionProfileOutput {
+	return i.ToConnectionProfileOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfileOutputWithContext(ctx context.Context) ConnectionProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileOutput)
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return i.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileOutput).ToConnectionProfilePtrOutputWithContext(ctx)
+}
+
+// ConnectionProfilePtrInput is an input type that accepts ConnectionProfileArgs, ConnectionProfilePtr and ConnectionProfilePtrOutput values.
+// You can construct a concrete instance of `ConnectionProfilePtrInput` via:
+//
+//          ConnectionProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionProfilePtrInput interface {
+	pulumi.Input
+
+	ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput
+	ToConnectionProfilePtrOutputWithContext(context.Context) ConnectionProfilePtrOutput
+}
+
+type connectionProfilePtrType ConnectionProfileArgs
+
+func ConnectionProfilePtr(v *ConnectionProfileArgs) ConnectionProfilePtrInput {
+	return (*connectionProfilePtrType)(v)
+}
+
+func (*connectionProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfile)(nil)).Elem()
+}
+
+func (i *connectionProfilePtrType) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return i.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionProfilePtrType) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfilePtrOutput)
+}
+
+type ConnectionProfileOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfile)(nil)).Elem()
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfileOutput() ConnectionProfileOutput {
+	return o
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfileOutputWithContext(ctx context.Context) ConnectionProfileOutput {
+	return o
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return o.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionProfile) *ConnectionProfile {
+		return &v
+	}).(ConnectionProfilePtrOutput)
+}
+
+func (o ConnectionProfileOutput) ClientRdpAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionType { return v.ClientRdpAccess }).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfileOutput) ClientSshAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionType { return v.ClientSshAccess }).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfileOutput) WebRdpAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionType { return v.WebRdpAccess }).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfileOutput) WebSshAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionType { return v.WebSshAccess }).(ConnectionTypePtrOutput)
+}
+
+type ConnectionProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfile)(nil)).Elem()
+}
+
+func (o ConnectionProfilePtrOutput) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return o
+}
+
+func (o ConnectionProfilePtrOutput) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return o
+}
+
+func (o ConnectionProfilePtrOutput) Elem() ConnectionProfileOutput {
+	return o.ApplyT(func(v *ConnectionProfile) ConnectionProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionProfile
+		return ret
+	}).(ConnectionProfileOutput)
+}
+
+func (o ConnectionProfilePtrOutput) ClientRdpAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionType {
+		if v == nil {
+			return nil
+		}
+		return v.ClientRdpAccess
+	}).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfilePtrOutput) ClientSshAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionType {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSshAccess
+	}).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfilePtrOutput) WebRdpAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionType {
+		if v == nil {
+			return nil
+		}
+		return v.WebRdpAccess
+	}).(ConnectionTypePtrOutput)
+}
+
+func (o ConnectionProfilePtrOutput) WebSshAccess() ConnectionTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionType {
+		if v == nil {
+			return nil
+		}
+		return v.WebSshAccess
+	}).(ConnectionTypePtrOutput)
+}
+
+type ConnectionProfileResponse struct {
+	ClientRdpAccess *string `pulumi:"clientRdpAccess"`
+	ClientSshAccess *string `pulumi:"clientSshAccess"`
+	WebRdpAccess    *string `pulumi:"webRdpAccess"`
+	WebSshAccess    *string `pulumi:"webSshAccess"`
+}
+
+// ConnectionProfileResponseInput is an input type that accepts ConnectionProfileResponseArgs and ConnectionProfileResponseOutput values.
+// You can construct a concrete instance of `ConnectionProfileResponseInput` via:
+//
+//          ConnectionProfileResponseArgs{...}
+type ConnectionProfileResponseInput interface {
+	pulumi.Input
+
+	ToConnectionProfileResponseOutput() ConnectionProfileResponseOutput
+	ToConnectionProfileResponseOutputWithContext(context.Context) ConnectionProfileResponseOutput
+}
+
+type ConnectionProfileResponseArgs struct {
+	ClientRdpAccess pulumi.StringPtrInput `pulumi:"clientRdpAccess"`
+	ClientSshAccess pulumi.StringPtrInput `pulumi:"clientSshAccess"`
+	WebRdpAccess    pulumi.StringPtrInput `pulumi:"webRdpAccess"`
+	WebSshAccess    pulumi.StringPtrInput `pulumi:"webSshAccess"`
+}
+
+func (ConnectionProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileResponse)(nil)).Elem()
+}
+
+func (i ConnectionProfileResponseArgs) ToConnectionProfileResponseOutput() ConnectionProfileResponseOutput {
+	return i.ToConnectionProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileResponseArgs) ToConnectionProfileResponseOutputWithContext(ctx context.Context) ConnectionProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileResponseOutput)
+}
+
+func (i ConnectionProfileResponseArgs) ToConnectionProfileResponsePtrOutput() ConnectionProfileResponsePtrOutput {
+	return i.ToConnectionProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileResponseArgs) ToConnectionProfileResponsePtrOutputWithContext(ctx context.Context) ConnectionProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileResponseOutput).ToConnectionProfileResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectionProfileResponsePtrInput is an input type that accepts ConnectionProfileResponseArgs, ConnectionProfileResponsePtr and ConnectionProfileResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectionProfileResponsePtrInput` via:
+//
+//          ConnectionProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectionProfileResponsePtrOutput() ConnectionProfileResponsePtrOutput
+	ToConnectionProfileResponsePtrOutputWithContext(context.Context) ConnectionProfileResponsePtrOutput
+}
+
+type connectionProfileResponsePtrType ConnectionProfileResponseArgs
+
+func ConnectionProfileResponsePtr(v *ConnectionProfileResponseArgs) ConnectionProfileResponsePtrInput {
+	return (*connectionProfileResponsePtrType)(v)
+}
+
+func (*connectionProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileResponse)(nil)).Elem()
+}
+
+func (i *connectionProfileResponsePtrType) ToConnectionProfileResponsePtrOutput() ConnectionProfileResponsePtrOutput {
+	return i.ToConnectionProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionProfileResponsePtrType) ToConnectionProfileResponsePtrOutputWithContext(ctx context.Context) ConnectionProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileResponsePtrOutput)
+}
+
+type ConnectionProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileResponse)(nil)).Elem()
+}
+
+func (o ConnectionProfileResponseOutput) ToConnectionProfileResponseOutput() ConnectionProfileResponseOutput {
+	return o
+}
+
+func (o ConnectionProfileResponseOutput) ToConnectionProfileResponseOutputWithContext(ctx context.Context) ConnectionProfileResponseOutput {
+	return o
+}
+
+func (o ConnectionProfileResponseOutput) ToConnectionProfileResponsePtrOutput() ConnectionProfileResponsePtrOutput {
+	return o.ToConnectionProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionProfileResponseOutput) ToConnectionProfileResponsePtrOutputWithContext(ctx context.Context) ConnectionProfileResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionProfileResponse) *ConnectionProfileResponse {
+		return &v
+	}).(ConnectionProfileResponsePtrOutput)
+}
+
+func (o ConnectionProfileResponseOutput) ClientRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileResponse) *string { return v.ClientRdpAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponseOutput) ClientSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileResponse) *string { return v.ClientSshAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponseOutput) WebRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileResponse) *string { return v.WebRdpAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponseOutput) WebSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileResponse) *string { return v.WebSshAccess }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileResponse)(nil)).Elem()
+}
+
+func (o ConnectionProfileResponsePtrOutput) ToConnectionProfileResponsePtrOutput() ConnectionProfileResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionProfileResponsePtrOutput) ToConnectionProfileResponsePtrOutputWithContext(ctx context.Context) ConnectionProfileResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionProfileResponsePtrOutput) Elem() ConnectionProfileResponseOutput {
+	return o.ApplyT(func(v *ConnectionProfileResponse) ConnectionProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionProfileResponse
+		return ret
+	}).(ConnectionProfileResponseOutput)
+}
+
+func (o ConnectionProfileResponsePtrOutput) ClientRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientRdpAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponsePtrOutput) ClientSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSshAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponsePtrOutput) WebRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebRdpAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionProfileResponsePtrOutput) WebSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebSshAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 type EnvironmentDetailsResponse struct {
-	// Description of the Environment
-	Description string `pulumi:"description"`
-	// Publishing state of the environment setting Possible values are Creating, Created, Failed
-	EnvironmentState string `pulumi:"environmentState"`
-	// Resource Id of the environment
-	Id string `pulumi:"id"`
-	// The details of the latest operation. ex: status, error
+	Description           string                        `pulumi:"description"`
+	EnvironmentState      string                        `pulumi:"environmentState"`
+	Id                    string                        `pulumi:"id"`
 	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// Name of the Environment
-	Name string `pulumi:"name"`
-	// When the password was last reset on the environment.
-	PasswordLastReset string `pulumi:"passwordLastReset"`
-	// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// How long the environment has been used by a lab user
-	TotalUsage string `pulumi:"totalUsage"`
-	// Details of backing DTL virtual machine with compute and network details.
+	Name                  string                        `pulumi:"name"`
+	PasswordLastReset     string                        `pulumi:"passwordLastReset"`
+	ProvisioningState     string                        `pulumi:"provisioningState"`
+	TotalUsage            string                        `pulumi:"totalUsage"`
 	VirtualMachineDetails VirtualMachineDetailsResponse `pulumi:"virtualMachineDetails"`
 }
 
@@ -43,23 +806,14 @@ type EnvironmentDetailsResponseInput interface {
 }
 
 type EnvironmentDetailsResponseArgs struct {
-	// Description of the Environment
-	Description pulumi.StringInput `pulumi:"description"`
-	// Publishing state of the environment setting Possible values are Creating, Created, Failed
-	EnvironmentState pulumi.StringInput `pulumi:"environmentState"`
-	// Resource Id of the environment
-	Id pulumi.StringInput `pulumi:"id"`
-	// The details of the latest operation. ex: status, error
+	Description           pulumi.StringInput                 `pulumi:"description"`
+	EnvironmentState      pulumi.StringInput                 `pulumi:"environmentState"`
+	Id                    pulumi.StringInput                 `pulumi:"id"`
 	LatestOperationResult LatestOperationResultResponseInput `pulumi:"latestOperationResult"`
-	// Name of the Environment
-	Name pulumi.StringInput `pulumi:"name"`
-	// When the password was last reset on the environment.
-	PasswordLastReset pulumi.StringInput `pulumi:"passwordLastReset"`
-	// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// How long the environment has been used by a lab user
-	TotalUsage pulumi.StringInput `pulumi:"totalUsage"`
-	// Details of backing DTL virtual machine with compute and network details.
+	Name                  pulumi.StringInput                 `pulumi:"name"`
+	PasswordLastReset     pulumi.StringInput                 `pulumi:"passwordLastReset"`
+	ProvisioningState     pulumi.StringInput                 `pulumi:"provisioningState"`
+	TotalUsage            pulumi.StringInput                 `pulumi:"totalUsage"`
 	VirtualMachineDetails VirtualMachineDetailsResponseInput `pulumi:"virtualMachineDetails"`
 }
 
@@ -114,47 +868,38 @@ func (o EnvironmentDetailsResponseOutput) ToEnvironmentDetailsResponseOutputWith
 	return o
 }
 
-// Description of the Environment
 func (o EnvironmentDetailsResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Publishing state of the environment setting Possible values are Creating, Created, Failed
 func (o EnvironmentDetailsResponseOutput) EnvironmentState() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.EnvironmentState }).(pulumi.StringOutput)
 }
 
-// Resource Id of the environment
 func (o EnvironmentDetailsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The details of the latest operation. ex: status, error
 func (o EnvironmentDetailsResponseOutput) LatestOperationResult() LatestOperationResultResponseOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
 }
 
-// Name of the Environment
 func (o EnvironmentDetailsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// When the password was last reset on the environment.
 func (o EnvironmentDetailsResponseOutput) PasswordLastReset() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.PasswordLastReset }).(pulumi.StringOutput)
 }
 
-// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
 func (o EnvironmentDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// How long the environment has been used by a lab user
 func (o EnvironmentDetailsResponseOutput) TotalUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.TotalUsage }).(pulumi.StringOutput)
 }
 
-// Details of backing DTL virtual machine with compute and network details.
 func (o EnvironmentDetailsResponseOutput) VirtualMachineDetails() VirtualMachineDetailsResponseOutput {
 	return o.ApplyT(func(v EnvironmentDetailsResponse) VirtualMachineDetailsResponse { return v.VirtualMachineDetails }).(VirtualMachineDetailsResponseOutput)
 }
@@ -180,16 +925,11 @@ func (o EnvironmentDetailsResponseArrayOutput) Index(i pulumi.IntInput) Environm
 }
 
 type EnvironmentSizeResponse struct {
-	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
-	MaxPrice float64 `pulumi:"maxPrice"`
-	// The amount of memory available (in GB). This is the minimum amount of memory within this tier.
-	MinMemory float64 `pulumi:"minMemory"`
-	// The number of cores a VM of this size has. This is the minimum number of cores within this tier.
-	MinNumberOfCores int `pulumi:"minNumberOfCores"`
-	// The size category
-	Name *string `pulumi:"name"`
-	// Represents a set of compute sizes that can serve this given size type
-	VmSizes []SizeInfoResponse `pulumi:"vmSizes"`
+	MaxPrice         float64            `pulumi:"maxPrice"`
+	MinMemory        float64            `pulumi:"minMemory"`
+	MinNumberOfCores int                `pulumi:"minNumberOfCores"`
+	Name             *string            `pulumi:"name"`
+	VmSizes          []SizeInfoResponse `pulumi:"vmSizes"`
 }
 
 // EnvironmentSizeResponseInput is an input type that accepts EnvironmentSizeResponseArgs and EnvironmentSizeResponseOutput values.
@@ -204,16 +944,11 @@ type EnvironmentSizeResponseInput interface {
 }
 
 type EnvironmentSizeResponseArgs struct {
-	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
-	MaxPrice pulumi.Float64Input `pulumi:"maxPrice"`
-	// The amount of memory available (in GB). This is the minimum amount of memory within this tier.
-	MinMemory pulumi.Float64Input `pulumi:"minMemory"`
-	// The number of cores a VM of this size has. This is the minimum number of cores within this tier.
-	MinNumberOfCores pulumi.IntInput `pulumi:"minNumberOfCores"`
-	// The size category
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Represents a set of compute sizes that can serve this given size type
-	VmSizes SizeInfoResponseArrayInput `pulumi:"vmSizes"`
+	MaxPrice         pulumi.Float64Input        `pulumi:"maxPrice"`
+	MinMemory        pulumi.Float64Input        `pulumi:"minMemory"`
+	MinNumberOfCores pulumi.IntInput            `pulumi:"minNumberOfCores"`
+	Name             pulumi.StringPtrInput      `pulumi:"name"`
+	VmSizes          SizeInfoResponseArrayInput `pulumi:"vmSizes"`
 }
 
 func (EnvironmentSizeResponseArgs) ElementType() reflect.Type {
@@ -267,27 +1002,22 @@ func (o EnvironmentSizeResponseOutput) ToEnvironmentSizeResponseOutputWithContex
 	return o
 }
 
-// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
 func (o EnvironmentSizeResponseOutput) MaxPrice() pulumi.Float64Output {
 	return o.ApplyT(func(v EnvironmentSizeResponse) float64 { return v.MaxPrice }).(pulumi.Float64Output)
 }
 
-// The amount of memory available (in GB). This is the minimum amount of memory within this tier.
 func (o EnvironmentSizeResponseOutput) MinMemory() pulumi.Float64Output {
 	return o.ApplyT(func(v EnvironmentSizeResponse) float64 { return v.MinMemory }).(pulumi.Float64Output)
 }
 
-// The number of cores a VM of this size has. This is the minimum number of cores within this tier.
 func (o EnvironmentSizeResponseOutput) MinNumberOfCores() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentSizeResponse) int { return v.MinNumberOfCores }).(pulumi.IntOutput)
 }
 
-// The size category
 func (o EnvironmentSizeResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSizeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Represents a set of compute sizes that can serve this given size type
 func (o EnvironmentSizeResponseOutput) VmSizes() SizeInfoResponseArrayOutput {
 	return o.ApplyT(func(v EnvironmentSizeResponse) []SizeInfoResponse { return v.VmSizes }).(SizeInfoResponseArrayOutput)
 }
@@ -313,16 +1043,11 @@ func (o EnvironmentSizeResponseArrayOutput) Index(i pulumi.IntInput) Environment
 }
 
 type GalleryImageReferenceResponse struct {
-	// The offer of the gallery image.
-	Offer *string `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType *string `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     *string `pulumi:"offer"`
+	OsType    *string `pulumi:"osType"`
 	Publisher *string `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku *string `pulumi:"sku"`
-	// The version of the gallery image.
-	Version *string `pulumi:"version"`
+	Sku       *string `pulumi:"sku"`
+	Version   *string `pulumi:"version"`
 }
 
 // GalleryImageReferenceResponseInput is an input type that accepts GalleryImageReferenceResponseArgs and GalleryImageReferenceResponseOutput values.
@@ -337,16 +1062,11 @@ type GalleryImageReferenceResponseInput interface {
 }
 
 type GalleryImageReferenceResponseArgs struct {
-	// The offer of the gallery image.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	OsType    pulumi.StringPtrInput `pulumi:"osType"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// The version of the gallery image.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GalleryImageReferenceResponseArgs) ElementType() reflect.Type {
@@ -426,27 +1146,22 @@ func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrO
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferenceResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +1190,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Elem() GalleryImageReferenceResp
 	}).(GalleryImageReferenceResponseOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -485,7 +1199,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -495,7 +1208,6 @@ func (o GalleryImageReferenceResponsePtrOutput) OsType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -505,7 +1217,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -515,7 +1226,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -526,14 +1236,10 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 }
 
 type LabDetailsResponse struct {
-	// The Id of the lab.
-	Id *string `pulumi:"id"`
-	// Name of the lab
-	Name *string `pulumi:"name"`
-	// The provisioning state of the lab.
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The maximum duration a user can use a VM in this lab.
-	UsageQuota string `pulumi:"usageQuota"`
+	UsageQuota        string  `pulumi:"usageQuota"`
 }
 
 // LabDetailsResponseInput is an input type that accepts LabDetailsResponseArgs and LabDetailsResponseOutput values.
@@ -548,14 +1254,10 @@ type LabDetailsResponseInput interface {
 }
 
 type LabDetailsResponseArgs struct {
-	// The Id of the lab.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the lab
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The provisioning state of the lab.
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The maximum duration a user can use a VM in this lab.
-	UsageQuota pulumi.StringInput `pulumi:"usageQuota"`
+	UsageQuota        pulumi.StringInput    `pulumi:"usageQuota"`
 }
 
 func (LabDetailsResponseArgs) ElementType() reflect.Type {
@@ -609,22 +1311,18 @@ func (o LabDetailsResponseOutput) ToLabDetailsResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The Id of the lab.
 func (o LabDetailsResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the lab
 func (o LabDetailsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the lab.
 func (o LabDetailsResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabDetailsResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The maximum duration a user can use a VM in this lab.
 func (o LabDetailsResponseOutput) UsageQuota() pulumi.StringOutput {
 	return o.ApplyT(func(v LabDetailsResponse) string { return v.UsageQuota }).(pulumi.StringOutput)
 }
@@ -649,19 +1347,279 @@ func (o LabDetailsResponseArrayOutput) Index(i pulumi.IntInput) LabDetailsRespon
 	}).(LabDetailsResponseOutput)
 }
 
+type LabPlanNetworkProfile struct {
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// LabPlanNetworkProfileInput is an input type that accepts LabPlanNetworkProfileArgs and LabPlanNetworkProfileOutput values.
+// You can construct a concrete instance of `LabPlanNetworkProfileInput` via:
+//
+//          LabPlanNetworkProfileArgs{...}
+type LabPlanNetworkProfileInput interface {
+	pulumi.Input
+
+	ToLabPlanNetworkProfileOutput() LabPlanNetworkProfileOutput
+	ToLabPlanNetworkProfileOutputWithContext(context.Context) LabPlanNetworkProfileOutput
+}
+
+type LabPlanNetworkProfileArgs struct {
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (LabPlanNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabPlanNetworkProfile)(nil)).Elem()
+}
+
+func (i LabPlanNetworkProfileArgs) ToLabPlanNetworkProfileOutput() LabPlanNetworkProfileOutput {
+	return i.ToLabPlanNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i LabPlanNetworkProfileArgs) ToLabPlanNetworkProfileOutputWithContext(ctx context.Context) LabPlanNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfileOutput)
+}
+
+func (i LabPlanNetworkProfileArgs) ToLabPlanNetworkProfilePtrOutput() LabPlanNetworkProfilePtrOutput {
+	return i.ToLabPlanNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i LabPlanNetworkProfileArgs) ToLabPlanNetworkProfilePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfileOutput).ToLabPlanNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// LabPlanNetworkProfilePtrInput is an input type that accepts LabPlanNetworkProfileArgs, LabPlanNetworkProfilePtr and LabPlanNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `LabPlanNetworkProfilePtrInput` via:
+//
+//          LabPlanNetworkProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type LabPlanNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToLabPlanNetworkProfilePtrOutput() LabPlanNetworkProfilePtrOutput
+	ToLabPlanNetworkProfilePtrOutputWithContext(context.Context) LabPlanNetworkProfilePtrOutput
+}
+
+type labPlanNetworkProfilePtrType LabPlanNetworkProfileArgs
+
+func LabPlanNetworkProfilePtr(v *LabPlanNetworkProfileArgs) LabPlanNetworkProfilePtrInput {
+	return (*labPlanNetworkProfilePtrType)(v)
+}
+
+func (*labPlanNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabPlanNetworkProfile)(nil)).Elem()
+}
+
+func (i *labPlanNetworkProfilePtrType) ToLabPlanNetworkProfilePtrOutput() LabPlanNetworkProfilePtrOutput {
+	return i.ToLabPlanNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *labPlanNetworkProfilePtrType) ToLabPlanNetworkProfilePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfilePtrOutput)
+}
+
+type LabPlanNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (LabPlanNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabPlanNetworkProfile)(nil)).Elem()
+}
+
+func (o LabPlanNetworkProfileOutput) ToLabPlanNetworkProfileOutput() LabPlanNetworkProfileOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileOutput) ToLabPlanNetworkProfileOutputWithContext(ctx context.Context) LabPlanNetworkProfileOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileOutput) ToLabPlanNetworkProfilePtrOutput() LabPlanNetworkProfilePtrOutput {
+	return o.ToLabPlanNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o LabPlanNetworkProfileOutput) ToLabPlanNetworkProfilePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabPlanNetworkProfile) *LabPlanNetworkProfile {
+		return &v
+	}).(LabPlanNetworkProfilePtrOutput)
+}
+
+func (o LabPlanNetworkProfileOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabPlanNetworkProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LabPlanNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (LabPlanNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabPlanNetworkProfile)(nil)).Elem()
+}
+
+func (o LabPlanNetworkProfilePtrOutput) ToLabPlanNetworkProfilePtrOutput() LabPlanNetworkProfilePtrOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfilePtrOutput) ToLabPlanNetworkProfilePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfilePtrOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfilePtrOutput) Elem() LabPlanNetworkProfileOutput {
+	return o.ApplyT(func(v *LabPlanNetworkProfile) LabPlanNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LabPlanNetworkProfile
+		return ret
+	}).(LabPlanNetworkProfileOutput)
+}
+
+func (o LabPlanNetworkProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabPlanNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabPlanNetworkProfileResponse struct {
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// LabPlanNetworkProfileResponseInput is an input type that accepts LabPlanNetworkProfileResponseArgs and LabPlanNetworkProfileResponseOutput values.
+// You can construct a concrete instance of `LabPlanNetworkProfileResponseInput` via:
+//
+//          LabPlanNetworkProfileResponseArgs{...}
+type LabPlanNetworkProfileResponseInput interface {
+	pulumi.Input
+
+	ToLabPlanNetworkProfileResponseOutput() LabPlanNetworkProfileResponseOutput
+	ToLabPlanNetworkProfileResponseOutputWithContext(context.Context) LabPlanNetworkProfileResponseOutput
+}
+
+type LabPlanNetworkProfileResponseArgs struct {
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (LabPlanNetworkProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabPlanNetworkProfileResponse)(nil)).Elem()
+}
+
+func (i LabPlanNetworkProfileResponseArgs) ToLabPlanNetworkProfileResponseOutput() LabPlanNetworkProfileResponseOutput {
+	return i.ToLabPlanNetworkProfileResponseOutputWithContext(context.Background())
+}
+
+func (i LabPlanNetworkProfileResponseArgs) ToLabPlanNetworkProfileResponseOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfileResponseOutput)
+}
+
+func (i LabPlanNetworkProfileResponseArgs) ToLabPlanNetworkProfileResponsePtrOutput() LabPlanNetworkProfileResponsePtrOutput {
+	return i.ToLabPlanNetworkProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LabPlanNetworkProfileResponseArgs) ToLabPlanNetworkProfileResponsePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfileResponseOutput).ToLabPlanNetworkProfileResponsePtrOutputWithContext(ctx)
+}
+
+// LabPlanNetworkProfileResponsePtrInput is an input type that accepts LabPlanNetworkProfileResponseArgs, LabPlanNetworkProfileResponsePtr and LabPlanNetworkProfileResponsePtrOutput values.
+// You can construct a concrete instance of `LabPlanNetworkProfileResponsePtrInput` via:
+//
+//          LabPlanNetworkProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LabPlanNetworkProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToLabPlanNetworkProfileResponsePtrOutput() LabPlanNetworkProfileResponsePtrOutput
+	ToLabPlanNetworkProfileResponsePtrOutputWithContext(context.Context) LabPlanNetworkProfileResponsePtrOutput
+}
+
+type labPlanNetworkProfileResponsePtrType LabPlanNetworkProfileResponseArgs
+
+func LabPlanNetworkProfileResponsePtr(v *LabPlanNetworkProfileResponseArgs) LabPlanNetworkProfileResponsePtrInput {
+	return (*labPlanNetworkProfileResponsePtrType)(v)
+}
+
+func (*labPlanNetworkProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabPlanNetworkProfileResponse)(nil)).Elem()
+}
+
+func (i *labPlanNetworkProfileResponsePtrType) ToLabPlanNetworkProfileResponsePtrOutput() LabPlanNetworkProfileResponsePtrOutput {
+	return i.ToLabPlanNetworkProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *labPlanNetworkProfileResponsePtrType) ToLabPlanNetworkProfileResponsePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPlanNetworkProfileResponsePtrOutput)
+}
+
+type LabPlanNetworkProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (LabPlanNetworkProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabPlanNetworkProfileResponse)(nil)).Elem()
+}
+
+func (o LabPlanNetworkProfileResponseOutput) ToLabPlanNetworkProfileResponseOutput() LabPlanNetworkProfileResponseOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileResponseOutput) ToLabPlanNetworkProfileResponseOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponseOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileResponseOutput) ToLabPlanNetworkProfileResponsePtrOutput() LabPlanNetworkProfileResponsePtrOutput {
+	return o.ToLabPlanNetworkProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LabPlanNetworkProfileResponseOutput) ToLabPlanNetworkProfileResponsePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabPlanNetworkProfileResponse) *LabPlanNetworkProfileResponse {
+		return &v
+	}).(LabPlanNetworkProfileResponsePtrOutput)
+}
+
+func (o LabPlanNetworkProfileResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabPlanNetworkProfileResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LabPlanNetworkProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabPlanNetworkProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabPlanNetworkProfileResponse)(nil)).Elem()
+}
+
+func (o LabPlanNetworkProfileResponsePtrOutput) ToLabPlanNetworkProfileResponsePtrOutput() LabPlanNetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileResponsePtrOutput) ToLabPlanNetworkProfileResponsePtrOutputWithContext(ctx context.Context) LabPlanNetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o LabPlanNetworkProfileResponsePtrOutput) Elem() LabPlanNetworkProfileResponseOutput {
+	return o.ApplyT(func(v *LabPlanNetworkProfileResponse) LabPlanNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LabPlanNetworkProfileResponse
+		return ret
+	}).(LabPlanNetworkProfileResponseOutput)
+}
+
+func (o LabPlanNetworkProfileResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabPlanNetworkProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type LatestOperationResultResponse struct {
-	// Error code on failure.
-	ErrorCode string `pulumi:"errorCode"`
-	// The error message.
+	ErrorCode    string `pulumi:"errorCode"`
 	ErrorMessage string `pulumi:"errorMessage"`
-	// The HttpMethod - PUT/POST/DELETE for the operation.
-	HttpMethod string `pulumi:"httpMethod"`
-	// The URL to use to check long-running operation status
+	HttpMethod   string `pulumi:"httpMethod"`
 	OperationUrl string `pulumi:"operationUrl"`
-	// Request URI of the operation.
-	RequestUri string `pulumi:"requestUri"`
-	// The current status of the operation.
-	Status string `pulumi:"status"`
+	RequestUri   string `pulumi:"requestUri"`
+	Status       string `pulumi:"status"`
 }
 
 // LatestOperationResultResponseInput is an input type that accepts LatestOperationResultResponseArgs and LatestOperationResultResponseOutput values.
@@ -676,18 +1634,12 @@ type LatestOperationResultResponseInput interface {
 }
 
 type LatestOperationResultResponseArgs struct {
-	// Error code on failure.
-	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
-	// The error message.
+	ErrorCode    pulumi.StringInput `pulumi:"errorCode"`
 	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// The HttpMethod - PUT/POST/DELETE for the operation.
-	HttpMethod pulumi.StringInput `pulumi:"httpMethod"`
-	// The URL to use to check long-running operation status
+	HttpMethod   pulumi.StringInput `pulumi:"httpMethod"`
 	OperationUrl pulumi.StringInput `pulumi:"operationUrl"`
-	// Request URI of the operation.
-	RequestUri pulumi.StringInput `pulumi:"requestUri"`
-	// The current status of the operation.
-	Status pulumi.StringInput `pulumi:"status"`
+	RequestUri   pulumi.StringInput `pulumi:"requestUri"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (LatestOperationResultResponseArgs) ElementType() reflect.Type {
@@ -767,32 +1719,26 @@ func (o LatestOperationResultResponseOutput) ToLatestOperationResultResponsePtrO
 	}).(LatestOperationResultResponsePtrOutput)
 }
 
-// Error code on failure.
 func (o LatestOperationResultResponseOutput) ErrorCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
 }
 
-// The error message.
 func (o LatestOperationResultResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The HttpMethod - PUT/POST/DELETE for the operation.
 func (o LatestOperationResultResponseOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
-// The URL to use to check long-running operation status
 func (o LatestOperationResultResponseOutput) OperationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.OperationUrl }).(pulumi.StringOutput)
 }
 
-// Request URI of the operation.
 func (o LatestOperationResultResponseOutput) RequestUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.RequestUri }).(pulumi.StringOutput)
 }
 
-// The current status of the operation.
 func (o LatestOperationResultResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LatestOperationResultResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -821,7 +1767,6 @@ func (o LatestOperationResultResponsePtrOutput) Elem() LatestOperationResultResp
 	}).(LatestOperationResultResponseOutput)
 }
 
-// Error code on failure.
 func (o LatestOperationResultResponsePtrOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -831,7 +1776,6 @@ func (o LatestOperationResultResponsePtrOutput) ErrorCode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error message.
 func (o LatestOperationResultResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -841,7 +1785,6 @@ func (o LatestOperationResultResponsePtrOutput) ErrorMessage() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HttpMethod - PUT/POST/DELETE for the operation.
 func (o LatestOperationResultResponsePtrOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -851,7 +1794,6 @@ func (o LatestOperationResultResponsePtrOutput) HttpMethod() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL to use to check long-running operation status
 func (o LatestOperationResultResponsePtrOutput) OperationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -861,7 +1803,6 @@ func (o LatestOperationResultResponsePtrOutput) OperationUrl() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Request URI of the operation.
 func (o LatestOperationResultResponsePtrOutput) RequestUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -871,7 +1812,6 @@ func (o LatestOperationResultResponsePtrOutput) RequestUri() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current status of the operation.
 func (o LatestOperationResultResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LatestOperationResultResponse) *string {
 		if v == nil {
@@ -882,14 +1822,10 @@ func (o LatestOperationResultResponsePtrOutput) Status() pulumi.StringPtrOutput 
 }
 
 type NetworkInterfaceResponse struct {
-	// PrivateIp address of the Compute VM
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	// Connection information for Windows
-	RdpAuthority string `pulumi:"rdpAuthority"`
-	// Connection information for Linux
-	SshAuthority string `pulumi:"sshAuthority"`
-	// Username of the VM
-	Username string `pulumi:"username"`
+	RdpAuthority     string `pulumi:"rdpAuthority"`
+	SshAuthority     string `pulumi:"sshAuthority"`
+	Username         string `pulumi:"username"`
 }
 
 // NetworkInterfaceResponseInput is an input type that accepts NetworkInterfaceResponseArgs and NetworkInterfaceResponseOutput values.
@@ -904,14 +1840,10 @@ type NetworkInterfaceResponseInput interface {
 }
 
 type NetworkInterfaceResponseArgs struct {
-	// PrivateIp address of the Compute VM
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
-	// Connection information for Windows
-	RdpAuthority pulumi.StringInput `pulumi:"rdpAuthority"`
-	// Connection information for Linux
-	SshAuthority pulumi.StringInput `pulumi:"sshAuthority"`
-	// Username of the VM
-	Username pulumi.StringInput `pulumi:"username"`
+	RdpAuthority     pulumi.StringInput `pulumi:"rdpAuthority"`
+	SshAuthority     pulumi.StringInput `pulumi:"sshAuthority"`
+	Username         pulumi.StringInput `pulumi:"username"`
 }
 
 func (NetworkInterfaceResponseArgs) ElementType() reflect.Type {
@@ -991,22 +1923,18 @@ func (o NetworkInterfaceResponseOutput) ToNetworkInterfaceResponsePtrOutputWithC
 	}).(NetworkInterfaceResponsePtrOutput)
 }
 
-// PrivateIp address of the Compute VM
 func (o NetworkInterfaceResponseOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// Connection information for Windows
 func (o NetworkInterfaceResponseOutput) RdpAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) string { return v.RdpAuthority }).(pulumi.StringOutput)
 }
 
-// Connection information for Linux
 func (o NetworkInterfaceResponseOutput) SshAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) string { return v.SshAuthority }).(pulumi.StringOutput)
 }
 
-// Username of the VM
 func (o NetworkInterfaceResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1035,7 +1963,6 @@ func (o NetworkInterfaceResponsePtrOutput) Elem() NetworkInterfaceResponseOutput
 	}).(NetworkInterfaceResponseOutput)
 }
 
-// PrivateIp address of the Compute VM
 func (o NetworkInterfaceResponsePtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceResponse) *string {
 		if v == nil {
@@ -1045,7 +1972,6 @@ func (o NetworkInterfaceResponsePtrOutput) PrivateIpAddress() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection information for Windows
 func (o NetworkInterfaceResponsePtrOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceResponse) *string {
 		if v == nil {
@@ -1055,7 +1981,6 @@ func (o NetworkInterfaceResponsePtrOutput) RdpAuthority() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection information for Linux
 func (o NetworkInterfaceResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceResponse) *string {
 		if v == nil {
@@ -1065,7 +1990,6 @@ func (o NetworkInterfaceResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of the VM
 func (o NetworkInterfaceResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceResponse) *string {
 		if v == nil {
@@ -1076,10 +2000,8 @@ func (o NetworkInterfaceResponsePtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type OperationBatchStatusResponseItemResponse struct {
-	// status of the long running operation for an environment
 	OperationUrl string `pulumi:"operationUrl"`
-	// status of the long running operation for an environment
-	Status string `pulumi:"status"`
+	Status       string `pulumi:"status"`
 }
 
 // OperationBatchStatusResponseItemResponseInput is an input type that accepts OperationBatchStatusResponseItemResponseArgs and OperationBatchStatusResponseItemResponseOutput values.
@@ -1094,10 +2016,8 @@ type OperationBatchStatusResponseItemResponseInput interface {
 }
 
 type OperationBatchStatusResponseItemResponseArgs struct {
-	// status of the long running operation for an environment
 	OperationUrl pulumi.StringInput `pulumi:"operationUrl"`
-	// status of the long running operation for an environment
-	Status pulumi.StringInput `pulumi:"status"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (OperationBatchStatusResponseItemResponseArgs) ElementType() reflect.Type {
@@ -1151,12 +2071,10 @@ func (o OperationBatchStatusResponseItemResponseOutput) ToOperationBatchStatusRe
 	return o
 }
 
-// status of the long running operation for an environment
 func (o OperationBatchStatusResponseItemResponseOutput) OperationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.OperationUrl }).(pulumi.StringOutput)
 }
 
-// status of the long running operation for an environment
 func (o OperationBatchStatusResponseItemResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1181,11 +2099,365 @@ func (o OperationBatchStatusResponseItemResponseArrayOutput) Index(i pulumi.IntI
 	}).(OperationBatchStatusResponseItemResponseOutput)
 }
 
+type RecurrencePattern struct {
+	ExpirationDate string              `pulumi:"expirationDate"`
+	Frequency      RecurrenceFrequency `pulumi:"frequency"`
+	Interval       *int                `pulumi:"interval"`
+	WeekDays       []WeekDay           `pulumi:"weekDays"`
+}
+
+// RecurrencePatternInput is an input type that accepts RecurrencePatternArgs and RecurrencePatternOutput values.
+// You can construct a concrete instance of `RecurrencePatternInput` via:
+//
+//          RecurrencePatternArgs{...}
+type RecurrencePatternInput interface {
+	pulumi.Input
+
+	ToRecurrencePatternOutput() RecurrencePatternOutput
+	ToRecurrencePatternOutputWithContext(context.Context) RecurrencePatternOutput
+}
+
+type RecurrencePatternArgs struct {
+	ExpirationDate pulumi.StringInput       `pulumi:"expirationDate"`
+	Frequency      RecurrenceFrequencyInput `pulumi:"frequency"`
+	Interval       pulumi.IntPtrInput       `pulumi:"interval"`
+	WeekDays       WeekDayArrayInput        `pulumi:"weekDays"`
+}
+
+func (RecurrencePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrencePattern)(nil)).Elem()
+}
+
+func (i RecurrencePatternArgs) ToRecurrencePatternOutput() RecurrencePatternOutput {
+	return i.ToRecurrencePatternOutputWithContext(context.Background())
+}
+
+func (i RecurrencePatternArgs) ToRecurrencePatternOutputWithContext(ctx context.Context) RecurrencePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternOutput)
+}
+
+func (i RecurrencePatternArgs) ToRecurrencePatternPtrOutput() RecurrencePatternPtrOutput {
+	return i.ToRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (i RecurrencePatternArgs) ToRecurrencePatternPtrOutputWithContext(ctx context.Context) RecurrencePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternOutput).ToRecurrencePatternPtrOutputWithContext(ctx)
+}
+
+// RecurrencePatternPtrInput is an input type that accepts RecurrencePatternArgs, RecurrencePatternPtr and RecurrencePatternPtrOutput values.
+// You can construct a concrete instance of `RecurrencePatternPtrInput` via:
+//
+//          RecurrencePatternArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrencePatternPtrInput interface {
+	pulumi.Input
+
+	ToRecurrencePatternPtrOutput() RecurrencePatternPtrOutput
+	ToRecurrencePatternPtrOutputWithContext(context.Context) RecurrencePatternPtrOutput
+}
+
+type recurrencePatternPtrType RecurrencePatternArgs
+
+func RecurrencePatternPtr(v *RecurrencePatternArgs) RecurrencePatternPtrInput {
+	return (*recurrencePatternPtrType)(v)
+}
+
+func (*recurrencePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrencePattern)(nil)).Elem()
+}
+
+func (i *recurrencePatternPtrType) ToRecurrencePatternPtrOutput() RecurrencePatternPtrOutput {
+	return i.ToRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *recurrencePatternPtrType) ToRecurrencePatternPtrOutputWithContext(ctx context.Context) RecurrencePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternPtrOutput)
+}
+
+type RecurrencePatternOutput struct{ *pulumi.OutputState }
+
+func (RecurrencePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrencePattern)(nil)).Elem()
+}
+
+func (o RecurrencePatternOutput) ToRecurrencePatternOutput() RecurrencePatternOutput {
+	return o
+}
+
+func (o RecurrencePatternOutput) ToRecurrencePatternOutputWithContext(ctx context.Context) RecurrencePatternOutput {
+	return o
+}
+
+func (o RecurrencePatternOutput) ToRecurrencePatternPtrOutput() RecurrencePatternPtrOutput {
+	return o.ToRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (o RecurrencePatternOutput) ToRecurrencePatternPtrOutputWithContext(ctx context.Context) RecurrencePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrencePattern) *RecurrencePattern {
+		return &v
+	}).(RecurrencePatternPtrOutput)
+}
+
+func (o RecurrencePatternOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v RecurrencePattern) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+func (o RecurrencePatternOutput) Frequency() RecurrenceFrequencyOutput {
+	return o.ApplyT(func(v RecurrencePattern) RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyOutput)
+}
+
+func (o RecurrencePatternOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecurrencePattern) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o RecurrencePatternOutput) WeekDays() WeekDayArrayOutput {
+	return o.ApplyT(func(v RecurrencePattern) []WeekDay { return v.WeekDays }).(WeekDayArrayOutput)
+}
+
+type RecurrencePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrencePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrencePattern)(nil)).Elem()
+}
+
+func (o RecurrencePatternPtrOutput) ToRecurrencePatternPtrOutput() RecurrencePatternPtrOutput {
+	return o
+}
+
+func (o RecurrencePatternPtrOutput) ToRecurrencePatternPtrOutputWithContext(ctx context.Context) RecurrencePatternPtrOutput {
+	return o
+}
+
+func (o RecurrencePatternPtrOutput) Elem() RecurrencePatternOutput {
+	return o.ApplyT(func(v *RecurrencePattern) RecurrencePattern {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrencePattern
+		return ret
+	}).(RecurrencePatternOutput)
+}
+
+func (o RecurrencePatternPtrOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrencePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecurrencePatternPtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v *RecurrencePattern) *RecurrenceFrequency {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(RecurrenceFrequencyPtrOutput)
+}
+
+func (o RecurrencePatternPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecurrencePattern) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RecurrencePatternPtrOutput) WeekDays() WeekDayArrayOutput {
+	return o.ApplyT(func(v *RecurrencePattern) []WeekDay {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(WeekDayArrayOutput)
+}
+
+type RecurrencePatternResponse struct {
+	ExpirationDate string   `pulumi:"expirationDate"`
+	Frequency      string   `pulumi:"frequency"`
+	Interval       *int     `pulumi:"interval"`
+	WeekDays       []string `pulumi:"weekDays"`
+}
+
+// RecurrencePatternResponseInput is an input type that accepts RecurrencePatternResponseArgs and RecurrencePatternResponseOutput values.
+// You can construct a concrete instance of `RecurrencePatternResponseInput` via:
+//
+//          RecurrencePatternResponseArgs{...}
+type RecurrencePatternResponseInput interface {
+	pulumi.Input
+
+	ToRecurrencePatternResponseOutput() RecurrencePatternResponseOutput
+	ToRecurrencePatternResponseOutputWithContext(context.Context) RecurrencePatternResponseOutput
+}
+
+type RecurrencePatternResponseArgs struct {
+	ExpirationDate pulumi.StringInput      `pulumi:"expirationDate"`
+	Frequency      pulumi.StringInput      `pulumi:"frequency"`
+	Interval       pulumi.IntPtrInput      `pulumi:"interval"`
+	WeekDays       pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (RecurrencePatternResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrencePatternResponse)(nil)).Elem()
+}
+
+func (i RecurrencePatternResponseArgs) ToRecurrencePatternResponseOutput() RecurrencePatternResponseOutput {
+	return i.ToRecurrencePatternResponseOutputWithContext(context.Background())
+}
+
+func (i RecurrencePatternResponseArgs) ToRecurrencePatternResponseOutputWithContext(ctx context.Context) RecurrencePatternResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternResponseOutput)
+}
+
+func (i RecurrencePatternResponseArgs) ToRecurrencePatternResponsePtrOutput() RecurrencePatternResponsePtrOutput {
+	return i.ToRecurrencePatternResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrencePatternResponseArgs) ToRecurrencePatternResponsePtrOutputWithContext(ctx context.Context) RecurrencePatternResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternResponseOutput).ToRecurrencePatternResponsePtrOutputWithContext(ctx)
+}
+
+// RecurrencePatternResponsePtrInput is an input type that accepts RecurrencePatternResponseArgs, RecurrencePatternResponsePtr and RecurrencePatternResponsePtrOutput values.
+// You can construct a concrete instance of `RecurrencePatternResponsePtrInput` via:
+//
+//          RecurrencePatternResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrencePatternResponsePtrInput interface {
+	pulumi.Input
+
+	ToRecurrencePatternResponsePtrOutput() RecurrencePatternResponsePtrOutput
+	ToRecurrencePatternResponsePtrOutputWithContext(context.Context) RecurrencePatternResponsePtrOutput
+}
+
+type recurrencePatternResponsePtrType RecurrencePatternResponseArgs
+
+func RecurrencePatternResponsePtr(v *RecurrencePatternResponseArgs) RecurrencePatternResponsePtrInput {
+	return (*recurrencePatternResponsePtrType)(v)
+}
+
+func (*recurrencePatternResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrencePatternResponse)(nil)).Elem()
+}
+
+func (i *recurrencePatternResponsePtrType) ToRecurrencePatternResponsePtrOutput() RecurrencePatternResponsePtrOutput {
+	return i.ToRecurrencePatternResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrencePatternResponsePtrType) ToRecurrencePatternResponsePtrOutputWithContext(ctx context.Context) RecurrencePatternResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePatternResponsePtrOutput)
+}
+
+type RecurrencePatternResponseOutput struct{ *pulumi.OutputState }
+
+func (RecurrencePatternResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrencePatternResponse)(nil)).Elem()
+}
+
+func (o RecurrencePatternResponseOutput) ToRecurrencePatternResponseOutput() RecurrencePatternResponseOutput {
+	return o
+}
+
+func (o RecurrencePatternResponseOutput) ToRecurrencePatternResponseOutputWithContext(ctx context.Context) RecurrencePatternResponseOutput {
+	return o
+}
+
+func (o RecurrencePatternResponseOutput) ToRecurrencePatternResponsePtrOutput() RecurrencePatternResponsePtrOutput {
+	return o.ToRecurrencePatternResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrencePatternResponseOutput) ToRecurrencePatternResponsePtrOutputWithContext(ctx context.Context) RecurrencePatternResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrencePatternResponse) *RecurrencePatternResponse {
+		return &v
+	}).(RecurrencePatternResponsePtrOutput)
+}
+
+func (o RecurrencePatternResponseOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v RecurrencePatternResponse) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+func (o RecurrencePatternResponseOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v RecurrencePatternResponse) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+func (o RecurrencePatternResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecurrencePatternResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o RecurrencePatternResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrencePatternResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type RecurrencePatternResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrencePatternResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrencePatternResponse)(nil)).Elem()
+}
+
+func (o RecurrencePatternResponsePtrOutput) ToRecurrencePatternResponsePtrOutput() RecurrencePatternResponsePtrOutput {
+	return o
+}
+
+func (o RecurrencePatternResponsePtrOutput) ToRecurrencePatternResponsePtrOutputWithContext(ctx context.Context) RecurrencePatternResponsePtrOutput {
+	return o
+}
+
+func (o RecurrencePatternResponsePtrOutput) Elem() RecurrencePatternResponseOutput {
+	return o.ApplyT(func(v *RecurrencePatternResponse) RecurrencePatternResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrencePatternResponse
+		return ret
+	}).(RecurrencePatternResponseOutput)
+}
+
+func (o RecurrencePatternResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrencePatternResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecurrencePatternResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrencePatternResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecurrencePatternResponsePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecurrencePatternResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RecurrencePatternResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrencePatternResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
 type ReferenceVm struct {
-	// The password of the virtual machine. This will be set to null in GET resource API
 	Password *string `pulumi:"password"`
-	// The username of the virtual machine
-	UserName string `pulumi:"userName"`
+	UserName string  `pulumi:"userName"`
 }
 
 // ReferenceVmInput is an input type that accepts ReferenceVmArgs and ReferenceVmOutput values.
@@ -1200,10 +2472,8 @@ type ReferenceVmInput interface {
 }
 
 type ReferenceVmArgs struct {
-	// The password of the virtual machine. This will be set to null in GET resource API
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The username of the virtual machine
-	UserName pulumi.StringInput `pulumi:"userName"`
+	UserName pulumi.StringInput    `pulumi:"userName"`
 }
 
 func (ReferenceVmArgs) ElementType() reflect.Type {
@@ -1283,12 +2553,10 @@ func (o ReferenceVmOutput) ToReferenceVmPtrOutputWithContext(ctx context.Context
 	}).(ReferenceVmPtrOutput)
 }
 
-// The password of the virtual machine. This will be set to null in GET resource API
 func (o ReferenceVmOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceVm) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The username of the virtual machine
 func (o ReferenceVmOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceVm) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -1317,7 +2585,6 @@ func (o ReferenceVmPtrOutput) Elem() ReferenceVmOutput {
 	}).(ReferenceVmOutput)
 }
 
-// The password of the virtual machine. This will be set to null in GET resource API
 func (o ReferenceVmPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReferenceVm) *string {
 		if v == nil {
@@ -1327,7 +2594,6 @@ func (o ReferenceVmPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username of the virtual machine
 func (o ReferenceVmPtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReferenceVm) *string {
 		if v == nil {
@@ -1338,13 +2604,9 @@ func (o ReferenceVmPtrOutput) UserName() pulumi.StringPtrOutput {
 }
 
 type ReferenceVmResponse struct {
-	// The password of the virtual machine. This will be set to null in GET resource API
-	Password *string `pulumi:"password"`
-	// The username of the virtual machine
-	UserName string `pulumi:"userName"`
-	// VM resource Id for the environment
-	VmResourceId string `pulumi:"vmResourceId"`
-	// The state details for the reference virtual machine.
+	Password       *string                `pulumi:"password"`
+	UserName       string                 `pulumi:"userName"`
+	VmResourceId   string                 `pulumi:"vmResourceId"`
 	VmStateDetails VmStateDetailsResponse `pulumi:"vmStateDetails"`
 }
 
@@ -1360,13 +2622,9 @@ type ReferenceVmResponseInput interface {
 }
 
 type ReferenceVmResponseArgs struct {
-	// The password of the virtual machine. This will be set to null in GET resource API
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The username of the virtual machine
-	UserName pulumi.StringInput `pulumi:"userName"`
-	// VM resource Id for the environment
-	VmResourceId pulumi.StringInput `pulumi:"vmResourceId"`
-	// The state details for the reference virtual machine.
+	Password       pulumi.StringPtrInput       `pulumi:"password"`
+	UserName       pulumi.StringInput          `pulumi:"userName"`
+	VmResourceId   pulumi.StringInput          `pulumi:"vmResourceId"`
 	VmStateDetails VmStateDetailsResponseInput `pulumi:"vmStateDetails"`
 }
 
@@ -1447,22 +2705,18 @@ func (o ReferenceVmResponseOutput) ToReferenceVmResponsePtrOutputWithContext(ctx
 	}).(ReferenceVmResponsePtrOutput)
 }
 
-// The password of the virtual machine. This will be set to null in GET resource API
 func (o ReferenceVmResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceVmResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The username of the virtual machine
 func (o ReferenceVmResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceVmResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-// VM resource Id for the environment
 func (o ReferenceVmResponseOutput) VmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceVmResponse) string { return v.VmResourceId }).(pulumi.StringOutput)
 }
 
-// The state details for the reference virtual machine.
 func (o ReferenceVmResponseOutput) VmStateDetails() VmStateDetailsResponseOutput {
 	return o.ApplyT(func(v ReferenceVmResponse) VmStateDetailsResponse { return v.VmStateDetails }).(VmStateDetailsResponseOutput)
 }
@@ -1491,7 +2745,6 @@ func (o ReferenceVmResponsePtrOutput) Elem() ReferenceVmResponseOutput {
 	}).(ReferenceVmResponseOutput)
 }
 
-// The password of the virtual machine. This will be set to null in GET resource API
 func (o ReferenceVmResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReferenceVmResponse) *string {
 		if v == nil {
@@ -1501,7 +2754,6 @@ func (o ReferenceVmResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username of the virtual machine
 func (o ReferenceVmResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReferenceVmResponse) *string {
 		if v == nil {
@@ -1511,7 +2763,6 @@ func (o ReferenceVmResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id for the environment
 func (o ReferenceVmResponsePtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReferenceVmResponse) *string {
 		if v == nil {
@@ -1521,7 +2772,6 @@ func (o ReferenceVmResponsePtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state details for the reference virtual machine.
 func (o ReferenceVmResponsePtrOutput) VmStateDetails() VmStateDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *ReferenceVmResponse) *VmStateDetailsResponse {
 		if v == nil {
@@ -1532,9 +2782,7 @@ func (o ReferenceVmResponsePtrOutput) VmStateDetails() VmStateDetailsResponsePtr
 }
 
 type RegionalAvailabilityResponse struct {
-	// Corresponding region
-	Region *string `pulumi:"region"`
-	// List of all the size information for the region
+	Region             *string                    `pulumi:"region"`
 	SizeAvailabilities []SizeAvailabilityResponse `pulumi:"sizeAvailabilities"`
 }
 
@@ -1550,9 +2798,7 @@ type RegionalAvailabilityResponseInput interface {
 }
 
 type RegionalAvailabilityResponseArgs struct {
-	// Corresponding region
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// List of all the size information for the region
+	Region             pulumi.StringPtrInput              `pulumi:"region"`
 	SizeAvailabilities SizeAvailabilityResponseArrayInput `pulumi:"sizeAvailabilities"`
 }
 
@@ -1607,12 +2853,10 @@ func (o RegionalAvailabilityResponseOutput) ToRegionalAvailabilityResponseOutput
 	return o
 }
 
-// Corresponding region
 func (o RegionalAvailabilityResponseOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegionalAvailabilityResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// List of all the size information for the region
 func (o RegionalAvailabilityResponseOutput) SizeAvailabilities() SizeAvailabilityResponseArrayOutput {
 	return o.ApplyT(func(v RegionalAvailabilityResponse) []SizeAvailabilityResponse { return v.SizeAvailabilities }).(SizeAvailabilityResponseArrayOutput)
 }
@@ -1638,10 +2882,8 @@ func (o RegionalAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) Region
 }
 
 type ResourceSet struct {
-	// resourceSettingId for the environment
 	ResourceSettingId *string `pulumi:"resourceSettingId"`
-	// VM resource Id for the environment
-	VmResourceId *string `pulumi:"vmResourceId"`
+	VmResourceId      *string `pulumi:"vmResourceId"`
 }
 
 // ResourceSetInput is an input type that accepts ResourceSetArgs and ResourceSetOutput values.
@@ -1656,10 +2898,8 @@ type ResourceSetInput interface {
 }
 
 type ResourceSetArgs struct {
-	// resourceSettingId for the environment
 	ResourceSettingId pulumi.StringPtrInput `pulumi:"resourceSettingId"`
-	// VM resource Id for the environment
-	VmResourceId pulumi.StringPtrInput `pulumi:"vmResourceId"`
+	VmResourceId      pulumi.StringPtrInput `pulumi:"vmResourceId"`
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -1739,12 +2979,10 @@ func (o ResourceSetOutput) ToResourceSetPtrOutputWithContext(ctx context.Context
 	}).(ResourceSetPtrOutput)
 }
 
-// resourceSettingId for the environment
 func (o ResourceSetOutput) ResourceSettingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSet) *string { return v.ResourceSettingId }).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id for the environment
 func (o ResourceSetOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSet) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1773,7 +3011,6 @@ func (o ResourceSetPtrOutput) Elem() ResourceSetOutput {
 	}).(ResourceSetOutput)
 }
 
-// resourceSettingId for the environment
 func (o ResourceSetPtrOutput) ResourceSettingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSet) *string {
 		if v == nil {
@@ -1783,7 +3020,6 @@ func (o ResourceSetPtrOutput) ResourceSettingId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id for the environment
 func (o ResourceSetPtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSet) *string {
 		if v == nil {
@@ -1794,10 +3030,8 @@ func (o ResourceSetPtrOutput) VmResourceId() pulumi.StringPtrOutput {
 }
 
 type ResourceSetResponse struct {
-	// resourceSettingId for the environment
 	ResourceSettingId *string `pulumi:"resourceSettingId"`
-	// VM resource Id for the environment
-	VmResourceId *string `pulumi:"vmResourceId"`
+	VmResourceId      *string `pulumi:"vmResourceId"`
 }
 
 // ResourceSetResponseInput is an input type that accepts ResourceSetResponseArgs and ResourceSetResponseOutput values.
@@ -1812,10 +3046,8 @@ type ResourceSetResponseInput interface {
 }
 
 type ResourceSetResponseArgs struct {
-	// resourceSettingId for the environment
 	ResourceSettingId pulumi.StringPtrInput `pulumi:"resourceSettingId"`
-	// VM resource Id for the environment
-	VmResourceId pulumi.StringPtrInput `pulumi:"vmResourceId"`
+	VmResourceId      pulumi.StringPtrInput `pulumi:"vmResourceId"`
 }
 
 func (ResourceSetResponseArgs) ElementType() reflect.Type {
@@ -1895,12 +3127,10 @@ func (o ResourceSetResponseOutput) ToResourceSetResponsePtrOutputWithContext(ctx
 	}).(ResourceSetResponsePtrOutput)
 }
 
-// resourceSettingId for the environment
 func (o ResourceSetResponseOutput) ResourceSettingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResponse) *string { return v.ResourceSettingId }).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id for the environment
 func (o ResourceSetResponseOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResponse) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1929,7 +3159,6 @@ func (o ResourceSetResponsePtrOutput) Elem() ResourceSetResponseOutput {
 	}).(ResourceSetResponseOutput)
 }
 
-// resourceSettingId for the environment
 func (o ResourceSetResponsePtrOutput) ResourceSettingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResponse) *string {
 		if v == nil {
@@ -1939,7 +3168,6 @@ func (o ResourceSetResponsePtrOutput) ResourceSettingId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id for the environment
 func (o ResourceSetResponsePtrOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResponse) *string {
 		if v == nil {
@@ -1950,12 +3178,9 @@ func (o ResourceSetResponsePtrOutput) VmResourceId() pulumi.StringPtrOutput {
 }
 
 type ResourceSettings struct {
-	// The resource id of the gallery image used for creating the virtual machine
-	GalleryImageResourceId *string `pulumi:"galleryImageResourceId"`
-	// Details specific to Reference Vm
-	ReferenceVm ReferenceVm `pulumi:"referenceVm"`
-	// The size of the virtual machine
-	Size *string `pulumi:"size"`
+	GalleryImageResourceId *string     `pulumi:"galleryImageResourceId"`
+	ReferenceVm            ReferenceVm `pulumi:"referenceVm"`
+	Size                   *string     `pulumi:"size"`
 }
 
 // ResourceSettingsInput is an input type that accepts ResourceSettingsArgs and ResourceSettingsOutput values.
@@ -1970,12 +3195,9 @@ type ResourceSettingsInput interface {
 }
 
 type ResourceSettingsArgs struct {
-	// The resource id of the gallery image used for creating the virtual machine
 	GalleryImageResourceId pulumi.StringPtrInput `pulumi:"galleryImageResourceId"`
-	// Details specific to Reference Vm
-	ReferenceVm ReferenceVmInput `pulumi:"referenceVm"`
-	// The size of the virtual machine
-	Size pulumi.StringPtrInput `pulumi:"size"`
+	ReferenceVm            ReferenceVmInput      `pulumi:"referenceVm"`
+	Size                   pulumi.StringPtrInput `pulumi:"size"`
 }
 
 func (ResourceSettingsArgs) ElementType() reflect.Type {
@@ -2055,17 +3277,14 @@ func (o ResourceSettingsOutput) ToResourceSettingsPtrOutputWithContext(ctx conte
 	}).(ResourceSettingsPtrOutput)
 }
 
-// The resource id of the gallery image used for creating the virtual machine
 func (o ResourceSettingsOutput) GalleryImageResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSettings) *string { return v.GalleryImageResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Details specific to Reference Vm
 func (o ResourceSettingsOutput) ReferenceVm() ReferenceVmOutput {
 	return o.ApplyT(func(v ResourceSettings) ReferenceVm { return v.ReferenceVm }).(ReferenceVmOutput)
 }
 
-// The size of the virtual machine
 func (o ResourceSettingsOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSettings) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
@@ -2094,7 +3313,6 @@ func (o ResourceSettingsPtrOutput) Elem() ResourceSettingsOutput {
 	}).(ResourceSettingsOutput)
 }
 
-// The resource id of the gallery image used for creating the virtual machine
 func (o ResourceSettingsPtrOutput) GalleryImageResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettings) *string {
 		if v == nil {
@@ -2104,7 +3322,6 @@ func (o ResourceSettingsPtrOutput) GalleryImageResourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details specific to Reference Vm
 func (o ResourceSettingsPtrOutput) ReferenceVm() ReferenceVmPtrOutput {
 	return o.ApplyT(func(v *ResourceSettings) *ReferenceVm {
 		if v == nil {
@@ -2114,7 +3331,6 @@ func (o ResourceSettingsPtrOutput) ReferenceVm() ReferenceVmPtrOutput {
 	}).(ReferenceVmPtrOutput)
 }
 
-// The size of the virtual machine
 func (o ResourceSettingsPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettings) *string {
 		if v == nil {
@@ -2125,18 +3341,12 @@ func (o ResourceSettingsPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 type ResourceSettingsResponse struct {
-	// The translated compute cores of the virtual machine
-	Cores int `pulumi:"cores"`
-	// The resource id of the gallery image used for creating the virtual machine
-	GalleryImageResourceId *string `pulumi:"galleryImageResourceId"`
-	// The unique id of the resource setting
-	Id string `pulumi:"id"`
-	// The name of the image used to created the environment setting
-	ImageName string `pulumi:"imageName"`
-	// Details specific to Reference Vm
-	ReferenceVm ReferenceVmResponse `pulumi:"referenceVm"`
-	// The size of the virtual machine
-	Size *string `pulumi:"size"`
+	Cores                  int                 `pulumi:"cores"`
+	GalleryImageResourceId *string             `pulumi:"galleryImageResourceId"`
+	Id                     string              `pulumi:"id"`
+	ImageName              string              `pulumi:"imageName"`
+	ReferenceVm            ReferenceVmResponse `pulumi:"referenceVm"`
+	Size                   *string             `pulumi:"size"`
 }
 
 // ResourceSettingsResponseInput is an input type that accepts ResourceSettingsResponseArgs and ResourceSettingsResponseOutput values.
@@ -2151,18 +3361,12 @@ type ResourceSettingsResponseInput interface {
 }
 
 type ResourceSettingsResponseArgs struct {
-	// The translated compute cores of the virtual machine
-	Cores pulumi.IntInput `pulumi:"cores"`
-	// The resource id of the gallery image used for creating the virtual machine
-	GalleryImageResourceId pulumi.StringPtrInput `pulumi:"galleryImageResourceId"`
-	// The unique id of the resource setting
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the image used to created the environment setting
-	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// Details specific to Reference Vm
-	ReferenceVm ReferenceVmResponseInput `pulumi:"referenceVm"`
-	// The size of the virtual machine
-	Size pulumi.StringPtrInput `pulumi:"size"`
+	Cores                  pulumi.IntInput          `pulumi:"cores"`
+	GalleryImageResourceId pulumi.StringPtrInput    `pulumi:"galleryImageResourceId"`
+	Id                     pulumi.StringInput       `pulumi:"id"`
+	ImageName              pulumi.StringInput       `pulumi:"imageName"`
+	ReferenceVm            ReferenceVmResponseInput `pulumi:"referenceVm"`
+	Size                   pulumi.StringPtrInput    `pulumi:"size"`
 }
 
 func (ResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -2242,32 +3446,26 @@ func (o ResourceSettingsResponseOutput) ToResourceSettingsResponsePtrOutputWithC
 	}).(ResourceSettingsResponsePtrOutput)
 }
 
-// The translated compute cores of the virtual machine
 func (o ResourceSettingsResponseOutput) Cores() pulumi.IntOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) int { return v.Cores }).(pulumi.IntOutput)
 }
 
-// The resource id of the gallery image used for creating the virtual machine
 func (o ResourceSettingsResponseOutput) GalleryImageResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) *string { return v.GalleryImageResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The unique id of the resource setting
 func (o ResourceSettingsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the image used to created the environment setting
 func (o ResourceSettingsResponseOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// Details specific to Reference Vm
 func (o ResourceSettingsResponseOutput) ReferenceVm() ReferenceVmResponseOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) ReferenceVmResponse { return v.ReferenceVm }).(ReferenceVmResponseOutput)
 }
 
-// The size of the virtual machine
 func (o ResourceSettingsResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
@@ -2296,7 +3494,6 @@ func (o ResourceSettingsResponsePtrOutput) Elem() ResourceSettingsResponseOutput
 	}).(ResourceSettingsResponseOutput)
 }
 
-// The translated compute cores of the virtual machine
 func (o ResourceSettingsResponsePtrOutput) Cores() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *int {
 		if v == nil {
@@ -2306,7 +3503,6 @@ func (o ResourceSettingsResponsePtrOutput) Cores() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The resource id of the gallery image used for creating the virtual machine
 func (o ResourceSettingsResponsePtrOutput) GalleryImageResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *string {
 		if v == nil {
@@ -2316,7 +3512,6 @@ func (o ResourceSettingsResponsePtrOutput) GalleryImageResourceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique id of the resource setting
 func (o ResourceSettingsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *string {
 		if v == nil {
@@ -2326,7 +3521,6 @@ func (o ResourceSettingsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the image used to created the environment setting
 func (o ResourceSettingsResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *string {
 		if v == nil {
@@ -2336,7 +3530,6 @@ func (o ResourceSettingsResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details specific to Reference Vm
 func (o ResourceSettingsResponsePtrOutput) ReferenceVm() ReferenceVmResponsePtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *ReferenceVmResponse {
 		if v == nil {
@@ -2346,7 +3539,6 @@ func (o ResourceSettingsResponsePtrOutput) ReferenceVm() ReferenceVmResponsePtrO
 	}).(ReferenceVmResponsePtrOutput)
 }
 
-// The size of the virtual machine
 func (o ResourceSettingsResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSettingsResponse) *string {
 		if v == nil {
@@ -2357,9 +3549,7 @@ func (o ResourceSettingsResponsePtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 type SizeAvailabilityResponse struct {
-	// Whether or not this size category is available
-	IsAvailable *bool `pulumi:"isAvailable"`
-	// The category of the size (Basic, Standard, Performance).
+	IsAvailable  *bool   `pulumi:"isAvailable"`
 	SizeCategory *string `pulumi:"sizeCategory"`
 }
 
@@ -2375,9 +3565,7 @@ type SizeAvailabilityResponseInput interface {
 }
 
 type SizeAvailabilityResponseArgs struct {
-	// Whether or not this size category is available
-	IsAvailable pulumi.BoolPtrInput `pulumi:"isAvailable"`
-	// The category of the size (Basic, Standard, Performance).
+	IsAvailable  pulumi.BoolPtrInput   `pulumi:"isAvailable"`
 	SizeCategory pulumi.StringPtrInput `pulumi:"sizeCategory"`
 }
 
@@ -2432,12 +3620,10 @@ func (o SizeAvailabilityResponseOutput) ToSizeAvailabilityResponseOutputWithCont
 	return o
 }
 
-// Whether or not this size category is available
 func (o SizeAvailabilityResponseOutput) IsAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SizeAvailabilityResponse) *bool { return v.IsAvailable }).(pulumi.BoolPtrOutput)
 }
 
-// The category of the size (Basic, Standard, Performance).
 func (o SizeAvailabilityResponseOutput) SizeCategory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SizeAvailabilityResponse) *string { return v.SizeCategory }).(pulumi.StringPtrOutput)
 }
@@ -2463,7 +3649,6 @@ func (o SizeAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) SizeAvaila
 }
 
 type SizeConfigurationPropertiesResponse struct {
-	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 	EnvironmentSizes []EnvironmentSizeResponse `pulumi:"environmentSizes"`
 }
 
@@ -2479,7 +3664,6 @@ type SizeConfigurationPropertiesResponseInput interface {
 }
 
 type SizeConfigurationPropertiesResponseArgs struct {
-	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 	EnvironmentSizes EnvironmentSizeResponseArrayInput `pulumi:"environmentSizes"`
 }
 
@@ -2560,7 +3744,6 @@ func (o SizeConfigurationPropertiesResponseOutput) ToSizeConfigurationProperties
 	}).(SizeConfigurationPropertiesResponsePtrOutput)
 }
 
-// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 func (o SizeConfigurationPropertiesResponseOutput) EnvironmentSizes() EnvironmentSizeResponseArrayOutput {
 	return o.ApplyT(func(v SizeConfigurationPropertiesResponse) []EnvironmentSizeResponse { return v.EnvironmentSizes }).(EnvironmentSizeResponseArrayOutput)
 }
@@ -2589,7 +3772,6 @@ func (o SizeConfigurationPropertiesResponsePtrOutput) Elem() SizeConfigurationPr
 	}).(SizeConfigurationPropertiesResponseOutput)
 }
 
-// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 func (o SizeConfigurationPropertiesResponsePtrOutput) EnvironmentSizes() EnvironmentSizeResponseArrayOutput {
 	return o.ApplyT(func(v *SizeConfigurationPropertiesResponse) []EnvironmentSizeResponse {
 		if v == nil {
@@ -2600,14 +3782,10 @@ func (o SizeConfigurationPropertiesResponsePtrOutput) EnvironmentSizes() Environ
 }
 
 type SizeInfoResponse struct {
-	// Represents the actual compute size, e.g. Standard_A2_v2.
-	ComputeSize *string `pulumi:"computeSize"`
-	// The amount of memory available (in GB).
-	Memory *float64 `pulumi:"memory"`
-	// The number of cores a VM of this size has.
-	NumberOfCores *int `pulumi:"numberOfCores"`
-	// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-	Price *float64 `pulumi:"price"`
+	ComputeSize   *string  `pulumi:"computeSize"`
+	Memory        *float64 `pulumi:"memory"`
+	NumberOfCores *int     `pulumi:"numberOfCores"`
+	Price         *float64 `pulumi:"price"`
 }
 
 // SizeInfoResponseInput is an input type that accepts SizeInfoResponseArgs and SizeInfoResponseOutput values.
@@ -2622,14 +3800,10 @@ type SizeInfoResponseInput interface {
 }
 
 type SizeInfoResponseArgs struct {
-	// Represents the actual compute size, e.g. Standard_A2_v2.
-	ComputeSize pulumi.StringPtrInput `pulumi:"computeSize"`
-	// The amount of memory available (in GB).
-	Memory pulumi.Float64PtrInput `pulumi:"memory"`
-	// The number of cores a VM of this size has.
-	NumberOfCores pulumi.IntPtrInput `pulumi:"numberOfCores"`
-	// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-	Price pulumi.Float64PtrInput `pulumi:"price"`
+	ComputeSize   pulumi.StringPtrInput  `pulumi:"computeSize"`
+	Memory        pulumi.Float64PtrInput `pulumi:"memory"`
+	NumberOfCores pulumi.IntPtrInput     `pulumi:"numberOfCores"`
+	Price         pulumi.Float64PtrInput `pulumi:"price"`
 }
 
 func (SizeInfoResponseArgs) ElementType() reflect.Type {
@@ -2683,22 +3857,18 @@ func (o SizeInfoResponseOutput) ToSizeInfoResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Represents the actual compute size, e.g. Standard_A2_v2.
 func (o SizeInfoResponseOutput) ComputeSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SizeInfoResponse) *string { return v.ComputeSize }).(pulumi.StringPtrOutput)
 }
 
-// The amount of memory available (in GB).
 func (o SizeInfoResponseOutput) Memory() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SizeInfoResponse) *float64 { return v.Memory }).(pulumi.Float64PtrOutput)
 }
 
-// The number of cores a VM of this size has.
 func (o SizeInfoResponseOutput) NumberOfCores() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SizeInfoResponse) *int { return v.NumberOfCores }).(pulumi.IntPtrOutput)
 }
 
-// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
 func (o SizeInfoResponseOutput) Price() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SizeInfoResponse) *float64 { return v.Price }).(pulumi.Float64PtrOutput)
 }
@@ -2723,19 +3893,577 @@ func (o SizeInfoResponseArrayOutput) Index(i pulumi.IntInput) SizeInfoResponseOu
 	}).(SizeInfoResponseOutput)
 }
 
+type SupportInfo struct {
+	Email        *string `pulumi:"email"`
+	Instructions *string `pulumi:"instructions"`
+	Phone        *string `pulumi:"phone"`
+	Url          *string `pulumi:"url"`
+}
+
+// SupportInfoInput is an input type that accepts SupportInfoArgs and SupportInfoOutput values.
+// You can construct a concrete instance of `SupportInfoInput` via:
+//
+//          SupportInfoArgs{...}
+type SupportInfoInput interface {
+	pulumi.Input
+
+	ToSupportInfoOutput() SupportInfoOutput
+	ToSupportInfoOutputWithContext(context.Context) SupportInfoOutput
+}
+
+type SupportInfoArgs struct {
+	Email        pulumi.StringPtrInput `pulumi:"email"`
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	Phone        pulumi.StringPtrInput `pulumi:"phone"`
+	Url          pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (SupportInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportInfo)(nil)).Elem()
+}
+
+func (i SupportInfoArgs) ToSupportInfoOutput() SupportInfoOutput {
+	return i.ToSupportInfoOutputWithContext(context.Background())
+}
+
+func (i SupportInfoArgs) ToSupportInfoOutputWithContext(ctx context.Context) SupportInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoOutput)
+}
+
+func (i SupportInfoArgs) ToSupportInfoPtrOutput() SupportInfoPtrOutput {
+	return i.ToSupportInfoPtrOutputWithContext(context.Background())
+}
+
+func (i SupportInfoArgs) ToSupportInfoPtrOutputWithContext(ctx context.Context) SupportInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoOutput).ToSupportInfoPtrOutputWithContext(ctx)
+}
+
+// SupportInfoPtrInput is an input type that accepts SupportInfoArgs, SupportInfoPtr and SupportInfoPtrOutput values.
+// You can construct a concrete instance of `SupportInfoPtrInput` via:
+//
+//          SupportInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type SupportInfoPtrInput interface {
+	pulumi.Input
+
+	ToSupportInfoPtrOutput() SupportInfoPtrOutput
+	ToSupportInfoPtrOutputWithContext(context.Context) SupportInfoPtrOutput
+}
+
+type supportInfoPtrType SupportInfoArgs
+
+func SupportInfoPtr(v *SupportInfoArgs) SupportInfoPtrInput {
+	return (*supportInfoPtrType)(v)
+}
+
+func (*supportInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SupportInfo)(nil)).Elem()
+}
+
+func (i *supportInfoPtrType) ToSupportInfoPtrOutput() SupportInfoPtrOutput {
+	return i.ToSupportInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *supportInfoPtrType) ToSupportInfoPtrOutputWithContext(ctx context.Context) SupportInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoPtrOutput)
+}
+
+type SupportInfoOutput struct{ *pulumi.OutputState }
+
+func (SupportInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportInfo)(nil)).Elem()
+}
+
+func (o SupportInfoOutput) ToSupportInfoOutput() SupportInfoOutput {
+	return o
+}
+
+func (o SupportInfoOutput) ToSupportInfoOutputWithContext(ctx context.Context) SupportInfoOutput {
+	return o
+}
+
+func (o SupportInfoOutput) ToSupportInfoPtrOutput() SupportInfoPtrOutput {
+	return o.ToSupportInfoPtrOutputWithContext(context.Background())
+}
+
+func (o SupportInfoOutput) ToSupportInfoPtrOutputWithContext(ctx context.Context) SupportInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SupportInfo) *SupportInfo {
+		return &v
+	}).(SupportInfoPtrOutput)
+}
+
+func (o SupportInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfo) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfo) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfo) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type SupportInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (SupportInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SupportInfo)(nil)).Elem()
+}
+
+func (o SupportInfoPtrOutput) ToSupportInfoPtrOutput() SupportInfoPtrOutput {
+	return o
+}
+
+func (o SupportInfoPtrOutput) ToSupportInfoPtrOutputWithContext(ctx context.Context) SupportInfoPtrOutput {
+	return o
+}
+
+func (o SupportInfoPtrOutput) Elem() SupportInfoOutput {
+	return o.ApplyT(func(v *SupportInfo) SupportInfo {
+		if v != nil {
+			return *v
+		}
+		var ret SupportInfo
+		return ret
+	}).(SupportInfoOutput)
+}
+
+func (o SupportInfoPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoPtrOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Phone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SupportInfoResponse struct {
+	Email        *string `pulumi:"email"`
+	Instructions *string `pulumi:"instructions"`
+	Phone        *string `pulumi:"phone"`
+	Url          *string `pulumi:"url"`
+}
+
+// SupportInfoResponseInput is an input type that accepts SupportInfoResponseArgs and SupportInfoResponseOutput values.
+// You can construct a concrete instance of `SupportInfoResponseInput` via:
+//
+//          SupportInfoResponseArgs{...}
+type SupportInfoResponseInput interface {
+	pulumi.Input
+
+	ToSupportInfoResponseOutput() SupportInfoResponseOutput
+	ToSupportInfoResponseOutputWithContext(context.Context) SupportInfoResponseOutput
+}
+
+type SupportInfoResponseArgs struct {
+	Email        pulumi.StringPtrInput `pulumi:"email"`
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	Phone        pulumi.StringPtrInput `pulumi:"phone"`
+	Url          pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (SupportInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportInfoResponse)(nil)).Elem()
+}
+
+func (i SupportInfoResponseArgs) ToSupportInfoResponseOutput() SupportInfoResponseOutput {
+	return i.ToSupportInfoResponseOutputWithContext(context.Background())
+}
+
+func (i SupportInfoResponseArgs) ToSupportInfoResponseOutputWithContext(ctx context.Context) SupportInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoResponseOutput)
+}
+
+func (i SupportInfoResponseArgs) ToSupportInfoResponsePtrOutput() SupportInfoResponsePtrOutput {
+	return i.ToSupportInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SupportInfoResponseArgs) ToSupportInfoResponsePtrOutputWithContext(ctx context.Context) SupportInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoResponseOutput).ToSupportInfoResponsePtrOutputWithContext(ctx)
+}
+
+// SupportInfoResponsePtrInput is an input type that accepts SupportInfoResponseArgs, SupportInfoResponsePtr and SupportInfoResponsePtrOutput values.
+// You can construct a concrete instance of `SupportInfoResponsePtrInput` via:
+//
+//          SupportInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SupportInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToSupportInfoResponsePtrOutput() SupportInfoResponsePtrOutput
+	ToSupportInfoResponsePtrOutputWithContext(context.Context) SupportInfoResponsePtrOutput
+}
+
+type supportInfoResponsePtrType SupportInfoResponseArgs
+
+func SupportInfoResponsePtr(v *SupportInfoResponseArgs) SupportInfoResponsePtrInput {
+	return (*supportInfoResponsePtrType)(v)
+}
+
+func (*supportInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SupportInfoResponse)(nil)).Elem()
+}
+
+func (i *supportInfoResponsePtrType) ToSupportInfoResponsePtrOutput() SupportInfoResponsePtrOutput {
+	return i.ToSupportInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *supportInfoResponsePtrType) ToSupportInfoResponsePtrOutputWithContext(ctx context.Context) SupportInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportInfoResponsePtrOutput)
+}
+
+type SupportInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (SupportInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportInfoResponse)(nil)).Elem()
+}
+
+func (o SupportInfoResponseOutput) ToSupportInfoResponseOutput() SupportInfoResponseOutput {
+	return o
+}
+
+func (o SupportInfoResponseOutput) ToSupportInfoResponseOutputWithContext(ctx context.Context) SupportInfoResponseOutput {
+	return o
+}
+
+func (o SupportInfoResponseOutput) ToSupportInfoResponsePtrOutput() SupportInfoResponsePtrOutput {
+	return o.ToSupportInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SupportInfoResponseOutput) ToSupportInfoResponsePtrOutputWithContext(ctx context.Context) SupportInfoResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SupportInfoResponse) *SupportInfoResponse {
+		return &v
+	}).(SupportInfoResponsePtrOutput)
+}
+
+func (o SupportInfoResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponseOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfoResponse) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponseOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfoResponse) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SupportInfoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type SupportInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SupportInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SupportInfoResponse)(nil)).Elem()
+}
+
+func (o SupportInfoResponsePtrOutput) ToSupportInfoResponsePtrOutput() SupportInfoResponsePtrOutput {
+	return o
+}
+
+func (o SupportInfoResponsePtrOutput) ToSupportInfoResponsePtrOutputWithContext(ctx context.Context) SupportInfoResponsePtrOutput {
+	return o
+}
+
+func (o SupportInfoResponsePtrOutput) Elem() SupportInfoResponseOutput {
+	return o.ApplyT(func(v *SupportInfoResponse) SupportInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SupportInfoResponse
+		return ret
+	}).(SupportInfoResponseOutput)
+}
+
+func (o SupportInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponsePtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponsePtrOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Phone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportInfoResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualMachineDetailsResponse struct {
-	// Last known compute power state captured in DTL
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
-	// PrivateIp address of the compute VM
-	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	// Provisioning state of the Dtl VM
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Connection information for Windows
-	RdpAuthority string `pulumi:"rdpAuthority"`
-	// Connection information for Linux
-	SshAuthority string `pulumi:"sshAuthority"`
-	// Compute VM login user name
-	UserName string `pulumi:"userName"`
+	PrivateIpAddress    string `pulumi:"privateIpAddress"`
+	ProvisioningState   string `pulumi:"provisioningState"`
+	RdpAuthority        string `pulumi:"rdpAuthority"`
+	SshAuthority        string `pulumi:"sshAuthority"`
+	UserName            string `pulumi:"userName"`
 }
 
 // VirtualMachineDetailsResponseInput is an input type that accepts VirtualMachineDetailsResponseArgs and VirtualMachineDetailsResponseOutput values.
@@ -2750,18 +4478,12 @@ type VirtualMachineDetailsResponseInput interface {
 }
 
 type VirtualMachineDetailsResponseArgs struct {
-	// Last known compute power state captured in DTL
 	LastKnownPowerState pulumi.StringInput `pulumi:"lastKnownPowerState"`
-	// PrivateIp address of the compute VM
-	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
-	// Provisioning state of the Dtl VM
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Connection information for Windows
-	RdpAuthority pulumi.StringInput `pulumi:"rdpAuthority"`
-	// Connection information for Linux
-	SshAuthority pulumi.StringInput `pulumi:"sshAuthority"`
-	// Compute VM login user name
-	UserName pulumi.StringInput `pulumi:"userName"`
+	PrivateIpAddress    pulumi.StringInput `pulumi:"privateIpAddress"`
+	ProvisioningState   pulumi.StringInput `pulumi:"provisioningState"`
+	RdpAuthority        pulumi.StringInput `pulumi:"rdpAuthority"`
+	SshAuthority        pulumi.StringInput `pulumi:"sshAuthority"`
+	UserName            pulumi.StringInput `pulumi:"userName"`
 }
 
 func (VirtualMachineDetailsResponseArgs) ElementType() reflect.Type {
@@ -2790,45 +4512,35 @@ func (o VirtualMachineDetailsResponseOutput) ToVirtualMachineDetailsResponseOutp
 	return o
 }
 
-// Last known compute power state captured in DTL
 func (o VirtualMachineDetailsResponseOutput) LastKnownPowerState() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.LastKnownPowerState }).(pulumi.StringOutput)
 }
 
-// PrivateIp address of the compute VM
 func (o VirtualMachineDetailsResponseOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the Dtl VM
 func (o VirtualMachineDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Connection information for Windows
 func (o VirtualMachineDetailsResponseOutput) RdpAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.RdpAuthority }).(pulumi.StringOutput)
 }
 
-// Connection information for Linux
 func (o VirtualMachineDetailsResponseOutput) SshAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.SshAuthority }).(pulumi.StringOutput)
 }
 
-// Compute VM login user name
 func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
 
 type VmStateDetailsResponse struct {
-	// Last known compute power state captured in DTL
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
-	// The power state of the reference virtual machine.
-	PowerState string `pulumi:"powerState"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority string `pulumi:"rdpAuthority"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority string `pulumi:"sshAuthority"`
+	PowerState          string `pulumi:"powerState"`
+	RdpAuthority        string `pulumi:"rdpAuthority"`
+	SshAuthority        string `pulumi:"sshAuthority"`
 }
 
 // VmStateDetailsResponseInput is an input type that accepts VmStateDetailsResponseArgs and VmStateDetailsResponseOutput values.
@@ -2843,14 +4555,10 @@ type VmStateDetailsResponseInput interface {
 }
 
 type VmStateDetailsResponseArgs struct {
-	// Last known compute power state captured in DTL
 	LastKnownPowerState pulumi.StringInput `pulumi:"lastKnownPowerState"`
-	// The power state of the reference virtual machine.
-	PowerState pulumi.StringInput `pulumi:"powerState"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority pulumi.StringInput `pulumi:"rdpAuthority"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority pulumi.StringInput `pulumi:"sshAuthority"`
+	PowerState          pulumi.StringInput `pulumi:"powerState"`
+	RdpAuthority        pulumi.StringInput `pulumi:"rdpAuthority"`
+	SshAuthority        pulumi.StringInput `pulumi:"sshAuthority"`
 }
 
 func (VmStateDetailsResponseArgs) ElementType() reflect.Type {
@@ -2930,22 +4638,18 @@ func (o VmStateDetailsResponseOutput) ToVmStateDetailsResponsePtrOutputWithConte
 	}).(VmStateDetailsResponsePtrOutput)
 }
 
-// Last known compute power state captured in DTL
 func (o VmStateDetailsResponseOutput) LastKnownPowerState() pulumi.StringOutput {
 	return o.ApplyT(func(v VmStateDetailsResponse) string { return v.LastKnownPowerState }).(pulumi.StringOutput)
 }
 
-// The power state of the reference virtual machine.
 func (o VmStateDetailsResponseOutput) PowerState() pulumi.StringOutput {
 	return o.ApplyT(func(v VmStateDetailsResponse) string { return v.PowerState }).(pulumi.StringOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o VmStateDetailsResponseOutput) RdpAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v VmStateDetailsResponse) string { return v.RdpAuthority }).(pulumi.StringOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o VmStateDetailsResponseOutput) SshAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v VmStateDetailsResponse) string { return v.SshAuthority }).(pulumi.StringOutput)
 }
@@ -2974,7 +4678,6 @@ func (o VmStateDetailsResponsePtrOutput) Elem() VmStateDetailsResponseOutput {
 	}).(VmStateDetailsResponseOutput)
 }
 
-// Last known compute power state captured in DTL
 func (o VmStateDetailsResponsePtrOutput) LastKnownPowerState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmStateDetailsResponse) *string {
 		if v == nil {
@@ -2984,7 +4687,6 @@ func (o VmStateDetailsResponsePtrOutput) LastKnownPowerState() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The power state of the reference virtual machine.
 func (o VmStateDetailsResponsePtrOutput) PowerState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmStateDetailsResponse) *string {
 		if v == nil {
@@ -2994,7 +4696,6 @@ func (o VmStateDetailsResponsePtrOutput) PowerState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o VmStateDetailsResponsePtrOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmStateDetailsResponse) *string {
 		if v == nil {
@@ -3004,7 +4705,6 @@ func (o VmStateDetailsResponsePtrOutput) RdpAuthority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o VmStateDetailsResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmStateDetailsResponse) *string {
 		if v == nil {
@@ -3015,6 +4715,14 @@ func (o VmStateDetailsResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AutoShutdownProfileOutput{})
+	pulumi.RegisterOutputType(AutoShutdownProfilePtrOutput{})
+	pulumi.RegisterOutputType(AutoShutdownProfileResponseOutput{})
+	pulumi.RegisterOutputType(AutoShutdownProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileOutput{})
+	pulumi.RegisterOutputType(ConnectionProfilePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseOutput{})
@@ -3023,12 +4731,20 @@ func init() {
 	pulumi.RegisterOutputType(GalleryImageReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(LabPlanNetworkProfileOutput{})
+	pulumi.RegisterOutputType(LabPlanNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(LabPlanNetworkProfileResponseOutput{})
+	pulumi.RegisterOutputType(LabPlanNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponsePtrOutput{})
 	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseOutput{})
 	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecurrencePatternOutput{})
+	pulumi.RegisterOutputType(RecurrencePatternPtrOutput{})
+	pulumi.RegisterOutputType(RecurrencePatternResponseOutput{})
+	pulumi.RegisterOutputType(RecurrencePatternResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReferenceVmOutput{})
 	pulumi.RegisterOutputType(ReferenceVmPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceVmResponseOutput{})
@@ -3049,6 +4765,12 @@ func init() {
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(SupportInfoOutput{})
+	pulumi.RegisterOutputType(SupportInfoPtrOutput{})
+	pulumi.RegisterOutputType(SupportInfoResponseOutput{})
+	pulumi.RegisterOutputType(SupportInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponsePtrOutput{})

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
-// API Version: 2020-04-30.
 func ListOpenShiftClusterCredentials(ctx *pulumi.Context, args *ListOpenShiftClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*ListOpenShiftClusterCredentialsResult, error) {
 	var rv ListOpenShiftClusterCredentialsResult
 	err := ctx.Invoke("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListOpenShiftClusterCredentials(ctx *pulumi.Context, args *ListOpenShiftClu
 }
 
 type ListOpenShiftClusterCredentialsArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the OpenShift cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // OpenShiftClusterCredentials represents an OpenShift cluster's credentials
 type ListOpenShiftClusterCredentialsResult struct {
-	// The password for the kubeadmin user
 	KubeadminPassword *string `pulumi:"kubeadminPassword"`
-	// The username for the kubeadmin user
 	KubeadminUsername *string `pulumi:"kubeadminUsername"`
 }

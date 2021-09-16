@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment, which is essentially an ARM template deployment.
-// API Version: 2018-09-15.
 type Environment struct {
 	pulumi.CustomResourceState
 

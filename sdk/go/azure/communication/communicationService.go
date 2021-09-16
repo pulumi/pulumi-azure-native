@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class representing a CommunicationService resource.
-// API Version: 2020-08-20.
 type CommunicationService struct {
 	pulumi.CustomResourceState
 

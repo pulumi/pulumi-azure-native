@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom Locations definition.
-// API Version: 2021-03-15-preview.
 func GetcustomLocation(ctx *pulumi.Context, args *GetcustomLocationArgs, opts ...pulumi.InvokeOption) (*GetcustomLocationResult, error) {
 	var rv GetcustomLocationResult
 	err := ctx.Invoke("azure-native:extendedlocation:getcustomLocation", args, &rv, opts...)
@@ -19,38 +17,23 @@ func GetcustomLocation(ctx *pulumi.Context, args *GetcustomLocationArgs, opts ..
 }
 
 type GetcustomLocationArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Custom Locations name.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Custom Locations definition.
 type GetcustomLocationResult struct {
-	// This is optional input that contains the authentication that should be used to generate the namespace.
-	Authentication *CustomLocationPropertiesResponseAuthentication `pulumi:"authentication"`
-	// Contains the reference to the add-on that contains charts to deploy CRDs and operators.
-	ClusterExtensionIds []string `pulumi:"clusterExtensionIds"`
-	// Display name for the Custom Locations location.
-	DisplayName *string `pulumi:"displayName"`
-	// Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
-	HostResourceId *string `pulumi:"hostResourceId"`
-	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
-	HostType *string `pulumi:"hostType"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Kubernetes namespace that will be created on the specified cluster.
-	Namespace *string `pulumi:"namespace"`
-	// Provisioning State for the Custom Location.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Authentication      *CustomLocationPropertiesResponseAuthentication `pulumi:"authentication"`
+	ClusterExtensionIds []string                                        `pulumi:"clusterExtensionIds"`
+	DisplayName         *string                                         `pulumi:"displayName"`
+	HostResourceId      *string                                         `pulumi:"hostResourceId"`
+	HostType            *string                                         `pulumi:"hostType"`
+	Id                  string                                          `pulumi:"id"`
+	Location            string                                          `pulumi:"location"`
+	Name                string                                          `pulumi:"name"`
+	Namespace           *string                                         `pulumi:"namespace"`
+	ProvisioningState   *string                                         `pulumi:"provisioningState"`
+	SystemData          SystemDataResponse                              `pulumi:"systemData"`
+	Tags                map[string]string                               `pulumi:"tags"`
+	Type                string                                          `pulumi:"type"`
 }

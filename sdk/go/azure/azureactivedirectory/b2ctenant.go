@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-01-01-preview.
 type B2CTenant struct {
 	pulumi.CustomResourceState
 

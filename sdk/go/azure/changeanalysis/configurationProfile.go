@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A profile object that contains change analysis configuration, such as notification settings, for this subscription
-// API Version: 2020-04-01-preview.
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 

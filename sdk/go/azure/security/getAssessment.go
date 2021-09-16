@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource
-// API Version: 2020-01-01.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
 	err := ctx.Invoke("azure-native:security:getAssessment", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...p
 }
 
 type LookupAssessmentArgs struct {
-	// The Assessment Key - Unique key for the assessment type
-	AssessmentName string `pulumi:"assessmentName"`
-	// OData expand. Optional.
-	Expand *string `pulumi:"expand"`
-	// The identifier of the resource.
-	ResourceId string `pulumi:"resourceId"`
+	AssessmentName string  `pulumi:"assessmentName"`
+	Expand         *string `pulumi:"expand"`
+	ResourceId     string  `pulumi:"resourceId"`
 }
 
 // Security assessment on a resource
 type LookupAssessmentResult struct {
-	// Additional data regarding the assessment
-	AdditionalData map[string]string `pulumi:"additionalData"`
-	// User friendly display name of the assessment
-	DisplayName string `pulumi:"displayName"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Links relevant to the assessment
-	Links AssessmentLinksResponse `pulumi:"links"`
-	// Describes properties of an assessment metadata.
-	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Data regarding 3rd party partner integration
-	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
-	// Details of the resource that was assessed
-	ResourceDetails interface{} `pulumi:"resourceDetails"`
-	// The result of the assessment
-	Status AssessmentStatusResponse `pulumi:"status"`
-	// Resource type
-	Type string `pulumi:"type"`
+	AdditionalData  map[string]string                             `pulumi:"additionalData"`
+	DisplayName     string                                        `pulumi:"displayName"`
+	Id              string                                        `pulumi:"id"`
+	Links           AssessmentLinksResponse                       `pulumi:"links"`
+	Metadata        *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
+	Name            string                                        `pulumi:"name"`
+	PartnersData    *SecurityAssessmentPartnerDataResponse        `pulumi:"partnersData"`
+	ResourceDetails interface{}                                   `pulumi:"resourceDetails"`
+	Status          AssessmentStatusResponse                      `pulumi:"status"`
+	Type            string                                        `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// FarmBeats ARM Resource.
-// API Version: 2020-05-12-preview.
 func LookupFarmBeatsModel(ctx *pulumi.Context, args *LookupFarmBeatsModelArgs, opts ...pulumi.InvokeOption) (*LookupFarmBeatsModelResult, error) {
 	var rv LookupFarmBeatsModelResult
 	err := ctx.Invoke("azure-native:agfoodplatform:getFarmBeatsModel", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupFarmBeatsModel(ctx *pulumi.Context, args *LookupFarmBeatsModelArgs, o
 }
 
 type LookupFarmBeatsModelArgs struct {
-	// FarmBeats resource name.
 	FarmBeatsResourceName string `pulumi:"farmBeatsResourceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // FarmBeats ARM Resource.
 type LookupFarmBeatsModelResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Uri of the FarmBeats instance.
-	InstanceUri string `pulumi:"instanceUri"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// FarmBeats instance provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id                string             `pulumi:"id"`
+	InstanceUri       string             `pulumi:"instanceUri"`
+	Location          string             `pulumi:"location"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Tags              map[string]string  `pulumi:"tags"`
+	Type              string             `pulumi:"type"`
 }

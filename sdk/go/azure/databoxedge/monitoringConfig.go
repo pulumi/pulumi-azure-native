@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The metric setting details for the role
-// API Version: 2020-12-01.
 type MonitoringConfig struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The cost allocation rule model definition
-// API Version: 2020-03-01-preview.
 type CostAllocationRule struct {
 	pulumi.CustomResourceState
 

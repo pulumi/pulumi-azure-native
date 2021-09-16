@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// On-premise IoT sensor
-// API Version: 2021-02-01-preview.
 func LookupOnPremiseSensor(ctx *pulumi.Context, args *LookupOnPremiseSensorArgs, opts ...pulumi.InvokeOption) (*LookupOnPremiseSensorResult, error) {
 	var rv LookupOnPremiseSensorResult
 	err := ctx.Invoke("azure-native:iotsecurity:getOnPremiseSensor", args, &rv, opts...)
@@ -19,18 +17,13 @@ func LookupOnPremiseSensor(ctx *pulumi.Context, args *LookupOnPremiseSensorArgs,
 }
 
 type LookupOnPremiseSensorArgs struct {
-	// Name of the on-premise IoT sensor
 	OnPremiseSensorName string `pulumi:"onPremiseSensorName"`
 }
 
 // On-premise IoT sensor
 type LookupOnPremiseSensorResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

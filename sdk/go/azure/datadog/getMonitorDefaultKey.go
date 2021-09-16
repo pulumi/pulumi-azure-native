@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01.
 func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, opts ...pulumi.InvokeOption) (*GetMonitorDefaultKeyResult, error) {
 	var rv GetMonitorDefaultKeyResult
 	err := ctx.Invoke("azure-native:datadog:getMonitorDefaultKey", args, &rv, opts...)
@@ -18,19 +17,13 @@ func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, o
 }
 
 type GetMonitorDefaultKeyArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type GetMonitorDefaultKeyResult struct {
-	// The time of creation of the API key.
-	Created *string `pulumi:"created"`
-	// The user that created the API key.
+	Created   *string `pulumi:"created"`
 	CreatedBy *string `pulumi:"createdBy"`
-	// The value of the API key.
-	Key string `pulumi:"key"`
-	// The name of the API key.
-	Name *string `pulumi:"name"`
+	Key       string  `pulumi:"key"`
+	Name      *string `pulumi:"name"`
 }

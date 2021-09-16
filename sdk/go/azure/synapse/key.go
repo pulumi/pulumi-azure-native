@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A workspace key
-// API Version: 2021-03-01.
 type Key struct {
 	pulumi.CustomResourceState
 

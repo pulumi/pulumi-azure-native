@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Event Hubs Cluster resource in List or Get operations.
-// API Version: 2018-01-01-preview.
 type Cluster struct {
 	pulumi.CustomResourceState
 

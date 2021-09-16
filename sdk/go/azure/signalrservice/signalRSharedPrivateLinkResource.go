@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Shared Private Link Resource
-// API Version: 2021-04-01-preview.
 type SignalRSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +66,12 @@ func NewSignalRSharedPrivateLinkResource(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"),
 		},
 	})
 	opts = append(opts, aliases)

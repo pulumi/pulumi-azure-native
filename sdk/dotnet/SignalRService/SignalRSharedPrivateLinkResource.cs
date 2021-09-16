@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.SignalRService
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

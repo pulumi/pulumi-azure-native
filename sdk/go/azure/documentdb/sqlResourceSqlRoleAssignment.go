@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Role Assignment
-// API Version: 2021-03-01-preview.
 type SqlResourceSqlRoleAssignment struct {
 	pulumi.CustomResourceState
 

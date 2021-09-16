@@ -65,7 +65,6 @@ class Operator(str, Enum):
     the criteria operator.
     """
     EQUALS = "Equals"
-    NOT_EQUALS = "NotEquals"
     GREATER_THAN = "GreaterThan"
     GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
     LESS_THAN = "LessThan"

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a managed private endpoint.
-// API Version: 2021-08-27.
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 

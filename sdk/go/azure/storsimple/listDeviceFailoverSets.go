@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of failover sets.
-// API Version: 2017-06-01.
 func ListDeviceFailoverSets(ctx *pulumi.Context, args *ListDeviceFailoverSetsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverSetsResult, error) {
 	var rv ListDeviceFailoverSetsResult
 	err := ctx.Invoke("azure-native:storsimple:listDeviceFailoverSets", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListDeviceFailoverSets(ctx *pulumi.Context, args *ListDeviceFailoverSetsArg
 }
 
 type ListDeviceFailoverSetsArgs struct {
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	DeviceName        string `pulumi:"deviceName"`
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The list of failover sets.
 type ListDeviceFailoverSetsResult struct {
-	// The list of failover sets.
 	Value []FailoverSetResponse `pulumi:"value"`
 }

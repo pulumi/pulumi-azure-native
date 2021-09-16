@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Store trusted identity provider information.
-// API Version: 2016-11-01.
 func LookupTrustedIdProvider(ctx *pulumi.Context, args *LookupTrustedIdProviderArgs, opts ...pulumi.InvokeOption) (*LookupTrustedIdProviderResult, error) {
 	var rv LookupTrustedIdProviderResult
 	err := ctx.Invoke("azure-native:datalakestore:getTrustedIdProvider", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupTrustedIdProvider(ctx *pulumi.Context, args *LookupTrustedIdProviderA
 }
 
 type LookupTrustedIdProviderArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the trusted identity provider to retrieve.
+	AccountName           string `pulumi:"accountName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	TrustedIdProviderName string `pulumi:"trustedIdProviderName"`
 }
 
 // Data Lake Store trusted identity provider information.
 type LookupTrustedIdProviderResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The URL of this trusted identity provider.
+	Id         string `pulumi:"id"`
 	IdProvider string `pulumi:"idProvider"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Name       string `pulumi:"name"`
+	Type       string `pulumi:"type"`
 }

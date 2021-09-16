@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration runtime authentication keys.
-// API Version: 2018-06-01.
 func ListIntegrationRuntimeAuthKeys(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeysResult, error) {
 	var rv ListIntegrationRuntimeAuthKeysResult
 	err := ctx.Invoke("azure-native:datafactory:listIntegrationRuntimeAuthKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListIntegrationRuntimeAuthKeys(ctx *pulumi.Context, args *ListIntegrationRu
 }
 
 type ListIntegrationRuntimeAuthKeysArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
+	FactoryName            string `pulumi:"factoryName"`
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration runtime authentication keys.
 type ListIntegrationRuntimeAuthKeysResult struct {
-	// The primary integration runtime authentication key.
 	AuthKey1 *string `pulumi:"authKey1"`
-	// The secondary integration runtime authentication key.
 	AuthKey2 *string `pulumi:"authKey2"`
 }

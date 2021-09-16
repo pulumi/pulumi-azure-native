@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// this is the management partner operations response
-// API Version: 2018-02-01.
 type Partner struct {
 	pulumi.CustomResourceState
 

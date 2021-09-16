@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get AuthorizationRule operation
-// API Version: 2017-04-01.
 type EventHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 

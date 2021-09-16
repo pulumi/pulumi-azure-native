@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights private workbook definition.
-// API Version: 2020-10-20.
 type MyWorkbook struct {
 	pulumi.CustomResourceState
 

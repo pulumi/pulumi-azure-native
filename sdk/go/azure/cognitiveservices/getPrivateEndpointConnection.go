@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Private Endpoint Connection resource.
-// API Version: 2017-04-18.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:cognitiveservices:getPrivateEndpointConnection", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of Cognitive Services account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the private endpoint connection associated with the Cognitive Services Account
+	AccountName                   string `pulumi:"accountName"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // The Private Endpoint Connection resource.
 type LookupPrivateEndpointConnectionResult struct {
-	// Entity Tag
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The location of the private endpoint connection
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
+	Etag       string                                      `pulumi:"etag"`
+	Id         string                                      `pulumi:"id"`
+	Location   *string                                     `pulumi:"location"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }

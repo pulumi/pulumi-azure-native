@@ -88,6 +88,10 @@ export class PrivateLinkService extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The resource id of private link service.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -123,6 +127,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
@@ -147,6 +152,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["visibility"] = undefined /*out*/;
@@ -200,6 +206,10 @@ export interface PrivateLinkServiceArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource id of private link service.
+     */
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The name of the private link service.
      */

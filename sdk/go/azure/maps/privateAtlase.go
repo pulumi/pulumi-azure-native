@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure resource which represents which will provision the ability to create private location data.
-// API Version: 2020-02-01-preview.
 type PrivateAtlase struct {
 	pulumi.CustomResourceState
 

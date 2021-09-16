@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A short term retention policy.
-// API Version: 2020-11-01-preview.
 func LookupBackupShortTermRetentionPolicy(ctx *pulumi.Context, args *LookupBackupShortTermRetentionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupShortTermRetentionPolicyResult, error) {
 	var rv LookupBackupShortTermRetentionPolicyResult
 	err := ctx.Invoke("azure-native:sql:getBackupShortTermRetentionPolicy", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupBackupShortTermRetentionPolicy(ctx *pulumi.Context, args *LookupBacku
 }
 
 type LookupBackupShortTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The policy name. Should always be "default".
-	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      string `pulumi:"databaseName"`
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // A short term retention policy.
 type LookupBackupShortTermRetentionPolicyResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
+	RetentionDays *int   `pulumi:"retentionDays"`
+	Type          string `pulumi:"type"`
 }

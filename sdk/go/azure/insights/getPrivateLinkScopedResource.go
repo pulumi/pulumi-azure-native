@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private link scoped resource
-// API Version: 2019-10-17-preview.
 func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLinkScopedResourceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopedResourceResult, error) {
 	var rv LookupPrivateLinkScopedResourceResult
 	err := ctx.Invoke("azure-native:insights:getPrivateLinkScopedResource", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLin
 }
 
 type LookupPrivateLinkScopedResourceArgs struct {
-	// The name of the scoped resource object.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Monitor PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName         string `pulumi:"scopeName"`
 }
 
 // A private link scoped resource
 type LookupPrivateLinkScopedResourceResult struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId *string `pulumi:"linkedResourceId"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Id                string  `pulumi:"id"`
+	LinkedResourceId  *string `pulumi:"linkedResourceId"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	Type              string  `pulumi:"type"`
 }

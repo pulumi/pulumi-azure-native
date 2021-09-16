@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Account Filter.
-// API Version: 2020-05-01.
 type AccountFilter struct {
 	pulumi.CustomResourceState
 

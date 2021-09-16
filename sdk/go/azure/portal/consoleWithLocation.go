@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell console
-// API Version: 2018-10-01.
 type ConsoleWithLocation struct {
 	pulumi.CustomResourceState
 

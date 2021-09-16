@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Keys for endpoint authentication.
-// API Version: 2021-03-01-preview.
 func ListBatchEndpointKeys(ctx *pulumi.Context, args *ListBatchEndpointKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchEndpointKeysResult, error) {
 	var rv ListBatchEndpointKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listBatchEndpointKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListBatchEndpointKeys(ctx *pulumi.Context, args *ListBatchEndpointKeysArgs,
 }
 
 type ListBatchEndpointKeysArgs struct {
-	// Inference Endpoint name.
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group. The name is case insensitive.
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Keys for endpoint authentication.
 type ListBatchEndpointKeysResult struct {
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The secondary key.
+	PrimaryKey   *string `pulumi:"primaryKey"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

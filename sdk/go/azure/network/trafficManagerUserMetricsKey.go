@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing Traffic Manager User Metrics.
-// API Version: 2018-08-01.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 

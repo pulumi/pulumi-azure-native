@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     public partial class DefenderSetting : Pulumi.CustomResource
     {
         /// <summary>
-        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// Size of the device quota. Value is required to be in multiples of 100.
         /// </summary>
         [Output("deviceQuota")]
         public Output<int> DeviceQuota { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     public sealed class DefenderSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// Size of the device quota. Value is required to be in multiples of 100.
         /// </summary>
         [Input("deviceQuota", required: true)]
         public Input<int> DeviceQuota { get; set; } = null!;

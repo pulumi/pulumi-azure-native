@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A FluidRelay Server.
-// API Version: 2021-03-12-preview.
 type FluidRelayServer struct {
 	pulumi.CustomResourceState
 

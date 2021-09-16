@@ -19,11 +19,15 @@ from .get_global_user_personal_preferences import *
 from .get_lab import *
 from .get_lab_account import *
 from .get_lab_account_regional_availability import *
+from .get_lab_plan import *
+from .get_schedule import *
 from .get_user import *
 from .lab import *
 from .lab_account import *
+from .lab_plan import *
 from .list_global_user_environments import *
 from .list_global_user_labs import *
+from .schedule import *
 from .user import *
 from ._inputs import *
 from . import outputs
@@ -32,6 +36,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.labservices.v20181015 as __v20181015
     v20181015 = __v20181015
+    import pulumi_azure_native.labservices.v20211001preview as __v20211001preview
+    v20211001preview = __v20211001preview
 else:
     v20181015 = _utilities.lazy_import('pulumi_azure_native.labservices.v20181015')
+    v20211001preview = _utilities.lazy_import('pulumi_azure_native.labservices.v20211001preview')
 

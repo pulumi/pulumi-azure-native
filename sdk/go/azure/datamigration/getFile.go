@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A file resource
-// API Version: 2018-07-15-preview.
 func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.InvokeOption) (*LookupFileResult, error) {
 	var rv LookupFileResult
 	err := ctx.Invoke("azure-native:datamigration:getFile", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.Invoke
 }
 
 type LookupFileArgs struct {
-	// Name of the File
-	FileName string `pulumi:"fileName"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
+	FileName    string `pulumi:"fileName"`
+	GroupName   string `pulumi:"groupName"`
 	ProjectName string `pulumi:"projectName"`
-	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // A file resource
 type LookupFileResult struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Custom file properties
+	Etag       *string                       `pulumi:"etag"`
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
 	Properties ProjectFilePropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string                        `pulumi:"type"`
 }

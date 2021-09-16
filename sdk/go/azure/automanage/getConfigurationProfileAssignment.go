@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration profile assignment is an association between a VM and automanage profile configuration.
-// API Version: 2020-06-30-preview.
 func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfigurationProfileAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileAssignmentResult, error) {
 	var rv LookupConfigurationProfileAssignmentResult
 	err := ctx.Invoke("azure-native:automanage:getConfigurationProfileAssignment", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfi
 }
 
 type LookupConfigurationProfileAssignmentArgs struct {
-	// The configuration profile assignment name.
 	ConfigurationProfileAssignmentName string `pulumi:"configurationProfileAssignmentName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	ResourceGroupName                  string `pulumi:"resourceGroupName"`
+	VmName                             string `pulumi:"vmName"`
 }
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.
 type LookupConfigurationProfileAssignmentResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the configuration profile assignment.
+	Id         string                                           `pulumi:"id"`
+	Name       string                                           `pulumi:"name"`
 	Properties ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                           `pulumi:"type"`
 }

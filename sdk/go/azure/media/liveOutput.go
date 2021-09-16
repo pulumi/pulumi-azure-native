@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Live Output.
-// API Version: 2020-05-01.
 type LiveOutput struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IP firewall rule
-// API Version: 2021-03-01.
 type IpFirewallRule struct {
 	pulumi.CustomResourceState
 

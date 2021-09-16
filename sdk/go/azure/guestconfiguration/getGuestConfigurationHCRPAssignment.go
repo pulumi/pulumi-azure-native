@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest configuration assignment is an association between a machine and guest configuration.
-// API Version: 2020-06-25.
 func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationHCRPAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationHCRPAssignmentResult, error) {
 	var rv LookupGuestConfigurationHCRPAssignmentResult
 	err := ctx.Invoke("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGue
 }
 
 type LookupGuestConfigurationHCRPAssignmentArgs struct {
-	// The guest configuration assignment name.
 	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
-	// The name of the ARC machine.
-	MachineName string `pulumi:"machineName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MachineName                      string `pulumi:"machineName"`
+	ResourceGroupName                string `pulumi:"resourceGroupName"`
 }
 
 // Guest configuration assignment is an association between a machine and guest configuration.
 type LookupGuestConfigurationHCRPAssignmentResult struct {
-	// ARM resource id of the guest configuration assignment.
-	Id string `pulumi:"id"`
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
+	Id         string                                         `pulumi:"id"`
+	Location   *string                                        `pulumi:"location"`
+	Name       *string                                        `pulumi:"name"`
 	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Type       string                                         `pulumi:"type"`
 }

@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The resource id of private endpoint.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
         [Output("subnet")]
@@ -243,6 +249,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource id of private endpoint.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.

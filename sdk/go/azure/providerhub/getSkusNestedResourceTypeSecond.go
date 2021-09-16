@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-11-20.
 func LookupSkusNestedResourceTypeSecond(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeSecondArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeSecondResult, error) {
 	var rv LookupSkusNestedResourceTypeSecondResult
 	err := ctx.Invoke("azure-native:providerhub:getSkusNestedResourceTypeSecond", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupSkusNestedResourceTypeSecond(ctx *pulumi.Context, args *LookupSkusNes
 }
 
 type LookupSkusNestedResourceTypeSecondArgs struct {
-	// The first child resource type.
-	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
-	// The second child resource type.
+	NestedResourceTypeFirst  string `pulumi:"nestedResourceTypeFirst"`
 	NestedResourceTypeSecond string `pulumi:"nestedResourceTypeSecond"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
-	// The SKU.
-	Sku string `pulumi:"sku"`
+	ProviderNamespace        string `pulumi:"providerNamespace"`
+	ResourceType             string `pulumi:"resourceType"`
+	Sku                      string `pulumi:"sku"`
 }
 
 type LookupSkusNestedResourceTypeSecondResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
+	Id         string                        `pulumi:"id"`
 	Name       string                        `pulumi:"name"`
 	Properties SkuResourceResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                        `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint resource.
-// API Version: 2020-11-01.
 func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointResult, error) {
 	var rv LookupPrivateEndpointResult
 	err := ctx.Invoke("azure-native:network:getPrivateEndpoint", args, &rv, opts...)
@@ -19,40 +17,24 @@ func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs,
 }
 
 type LookupPrivateEndpointArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the private endpoint.
-	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand              *string `pulumi:"expand"`
+	PrivateEndpointName string  `pulumi:"privateEndpointName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
 }
 
 // Private endpoint resource.
 type LookupPrivateEndpointResult struct {
-	// An array of custom dns configurations.
-	CustomDnsConfigs []CustomDnsConfigPropertiesFormatResponse `pulumi:"customDnsConfigs"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The extended location of the load balancer.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// An array of references to the network interfaces created for this private endpoint.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"privateLinkServiceConnections"`
-	// The provisioning state of the private endpoint resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet *SubnetResponse `pulumi:"subnet"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	CustomDnsConfigs                    []CustomDnsConfigPropertiesFormatResponse `pulumi:"customDnsConfigs"`
+	Etag                                string                                    `pulumi:"etag"`
+	ExtendedLocation                    *ExtendedLocationResponse                 `pulumi:"extendedLocation"`
+	Id                                  *string                                   `pulumi:"id"`
+	Location                            *string                                   `pulumi:"location"`
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse    `pulumi:"manualPrivateLinkServiceConnections"`
+	Name                                string                                    `pulumi:"name"`
+	NetworkInterfaces                   []NetworkInterfaceResponse                `pulumi:"networkInterfaces"`
+	PrivateLinkServiceConnections       []PrivateLinkServiceConnectionResponse    `pulumi:"privateLinkServiceConnections"`
+	ProvisioningState                   string                                    `pulumi:"provisioningState"`
+	Subnet                              *SubnetResponse                           `pulumi:"subnet"`
+	Tags                                map[string]string                         `pulumi:"tags"`
+	Type                                string                                    `pulumi:"type"`
 }

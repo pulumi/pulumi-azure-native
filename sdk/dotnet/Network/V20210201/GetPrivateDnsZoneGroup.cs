@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// The provisioning state of the private dns zone group resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Type of resource. Will be specified as private dns zone groups.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetPrivateDnsZoneGroupResult(
@@ -79,13 +83,16 @@ namespace Pulumi.AzureNative.Network.V20210201
 
             ImmutableArray<Outputs.PrivateDnsZoneConfigResponse> privateDnsZoneConfigs,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? type)
         {
             Etag = etag;
             Id = id;
             Name = name;
             PrivateDnsZoneConfigs = privateDnsZoneConfigs;
             ProvisioningState = provisioningState;
+            Type = type;
         }
     }
 }

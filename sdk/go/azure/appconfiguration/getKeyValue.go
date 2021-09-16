@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The key-value resource along with all resource properties.
-// API Version: 2020-07-01-preview.
 func LookupKeyValue(ctx *pulumi.Context, args *LookupKeyValueArgs, opts ...pulumi.InvokeOption) (*LookupKeyValueResult, error) {
 	var rv LookupKeyValueResult
 	err := ctx.Invoke("azure-native:appconfiguration:getKeyValue", args, &rv, opts...)
@@ -19,40 +17,22 @@ func LookupKeyValue(ctx *pulumi.Context, args *LookupKeyValueArgs, opts ...pulum
 }
 
 type LookupKeyValueArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
-	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-	KeyValueName string `pulumi:"keyValueName"`
-	// The name of the resource group to which the container registry belongs.
+	ConfigStoreName   string `pulumi:"configStoreName"`
+	KeyValueName      string `pulumi:"keyValueName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The key-value resource along with all resource properties.
 type LookupKeyValueResult struct {
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType *string `pulumi:"contentType"`
-	// An ETag indicating the state of a key-value within a configuration store.
-	ETag string `pulumi:"eTag"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The primary identifier of a key-value.
-	// The key is used in unison with the label to uniquely identify a key-value.
-	Key string `pulumi:"key"`
-	// A value used to group key-values.
-	// The label is used in unison with the key to uniquely identify a key-value.
-	Label string `pulumi:"label"`
-	// The last time a modifying operation was performed on the given key-value.
-	LastModified string `pulumi:"lastModified"`
-	// A value indicating whether the key-value is locked.
-	// A locked key-value may not be modified until it is unlocked.
-	Locked bool `pulumi:"locked"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The value of the key-value.
-	Value *string `pulumi:"value"`
+	ContentType  *string           `pulumi:"contentType"`
+	ETag         string            `pulumi:"eTag"`
+	Id           string            `pulumi:"id"`
+	Key          string            `pulumi:"key"`
+	Label        string            `pulumi:"label"`
+	LastModified string            `pulumi:"lastModified"`
+	Locked       bool              `pulumi:"locked"`
+	Name         string            `pulumi:"name"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
+	Value        *string           `pulumi:"value"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the move resource.
-// API Version: 2021-01-01.
 func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts ...pulumi.InvokeOption) (*LookupMoveResourceResult, error) {
 	var rv LookupMoveResourceResult
 	err := ctx.Invoke("azure-native:migrate:getMoveResource", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts 
 }
 
 type LookupMoveResourceArgs struct {
-	// The Move Collection Name.
 	MoveCollectionName string `pulumi:"moveCollectionName"`
-	// The Move Resource Name.
-	MoveResourceName string `pulumi:"moveResourceName"`
-	// The Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MoveResourceName   string `pulumi:"moveResourceName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Defines the move resource.
 type LookupMoveResourceResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Defines the move resource properties.
+	Id         string                         `pulumi:"id"`
+	Name       string                         `pulumi:"name"`
 	Properties MoveResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Type       string                         `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The User registered to a lab
-// API Version: 2018-10-15.
 type User struct {
 	pulumi.CustomResourceState
 

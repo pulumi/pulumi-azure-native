@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Test keys payload
-// API Version: 2020-07-01.
 func ListServiceTestKeys(ctx *pulumi.Context, args *ListServiceTestKeysArgs, opts ...pulumi.InvokeOption) (*ListServiceTestKeysResult, error) {
 	var rv ListServiceTestKeysResult
 	err := ctx.Invoke("azure-native:appplatform:listServiceTestKeys", args, &rv, opts...)
@@ -19,22 +17,15 @@ func ListServiceTestKeys(ctx *pulumi.Context, args *ListServiceTestKeysArgs, opt
 }
 
 type ListServiceTestKeysArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Test keys payload
 type ListServiceTestKeysResult struct {
-	// Indicates whether the test endpoint feature enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Primary key
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Primary test endpoint
-	PrimaryTestEndpoint *string `pulumi:"primaryTestEndpoint"`
-	// Secondary key
-	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Secondary test endpoint
+	Enabled               *bool   `pulumi:"enabled"`
+	PrimaryKey            *string `pulumi:"primaryKey"`
+	PrimaryTestEndpoint   *string `pulumi:"primaryTestEndpoint"`
+	SecondaryKey          *string `pulumi:"secondaryKey"`
 	SecondaryTestEndpoint *string `pulumi:"secondaryTestEndpoint"`
 }

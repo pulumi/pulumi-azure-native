@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-// API Version: 2020-01-01.
 type Suppression struct {
 	pulumi.CustomResourceState
 

@@ -11,14 +11,10 @@ import (
 )
 
 type DataPoolEncryption struct {
-	// The name of Key Vault key
-	KeyName string `pulumi:"keyName"`
-	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The version of Key Vault key
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
-	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+	KeyName              string  `pulumi:"keyName"`
+	KeyVaultUri          string  `pulumi:"keyVaultUri"`
+	KeyVersion           *string `pulumi:"keyVersion"`
+	UserAssignedIdentity string  `pulumi:"userAssignedIdentity"`
 }
 
 // DataPoolEncryptionInput is an input type that accepts DataPoolEncryptionArgs and DataPoolEncryptionOutput values.
@@ -33,14 +29,10 @@ type DataPoolEncryptionInput interface {
 }
 
 type DataPoolEncryptionArgs struct {
-	// The name of Key Vault key
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The version of Key Vault key
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
-	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
+	KeyName              pulumi.StringInput    `pulumi:"keyName"`
+	KeyVaultUri          pulumi.StringInput    `pulumi:"keyVaultUri"`
+	KeyVersion           pulumi.StringPtrInput `pulumi:"keyVersion"`
+	UserAssignedIdentity pulumi.StringInput    `pulumi:"userAssignedIdentity"`
 }
 
 func (DataPoolEncryptionArgs) ElementType() reflect.Type {
@@ -120,22 +112,18 @@ func (o DataPoolEncryptionOutput) ToDataPoolEncryptionPtrOutputWithContext(ctx c
 	}).(DataPoolEncryptionPtrOutput)
 }
 
-// The name of Key Vault key
 func (o DataPoolEncryptionOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryption) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
 func (o DataPoolEncryptionOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryption) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The version of Key Vault key
 func (o DataPoolEncryptionOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataPoolEncryption) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
 func (o DataPoolEncryptionOutput) UserAssignedIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryption) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
 }
@@ -164,7 +152,6 @@ func (o DataPoolEncryptionPtrOutput) Elem() DataPoolEncryptionOutput {
 	}).(DataPoolEncryptionOutput)
 }
 
-// The name of Key Vault key
 func (o DataPoolEncryptionPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryption) *string {
 		if v == nil {
@@ -174,7 +161,6 @@ func (o DataPoolEncryptionPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
 func (o DataPoolEncryptionPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryption) *string {
 		if v == nil {
@@ -184,7 +170,6 @@ func (o DataPoolEncryptionPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of Key Vault key
 func (o DataPoolEncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryption) *string {
 		if v == nil {
@@ -194,7 +179,6 @@ func (o DataPoolEncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
 func (o DataPoolEncryptionPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryption) *string {
 		if v == nil {
@@ -205,14 +189,10 @@ func (o DataPoolEncryptionPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutp
 }
 
 type DataPoolEncryptionResponse struct {
-	// The name of Key Vault key
-	KeyName string `pulumi:"keyName"`
-	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The version of Key Vault key
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
-	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+	KeyName              string  `pulumi:"keyName"`
+	KeyVaultUri          string  `pulumi:"keyVaultUri"`
+	KeyVersion           *string `pulumi:"keyVersion"`
+	UserAssignedIdentity string  `pulumi:"userAssignedIdentity"`
 }
 
 // DataPoolEncryptionResponseInput is an input type that accepts DataPoolEncryptionResponseArgs and DataPoolEncryptionResponseOutput values.
@@ -227,14 +207,10 @@ type DataPoolEncryptionResponseInput interface {
 }
 
 type DataPoolEncryptionResponseArgs struct {
-	// The name of Key Vault key
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The version of Key Vault key
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
-	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
+	KeyName              pulumi.StringInput    `pulumi:"keyName"`
+	KeyVaultUri          pulumi.StringInput    `pulumi:"keyVaultUri"`
+	KeyVersion           pulumi.StringPtrInput `pulumi:"keyVersion"`
+	UserAssignedIdentity pulumi.StringInput    `pulumi:"userAssignedIdentity"`
 }
 
 func (DataPoolEncryptionResponseArgs) ElementType() reflect.Type {
@@ -314,22 +290,18 @@ func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponsePtrOutputW
 	}).(DataPoolEncryptionResponsePtrOutput)
 }
 
-// The name of Key Vault key
 func (o DataPoolEncryptionResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
 func (o DataPoolEncryptionResponseOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The version of Key Vault key
 func (o DataPoolEncryptionResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataPoolEncryptionResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
 func (o DataPoolEncryptionResponseOutput) UserAssignedIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
 }
@@ -358,7 +330,6 @@ func (o DataPoolEncryptionResponsePtrOutput) Elem() DataPoolEncryptionResponseOu
 	}).(DataPoolEncryptionResponseOutput)
 }
 
-// The name of Key Vault key
 func (o DataPoolEncryptionResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
 		if v == nil {
@@ -368,7 +339,6 @@ func (o DataPoolEncryptionResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
 func (o DataPoolEncryptionResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
 		if v == nil {
@@ -378,7 +348,6 @@ func (o DataPoolEncryptionResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of Key Vault key
 func (o DataPoolEncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
 		if v == nil {
@@ -388,7 +357,6 @@ func (o DataPoolEncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
 func (o DataPoolEncryptionResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
 		if v == nil {
@@ -399,10 +367,8 @@ func (o DataPoolEncryptionResponsePtrOutput) UserAssignedIdentity() pulumi.Strin
 }
 
 type DataPoolLocation struct {
-	// Encryption properties of a Data Pool location
 	Encryption *DataPoolEncryption `pulumi:"encryption"`
-	// The location name
-	Name string `pulumi:"name"`
+	Name       string              `pulumi:"name"`
 }
 
 // DataPoolLocationInput is an input type that accepts DataPoolLocationArgs and DataPoolLocationOutput values.
@@ -417,10 +383,8 @@ type DataPoolLocationInput interface {
 }
 
 type DataPoolLocationArgs struct {
-	// Encryption properties of a Data Pool location
 	Encryption DataPoolEncryptionPtrInput `pulumi:"encryption"`
-	// The location name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput         `pulumi:"name"`
 }
 
 func (DataPoolLocationArgs) ElementType() reflect.Type {
@@ -474,12 +438,10 @@ func (o DataPoolLocationOutput) ToDataPoolLocationOutputWithContext(ctx context.
 	return o
 }
 
-// Encryption properties of a Data Pool location
 func (o DataPoolLocationOutput) Encryption() DataPoolEncryptionPtrOutput {
 	return o.ApplyT(func(v DataPoolLocation) *DataPoolEncryption { return v.Encryption }).(DataPoolEncryptionPtrOutput)
 }
 
-// The location name
 func (o DataPoolLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolLocation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -505,10 +467,8 @@ func (o DataPoolLocationArrayOutput) Index(i pulumi.IntInput) DataPoolLocationOu
 }
 
 type DataPoolLocationResponse struct {
-	// Encryption properties of a Data Pool location
 	Encryption *DataPoolEncryptionResponse `pulumi:"encryption"`
-	// The location name
-	Name string `pulumi:"name"`
+	Name       string                      `pulumi:"name"`
 }
 
 // DataPoolLocationResponseInput is an input type that accepts DataPoolLocationResponseArgs and DataPoolLocationResponseOutput values.
@@ -523,10 +483,8 @@ type DataPoolLocationResponseInput interface {
 }
 
 type DataPoolLocationResponseArgs struct {
-	// Encryption properties of a Data Pool location
 	Encryption DataPoolEncryptionResponsePtrInput `pulumi:"encryption"`
-	// The location name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput                 `pulumi:"name"`
 }
 
 func (DataPoolLocationResponseArgs) ElementType() reflect.Type {
@@ -580,12 +538,10 @@ func (o DataPoolLocationResponseOutput) ToDataPoolLocationResponseOutputWithCont
 	return o
 }
 
-// Encryption properties of a Data Pool location
 func (o DataPoolLocationResponseOutput) Encryption() DataPoolEncryptionResponsePtrOutput {
 	return o.ApplyT(func(v DataPoolLocationResponse) *DataPoolEncryptionResponse { return v.Encryption }).(DataPoolEncryptionResponsePtrOutput)
 }
 
-// The location name
 func (o DataPoolLocationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolLocationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -611,17 +567,11 @@ func (o DataPoolLocationResponseArrayOutput) Index(i pulumi.IntInput) DataPoolLo
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -637,17 +587,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -728,32 +672,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -782,7 +720,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -792,7 +729,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -802,7 +738,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -812,7 +747,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -822,7 +756,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -832,7 +765,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

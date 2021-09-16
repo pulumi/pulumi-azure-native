@@ -16970,7 +16970,9 @@ class PrivateDnsZoneConfigResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "recordSets":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "recordSets":
             suggest = "record_sets"
         elif key == "privateDnsZoneId":
             suggest = "private_dns_zone_id"
@@ -16987,20 +16989,56 @@ class PrivateDnsZoneConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 provisioning_state: str,
                  record_sets: Sequence['outputs.RecordSetResponse'],
+                 type: str,
                  name: Optional[str] = None,
                  private_dns_zone_id: Optional[str] = None):
         """
         PrivateDnsZoneConfig resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: The id of the privateDnsZoneConfig.
+        :param str provisioning_state: The provisioning state of the private dns zone group resource.
         :param Sequence['RecordSetResponse'] record_sets: A collection of information regarding a recordSet, holding information to identify private resources.
+        :param str type: Type of resource. Will be specified as private dns zone configurations.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_dns_zone_id: The resource id of the private dns zone.
         """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "record_sets", record_sets)
+        pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the privateDnsZoneConfig.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private dns zone group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="recordSets")
@@ -17009,6 +17047,14 @@ class PrivateDnsZoneConfigResponse(dict):
         A collection of information regarding a recordSet, holding information to identify private resources.
         """
         return pulumi.get(self, "record_sets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of resource. Will be specified as private dns zone configurations.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -17172,6 +17218,8 @@ class PrivateEndpointResponse(dict):
             suggest = "manual_private_link_service_connections"
         elif key == "privateLinkServiceConnections":
             suggest = "private_link_service_connections"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -17196,6 +17244,7 @@ class PrivateEndpointResponse(dict):
                  location: Optional[str] = None,
                  manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
                  private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 resource_guid: Optional[str] = None,
                  subnet: Optional['outputs.SubnetResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
@@ -17211,6 +17260,7 @@ class PrivateEndpointResponse(dict):
         :param str location: Resource location.
         :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param str resource_guid: The resource id of private endpoint.
         :param 'SubnetResponse' subnet: The ID of the subnet from which the private IP will be allocated.
         :param Mapping[str, str] tags: Resource tags.
         """
@@ -17231,6 +17281,8 @@ class PrivateEndpointResponse(dict):
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
@@ -17325,6 +17377,14 @@ class PrivateEndpointResponse(dict):
         return pulumi.get(self, "private_link_service_connections")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource id of private endpoint.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter
     def subnet(self) -> Optional['outputs.SubnetResponse']:
         """
@@ -17359,6 +17419,8 @@ class PrivateLinkServiceConnectionResponse(dict):
             suggest = "private_link_service_id"
         elif key == "requestMessage":
             suggest = "request_message"
+        elif key == "resolvedPrivateLinkServiceLocation":
+            suggest = "resolved_private_link_service_location"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -17380,7 +17442,8 @@ class PrivateLinkServiceConnectionResponse(dict):
                  name: Optional[str] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
                  private_link_service_id: Optional[str] = None,
-                 request_message: Optional[str] = None):
+                 request_message: Optional[str] = None,
+                 resolved_private_link_service_location: Optional[str] = None):
         """
         PrivateLinkServiceConnection resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
@@ -17392,6 +17455,7 @@ class PrivateLinkServiceConnectionResponse(dict):
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
         :param str private_link_service_id: The resource id of private link service.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        :param str resolved_private_link_service_location: The location for the resolved private link service.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -17408,6 +17472,8 @@ class PrivateLinkServiceConnectionResponse(dict):
             pulumi.set(__self__, "private_link_service_id", private_link_service_id)
         if request_message is not None:
             pulumi.set(__self__, "request_message", request_message)
+        if resolved_private_link_service_location is not None:
+            pulumi.set(__self__, "resolved_private_link_service_location", resolved_private_link_service_location)
 
     @property
     @pulumi.getter
@@ -17480,6 +17546,14 @@ class PrivateLinkServiceConnectionResponse(dict):
         A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
         return pulumi.get(self, "request_message")
+
+    @property
+    @pulumi.getter(name="resolvedPrivateLinkServiceLocation")
+    def resolved_private_link_service_location(self) -> Optional[str]:
+        """
+        The location for the resolved private link service.
+        """
+        return pulumi.get(self, "resolved_private_link_service_location")
 
 
 @pulumi.output_type
@@ -17767,6 +17841,8 @@ class PrivateLinkServiceResponse(dict):
             suggest = "ip_configurations"
         elif key == "loadBalancerFrontendIpConfigurations":
             suggest = "load_balancer_frontend_ip_configurations"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -17795,6 +17871,7 @@ class PrivateLinkServiceResponse(dict):
                  ip_configurations: Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationResponse']] = None,
                  load_balancer_frontend_ip_configurations: Optional[Sequence['outputs.FrontendIPConfigurationResponse']] = None,
                  location: Optional[str] = None,
+                 resource_guid: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  visibility: Optional['outputs.PrivateLinkServicePropertiesResponseVisibility'] = None):
         """
@@ -17814,6 +17891,7 @@ class PrivateLinkServiceResponse(dict):
         :param Sequence['PrivateLinkServiceIpConfigurationResponse'] ip_configurations: An array of private link service IP configurations.
         :param Sequence['FrontendIPConfigurationResponse'] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param str location: Resource location.
+        :param str resource_guid: The resource id of private link service.
         :param Mapping[str, str] tags: Resource tags.
         :param 'PrivateLinkServicePropertiesResponseVisibility' visibility: The visibility list of the private link service.
         """
@@ -17840,6 +17918,8 @@ class PrivateLinkServiceResponse(dict):
             pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if visibility is not None:
@@ -17964,6 +18044,14 @@ class PrivateLinkServiceResponse(dict):
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource id of private link service.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

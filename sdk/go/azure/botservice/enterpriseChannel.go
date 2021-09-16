@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enterprise Channel resource definition
-// API Version: 2018-07-12.
 type EnterpriseChannel struct {
 	pulumi.CustomResourceState
 

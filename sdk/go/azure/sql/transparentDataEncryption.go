@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a database transparent data encryption configuration.
-// API Version: 2014-04-01.
 type TransparentDataEncryption struct {
 	pulumi.CustomResourceState
 

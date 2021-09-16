@@ -62,4 +62,8 @@ export interface GetPrivateDnsZoneGroupResult {
      * The provisioning state of the private dns zone group resource.
      */
     readonly provisioningState: string;
+    /**
+     * Type of resource. Will be specified as private dns zone groups.
+     */
+    readonly type?: string;
 }

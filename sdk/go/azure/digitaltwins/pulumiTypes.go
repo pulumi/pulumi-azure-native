@@ -11,12 +11,9 @@ import (
 )
 
 type ConnectionPropertiesPrivateLinkServiceConnectionState struct {
-	// Actions required for a private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection.
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection.
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // ConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts ConnectionPropertiesPrivateLinkServiceConnectionStateArgs and ConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
@@ -31,12 +28,9 @@ type ConnectionPropertiesPrivateLinkServiceConnectionStateInput interface {
 }
 
 type ConnectionPropertiesPrivateLinkServiceConnectionStateArgs struct {
-	// Actions required for a private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (ConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ToConnectio
 	}).(ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required for a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionPropertiesPrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionPropertiesPrivateLinkServiceConnectionState) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionPropertiesPrivateLinkServiceConnectionState) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -155,7 +146,6 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Elem() C
 	}).(ConnectionPropertiesPrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required for a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) ActionsR
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Descript
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection.
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -186,7 +174,6 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status()
 }
 
 type ConnectionPropertiesResponsePrivateEndpoint struct {
-	// The resource identifier.
 	Id string `pulumi:"id"`
 }
 
@@ -202,7 +189,6 @@ type ConnectionPropertiesResponsePrivateEndpointInput interface {
 }
 
 type ConnectionPropertiesResponsePrivateEndpointArgs struct {
-	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -283,7 +269,6 @@ func (o ConnectionPropertiesResponsePrivateEndpointOutput) ToConnectionPropertie
 	}).(ConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// The resource identifier.
 func (o ConnectionPropertiesResponsePrivateEndpointOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateEndpoint) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -312,7 +297,6 @@ func (o ConnectionPropertiesResponsePrivateEndpointPtrOutput) Elem() ConnectionP
 	}).(ConnectionPropertiesResponsePrivateEndpointOutput)
 }
 
-// The resource identifier.
 func (o ConnectionPropertiesResponsePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateEndpoint) *string {
 		if v == nil {
@@ -323,12 +307,9 @@ func (o ConnectionPropertiesResponsePrivateEndpointPtrOutput) Id() pulumi.String
 }
 
 type ConnectionPropertiesResponsePrivateLinkServiceConnectionState struct {
-	// Actions required for a private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection.
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection.
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // ConnectionPropertiesResponsePrivateLinkServiceConnectionStateInput is an input type that accepts ConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs and ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput values.
@@ -343,12 +324,9 @@ type ConnectionPropertiesResponsePrivateLinkServiceConnectionStateInput interfac
 }
 
 type ConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs struct {
-	// Actions required for a private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (ConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -428,19 +406,16 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ToC
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required for a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateLinkServiceConnectionState) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateLinkServiceConnectionState) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -469,7 +444,6 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required for a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -479,7 +453,6 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -489,7 +462,6 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection.
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -500,7 +472,6 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 }
 
 type DigitalTwinsIdentity struct {
-	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 	Type *string `pulumi:"type"`
 }
 
@@ -516,7 +487,6 @@ type DigitalTwinsIdentityInput interface {
 }
 
 type DigitalTwinsIdentityArgs struct {
-	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -597,7 +567,6 @@ func (o DigitalTwinsIdentityOutput) ToDigitalTwinsIdentityPtrOutputWithContext(c
 	}).(DigitalTwinsIdentityPtrOutput)
 }
 
-// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 func (o DigitalTwinsIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DigitalTwinsIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -626,7 +595,6 @@ func (o DigitalTwinsIdentityPtrOutput) Elem() DigitalTwinsIdentityOutput {
 	}).(DigitalTwinsIdentityOutput)
 }
 
-// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 func (o DigitalTwinsIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DigitalTwinsIdentity) *string {
 		if v == nil {
@@ -637,12 +605,9 @@ func (o DigitalTwinsIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DigitalTwinsIdentityResponse struct {
-	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // DigitalTwinsIdentityResponseInput is an input type that accepts DigitalTwinsIdentityResponseArgs and DigitalTwinsIdentityResponseOutput values.
@@ -657,12 +622,9 @@ type DigitalTwinsIdentityResponseInput interface {
 }
 
 type DigitalTwinsIdentityResponseArgs struct {
-	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DigitalTwinsIdentityResponseArgs) ElementType() reflect.Type {
@@ -742,17 +704,14 @@ func (o DigitalTwinsIdentityResponseOutput) ToDigitalTwinsIdentityResponsePtrOut
 	}).(DigitalTwinsIdentityResponsePtrOutput)
 }
 
-// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o DigitalTwinsIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v DigitalTwinsIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o DigitalTwinsIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v DigitalTwinsIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 func (o DigitalTwinsIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DigitalTwinsIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -781,7 +740,6 @@ func (o DigitalTwinsIdentityResponsePtrOutput) Elem() DigitalTwinsIdentityRespon
 	}).(DigitalTwinsIdentityResponseOutput)
 }
 
-// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o DigitalTwinsIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DigitalTwinsIdentityResponse) *string {
 		if v == nil {
@@ -791,7 +749,6 @@ func (o DigitalTwinsIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o DigitalTwinsIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DigitalTwinsIdentityResponse) *string {
 		if v == nil {
@@ -801,7 +758,6 @@ func (o DigitalTwinsIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 func (o DigitalTwinsIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DigitalTwinsIdentityResponse) *string {
 		if v == nil {
@@ -812,21 +768,13 @@ func (o DigitalTwinsIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type EventGrid struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 string `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 *string `pulumi:"accessKey2"`
-	// Specifies the authentication type being used for connecting to the endpoint.
+	AccessKey1         string  `pulumi:"accessKey1"`
+	AccessKey2         *string `pulumi:"accessKey2"`
 	AuthenticationType *string `pulumi:"authenticationType"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType string `pulumi:"endpointType"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint string `pulumi:"topicEndpoint"`
+	DeadLetterSecret   *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri      *string `pulumi:"deadLetterUri"`
+	EndpointType       string  `pulumi:"endpointType"`
+	TopicEndpoint      string  `pulumi:"topicEndpoint"`
 }
 
 // EventGridInput is an input type that accepts EventGridArgs and EventGridOutput values.
@@ -841,21 +789,13 @@ type EventGridInput interface {
 }
 
 type EventGridArgs struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 pulumi.StringPtrInput `pulumi:"accessKey2"`
-	// Specifies the authentication type being used for connecting to the endpoint.
+	AccessKey1         pulumi.StringInput    `pulumi:"accessKey1"`
+	AccessKey2         pulumi.StringPtrInput `pulumi:"accessKey2"`
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
+	DeadLetterSecret   pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri      pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType       pulumi.StringInput    `pulumi:"endpointType"`
+	TopicEndpoint      pulumi.StringInput    `pulumi:"topicEndpoint"`
 }
 
 func (EventGridArgs) ElementType() reflect.Type {
@@ -884,62 +824,44 @@ func (o EventGridOutput) ToEventGridOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridOutput) AccessKey1() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.AccessKey1 }).(pulumi.StringOutput)
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridOutput) AccessKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.AccessKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o EventGridOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o EventGridOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o EventGridOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventGrid'.
 func (o EventGridOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// EventGrid Topic Endpoint
 func (o EventGridOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
 type EventGridResponse struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 string `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 *string `pulumi:"accessKey2"`
-	// Specifies the authentication type being used for connecting to the endpoint.
+	AccessKey1         string  `pulumi:"accessKey1"`
+	AccessKey2         *string `pulumi:"accessKey2"`
 	AuthenticationType *string `pulumi:"authenticationType"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType string `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint string `pulumi:"topicEndpoint"`
+	CreatedTime        string  `pulumi:"createdTime"`
+	DeadLetterSecret   *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri      *string `pulumi:"deadLetterUri"`
+	EndpointType       string  `pulumi:"endpointType"`
+	ProvisioningState  string  `pulumi:"provisioningState"`
+	TopicEndpoint      string  `pulumi:"topicEndpoint"`
 }
 
 // EventGridResponseInput is an input type that accepts EventGridResponseArgs and EventGridResponseOutput values.
@@ -954,25 +876,15 @@ type EventGridResponseInput interface {
 }
 
 type EventGridResponseArgs struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 pulumi.StringPtrInput `pulumi:"accessKey2"`
-	// Specifies the authentication type being used for connecting to the endpoint.
+	AccessKey1         pulumi.StringInput    `pulumi:"accessKey1"`
+	AccessKey2         pulumi.StringPtrInput `pulumi:"accessKey2"`
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
+	CreatedTime        pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret   pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri      pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType       pulumi.StringInput    `pulumi:"endpointType"`
+	ProvisioningState  pulumi.StringInput    `pulumi:"provisioningState"`
+	TopicEndpoint      pulumi.StringInput    `pulumi:"topicEndpoint"`
 }
 
 func (EventGridResponseArgs) ElementType() reflect.Type {
@@ -1001,70 +913,51 @@ func (o EventGridResponseOutput) ToEventGridResponseOutputWithContext(ctx contex
 	return o
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridResponseOutput) AccessKey1() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.AccessKey1 }).(pulumi.StringOutput)
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridResponseOutput) AccessKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.AccessKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o EventGridResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o EventGridResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o EventGridResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o EventGridResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventGrid'.
 func (o EventGridResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The provisioning state.
 func (o EventGridResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// EventGrid Topic Endpoint
 func (o EventGridResponseOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
 type EventHub struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	ConnectionStringPrimaryKey *string `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType           *string `pulumi:"authenticationType"`
+	ConnectionStringPrimaryKey   *string `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey *string `pulumi:"connectionStringSecondaryKey"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// The EventHub name in the EventHub namespace for identity-based authentication.
-	EntityPath *string `pulumi:"entityPath"`
+	DeadLetterSecret             *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri                *string `pulumi:"deadLetterUri"`
+	EndpointType                 string  `pulumi:"endpointType"`
+	EndpointUri                  *string `pulumi:"endpointUri"`
+	EntityPath                   *string `pulumi:"entityPath"`
 }
 
 // EventHubInput is an input type that accepts EventHubArgs and EventHubOutput values.
@@ -1079,23 +972,14 @@ type EventHubInput interface {
 }
 
 type EventHubArgs struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	ConnectionStringPrimaryKey pulumi.StringPtrInput `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType           pulumi.StringPtrInput `pulumi:"authenticationType"`
+	ConnectionStringPrimaryKey   pulumi.StringPtrInput `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey pulumi.StringPtrInput `pulumi:"connectionStringSecondaryKey"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// The EventHub name in the EventHub namespace for identity-based authentication.
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
+	DeadLetterSecret             pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri                pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType                 pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUri                  pulumi.StringPtrInput `pulumi:"endpointUri"`
+	EntityPath                   pulumi.StringPtrInput `pulumi:"entityPath"`
 }
 
 func (EventHubArgs) ElementType() reflect.Type {
@@ -1124,69 +1008,49 @@ func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHu
 	return o
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o EventHubOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o EventHubOutput) ConnectionStringPrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.ConnectionStringPrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o EventHubOutput) ConnectionStringSecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.ConnectionStringSecondaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o EventHubOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o EventHubOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventHub'.
 func (o EventHubOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHub) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
 func (o EventHubOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// The EventHub name in the EventHub namespace for identity-based authentication.
 func (o EventHubOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
 type EventHubResponse struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	ConnectionStringPrimaryKey *string `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType           *string `pulumi:"authenticationType"`
+	ConnectionStringPrimaryKey   *string `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey *string `pulumi:"connectionStringSecondaryKey"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// The EventHub name in the EventHub namespace for identity-based authentication.
-	EntityPath *string `pulumi:"entityPath"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	CreatedTime                  string  `pulumi:"createdTime"`
+	DeadLetterSecret             *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri                *string `pulumi:"deadLetterUri"`
+	EndpointType                 string  `pulumi:"endpointType"`
+	EndpointUri                  *string `pulumi:"endpointUri"`
+	EntityPath                   *string `pulumi:"entityPath"`
+	ProvisioningState            string  `pulumi:"provisioningState"`
 }
 
 // EventHubResponseInput is an input type that accepts EventHubResponseArgs and EventHubResponseOutput values.
@@ -1201,27 +1065,16 @@ type EventHubResponseInput interface {
 }
 
 type EventHubResponseArgs struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	ConnectionStringPrimaryKey pulumi.StringPtrInput `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType           pulumi.StringPtrInput `pulumi:"authenticationType"`
+	ConnectionStringPrimaryKey   pulumi.StringPtrInput `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey pulumi.StringPtrInput `pulumi:"connectionStringSecondaryKey"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// The EventHub name in the EventHub namespace for identity-based authentication.
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	CreatedTime                  pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret             pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri                pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType                 pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUri                  pulumi.StringPtrInput `pulumi:"endpointUri"`
+	EntityPath                   pulumi.StringPtrInput `pulumi:"entityPath"`
+	ProvisioningState            pulumi.StringInput    `pulumi:"provisioningState"`
 }
 
 func (EventHubResponseArgs) ElementType() reflect.Type {
@@ -1250,53 +1103,42 @@ func (o EventHubResponseOutput) ToEventHubResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o EventHubResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o EventHubResponseOutput) ConnectionStringPrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.ConnectionStringPrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o EventHubResponseOutput) ConnectionStringSecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.ConnectionStringSecondaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o EventHubResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o EventHubResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o EventHubResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventHub'.
 func (o EventHubResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
 func (o EventHubResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// The EventHub name in the EventHub namespace for identity-based authentication.
 func (o EventHubResponseOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state.
 func (o EventHubResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1396,7 +1238,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 }
 
 type PrivateEndpointConnectionProperties struct {
-	// The list of group ids for the private endpoint connection.
 	GroupIds                          []string                                               `pulumi:"groupIds"`
 	PrivateLinkServiceConnectionState *ConnectionPropertiesPrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -1413,7 +1254,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The list of group ids for the private endpoint connection.
 	GroupIds                          pulumi.StringArrayInput                                       `pulumi:"groupIds"`
 	PrivateLinkServiceConnectionState ConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -1495,7 +1335,6 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The list of group ids for the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -1530,7 +1369,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// The list of group ids for the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) []string {
 		if v == nil {
@@ -1550,13 +1388,10 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
+	Id         string                                      `pulumi:"id"`
 	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionResponseProperties `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -1571,13 +1406,10 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
+	Id         pulumi.StringInput                               `pulumi:"id"`
 	Name       pulumi.StringInput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionResponsePropertiesInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -1631,12 +1463,10 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// The resource identifier.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1647,7 +1477,6 @@ func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointCon
 	}).(PrivateEndpointConnectionResponsePropertiesOutput)
 }
 
-// The resource type.
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1673,12 +1502,10 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointConnectionResponseProperties struct {
-	// The list of group ids for the private endpoint connection.
 	GroupIds                          []string                                                       `pulumi:"groupIds"`
 	PrivateEndpoint                   *ConnectionPropertiesResponsePrivateEndpoint                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ConnectionPropertiesResponsePrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                                         `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionResponsePropertiesInput is an input type that accepts PrivateEndpointConnectionResponsePropertiesArgs and PrivateEndpointConnectionResponsePropertiesOutput values.
@@ -1693,12 +1520,10 @@ type PrivateEndpointConnectionResponsePropertiesInput interface {
 }
 
 type PrivateEndpointConnectionResponsePropertiesArgs struct {
-	// The list of group ids for the private endpoint connection.
 	GroupIds                          pulumi.StringArrayInput                                               `pulumi:"groupIds"`
 	PrivateEndpoint                   ConnectionPropertiesResponsePrivateEndpointPtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                                    `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionResponsePropertiesArgs) ElementType() reflect.Type {
@@ -1778,7 +1603,6 @@ func (o PrivateEndpointConnectionResponsePropertiesOutput) ToPrivateEndpointConn
 	}).(PrivateEndpointConnectionResponsePropertiesPtrOutput)
 }
 
-// The list of group ids for the private endpoint connection.
 func (o PrivateEndpointConnectionResponsePropertiesOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponseProperties) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -1795,7 +1619,6 @@ func (o PrivateEndpointConnectionResponsePropertiesOutput) PrivateLinkServiceCon
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The provisioning state.
 func (o PrivateEndpointConnectionResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1824,7 +1647,6 @@ func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) Elem() PrivateEndp
 	}).(PrivateEndpointConnectionResponsePropertiesOutput)
 }
 
-// The list of group ids for the private endpoint connection.
 func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponseProperties) []string {
 		if v == nil {
@@ -1852,7 +1674,6 @@ func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) PrivateLinkService
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The provisioning state.
 func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponseProperties) *string {
 		if v == nil {
@@ -1863,22 +1684,13 @@ func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) ProvisioningState(
 }
 
 type ServiceBus struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// The ServiceBus Topic name for identity-based authentication
-	EntityPath *string `pulumi:"entityPath"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType        *string `pulumi:"authenticationType"`
+	DeadLetterSecret          *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri             *string `pulumi:"deadLetterUri"`
+	EndpointType              string  `pulumi:"endpointType"`
+	EndpointUri               *string `pulumi:"endpointUri"`
+	EntityPath                *string `pulumi:"entityPath"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }
 
@@ -1894,22 +1706,13 @@ type ServiceBusInput interface {
 }
 
 type ServiceBusArgs struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// The ServiceBus Topic name for identity-based authentication
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	PrimaryConnectionString pulumi.StringPtrInput `pulumi:"primaryConnectionString"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType        pulumi.StringPtrInput `pulumi:"authenticationType"`
+	DeadLetterSecret          pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri             pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType              pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUri               pulumi.StringPtrInput `pulumi:"endpointUri"`
+	EntityPath                pulumi.StringPtrInput `pulumi:"entityPath"`
+	PrimaryConnectionString   pulumi.StringPtrInput `pulumi:"primaryConnectionString"`
 	SecondaryConnectionString pulumi.StringPtrInput `pulumi:"secondaryConnectionString"`
 }
 
@@ -1939,68 +1742,48 @@ func (o ServiceBusOutput) ToServiceBusOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o ServiceBusOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o ServiceBusOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'ServiceBus'.
 func (o ServiceBusOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBus) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
 func (o ServiceBusOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// The ServiceBus Topic name for identity-based authentication
 func (o ServiceBusOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusResponse struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri *string `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// The ServiceBus Topic name for identity-based authentication
-	EntityPath *string `pulumi:"entityPath"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType        *string `pulumi:"authenticationType"`
+	CreatedTime               string  `pulumi:"createdTime"`
+	DeadLetterSecret          *string `pulumi:"deadLetterSecret"`
+	DeadLetterUri             *string `pulumi:"deadLetterUri"`
+	EndpointType              string  `pulumi:"endpointType"`
+	EndpointUri               *string `pulumi:"endpointUri"`
+	EntityPath                *string `pulumi:"entityPath"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	ProvisioningState         string  `pulumi:"provisioningState"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }
 
@@ -2016,26 +1799,15 @@ type ServiceBusResponseInput interface {
 }
 
 type ServiceBusResponseArgs struct {
-	// Specifies the authentication type being used for connecting to the endpoint.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// Dead letter storage URL for identity-based authentication.
-	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// The ServiceBus Topic name for identity-based authentication
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-	PrimaryConnectionString pulumi.StringPtrInput `pulumi:"primaryConnectionString"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	AuthenticationType        pulumi.StringPtrInput `pulumi:"authenticationType"`
+	CreatedTime               pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret          pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	DeadLetterUri             pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	EndpointType              pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUri               pulumi.StringPtrInput `pulumi:"endpointUri"`
+	EntityPath                pulumi.StringPtrInput `pulumi:"entityPath"`
+	PrimaryConnectionString   pulumi.StringPtrInput `pulumi:"primaryConnectionString"`
+	ProvisioningState         pulumi.StringInput    `pulumi:"provisioningState"`
 	SecondaryConnectionString pulumi.StringPtrInput `pulumi:"secondaryConnectionString"`
 }
 
@@ -2065,53 +1837,42 @@ func (o ServiceBusResponseOutput) ToServiceBusResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Specifies the authentication type being used for connecting to the endpoint.
 func (o ServiceBusResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o ServiceBusResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage URL for identity-based authentication.
 func (o ServiceBusResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'ServiceBus'.
 func (o ServiceBusResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
 func (o ServiceBusResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// The ServiceBus Topic name for identity-based authentication
 func (o ServiceBusResponseOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state.
 func (o ServiceBusResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }

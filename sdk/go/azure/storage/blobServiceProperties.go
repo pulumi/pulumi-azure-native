@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a storage account’s Blob service.
-// API Version: 2021-02-01.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 

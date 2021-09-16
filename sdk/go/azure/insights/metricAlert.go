@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The metric alert resource.
-// API Version: 2018-03-01.
 type MetricAlert struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a container registry.
-// API Version: 2019-05-01.
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	var rv LookupRegistryResult
 	err := ctx.Invoke("azure-native:containerregistry:getRegistry", args, &rv, opts...)
@@ -19,40 +17,24 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 }
 
 type LookupRegistryArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An object that represents a container registry.
 type LookupRegistryResult struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate string `pulumi:"creationDate"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The URL that can be used to log into the container registry.
-	LoginServer string `pulumi:"loginServer"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The network rule set for a container registry.
-	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
-	// The policies for a container registry.
-	Policies *PoliciesResponse `pulumi:"policies"`
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the container registry.
-	Sku SkuResponse `pulumi:"sku"`
-	// The status of the container registry at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	AdminUserEnabled  *bool                             `pulumi:"adminUserEnabled"`
+	CreationDate      string                            `pulumi:"creationDate"`
+	Id                string                            `pulumi:"id"`
+	Location          string                            `pulumi:"location"`
+	LoginServer       string                            `pulumi:"loginServer"`
+	Name              string                            `pulumi:"name"`
+	NetworkRuleSet    *NetworkRuleSetResponse           `pulumi:"networkRuleSet"`
+	Policies          *PoliciesResponse                 `pulumi:"policies"`
+	ProvisioningState string                            `pulumi:"provisioningState"`
+	Sku               SkuResponse                       `pulumi:"sku"`
+	Status            StatusResponse                    `pulumi:"status"`
+	StorageAccount    *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	Type              string                            `pulumi:"type"`
 }

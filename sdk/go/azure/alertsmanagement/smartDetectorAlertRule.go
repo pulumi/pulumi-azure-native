@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The alert rule information
-// API Version: 2019-06-01.
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 

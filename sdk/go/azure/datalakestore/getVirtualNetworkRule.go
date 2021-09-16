@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Store virtual network rule information.
-// API Version: 2016-11-01.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
 	err := ctx.Invoke("azure-native:datalakestore:getVirtualNetworkRule", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRul
 }
 
 type LookupVirtualNetworkRuleArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network rule to retrieve.
+	AccountName            string `pulumi:"accountName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // Data Lake Store virtual network rule information.
 type LookupVirtualNetworkRuleResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource identifier for the subnet.
+	Id       string `pulumi:"id"`
+	Name     string `pulumi:"name"`
 	SubnetId string `pulumi:"subnetId"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type     string `pulumi:"type"`
 }

@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a data connection.
-// API Version: 2021-04-01-preview.
-//
 // Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
@@ -21,30 +18,19 @@ func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, o
 }
 
 type LookupDataConnectionArgs struct {
-	// The name of the data connection.
 	DataConnectionName string `pulumi:"dataConnectionName"`
-	// The name of the database in the Kusto pool.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	DatabaseName       string `pulumi:"databaseName"`
+	KustoPoolName      string `pulumi:"kustoPoolName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	WorkspaceName      string `pulumi:"workspaceName"`
 }
 
 // Class representing a data connection.
 type LookupDataConnectionResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Kind of the endpoint for the data connection
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Location   *string            `pulumi:"location"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

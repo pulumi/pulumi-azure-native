@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The autoscale setting resource.
-// API Version: 2015-04-01.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 

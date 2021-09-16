@@ -20,7 +20,8 @@ class PrivateDnsZoneGroupArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None,
-                 private_dns_zone_group_name: Optional[pulumi.Input[str]] = None):
+                 private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateDnsZoneGroup resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
@@ -29,6 +30,7 @@ class PrivateDnsZoneGroupArgs:
         :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
         :param pulumi.Input[str] private_dns_zone_group_name: The name of the private dns zone group.
+        :param pulumi.Input[str] type: Type of resource. Will be specified as private dns zone groups.
         """
         pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -40,6 +42,8 @@ class PrivateDnsZoneGroupArgs:
             pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
         if private_dns_zone_group_name is not None:
             pulumi.set(__self__, "private_dns_zone_group_name", private_dns_zone_group_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="privateEndpointName")
@@ -113,6 +117,18 @@ class PrivateDnsZoneGroupArgs:
     def private_dns_zone_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_dns_zone_group_name", value)
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of resource. Will be specified as private dns zone groups.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 class PrivateDnsZoneGroup(pulumi.CustomResource):
     @overload
@@ -125,6 +141,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                  private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Private dns zone group resource.
@@ -137,6 +154,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_group_name: The name of the private dns zone group.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] type: Type of resource. Will be specified as private dns zone groups.
         """
         ...
     @overload
@@ -168,6 +186,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                  private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -190,6 +209,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["type"] = type
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20210201:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20201101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20210301:PrivateDnsZoneGroup")])
@@ -220,6 +240,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["private_dns_zone_configs"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return PrivateDnsZoneGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,4 +274,12 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         The provisioning state of the private dns zone group resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of resource. Will be specified as private dns zone groups.
+        """
+        return pulumi.get(self, "type")
 

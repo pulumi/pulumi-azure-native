@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The resource id of private link service.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -263,6 +269,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource id of private link service.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         /// <summary>
         /// The name of the private link service.

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private endpoint connection.
-// API Version: 2021-06-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:hdinsight:getPrivateEndpointConnection", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the private endpoint connection.
+	ClusterName                   string `pulumi:"clusterName"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // The private endpoint connection.
 type LookupPrivateEndpointConnectionResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The link identifier.
-	LinkIdentifier string `pulumi:"linkIdentifier"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The private endpoint of the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// The private link service connection state.
+	Id                                string                                    `pulumi:"id"`
+	LinkIdentifier                    string                                    `pulumi:"linkIdentifier"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponse                        `pulumi:"systemData"`
+	Type                              string                                    `pulumi:"type"`
 }

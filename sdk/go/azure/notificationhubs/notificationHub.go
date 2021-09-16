@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub Resource.
-// API Version: 2017-04-01.
 type NotificationHub struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connector mapping resource format.
-// API Version: 2017-04-26.
 type ConnectorMapping struct {
 	pulumi.CustomResourceState
 

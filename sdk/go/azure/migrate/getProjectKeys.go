@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ID and Key for Migration Project.
-// API Version: 2018-02-02.
 func GetProjectKeys(ctx *pulumi.Context, args *GetProjectKeysArgs, opts ...pulumi.InvokeOption) (*GetProjectKeysResult, error) {
 	var rv GetProjectKeysResult
 	err := ctx.Invoke("azure-native:migrate:getProjectKeys", args, &rv, opts...)
@@ -19,16 +17,12 @@ func GetProjectKeys(ctx *pulumi.Context, args *GetProjectKeysArgs, opts ...pulum
 }
 
 type GetProjectKeysArgs struct {
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
+	ProjectName       string `pulumi:"projectName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // ID and Key for Migration Project.
 type GetProjectKeysResult struct {
-	// ID of Migration Project.
-	WorkspaceId string `pulumi:"workspaceId"`
-	// Key of Migration Project.
+	WorkspaceId  string `pulumi:"workspaceId"`
 	WorkspaceKey string `pulumi:"workspaceKey"`
 }

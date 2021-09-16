@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto cluster.
-// API Version: 2021-01-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:kusto:getCluster", args, &rv, opts...)
@@ -19,60 +17,34 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Class representing a Kusto cluster.
 type LookupClusterResult struct {
-	// The cluster data ingestion URI.
-	DataIngestionUri string `pulumi:"dataIngestionUri"`
-	// A boolean value that indicates if the cluster's disks are encrypted.
-	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// A boolean value that indicates if double encryption is enabled.
-	EnableDoubleEncryption *bool `pulumi:"enableDoubleEncryption"`
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
-	// The engine type
-	EngineType *string `pulumi:"engineType"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The identity of the cluster, if configured.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// KeyVault properties for the cluster encryption.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// List of the cluster's language extensions.
-	LanguageExtensions LanguageExtensionsListResponse `pulumi:"languageExtensions"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Optimized auto scale definition.
-	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponse `pulumi:"sku"`
-	// The state of the resource.
-	State string `pulumi:"state"`
-	// The reason for the cluster's current state.
-	StateReason string `pulumi:"stateReason"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster's external tenants.
-	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The cluster URI.
-	Uri string `pulumi:"uri"`
-	// Virtual network definition.
+	DataIngestionUri            string                               `pulumi:"dataIngestionUri"`
+	EnableDiskEncryption        *bool                                `pulumi:"enableDiskEncryption"`
+	EnableDoubleEncryption      *bool                                `pulumi:"enableDoubleEncryption"`
+	EnablePurge                 *bool                                `pulumi:"enablePurge"`
+	EnableStreamingIngest       *bool                                `pulumi:"enableStreamingIngest"`
+	EngineType                  *string                              `pulumi:"engineType"`
+	Etag                        string                               `pulumi:"etag"`
+	Id                          string                               `pulumi:"id"`
+	Identity                    *IdentityResponse                    `pulumi:"identity"`
+	KeyVaultProperties          *KeyVaultPropertiesResponse          `pulumi:"keyVaultProperties"`
+	LanguageExtensions          LanguageExtensionsListResponse       `pulumi:"languageExtensions"`
+	Location                    string                               `pulumi:"location"`
+	Name                        string                               `pulumi:"name"`
+	OptimizedAutoscale          *OptimizedAutoscaleResponse          `pulumi:"optimizedAutoscale"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
+	Sku                         AzureSkuResponse                     `pulumi:"sku"`
+	State                       string                               `pulumi:"state"`
+	StateReason                 string                               `pulumi:"stateReason"`
+	Tags                        map[string]string                    `pulumi:"tags"`
+	TrustedExternalTenants      []TrustedExternalTenantResponse      `pulumi:"trustedExternalTenants"`
+	Type                        string                               `pulumi:"type"`
+	Uri                         string                               `pulumi:"uri"`
 	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
-	// The availability zones of the cluster.
-	Zones []string `pulumi:"zones"`
+	Zones                       []string                             `pulumi:"zones"`
 }

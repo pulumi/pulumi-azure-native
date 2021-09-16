@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of the WCF relay resource.
-// API Version: 2017-04-01.
 type WCFRelay struct {
 	pulumi.CustomResourceState
 

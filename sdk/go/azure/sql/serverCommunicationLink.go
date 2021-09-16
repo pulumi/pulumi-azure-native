@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server communication link.
-// API Version: 2014-04-01.
 type ServerCommunicationLink struct {
 	pulumi.CustomResourceState
 

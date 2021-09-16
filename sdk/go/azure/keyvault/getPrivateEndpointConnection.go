@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint connection resource.
-// API Version: 2019-09-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:keyvault:getPrivateEndpointConnection", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// Name of the private endpoint connection associated with the key vault.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the resource group that contains the key vault.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the key vault.
-	VaultName string `pulumi:"vaultName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	VaultName                     string `pulumi:"vaultName"`
 }
 
 // Private endpoint connection resource.
 type LookupPrivateEndpointConnectionResult struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified identifier of the key vault resource.
-	Id string `pulumi:"id"`
-	// Azure location of the key vault resource.
-	Location string `pulumi:"location"`
-	// Name of the key vault resource.
-	Name string `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Etag                              *string                                    `pulumi:"etag"`
+	Id                                string                                     `pulumi:"id"`
+	Location                          string                                     `pulumi:"location"`
+	Name                              string                                     `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Tags assigned to the key vault resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
+	Tags                              map[string]string                          `pulumi:"tags"`
+	Type                              string                                     `pulumi:"type"`
 }

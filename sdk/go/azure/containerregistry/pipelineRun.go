@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a pipeline run for a container registry.
-// API Version: 2020-11-01-preview.
 type PipelineRun struct {
 	pulumi.CustomResourceState
 

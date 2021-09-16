@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A data set mapping data transfer object.
-// API Version: 2020-09-01.
-//
 // Deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
@@ -21,26 +18,17 @@ func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, o
 }
 
 type LookupDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A data set mapping data transfer object.
 type LookupDataSetMappingResult struct {
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// System Data of the Azure resource.
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

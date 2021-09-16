@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual machine guest diagnostic settings resource.
-// API Version: 2018-06-01-preview.
 type GuestDiagnosticsSettingsAssociation struct {
 	pulumi.CustomResourceState
 

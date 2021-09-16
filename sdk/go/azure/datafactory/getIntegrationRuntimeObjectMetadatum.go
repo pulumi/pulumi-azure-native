@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A list of SSIS object metadata.
-// API Version: 2018-06-01.
 func GetIntegrationRuntimeObjectMetadatum(ctx *pulumi.Context, args *GetIntegrationRuntimeObjectMetadatumArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeObjectMetadatumResult, error) {
 	var rv GetIntegrationRuntimeObjectMetadatumResult
 	err := ctx.Invoke("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
@@ -19,20 +17,14 @@ func GetIntegrationRuntimeObjectMetadatum(ctx *pulumi.Context, args *GetIntegrat
 }
 
 type GetIntegrationRuntimeObjectMetadatumArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
-	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// Metadata path.
-	MetadataPath *string `pulumi:"metadataPath"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName            string  `pulumi:"factoryName"`
+	IntegrationRuntimeName string  `pulumi:"integrationRuntimeName"`
+	MetadataPath           *string `pulumi:"metadataPath"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 }
 
 // A list of SSIS object metadata.
 type GetIntegrationRuntimeObjectMetadatumResult struct {
-	// The link to the next page of results, if any remaining results exist.
-	NextLink *string `pulumi:"nextLink"`
-	// List of SSIS object metadata.
-	Value []interface{} `pulumi:"value"`
+	NextLink *string       `pulumi:"nextLink"`
+	Value    []interface{} `pulumi:"value"`
 }

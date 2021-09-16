@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A formula for creating a VM, specifying an image base and other parameters
-// API Version: 2018-09-15.
 type Formula struct {
 	pulumi.CustomResourceState
 

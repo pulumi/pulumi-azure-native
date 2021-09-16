@@ -11,12 +11,9 @@ import (
 )
 
 type EnterpriseKnowledgeGraphProperties struct {
-	// The description of the EnterpriseKnowledgeGraph
-	Description *string `pulumi:"description"`
-	// Specifies the metadata  of the resource.
-	Metadata interface{} `pulumi:"metadata"`
-	// The state of EnterpriseKnowledgeGraph provisioning
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Description       *string     `pulumi:"description"`
+	Metadata          interface{} `pulumi:"metadata"`
+	ProvisioningState *string     `pulumi:"provisioningState"`
 }
 
 // EnterpriseKnowledgeGraphPropertiesInput is an input type that accepts EnterpriseKnowledgeGraphPropertiesArgs and EnterpriseKnowledgeGraphPropertiesOutput values.
@@ -31,11 +28,8 @@ type EnterpriseKnowledgeGraphPropertiesInput interface {
 }
 
 type EnterpriseKnowledgeGraphPropertiesArgs struct {
-	// The description of the EnterpriseKnowledgeGraph
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies the metadata  of the resource.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The state of EnterpriseKnowledgeGraph provisioning
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Metadata          pulumi.Input          `pulumi:"metadata"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -116,17 +110,14 @@ func (o EnterpriseKnowledgeGraphPropertiesOutput) ToEnterpriseKnowledgeGraphProp
 	}).(EnterpriseKnowledgeGraphPropertiesPtrOutput)
 }
 
-// The description of the EnterpriseKnowledgeGraph
 func (o EnterpriseKnowledgeGraphPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the metadata  of the resource.
 func (o EnterpriseKnowledgeGraphPropertiesOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphProperties) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The state of EnterpriseKnowledgeGraph provisioning
 func (o EnterpriseKnowledgeGraphPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -155,7 +146,6 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Elem() EnterpriseKnowledgeG
 	}).(EnterpriseKnowledgeGraphPropertiesOutput)
 }
 
-// The description of the EnterpriseKnowledgeGraph
 func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphProperties) *string {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Description() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the metadata  of the resource.
 func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphProperties) interface{} {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Metadata() pulumi.AnyOutput
 	}).(pulumi.AnyOutput)
 }
 
-// The state of EnterpriseKnowledgeGraph provisioning
 func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphProperties) *string {
 		if v == nil {
@@ -186,12 +174,9 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) ProvisioningState() pulumi.
 }
 
 type EnterpriseKnowledgeGraphPropertiesResponse struct {
-	// The description of the EnterpriseKnowledgeGraph
-	Description *string `pulumi:"description"`
-	// Specifies the metadata  of the resource.
-	Metadata interface{} `pulumi:"metadata"`
-	// The state of EnterpriseKnowledgeGraph provisioning
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Description       *string     `pulumi:"description"`
+	Metadata          interface{} `pulumi:"metadata"`
+	ProvisioningState *string     `pulumi:"provisioningState"`
 }
 
 // EnterpriseKnowledgeGraphPropertiesResponseInput is an input type that accepts EnterpriseKnowledgeGraphPropertiesResponseArgs and EnterpriseKnowledgeGraphPropertiesResponseOutput values.
@@ -206,11 +191,8 @@ type EnterpriseKnowledgeGraphPropertiesResponseInput interface {
 }
 
 type EnterpriseKnowledgeGraphPropertiesResponseArgs struct {
-	// The description of the EnterpriseKnowledgeGraph
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies the metadata  of the resource.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The state of EnterpriseKnowledgeGraph provisioning
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Metadata          pulumi.Input          `pulumi:"metadata"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -291,17 +273,14 @@ func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ToEnterpriseKnowledgeG
 	}).(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput)
 }
 
-// The description of the EnterpriseKnowledgeGraph
 func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the metadata  of the resource.
 func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The state of EnterpriseKnowledgeGraph provisioning
 func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -330,7 +309,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Elem() EnterpriseKn
 	}).(EnterpriseKnowledgeGraphPropertiesResponseOutput)
 }
 
-// The description of the EnterpriseKnowledgeGraph
 func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) *string {
 		if v == nil {
@@ -340,7 +318,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Description() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the metadata  of the resource.
 func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) interface{} {
 		if v == nil {
@@ -350,7 +327,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Metadata() pulumi.A
 	}).(pulumi.AnyOutput)
 }
 
-// The state of EnterpriseKnowledgeGraph provisioning
 func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) *string {
 		if v == nil {
@@ -361,7 +337,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ProvisioningState()
 }
 
 type Sku struct {
-	// The sku name
 	Name string `pulumi:"name"`
 }
 
@@ -377,7 +352,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -458,7 +432,6 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The sku name
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -487,7 +460,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The sku name
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -498,7 +470,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The sku name
 	Name string `pulumi:"name"`
 }
 
@@ -514,7 +485,6 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The sku name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -595,7 +565,6 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The sku name
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -624,7 +593,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The sku name
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

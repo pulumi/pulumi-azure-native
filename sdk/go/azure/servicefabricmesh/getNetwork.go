@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a network resource.
-// API Version: 2018-09-01-preview.
 func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkResult, error) {
 	var rv LookupNetworkResult
 	err := ctx.Invoke("azure-native:servicefabricmesh:getNetwork", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.
 }
 
 type LookupNetworkArgs struct {
-	// The identity of the network.
 	NetworkResourceName string `pulumi:"networkResourceName"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // This type describes a network resource.
 type LookupNetworkResult struct {
-	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes properties of a network resource.
+	Id         string                            `pulumi:"id"`
+	Location   string                            `pulumi:"location"`
+	Name       string                            `pulumi:"name"`
 	Properties NetworkResourcePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Tags       map[string]string                 `pulumi:"tags"`
+	Type       string                            `pulumi:"type"`
 }

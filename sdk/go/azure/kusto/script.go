@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a database script.
-// API Version: 2021-01-01.
 type Script struct {
 	pulumi.CustomResourceState
 

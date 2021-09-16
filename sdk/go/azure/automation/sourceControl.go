@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the source control.
-// API Version: 2019-06-01.
 type SourceControl struct {
 	pulumi.CustomResourceState
 

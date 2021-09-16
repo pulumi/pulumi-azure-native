@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Security solution configuration and resource information.
-// API Version: 2019-08-01.
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 

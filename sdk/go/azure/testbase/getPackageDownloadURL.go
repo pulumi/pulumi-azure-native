@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of getting a download URL.
-// API Version: 2020-12-16-preview.
 func GetPackageDownloadURL(ctx *pulumi.Context, args *GetPackageDownloadURLArgs, opts ...pulumi.InvokeOption) (*GetPackageDownloadURLResult, error) {
 	var rv GetPackageDownloadURLResult
 	err := ctx.Invoke("azure-native:testbase:getPackageDownloadURL", args, &rv, opts...)
@@ -19,18 +17,13 @@ func GetPackageDownloadURL(ctx *pulumi.Context, args *GetPackageDownloadURLArgs,
 }
 
 type GetPackageDownloadURLArgs struct {
-	// The resource name of the Test Base Package.
-	PackageName string `pulumi:"packageName"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
+	PackageName         string `pulumi:"packageName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	TestBaseAccountName string `pulumi:"testBaseAccountName"`
 }
 
 // The response of getting a download URL.
 type GetPackageDownloadURLResult struct {
-	// The download URL.
-	DownloadUrl string `pulumi:"downloadUrl"`
-	// Expiry date of the download URL.
+	DownloadUrl    string `pulumi:"downloadUrl"`
 	ExpirationTime string `pulumi:"expirationTime"`
 }

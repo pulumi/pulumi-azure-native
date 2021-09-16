@@ -11,15 +11,10 @@ import (
 )
 
 type ApiKeyAuthentication struct {
-	// The location of the authentication key/value pair in the request.
-	In RestAuthLocation `pulumi:"in"`
-	// The key name of the authentication key/value pair.
-	Name string `pulumi:"name"`
-	// The authentication type.
-	// Expected value is 'ApiKey'.
-	Type string `pulumi:"type"`
-	// The value of the authentication key/value pair.
-	Value string `pulumi:"value"`
+	In    RestAuthLocation `pulumi:"in"`
+	Name  string           `pulumi:"name"`
+	Type  string           `pulumi:"type"`
+	Value string           `pulumi:"value"`
 }
 
 // ApiKeyAuthenticationInput is an input type that accepts ApiKeyAuthenticationArgs and ApiKeyAuthenticationOutput values.
@@ -34,15 +29,10 @@ type ApiKeyAuthenticationInput interface {
 }
 
 type ApiKeyAuthenticationArgs struct {
-	// The location of the authentication key/value pair in the request.
-	In RestAuthLocationInput `pulumi:"in"`
-	// The key name of the authentication key/value pair.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The authentication type.
-	// Expected value is 'ApiKey'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the authentication key/value pair.
-	Value pulumi.StringInput `pulumi:"value"`
+	In    RestAuthLocationInput `pulumi:"in"`
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Type  pulumi.StringInput    `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (ApiKeyAuthenticationArgs) ElementType() reflect.Type {
@@ -71,36 +61,26 @@ func (o ApiKeyAuthenticationOutput) ToApiKeyAuthenticationOutputWithContext(ctx 
 	return o
 }
 
-// The location of the authentication key/value pair in the request.
 func (o ApiKeyAuthenticationOutput) In() RestAuthLocationOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) RestAuthLocation { return v.In }).(RestAuthLocationOutput)
 }
 
-// The key name of the authentication key/value pair.
 func (o ApiKeyAuthenticationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The authentication type.
-// Expected value is 'ApiKey'.
 func (o ApiKeyAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of the authentication key/value pair.
 func (o ApiKeyAuthenticationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type ApiKeyAuthenticationResponse struct {
-	// The location of the authentication key/value pair in the request.
-	In string `pulumi:"in"`
-	// The key name of the authentication key/value pair.
-	Name string `pulumi:"name"`
-	// The authentication type.
-	// Expected value is 'ApiKey'.
-	Type string `pulumi:"type"`
-	// The value of the authentication key/value pair.
+	In    string `pulumi:"in"`
+	Name  string `pulumi:"name"`
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -116,14 +96,9 @@ type ApiKeyAuthenticationResponseInput interface {
 }
 
 type ApiKeyAuthenticationResponseArgs struct {
-	// The location of the authentication key/value pair in the request.
-	In pulumi.StringInput `pulumi:"in"`
-	// The key name of the authentication key/value pair.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The authentication type.
-	// Expected value is 'ApiKey'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the authentication key/value pair.
+	In    pulumi.StringInput `pulumi:"in"`
+	Name  pulumi.StringInput `pulumi:"name"`
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -153,36 +128,27 @@ func (o ApiKeyAuthenticationResponseOutput) ToApiKeyAuthenticationResponseOutput
 	return o
 }
 
-// The location of the authentication key/value pair in the request.
 func (o ApiKeyAuthenticationResponseOutput) In() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.In }).(pulumi.StringOutput)
 }
 
-// The key name of the authentication key/value pair.
 func (o ApiKeyAuthenticationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The authentication type.
-// Expected value is 'ApiKey'.
 func (o ApiKeyAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of the authentication key/value pair.
 func (o ApiKeyAuthenticationResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type CloudErrorBodyResponse struct {
-	// Error code string.
-	Code string `pulumi:"code"`
-	// More detailed error information.
+	Code    string                   `pulumi:"code"`
 	Details []CloudErrorBodyResponse `pulumi:"details"`
-	// Descriptive error information.
-	Message string `pulumi:"message"`
-	// Error target
-	Target *string `pulumi:"target"`
+	Message string                   `pulumi:"message"`
+	Target  *string                  `pulumi:"target"`
 }
 
 // CloudErrorBodyResponseInput is an input type that accepts CloudErrorBodyResponseArgs and CloudErrorBodyResponseOutput values.
@@ -197,14 +163,10 @@ type CloudErrorBodyResponseInput interface {
 }
 
 type CloudErrorBodyResponseArgs struct {
-	// Error code string.
-	Code pulumi.StringInput `pulumi:"code"`
-	// More detailed error information.
+	Code    pulumi.StringInput               `pulumi:"code"`
 	Details CloudErrorBodyResponseArrayInput `pulumi:"details"`
-	// Descriptive error information.
-	Message pulumi.StringInput `pulumi:"message"`
-	// Error target
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Message pulumi.StringInput               `pulumi:"message"`
+	Target  pulumi.StringPtrInput            `pulumi:"target"`
 }
 
 func (CloudErrorBodyResponseArgs) ElementType() reflect.Type {
@@ -309,22 +271,18 @@ func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithConte
 	}).(CloudErrorBodyResponsePtrOutput)
 }
 
-// Error code string.
 func (o CloudErrorBodyResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// More detailed error information.
 func (o CloudErrorBodyResponseOutput) Details() CloudErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) []CloudErrorBodyResponse { return v.Details }).(CloudErrorBodyResponseArrayOutput)
 }
 
-// Descriptive error information.
 func (o CloudErrorBodyResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Error target
 func (o CloudErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -353,7 +311,6 @@ func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
 	}).(CloudErrorBodyResponseOutput)
 }
 
-// Error code string.
 func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -363,7 +320,6 @@ func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// More detailed error information.
 func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) []CloudErrorBodyResponse {
 		if v == nil {
@@ -373,7 +329,6 @@ func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOu
 	}).(CloudErrorBodyResponseArrayOutput)
 }
 
-// Descriptive error information.
 func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -383,7 +338,6 @@ func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error target
 func (o CloudErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -414,11 +368,8 @@ func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBo
 }
 
 type HealthCheckStepProperties struct {
-	// The health check step attributes
 	Attributes RestHealthCheckStepAttributes `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'HealthCheck'.
-	StepType string `pulumi:"stepType"`
+	StepType   string                        `pulumi:"stepType"`
 }
 
 // HealthCheckStepPropertiesInput is an input type that accepts HealthCheckStepPropertiesArgs and HealthCheckStepPropertiesOutput values.
@@ -433,11 +384,8 @@ type HealthCheckStepPropertiesInput interface {
 }
 
 type HealthCheckStepPropertiesArgs struct {
-	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesInput `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'HealthCheck'.
-	StepType pulumi.StringInput `pulumi:"stepType"`
+	StepType   pulumi.StringInput                 `pulumi:"stepType"`
 }
 
 func (HealthCheckStepPropertiesArgs) ElementType() reflect.Type {
@@ -466,23 +414,17 @@ func (o HealthCheckStepPropertiesOutput) ToHealthCheckStepPropertiesOutputWithCo
 	return o
 }
 
-// The health check step attributes
 func (o HealthCheckStepPropertiesOutput) Attributes() RestHealthCheckStepAttributesOutput {
 	return o.ApplyT(func(v HealthCheckStepProperties) RestHealthCheckStepAttributes { return v.Attributes }).(RestHealthCheckStepAttributesOutput)
 }
 
-// The type of step.
-// Expected value is 'HealthCheck'.
 func (o HealthCheckStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
 
 type HealthCheckStepPropertiesResponse struct {
-	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponse `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'HealthCheck'.
-	StepType string `pulumi:"stepType"`
+	StepType   string                                `pulumi:"stepType"`
 }
 
 // HealthCheckStepPropertiesResponseInput is an input type that accepts HealthCheckStepPropertiesResponseArgs and HealthCheckStepPropertiesResponseOutput values.
@@ -497,11 +439,8 @@ type HealthCheckStepPropertiesResponseInput interface {
 }
 
 type HealthCheckStepPropertiesResponseArgs struct {
-	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponseInput `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'HealthCheck'.
-	StepType pulumi.StringInput `pulumi:"stepType"`
+	StepType   pulumi.StringInput                         `pulumi:"stepType"`
 }
 
 func (HealthCheckStepPropertiesResponseArgs) ElementType() reflect.Type {
@@ -530,22 +469,17 @@ func (o HealthCheckStepPropertiesResponseOutput) ToHealthCheckStepPropertiesResp
 	return o
 }
 
-// The health check step attributes
 func (o HealthCheckStepPropertiesResponseOutput) Attributes() RestHealthCheckStepAttributesResponseOutput {
 	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) RestHealthCheckStepAttributesResponse { return v.Attributes }).(RestHealthCheckStepAttributesResponseOutput)
 }
 
-// The type of step.
-// Expected value is 'HealthCheck'.
 func (o HealthCheckStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
 
 type Identity struct {
-	// The list of identities.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The identity type.
-	Type string `pulumi:"type"`
+	Type        string   `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -560,10 +494,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The list of identities.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -643,12 +575,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The list of identities.
 func (o IdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Identity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The identity type.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -677,7 +607,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The list of identities.
 func (o IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Identity) []string {
 		if v == nil {
@@ -687,7 +616,6 @@ func (o IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identity type.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -698,10 +626,8 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type IdentityResponse struct {
-	// The list of identities.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The identity type.
-	Type string `pulumi:"type"`
+	Type        string   `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -716,10 +642,8 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The list of identities.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -799,12 +723,10 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The list of identities.
 func (o IdentityResponseOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentityResponse) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -833,7 +755,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The list of identities.
 func (o IdentityResponsePtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityResponse) []string {
 		if v == nil {
@@ -843,7 +764,6 @@ func (o IdentityResponsePtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -854,9 +774,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MessageResponse struct {
-	// The actual message text.
-	Message string `pulumi:"message"`
-	// Time in UTC this message was provided.
+	Message   string `pulumi:"message"`
 	TimeStamp string `pulumi:"timeStamp"`
 }
 
@@ -872,9 +790,7 @@ type MessageResponseInput interface {
 }
 
 type MessageResponseArgs struct {
-	// The actual message text.
-	Message pulumi.StringInput `pulumi:"message"`
-	// Time in UTC this message was provided.
+	Message   pulumi.StringInput `pulumi:"message"`
 	TimeStamp pulumi.StringInput `pulumi:"timeStamp"`
 }
 
@@ -929,12 +845,10 @@ func (o MessageResponseOutput) ToMessageResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The actual message text.
 func (o MessageResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v MessageResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Time in UTC this message was provided.
 func (o MessageResponseOutput) TimeStamp() pulumi.StringOutput {
 	return o.ApplyT(func(v MessageResponse) string { return v.TimeStamp }).(pulumi.StringOutput)
 }
@@ -960,7 +874,6 @@ func (o MessageResponseArrayOutput) Index(i pulumi.IntInput) MessageResponseOutp
 }
 
 type PrePostStep struct {
-	// The resource Id of the step to be run.
 	StepId string `pulumi:"stepId"`
 }
 
@@ -976,7 +889,6 @@ type PrePostStepInput interface {
 }
 
 type PrePostStepArgs struct {
-	// The resource Id of the step to be run.
 	StepId pulumi.StringInput `pulumi:"stepId"`
 }
 
@@ -1031,7 +943,6 @@ func (o PrePostStepOutput) ToPrePostStepOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// The resource Id of the step to be run.
 func (o PrePostStepOutput) StepId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrePostStep) string { return v.StepId }).(pulumi.StringOutput)
 }
@@ -1057,7 +968,6 @@ func (o PrePostStepArrayOutput) Index(i pulumi.IntInput) PrePostStepOutput {
 }
 
 type PrePostStepResponse struct {
-	// The resource Id of the step to be run.
 	StepId string `pulumi:"stepId"`
 }
 
@@ -1073,7 +983,6 @@ type PrePostStepResponseInput interface {
 }
 
 type PrePostStepResponseArgs struct {
-	// The resource Id of the step to be run.
 	StepId pulumi.StringInput `pulumi:"stepId"`
 }
 
@@ -1128,7 +1037,6 @@ func (o PrePostStepResponseOutput) ToPrePostStepResponseOutputWithContext(ctx co
 	return o
 }
 
-// The resource Id of the step to be run.
 func (o PrePostStepResponseOutput) StepId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrePostStepResponse) string { return v.StepId }).(pulumi.StringOutput)
 }
@@ -1154,18 +1062,12 @@ func (o PrePostStepResponseArrayOutput) Index(i pulumi.IntInput) PrePostStepResp
 }
 
 type ResourceOperationResponse struct {
-	// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
-	OperationId string `pulumi:"operationId"`
-	// State of the resource deployment. For ARM resources, this is the current provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Name of the resource as specified in the artifacts. For ARM resources, this is the name of the resource specified in the template.
-	ResourceName *string `pulumi:"resourceName"`
-	// Type of the resource as specified in the artifacts. For ARM resources, this is the type of the resource specified in the template.
-	ResourceType *string `pulumi:"resourceType"`
-	// Http status code of the operation.
-	StatusCode string `pulumi:"statusCode"`
-	// Descriptive information of the resource operation.
-	StatusMessage string `pulumi:"statusMessage"`
+	OperationId       string  `pulumi:"operationId"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	ResourceName      *string `pulumi:"resourceName"`
+	ResourceType      *string `pulumi:"resourceType"`
+	StatusCode        string  `pulumi:"statusCode"`
+	StatusMessage     string  `pulumi:"statusMessage"`
 }
 
 // ResourceOperationResponseInput is an input type that accepts ResourceOperationResponseArgs and ResourceOperationResponseOutput values.
@@ -1180,18 +1082,12 @@ type ResourceOperationResponseInput interface {
 }
 
 type ResourceOperationResponseArgs struct {
-	// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
-	OperationId pulumi.StringInput `pulumi:"operationId"`
-	// State of the resource deployment. For ARM resources, this is the current provisioning state of the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Name of the resource as specified in the artifacts. For ARM resources, this is the name of the resource specified in the template.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// Type of the resource as specified in the artifacts. For ARM resources, this is the type of the resource specified in the template.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Http status code of the operation.
-	StatusCode pulumi.StringInput `pulumi:"statusCode"`
-	// Descriptive information of the resource operation.
-	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+	OperationId       pulumi.StringInput    `pulumi:"operationId"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	ResourceName      pulumi.StringPtrInput `pulumi:"resourceName"`
+	ResourceType      pulumi.StringPtrInput `pulumi:"resourceType"`
+	StatusCode        pulumi.StringInput    `pulumi:"statusCode"`
+	StatusMessage     pulumi.StringInput    `pulumi:"statusMessage"`
 }
 
 func (ResourceOperationResponseArgs) ElementType() reflect.Type {
@@ -1245,32 +1141,26 @@ func (o ResourceOperationResponseOutput) ToResourceOperationResponseOutputWithCo
 	return o
 }
 
-// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
 func (o ResourceOperationResponseOutput) OperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) string { return v.OperationId }).(pulumi.StringOutput)
 }
 
-// State of the resource deployment. For ARM resources, this is the current provisioning state of the resource.
 func (o ResourceOperationResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Name of the resource as specified in the artifacts. For ARM resources, this is the name of the resource specified in the template.
 func (o ResourceOperationResponseOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the resource as specified in the artifacts. For ARM resources, this is the type of the resource specified in the template.
 func (o ResourceOperationResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Http status code of the operation.
 func (o ResourceOperationResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) string { return v.StatusCode }).(pulumi.StringOutput)
 }
 
-// Descriptive information of the resource operation.
 func (o ResourceOperationResponseOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceOperationResponse) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
@@ -1296,11 +1186,8 @@ func (o ResourceOperationResponseArrayOutput) Index(i pulumi.IntInput) ResourceO
 }
 
 type RestHealthCheck struct {
-	// A unique name for this check.
-	Name string `pulumi:"name"`
-	// The request to the health provider.
-	Request RestRequest `pulumi:"request"`
-	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Name     string        `pulumi:"name"`
+	Request  RestRequest   `pulumi:"request"`
 	Response *RestResponse `pulumi:"response"`
 }
 
@@ -1316,11 +1203,8 @@ type RestHealthCheckInput interface {
 }
 
 type RestHealthCheckArgs struct {
-	// A unique name for this check.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The request to the health provider.
-	Request RestRequestInput `pulumi:"request"`
-	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Name     pulumi.StringInput   `pulumi:"name"`
+	Request  RestRequestInput     `pulumi:"request"`
 	Response RestResponsePtrInput `pulumi:"response"`
 }
 
@@ -1375,17 +1259,14 @@ func (o RestHealthCheckOutput) ToRestHealthCheckOutputWithContext(ctx context.Co
 	return o
 }
 
-// A unique name for this check.
 func (o RestHealthCheckOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheck) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The request to the health provider.
 func (o RestHealthCheckOutput) Request() RestRequestOutput {
 	return o.ApplyT(func(v RestHealthCheck) RestRequest { return v.Request }).(RestRequestOutput)
 }
 
-// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
 func (o RestHealthCheckOutput) Response() RestResponsePtrOutput {
 	return o.ApplyT(func(v RestHealthCheck) *RestResponse { return v.Response }).(RestResponsePtrOutput)
 }
@@ -1411,11 +1292,8 @@ func (o RestHealthCheckArrayOutput) Index(i pulumi.IntInput) RestHealthCheckOutp
 }
 
 type RestHealthCheckResponse struct {
-	// A unique name for this check.
-	Name string `pulumi:"name"`
-	// The request to the health provider.
-	Request RestRequestResponse `pulumi:"request"`
-	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Name     string                `pulumi:"name"`
+	Request  RestRequestResponse   `pulumi:"request"`
 	Response *RestResponseResponse `pulumi:"response"`
 }
 
@@ -1431,11 +1309,8 @@ type RestHealthCheckResponseInput interface {
 }
 
 type RestHealthCheckResponseArgs struct {
-	// A unique name for this check.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The request to the health provider.
-	Request RestRequestResponseInput `pulumi:"request"`
-	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Name     pulumi.StringInput           `pulumi:"name"`
+	Request  RestRequestResponseInput     `pulumi:"request"`
 	Response RestResponseResponsePtrInput `pulumi:"response"`
 }
 
@@ -1490,17 +1365,14 @@ func (o RestHealthCheckResponseOutput) ToRestHealthCheckResponseOutputWithContex
 	return o
 }
 
-// A unique name for this check.
 func (o RestHealthCheckResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The request to the health provider.
 func (o RestHealthCheckResponseOutput) Request() RestRequestResponseOutput {
 	return o.ApplyT(func(v RestHealthCheckResponse) RestRequestResponse { return v.Request }).(RestRequestResponseOutput)
 }
 
-// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
 func (o RestHealthCheckResponseOutput) Response() RestResponseResponsePtrOutput {
 	return o.ApplyT(func(v RestHealthCheckResponse) *RestResponseResponse { return v.Response }).(RestResponseResponsePtrOutput)
 }
@@ -1526,17 +1398,11 @@ func (o RestHealthCheckResponseArrayOutput) Index(i pulumi.IntInput) RestHealthC
 }
 
 type RestHealthCheckStepAttributes struct {
-	// The list of checks that form the health check step.
-	HealthChecks []RestHealthCheck `pulumi:"healthChecks"`
-	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
-	HealthyStateDuration string `pulumi:"healthyStateDuration"`
-	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
-	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
-	// The type of health check.
-	// Expected value is 'REST'.
-	Type string `pulumi:"type"`
-	// The duration in ISO 8601 format for which health check waits idly without any checks.
-	WaitDuration *string `pulumi:"waitDuration"`
+	HealthChecks         []RestHealthCheck `pulumi:"healthChecks"`
+	HealthyStateDuration string            `pulumi:"healthyStateDuration"`
+	MaxElasticDuration   *string           `pulumi:"maxElasticDuration"`
+	Type                 string            `pulumi:"type"`
+	WaitDuration         *string           `pulumi:"waitDuration"`
 }
 
 // RestHealthCheckStepAttributesInput is an input type that accepts RestHealthCheckStepAttributesArgs and RestHealthCheckStepAttributesOutput values.
@@ -1551,17 +1417,11 @@ type RestHealthCheckStepAttributesInput interface {
 }
 
 type RestHealthCheckStepAttributesArgs struct {
-	// The list of checks that form the health check step.
-	HealthChecks RestHealthCheckArrayInput `pulumi:"healthChecks"`
-	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
-	HealthyStateDuration pulumi.StringInput `pulumi:"healthyStateDuration"`
-	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
-	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
-	// The type of health check.
-	// Expected value is 'REST'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The duration in ISO 8601 format for which health check waits idly without any checks.
-	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
+	HealthChecks         RestHealthCheckArrayInput `pulumi:"healthChecks"`
+	HealthyStateDuration pulumi.StringInput        `pulumi:"healthyStateDuration"`
+	MaxElasticDuration   pulumi.StringPtrInput     `pulumi:"maxElasticDuration"`
+	Type                 pulumi.StringInput        `pulumi:"type"`
+	WaitDuration         pulumi.StringPtrInput     `pulumi:"waitDuration"`
 }
 
 func (RestHealthCheckStepAttributesArgs) ElementType() reflect.Type {
@@ -1590,44 +1450,32 @@ func (o RestHealthCheckStepAttributesOutput) ToRestHealthCheckStepAttributesOutp
 	return o
 }
 
-// The list of checks that form the health check step.
 func (o RestHealthCheckStepAttributesOutput) HealthChecks() RestHealthCheckArrayOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) []RestHealthCheck { return v.HealthChecks }).(RestHealthCheckArrayOutput)
 }
 
-// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
 func (o RestHealthCheckStepAttributesOutput) HealthyStateDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) string { return v.HealthyStateDuration }).(pulumi.StringOutput)
 }
 
-// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 func (o RestHealthCheckStepAttributesOutput) MaxElasticDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) *string { return v.MaxElasticDuration }).(pulumi.StringPtrOutput)
 }
 
-// The type of health check.
-// Expected value is 'REST'.
 func (o RestHealthCheckStepAttributesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The duration in ISO 8601 format for which health check waits idly without any checks.
 func (o RestHealthCheckStepAttributesOutput) WaitDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
 }
 
 type RestHealthCheckStepAttributesResponse struct {
-	// The list of checks that form the health check step.
-	HealthChecks []RestHealthCheckResponse `pulumi:"healthChecks"`
-	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
-	HealthyStateDuration string `pulumi:"healthyStateDuration"`
-	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
-	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
-	// The type of health check.
-	// Expected value is 'REST'.
-	Type string `pulumi:"type"`
-	// The duration in ISO 8601 format for which health check waits idly without any checks.
-	WaitDuration *string `pulumi:"waitDuration"`
+	HealthChecks         []RestHealthCheckResponse `pulumi:"healthChecks"`
+	HealthyStateDuration string                    `pulumi:"healthyStateDuration"`
+	MaxElasticDuration   *string                   `pulumi:"maxElasticDuration"`
+	Type                 string                    `pulumi:"type"`
+	WaitDuration         *string                   `pulumi:"waitDuration"`
 }
 
 // RestHealthCheckStepAttributesResponseInput is an input type that accepts RestHealthCheckStepAttributesResponseArgs and RestHealthCheckStepAttributesResponseOutput values.
@@ -1642,17 +1490,11 @@ type RestHealthCheckStepAttributesResponseInput interface {
 }
 
 type RestHealthCheckStepAttributesResponseArgs struct {
-	// The list of checks that form the health check step.
-	HealthChecks RestHealthCheckResponseArrayInput `pulumi:"healthChecks"`
-	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
-	HealthyStateDuration pulumi.StringInput `pulumi:"healthyStateDuration"`
-	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
-	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
-	// The type of health check.
-	// Expected value is 'REST'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The duration in ISO 8601 format for which health check waits idly without any checks.
-	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
+	HealthChecks         RestHealthCheckResponseArrayInput `pulumi:"healthChecks"`
+	HealthyStateDuration pulumi.StringInput                `pulumi:"healthyStateDuration"`
+	MaxElasticDuration   pulumi.StringPtrInput             `pulumi:"maxElasticDuration"`
+	Type                 pulumi.StringInput                `pulumi:"type"`
+	WaitDuration         pulumi.StringPtrInput             `pulumi:"waitDuration"`
 }
 
 func (RestHealthCheckStepAttributesResponseArgs) ElementType() reflect.Type {
@@ -1681,39 +1523,30 @@ func (o RestHealthCheckStepAttributesResponseOutput) ToRestHealthCheckStepAttrib
 	return o
 }
 
-// The list of checks that form the health check step.
 func (o RestHealthCheckStepAttributesResponseOutput) HealthChecks() RestHealthCheckResponseArrayOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) []RestHealthCheckResponse { return v.HealthChecks }).(RestHealthCheckResponseArrayOutput)
 }
 
-// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
 func (o RestHealthCheckStepAttributesResponseOutput) HealthyStateDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) string { return v.HealthyStateDuration }).(pulumi.StringOutput)
 }
 
-// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 func (o RestHealthCheckStepAttributesResponseOutput) MaxElasticDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) *string { return v.MaxElasticDuration }).(pulumi.StringPtrOutput)
 }
 
-// The type of health check.
-// Expected value is 'REST'.
 func (o RestHealthCheckStepAttributesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The duration in ISO 8601 format for which health check waits idly without any checks.
 func (o RestHealthCheckStepAttributesResponseOutput) WaitDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
 }
 
 type RestRequest struct {
-	// The authentication information required in the request to the health provider.
-	Authentication interface{} `pulumi:"authentication"`
-	// The HTTP method to use for the request.
-	Method RestRequestMethod `pulumi:"method"`
-	// The HTTP URI to use for the request.
-	Uri string `pulumi:"uri"`
+	Authentication interface{}       `pulumi:"authentication"`
+	Method         RestRequestMethod `pulumi:"method"`
+	Uri            string            `pulumi:"uri"`
 }
 
 // RestRequestInput is an input type that accepts RestRequestArgs and RestRequestOutput values.
@@ -1728,12 +1561,9 @@ type RestRequestInput interface {
 }
 
 type RestRequestArgs struct {
-	// The authentication information required in the request to the health provider.
-	Authentication pulumi.Input `pulumi:"authentication"`
-	// The HTTP method to use for the request.
-	Method RestRequestMethodInput `pulumi:"method"`
-	// The HTTP URI to use for the request.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Authentication pulumi.Input           `pulumi:"authentication"`
+	Method         RestRequestMethodInput `pulumi:"method"`
+	Uri            pulumi.StringInput     `pulumi:"uri"`
 }
 
 func (RestRequestArgs) ElementType() reflect.Type {
@@ -1762,28 +1592,22 @@ func (o RestRequestOutput) ToRestRequestOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// The authentication information required in the request to the health provider.
 func (o RestRequestOutput) Authentication() pulumi.AnyOutput {
 	return o.ApplyT(func(v RestRequest) interface{} { return v.Authentication }).(pulumi.AnyOutput)
 }
 
-// The HTTP method to use for the request.
 func (o RestRequestOutput) Method() RestRequestMethodOutput {
 	return o.ApplyT(func(v RestRequest) RestRequestMethod { return v.Method }).(RestRequestMethodOutput)
 }
 
-// The HTTP URI to use for the request.
 func (o RestRequestOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RestRequest) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 type RestRequestResponse struct {
-	// The authentication information required in the request to the health provider.
 	Authentication interface{} `pulumi:"authentication"`
-	// The HTTP method to use for the request.
-	Method string `pulumi:"method"`
-	// The HTTP URI to use for the request.
-	Uri string `pulumi:"uri"`
+	Method         string      `pulumi:"method"`
+	Uri            string      `pulumi:"uri"`
 }
 
 // RestRequestResponseInput is an input type that accepts RestRequestResponseArgs and RestRequestResponseOutput values.
@@ -1798,12 +1622,9 @@ type RestRequestResponseInput interface {
 }
 
 type RestRequestResponseArgs struct {
-	// The authentication information required in the request to the health provider.
-	Authentication pulumi.Input `pulumi:"authentication"`
-	// The HTTP method to use for the request.
-	Method pulumi.StringInput `pulumi:"method"`
-	// The HTTP URI to use for the request.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Authentication pulumi.Input       `pulumi:"authentication"`
+	Method         pulumi.StringInput `pulumi:"method"`
+	Uri            pulumi.StringInput `pulumi:"uri"`
 }
 
 func (RestRequestResponseArgs) ElementType() reflect.Type {
@@ -1832,26 +1653,21 @@ func (o RestRequestResponseOutput) ToRestRequestResponseOutputWithContext(ctx co
 	return o
 }
 
-// The authentication information required in the request to the health provider.
 func (o RestRequestResponseOutput) Authentication() pulumi.AnyOutput {
 	return o.ApplyT(func(v RestRequestResponse) interface{} { return v.Authentication }).(pulumi.AnyOutput)
 }
 
-// The HTTP method to use for the request.
 func (o RestRequestResponseOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v RestRequestResponse) string { return v.Method }).(pulumi.StringOutput)
 }
 
-// The HTTP URI to use for the request.
 func (o RestRequestResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RestRequestResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 type RestResponse struct {
-	// The regular expressions to match the response content with.
-	Regex *RestResponseRegex `pulumi:"regex"`
-	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-	SuccessStatusCodes []string `pulumi:"successStatusCodes"`
+	Regex              *RestResponseRegex `pulumi:"regex"`
+	SuccessStatusCodes []string           `pulumi:"successStatusCodes"`
 }
 
 // RestResponseInput is an input type that accepts RestResponseArgs and RestResponseOutput values.
@@ -1866,10 +1682,8 @@ type RestResponseInput interface {
 }
 
 type RestResponseArgs struct {
-	// The regular expressions to match the response content with.
-	Regex RestResponseRegexPtrInput `pulumi:"regex"`
-	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-	SuccessStatusCodes pulumi.StringArrayInput `pulumi:"successStatusCodes"`
+	Regex              RestResponseRegexPtrInput `pulumi:"regex"`
+	SuccessStatusCodes pulumi.StringArrayInput   `pulumi:"successStatusCodes"`
 }
 
 func (RestResponseArgs) ElementType() reflect.Type {
@@ -1949,12 +1763,10 @@ func (o RestResponseOutput) ToRestResponsePtrOutputWithContext(ctx context.Conte
 	}).(RestResponsePtrOutput)
 }
 
-// The regular expressions to match the response content with.
 func (o RestResponseOutput) Regex() RestResponseRegexPtrOutput {
 	return o.ApplyT(func(v RestResponse) *RestResponseRegex { return v.Regex }).(RestResponseRegexPtrOutput)
 }
 
-// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
 func (o RestResponseOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestResponse) []string { return v.SuccessStatusCodes }).(pulumi.StringArrayOutput)
 }
@@ -1983,7 +1795,6 @@ func (o RestResponsePtrOutput) Elem() RestResponseOutput {
 	}).(RestResponseOutput)
 }
 
-// The regular expressions to match the response content with.
 func (o RestResponsePtrOutput) Regex() RestResponseRegexPtrOutput {
 	return o.ApplyT(func(v *RestResponse) *RestResponseRegex {
 		if v == nil {
@@ -1993,7 +1804,6 @@ func (o RestResponsePtrOutput) Regex() RestResponseRegexPtrOutput {
 	}).(RestResponseRegexPtrOutput)
 }
 
-// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
 func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestResponse) []string {
 		if v == nil {
@@ -2004,10 +1814,8 @@ func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 }
 
 type RestResponseRegex struct {
-	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
-	// The list of regular expressions.
-	Matches []string `pulumi:"matches"`
+	Matches         []string             `pulumi:"matches"`
 }
 
 // RestResponseRegexInput is an input type that accepts RestResponseRegexArgs and RestResponseRegexOutput values.
@@ -2022,10 +1830,8 @@ type RestResponseRegexInput interface {
 }
 
 type RestResponseRegexArgs struct {
-	// Indicates whether any or all of the expressions should match with the response content.
 	MatchQuantifier RestMatchQuantifierPtrInput `pulumi:"matchQuantifier"`
-	// The list of regular expressions.
-	Matches pulumi.StringArrayInput `pulumi:"matches"`
+	Matches         pulumi.StringArrayInput     `pulumi:"matches"`
 }
 
 func (RestResponseRegexArgs) ElementType() reflect.Type {
@@ -2105,12 +1911,10 @@ func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutputWithContext(ctx con
 	}).(RestResponseRegexPtrOutput)
 }
 
-// Indicates whether any or all of the expressions should match with the response content.
 func (o RestResponseRegexOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
 	return o.ApplyT(func(v RestResponseRegex) *RestMatchQuantifier { return v.MatchQuantifier }).(RestMatchQuantifierPtrOutput)
 }
 
-// The list of regular expressions.
 func (o RestResponseRegexOutput) Matches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestResponseRegex) []string { return v.Matches }).(pulumi.StringArrayOutput)
 }
@@ -2139,7 +1943,6 @@ func (o RestResponseRegexPtrOutput) Elem() RestResponseRegexOutput {
 	}).(RestResponseRegexOutput)
 }
 
-// Indicates whether any or all of the expressions should match with the response content.
 func (o RestResponseRegexPtrOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
 	return o.ApplyT(func(v *RestResponseRegex) *RestMatchQuantifier {
 		if v == nil {
@@ -2149,7 +1952,6 @@ func (o RestResponseRegexPtrOutput) MatchQuantifier() RestMatchQuantifierPtrOutp
 	}).(RestMatchQuantifierPtrOutput)
 }
 
-// The list of regular expressions.
 func (o RestResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestResponseRegex) []string {
 		if v == nil {
@@ -2160,10 +1962,8 @@ func (o RestResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 }
 
 type RestResponseResponse struct {
-	// The regular expressions to match the response content with.
-	Regex *RestResponseResponseRegex `pulumi:"regex"`
-	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-	SuccessStatusCodes []string `pulumi:"successStatusCodes"`
+	Regex              *RestResponseResponseRegex `pulumi:"regex"`
+	SuccessStatusCodes []string                   `pulumi:"successStatusCodes"`
 }
 
 // RestResponseResponseInput is an input type that accepts RestResponseResponseArgs and RestResponseResponseOutput values.
@@ -2178,10 +1978,8 @@ type RestResponseResponseInput interface {
 }
 
 type RestResponseResponseArgs struct {
-	// The regular expressions to match the response content with.
-	Regex RestResponseResponseRegexPtrInput `pulumi:"regex"`
-	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-	SuccessStatusCodes pulumi.StringArrayInput `pulumi:"successStatusCodes"`
+	Regex              RestResponseResponseRegexPtrInput `pulumi:"regex"`
+	SuccessStatusCodes pulumi.StringArrayInput           `pulumi:"successStatusCodes"`
 }
 
 func (RestResponseResponseArgs) ElementType() reflect.Type {
@@ -2261,12 +2059,10 @@ func (o RestResponseResponseOutput) ToRestResponseResponsePtrOutputWithContext(c
 	}).(RestResponseResponsePtrOutput)
 }
 
-// The regular expressions to match the response content with.
 func (o RestResponseResponseOutput) Regex() RestResponseResponseRegexPtrOutput {
 	return o.ApplyT(func(v RestResponseResponse) *RestResponseResponseRegex { return v.Regex }).(RestResponseResponseRegexPtrOutput)
 }
 
-// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
 func (o RestResponseResponseOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestResponseResponse) []string { return v.SuccessStatusCodes }).(pulumi.StringArrayOutput)
 }
@@ -2295,7 +2091,6 @@ func (o RestResponseResponsePtrOutput) Elem() RestResponseResponseOutput {
 	}).(RestResponseResponseOutput)
 }
 
-// The regular expressions to match the response content with.
 func (o RestResponseResponsePtrOutput) Regex() RestResponseResponseRegexPtrOutput {
 	return o.ApplyT(func(v *RestResponseResponse) *RestResponseResponseRegex {
 		if v == nil {
@@ -2305,7 +2100,6 @@ func (o RestResponseResponsePtrOutput) Regex() RestResponseResponseRegexPtrOutpu
 	}).(RestResponseResponseRegexPtrOutput)
 }
 
-// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
 func (o RestResponseResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestResponseResponse) []string {
 		if v == nil {
@@ -2316,10 +2110,8 @@ func (o RestResponseResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOu
 }
 
 type RestResponseResponseRegex struct {
-	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier *string `pulumi:"matchQuantifier"`
-	// The list of regular expressions.
-	Matches []string `pulumi:"matches"`
+	MatchQuantifier *string  `pulumi:"matchQuantifier"`
+	Matches         []string `pulumi:"matches"`
 }
 
 // RestResponseResponseRegexInput is an input type that accepts RestResponseResponseRegexArgs and RestResponseResponseRegexOutput values.
@@ -2334,10 +2126,8 @@ type RestResponseResponseRegexInput interface {
 }
 
 type RestResponseResponseRegexArgs struct {
-	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier pulumi.StringPtrInput `pulumi:"matchQuantifier"`
-	// The list of regular expressions.
-	Matches pulumi.StringArrayInput `pulumi:"matches"`
+	MatchQuantifier pulumi.StringPtrInput   `pulumi:"matchQuantifier"`
+	Matches         pulumi.StringArrayInput `pulumi:"matches"`
 }
 
 func (RestResponseResponseRegexArgs) ElementType() reflect.Type {
@@ -2417,12 +2207,10 @@ func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexPtrOutputWit
 	}).(RestResponseResponseRegexPtrOutput)
 }
 
-// Indicates whether any or all of the expressions should match with the response content.
 func (o RestResponseResponseRegexOutput) MatchQuantifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestResponseResponseRegex) *string { return v.MatchQuantifier }).(pulumi.StringPtrOutput)
 }
 
-// The list of regular expressions.
 func (o RestResponseResponseRegexOutput) Matches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestResponseResponseRegex) []string { return v.Matches }).(pulumi.StringArrayOutput)
 }
@@ -2451,7 +2239,6 @@ func (o RestResponseResponseRegexPtrOutput) Elem() RestResponseResponseRegexOutp
 	}).(RestResponseResponseRegexOutput)
 }
 
-// Indicates whether any or all of the expressions should match with the response content.
 func (o RestResponseResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestResponseResponseRegex) *string {
 		if v == nil {
@@ -2461,7 +2248,6 @@ func (o RestResponseResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of regular expressions.
 func (o RestResponseResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestResponseResponseRegex) []string {
 		if v == nil {
@@ -2472,8 +2258,6 @@ func (o RestResponseResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 }
 
 type RolloutIdentityAuthentication struct {
-	// The authentication type.
-	// Expected value is 'RolloutIdentity'.
 	Type string `pulumi:"type"`
 }
 
@@ -2489,8 +2273,6 @@ type RolloutIdentityAuthenticationInput interface {
 }
 
 type RolloutIdentityAuthenticationArgs struct {
-	// The authentication type.
-	// Expected value is 'RolloutIdentity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2520,15 +2302,11 @@ func (o RolloutIdentityAuthenticationOutput) ToRolloutIdentityAuthenticationOutp
 	return o
 }
 
-// The authentication type.
-// Expected value is 'RolloutIdentity'.
 func (o RolloutIdentityAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutIdentityAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type RolloutIdentityAuthenticationResponse struct {
-	// The authentication type.
-	// Expected value is 'RolloutIdentity'.
 	Type string `pulumi:"type"`
 }
 
@@ -2544,8 +2322,6 @@ type RolloutIdentityAuthenticationResponseInput interface {
 }
 
 type RolloutIdentityAuthenticationResponseArgs struct {
-	// The authentication type.
-	// Expected value is 'RolloutIdentity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2575,23 +2351,16 @@ func (o RolloutIdentityAuthenticationResponseOutput) ToRolloutIdentityAuthentica
 	return o
 }
 
-// The authentication type.
-// Expected value is 'RolloutIdentity'.
 func (o RolloutIdentityAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutIdentityAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type RolloutOperationInfoResponse struct {
-	// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
-	EndTime string `pulumi:"endTime"`
-	// The detailed error information for any failure.
-	Error CloudErrorBodyResponse `pulumi:"error"`
-	// The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
-	RetryAttempt int `pulumi:"retryAttempt"`
-	// True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
-	SkipSucceededOnRetry bool `pulumi:"skipSucceededOnRetry"`
-	// The start time of the rollout in UTC.
-	StartTime string `pulumi:"startTime"`
+	EndTime              string                 `pulumi:"endTime"`
+	Error                CloudErrorBodyResponse `pulumi:"error"`
+	RetryAttempt         int                    `pulumi:"retryAttempt"`
+	SkipSucceededOnRetry bool                   `pulumi:"skipSucceededOnRetry"`
+	StartTime            string                 `pulumi:"startTime"`
 }
 
 // RolloutOperationInfoResponseInput is an input type that accepts RolloutOperationInfoResponseArgs and RolloutOperationInfoResponseOutput values.
@@ -2606,16 +2375,11 @@ type RolloutOperationInfoResponseInput interface {
 }
 
 type RolloutOperationInfoResponseArgs struct {
-	// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// The detailed error information for any failure.
-	Error CloudErrorBodyResponseInput `pulumi:"error"`
-	// The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
-	RetryAttempt pulumi.IntInput `pulumi:"retryAttempt"`
-	// True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
-	SkipSucceededOnRetry pulumi.BoolInput `pulumi:"skipSucceededOnRetry"`
-	// The start time of the rollout in UTC.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
+	EndTime              pulumi.StringInput          `pulumi:"endTime"`
+	Error                CloudErrorBodyResponseInput `pulumi:"error"`
+	RetryAttempt         pulumi.IntInput             `pulumi:"retryAttempt"`
+	SkipSucceededOnRetry pulumi.BoolInput            `pulumi:"skipSucceededOnRetry"`
+	StartTime            pulumi.StringInput          `pulumi:"startTime"`
 }
 
 func (RolloutOperationInfoResponseArgs) ElementType() reflect.Type {
@@ -2644,44 +2408,33 @@ func (o RolloutOperationInfoResponseOutput) ToRolloutOperationInfoResponseOutput
 	return o
 }
 
-// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
 func (o RolloutOperationInfoResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// The detailed error information for any failure.
 func (o RolloutOperationInfoResponseOutput) Error() CloudErrorBodyResponseOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponseOutput)
 }
 
-// The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
 func (o RolloutOperationInfoResponseOutput) RetryAttempt() pulumi.IntOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) int { return v.RetryAttempt }).(pulumi.IntOutput)
 }
 
-// True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
 func (o RolloutOperationInfoResponseOutput) SkipSucceededOnRetry() pulumi.BoolOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) bool { return v.SkipSucceededOnRetry }).(pulumi.BoolOutput)
 }
 
-// The start time of the rollout in UTC.
 func (o RolloutOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 type RolloutStepResponse struct {
-	// Supplementary informative messages during rollout.
-	Messages []MessageResponse `pulumi:"messages"`
-	// Name of the step.
-	Name string `pulumi:"name"`
-	// Detailed information of specific action execution.
-	OperationInfo StepOperationInfoResponse `pulumi:"operationInfo"`
-	// Set of resource operations that were performed, if any, on an Azure resource.
+	Messages           []MessageResponse           `pulumi:"messages"`
+	Name               string                      `pulumi:"name"`
+	OperationInfo      StepOperationInfoResponse   `pulumi:"operationInfo"`
 	ResourceOperations []ResourceOperationResponse `pulumi:"resourceOperations"`
-	// Current state of the step.
-	Status string `pulumi:"status"`
-	// The step group the current step is part of.
-	StepGroup *string `pulumi:"stepGroup"`
+	Status             string                      `pulumi:"status"`
+	StepGroup          *string                     `pulumi:"stepGroup"`
 }
 
 // RolloutStepResponseInput is an input type that accepts RolloutStepResponseArgs and RolloutStepResponseOutput values.
@@ -2696,18 +2449,12 @@ type RolloutStepResponseInput interface {
 }
 
 type RolloutStepResponseArgs struct {
-	// Supplementary informative messages during rollout.
-	Messages MessageResponseArrayInput `pulumi:"messages"`
-	// Name of the step.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Detailed information of specific action execution.
-	OperationInfo StepOperationInfoResponseInput `pulumi:"operationInfo"`
-	// Set of resource operations that were performed, if any, on an Azure resource.
+	Messages           MessageResponseArrayInput           `pulumi:"messages"`
+	Name               pulumi.StringInput                  `pulumi:"name"`
+	OperationInfo      StepOperationInfoResponseInput      `pulumi:"operationInfo"`
 	ResourceOperations ResourceOperationResponseArrayInput `pulumi:"resourceOperations"`
-	// Current state of the step.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The step group the current step is part of.
-	StepGroup pulumi.StringPtrInput `pulumi:"stepGroup"`
+	Status             pulumi.StringInput                  `pulumi:"status"`
+	StepGroup          pulumi.StringPtrInput               `pulumi:"stepGroup"`
 }
 
 func (RolloutStepResponseArgs) ElementType() reflect.Type {
@@ -2761,32 +2508,26 @@ func (o RolloutStepResponseOutput) ToRolloutStepResponseOutputWithContext(ctx co
 	return o
 }
 
-// Supplementary informative messages during rollout.
 func (o RolloutStepResponseOutput) Messages() MessageResponseArrayOutput {
 	return o.ApplyT(func(v RolloutStepResponse) []MessageResponse { return v.Messages }).(MessageResponseArrayOutput)
 }
 
-// Name of the step.
 func (o RolloutStepResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutStepResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Detailed information of specific action execution.
 func (o RolloutStepResponseOutput) OperationInfo() StepOperationInfoResponseOutput {
 	return o.ApplyT(func(v RolloutStepResponse) StepOperationInfoResponse { return v.OperationInfo }).(StepOperationInfoResponseOutput)
 }
 
-// Set of resource operations that were performed, if any, on an Azure resource.
 func (o RolloutStepResponseOutput) ResourceOperations() ResourceOperationResponseArrayOutput {
 	return o.ApplyT(func(v RolloutStepResponse) []ResourceOperationResponse { return v.ResourceOperations }).(ResourceOperationResponseArrayOutput)
 }
 
-// Current state of the step.
 func (o RolloutStepResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutStepResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The step group the current step is part of.
 func (o RolloutStepResponseOutput) StepGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RolloutStepResponse) *string { return v.StepGroup }).(pulumi.StringPtrOutput)
 }
@@ -2812,11 +2553,8 @@ func (o RolloutStepResponseArrayOutput) Index(i pulumi.IntInput) RolloutStepResp
 }
 
 type SasAuthentication struct {
-	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
-	// The authentication type
-	// Expected value is 'Sas'.
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 // SasAuthenticationInput is an input type that accepts SasAuthenticationArgs and SasAuthenticationOutput values.
@@ -2831,11 +2569,8 @@ type SasAuthenticationInput interface {
 }
 
 type SasAuthenticationArgs struct {
-	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
-	// The authentication type
-	// Expected value is 'Sas'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput `pulumi:"type"`
 }
 
 func (SasAuthenticationArgs) ElementType() reflect.Type {
@@ -2915,13 +2650,10 @@ func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutputWithContext(ctx con
 	}).(SasAuthenticationPtrOutput)
 }
 
-// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 func (o SasAuthenticationOutput) SasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthentication) string { return v.SasUri }).(pulumi.StringOutput)
 }
 
-// The authentication type
-// Expected value is 'Sas'.
 func (o SasAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2950,7 +2682,6 @@ func (o SasAuthenticationPtrOutput) Elem() SasAuthenticationOutput {
 	}).(SasAuthenticationOutput)
 }
 
-// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthentication) *string {
 		if v == nil {
@@ -2960,8 +2691,6 @@ func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authentication type
-// Expected value is 'Sas'.
 func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthentication) *string {
 		if v == nil {
@@ -2972,11 +2701,8 @@ func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type SasAuthenticationResponse struct {
-	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
-	// The authentication type
-	// Expected value is 'Sas'.
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 // SasAuthenticationResponseInput is an input type that accepts SasAuthenticationResponseArgs and SasAuthenticationResponseOutput values.
@@ -2991,11 +2717,8 @@ type SasAuthenticationResponseInput interface {
 }
 
 type SasAuthenticationResponseArgs struct {
-	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
-	// The authentication type
-	// Expected value is 'Sas'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput `pulumi:"type"`
 }
 
 func (SasAuthenticationResponseArgs) ElementType() reflect.Type {
@@ -3075,13 +2798,10 @@ func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutputWit
 	}).(SasAuthenticationResponsePtrOutput)
 }
 
-// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 func (o SasAuthenticationResponseOutput) SasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.SasUri }).(pulumi.StringOutput)
 }
 
-// The authentication type
-// Expected value is 'Sas'.
 func (o SasAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3110,7 +2830,6 @@ func (o SasAuthenticationResponsePtrOutput) Elem() SasAuthenticationResponseOutp
 	}).(SasAuthenticationResponseOutput)
 }
 
-// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
 		if v == nil {
@@ -3120,8 +2839,6 @@ func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authentication type
-// Expected value is 'Sas'.
 func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
 		if v == nil {
@@ -3132,14 +2849,10 @@ func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceResponse struct {
-	// Name of the service.
-	Name *string `pulumi:"name"`
-	// The detailed information about the units that make up the service.
-	ServiceUnits []ServiceUnitResponse `pulumi:"serviceUnits"`
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation string `pulumi:"targetLocation"`
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId string `pulumi:"targetSubscriptionId"`
+	Name                 *string               `pulumi:"name"`
+	ServiceUnits         []ServiceUnitResponse `pulumi:"serviceUnits"`
+	TargetLocation       string                `pulumi:"targetLocation"`
+	TargetSubscriptionId string                `pulumi:"targetSubscriptionId"`
 }
 
 // ServiceResponseInput is an input type that accepts ServiceResponseArgs and ServiceResponseOutput values.
@@ -3154,14 +2867,10 @@ type ServiceResponseInput interface {
 }
 
 type ServiceResponseArgs struct {
-	// Name of the service.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The detailed information about the units that make up the service.
-	ServiceUnits ServiceUnitResponseArrayInput `pulumi:"serviceUnits"`
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation pulumi.StringInput `pulumi:"targetLocation"`
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId pulumi.StringInput `pulumi:"targetSubscriptionId"`
+	Name                 pulumi.StringPtrInput         `pulumi:"name"`
+	ServiceUnits         ServiceUnitResponseArrayInput `pulumi:"serviceUnits"`
+	TargetLocation       pulumi.StringInput            `pulumi:"targetLocation"`
+	TargetSubscriptionId pulumi.StringInput            `pulumi:"targetSubscriptionId"`
 }
 
 func (ServiceResponseArgs) ElementType() reflect.Type {
@@ -3215,22 +2924,18 @@ func (o ServiceResponseOutput) ToServiceResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the service.
 func (o ServiceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The detailed information about the units that make up the service.
 func (o ServiceResponseOutput) ServiceUnits() ServiceUnitResponseArrayOutput {
 	return o.ApplyT(func(v ServiceResponse) []ServiceUnitResponse { return v.ServiceUnits }).(ServiceUnitResponseArrayOutput)
 }
 
-// The Azure location to which the resources in the service belong to or should be deployed to.
 func (o ServiceResponseOutput) TargetLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResponse) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// The subscription to which the resources in the service belong to or should be deployed to.
 func (o ServiceResponseOutput) TargetSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResponse) string { return v.TargetSubscriptionId }).(pulumi.StringOutput)
 }
@@ -3256,14 +2961,10 @@ func (o ServiceResponseArrayOutput) Index(i pulumi.IntInput) ServiceResponseOutp
 }
 
 type ServiceUnitArtifacts struct {
-	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath *string `pulumi:"parametersArtifactSourceRelativePath"`
-	// The full URI of the ARM parameters file with the SAS token.
-	ParametersUri *string `pulumi:"parametersUri"`
-	// The path to the ARM template file relative to the artifact source.
-	TemplateArtifactSourceRelativePath *string `pulumi:"templateArtifactSourceRelativePath"`
-	// The full URI of the ARM template file with the SAS token.
-	TemplateUri *string `pulumi:"templateUri"`
+	ParametersUri                        *string `pulumi:"parametersUri"`
+	TemplateArtifactSourceRelativePath   *string `pulumi:"templateArtifactSourceRelativePath"`
+	TemplateUri                          *string `pulumi:"templateUri"`
 }
 
 // ServiceUnitArtifactsInput is an input type that accepts ServiceUnitArtifactsArgs and ServiceUnitArtifactsOutput values.
@@ -3278,14 +2979,10 @@ type ServiceUnitArtifactsInput interface {
 }
 
 type ServiceUnitArtifactsArgs struct {
-	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"parametersArtifactSourceRelativePath"`
-	// The full URI of the ARM parameters file with the SAS token.
-	ParametersUri pulumi.StringPtrInput `pulumi:"parametersUri"`
-	// The path to the ARM template file relative to the artifact source.
-	TemplateArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"templateArtifactSourceRelativePath"`
-	// The full URI of the ARM template file with the SAS token.
-	TemplateUri pulumi.StringPtrInput `pulumi:"templateUri"`
+	ParametersUri                        pulumi.StringPtrInput `pulumi:"parametersUri"`
+	TemplateArtifactSourceRelativePath   pulumi.StringPtrInput `pulumi:"templateArtifactSourceRelativePath"`
+	TemplateUri                          pulumi.StringPtrInput `pulumi:"templateUri"`
 }
 
 func (ServiceUnitArtifactsArgs) ElementType() reflect.Type {
@@ -3365,22 +3062,18 @@ func (o ServiceUnitArtifactsOutput) ToServiceUnitArtifactsPtrOutputWithContext(c
 	}).(ServiceUnitArtifactsPtrOutput)
 }
 
-// The path to the ARM parameters file relative to the artifact source.
 func (o ServiceUnitArtifactsOutput) ParametersArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifacts) *string { return v.ParametersArtifactSourceRelativePath }).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM parameters file with the SAS token.
 func (o ServiceUnitArtifactsOutput) ParametersUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifacts) *string { return v.ParametersUri }).(pulumi.StringPtrOutput)
 }
 
-// The path to the ARM template file relative to the artifact source.
 func (o ServiceUnitArtifactsOutput) TemplateArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifacts) *string { return v.TemplateArtifactSourceRelativePath }).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM template file with the SAS token.
 func (o ServiceUnitArtifactsOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifacts) *string { return v.TemplateUri }).(pulumi.StringPtrOutput)
 }
@@ -3409,7 +3102,6 @@ func (o ServiceUnitArtifactsPtrOutput) Elem() ServiceUnitArtifactsOutput {
 	}).(ServiceUnitArtifactsOutput)
 }
 
-// The path to the ARM parameters file relative to the artifact source.
 func (o ServiceUnitArtifactsPtrOutput) ParametersArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifacts) *string {
 		if v == nil {
@@ -3419,7 +3111,6 @@ func (o ServiceUnitArtifactsPtrOutput) ParametersArtifactSourceRelativePath() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM parameters file with the SAS token.
 func (o ServiceUnitArtifactsPtrOutput) ParametersUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifacts) *string {
 		if v == nil {
@@ -3429,7 +3120,6 @@ func (o ServiceUnitArtifactsPtrOutput) ParametersUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the ARM template file relative to the artifact source.
 func (o ServiceUnitArtifactsPtrOutput) TemplateArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifacts) *string {
 		if v == nil {
@@ -3439,7 +3129,6 @@ func (o ServiceUnitArtifactsPtrOutput) TemplateArtifactSourceRelativePath() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM template file with the SAS token.
 func (o ServiceUnitArtifactsPtrOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifacts) *string {
 		if v == nil {
@@ -3450,14 +3139,10 @@ func (o ServiceUnitArtifactsPtrOutput) TemplateUri() pulumi.StringPtrOutput {
 }
 
 type ServiceUnitArtifactsResponse struct {
-	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath *string `pulumi:"parametersArtifactSourceRelativePath"`
-	// The full URI of the ARM parameters file with the SAS token.
-	ParametersUri *string `pulumi:"parametersUri"`
-	// The path to the ARM template file relative to the artifact source.
-	TemplateArtifactSourceRelativePath *string `pulumi:"templateArtifactSourceRelativePath"`
-	// The full URI of the ARM template file with the SAS token.
-	TemplateUri *string `pulumi:"templateUri"`
+	ParametersUri                        *string `pulumi:"parametersUri"`
+	TemplateArtifactSourceRelativePath   *string `pulumi:"templateArtifactSourceRelativePath"`
+	TemplateUri                          *string `pulumi:"templateUri"`
 }
 
 // ServiceUnitArtifactsResponseInput is an input type that accepts ServiceUnitArtifactsResponseArgs and ServiceUnitArtifactsResponseOutput values.
@@ -3472,14 +3157,10 @@ type ServiceUnitArtifactsResponseInput interface {
 }
 
 type ServiceUnitArtifactsResponseArgs struct {
-	// The path to the ARM parameters file relative to the artifact source.
 	ParametersArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"parametersArtifactSourceRelativePath"`
-	// The full URI of the ARM parameters file with the SAS token.
-	ParametersUri pulumi.StringPtrInput `pulumi:"parametersUri"`
-	// The path to the ARM template file relative to the artifact source.
-	TemplateArtifactSourceRelativePath pulumi.StringPtrInput `pulumi:"templateArtifactSourceRelativePath"`
-	// The full URI of the ARM template file with the SAS token.
-	TemplateUri pulumi.StringPtrInput `pulumi:"templateUri"`
+	ParametersUri                        pulumi.StringPtrInput `pulumi:"parametersUri"`
+	TemplateArtifactSourceRelativePath   pulumi.StringPtrInput `pulumi:"templateArtifactSourceRelativePath"`
+	TemplateUri                          pulumi.StringPtrInput `pulumi:"templateUri"`
 }
 
 func (ServiceUnitArtifactsResponseArgs) ElementType() reflect.Type {
@@ -3559,22 +3240,18 @@ func (o ServiceUnitArtifactsResponseOutput) ToServiceUnitArtifactsResponsePtrOut
 	}).(ServiceUnitArtifactsResponsePtrOutput)
 }
 
-// The path to the ARM parameters file relative to the artifact source.
 func (o ServiceUnitArtifactsResponseOutput) ParametersArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *string { return v.ParametersArtifactSourceRelativePath }).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM parameters file with the SAS token.
 func (o ServiceUnitArtifactsResponseOutput) ParametersUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *string { return v.ParametersUri }).(pulumi.StringPtrOutput)
 }
 
-// The path to the ARM template file relative to the artifact source.
 func (o ServiceUnitArtifactsResponseOutput) TemplateArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *string { return v.TemplateArtifactSourceRelativePath }).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM template file with the SAS token.
 func (o ServiceUnitArtifactsResponseOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *string { return v.TemplateUri }).(pulumi.StringPtrOutput)
 }
@@ -3603,7 +3280,6 @@ func (o ServiceUnitArtifactsResponsePtrOutput) Elem() ServiceUnitArtifactsRespon
 	}).(ServiceUnitArtifactsResponseOutput)
 }
 
-// The path to the ARM parameters file relative to the artifact source.
 func (o ServiceUnitArtifactsResponsePtrOutput) ParametersArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) *string {
 		if v == nil {
@@ -3613,7 +3289,6 @@ func (o ServiceUnitArtifactsResponsePtrOutput) ParametersArtifactSourceRelativeP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM parameters file with the SAS token.
 func (o ServiceUnitArtifactsResponsePtrOutput) ParametersUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) *string {
 		if v == nil {
@@ -3623,7 +3298,6 @@ func (o ServiceUnitArtifactsResponsePtrOutput) ParametersUri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the ARM template file relative to the artifact source.
 func (o ServiceUnitArtifactsResponsePtrOutput) TemplateArtifactSourceRelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) *string {
 		if v == nil {
@@ -3633,7 +3307,6 @@ func (o ServiceUnitArtifactsResponsePtrOutput) TemplateArtifactSourceRelativePat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The full URI of the ARM template file with the SAS token.
 func (o ServiceUnitArtifactsResponsePtrOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) *string {
 		if v == nil {
@@ -3644,16 +3317,11 @@ func (o ServiceUnitArtifactsResponsePtrOutput) TemplateUri() pulumi.StringPtrOut
 }
 
 type ServiceUnitResponse struct {
-	// The artifacts for the service unit.
-	Artifacts *ServiceUnitArtifactsResponse `pulumi:"artifacts"`
-	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode string `pulumi:"deploymentMode"`
-	// Name of the service unit.
-	Name *string `pulumi:"name"`
-	// Detailed step information, if present.
-	Steps []RolloutStepResponse `pulumi:"steps"`
-	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-	TargetResourceGroup string `pulumi:"targetResourceGroup"`
+	Artifacts           *ServiceUnitArtifactsResponse `pulumi:"artifacts"`
+	DeploymentMode      string                        `pulumi:"deploymentMode"`
+	Name                *string                       `pulumi:"name"`
+	Steps               []RolloutStepResponse         `pulumi:"steps"`
+	TargetResourceGroup string                        `pulumi:"targetResourceGroup"`
 }
 
 // ServiceUnitResponseInput is an input type that accepts ServiceUnitResponseArgs and ServiceUnitResponseOutput values.
@@ -3668,16 +3336,11 @@ type ServiceUnitResponseInput interface {
 }
 
 type ServiceUnitResponseArgs struct {
-	// The artifacts for the service unit.
-	Artifacts ServiceUnitArtifactsResponsePtrInput `pulumi:"artifacts"`
-	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
-	// Name of the service unit.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Detailed step information, if present.
-	Steps RolloutStepResponseArrayInput `pulumi:"steps"`
-	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-	TargetResourceGroup pulumi.StringInput `pulumi:"targetResourceGroup"`
+	Artifacts           ServiceUnitArtifactsResponsePtrInput `pulumi:"artifacts"`
+	DeploymentMode      pulumi.StringInput                   `pulumi:"deploymentMode"`
+	Name                pulumi.StringPtrInput                `pulumi:"name"`
+	Steps               RolloutStepResponseArrayInput        `pulumi:"steps"`
+	TargetResourceGroup pulumi.StringInput                   `pulumi:"targetResourceGroup"`
 }
 
 func (ServiceUnitResponseArgs) ElementType() reflect.Type {
@@ -3731,27 +3394,22 @@ func (o ServiceUnitResponseOutput) ToServiceUnitResponseOutputWithContext(ctx co
 	return o
 }
 
-// The artifacts for the service unit.
 func (o ServiceUnitResponseOutput) Artifacts() ServiceUnitArtifactsResponsePtrOutput {
 	return o.ApplyT(func(v ServiceUnitResponse) *ServiceUnitArtifactsResponse { return v.Artifacts }).(ServiceUnitArtifactsResponsePtrOutput)
 }
 
-// Describes the type of ARM deployment to be performed on the resource.
 func (o ServiceUnitResponseOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceUnitResponse) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
-// Name of the service unit.
 func (o ServiceUnitResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUnitResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Detailed step information, if present.
 func (o ServiceUnitResponseOutput) Steps() RolloutStepResponseArrayOutput {
 	return o.ApplyT(func(v ServiceUnitResponse) []RolloutStepResponse { return v.Steps }).(RolloutStepResponseArrayOutput)
 }
 
-// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 func (o ServiceUnitResponseOutput) TargetResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceUnitResponse) string { return v.TargetResourceGroup }).(pulumi.StringOutput)
 }
@@ -3777,16 +3435,11 @@ func (o ServiceUnitResponseArrayOutput) Index(i pulumi.IntInput) ServiceUnitResp
 }
 
 type StepGroup struct {
-	// The list of step group names on which this step group depends on.
-	DependsOnStepGroups []string `pulumi:"dependsOnStepGroups"`
-	// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
-	DeploymentTargetId string `pulumi:"deploymentTargetId"`
-	// The name of the step group.
-	Name string `pulumi:"name"`
-	// The list of steps to be run after deploying the target.
+	DependsOnStepGroups []string      `pulumi:"dependsOnStepGroups"`
+	DeploymentTargetId  string        `pulumi:"deploymentTargetId"`
+	Name                string        `pulumi:"name"`
 	PostDeploymentSteps []PrePostStep `pulumi:"postDeploymentSteps"`
-	// The list of steps to be run before deploying the target.
-	PreDeploymentSteps []PrePostStep `pulumi:"preDeploymentSteps"`
+	PreDeploymentSteps  []PrePostStep `pulumi:"preDeploymentSteps"`
 }
 
 // StepGroupInput is an input type that accepts StepGroupArgs and StepGroupOutput values.
@@ -3801,16 +3454,11 @@ type StepGroupInput interface {
 }
 
 type StepGroupArgs struct {
-	// The list of step group names on which this step group depends on.
 	DependsOnStepGroups pulumi.StringArrayInput `pulumi:"dependsOnStepGroups"`
-	// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
-	DeploymentTargetId pulumi.StringInput `pulumi:"deploymentTargetId"`
-	// The name of the step group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The list of steps to be run after deploying the target.
-	PostDeploymentSteps PrePostStepArrayInput `pulumi:"postDeploymentSteps"`
-	// The list of steps to be run before deploying the target.
-	PreDeploymentSteps PrePostStepArrayInput `pulumi:"preDeploymentSteps"`
+	DeploymentTargetId  pulumi.StringInput      `pulumi:"deploymentTargetId"`
+	Name                pulumi.StringInput      `pulumi:"name"`
+	PostDeploymentSteps PrePostStepArrayInput   `pulumi:"postDeploymentSteps"`
+	PreDeploymentSteps  PrePostStepArrayInput   `pulumi:"preDeploymentSteps"`
 }
 
 func (StepGroupArgs) ElementType() reflect.Type {
@@ -3864,27 +3512,22 @@ func (o StepGroupOutput) ToStepGroupOutputWithContext(ctx context.Context) StepG
 	return o
 }
 
-// The list of step group names on which this step group depends on.
 func (o StepGroupOutput) DependsOnStepGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StepGroup) []string { return v.DependsOnStepGroups }).(pulumi.StringArrayOutput)
 }
 
-// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
 func (o StepGroupOutput) DeploymentTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v StepGroup) string { return v.DeploymentTargetId }).(pulumi.StringOutput)
 }
 
-// The name of the step group.
 func (o StepGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StepGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of steps to be run after deploying the target.
 func (o StepGroupOutput) PostDeploymentSteps() PrePostStepArrayOutput {
 	return o.ApplyT(func(v StepGroup) []PrePostStep { return v.PostDeploymentSteps }).(PrePostStepArrayOutput)
 }
 
-// The list of steps to be run before deploying the target.
 func (o StepGroupOutput) PreDeploymentSteps() PrePostStepArrayOutput {
 	return o.ApplyT(func(v StepGroup) []PrePostStep { return v.PreDeploymentSteps }).(PrePostStepArrayOutput)
 }
@@ -3910,16 +3553,11 @@ func (o StepGroupArrayOutput) Index(i pulumi.IntInput) StepGroupOutput {
 }
 
 type StepGroupResponse struct {
-	// The list of step group names on which this step group depends on.
-	DependsOnStepGroups []string `pulumi:"dependsOnStepGroups"`
-	// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
-	DeploymentTargetId string `pulumi:"deploymentTargetId"`
-	// The name of the step group.
-	Name string `pulumi:"name"`
-	// The list of steps to be run after deploying the target.
+	DependsOnStepGroups []string              `pulumi:"dependsOnStepGroups"`
+	DeploymentTargetId  string                `pulumi:"deploymentTargetId"`
+	Name                string                `pulumi:"name"`
 	PostDeploymentSteps []PrePostStepResponse `pulumi:"postDeploymentSteps"`
-	// The list of steps to be run before deploying the target.
-	PreDeploymentSteps []PrePostStepResponse `pulumi:"preDeploymentSteps"`
+	PreDeploymentSteps  []PrePostStepResponse `pulumi:"preDeploymentSteps"`
 }
 
 // StepGroupResponseInput is an input type that accepts StepGroupResponseArgs and StepGroupResponseOutput values.
@@ -3934,16 +3572,11 @@ type StepGroupResponseInput interface {
 }
 
 type StepGroupResponseArgs struct {
-	// The list of step group names on which this step group depends on.
-	DependsOnStepGroups pulumi.StringArrayInput `pulumi:"dependsOnStepGroups"`
-	// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
-	DeploymentTargetId pulumi.StringInput `pulumi:"deploymentTargetId"`
-	// The name of the step group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The list of steps to be run after deploying the target.
+	DependsOnStepGroups pulumi.StringArrayInput       `pulumi:"dependsOnStepGroups"`
+	DeploymentTargetId  pulumi.StringInput            `pulumi:"deploymentTargetId"`
+	Name                pulumi.StringInput            `pulumi:"name"`
 	PostDeploymentSteps PrePostStepResponseArrayInput `pulumi:"postDeploymentSteps"`
-	// The list of steps to be run before deploying the target.
-	PreDeploymentSteps PrePostStepResponseArrayInput `pulumi:"preDeploymentSteps"`
+	PreDeploymentSteps  PrePostStepResponseArrayInput `pulumi:"preDeploymentSteps"`
 }
 
 func (StepGroupResponseArgs) ElementType() reflect.Type {
@@ -3997,27 +3630,22 @@ func (o StepGroupResponseOutput) ToStepGroupResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The list of step group names on which this step group depends on.
 func (o StepGroupResponseOutput) DependsOnStepGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StepGroupResponse) []string { return v.DependsOnStepGroups }).(pulumi.StringArrayOutput)
 }
 
-// The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
 func (o StepGroupResponseOutput) DeploymentTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v StepGroupResponse) string { return v.DeploymentTargetId }).(pulumi.StringOutput)
 }
 
-// The name of the step group.
 func (o StepGroupResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StepGroupResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of steps to be run after deploying the target.
 func (o StepGroupResponseOutput) PostDeploymentSteps() PrePostStepResponseArrayOutput {
 	return o.ApplyT(func(v StepGroupResponse) []PrePostStepResponse { return v.PostDeploymentSteps }).(PrePostStepResponseArrayOutput)
 }
 
-// The list of steps to be run before deploying the target.
 func (o StepGroupResponseOutput) PreDeploymentSteps() PrePostStepResponseArrayOutput {
 	return o.ApplyT(func(v StepGroupResponse) []PrePostStepResponse { return v.PreDeploymentSteps }).(PrePostStepResponseArrayOutput)
 }
@@ -4043,18 +3671,12 @@ func (o StepGroupResponseArrayOutput) Index(i pulumi.IntInput) StepGroupResponse
 }
 
 type StepOperationInfoResponse struct {
-	// Unique identifier to track the request for ARM-based resources.
-	CorrelationId string `pulumi:"correlationId"`
-	// The name of the ARM deployment initiated as part of the step.
-	DeploymentName string `pulumi:"deploymentName"`
-	// End time of the action in UTC.
-	EndTime string `pulumi:"endTime"`
-	// The errors, if any, for the action.
-	Error *CloudErrorBodyResponse `pulumi:"error"`
-	// Last time in UTC this operation was updated.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// Start time of the action in UTC.
-	StartTime string `pulumi:"startTime"`
+	CorrelationId   string                  `pulumi:"correlationId"`
+	DeploymentName  string                  `pulumi:"deploymentName"`
+	EndTime         string                  `pulumi:"endTime"`
+	Error           *CloudErrorBodyResponse `pulumi:"error"`
+	LastUpdatedTime string                  `pulumi:"lastUpdatedTime"`
+	StartTime       string                  `pulumi:"startTime"`
 }
 
 // StepOperationInfoResponseInput is an input type that accepts StepOperationInfoResponseArgs and StepOperationInfoResponseOutput values.
@@ -4069,18 +3691,12 @@ type StepOperationInfoResponseInput interface {
 }
 
 type StepOperationInfoResponseArgs struct {
-	// Unique identifier to track the request for ARM-based resources.
-	CorrelationId pulumi.StringInput `pulumi:"correlationId"`
-	// The name of the ARM deployment initiated as part of the step.
-	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
-	// End time of the action in UTC.
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// The errors, if any, for the action.
-	Error CloudErrorBodyResponsePtrInput `pulumi:"error"`
-	// Last time in UTC this operation was updated.
-	LastUpdatedTime pulumi.StringInput `pulumi:"lastUpdatedTime"`
-	// Start time of the action in UTC.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
+	CorrelationId   pulumi.StringInput             `pulumi:"correlationId"`
+	DeploymentName  pulumi.StringInput             `pulumi:"deploymentName"`
+	EndTime         pulumi.StringInput             `pulumi:"endTime"`
+	Error           CloudErrorBodyResponsePtrInput `pulumi:"error"`
+	LastUpdatedTime pulumi.StringInput             `pulumi:"lastUpdatedTime"`
+	StartTime       pulumi.StringInput             `pulumi:"startTime"`
 }
 
 func (StepOperationInfoResponseArgs) ElementType() reflect.Type {
@@ -4109,38 +3725,31 @@ func (o StepOperationInfoResponseOutput) ToStepOperationInfoResponseOutputWithCo
 	return o
 }
 
-// Unique identifier to track the request for ARM-based resources.
 func (o StepOperationInfoResponseOutput) CorrelationId() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.CorrelationId }).(pulumi.StringOutput)
 }
 
-// The name of the ARM deployment initiated as part of the step.
 func (o StepOperationInfoResponseOutput) DeploymentName() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.DeploymentName }).(pulumi.StringOutput)
 }
 
-// End time of the action in UTC.
 func (o StepOperationInfoResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// The errors, if any, for the action.
 func (o StepOperationInfoResponseOutput) Error() CloudErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) *CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponsePtrOutput)
 }
 
-// Last time in UTC this operation was updated.
 func (o StepOperationInfoResponseOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Start time of the action in UTC.
 func (o StepOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 type WaitStepAttributes struct {
-	// The duration in ISO 8601 format of how long the wait should be.
 	Duration string `pulumi:"duration"`
 }
 
@@ -4156,7 +3765,6 @@ type WaitStepAttributesInput interface {
 }
 
 type WaitStepAttributesArgs struct {
-	// The duration in ISO 8601 format of how long the wait should be.
 	Duration pulumi.StringInput `pulumi:"duration"`
 }
 
@@ -4186,13 +3794,11 @@ func (o WaitStepAttributesOutput) ToWaitStepAttributesOutputWithContext(ctx cont
 	return o
 }
 
-// The duration in ISO 8601 format of how long the wait should be.
 func (o WaitStepAttributesOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepAttributes) string { return v.Duration }).(pulumi.StringOutput)
 }
 
 type WaitStepAttributesResponse struct {
-	// The duration in ISO 8601 format of how long the wait should be.
 	Duration string `pulumi:"duration"`
 }
 
@@ -4208,7 +3814,6 @@ type WaitStepAttributesResponseInput interface {
 }
 
 type WaitStepAttributesResponseArgs struct {
-	// The duration in ISO 8601 format of how long the wait should be.
 	Duration pulumi.StringInput `pulumi:"duration"`
 }
 
@@ -4238,17 +3843,13 @@ func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponseOutputWith
 	return o
 }
 
-// The duration in ISO 8601 format of how long the wait should be.
 func (o WaitStepAttributesResponseOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepAttributesResponse) string { return v.Duration }).(pulumi.StringOutput)
 }
 
 type WaitStepProperties struct {
-	// The Wait attributes
 	Attributes WaitStepAttributes `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'Wait'.
-	StepType string `pulumi:"stepType"`
+	StepType   string             `pulumi:"stepType"`
 }
 
 // WaitStepPropertiesInput is an input type that accepts WaitStepPropertiesArgs and WaitStepPropertiesOutput values.
@@ -4263,11 +3864,8 @@ type WaitStepPropertiesInput interface {
 }
 
 type WaitStepPropertiesArgs struct {
-	// The Wait attributes
 	Attributes WaitStepAttributesInput `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'Wait'.
-	StepType pulumi.StringInput `pulumi:"stepType"`
+	StepType   pulumi.StringInput      `pulumi:"stepType"`
 }
 
 func (WaitStepPropertiesArgs) ElementType() reflect.Type {
@@ -4296,23 +3894,17 @@ func (o WaitStepPropertiesOutput) ToWaitStepPropertiesOutputWithContext(ctx cont
 	return o
 }
 
-// The Wait attributes
 func (o WaitStepPropertiesOutput) Attributes() WaitStepAttributesOutput {
 	return o.ApplyT(func(v WaitStepProperties) WaitStepAttributes { return v.Attributes }).(WaitStepAttributesOutput)
 }
 
-// The type of step.
-// Expected value is 'Wait'.
 func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
 
 type WaitStepPropertiesResponse struct {
-	// The Wait attributes
 	Attributes WaitStepAttributesResponse `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'Wait'.
-	StepType string `pulumi:"stepType"`
+	StepType   string                     `pulumi:"stepType"`
 }
 
 // WaitStepPropertiesResponseInput is an input type that accepts WaitStepPropertiesResponseArgs and WaitStepPropertiesResponseOutput values.
@@ -4327,11 +3919,8 @@ type WaitStepPropertiesResponseInput interface {
 }
 
 type WaitStepPropertiesResponseArgs struct {
-	// The Wait attributes
 	Attributes WaitStepAttributesResponseInput `pulumi:"attributes"`
-	// The type of step.
-	// Expected value is 'Wait'.
-	StepType pulumi.StringInput `pulumi:"stepType"`
+	StepType   pulumi.StringInput              `pulumi:"stepType"`
 }
 
 func (WaitStepPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4360,13 +3949,10 @@ func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponseOutputWith
 	return o
 }
 
-// The Wait attributes
 func (o WaitStepPropertiesResponseOutput) Attributes() WaitStepAttributesResponseOutput {
 	return o.ApplyT(func(v WaitStepPropertiesResponse) WaitStepAttributesResponse { return v.Attributes }).(WaitStepAttributesResponseOutput)
 }
 
-// The type of step.
-// Expected value is 'Wait'.
 func (o WaitStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }

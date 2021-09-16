@@ -23,6 +23,7 @@ type PrivateEndpoint struct {
 	NetworkInterfaces                   NetworkInterfaceResponseArrayOutput                `pulumi:"networkInterfaces"`
 	PrivateLinkServiceConnections       PrivateLinkServiceConnectionResponseArrayOutput    `pulumi:"privateLinkServiceConnections"`
 	ProvisioningState                   pulumi.StringOutput                                `pulumi:"provisioningState"`
+	ResourceGuid                        pulumi.StringPtrOutput                             `pulumi:"resourceGuid"`
 	Subnet                              SubnetResponsePtrOutput                            `pulumi:"subnet"`
 	Tags                                pulumi.StringMapOutput                             `pulumi:"tags"`
 	Type                                pulumi.StringOutput                                `pulumi:"type"`
@@ -210,6 +211,7 @@ type privateEndpointArgs struct {
 	PrivateEndpointName                 *string                           `pulumi:"privateEndpointName"`
 	PrivateLinkServiceConnections       []PrivateLinkServiceConnection    `pulumi:"privateLinkServiceConnections"`
 	ResourceGroupName                   string                            `pulumi:"resourceGroupName"`
+	ResourceGuid                        *string                           `pulumi:"resourceGuid"`
 	Subnet                              *SubnetType                       `pulumi:"subnet"`
 	Tags                                map[string]string                 `pulumi:"tags"`
 }
@@ -224,6 +226,7 @@ type PrivateEndpointArgs struct {
 	PrivateEndpointName                 pulumi.StringPtrInput
 	PrivateLinkServiceConnections       PrivateLinkServiceConnectionArrayInput
 	ResourceGroupName                   pulumi.StringInput
+	ResourceGuid                        pulumi.StringPtrInput
 	Subnet                              SubnetTypePtrInput
 	Tags                                pulumi.StringMapInput
 }

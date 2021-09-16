@@ -22,7 +22,7 @@ class DefenderSettingArgs:
                  sentinel_workspace_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a DefenderSetting resource.
-        :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input[int] device_quota: Size of the device quota. Value is required to be in multiples of 100.
         :param pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs'] mde_integration: MDE integration configuration
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
@@ -36,7 +36,7 @@ class DefenderSettingArgs:
     @pulumi.getter(name="deviceQuota")
     def device_quota(self) -> pulumi.Input[int]:
         """
-        Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        Size of the device quota. Value is required to be in multiples of 100.
         """
         return pulumi.get(self, "device_quota")
 
@@ -97,7 +97,7 @@ class DefenderSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input[int] device_quota: Size of the device quota. Value is required to be in multiples of 100.
         :param pulumi.Input[pulumi.InputType['DefenderSettingsPropertiesMdeIntegrationArgs']] mde_integration: MDE integration configuration
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
@@ -195,7 +195,7 @@ class DefenderSetting(pulumi.CustomResource):
     @pulumi.getter(name="deviceQuota")
     def device_quota(self) -> pulumi.Output[int]:
         """
-        Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        Size of the device quota. Value is required to be in multiples of 100.
         """
         return pulumi.get(self, "device_quota")
 

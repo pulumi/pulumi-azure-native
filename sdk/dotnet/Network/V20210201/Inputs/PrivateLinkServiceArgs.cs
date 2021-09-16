@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The resource id of private link service.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

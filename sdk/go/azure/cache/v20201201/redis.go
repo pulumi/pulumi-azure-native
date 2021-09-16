@@ -14,31 +14,31 @@ import (
 type Redis struct {
 	pulumi.CustomResourceState
 
-	AccessKeys                 RedisAccessKeysResponseOutput                `pulumi:"accessKeys"`
-	EnableNonSslPort           pulumi.BoolPtrOutput                         `pulumi:"enableNonSslPort"`
-	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
-	Instances                  RedisInstanceDetailsResponseArrayOutput      `pulumi:"instances"`
-	LinkedServers              RedisLinkedServerResponseArrayOutput         `pulumi:"linkedServers"`
-	Location                   pulumi.StringOutput                          `pulumi:"location"`
-	MinimumTlsVersion          pulumi.StringPtrOutput                       `pulumi:"minimumTlsVersion"`
-	Name                       pulumi.StringOutput                          `pulumi:"name"`
-	Port                       pulumi.IntOutput                             `pulumi:"port"`
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
-	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
-	RedisConfiguration         pulumi.StringMapOutput                       `pulumi:"redisConfiguration"`
-	RedisVersion               pulumi.StringPtrOutput                       `pulumi:"redisVersion"`
-	ReplicasPerMaster          pulumi.IntPtrOutput                          `pulumi:"replicasPerMaster"`
-	ReplicasPerPrimary         pulumi.IntPtrOutput                          `pulumi:"replicasPerPrimary"`
-	ShardCount                 pulumi.IntPtrOutput                          `pulumi:"shardCount"`
-	Sku                        SkuResponseOutput                            `pulumi:"sku"`
-	SslPort                    pulumi.IntOutput                             `pulumi:"sslPort"`
-	StaticIP                   pulumi.StringPtrOutput                       `pulumi:"staticIP"`
-	SubnetId                   pulumi.StringPtrOutput                       `pulumi:"subnetId"`
-	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
-	TenantSettings             pulumi.StringMapOutput                       `pulumi:"tenantSettings"`
-	Type                       pulumi.StringOutput                          `pulumi:"type"`
-	Zones                      pulumi.StringArrayOutput                     `pulumi:"zones"`
+	AccessKeys                 RedisAccessKeysResponseOutput                            `pulumi:"accessKeys"`
+	EnableNonSslPort           pulumi.BoolPtrOutput                                     `pulumi:"enableNonSslPort"`
+	HostName                   pulumi.StringOutput                                      `pulumi:"hostName"`
+	Instances                  RedisInstanceDetailsResponseArrayOutput                  `pulumi:"instances"`
+	LinkedServers              RedisLinkedServerResponseArrayOutput                     `pulumi:"linkedServers"`
+	Location                   pulumi.StringOutput                                      `pulumi:"location"`
+	MinimumTlsVersion          pulumi.StringPtrOutput                                   `pulumi:"minimumTlsVersion"`
+	Name                       pulumi.StringOutput                                      `pulumi:"name"`
+	Port                       pulumi.IntOutput                                         `pulumi:"port"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput             `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringOutput                                      `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                                   `pulumi:"publicNetworkAccess"`
+	RedisConfiguration         RedisCommonPropertiesResponseRedisConfigurationPtrOutput `pulumi:"redisConfiguration"`
+	RedisVersion               pulumi.StringPtrOutput                                   `pulumi:"redisVersion"`
+	ReplicasPerMaster          pulumi.IntPtrOutput                                      `pulumi:"replicasPerMaster"`
+	ReplicasPerPrimary         pulumi.IntPtrOutput                                      `pulumi:"replicasPerPrimary"`
+	ShardCount                 pulumi.IntPtrOutput                                      `pulumi:"shardCount"`
+	Sku                        SkuResponseOutput                                        `pulumi:"sku"`
+	SslPort                    pulumi.IntOutput                                         `pulumi:"sslPort"`
+	StaticIP                   pulumi.StringPtrOutput                                   `pulumi:"staticIP"`
+	SubnetId                   pulumi.StringPtrOutput                                   `pulumi:"subnetId"`
+	Tags                       pulumi.StringMapOutput                                   `pulumi:"tags"`
+	TenantSettings             pulumi.StringMapOutput                                   `pulumi:"tenantSettings"`
+	Type                       pulumi.StringOutput                                      `pulumi:"type"`
+	Zones                      pulumi.StringArrayOutput                                 `pulumi:"zones"`
 }
 
 // NewRedis registers a new resource with the given unique name, arguments, and options.
@@ -140,23 +140,23 @@ func (RedisState) ElementType() reflect.Type {
 }
 
 type redisArgs struct {
-	EnableNonSslPort    *bool             `pulumi:"enableNonSslPort"`
-	Location            *string           `pulumi:"location"`
-	MinimumTlsVersion   *string           `pulumi:"minimumTlsVersion"`
-	Name                *string           `pulumi:"name"`
-	PublicNetworkAccess *string           `pulumi:"publicNetworkAccess"`
-	RedisConfiguration  map[string]string `pulumi:"redisConfiguration"`
-	RedisVersion        *string           `pulumi:"redisVersion"`
-	ReplicasPerMaster   *int              `pulumi:"replicasPerMaster"`
-	ReplicasPerPrimary  *int              `pulumi:"replicasPerPrimary"`
-	ResourceGroupName   string            `pulumi:"resourceGroupName"`
-	ShardCount          *int              `pulumi:"shardCount"`
-	Sku                 Sku               `pulumi:"sku"`
-	StaticIP            *string           `pulumi:"staticIP"`
-	SubnetId            *string           `pulumi:"subnetId"`
-	Tags                map[string]string `pulumi:"tags"`
-	TenantSettings      map[string]string `pulumi:"tenantSettings"`
-	Zones               []string          `pulumi:"zones"`
+	EnableNonSslPort    *bool                                    `pulumi:"enableNonSslPort"`
+	Location            *string                                  `pulumi:"location"`
+	MinimumTlsVersion   *string                                  `pulumi:"minimumTlsVersion"`
+	Name                *string                                  `pulumi:"name"`
+	PublicNetworkAccess *string                                  `pulumi:"publicNetworkAccess"`
+	RedisConfiguration  *RedisCommonPropertiesRedisConfiguration `pulumi:"redisConfiguration"`
+	RedisVersion        *string                                  `pulumi:"redisVersion"`
+	ReplicasPerMaster   *int                                     `pulumi:"replicasPerMaster"`
+	ReplicasPerPrimary  *int                                     `pulumi:"replicasPerPrimary"`
+	ResourceGroupName   string                                   `pulumi:"resourceGroupName"`
+	ShardCount          *int                                     `pulumi:"shardCount"`
+	Sku                 Sku                                      `pulumi:"sku"`
+	StaticIP            *string                                  `pulumi:"staticIP"`
+	SubnetId            *string                                  `pulumi:"subnetId"`
+	Tags                map[string]string                        `pulumi:"tags"`
+	TenantSettings      map[string]string                        `pulumi:"tenantSettings"`
+	Zones               []string                                 `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Redis resource.
@@ -166,7 +166,7 @@ type RedisArgs struct {
 	MinimumTlsVersion   pulumi.StringPtrInput
 	Name                pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	RedisConfiguration  pulumi.StringMapInput
+	RedisConfiguration  RedisCommonPropertiesRedisConfigurationPtrInput
 	RedisVersion        pulumi.StringPtrInput
 	ReplicasPerMaster   pulumi.IntPtrInput
 	ReplicasPerPrimary  pulumi.IntPtrInput

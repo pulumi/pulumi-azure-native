@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The profile resource format.
-// API Version: 2017-04-26.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:customerinsights:getProfile", args, &rv, opts...)
@@ -19,58 +17,33 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 }
 
 type LookupProfileArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// Locale of profile to retrieve, default is en-us.
-	LocaleCode *string `pulumi:"localeCode"`
-	// The name of the profile.
-	ProfileName string `pulumi:"profileName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	HubName           string  `pulumi:"hubName"`
+	LocaleCode        *string `pulumi:"localeCode"`
+	ProfileName       string  `pulumi:"profileName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The profile resource format.
 type LookupProfileResult struct {
-	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
-	ApiEntitySetName *string `pulumi:"apiEntitySetName"`
-	// The attributes for the Type.
-	Attributes map[string][]string `pulumi:"attributes"`
-	// Localized descriptions for the property.
-	Description map[string]string `pulumi:"description"`
-	// Localized display names for the property.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// Type of entity.
-	EntityType *string `pulumi:"entityType"`
-	// The properties of the Profile.
-	Fields []PropertyDefinitionResponse `pulumi:"fields"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The instance count.
-	InstancesCount *int `pulumi:"instancesCount"`
-	// Large Image associated with the Property or EntityType.
-	LargeImage *string `pulumi:"largeImage"`
-	// The last changed time for the type definition.
-	LastChangedUtc string `pulumi:"lastChangedUtc"`
-	// Any custom localized attributes for the Type.
+	ApiEntitySetName    *string                      `pulumi:"apiEntitySetName"`
+	Attributes          map[string][]string          `pulumi:"attributes"`
+	Description         map[string]string            `pulumi:"description"`
+	DisplayName         map[string]string            `pulumi:"displayName"`
+	EntityType          *string                      `pulumi:"entityType"`
+	Fields              []PropertyDefinitionResponse `pulumi:"fields"`
+	Id                  string                       `pulumi:"id"`
+	InstancesCount      *int                         `pulumi:"instancesCount"`
+	LargeImage          *string                      `pulumi:"largeImage"`
+	LastChangedUtc      string                       `pulumi:"lastChangedUtc"`
 	LocalizedAttributes map[string]map[string]string `pulumi:"localizedAttributes"`
-	// Medium Image associated with the Property or EntityType.
-	MediumImage *string `pulumi:"mediumImage"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The schema org link. This helps ACI identify and suggest semantic models.
-	SchemaItemTypeLink *string `pulumi:"schemaItemTypeLink"`
-	// Small Image associated with the Property or EntityType.
-	SmallImage *string `pulumi:"smallImage"`
-	// The strong IDs.
-	StrongIds []StrongIdResponse `pulumi:"strongIds"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
-	// The timestamp property name. Represents the time when the interaction or profile update happened.
-	TimestampFieldName *string `pulumi:"timestampFieldName"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The name of the entity.
-	TypeName *string `pulumi:"typeName"`
+	MediumImage         *string                      `pulumi:"mediumImage"`
+	Name                string                       `pulumi:"name"`
+	ProvisioningState   string                       `pulumi:"provisioningState"`
+	SchemaItemTypeLink  *string                      `pulumi:"schemaItemTypeLink"`
+	SmallImage          *string                      `pulumi:"smallImage"`
+	StrongIds           []StrongIdResponse           `pulumi:"strongIds"`
+	TenantId            string                       `pulumi:"tenantId"`
+	TimestampFieldName  *string                      `pulumi:"timestampFieldName"`
+	Type                string                       `pulumi:"type"`
+	TypeName            *string                      `pulumi:"typeName"`
 }

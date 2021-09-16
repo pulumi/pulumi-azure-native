@@ -11,7 +11,6 @@ import (
 )
 
 type Sku struct {
-	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
 }
 
@@ -27,7 +26,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -108,7 +106,6 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
 }
 
@@ -164,7 +159,6 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -245,7 +239,6 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

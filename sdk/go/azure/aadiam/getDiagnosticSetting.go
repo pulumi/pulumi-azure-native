@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The diagnostic setting resource.
-// API Version: 2017-04-01.
 func LookupDiagnosticSetting(ctx *pulumi.Context, args *LookupDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticSettingResult, error) {
 	var rv LookupDiagnosticSettingResult
 	err := ctx.Invoke("azure-native:aadiam:getDiagnosticSetting", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupDiagnosticSetting(ctx *pulumi.Context, args *LookupDiagnosticSettingA
 }
 
 type LookupDiagnosticSettingArgs struct {
-	// The name of the diagnostic setting.
 	Name string `pulumi:"name"`
 }
 
 // The diagnostic setting resource.
 type LookupDiagnosticSettingResult struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The list of logs settings.
-	Logs []LogSettingsResponse `pulumi:"logs"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId *string               `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                *string               `pulumi:"eventHubName"`
+	Id                          string                `pulumi:"id"`
+	Logs                        []LogSettingsResponse `pulumi:"logs"`
+	Name                        string                `pulumi:"name"`
+	ServiceBusRuleId            *string               `pulumi:"serviceBusRuleId"`
+	StorageAccountId            *string               `pulumi:"storageAccountId"`
+	Type                        string                `pulumi:"type"`
+	WorkspaceId                 *string               `pulumi:"workspaceId"`
 }

@@ -11,7 +11,6 @@ import (
 )
 
 type AzureADMetricsPropertiesFormatResponse struct {
-	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
@@ -27,7 +26,6 @@ type AzureADMetricsPropertiesFormatResponseInput interface {
 }
 
 type AzureADMetricsPropertiesFormatResponseArgs struct {
-	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
@@ -108,7 +106,6 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
 }
 
-// The provisioning state of the resource.
 func (o AzureADMetricsPropertiesFormatResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -137,7 +134,6 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPr
 	}).(AzureADMetricsPropertiesFormatResponseOutput)
 }
 
-// The provisioning state of the resource.
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) *string {
 		if v == nil {
@@ -148,11 +144,8 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pul
 }
 
 type LogSettings struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        *string          `pulumi:"category"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -168,11 +161,8 @@ type LogSettingsInput interface {
 }
 
 type LogSettingsArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -227,17 +217,14 @@ func (o LogSettingsOutput) ToLogSettingsOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this log is enabled.
 func (o LogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The retention policy for this log.
 func (o LogSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v LogSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
@@ -263,11 +250,8 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 }
 
 type LogSettingsResponse struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        *string                  `pulumi:"category"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
 }
 
@@ -283,11 +267,8 @@ type LogSettingsResponseInput interface {
 }
 
 type LogSettingsResponseArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -342,17 +323,14 @@ func (o LogSettingsResponseOutput) ToLogSettingsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this log is enabled.
 func (o LogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The retention policy for this log.
 func (o LogSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
@@ -378,7 +356,6 @@ func (o LogSettingsResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsResp
 }
 
 type PrivateEndpoint struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -394,7 +371,6 @@ type PrivateEndpointInput interface {
 }
 
 type PrivateEndpointArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -475,7 +451,6 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context
 	}).(PrivateEndpointPtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -504,7 +479,6 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	}).(PrivateEndpointOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -515,7 +489,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointResponse struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -531,7 +504,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -612,7 +584,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -641,7 +612,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -652,12 +622,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -672,12 +639,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -757,17 +721,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -796,7 +757,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -806,7 +766,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -816,7 +775,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -827,12 +785,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -847,12 +802,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -932,17 +884,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -971,7 +920,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -981,7 +929,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -991,7 +938,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1002,9 +948,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type RetentionPolicy struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1020,9 +964,7 @@ type RetentionPolicyInput interface {
 }
 
 type RetentionPolicyArgs struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1103,12 +1045,10 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context
 	}).(RetentionPolicyPtrOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1137,7 +1077,6 @@ func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
 	}).(RetentionPolicyOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *int {
 		if v == nil {
@@ -1147,7 +1086,6 @@ func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *bool {
 		if v == nil {
@@ -1158,9 +1096,7 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type RetentionPolicyResponse struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1176,9 +1112,7 @@ type RetentionPolicyResponseInput interface {
 }
 
 type RetentionPolicyResponseArgs struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1259,12 +1193,10 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithCon
 	}).(RetentionPolicyResponsePtrOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1293,7 +1225,6 @@ func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
 	}).(RetentionPolicyResponseOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *int {
 		if v == nil {
@@ -1303,7 +1234,6 @@ func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *bool {
 		if v == nil {
@@ -1314,7 +1244,6 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TagsResource struct {
-	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -1330,7 +1259,6 @@ type TagsResourceInput interface {
 }
 
 type TagsResourceArgs struct {
-	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -1411,7 +1339,6 @@ func (o TagsResourceOutput) ToTagsResourcePtrOutputWithContext(ctx context.Conte
 	}).(TagsResourcePtrOutput)
 }
 
-// Resource tags
 func (o TagsResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TagsResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -1440,7 +1367,6 @@ func (o TagsResourcePtrOutput) Elem() TagsResourceOutput {
 	}).(TagsResourceOutput)
 }
 
-// Resource tags
 func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TagsResource) map[string]string {
 		if v == nil {
@@ -1451,7 +1377,6 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 }
 
 type TagsResourceResponse struct {
-	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -1467,7 +1392,6 @@ type TagsResourceResponseInput interface {
 }
 
 type TagsResourceResponseArgs struct {
-	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -1497,7 +1421,6 @@ func (o TagsResourceResponseOutput) ToTagsResourceResponseOutputWithContext(ctx 
 	return o
 }
 
-// Resource tags
 func (o TagsResourceResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TagsResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

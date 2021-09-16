@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL virtual machine group.
-// API Version: 2017-03-01-preview.
 type SqlVirtualMachineGroup struct {
 	pulumi.CustomResourceState
 

@@ -18,6 +18,7 @@ type PrivateDnsZoneGroup struct {
 	Name                  pulumi.StringPtrOutput                  `pulumi:"name"`
 	PrivateDnsZoneConfigs PrivateDnsZoneConfigResponseArrayOutput `pulumi:"privateDnsZoneConfigs"`
 	ProvisioningState     pulumi.StringOutput                     `pulumi:"provisioningState"`
+	Type                  pulumi.StringPtrOutput                  `pulumi:"type"`
 }
 
 // NewPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
@@ -131,6 +132,7 @@ type privateDnsZoneGroupArgs struct {
 	PrivateDnsZoneGroupName *string                `pulumi:"privateDnsZoneGroupName"`
 	PrivateEndpointName     string                 `pulumi:"privateEndpointName"`
 	ResourceGroupName       string                 `pulumi:"resourceGroupName"`
+	Type                    *string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PrivateDnsZoneGroup resource.
@@ -141,6 +143,7 @@ type PrivateDnsZoneGroupArgs struct {
 	PrivateDnsZoneGroupName pulumi.StringPtrInput
 	PrivateEndpointName     pulumi.StringInput
 	ResourceGroupName       pulumi.StringInput
+	Type                    pulumi.StringPtrInput
 }
 
 func (PrivateDnsZoneGroupArgs) ElementType() reflect.Type {

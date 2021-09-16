@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS zone.
-// API Version: 2018-05-01.
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
 	err := ctx.Invoke("azure-native:network:getZone", args, &rv, opts...)
@@ -19,38 +17,23 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 }
 
 type LookupZoneArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DNS zone (without a terminating dot).
-	ZoneName string `pulumi:"zoneName"`
+	ZoneName          string `pulumi:"zoneName"`
 }
 
 // Describes a DNS zone.
 type LookupZoneResult struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets float64 `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet float64 `pulumi:"maxNumberOfRecordsPerRecordSet"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers []string `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets float64 `pulumi:"numberOfRecordSets"`
-	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-	RegistrationVirtualNetworks []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
-	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The type of this DNS zone (Public or Private).
-	ZoneType *string `pulumi:"zoneType"`
+	Etag                           *string               `pulumi:"etag"`
+	Id                             string                `pulumi:"id"`
+	Location                       string                `pulumi:"location"`
+	MaxNumberOfRecordSets          float64               `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordsPerRecordSet float64               `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	Name                           string                `pulumi:"name"`
+	NameServers                    []string              `pulumi:"nameServers"`
+	NumberOfRecordSets             float64               `pulumi:"numberOfRecordSets"`
+	RegistrationVirtualNetworks    []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
+	ResolutionVirtualNetworks      []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
+	Tags                           map[string]string     `pulumi:"tags"`
+	Type                           string                `pulumi:"type"`
+	ZoneType                       *string               `pulumi:"zoneType"`
 }

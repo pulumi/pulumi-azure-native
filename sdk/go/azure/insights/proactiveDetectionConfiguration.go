@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define a ProactiveDetection configuration.
-// API Version: 2015-05-01.
 type ProactiveDetectionConfiguration struct {
 	pulumi.CustomResourceState
 

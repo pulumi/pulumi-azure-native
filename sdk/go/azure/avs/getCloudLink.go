@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A cloud link resource
-// API Version: 2021-06-01.
 func LookupCloudLink(ctx *pulumi.Context, args *LookupCloudLinkArgs, opts ...pulumi.InvokeOption) (*LookupCloudLinkResult, error) {
 	var rv LookupCloudLinkResult
 	err := ctx.Invoke("azure-native:avs:getCloudLink", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupCloudLink(ctx *pulumi.Context, args *LookupCloudLinkArgs, opts ...pul
 }
 
 type LookupCloudLinkArgs struct {
-	// Name of the cloud link resource
-	CloudLinkName string `pulumi:"cloudLinkName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	CloudLinkName     string `pulumi:"cloudLinkName"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A cloud link resource
 type LookupCloudLinkResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Identifier of the other private cloud participating in the link.
+	Id          string  `pulumi:"id"`
 	LinkedCloud *string `pulumi:"linkedCloud"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the cloud link.
-	Status string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name        string  `pulumi:"name"`
+	Status      string  `pulumi:"status"`
+	Type        string  `pulumi:"type"`
 }

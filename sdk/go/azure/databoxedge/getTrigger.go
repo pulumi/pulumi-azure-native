@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trigger details.
-// API Version: 2020-12-01.
-//
 // Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
@@ -21,24 +18,16 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 }
 
 type LookupTriggerArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The trigger name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Trigger details.
 type LookupTriggerResult struct {
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Trigger Kind.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Trigger in DataBoxEdge Resource
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

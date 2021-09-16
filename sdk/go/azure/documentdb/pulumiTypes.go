@@ -11,7 +11,6 @@ import (
 )
 
 type ApiProperties struct {
-	// Describes the ServerVersion of an a MongoDB account.
 	ServerVersion *string `pulumi:"serverVersion"`
 }
 
@@ -27,7 +26,6 @@ type ApiPropertiesInput interface {
 }
 
 type ApiPropertiesArgs struct {
-	// Describes the ServerVersion of an a MongoDB account.
 	ServerVersion pulumi.StringPtrInput `pulumi:"serverVersion"`
 }
 
@@ -108,7 +106,6 @@ func (o ApiPropertiesOutput) ToApiPropertiesPtrOutputWithContext(ctx context.Con
 	}).(ApiPropertiesPtrOutput)
 }
 
-// Describes the ServerVersion of an a MongoDB account.
 func (o ApiPropertiesOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiProperties) *string { return v.ServerVersion }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o ApiPropertiesPtrOutput) Elem() ApiPropertiesOutput {
 	}).(ApiPropertiesOutput)
 }
 
-// Describes the ServerVersion of an a MongoDB account.
 func (o ApiPropertiesPtrOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiProperties) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o ApiPropertiesPtrOutput) ServerVersion() pulumi.StringPtrOutput {
 }
 
 type ApiPropertiesResponse struct {
-	// Describes the ServerVersion of an a MongoDB account.
 	ServerVersion *string `pulumi:"serverVersion"`
 }
 
@@ -164,7 +159,6 @@ type ApiPropertiesResponseInput interface {
 }
 
 type ApiPropertiesResponseArgs struct {
-	// Describes the ServerVersion of an a MongoDB account.
 	ServerVersion pulumi.StringPtrInput `pulumi:"serverVersion"`
 }
 
@@ -245,7 +239,6 @@ func (o ApiPropertiesResponseOutput) ToApiPropertiesResponsePtrOutputWithContext
 	}).(ApiPropertiesResponsePtrOutput)
 }
 
-// Describes the ServerVersion of an a MongoDB account.
 func (o ApiPropertiesResponseOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPropertiesResponse) *string { return v.ServerVersion }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o ApiPropertiesResponsePtrOutput) Elem() ApiPropertiesResponseOutput {
 	}).(ApiPropertiesResponseOutput)
 }
 
-// Describes the ServerVersion of an a MongoDB account.
 func (o ApiPropertiesResponsePtrOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPropertiesResponse) *string {
 		if v == nil {
@@ -285,7 +277,6 @@ func (o ApiPropertiesResponsePtrOutput) ServerVersion() pulumi.StringPtrOutput {
 }
 
 type AutoscaleSettings struct {
-	// Represents maximum throughput, the resource can scale up to.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -301,7 +292,6 @@ type AutoscaleSettingsInput interface {
 }
 
 type AutoscaleSettingsArgs struct {
-	// Represents maximum throughput, the resource can scale up to.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -382,7 +372,6 @@ func (o AutoscaleSettingsOutput) ToAutoscaleSettingsPtrOutputWithContext(ctx con
 	}).(AutoscaleSettingsPtrOutput)
 }
 
-// Represents maximum throughput, the resource can scale up to.
 func (o AutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -411,7 +400,6 @@ func (o AutoscaleSettingsPtrOutput) Elem() AutoscaleSettingsOutput {
 	}).(AutoscaleSettingsOutput)
 }
 
-// Represents maximum throughput, the resource can scale up to.
 func (o AutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettings) *int {
 		if v == nil {
@@ -422,7 +410,6 @@ func (o AutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 }
 
 type AutoscaleSettingsResponse struct {
-	// Represents maximum throughput, the resource can scale up to.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -438,7 +425,6 @@ type AutoscaleSettingsResponseInput interface {
 }
 
 type AutoscaleSettingsResponseArgs struct {
-	// Represents maximum throughput, the resource can scale up to.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -519,7 +505,6 @@ func (o AutoscaleSettingsResponseOutput) ToAutoscaleSettingsResponsePtrOutputWit
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Represents maximum throughput, the resource can scale up to.
 func (o AutoscaleSettingsResponseOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingsResponse) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -548,7 +533,6 @@ func (o AutoscaleSettingsResponsePtrOutput) Elem() AutoscaleSettingsResponseOutp
 	}).(AutoscaleSettingsResponseOutput)
 }
 
-// Represents maximum throughput, the resource can scale up to.
 func (o AutoscaleSettingsResponsePtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingsResponse) *int {
 		if v == nil {
@@ -559,7 +543,6 @@ func (o AutoscaleSettingsResponsePtrOutput) MaxThroughput() pulumi.IntPtrOutput 
 }
 
 type Capability struct {
-	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 	Name *string `pulumi:"name"`
 }
 
@@ -575,7 +558,6 @@ type CapabilityInput interface {
 }
 
 type CapabilityArgs struct {
-	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -630,7 +612,6 @@ func (o CapabilityOutput) ToCapabilityOutputWithContext(ctx context.Context) Cap
 	return o
 }
 
-// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 func (o CapabilityOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Capability) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -656,7 +637,6 @@ func (o CapabilityArrayOutput) Index(i pulumi.IntInput) CapabilityOutput {
 }
 
 type CapabilityResponse struct {
-	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 	Name *string `pulumi:"name"`
 }
 
@@ -672,7 +652,6 @@ type CapabilityResponseInput interface {
 }
 
 type CapabilityResponseArgs struct {
-	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -727,7 +706,6 @@ func (o CapabilityResponseOutput) ToCapabilityResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 func (o CapabilityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -753,10 +731,8 @@ func (o CapabilityResponseArrayOutput) Index(i pulumi.IntInput) CapabilityRespon
 }
 
 type CassandraKeyspaceGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseOptionsInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseOptionsArgs and CassandraKeyspaceGetPropertiesResponseOptionsOutput values.
@@ -771,10 +747,8 @@ type CassandraKeyspaceGetPropertiesResponseOptionsInput interface {
 }
 
 type CassandraKeyspaceGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -854,14 +828,12 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspace
 	}).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -890,7 +862,6 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Elem() Cassandra
 	}).(CassandraKeyspaceGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -900,7 +871,6 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) AutoscaleSetting
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -911,14 +881,10 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Throughput() pul
 }
 
 type CassandraKeyspaceGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra keyspace
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseResourceInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs and CassandraKeyspaceGetPropertiesResponseResourceOutput values.
@@ -933,14 +899,10 @@ type CassandraKeyspaceGetPropertiesResponseResourceInput interface {
 }
 
 type CassandraKeyspaceGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra keyspace
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput  `pulumi:"etag"`
+	Id   pulumi.StringInput  `pulumi:"id"`
+	Rid  pulumi.StringInput  `pulumi:"rid"`
+	Ts   pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -1020,22 +982,18 @@ func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspac
 	}).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Cassandra keyspace
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -1064,7 +1022,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Elem() Cassandr
 	}).(CassandraKeyspaceGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -1074,7 +1031,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra keyspace
 func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -1084,7 +1040,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Id() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -1094,7 +1049,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -1105,7 +1059,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Flo
 }
 
 type CassandraKeyspaceResource struct {
-	// Name of the Cosmos DB Cassandra keyspace
 	Id string `pulumi:"id"`
 }
 
@@ -1121,7 +1074,6 @@ type CassandraKeyspaceResourceInput interface {
 }
 
 type CassandraKeyspaceResourceArgs struct {
-	// Name of the Cosmos DB Cassandra keyspace
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1202,7 +1154,6 @@ func (o CassandraKeyspaceResourceOutput) ToCassandraKeyspaceResourcePtrOutputWit
 	}).(CassandraKeyspaceResourcePtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra keyspace
 func (o CassandraKeyspaceResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraKeyspaceResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1231,7 +1182,6 @@ func (o CassandraKeyspaceResourcePtrOutput) Elem() CassandraKeyspaceResourceOutp
 	}).(CassandraKeyspaceResourceOutput)
 }
 
-// Name of the Cosmos DB Cassandra keyspace
 func (o CassandraKeyspaceResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceResource) *string {
 		if v == nil {
@@ -1242,7 +1192,6 @@ func (o CassandraKeyspaceResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type CassandraPartitionKey struct {
-	// Name of the Cosmos DB Cassandra table partition key
 	Name *string `pulumi:"name"`
 }
 
@@ -1258,7 +1207,6 @@ type CassandraPartitionKeyInput interface {
 }
 
 type CassandraPartitionKeyArgs struct {
-	// Name of the Cosmos DB Cassandra table partition key
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1313,7 +1261,6 @@ func (o CassandraPartitionKeyOutput) ToCassandraPartitionKeyOutputWithContext(ct
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table partition key
 func (o CassandraPartitionKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CassandraPartitionKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1339,7 +1286,6 @@ func (o CassandraPartitionKeyArrayOutput) Index(i pulumi.IntInput) CassandraPart
 }
 
 type CassandraPartitionKeyResponse struct {
-	// Name of the Cosmos DB Cassandra table partition key
 	Name *string `pulumi:"name"`
 }
 
@@ -1355,7 +1301,6 @@ type CassandraPartitionKeyResponseInput interface {
 }
 
 type CassandraPartitionKeyResponseArgs struct {
-	// Name of the Cosmos DB Cassandra table partition key
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1410,7 +1355,6 @@ func (o CassandraPartitionKeyResponseOutput) ToCassandraPartitionKeyResponseOutp
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table partition key
 func (o CassandraPartitionKeyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CassandraPartitionKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1436,11 +1380,8 @@ func (o CassandraPartitionKeyResponseArrayOutput) Index(i pulumi.IntInput) Cassa
 }
 
 type CassandraSchema struct {
-	// List of cluster key.
-	ClusterKeys []ClusterKey `pulumi:"clusterKeys"`
-	// List of Cassandra table columns.
-	Columns []Column `pulumi:"columns"`
-	// List of partition key.
+	ClusterKeys   []ClusterKey            `pulumi:"clusterKeys"`
+	Columns       []Column                `pulumi:"columns"`
 	PartitionKeys []CassandraPartitionKey `pulumi:"partitionKeys"`
 }
 
@@ -1456,11 +1397,8 @@ type CassandraSchemaInput interface {
 }
 
 type CassandraSchemaArgs struct {
-	// List of cluster key.
-	ClusterKeys ClusterKeyArrayInput `pulumi:"clusterKeys"`
-	// List of Cassandra table columns.
-	Columns ColumnArrayInput `pulumi:"columns"`
-	// List of partition key.
+	ClusterKeys   ClusterKeyArrayInput            `pulumi:"clusterKeys"`
+	Columns       ColumnArrayInput                `pulumi:"columns"`
 	PartitionKeys CassandraPartitionKeyArrayInput `pulumi:"partitionKeys"`
 }
 
@@ -1541,17 +1479,14 @@ func (o CassandraSchemaOutput) ToCassandraSchemaPtrOutputWithContext(ctx context
 	}).(CassandraSchemaPtrOutput)
 }
 
-// List of cluster key.
 func (o CassandraSchemaOutput) ClusterKeys() ClusterKeyArrayOutput {
 	return o.ApplyT(func(v CassandraSchema) []ClusterKey { return v.ClusterKeys }).(ClusterKeyArrayOutput)
 }
 
-// List of Cassandra table columns.
 func (o CassandraSchemaOutput) Columns() ColumnArrayOutput {
 	return o.ApplyT(func(v CassandraSchema) []Column { return v.Columns }).(ColumnArrayOutput)
 }
 
-// List of partition key.
 func (o CassandraSchemaOutput) PartitionKeys() CassandraPartitionKeyArrayOutput {
 	return o.ApplyT(func(v CassandraSchema) []CassandraPartitionKey { return v.PartitionKeys }).(CassandraPartitionKeyArrayOutput)
 }
@@ -1580,7 +1515,6 @@ func (o CassandraSchemaPtrOutput) Elem() CassandraSchemaOutput {
 	}).(CassandraSchemaOutput)
 }
 
-// List of cluster key.
 func (o CassandraSchemaPtrOutput) ClusterKeys() ClusterKeyArrayOutput {
 	return o.ApplyT(func(v *CassandraSchema) []ClusterKey {
 		if v == nil {
@@ -1590,7 +1524,6 @@ func (o CassandraSchemaPtrOutput) ClusterKeys() ClusterKeyArrayOutput {
 	}).(ClusterKeyArrayOutput)
 }
 
-// List of Cassandra table columns.
 func (o CassandraSchemaPtrOutput) Columns() ColumnArrayOutput {
 	return o.ApplyT(func(v *CassandraSchema) []Column {
 		if v == nil {
@@ -1600,7 +1533,6 @@ func (o CassandraSchemaPtrOutput) Columns() ColumnArrayOutput {
 	}).(ColumnArrayOutput)
 }
 
-// List of partition key.
 func (o CassandraSchemaPtrOutput) PartitionKeys() CassandraPartitionKeyArrayOutput {
 	return o.ApplyT(func(v *CassandraSchema) []CassandraPartitionKey {
 		if v == nil {
@@ -1611,11 +1543,8 @@ func (o CassandraSchemaPtrOutput) PartitionKeys() CassandraPartitionKeyArrayOutp
 }
 
 type CassandraSchemaResponse struct {
-	// List of cluster key.
-	ClusterKeys []ClusterKeyResponse `pulumi:"clusterKeys"`
-	// List of Cassandra table columns.
-	Columns []ColumnResponse `pulumi:"columns"`
-	// List of partition key.
+	ClusterKeys   []ClusterKeyResponse            `pulumi:"clusterKeys"`
+	Columns       []ColumnResponse                `pulumi:"columns"`
 	PartitionKeys []CassandraPartitionKeyResponse `pulumi:"partitionKeys"`
 }
 
@@ -1631,11 +1560,8 @@ type CassandraSchemaResponseInput interface {
 }
 
 type CassandraSchemaResponseArgs struct {
-	// List of cluster key.
-	ClusterKeys ClusterKeyResponseArrayInput `pulumi:"clusterKeys"`
-	// List of Cassandra table columns.
-	Columns ColumnResponseArrayInput `pulumi:"columns"`
-	// List of partition key.
+	ClusterKeys   ClusterKeyResponseArrayInput            `pulumi:"clusterKeys"`
+	Columns       ColumnResponseArrayInput                `pulumi:"columns"`
 	PartitionKeys CassandraPartitionKeyResponseArrayInput `pulumi:"partitionKeys"`
 }
 
@@ -1716,17 +1642,14 @@ func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponsePtrOutputWithCon
 	}).(CassandraSchemaResponsePtrOutput)
 }
 
-// List of cluster key.
 func (o CassandraSchemaResponseOutput) ClusterKeys() ClusterKeyResponseArrayOutput {
 	return o.ApplyT(func(v CassandraSchemaResponse) []ClusterKeyResponse { return v.ClusterKeys }).(ClusterKeyResponseArrayOutput)
 }
 
-// List of Cassandra table columns.
 func (o CassandraSchemaResponseOutput) Columns() ColumnResponseArrayOutput {
 	return o.ApplyT(func(v CassandraSchemaResponse) []ColumnResponse { return v.Columns }).(ColumnResponseArrayOutput)
 }
 
-// List of partition key.
 func (o CassandraSchemaResponseOutput) PartitionKeys() CassandraPartitionKeyResponseArrayOutput {
 	return o.ApplyT(func(v CassandraSchemaResponse) []CassandraPartitionKeyResponse { return v.PartitionKeys }).(CassandraPartitionKeyResponseArrayOutput)
 }
@@ -1755,7 +1678,6 @@ func (o CassandraSchemaResponsePtrOutput) Elem() CassandraSchemaResponseOutput {
 	}).(CassandraSchemaResponseOutput)
 }
 
-// List of cluster key.
 func (o CassandraSchemaResponsePtrOutput) ClusterKeys() ClusterKeyResponseArrayOutput {
 	return o.ApplyT(func(v *CassandraSchemaResponse) []ClusterKeyResponse {
 		if v == nil {
@@ -1765,7 +1687,6 @@ func (o CassandraSchemaResponsePtrOutput) ClusterKeys() ClusterKeyResponseArrayO
 	}).(ClusterKeyResponseArrayOutput)
 }
 
-// List of Cassandra table columns.
 func (o CassandraSchemaResponsePtrOutput) Columns() ColumnResponseArrayOutput {
 	return o.ApplyT(func(v *CassandraSchemaResponse) []ColumnResponse {
 		if v == nil {
@@ -1775,7 +1696,6 @@ func (o CassandraSchemaResponsePtrOutput) Columns() ColumnResponseArrayOutput {
 	}).(ColumnResponseArrayOutput)
 }
 
-// List of partition key.
 func (o CassandraSchemaResponsePtrOutput) PartitionKeys() CassandraPartitionKeyResponseArrayOutput {
 	return o.ApplyT(func(v *CassandraSchemaResponse) []CassandraPartitionKeyResponse {
 		if v == nil {
@@ -1786,10 +1706,8 @@ func (o CassandraSchemaResponsePtrOutput) PartitionKeys() CassandraPartitionKeyR
 }
 
 type CassandraTableGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // CassandraTableGetPropertiesResponseOptionsInput is an input type that accepts CassandraTableGetPropertiesResponseOptionsArgs and CassandraTableGetPropertiesResponseOptionsOutput values.
@@ -1804,10 +1722,8 @@ type CassandraTableGetPropertiesResponseOptionsInput interface {
 }
 
 type CassandraTableGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (CassandraTableGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -1887,14 +1803,12 @@ func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPro
 	}).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraTableGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraTableGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -1923,7 +1837,6 @@ func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Elem() CassandraTab
 	}).(CassandraTableGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -1933,7 +1846,6 @@ func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings()
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -1944,20 +1856,13 @@ func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi
 }
 
 type CassandraTableGetPropertiesResponseResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// Time to live of the Cosmos DB Cassandra table
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra table
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// Schema of the Cosmos DB Cassandra table
-	Schema *CassandraSchemaResponse `pulumi:"schema"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	AnalyticalStorageTtl *int                     `pulumi:"analyticalStorageTtl"`
+	DefaultTtl           *int                     `pulumi:"defaultTtl"`
+	Etag                 string                   `pulumi:"etag"`
+	Id                   string                   `pulumi:"id"`
+	Rid                  string                   `pulumi:"rid"`
+	Schema               *CassandraSchemaResponse `pulumi:"schema"`
+	Ts                   float64                  `pulumi:"ts"`
 }
 
 // CassandraTableGetPropertiesResponseResourceInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs and CassandraTableGetPropertiesResponseResourceOutput values.
@@ -1972,20 +1877,13 @@ type CassandraTableGetPropertiesResponseResourceInput interface {
 }
 
 type CassandraTableGetPropertiesResponseResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
-	// Time to live of the Cosmos DB Cassandra table
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra table
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// Schema of the Cosmos DB Cassandra table
-	Schema CassandraSchemaResponsePtrInput `pulumi:"schema"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	AnalyticalStorageTtl pulumi.IntPtrInput              `pulumi:"analyticalStorageTtl"`
+	DefaultTtl           pulumi.IntPtrInput              `pulumi:"defaultTtl"`
+	Etag                 pulumi.StringInput              `pulumi:"etag"`
+	Id                   pulumi.StringInput              `pulumi:"id"`
+	Rid                  pulumi.StringInput              `pulumi:"rid"`
+	Schema               CassandraSchemaResponsePtrInput `pulumi:"schema"`
+	Ts                   pulumi.Float64Input             `pulumi:"ts"`
 }
 
 func (CassandraTableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -2065,37 +1963,30 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPr
 	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o CassandraTableGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// Time to live of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraTableGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraTableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// Schema of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourceOutput) Schema() CassandraSchemaResponsePtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse { return v.Schema }).(CassandraSchemaResponsePtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraTableGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -2124,7 +2015,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Elem() CassandraTa
 	}).(CassandraTableGetPropertiesResponseResourceOutput)
 }
 
-// Analytical TTL.
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *int {
 		if v == nil {
@@ -2134,7 +2024,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) AnalyticalStorageT
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time to live of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *int {
 		if v == nil {
@@ -2144,7 +2033,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2154,7 +2042,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2164,7 +2051,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Id() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2174,7 +2060,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schema of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() CassandraSchemaResponsePtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse {
 		if v == nil {
@@ -2184,7 +2069,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() Cassandra
 	}).(CassandraSchemaResponsePtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -2195,14 +2079,10 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float6
 }
 
 type CassandraTableResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// Time to live of the Cosmos DB Cassandra table
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB Cassandra table
-	Id string `pulumi:"id"`
-	// Schema of the Cosmos DB Cassandra table
-	Schema *CassandraSchema `pulumi:"schema"`
+	AnalyticalStorageTtl *int             `pulumi:"analyticalStorageTtl"`
+	DefaultTtl           *int             `pulumi:"defaultTtl"`
+	Id                   string           `pulumi:"id"`
+	Schema               *CassandraSchema `pulumi:"schema"`
 }
 
 // CassandraTableResourceInput is an input type that accepts CassandraTableResourceArgs and CassandraTableResourceOutput values.
@@ -2217,14 +2097,10 @@ type CassandraTableResourceInput interface {
 }
 
 type CassandraTableResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
-	// Time to live of the Cosmos DB Cassandra table
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB Cassandra table
-	Id pulumi.StringInput `pulumi:"id"`
-	// Schema of the Cosmos DB Cassandra table
-	Schema CassandraSchemaPtrInput `pulumi:"schema"`
+	AnalyticalStorageTtl pulumi.IntPtrInput      `pulumi:"analyticalStorageTtl"`
+	DefaultTtl           pulumi.IntPtrInput      `pulumi:"defaultTtl"`
+	Id                   pulumi.StringInput      `pulumi:"id"`
+	Schema               CassandraSchemaPtrInput `pulumi:"schema"`
 }
 
 func (CassandraTableResourceArgs) ElementType() reflect.Type {
@@ -2304,22 +2180,18 @@ func (o CassandraTableResourceOutput) ToCassandraTableResourcePtrOutputWithConte
 	}).(CassandraTableResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o CassandraTableResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// Time to live of the Cosmos DB Cassandra table
 func (o CassandraTableResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra table
 func (o CassandraTableResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Schema of the Cosmos DB Cassandra table
 func (o CassandraTableResourceOutput) Schema() CassandraSchemaPtrOutput {
 	return o.ApplyT(func(v CassandraTableResource) *CassandraSchema { return v.Schema }).(CassandraSchemaPtrOutput)
 }
@@ -2348,7 +2220,6 @@ func (o CassandraTableResourcePtrOutput) Elem() CassandraTableResourceOutput {
 	}).(CassandraTableResourceOutput)
 }
 
-// Analytical TTL.
 func (o CassandraTableResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableResource) *int {
 		if v == nil {
@@ -2358,7 +2229,6 @@ func (o CassandraTableResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time to live of the Cosmos DB Cassandra table
 func (o CassandraTableResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableResource) *int {
 		if v == nil {
@@ -2368,7 +2238,6 @@ func (o CassandraTableResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra table
 func (o CassandraTableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraTableResource) *string {
 		if v == nil {
@@ -2378,7 +2247,6 @@ func (o CassandraTableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schema of the Cosmos DB Cassandra table
 func (o CassandraTableResourcePtrOutput) Schema() CassandraSchemaPtrOutput {
 	return o.ApplyT(func(v *CassandraTableResource) *CassandraSchema {
 		if v == nil {
@@ -2389,10 +2257,8 @@ func (o CassandraTableResourcePtrOutput) Schema() CassandraSchemaPtrOutput {
 }
 
 type CassandraViewGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // CassandraViewGetPropertiesResponseOptionsInput is an input type that accepts CassandraViewGetPropertiesResponseOptionsArgs and CassandraViewGetPropertiesResponseOptionsOutput values.
@@ -2407,10 +2273,8 @@ type CassandraViewGetPropertiesResponseOptionsInput interface {
 }
 
 type CassandraViewGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (CassandraViewGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -2490,14 +2354,12 @@ func (o CassandraViewGetPropertiesResponseOptionsOutput) ToCassandraViewGetPrope
 	}).(CassandraViewGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraViewGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraViewGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -2526,7 +2388,6 @@ func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) Elem() CassandraView
 	}).(CassandraViewGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -2536,7 +2397,6 @@ func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() 
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -2547,15 +2407,10 @@ func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.
 }
 
 type CassandraViewGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra view
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
-	// View Definition of the Cosmos DB Cassandra view
+	Etag           string  `pulumi:"etag"`
+	Id             string  `pulumi:"id"`
+	Rid            string  `pulumi:"rid"`
+	Ts             float64 `pulumi:"ts"`
 	ViewDefinition *string `pulumi:"viewDefinition"`
 }
 
@@ -2571,15 +2426,10 @@ type CassandraViewGetPropertiesResponseResourceInput interface {
 }
 
 type CassandraViewGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Cassandra view
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
-	// View Definition of the Cosmos DB Cassandra view
+	Etag           pulumi.StringInput    `pulumi:"etag"`
+	Id             pulumi.StringInput    `pulumi:"id"`
+	Rid            pulumi.StringInput    `pulumi:"rid"`
+	Ts             pulumi.Float64Input   `pulumi:"ts"`
 	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
 }
 
@@ -2660,27 +2510,22 @@ func (o CassandraViewGetPropertiesResponseResourceOutput) ToCassandraViewGetProp
 	}).(CassandraViewGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraViewGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Cassandra view
 func (o CassandraViewGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraViewGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraViewGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
-// View Definition of the Cosmos DB Cassandra view
 func (o CassandraViewGetPropertiesResponseResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
 }
@@ -2709,7 +2554,6 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Elem() CassandraVie
 	}).(CassandraViewGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2719,7 +2563,6 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Etag() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra view
 func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2729,7 +2572,6 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2739,7 +2581,6 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Rid() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -2749,7 +2590,6 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// View Definition of the Cosmos DB Cassandra view
 func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -2760,9 +2600,7 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ViewDefinition() pu
 }
 
 type CassandraViewResource struct {
-	// Name of the Cosmos DB Cassandra view
-	Id string `pulumi:"id"`
-	// View Definition of the Cosmos DB Cassandra view
+	Id             string  `pulumi:"id"`
 	ViewDefinition *string `pulumi:"viewDefinition"`
 }
 
@@ -2778,9 +2616,7 @@ type CassandraViewResourceInput interface {
 }
 
 type CassandraViewResourceArgs struct {
-	// Name of the Cosmos DB Cassandra view
-	Id pulumi.StringInput `pulumi:"id"`
-	// View Definition of the Cosmos DB Cassandra view
+	Id             pulumi.StringInput    `pulumi:"id"`
 	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
 }
 
@@ -2861,12 +2697,10 @@ func (o CassandraViewResourceOutput) ToCassandraViewResourcePtrOutputWithContext
 	}).(CassandraViewResourcePtrOutput)
 }
 
-// Name of the Cosmos DB Cassandra view
 func (o CassandraViewResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraViewResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// View Definition of the Cosmos DB Cassandra view
 func (o CassandraViewResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CassandraViewResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
 }
@@ -2895,7 +2729,6 @@ func (o CassandraViewResourcePtrOutput) Elem() CassandraViewResourceOutput {
 	}).(CassandraViewResourceOutput)
 }
 
-// Name of the Cosmos DB Cassandra view
 func (o CassandraViewResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewResource) *string {
 		if v == nil {
@@ -2905,7 +2738,6 @@ func (o CassandraViewResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// View Definition of the Cosmos DB Cassandra view
 func (o CassandraViewResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraViewResource) *string {
 		if v == nil {
@@ -2916,7 +2748,6 @@ func (o CassandraViewResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput 
 }
 
 type Certificate struct {
-	// PEM formatted public key.
 	Pem *string `pulumi:"pem"`
 }
 
@@ -2932,7 +2763,6 @@ type CertificateInput interface {
 }
 
 type CertificateArgs struct {
-	// PEM formatted public key.
 	Pem pulumi.StringPtrInput `pulumi:"pem"`
 }
 
@@ -2987,7 +2817,6 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// PEM formatted public key.
 func (o CertificateOutput) Pem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Certificate) *string { return v.Pem }).(pulumi.StringPtrOutput)
 }
@@ -3013,7 +2842,6 @@ func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 }
 
 type CertificateResponse struct {
-	// PEM formatted public key.
 	Pem *string `pulumi:"pem"`
 }
 
@@ -3029,7 +2857,6 @@ type CertificateResponseInput interface {
 }
 
 type CertificateResponseArgs struct {
-	// PEM formatted public key.
 	Pem pulumi.StringPtrInput `pulumi:"pem"`
 }
 
@@ -3084,7 +2911,6 @@ func (o CertificateResponseOutput) ToCertificateResponseOutputWithContext(ctx co
 	return o
 }
 
-// PEM formatted public key.
 func (o CertificateResponseOutput) Pem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateResponse) *string { return v.Pem }).(pulumi.StringPtrOutput)
 }
@@ -3110,9 +2936,7 @@ func (o CertificateResponseArrayOutput) Index(i pulumi.IntInput) CertificateResp
 }
 
 type ClusterKey struct {
-	// Name of the Cosmos DB Cassandra table cluster key
-	Name *string `pulumi:"name"`
-	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	Name    *string `pulumi:"name"`
 	OrderBy *string `pulumi:"orderBy"`
 }
 
@@ -3128,9 +2952,7 @@ type ClusterKeyInput interface {
 }
 
 type ClusterKeyArgs struct {
-	// Name of the Cosmos DB Cassandra table cluster key
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
 }
 
@@ -3185,12 +3007,10 @@ func (o ClusterKeyOutput) ToClusterKeyOutputWithContext(ctx context.Context) Clu
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table cluster key
 func (o ClusterKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
 func (o ClusterKeyOutput) OrderBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKey) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
 }
@@ -3216,9 +3036,7 @@ func (o ClusterKeyArrayOutput) Index(i pulumi.IntInput) ClusterKeyOutput {
 }
 
 type ClusterKeyResponse struct {
-	// Name of the Cosmos DB Cassandra table cluster key
-	Name *string `pulumi:"name"`
-	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	Name    *string `pulumi:"name"`
 	OrderBy *string `pulumi:"orderBy"`
 }
 
@@ -3234,9 +3052,7 @@ type ClusterKeyResponseInput interface {
 }
 
 type ClusterKeyResponseArgs struct {
-	// Name of the Cosmos DB Cassandra table cluster key
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
 }
 
@@ -3291,12 +3107,10 @@ func (o ClusterKeyResponseOutput) ToClusterKeyResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table cluster key
 func (o ClusterKeyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
 func (o ClusterKeyResponseOutput) OrderBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKeyResponse) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
 }
@@ -3322,32 +3136,19 @@ func (o ClusterKeyResponseArrayOutput) Index(i pulumi.IntInput) ClusterKeyRespon
 }
 
 type ClusterResourceProperties struct {
-	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-	AuthenticationMethod *string `pulumi:"authenticationMethod"`
-	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
-	CassandraVersion *string `pulumi:"cassandraVersion"`
-	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
-	ClientCertificates []Certificate `pulumi:"clientCertificates"`
-	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
-	ClusterNameOverride *string `pulumi:"clusterNameOverride"`
-	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
-	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
-	ExternalGossipCertificates []Certificate `pulumi:"externalGossipCertificates"`
-	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-	ExternalSeedNodes []SeedNode `pulumi:"externalSeedNodes"`
-	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
-	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
-	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
-	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint *SeedNode `pulumi:"prometheusEndpoint"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
-	RepairEnabled *bool `pulumi:"repairEnabled"`
-	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-	RestoreFromBackupId *string `pulumi:"restoreFromBackupId"`
+	AuthenticationMethod          *string       `pulumi:"authenticationMethod"`
+	CassandraVersion              *string       `pulumi:"cassandraVersion"`
+	ClientCertificates            []Certificate `pulumi:"clientCertificates"`
+	ClusterNameOverride           *string       `pulumi:"clusterNameOverride"`
+	DelegatedManagementSubnetId   *string       `pulumi:"delegatedManagementSubnetId"`
+	ExternalGossipCertificates    []Certificate `pulumi:"externalGossipCertificates"`
+	ExternalSeedNodes             []SeedNode    `pulumi:"externalSeedNodes"`
+	HoursBetweenBackups           *int          `pulumi:"hoursBetweenBackups"`
+	InitialCassandraAdminPassword *string       `pulumi:"initialCassandraAdminPassword"`
+	PrometheusEndpoint            *SeedNode     `pulumi:"prometheusEndpoint"`
+	ProvisioningState             *string       `pulumi:"provisioningState"`
+	RepairEnabled                 *bool         `pulumi:"repairEnabled"`
+	RestoreFromBackupId           *string       `pulumi:"restoreFromBackupId"`
 }
 
 // ClusterResourcePropertiesInput is an input type that accepts ClusterResourcePropertiesArgs and ClusterResourcePropertiesOutput values.
@@ -3362,32 +3163,19 @@ type ClusterResourcePropertiesInput interface {
 }
 
 type ClusterResourcePropertiesArgs struct {
-	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
-	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
-	CassandraVersion pulumi.StringPtrInput `pulumi:"cassandraVersion"`
-	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
-	ClientCertificates CertificateArrayInput `pulumi:"clientCertificates"`
-	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
-	ClusterNameOverride pulumi.StringPtrInput `pulumi:"clusterNameOverride"`
-	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-	DelegatedManagementSubnetId pulumi.StringPtrInput `pulumi:"delegatedManagementSubnetId"`
-	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
-	ExternalGossipCertificates CertificateArrayInput `pulumi:"externalGossipCertificates"`
-	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-	ExternalSeedNodes SeedNodeArrayInput `pulumi:"externalSeedNodes"`
-	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
-	HoursBetweenBackups pulumi.IntPtrInput `pulumi:"hoursBetweenBackups"`
-	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+	AuthenticationMethod          pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	CassandraVersion              pulumi.StringPtrInput `pulumi:"cassandraVersion"`
+	ClientCertificates            CertificateArrayInput `pulumi:"clientCertificates"`
+	ClusterNameOverride           pulumi.StringPtrInput `pulumi:"clusterNameOverride"`
+	DelegatedManagementSubnetId   pulumi.StringPtrInput `pulumi:"delegatedManagementSubnetId"`
+	ExternalGossipCertificates    CertificateArrayInput `pulumi:"externalGossipCertificates"`
+	ExternalSeedNodes             SeedNodeArrayInput    `pulumi:"externalSeedNodes"`
+	HoursBetweenBackups           pulumi.IntPtrInput    `pulumi:"hoursBetweenBackups"`
 	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
-	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint SeedNodePtrInput `pulumi:"prometheusEndpoint"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
-	RepairEnabled pulumi.BoolPtrInput `pulumi:"repairEnabled"`
-	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-	RestoreFromBackupId pulumi.StringPtrInput `pulumi:"restoreFromBackupId"`
+	PrometheusEndpoint            SeedNodePtrInput      `pulumi:"prometheusEndpoint"`
+	ProvisioningState             pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RepairEnabled                 pulumi.BoolPtrInput   `pulumi:"repairEnabled"`
+	RestoreFromBackupId           pulumi.StringPtrInput `pulumi:"restoreFromBackupId"`
 }
 
 func (ClusterResourcePropertiesArgs) ElementType() reflect.Type {
@@ -3467,67 +3255,54 @@ func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutputWit
 	}).(ClusterResourcePropertiesPtrOutput)
 }
 
-// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 func (o ClusterResourcePropertiesOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
 func (o ClusterResourcePropertiesOutput) CassandraVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.CassandraVersion }).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
 func (o ClusterResourcePropertiesOutput) ClientCertificates() CertificateArrayOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) []Certificate { return v.ClientCertificates }).(CertificateArrayOutput)
 }
 
-// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
 func (o ClusterResourcePropertiesOutput) ClusterNameOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.ClusterNameOverride }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
 func (o ClusterResourcePropertiesOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.DelegatedManagementSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
 func (o ClusterResourcePropertiesOutput) ExternalGossipCertificates() CertificateArrayOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) []Certificate { return v.ExternalGossipCertificates }).(CertificateArrayOutput)
 }
 
-// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
 func (o ClusterResourcePropertiesOutput) ExternalSeedNodes() SeedNodeArrayOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) []SeedNode { return v.ExternalSeedNodes }).(SeedNodeArrayOutput)
 }
 
-// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 func (o ClusterResourcePropertiesOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *int { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
 }
 
-// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 func (o ClusterResourcePropertiesOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.InitialCassandraAdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourcePropertiesOutput) PrometheusEndpoint() SeedNodePtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *SeedNode { return v.PrometheusEndpoint }).(SeedNodePtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o ClusterResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 func (o ClusterResourcePropertiesOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *bool { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
 func (o ClusterResourcePropertiesOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.RestoreFromBackupId }).(pulumi.StringPtrOutput)
 }
@@ -3556,7 +3331,6 @@ func (o ClusterResourcePropertiesPtrOutput) Elem() ClusterResourcePropertiesOutp
 	}).(ClusterResourcePropertiesOutput)
 }
 
-// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 func (o ClusterResourcePropertiesPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3566,7 +3340,6 @@ func (o ClusterResourcePropertiesPtrOutput) AuthenticationMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
 func (o ClusterResourcePropertiesPtrOutput) CassandraVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3576,7 +3349,6 @@ func (o ClusterResourcePropertiesPtrOutput) CassandraVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
 func (o ClusterResourcePropertiesPtrOutput) ClientCertificates() CertificateArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) []Certificate {
 		if v == nil {
@@ -3586,7 +3358,6 @@ func (o ClusterResourcePropertiesPtrOutput) ClientCertificates() CertificateArra
 	}).(CertificateArrayOutput)
 }
 
-// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
 func (o ClusterResourcePropertiesPtrOutput) ClusterNameOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3596,7 +3367,6 @@ func (o ClusterResourcePropertiesPtrOutput) ClusterNameOverride() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
 func (o ClusterResourcePropertiesPtrOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3606,7 +3376,6 @@ func (o ClusterResourcePropertiesPtrOutput) DelegatedManagementSubnetId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
 func (o ClusterResourcePropertiesPtrOutput) ExternalGossipCertificates() CertificateArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) []Certificate {
 		if v == nil {
@@ -3616,7 +3385,6 @@ func (o ClusterResourcePropertiesPtrOutput) ExternalGossipCertificates() Certifi
 	}).(CertificateArrayOutput)
 }
 
-// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
 func (o ClusterResourcePropertiesPtrOutput) ExternalSeedNodes() SeedNodeArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) []SeedNode {
 		if v == nil {
@@ -3626,7 +3394,6 @@ func (o ClusterResourcePropertiesPtrOutput) ExternalSeedNodes() SeedNodeArrayOut
 	}).(SeedNodeArrayOutput)
 }
 
-// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 func (o ClusterResourcePropertiesPtrOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *int {
 		if v == nil {
@@ -3636,7 +3403,6 @@ func (o ClusterResourcePropertiesPtrOutput) HoursBetweenBackups() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 func (o ClusterResourcePropertiesPtrOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3646,7 +3412,6 @@ func (o ClusterResourcePropertiesPtrOutput) InitialCassandraAdminPassword() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourcePropertiesPtrOutput) PrometheusEndpoint() SeedNodePtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *SeedNode {
 		if v == nil {
@@ -3656,7 +3421,6 @@ func (o ClusterResourcePropertiesPtrOutput) PrometheusEndpoint() SeedNodePtrOutp
 	}).(SeedNodePtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o ClusterResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3666,7 +3430,6 @@ func (o ClusterResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 func (o ClusterResourcePropertiesPtrOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *bool {
 		if v == nil {
@@ -3676,7 +3439,6 @@ func (o ClusterResourcePropertiesPtrOutput) RepairEnabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
 func (o ClusterResourcePropertiesPtrOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *string {
 		if v == nil {
@@ -3687,32 +3449,19 @@ func (o ClusterResourcePropertiesPtrOutput) RestoreFromBackupId() pulumi.StringP
 }
 
 type ClusterResourceResponseProperties struct {
-	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-	AuthenticationMethod *string `pulumi:"authenticationMethod"`
-	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
-	CassandraVersion *string `pulumi:"cassandraVersion"`
-	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
-	ClientCertificates []CertificateResponse `pulumi:"clientCertificates"`
-	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
-	ClusterNameOverride *string `pulumi:"clusterNameOverride"`
-	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
-	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
-	ExternalGossipCertificates []CertificateResponse `pulumi:"externalGossipCertificates"`
-	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-	ExternalSeedNodes []SeedNodeResponse `pulumi:"externalSeedNodes"`
-	// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
-	GossipCertificates []CertificateResponse `pulumi:"gossipCertificates"`
-	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
-	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
-	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint *SeedNodeResponse `pulumi:"prometheusEndpoint"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
-	RepairEnabled *bool `pulumi:"repairEnabled"`
-	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
-	SeedNodes []SeedNodeResponse `pulumi:"seedNodes"`
+	AuthenticationMethod        *string               `pulumi:"authenticationMethod"`
+	CassandraVersion            *string               `pulumi:"cassandraVersion"`
+	ClientCertificates          []CertificateResponse `pulumi:"clientCertificates"`
+	ClusterNameOverride         *string               `pulumi:"clusterNameOverride"`
+	DelegatedManagementSubnetId *string               `pulumi:"delegatedManagementSubnetId"`
+	ExternalGossipCertificates  []CertificateResponse `pulumi:"externalGossipCertificates"`
+	ExternalSeedNodes           []SeedNodeResponse    `pulumi:"externalSeedNodes"`
+	GossipCertificates          []CertificateResponse `pulumi:"gossipCertificates"`
+	HoursBetweenBackups         *int                  `pulumi:"hoursBetweenBackups"`
+	PrometheusEndpoint          *SeedNodeResponse     `pulumi:"prometheusEndpoint"`
+	ProvisioningState           *string               `pulumi:"provisioningState"`
+	RepairEnabled               *bool                 `pulumi:"repairEnabled"`
+	SeedNodes                   []SeedNodeResponse    `pulumi:"seedNodes"`
 }
 
 // ClusterResourceResponsePropertiesInput is an input type that accepts ClusterResourceResponsePropertiesArgs and ClusterResourceResponsePropertiesOutput values.
@@ -3727,32 +3476,19 @@ type ClusterResourceResponsePropertiesInput interface {
 }
 
 type ClusterResourceResponsePropertiesArgs struct {
-	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
-	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
-	CassandraVersion pulumi.StringPtrInput `pulumi:"cassandraVersion"`
-	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
-	ClientCertificates CertificateResponseArrayInput `pulumi:"clientCertificates"`
-	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
-	ClusterNameOverride pulumi.StringPtrInput `pulumi:"clusterNameOverride"`
-	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-	DelegatedManagementSubnetId pulumi.StringPtrInput `pulumi:"delegatedManagementSubnetId"`
-	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
-	ExternalGossipCertificates CertificateResponseArrayInput `pulumi:"externalGossipCertificates"`
-	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-	ExternalSeedNodes SeedNodeResponseArrayInput `pulumi:"externalSeedNodes"`
-	// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
-	GossipCertificates CertificateResponseArrayInput `pulumi:"gossipCertificates"`
-	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
-	HoursBetweenBackups pulumi.IntPtrInput `pulumi:"hoursBetweenBackups"`
-	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint SeedNodeResponsePtrInput `pulumi:"prometheusEndpoint"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
-	RepairEnabled pulumi.BoolPtrInput `pulumi:"repairEnabled"`
-	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
-	SeedNodes SeedNodeResponseArrayInput `pulumi:"seedNodes"`
+	AuthenticationMethod        pulumi.StringPtrInput         `pulumi:"authenticationMethod"`
+	CassandraVersion            pulumi.StringPtrInput         `pulumi:"cassandraVersion"`
+	ClientCertificates          CertificateResponseArrayInput `pulumi:"clientCertificates"`
+	ClusterNameOverride         pulumi.StringPtrInput         `pulumi:"clusterNameOverride"`
+	DelegatedManagementSubnetId pulumi.StringPtrInput         `pulumi:"delegatedManagementSubnetId"`
+	ExternalGossipCertificates  CertificateResponseArrayInput `pulumi:"externalGossipCertificates"`
+	ExternalSeedNodes           SeedNodeResponseArrayInput    `pulumi:"externalSeedNodes"`
+	GossipCertificates          CertificateResponseArrayInput `pulumi:"gossipCertificates"`
+	HoursBetweenBackups         pulumi.IntPtrInput            `pulumi:"hoursBetweenBackups"`
+	PrometheusEndpoint          SeedNodeResponsePtrInput      `pulumi:"prometheusEndpoint"`
+	ProvisioningState           pulumi.StringPtrInput         `pulumi:"provisioningState"`
+	RepairEnabled               pulumi.BoolPtrInput           `pulumi:"repairEnabled"`
+	SeedNodes                   SeedNodeResponseArrayInput    `pulumi:"seedNodes"`
 }
 
 func (ClusterResourceResponsePropertiesArgs) ElementType() reflect.Type {
@@ -3832,67 +3568,54 @@ func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponseProper
 	}).(ClusterResourceResponsePropertiesPtrOutput)
 }
 
-// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 func (o ClusterResourceResponsePropertiesOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
 func (o ClusterResourceResponsePropertiesOutput) CassandraVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.CassandraVersion }).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
 func (o ClusterResourceResponsePropertiesOutput) ClientCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.ClientCertificates }).(CertificateResponseArrayOutput)
 }
 
-// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
 func (o ClusterResourceResponsePropertiesOutput) ClusterNameOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.ClusterNameOverride }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
 func (o ClusterResourceResponsePropertiesOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.DelegatedManagementSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
 func (o ClusterResourceResponsePropertiesOutput) ExternalGossipCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.ExternalGossipCertificates }).(CertificateResponseArrayOutput)
 }
 
-// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
 func (o ClusterResourceResponsePropertiesOutput) ExternalSeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) []SeedNodeResponse { return v.ExternalSeedNodes }).(SeedNodeResponseArrayOutput)
 }
 
-// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
 func (o ClusterResourceResponsePropertiesOutput) GossipCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.GossipCertificates }).(CertificateResponseArrayOutput)
 }
 
-// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 func (o ClusterResourceResponsePropertiesOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *int { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
 }
 
-// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourceResponsePropertiesOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *SeedNodeResponse { return v.PrometheusEndpoint }).(SeedNodeResponsePtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o ClusterResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 func (o ClusterResourceResponsePropertiesOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *bool { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
 func (o ClusterResourceResponsePropertiesOutput) SeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) []SeedNodeResponse { return v.SeedNodes }).(SeedNodeResponseArrayOutput)
 }
@@ -3921,7 +3644,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) Elem() ClusterResourceRespon
 	}).(ClusterResourceResponsePropertiesOutput)
 }
 
-// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 func (o ClusterResourceResponsePropertiesPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
 		if v == nil {
@@ -3931,7 +3653,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) AuthenticationMethod() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
 func (o ClusterResourceResponsePropertiesPtrOutput) CassandraVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
 		if v == nil {
@@ -3941,7 +3662,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) CassandraVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
 func (o ClusterResourceResponsePropertiesPtrOutput) ClientCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
 		if v == nil {
@@ -3951,7 +3671,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ClientCertificates() Certifi
 	}).(CertificateResponseArrayOutput)
 }
 
-// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
 func (o ClusterResourceResponsePropertiesPtrOutput) ClusterNameOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
 		if v == nil {
@@ -3961,7 +3680,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ClusterNameOverride() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
 func (o ClusterResourceResponsePropertiesPtrOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
 		if v == nil {
@@ -3971,7 +3689,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) DelegatedManagementSubnetId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
 func (o ClusterResourceResponsePropertiesPtrOutput) ExternalGossipCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
 		if v == nil {
@@ -3981,7 +3698,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ExternalGossipCertificates()
 	}).(CertificateResponseArrayOutput)
 }
 
-// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
 func (o ClusterResourceResponsePropertiesPtrOutput) ExternalSeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) []SeedNodeResponse {
 		if v == nil {
@@ -3991,7 +3707,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ExternalSeedNodes() SeedNode
 	}).(SeedNodeResponseArrayOutput)
 }
 
-// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
 func (o ClusterResourceResponsePropertiesPtrOutput) GossipCertificates() CertificateResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
 		if v == nil {
@@ -4001,7 +3716,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) GossipCertificates() Certifi
 	}).(CertificateResponseArrayOutput)
 }
 
-// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 func (o ClusterResourceResponsePropertiesPtrOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *int {
 		if v == nil {
@@ -4011,7 +3725,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) HoursBetweenBackups() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *SeedNodeResponse {
 		if v == nil {
@@ -4021,7 +3734,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() SeedNod
 	}).(SeedNodeResponsePtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o ClusterResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
 		if v == nil {
@@ -4031,7 +3743,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 func (o ClusterResourceResponsePropertiesPtrOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *bool {
 		if v == nil {
@@ -4041,7 +3752,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) RepairEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
 func (o ClusterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) []SeedNodeResponse {
 		if v == nil {
@@ -4052,9 +3762,7 @@ func (o ClusterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeResponse
 }
 
 type Column struct {
-	// Name of the Cosmos DB Cassandra table column
 	Name *string `pulumi:"name"`
-	// Type of the Cosmos DB Cassandra table column
 	Type *string `pulumi:"type"`
 }
 
@@ -4070,9 +3778,7 @@ type ColumnInput interface {
 }
 
 type ColumnArgs struct {
-	// Name of the Cosmos DB Cassandra table column
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of the Cosmos DB Cassandra table column
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4127,12 +3833,10 @@ func (o ColumnOutput) ToColumnOutputWithContext(ctx context.Context) ColumnOutpu
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table column
 func (o ColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Column) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Cosmos DB Cassandra table column
 func (o ColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Column) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4158,9 +3862,7 @@ func (o ColumnArrayOutput) Index(i pulumi.IntInput) ColumnOutput {
 }
 
 type ColumnResponse struct {
-	// Name of the Cosmos DB Cassandra table column
 	Name *string `pulumi:"name"`
-	// Type of the Cosmos DB Cassandra table column
 	Type *string `pulumi:"type"`
 }
 
@@ -4176,9 +3878,7 @@ type ColumnResponseInput interface {
 }
 
 type ColumnResponseArgs struct {
-	// Name of the Cosmos DB Cassandra table column
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of the Cosmos DB Cassandra table column
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4233,12 +3933,10 @@ func (o ColumnResponseOutput) ToColumnResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of the Cosmos DB Cassandra table column
 func (o ColumnResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ColumnResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Cosmos DB Cassandra table column
 func (o ColumnResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ColumnResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4264,10 +3962,8 @@ func (o ColumnResponseArrayOutput) Index(i pulumi.IntInput) ColumnResponseOutput
 }
 
 type CompositePath struct {
-	// Sort order for composite paths.
 	Order *string `pulumi:"order"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
+	Path  *string `pulumi:"path"`
 }
 
 // CompositePathInput is an input type that accepts CompositePathArgs and CompositePathOutput values.
@@ -4282,10 +3978,8 @@ type CompositePathInput interface {
 }
 
 type CompositePathArgs struct {
-	// Sort order for composite paths.
 	Order pulumi.StringPtrInput `pulumi:"order"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (CompositePathArgs) ElementType() reflect.Type {
@@ -4339,12 +4033,10 @@ func (o CompositePathOutput) ToCompositePathOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Sort order for composite paths.
 func (o CompositePathOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompositePath) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o CompositePathOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompositePath) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4370,10 +4062,8 @@ func (o CompositePathArrayOutput) Index(i pulumi.IntInput) CompositePathOutput {
 }
 
 type CompositePathResponse struct {
-	// Sort order for composite paths.
 	Order *string `pulumi:"order"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
+	Path  *string `pulumi:"path"`
 }
 
 // CompositePathResponseInput is an input type that accepts CompositePathResponseArgs and CompositePathResponseOutput values.
@@ -4388,10 +4078,8 @@ type CompositePathResponseInput interface {
 }
 
 type CompositePathResponseArgs struct {
-	// Sort order for composite paths.
 	Order pulumi.StringPtrInput `pulumi:"order"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (CompositePathResponseArgs) ElementType() reflect.Type {
@@ -4445,12 +4133,10 @@ func (o CompositePathResponseOutput) ToCompositePathResponseOutputWithContext(ct
 	return o
 }
 
-// Sort order for composite paths.
 func (o CompositePathResponseOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompositePathResponse) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o CompositePathResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompositePathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4476,12 +4162,9 @@ func (o CompositePathResponseArrayOutput) Index(i pulumi.IntInput) CompositePath
 }
 
 type ConflictResolutionPolicy struct {
-	// The conflict resolution path in the case of LastWriterWins mode.
-	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
-	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionPath      *string `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
-	// Indicates the conflict resolution mode.
-	Mode *string `pulumi:"mode"`
+	Mode                        *string `pulumi:"mode"`
 }
 
 // ConflictResolutionPolicyInput is an input type that accepts ConflictResolutionPolicyArgs and ConflictResolutionPolicyOutput values.
@@ -4496,12 +4179,9 @@ type ConflictResolutionPolicyInput interface {
 }
 
 type ConflictResolutionPolicyArgs struct {
-	// The conflict resolution path in the case of LastWriterWins mode.
-	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
-	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionPath      pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
-	// Indicates the conflict resolution mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode                        pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (ConflictResolutionPolicyArgs) ElementType() reflect.Type {
@@ -4581,17 +4261,14 @@ func (o ConflictResolutionPolicyOutput) ToConflictResolutionPolicyPtrOutputWithC
 	}).(ConflictResolutionPolicyPtrOutput)
 }
 
-// The conflict resolution path in the case of LastWriterWins mode.
 func (o ConflictResolutionPolicyOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicy) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
 }
 
-// The procedure to resolve conflicts in the case of custom mode.
 func (o ConflictResolutionPolicyOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicy) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the conflict resolution mode.
 func (o ConflictResolutionPolicyOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicy) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -4620,7 +4297,6 @@ func (o ConflictResolutionPolicyPtrOutput) Elem() ConflictResolutionPolicyOutput
 	}).(ConflictResolutionPolicyOutput)
 }
 
-// The conflict resolution path in the case of LastWriterWins mode.
 func (o ConflictResolutionPolicyPtrOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicy) *string {
 		if v == nil {
@@ -4630,7 +4306,6 @@ func (o ConflictResolutionPolicyPtrOutput) ConflictResolutionPath() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The procedure to resolve conflicts in the case of custom mode.
 func (o ConflictResolutionPolicyPtrOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicy) *string {
 		if v == nil {
@@ -4640,7 +4315,6 @@ func (o ConflictResolutionPolicyPtrOutput) ConflictResolutionProcedure() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the conflict resolution mode.
 func (o ConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicy) *string {
 		if v == nil {
@@ -4651,12 +4325,9 @@ func (o ConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ConflictResolutionPolicyResponse struct {
-	// The conflict resolution path in the case of LastWriterWins mode.
-	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
-	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionPath      *string `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
-	// Indicates the conflict resolution mode.
-	Mode *string `pulumi:"mode"`
+	Mode                        *string `pulumi:"mode"`
 }
 
 // ConflictResolutionPolicyResponseInput is an input type that accepts ConflictResolutionPolicyResponseArgs and ConflictResolutionPolicyResponseOutput values.
@@ -4671,12 +4342,9 @@ type ConflictResolutionPolicyResponseInput interface {
 }
 
 type ConflictResolutionPolicyResponseArgs struct {
-	// The conflict resolution path in the case of LastWriterWins mode.
-	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
-	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionPath      pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
-	// Indicates the conflict resolution mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode                        pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (ConflictResolutionPolicyResponseArgs) ElementType() reflect.Type {
@@ -4756,17 +4424,14 @@ func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyRespon
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
 
-// The conflict resolution path in the case of LastWriterWins mode.
 func (o ConflictResolutionPolicyResponseOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
 }
 
-// The procedure to resolve conflicts in the case of custom mode.
 func (o ConflictResolutionPolicyResponseOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the conflict resolution mode.
 func (o ConflictResolutionPolicyResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -4795,7 +4460,6 @@ func (o ConflictResolutionPolicyResponsePtrOutput) Elem() ConflictResolutionPoli
 	}).(ConflictResolutionPolicyResponseOutput)
 }
 
-// The conflict resolution path in the case of LastWriterWins mode.
 func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
 		if v == nil {
@@ -4805,7 +4469,6 @@ func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionPath() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The procedure to resolve conflicts in the case of custom mode.
 func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
 		if v == nil {
@@ -4815,7 +4478,6 @@ func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionProcedure()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the conflict resolution mode.
 func (o ConflictResolutionPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
 		if v == nil {
@@ -4826,12 +4488,9 @@ func (o ConflictResolutionPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput
 }
 
 type ConsistencyPolicy struct {
-	// The default consistency level and configuration settings of the Cosmos DB account.
 	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
-	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
-	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
+	MaxIntervalInSeconds    *int                    `pulumi:"maxIntervalInSeconds"`
+	MaxStalenessPrefix      *float64                `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyInput is an input type that accepts ConsistencyPolicyArgs and ConsistencyPolicyOutput values.
@@ -4846,12 +4505,9 @@ type ConsistencyPolicyInput interface {
 }
 
 type ConsistencyPolicyArgs struct {
-	// The default consistency level and configuration settings of the Cosmos DB account.
 	DefaultConsistencyLevel DefaultConsistencyLevelInput `pulumi:"defaultConsistencyLevel"`
-	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
-	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
+	MaxIntervalInSeconds    pulumi.IntPtrInput           `pulumi:"maxIntervalInSeconds"`
+	MaxStalenessPrefix      pulumi.Float64PtrInput       `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyArgs) ElementType() reflect.Type {
@@ -4931,17 +4587,14 @@ func (o ConsistencyPolicyOutput) ToConsistencyPolicyPtrOutputWithContext(ctx con
 	}).(ConsistencyPolicyPtrOutput)
 }
 
-// The default consistency level and configuration settings of the Cosmos DB account.
 func (o ConsistencyPolicyOutput) DefaultConsistencyLevel() DefaultConsistencyLevelOutput {
 	return o.ApplyT(func(v ConsistencyPolicy) DefaultConsistencyLevel { return v.DefaultConsistencyLevel }).(DefaultConsistencyLevelOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConsistencyPolicy) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
@@ -4970,7 +4623,6 @@ func (o ConsistencyPolicyPtrOutput) Elem() ConsistencyPolicyOutput {
 	}).(ConsistencyPolicyOutput)
 }
 
-// The default consistency level and configuration settings of the Cosmos DB account.
 func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() DefaultConsistencyLevelPtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicy) *DefaultConsistencyLevel {
 		if v == nil {
@@ -4980,7 +4632,6 @@ func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() DefaultConsistency
 	}).(DefaultConsistencyLevelPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicy) *int {
 		if v == nil {
@@ -4990,7 +4641,6 @@ func (o ConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicy) *float64 {
 		if v == nil {
@@ -5001,12 +4651,9 @@ func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput
 }
 
 type ConsistencyPolicyResponse struct {
-	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel string `pulumi:"defaultConsistencyLevel"`
-	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
-	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
+	DefaultConsistencyLevel string   `pulumi:"defaultConsistencyLevel"`
+	MaxIntervalInSeconds    *int     `pulumi:"maxIntervalInSeconds"`
+	MaxStalenessPrefix      *float64 `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyResponseInput is an input type that accepts ConsistencyPolicyResponseArgs and ConsistencyPolicyResponseOutput values.
@@ -5021,12 +4668,9 @@ type ConsistencyPolicyResponseInput interface {
 }
 
 type ConsistencyPolicyResponseArgs struct {
-	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel pulumi.StringInput `pulumi:"defaultConsistencyLevel"`
-	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
-	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
+	DefaultConsistencyLevel pulumi.StringInput     `pulumi:"defaultConsistencyLevel"`
+	MaxIntervalInSeconds    pulumi.IntPtrInput     `pulumi:"maxIntervalInSeconds"`
+	MaxStalenessPrefix      pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyResponseArgs) ElementType() reflect.Type {
@@ -5106,17 +4750,14 @@ func (o ConsistencyPolicyResponseOutput) ToConsistencyPolicyResponsePtrOutputWit
 	}).(ConsistencyPolicyResponsePtrOutput)
 }
 
-// The default consistency level and configuration settings of the Cosmos DB account.
 func (o ConsistencyPolicyResponseOutput) DefaultConsistencyLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v ConsistencyPolicyResponse) string { return v.DefaultConsistencyLevel }).(pulumi.StringOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyResponseOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConsistencyPolicyResponse) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyResponseOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConsistencyPolicyResponse) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
@@ -5145,7 +4786,6 @@ func (o ConsistencyPolicyResponsePtrOutput) Elem() ConsistencyPolicyResponseOutp
 	}).(ConsistencyPolicyResponseOutput)
 }
 
-// The default consistency level and configuration settings of the Cosmos DB account.
 func (o ConsistencyPolicyResponsePtrOutput) DefaultConsistencyLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicyResponse) *string {
 		if v == nil {
@@ -5155,7 +4795,6 @@ func (o ConsistencyPolicyResponsePtrOutput) DefaultConsistencyLevel() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyResponsePtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicyResponse) *int {
 		if v == nil {
@@ -5165,7 +4804,6 @@ func (o ConsistencyPolicyResponsePtrOutput) MaxIntervalInSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConsistencyPolicyResponse) *float64 {
 		if v == nil {
@@ -5176,12 +4814,9 @@ func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.Float64P
 }
 
 type ContainerPartitionKey struct {
-	// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-	Kind *string `pulumi:"kind"`
-	// List of paths using which data within the container can be partitioned
-	Paths []string `pulumi:"paths"`
-	// Indicates the version of the partition key definition
-	Version *int `pulumi:"version"`
+	Kind    *string  `pulumi:"kind"`
+	Paths   []string `pulumi:"paths"`
+	Version *int     `pulumi:"version"`
 }
 
 // ContainerPartitionKeyInput is an input type that accepts ContainerPartitionKeyArgs and ContainerPartitionKeyOutput values.
@@ -5196,12 +4831,9 @@ type ContainerPartitionKeyInput interface {
 }
 
 type ContainerPartitionKeyArgs struct {
-	// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// List of paths using which data within the container can be partitioned
-	Paths pulumi.StringArrayInput `pulumi:"paths"`
-	// Indicates the version of the partition key definition
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	Kind    pulumi.StringPtrInput   `pulumi:"kind"`
+	Paths   pulumi.StringArrayInput `pulumi:"paths"`
+	Version pulumi.IntPtrInput      `pulumi:"version"`
 }
 
 func (ContainerPartitionKeyArgs) ElementType() reflect.Type {
@@ -5281,17 +4913,14 @@ func (o ContainerPartitionKeyOutput) ToContainerPartitionKeyPtrOutputWithContext
 	}).(ContainerPartitionKeyPtrOutput)
 }
 
-// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 func (o ContainerPartitionKeyOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPartitionKey) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// List of paths using which data within the container can be partitioned
 func (o ContainerPartitionKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerPartitionKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
-// Indicates the version of the partition key definition
 func (o ContainerPartitionKeyOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerPartitionKey) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
@@ -5320,7 +4949,6 @@ func (o ContainerPartitionKeyPtrOutput) Elem() ContainerPartitionKeyOutput {
 	}).(ContainerPartitionKeyOutput)
 }
 
-// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 func (o ContainerPartitionKeyPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerPartitionKey) *string {
 		if v == nil {
@@ -5330,7 +4958,6 @@ func (o ContainerPartitionKeyPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of paths using which data within the container can be partitioned
 func (o ContainerPartitionKeyPtrOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContainerPartitionKey) []string {
 		if v == nil {
@@ -5340,7 +4967,6 @@ func (o ContainerPartitionKeyPtrOutput) Paths() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates the version of the partition key definition
 func (o ContainerPartitionKeyPtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerPartitionKey) *int {
 		if v == nil {
@@ -5351,14 +4977,10 @@ func (o ContainerPartitionKeyPtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 type ContainerPartitionKeyResponse struct {
-	// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-	Kind *string `pulumi:"kind"`
-	// List of paths using which data within the container can be partitioned
-	Paths []string `pulumi:"paths"`
-	// Indicates if the container is using a system generated partition key
-	SystemKey bool `pulumi:"systemKey"`
-	// Indicates the version of the partition key definition
-	Version *int `pulumi:"version"`
+	Kind      *string  `pulumi:"kind"`
+	Paths     []string `pulumi:"paths"`
+	SystemKey bool     `pulumi:"systemKey"`
+	Version   *int     `pulumi:"version"`
 }
 
 // ContainerPartitionKeyResponseInput is an input type that accepts ContainerPartitionKeyResponseArgs and ContainerPartitionKeyResponseOutput values.
@@ -5373,14 +4995,10 @@ type ContainerPartitionKeyResponseInput interface {
 }
 
 type ContainerPartitionKeyResponseArgs struct {
-	// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// List of paths using which data within the container can be partitioned
-	Paths pulumi.StringArrayInput `pulumi:"paths"`
-	// Indicates if the container is using a system generated partition key
-	SystemKey pulumi.BoolInput `pulumi:"systemKey"`
-	// Indicates the version of the partition key definition
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	Kind      pulumi.StringPtrInput   `pulumi:"kind"`
+	Paths     pulumi.StringArrayInput `pulumi:"paths"`
+	SystemKey pulumi.BoolInput        `pulumi:"systemKey"`
+	Version   pulumi.IntPtrInput      `pulumi:"version"`
 }
 
 func (ContainerPartitionKeyResponseArgs) ElementType() reflect.Type {
@@ -5460,22 +5078,18 @@ func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponsePtrO
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
 
-// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 func (o ContainerPartitionKeyResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPartitionKeyResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// List of paths using which data within the container can be partitioned
 func (o ContainerPartitionKeyResponseOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerPartitionKeyResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
-// Indicates if the container is using a system generated partition key
 func (o ContainerPartitionKeyResponseOutput) SystemKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContainerPartitionKeyResponse) bool { return v.SystemKey }).(pulumi.BoolOutput)
 }
 
-// Indicates the version of the partition key definition
 func (o ContainerPartitionKeyResponseOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerPartitionKeyResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
@@ -5504,7 +5118,6 @@ func (o ContainerPartitionKeyResponsePtrOutput) Elem() ContainerPartitionKeyResp
 	}).(ContainerPartitionKeyResponseOutput)
 }
 
-// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 func (o ContainerPartitionKeyResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerPartitionKeyResponse) *string {
 		if v == nil {
@@ -5514,7 +5127,6 @@ func (o ContainerPartitionKeyResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of paths using which data within the container can be partitioned
 func (o ContainerPartitionKeyResponsePtrOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContainerPartitionKeyResponse) []string {
 		if v == nil {
@@ -5524,7 +5136,6 @@ func (o ContainerPartitionKeyResponsePtrOutput) Paths() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates if the container is using a system generated partition key
 func (o ContainerPartitionKeyResponsePtrOutput) SystemKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerPartitionKeyResponse) *bool {
 		if v == nil {
@@ -5534,7 +5145,6 @@ func (o ContainerPartitionKeyResponsePtrOutput) SystemKey() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates the version of the partition key definition
 func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerPartitionKeyResponse) *int {
 		if v == nil {
@@ -5545,8 +5155,6 @@ func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 type ContinuousModeBackupPolicy struct {
-	// Describes the mode of backups.
-	// Expected value is 'Continuous'.
 	Type string `pulumi:"type"`
 }
 
@@ -5562,8 +5170,6 @@ type ContinuousModeBackupPolicyInput interface {
 }
 
 type ContinuousModeBackupPolicyArgs struct {
-	// Describes the mode of backups.
-	// Expected value is 'Continuous'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5593,15 +5199,11 @@ func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutputWith
 	return o
 }
 
-// Describes the mode of backups.
-// Expected value is 'Continuous'.
 func (o ContinuousModeBackupPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ContinuousModeBackupPolicyResponse struct {
-	// Describes the mode of backups.
-	// Expected value is 'Continuous'.
 	Type string `pulumi:"type"`
 }
 
@@ -5617,8 +5219,6 @@ type ContinuousModeBackupPolicyResponseInput interface {
 }
 
 type ContinuousModeBackupPolicyResponseArgs struct {
-	// Describes the mode of backups.
-	// Expected value is 'Continuous'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5648,22 +5248,15 @@ func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyRe
 	return o
 }
 
-// Describes the mode of backups.
-// Expected value is 'Continuous'.
 func (o ContinuousModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type CorsPolicy struct {
-	// The request headers that the origin domain may specify on the CORS request.
-	AllowedHeaders *string `pulumi:"allowedHeaders"`
-	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
-	AllowedMethods *string `pulumi:"allowedMethods"`
-	// The origin domains that are permitted to make a request against the service via CORS.
-	AllowedOrigins string `pulumi:"allowedOrigins"`
-	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-	ExposedHeaders *string `pulumi:"exposedHeaders"`
-	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	AllowedHeaders  *string  `pulumi:"allowedHeaders"`
+	AllowedMethods  *string  `pulumi:"allowedMethods"`
+	AllowedOrigins  string   `pulumi:"allowedOrigins"`
+	ExposedHeaders  *string  `pulumi:"exposedHeaders"`
 	MaxAgeInSeconds *float64 `pulumi:"maxAgeInSeconds"`
 }
 
@@ -5679,15 +5272,10 @@ type CorsPolicyInput interface {
 }
 
 type CorsPolicyArgs struct {
-	// The request headers that the origin domain may specify on the CORS request.
-	AllowedHeaders pulumi.StringPtrInput `pulumi:"allowedHeaders"`
-	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
-	AllowedMethods pulumi.StringPtrInput `pulumi:"allowedMethods"`
-	// The origin domains that are permitted to make a request against the service via CORS.
-	AllowedOrigins pulumi.StringInput `pulumi:"allowedOrigins"`
-	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
-	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	AllowedHeaders  pulumi.StringPtrInput  `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringPtrInput  `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringInput     `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringPtrInput  `pulumi:"exposedHeaders"`
 	MaxAgeInSeconds pulumi.Float64PtrInput `pulumi:"maxAgeInSeconds"`
 }
 
@@ -5742,27 +5330,22 @@ func (o CorsPolicyOutput) ToCorsPolicyOutputWithContext(ctx context.Context) Cor
 	return o
 }
 
-// The request headers that the origin domain may specify on the CORS request.
 func (o CorsPolicyOutput) AllowedHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicy) *string { return v.AllowedHeaders }).(pulumi.StringPtrOutput)
 }
 
-// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
 func (o CorsPolicyOutput) AllowedMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicy) *string { return v.AllowedMethods }).(pulumi.StringPtrOutput)
 }
 
-// The origin domains that are permitted to make a request against the service via CORS.
 func (o CorsPolicyOutput) AllowedOrigins() pulumi.StringOutput {
 	return o.ApplyT(func(v CorsPolicy) string { return v.AllowedOrigins }).(pulumi.StringOutput)
 }
 
-// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 func (o CorsPolicyOutput) ExposedHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicy) *string { return v.ExposedHeaders }).(pulumi.StringPtrOutput)
 }
 
-// The maximum amount time that a browser should cache the preflight OPTIONS request.
 func (o CorsPolicyOutput) MaxAgeInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CorsPolicy) *float64 { return v.MaxAgeInSeconds }).(pulumi.Float64PtrOutput)
 }
@@ -5788,15 +5371,10 @@ func (o CorsPolicyArrayOutput) Index(i pulumi.IntInput) CorsPolicyOutput {
 }
 
 type CorsPolicyResponse struct {
-	// The request headers that the origin domain may specify on the CORS request.
-	AllowedHeaders *string `pulumi:"allowedHeaders"`
-	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
-	AllowedMethods *string `pulumi:"allowedMethods"`
-	// The origin domains that are permitted to make a request against the service via CORS.
-	AllowedOrigins string `pulumi:"allowedOrigins"`
-	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-	ExposedHeaders *string `pulumi:"exposedHeaders"`
-	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	AllowedHeaders  *string  `pulumi:"allowedHeaders"`
+	AllowedMethods  *string  `pulumi:"allowedMethods"`
+	AllowedOrigins  string   `pulumi:"allowedOrigins"`
+	ExposedHeaders  *string  `pulumi:"exposedHeaders"`
 	MaxAgeInSeconds *float64 `pulumi:"maxAgeInSeconds"`
 }
 
@@ -5812,15 +5390,10 @@ type CorsPolicyResponseInput interface {
 }
 
 type CorsPolicyResponseArgs struct {
-	// The request headers that the origin domain may specify on the CORS request.
-	AllowedHeaders pulumi.StringPtrInput `pulumi:"allowedHeaders"`
-	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
-	AllowedMethods pulumi.StringPtrInput `pulumi:"allowedMethods"`
-	// The origin domains that are permitted to make a request against the service via CORS.
-	AllowedOrigins pulumi.StringInput `pulumi:"allowedOrigins"`
-	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
-	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	AllowedHeaders  pulumi.StringPtrInput  `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringPtrInput  `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringInput     `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringPtrInput  `pulumi:"exposedHeaders"`
 	MaxAgeInSeconds pulumi.Float64PtrInput `pulumi:"maxAgeInSeconds"`
 }
 
@@ -5875,27 +5448,22 @@ func (o CorsPolicyResponseOutput) ToCorsPolicyResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The request headers that the origin domain may specify on the CORS request.
 func (o CorsPolicyResponseOutput) AllowedHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.AllowedHeaders }).(pulumi.StringPtrOutput)
 }
 
-// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
 func (o CorsPolicyResponseOutput) AllowedMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.AllowedMethods }).(pulumi.StringPtrOutput)
 }
 
-// The origin domains that are permitted to make a request against the service via CORS.
 func (o CorsPolicyResponseOutput) AllowedOrigins() pulumi.StringOutput {
 	return o.ApplyT(func(v CorsPolicyResponse) string { return v.AllowedOrigins }).(pulumi.StringOutput)
 }
 
-// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 func (o CorsPolicyResponseOutput) ExposedHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.ExposedHeaders }).(pulumi.StringPtrOutput)
 }
 
-// The maximum amount time that a browser should cache the preflight OPTIONS request.
 func (o CorsPolicyResponseOutput) MaxAgeInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CorsPolicyResponse) *float64 { return v.MaxAgeInSeconds }).(pulumi.Float64PtrOutput)
 }
@@ -5921,10 +5489,8 @@ func (o CorsPolicyResponseArrayOutput) Index(i pulumi.IntInput) CorsPolicyRespon
 }
 
 type CreateUpdateOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettings `pulumi:"autoscaleSettings"`
-	// Request Units per second. For example, "throughput": 10000.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int               `pulumi:"throughput"`
 }
 
 // CreateUpdateOptionsInput is an input type that accepts CreateUpdateOptionsArgs and CreateUpdateOptionsOutput values.
@@ -5939,10 +5505,8 @@ type CreateUpdateOptionsInput interface {
 }
 
 type CreateUpdateOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsPtrInput `pulumi:"autoscaleSettings"`
-	// Request Units per second. For example, "throughput": 10000.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput        `pulumi:"throughput"`
 }
 
 func (CreateUpdateOptionsArgs) ElementType() reflect.Type {
@@ -6022,12 +5586,10 @@ func (o CreateUpdateOptionsOutput) ToCreateUpdateOptionsPtrOutputWithContext(ctx
 	}).(CreateUpdateOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CreateUpdateOptionsOutput) AutoscaleSettings() AutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v CreateUpdateOptions) *AutoscaleSettings { return v.AutoscaleSettings }).(AutoscaleSettingsPtrOutput)
 }
 
-// Request Units per second. For example, "throughput": 10000.
 func (o CreateUpdateOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CreateUpdateOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -6056,7 +5618,6 @@ func (o CreateUpdateOptionsPtrOutput) Elem() CreateUpdateOptionsOutput {
 	}).(CreateUpdateOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o CreateUpdateOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *CreateUpdateOptions) *AutoscaleSettings {
 		if v == nil {
@@ -6066,7 +5627,6 @@ func (o CreateUpdateOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsPtrOu
 	}).(AutoscaleSettingsPtrOutput)
 }
 
-// Request Units per second. For example, "throughput": 10000.
 func (o CreateUpdateOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CreateUpdateOptions) *int {
 		if v == nil {
@@ -6077,16 +5637,11 @@ func (o CreateUpdateOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 }
 
 type DataCenterResourceProperties struct {
-	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 	Base64EncodedCassandraYamlFragment *string `pulumi:"base64EncodedCassandraYamlFragment"`
-	// The region this data center should be created in.
-	DataCenterLocation *string `pulumi:"dataCenterLocation"`
-	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
-	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
-	NodeCount *int `pulumi:"nodeCount"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	DataCenterLocation                 *string `pulumi:"dataCenterLocation"`
+	DelegatedSubnetId                  *string `pulumi:"delegatedSubnetId"`
+	NodeCount                          *int    `pulumi:"nodeCount"`
+	ProvisioningState                  *string `pulumi:"provisioningState"`
 }
 
 // DataCenterResourcePropertiesInput is an input type that accepts DataCenterResourcePropertiesArgs and DataCenterResourcePropertiesOutput values.
@@ -6101,16 +5656,11 @@ type DataCenterResourcePropertiesInput interface {
 }
 
 type DataCenterResourcePropertiesArgs struct {
-	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 	Base64EncodedCassandraYamlFragment pulumi.StringPtrInput `pulumi:"base64EncodedCassandraYamlFragment"`
-	// The region this data center should be created in.
-	DataCenterLocation pulumi.StringPtrInput `pulumi:"dataCenterLocation"`
-	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-	DelegatedSubnetId pulumi.StringPtrInput `pulumi:"delegatedSubnetId"`
-	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
-	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	DataCenterLocation                 pulumi.StringPtrInput `pulumi:"dataCenterLocation"`
+	DelegatedSubnetId                  pulumi.StringPtrInput `pulumi:"delegatedSubnetId"`
+	NodeCount                          pulumi.IntPtrInput    `pulumi:"nodeCount"`
+	ProvisioningState                  pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (DataCenterResourcePropertiesArgs) ElementType() reflect.Type {
@@ -6190,27 +5740,22 @@ func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesPtrOut
 	}).(DataCenterResourcePropertiesPtrOutput)
 }
 
-// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 func (o DataCenterResourcePropertiesOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.Base64EncodedCassandraYamlFragment }).(pulumi.StringPtrOutput)
 }
 
-// The region this data center should be created in.
 func (o DataCenterResourcePropertiesOutput) DataCenterLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.DataCenterLocation }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
 func (o DataCenterResourcePropertiesOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.DelegatedSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
 func (o DataCenterResourcePropertiesOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceProperties) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o DataCenterResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -6239,7 +5784,6 @@ func (o DataCenterResourcePropertiesPtrOutput) Elem() DataCenterResourceProperti
 	}).(DataCenterResourcePropertiesOutput)
 }
 
-// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 func (o DataCenterResourcePropertiesPtrOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
 		if v == nil {
@@ -6249,7 +5793,6 @@ func (o DataCenterResourcePropertiesPtrOutput) Base64EncodedCassandraYamlFragmen
 	}).(pulumi.StringPtrOutput)
 }
 
-// The region this data center should be created in.
 func (o DataCenterResourcePropertiesPtrOutput) DataCenterLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
 		if v == nil {
@@ -6259,7 +5802,6 @@ func (o DataCenterResourcePropertiesPtrOutput) DataCenterLocation() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
 func (o DataCenterResourcePropertiesPtrOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
 		if v == nil {
@@ -6269,7 +5811,6 @@ func (o DataCenterResourcePropertiesPtrOutput) DelegatedSubnetId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
 func (o DataCenterResourcePropertiesPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceProperties) *int {
 		if v == nil {
@@ -6279,7 +5820,6 @@ func (o DataCenterResourcePropertiesPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o DataCenterResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
 		if v == nil {
@@ -6290,18 +5830,12 @@ func (o DataCenterResourcePropertiesPtrOutput) ProvisioningState() pulumi.String
 }
 
 type DataCenterResourceResponseProperties struct {
-	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
-	Base64EncodedCassandraYamlFragment *string `pulumi:"base64EncodedCassandraYamlFragment"`
-	// The region this data center should be created in.
-	DataCenterLocation *string `pulumi:"dataCenterLocation"`
-	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
-	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
-	NodeCount *int `pulumi:"nodeCount"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
-	SeedNodes []SeedNodeResponse `pulumi:"seedNodes"`
+	Base64EncodedCassandraYamlFragment *string            `pulumi:"base64EncodedCassandraYamlFragment"`
+	DataCenterLocation                 *string            `pulumi:"dataCenterLocation"`
+	DelegatedSubnetId                  *string            `pulumi:"delegatedSubnetId"`
+	NodeCount                          *int               `pulumi:"nodeCount"`
+	ProvisioningState                  *string            `pulumi:"provisioningState"`
+	SeedNodes                          []SeedNodeResponse `pulumi:"seedNodes"`
 }
 
 // DataCenterResourceResponsePropertiesInput is an input type that accepts DataCenterResourceResponsePropertiesArgs and DataCenterResourceResponsePropertiesOutput values.
@@ -6316,18 +5850,12 @@ type DataCenterResourceResponsePropertiesInput interface {
 }
 
 type DataCenterResourceResponsePropertiesArgs struct {
-	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
-	Base64EncodedCassandraYamlFragment pulumi.StringPtrInput `pulumi:"base64EncodedCassandraYamlFragment"`
-	// The region this data center should be created in.
-	DataCenterLocation pulumi.StringPtrInput `pulumi:"dataCenterLocation"`
-	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-	DelegatedSubnetId pulumi.StringPtrInput `pulumi:"delegatedSubnetId"`
-	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
-	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-	// The status of the resource at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
-	SeedNodes SeedNodeResponseArrayInput `pulumi:"seedNodes"`
+	Base64EncodedCassandraYamlFragment pulumi.StringPtrInput      `pulumi:"base64EncodedCassandraYamlFragment"`
+	DataCenterLocation                 pulumi.StringPtrInput      `pulumi:"dataCenterLocation"`
+	DelegatedSubnetId                  pulumi.StringPtrInput      `pulumi:"delegatedSubnetId"`
+	NodeCount                          pulumi.IntPtrInput         `pulumi:"nodeCount"`
+	ProvisioningState                  pulumi.StringPtrInput      `pulumi:"provisioningState"`
+	SeedNodes                          SeedNodeResponseArrayInput `pulumi:"seedNodes"`
 }
 
 func (DataCenterResourceResponsePropertiesArgs) ElementType() reflect.Type {
@@ -6407,32 +5935,26 @@ func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponse
 	}).(DataCenterResourceResponsePropertiesPtrOutput)
 }
 
-// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 func (o DataCenterResourceResponsePropertiesOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.Base64EncodedCassandraYamlFragment }).(pulumi.StringPtrOutput)
 }
 
-// The region this data center should be created in.
 func (o DataCenterResourceResponsePropertiesOutput) DataCenterLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.DataCenterLocation }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
 func (o DataCenterResourceResponsePropertiesOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.DelegatedSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
 func (o DataCenterResourceResponsePropertiesOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o DataCenterResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
 func (o DataCenterResourceResponsePropertiesOutput) SeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v DataCenterResourceResponseProperties) []SeedNodeResponse { return v.SeedNodes }).(SeedNodeResponseArrayOutput)
 }
@@ -6461,7 +5983,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) Elem() DataCenterResource
 	}).(DataCenterResourceResponsePropertiesOutput)
 }
 
-// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
 func (o DataCenterResourceResponsePropertiesPtrOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
 		if v == nil {
@@ -6471,7 +5992,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) Base64EncodedCassandraYam
 	}).(pulumi.StringPtrOutput)
 }
 
-// The region this data center should be created in.
 func (o DataCenterResourceResponsePropertiesPtrOutput) DataCenterLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
 		if v == nil {
@@ -6481,7 +6001,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) DataCenterLocation() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
 func (o DataCenterResourceResponsePropertiesPtrOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
 		if v == nil {
@@ -6491,7 +6010,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) DelegatedSubnetId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
 func (o DataCenterResourceResponsePropertiesPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *int {
 		if v == nil {
@@ -6501,7 +6019,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) NodeCount() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The status of the resource at the time the operation was called.
 func (o DataCenterResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
 		if v == nil {
@@ -6511,7 +6028,6 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
 func (o DataCenterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeResponseArrayOutput {
 	return o.ApplyT(func(v *DataCenterResourceResponseProperties) []SeedNodeResponse {
 		if v == nil {
@@ -6522,12 +6038,9 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeRespo
 }
 
 type DataTransferRegionalServiceResourceResponse struct {
-	// The location name.
 	Location string `pulumi:"location"`
-	// The regional service name.
-	Name string `pulumi:"name"`
-	// Describes the status of a service.
-	Status string `pulumi:"status"`
+	Name     string `pulumi:"name"`
+	Status   string `pulumi:"status"`
 }
 
 // DataTransferRegionalServiceResourceResponseInput is an input type that accepts DataTransferRegionalServiceResourceResponseArgs and DataTransferRegionalServiceResourceResponseOutput values.
@@ -6542,12 +6055,9 @@ type DataTransferRegionalServiceResourceResponseInput interface {
 }
 
 type DataTransferRegionalServiceResourceResponseArgs struct {
-	// The location name.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The regional service name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the status of a service.
-	Status pulumi.StringInput `pulumi:"status"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Status   pulumi.StringInput `pulumi:"status"`
 }
 
 func (DataTransferRegionalServiceResourceResponseArgs) ElementType() reflect.Type {
@@ -6601,17 +6111,14 @@ func (o DataTransferRegionalServiceResourceResponseOutput) ToDataTransferRegiona
 	return o
 }
 
-// The location name.
 func (o DataTransferRegionalServiceResourceResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The regional service name.
 func (o DataTransferRegionalServiceResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the status of a service.
 func (o DataTransferRegionalServiceResourceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6637,19 +6144,12 @@ func (o DataTransferRegionalServiceResourceResponseArrayOutput) Index(i pulumi.I
 }
 
 type DataTransferServiceResourcePropertiesResponse struct {
-	// Time of the last state change (ISO-8601 format).
-	CreationTime string `pulumi:"creationTime"`
-	// Instance count for the service.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Instance type for the service.
-	InstanceSize *string `pulumi:"instanceSize"`
-	// An array that contains all of the locations for the service.
-	Locations []DataTransferRegionalServiceResourceResponse `pulumi:"locations"`
-	// ServiceType for the service.
-	// Expected value is 'DataTransfer'.
-	ServiceType string `pulumi:"serviceType"`
-	// Describes the status of a service.
-	Status string `pulumi:"status"`
+	CreationTime  string                                        `pulumi:"creationTime"`
+	InstanceCount *int                                          `pulumi:"instanceCount"`
+	InstanceSize  *string                                       `pulumi:"instanceSize"`
+	Locations     []DataTransferRegionalServiceResourceResponse `pulumi:"locations"`
+	ServiceType   string                                        `pulumi:"serviceType"`
+	Status        string                                        `pulumi:"status"`
 }
 
 // DataTransferServiceResourcePropertiesResponseInput is an input type that accepts DataTransferServiceResourcePropertiesResponseArgs and DataTransferServiceResourcePropertiesResponseOutput values.
@@ -6664,19 +6164,12 @@ type DataTransferServiceResourcePropertiesResponseInput interface {
 }
 
 type DataTransferServiceResourcePropertiesResponseArgs struct {
-	// Time of the last state change (ISO-8601 format).
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// Instance count for the service.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// Instance type for the service.
-	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
-	// An array that contains all of the locations for the service.
-	Locations DataTransferRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
-	// ServiceType for the service.
-	// Expected value is 'DataTransfer'.
-	ServiceType pulumi.StringInput `pulumi:"serviceType"`
-	// Describes the status of a service.
-	Status pulumi.StringInput `pulumi:"status"`
+	CreationTime  pulumi.StringInput                                    `pulumi:"creationTime"`
+	InstanceCount pulumi.IntPtrInput                                    `pulumi:"instanceCount"`
+	InstanceSize  pulumi.StringPtrInput                                 `pulumi:"instanceSize"`
+	Locations     DataTransferRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
+	ServiceType   pulumi.StringInput                                    `pulumi:"serviceType"`
+	Status        pulumi.StringInput                                    `pulumi:"status"`
 }
 
 func (DataTransferServiceResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -6705,44 +6198,35 @@ func (o DataTransferServiceResourcePropertiesResponseOutput) ToDataTransferServi
 	return o
 }
 
-// Time of the last state change (ISO-8601 format).
 func (o DataTransferServiceResourcePropertiesResponseOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Instance count for the service.
 func (o DataTransferServiceResourcePropertiesResponseOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Instance type for the service.
 func (o DataTransferServiceResourcePropertiesResponseOutput) InstanceSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
 }
 
-// An array that contains all of the locations for the service.
 func (o DataTransferServiceResourcePropertiesResponseOutput) Locations() DataTransferRegionalServiceResourceResponseArrayOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) []DataTransferRegionalServiceResourceResponse {
 		return v.Locations
 	}).(DataTransferRegionalServiceResourceResponseArrayOutput)
 }
 
-// ServiceType for the service.
-// Expected value is 'DataTransfer'.
 func (o DataTransferServiceResourcePropertiesResponseOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// Describes the status of a service.
 func (o DataTransferServiceResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 type DatabaseAccountConnectionStringResponse struct {
-	// Value of the connection string
 	ConnectionString string `pulumi:"connectionString"`
-	// Description of the connection string
-	Description string `pulumi:"description"`
+	Description      string `pulumi:"description"`
 }
 
 // DatabaseAccountConnectionStringResponseInput is an input type that accepts DatabaseAccountConnectionStringResponseArgs and DatabaseAccountConnectionStringResponseOutput values.
@@ -6757,10 +6241,8 @@ type DatabaseAccountConnectionStringResponseInput interface {
 }
 
 type DatabaseAccountConnectionStringResponseArgs struct {
-	// Value of the connection string
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// Description of the connection string
-	Description pulumi.StringInput `pulumi:"description"`
+	Description      pulumi.StringInput `pulumi:"description"`
 }
 
 func (DatabaseAccountConnectionStringResponseArgs) ElementType() reflect.Type {
@@ -6814,12 +6296,10 @@ func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnecti
 	return o
 }
 
-// Value of the connection string
 func (o DatabaseAccountConnectionStringResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// Description of the connection string
 func (o DatabaseAccountConnectionStringResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -6845,7 +6325,6 @@ func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type ExcludedPath struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
 }
 
@@ -6861,7 +6340,6 @@ type ExcludedPathInput interface {
 }
 
 type ExcludedPathArgs struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -6916,7 +6394,6 @@ func (o ExcludedPathOutput) ToExcludedPathOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o ExcludedPathOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExcludedPath) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -6942,7 +6419,6 @@ func (o ExcludedPathArrayOutput) Index(i pulumi.IntInput) ExcludedPathOutput {
 }
 
 type ExcludedPathResponse struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
 }
 
@@ -6958,7 +6434,6 @@ type ExcludedPathResponseInput interface {
 }
 
 type ExcludedPathResponseArgs struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -7013,7 +6488,6 @@ func (o ExcludedPathResponseOutput) ToExcludedPathResponseOutputWithContext(ctx 
 	return o
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o ExcludedPathResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExcludedPathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -7039,12 +6513,9 @@ func (o ExcludedPathResponseArrayOutput) Index(i pulumi.IntInput) ExcludedPathRe
 }
 
 type FailoverPolicyResponse struct {
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority *int `pulumi:"failoverPriority"`
-	// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-	Id string `pulumi:"id"`
-	// The name of the region in which the database account exists.
-	LocationName *string `pulumi:"locationName"`
+	FailoverPriority *int    `pulumi:"failoverPriority"`
+	Id               string  `pulumi:"id"`
+	LocationName     *string `pulumi:"locationName"`
 }
 
 // FailoverPolicyResponseInput is an input type that accepts FailoverPolicyResponseArgs and FailoverPolicyResponseOutput values.
@@ -7059,12 +6530,9 @@ type FailoverPolicyResponseInput interface {
 }
 
 type FailoverPolicyResponseArgs struct {
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority pulumi.IntPtrInput `pulumi:"failoverPriority"`
-	// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the region in which the database account exists.
-	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
+	FailoverPriority pulumi.IntPtrInput    `pulumi:"failoverPriority"`
+	Id               pulumi.StringInput    `pulumi:"id"`
+	LocationName     pulumi.StringPtrInput `pulumi:"locationName"`
 }
 
 func (FailoverPolicyResponseArgs) ElementType() reflect.Type {
@@ -7118,17 +6586,14 @@ func (o FailoverPolicyResponseOutput) ToFailoverPolicyResponseOutputWithContext(
 	return o
 }
 
-// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
 func (o FailoverPolicyResponseOutput) FailoverPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverPolicyResponse) *int { return v.FailoverPriority }).(pulumi.IntPtrOutput)
 }
 
-// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
 func (o FailoverPolicyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverPolicyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the region in which the database account exists.
 func (o FailoverPolicyResponseOutput) LocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverPolicyResponse) *string { return v.LocationName }).(pulumi.StringPtrOutput)
 }
@@ -7154,7 +6619,6 @@ func (o FailoverPolicyResponseArrayOutput) Index(i pulumi.IntInput) FailoverPoli
 }
 
 type GraphResource struct {
-	// Name of the Cosmos DB Graph
 	Id string `pulumi:"id"`
 }
 
@@ -7170,7 +6634,6 @@ type GraphResourceInput interface {
 }
 
 type GraphResourceArgs struct {
-	// Name of the Cosmos DB Graph
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -7251,7 +6714,6 @@ func (o GraphResourceOutput) ToGraphResourcePtrOutputWithContext(ctx context.Con
 	}).(GraphResourcePtrOutput)
 }
 
-// Name of the Cosmos DB Graph
 func (o GraphResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -7280,7 +6742,6 @@ func (o GraphResourcePtrOutput) Elem() GraphResourceOutput {
 	}).(GraphResourceOutput)
 }
 
-// Name of the Cosmos DB Graph
 func (o GraphResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphResource) *string {
 		if v == nil {
@@ -7291,10 +6752,8 @@ func (o GraphResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type GraphResourceGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // GraphResourceGetPropertiesResponseOptionsInput is an input type that accepts GraphResourceGetPropertiesResponseOptionsArgs and GraphResourceGetPropertiesResponseOptionsOutput values.
@@ -7309,10 +6768,8 @@ type GraphResourceGetPropertiesResponseOptionsInput interface {
 }
 
 type GraphResourceGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (GraphResourceGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -7392,14 +6849,12 @@ func (o GraphResourceGetPropertiesResponseOptionsOutput) ToGraphResourceGetPrope
 	}).(GraphResourceGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GraphResourceGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GraphResourceGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -7428,7 +6883,6 @@ func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Elem() GraphResource
 	}).(GraphResourceGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -7438,7 +6892,6 @@ func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() 
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -7449,14 +6902,10 @@ func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.
 }
 
 type GraphResourceGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Graph
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // GraphResourceGetPropertiesResponseResourceInput is an input type that accepts GraphResourceGetPropertiesResponseResourceArgs and GraphResourceGetPropertiesResponseResourceOutput values.
@@ -7471,14 +6920,10 @@ type GraphResourceGetPropertiesResponseResourceInput interface {
 }
 
 type GraphResourceGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Graph
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput  `pulumi:"etag"`
+	Id   pulumi.StringInput  `pulumi:"id"`
+	Rid  pulumi.StringInput  `pulumi:"rid"`
+	Ts   pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (GraphResourceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7558,22 +7003,18 @@ func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetProp
 	}).(GraphResourceGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GraphResourceGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Graph
 func (o GraphResourceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GraphResourceGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GraphResourceGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -7602,7 +7043,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Elem() GraphResourc
 	}).(GraphResourceGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7612,7 +7052,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Graph
 func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7622,7 +7061,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7632,7 +7070,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -7643,10 +7080,8 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64
 }
 
 type GremlinDatabaseGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // GremlinDatabaseGetPropertiesResponseOptionsInput is an input type that accepts GremlinDatabaseGetPropertiesResponseOptionsArgs and GremlinDatabaseGetPropertiesResponseOptionsOutput values.
@@ -7661,10 +7096,8 @@ type GremlinDatabaseGetPropertiesResponseOptionsInput interface {
 }
 
 type GremlinDatabaseGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -7744,14 +7177,12 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetP
 	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -7780,7 +7211,6 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() GremlinData
 	}).(GremlinDatabaseGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -7790,7 +7220,6 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings(
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -7801,14 +7230,10 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulum
 }
 
 type GremlinDatabaseGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Gremlin database
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // GremlinDatabaseGetPropertiesResponseResourceInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs and GremlinDatabaseGetPropertiesResponseResourceOutput values.
@@ -7823,14 +7248,10 @@ type GremlinDatabaseGetPropertiesResponseResourceInput interface {
 }
 
 type GremlinDatabaseGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Gremlin database
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput  `pulumi:"etag"`
+	Id   pulumi.StringInput  `pulumi:"id"`
+	Rid  pulumi.StringInput  `pulumi:"rid"`
+	Ts   pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7910,22 +7331,18 @@ func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGet
 	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Gremlin database
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -7954,7 +7371,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Elem() GremlinDat
 	}).(GremlinDatabaseGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7964,7 +7380,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Gremlin database
 func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7974,7 +7389,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -7984,7 +7398,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -7995,7 +7408,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float
 }
 
 type GremlinDatabaseResource struct {
-	// Name of the Cosmos DB Gremlin database
 	Id string `pulumi:"id"`
 }
 
@@ -8011,7 +7423,6 @@ type GremlinDatabaseResourceInput interface {
 }
 
 type GremlinDatabaseResourceArgs struct {
-	// Name of the Cosmos DB Gremlin database
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -8092,7 +7503,6 @@ func (o GremlinDatabaseResourceOutput) ToGremlinDatabaseResourcePtrOutputWithCon
 	}).(GremlinDatabaseResourcePtrOutput)
 }
 
-// Name of the Cosmos DB Gremlin database
 func (o GremlinDatabaseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinDatabaseResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -8121,7 +7531,6 @@ func (o GremlinDatabaseResourcePtrOutput) Elem() GremlinDatabaseResourceOutput {
 	}).(GremlinDatabaseResourceOutput)
 }
 
-// Name of the Cosmos DB Gremlin database
 func (o GremlinDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseResource) *string {
 		if v == nil {
@@ -8132,10 +7541,8 @@ func (o GremlinDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type GremlinGraphGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // GremlinGraphGetPropertiesResponseOptionsInput is an input type that accepts GremlinGraphGetPropertiesResponseOptionsArgs and GremlinGraphGetPropertiesResponseOptionsOutput values.
@@ -8150,10 +7557,8 @@ type GremlinGraphGetPropertiesResponseOptionsInput interface {
 }
 
 type GremlinGraphGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (GremlinGraphGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -8233,14 +7638,12 @@ func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropert
 	}).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GremlinGraphGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GremlinGraphGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -8269,7 +7672,6 @@ func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Elem() GremlinGraphGe
 	}).(GremlinGraphGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -8279,7 +7681,6 @@ func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() A
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -8290,24 +7691,15 @@ func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type GremlinGraphGetPropertiesResponseResource struct {
-	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB Gremlin graph
-	Id string `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               *int                              `pulumi:"defaultTtl"`
+	Etag                     string                            `pulumi:"etag"`
+	Id                       string                            `pulumi:"id"`
+	IndexingPolicy           *IndexingPolicyResponse           `pulumi:"indexingPolicy"`
+	PartitionKey             *ContainerPartitionKeyResponse    `pulumi:"partitionKey"`
+	Rid                      string                            `pulumi:"rid"`
+	Ts                       float64                           `pulumi:"ts"`
+	UniqueKeyPolicy          *UniqueKeyPolicyResponse          `pulumi:"uniqueKeyPolicy"`
 }
 
 // GremlinGraphGetPropertiesResponseResourceInput is an input type that accepts GremlinGraphGetPropertiesResponseResourceArgs and GremlinGraphGetPropertiesResponseResourceOutput values.
@@ -8322,24 +7714,15 @@ type GremlinGraphGetPropertiesResponseResourceInput interface {
 }
 
 type GremlinGraphGetPropertiesResponseResourceArgs struct {
-	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB Gremlin graph
-	Id pulumi.StringInput `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrInput                       `pulumi:"defaultTtl"`
+	Etag                     pulumi.StringInput                       `pulumi:"etag"`
+	Id                       pulumi.StringInput                       `pulumi:"id"`
+	IndexingPolicy           IndexingPolicyResponsePtrInput           `pulumi:"indexingPolicy"`
+	PartitionKey             ContainerPartitionKeyResponsePtrInput    `pulumi:"partitionKey"`
+	Rid                      pulumi.StringInput                       `pulumi:"rid"`
+	Ts                       pulumi.Float64Input                      `pulumi:"ts"`
+	UniqueKeyPolicy          UniqueKeyPolicyResponsePtrInput          `pulumi:"uniqueKeyPolicy"`
 }
 
 func (GremlinGraphGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -8419,51 +7802,42 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetProper
 	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
 }
 
-// The conflict resolution policy for the graph.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
 		return v.ConflictResolutionPolicy
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
 
-// Default time to live
 func (o GremlinGraphGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB Gremlin graph
 func (o GremlinGraphGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 func (o GremlinGraphGetPropertiesResponseResourceOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *IndexingPolicyResponse { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o GremlinGraphGetPropertiesResponseResourceOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
 }
@@ -8492,7 +7866,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Elem() GremlinGraphG
 	}).(GremlinGraphGetPropertiesResponseResourceOutput)
 }
 
-// The conflict resolution policy for the graph.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
 		if v == nil {
@@ -8502,7 +7875,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ConflictResolutionPo
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
 
-// Default time to live
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *int {
 		if v == nil {
@@ -8512,7 +7884,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -8522,7 +7893,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Etag() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB Gremlin graph
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -8532,7 +7902,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *IndexingPolicyResponse {
 		if v == nil {
@@ -8542,7 +7911,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) IndexingPolicy() Ind
 	}).(IndexingPolicyResponsePtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		if v == nil {
@@ -8552,7 +7920,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) PartitionKey() Conta
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -8562,7 +7929,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -8572,7 +7938,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *UniqueKeyPolicyResponse {
 		if v == nil {
@@ -8583,18 +7948,12 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() Un
 }
 
 type GremlinGraphResource struct {
-	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy *ConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB Gremlin graph
-	Id string `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-	IndexingPolicy *IndexingPolicy `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey *ContainerPartitionKey `pulumi:"partitionKey"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy *UniqueKeyPolicy `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               *int                      `pulumi:"defaultTtl"`
+	Id                       string                    `pulumi:"id"`
+	IndexingPolicy           *IndexingPolicy           `pulumi:"indexingPolicy"`
+	PartitionKey             *ContainerPartitionKey    `pulumi:"partitionKey"`
+	UniqueKeyPolicy          *UniqueKeyPolicy          `pulumi:"uniqueKeyPolicy"`
 }
 
 // GremlinGraphResourceInput is an input type that accepts GremlinGraphResourceArgs and GremlinGraphResourceOutput values.
@@ -8609,18 +7968,12 @@ type GremlinGraphResourceInput interface {
 }
 
 type GremlinGraphResourceArgs struct {
-	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy ConflictResolutionPolicyPtrInput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB Gremlin graph
-	Id pulumi.StringInput `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-	IndexingPolicy IndexingPolicyPtrInput `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyPtrInput `pulumi:"partitionKey"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyPtrInput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrInput               `pulumi:"defaultTtl"`
+	Id                       pulumi.StringInput               `pulumi:"id"`
+	IndexingPolicy           IndexingPolicyPtrInput           `pulumi:"indexingPolicy"`
+	PartitionKey             ContainerPartitionKeyPtrInput    `pulumi:"partitionKey"`
+	UniqueKeyPolicy          UniqueKeyPolicyPtrInput          `pulumi:"uniqueKeyPolicy"`
 }
 
 func (GremlinGraphResourceArgs) ElementType() reflect.Type {
@@ -8700,32 +8053,26 @@ func (o GremlinGraphResourceOutput) ToGremlinGraphResourcePtrOutputWithContext(c
 	}).(GremlinGraphResourcePtrOutput)
 }
 
-// The conflict resolution policy for the graph.
 func (o GremlinGraphResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v GremlinGraphResource) *ConflictResolutionPolicy { return v.ConflictResolutionPolicy }).(ConflictResolutionPolicyPtrOutput)
 }
 
-// Default time to live
 func (o GremlinGraphResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinGraphResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB Gremlin graph
 func (o GremlinGraphResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 func (o GremlinGraphResourceOutput) IndexingPolicy() IndexingPolicyPtrOutput {
 	return o.ApplyT(func(v GremlinGraphResource) *IndexingPolicy { return v.IndexingPolicy }).(IndexingPolicyPtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o GremlinGraphResourceOutput) PartitionKey() ContainerPartitionKeyPtrOutput {
 	return o.ApplyT(func(v GremlinGraphResource) *ContainerPartitionKey { return v.PartitionKey }).(ContainerPartitionKeyPtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o GremlinGraphResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutput {
 	return o.ApplyT(func(v GremlinGraphResource) *UniqueKeyPolicy { return v.UniqueKeyPolicy }).(UniqueKeyPolicyPtrOutput)
 }
@@ -8754,7 +8101,6 @@ func (o GremlinGraphResourcePtrOutput) Elem() GremlinGraphResourceOutput {
 	}).(GremlinGraphResourceOutput)
 }
 
-// The conflict resolution policy for the graph.
 func (o GremlinGraphResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *ConflictResolutionPolicy {
 		if v == nil {
@@ -8764,7 +8110,6 @@ func (o GremlinGraphResourcePtrOutput) ConflictResolutionPolicy() ConflictResolu
 	}).(ConflictResolutionPolicyPtrOutput)
 }
 
-// Default time to live
 func (o GremlinGraphResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *int {
 		if v == nil {
@@ -8774,7 +8119,6 @@ func (o GremlinGraphResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB Gremlin graph
 func (o GremlinGraphResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *string {
 		if v == nil {
@@ -8784,7 +8128,6 @@ func (o GremlinGraphResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 func (o GremlinGraphResourcePtrOutput) IndexingPolicy() IndexingPolicyPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *IndexingPolicy {
 		if v == nil {
@@ -8794,7 +8137,6 @@ func (o GremlinGraphResourcePtrOutput) IndexingPolicy() IndexingPolicyPtrOutput 
 	}).(IndexingPolicyPtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o GremlinGraphResourcePtrOutput) PartitionKey() ContainerPartitionKeyPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *ContainerPartitionKey {
 		if v == nil {
@@ -8804,7 +8146,6 @@ func (o GremlinGraphResourcePtrOutput) PartitionKey() ContainerPartitionKeyPtrOu
 	}).(ContainerPartitionKeyPtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o GremlinGraphResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphResource) *UniqueKeyPolicy {
 		if v == nil {
@@ -8815,10 +8156,8 @@ func (o GremlinGraphResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutpu
 }
 
 type IncludedPath struct {
-	// List of indexes for this path
 	Indexes []Indexes `pulumi:"indexes"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
+	Path    *string   `pulumi:"path"`
 }
 
 // IncludedPathInput is an input type that accepts IncludedPathArgs and IncludedPathOutput values.
@@ -8833,10 +8172,8 @@ type IncludedPathInput interface {
 }
 
 type IncludedPathArgs struct {
-	// List of indexes for this path
-	Indexes IndexesArrayInput `pulumi:"indexes"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Indexes IndexesArrayInput     `pulumi:"indexes"`
+	Path    pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (IncludedPathArgs) ElementType() reflect.Type {
@@ -8890,12 +8227,10 @@ func (o IncludedPathOutput) ToIncludedPathOutputWithContext(ctx context.Context)
 	return o
 }
 
-// List of indexes for this path
 func (o IncludedPathOutput) Indexes() IndexesArrayOutput {
 	return o.ApplyT(func(v IncludedPath) []Indexes { return v.Indexes }).(IndexesArrayOutput)
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o IncludedPathOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncludedPath) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -8921,10 +8256,8 @@ func (o IncludedPathArrayOutput) Index(i pulumi.IntInput) IncludedPathOutput {
 }
 
 type IncludedPathResponse struct {
-	// List of indexes for this path
 	Indexes []IndexesResponse `pulumi:"indexes"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
+	Path    *string           `pulumi:"path"`
 }
 
 // IncludedPathResponseInput is an input type that accepts IncludedPathResponseArgs and IncludedPathResponseOutput values.
@@ -8939,10 +8272,8 @@ type IncludedPathResponseInput interface {
 }
 
 type IncludedPathResponseArgs struct {
-	// List of indexes for this path
 	Indexes IndexesResponseArrayInput `pulumi:"indexes"`
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path    pulumi.StringPtrInput     `pulumi:"path"`
 }
 
 func (IncludedPathResponseArgs) ElementType() reflect.Type {
@@ -8996,12 +8327,10 @@ func (o IncludedPathResponseOutput) ToIncludedPathResponseOutputWithContext(ctx 
 	return o
 }
 
-// List of indexes for this path
 func (o IncludedPathResponseOutput) Indexes() IndexesResponseArrayOutput {
 	return o.ApplyT(func(v IncludedPathResponse) []IndexesResponse { return v.Indexes }).(IndexesResponseArrayOutput)
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o IncludedPathResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncludedPathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -9027,12 +8356,9 @@ func (o IncludedPathResponseArrayOutput) Index(i pulumi.IntInput) IncludedPathRe
 }
 
 type Indexes struct {
-	// The datatype for which the indexing behavior is applied to.
-	DataType *string `pulumi:"dataType"`
-	// Indicates the type of index.
-	Kind *string `pulumi:"kind"`
-	// The precision of the index. -1 is maximum precision.
-	Precision *int `pulumi:"precision"`
+	DataType  *string `pulumi:"dataType"`
+	Kind      *string `pulumi:"kind"`
+	Precision *int    `pulumi:"precision"`
 }
 
 // IndexesInput is an input type that accepts IndexesArgs and IndexesOutput values.
@@ -9047,12 +8373,9 @@ type IndexesInput interface {
 }
 
 type IndexesArgs struct {
-	// The datatype for which the indexing behavior is applied to.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Indicates the type of index.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The precision of the index. -1 is maximum precision.
-	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	DataType  pulumi.StringPtrInput `pulumi:"dataType"`
+	Kind      pulumi.StringPtrInput `pulumi:"kind"`
+	Precision pulumi.IntPtrInput    `pulumi:"precision"`
 }
 
 func (IndexesArgs) ElementType() reflect.Type {
@@ -9106,17 +8429,14 @@ func (o IndexesOutput) ToIndexesOutputWithContext(ctx context.Context) IndexesOu
 	return o
 }
 
-// The datatype for which the indexing behavior is applied to.
 func (o IndexesOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Indexes) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the type of index.
 func (o IndexesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Indexes) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The precision of the index. -1 is maximum precision.
 func (o IndexesOutput) Precision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Indexes) *int { return v.Precision }).(pulumi.IntPtrOutput)
 }
@@ -9142,12 +8462,9 @@ func (o IndexesArrayOutput) Index(i pulumi.IntInput) IndexesOutput {
 }
 
 type IndexesResponse struct {
-	// The datatype for which the indexing behavior is applied to.
-	DataType *string `pulumi:"dataType"`
-	// Indicates the type of index.
-	Kind *string `pulumi:"kind"`
-	// The precision of the index. -1 is maximum precision.
-	Precision *int `pulumi:"precision"`
+	DataType  *string `pulumi:"dataType"`
+	Kind      *string `pulumi:"kind"`
+	Precision *int    `pulumi:"precision"`
 }
 
 // IndexesResponseInput is an input type that accepts IndexesResponseArgs and IndexesResponseOutput values.
@@ -9162,12 +8479,9 @@ type IndexesResponseInput interface {
 }
 
 type IndexesResponseArgs struct {
-	// The datatype for which the indexing behavior is applied to.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Indicates the type of index.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The precision of the index. -1 is maximum precision.
-	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	DataType  pulumi.StringPtrInput `pulumi:"dataType"`
+	Kind      pulumi.StringPtrInput `pulumi:"kind"`
+	Precision pulumi.IntPtrInput    `pulumi:"precision"`
 }
 
 func (IndexesResponseArgs) ElementType() reflect.Type {
@@ -9221,17 +8535,14 @@ func (o IndexesResponseOutput) ToIndexesResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The datatype for which the indexing behavior is applied to.
 func (o IndexesResponseOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexesResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the type of index.
 func (o IndexesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The precision of the index. -1 is maximum precision.
 func (o IndexesResponseOutput) Precision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexesResponse) *int { return v.Precision }).(pulumi.IntPtrOutput)
 }
@@ -9257,18 +8568,12 @@ func (o IndexesResponseArrayOutput) Index(i pulumi.IntInput) IndexesResponseOutp
 }
 
 type IndexingPolicy struct {
-	// Indicates if the indexing policy is automatic
-	Automatic *bool `pulumi:"automatic"`
-	// List of composite path list
+	Automatic        *bool             `pulumi:"automatic"`
 	CompositeIndexes [][]CompositePath `pulumi:"compositeIndexes"`
-	// List of paths to exclude from indexing
-	ExcludedPaths []ExcludedPath `pulumi:"excludedPaths"`
-	// List of paths to include in the indexing
-	IncludedPaths []IncludedPath `pulumi:"includedPaths"`
-	// Indicates the indexing mode.
-	IndexingMode *string `pulumi:"indexingMode"`
-	// List of spatial specifics
-	SpatialIndexes []SpatialSpec `pulumi:"spatialIndexes"`
+	ExcludedPaths    []ExcludedPath    `pulumi:"excludedPaths"`
+	IncludedPaths    []IncludedPath    `pulumi:"includedPaths"`
+	IndexingMode     *string           `pulumi:"indexingMode"`
+	SpatialIndexes   []SpatialSpec     `pulumi:"spatialIndexes"`
 }
 
 // IndexingPolicyInput is an input type that accepts IndexingPolicyArgs and IndexingPolicyOutput values.
@@ -9283,18 +8588,12 @@ type IndexingPolicyInput interface {
 }
 
 type IndexingPolicyArgs struct {
-	// Indicates if the indexing policy is automatic
-	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
-	// List of composite path list
+	Automatic        pulumi.BoolPtrInput          `pulumi:"automatic"`
 	CompositeIndexes CompositePathArrayArrayInput `pulumi:"compositeIndexes"`
-	// List of paths to exclude from indexing
-	ExcludedPaths ExcludedPathArrayInput `pulumi:"excludedPaths"`
-	// List of paths to include in the indexing
-	IncludedPaths IncludedPathArrayInput `pulumi:"includedPaths"`
-	// Indicates the indexing mode.
-	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
-	// List of spatial specifics
-	SpatialIndexes SpatialSpecArrayInput `pulumi:"spatialIndexes"`
+	ExcludedPaths    ExcludedPathArrayInput       `pulumi:"excludedPaths"`
+	IncludedPaths    IncludedPathArrayInput       `pulumi:"includedPaths"`
+	IndexingMode     pulumi.StringPtrInput        `pulumi:"indexingMode"`
+	SpatialIndexes   SpatialSpecArrayInput        `pulumi:"spatialIndexes"`
 }
 
 func (IndexingPolicyArgs) ElementType() reflect.Type {
@@ -9374,32 +8673,26 @@ func (o IndexingPolicyOutput) ToIndexingPolicyPtrOutputWithContext(ctx context.C
 	}).(IndexingPolicyPtrOutput)
 }
 
-// Indicates if the indexing policy is automatic
 func (o IndexingPolicyOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexingPolicy) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
 }
 
-// List of composite path list
 func (o IndexingPolicyOutput) CompositeIndexes() CompositePathArrayArrayOutput {
 	return o.ApplyT(func(v IndexingPolicy) [][]CompositePath { return v.CompositeIndexes }).(CompositePathArrayArrayOutput)
 }
 
-// List of paths to exclude from indexing
 func (o IndexingPolicyOutput) ExcludedPaths() ExcludedPathArrayOutput {
 	return o.ApplyT(func(v IndexingPolicy) []ExcludedPath { return v.ExcludedPaths }).(ExcludedPathArrayOutput)
 }
 
-// List of paths to include in the indexing
 func (o IndexingPolicyOutput) IncludedPaths() IncludedPathArrayOutput {
 	return o.ApplyT(func(v IndexingPolicy) []IncludedPath { return v.IncludedPaths }).(IncludedPathArrayOutput)
 }
 
-// Indicates the indexing mode.
 func (o IndexingPolicyOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingPolicy) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
 }
 
-// List of spatial specifics
 func (o IndexingPolicyOutput) SpatialIndexes() SpatialSpecArrayOutput {
 	return o.ApplyT(func(v IndexingPolicy) []SpatialSpec { return v.SpatialIndexes }).(SpatialSpecArrayOutput)
 }
@@ -9428,7 +8721,6 @@ func (o IndexingPolicyPtrOutput) Elem() IndexingPolicyOutput {
 	}).(IndexingPolicyOutput)
 }
 
-// Indicates if the indexing policy is automatic
 func (o IndexingPolicyPtrOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexingPolicy) *bool {
 		if v == nil {
@@ -9438,7 +8730,6 @@ func (o IndexingPolicyPtrOutput) Automatic() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of composite path list
 func (o IndexingPolicyPtrOutput) CompositeIndexes() CompositePathArrayArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicy) [][]CompositePath {
 		if v == nil {
@@ -9448,7 +8739,6 @@ func (o IndexingPolicyPtrOutput) CompositeIndexes() CompositePathArrayArrayOutpu
 	}).(CompositePathArrayArrayOutput)
 }
 
-// List of paths to exclude from indexing
 func (o IndexingPolicyPtrOutput) ExcludedPaths() ExcludedPathArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicy) []ExcludedPath {
 		if v == nil {
@@ -9458,7 +8748,6 @@ func (o IndexingPolicyPtrOutput) ExcludedPaths() ExcludedPathArrayOutput {
 	}).(ExcludedPathArrayOutput)
 }
 
-// List of paths to include in the indexing
 func (o IndexingPolicyPtrOutput) IncludedPaths() IncludedPathArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicy) []IncludedPath {
 		if v == nil {
@@ -9468,7 +8757,6 @@ func (o IndexingPolicyPtrOutput) IncludedPaths() IncludedPathArrayOutput {
 	}).(IncludedPathArrayOutput)
 }
 
-// Indicates the indexing mode.
 func (o IndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingPolicy) *string {
 		if v == nil {
@@ -9478,7 +8766,6 @@ func (o IndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of spatial specifics
 func (o IndexingPolicyPtrOutput) SpatialIndexes() SpatialSpecArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicy) []SpatialSpec {
 		if v == nil {
@@ -9489,18 +8776,12 @@ func (o IndexingPolicyPtrOutput) SpatialIndexes() SpatialSpecArrayOutput {
 }
 
 type IndexingPolicyResponse struct {
-	// Indicates if the indexing policy is automatic
-	Automatic *bool `pulumi:"automatic"`
-	// List of composite path list
+	Automatic        *bool                     `pulumi:"automatic"`
 	CompositeIndexes [][]CompositePathResponse `pulumi:"compositeIndexes"`
-	// List of paths to exclude from indexing
-	ExcludedPaths []ExcludedPathResponse `pulumi:"excludedPaths"`
-	// List of paths to include in the indexing
-	IncludedPaths []IncludedPathResponse `pulumi:"includedPaths"`
-	// Indicates the indexing mode.
-	IndexingMode *string `pulumi:"indexingMode"`
-	// List of spatial specifics
-	SpatialIndexes []SpatialSpecResponse `pulumi:"spatialIndexes"`
+	ExcludedPaths    []ExcludedPathResponse    `pulumi:"excludedPaths"`
+	IncludedPaths    []IncludedPathResponse    `pulumi:"includedPaths"`
+	IndexingMode     *string                   `pulumi:"indexingMode"`
+	SpatialIndexes   []SpatialSpecResponse     `pulumi:"spatialIndexes"`
 }
 
 // IndexingPolicyResponseInput is an input type that accepts IndexingPolicyResponseArgs and IndexingPolicyResponseOutput values.
@@ -9515,18 +8796,12 @@ type IndexingPolicyResponseInput interface {
 }
 
 type IndexingPolicyResponseArgs struct {
-	// Indicates if the indexing policy is automatic
-	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
-	// List of composite path list
+	Automatic        pulumi.BoolPtrInput                  `pulumi:"automatic"`
 	CompositeIndexes CompositePathResponseArrayArrayInput `pulumi:"compositeIndexes"`
-	// List of paths to exclude from indexing
-	ExcludedPaths ExcludedPathResponseArrayInput `pulumi:"excludedPaths"`
-	// List of paths to include in the indexing
-	IncludedPaths IncludedPathResponseArrayInput `pulumi:"includedPaths"`
-	// Indicates the indexing mode.
-	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
-	// List of spatial specifics
-	SpatialIndexes SpatialSpecResponseArrayInput `pulumi:"spatialIndexes"`
+	ExcludedPaths    ExcludedPathResponseArrayInput       `pulumi:"excludedPaths"`
+	IncludedPaths    IncludedPathResponseArrayInput       `pulumi:"includedPaths"`
+	IndexingMode     pulumi.StringPtrInput                `pulumi:"indexingMode"`
+	SpatialIndexes   SpatialSpecResponseArrayInput        `pulumi:"spatialIndexes"`
 }
 
 func (IndexingPolicyResponseArgs) ElementType() reflect.Type {
@@ -9606,32 +8881,26 @@ func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponsePtrOutputWithConte
 	}).(IndexingPolicyResponsePtrOutput)
 }
 
-// Indicates if the indexing policy is automatic
 func (o IndexingPolicyResponseOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
 }
 
-// List of composite path list
 func (o IndexingPolicyResponseOutput) CompositeIndexes() CompositePathResponseArrayArrayOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) [][]CompositePathResponse { return v.CompositeIndexes }).(CompositePathResponseArrayArrayOutput)
 }
 
-// List of paths to exclude from indexing
 func (o IndexingPolicyResponseOutput) ExcludedPaths() ExcludedPathResponseArrayOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) []ExcludedPathResponse { return v.ExcludedPaths }).(ExcludedPathResponseArrayOutput)
 }
 
-// List of paths to include in the indexing
 func (o IndexingPolicyResponseOutput) IncludedPaths() IncludedPathResponseArrayOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) []IncludedPathResponse { return v.IncludedPaths }).(IncludedPathResponseArrayOutput)
 }
 
-// Indicates the indexing mode.
 func (o IndexingPolicyResponseOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
 }
 
-// List of spatial specifics
 func (o IndexingPolicyResponseOutput) SpatialIndexes() SpatialSpecResponseArrayOutput {
 	return o.ApplyT(func(v IndexingPolicyResponse) []SpatialSpecResponse { return v.SpatialIndexes }).(SpatialSpecResponseArrayOutput)
 }
@@ -9660,7 +8929,6 @@ func (o IndexingPolicyResponsePtrOutput) Elem() IndexingPolicyResponseOutput {
 	}).(IndexingPolicyResponseOutput)
 }
 
-// Indicates if the indexing policy is automatic
 func (o IndexingPolicyResponsePtrOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) *bool {
 		if v == nil {
@@ -9670,7 +8938,6 @@ func (o IndexingPolicyResponsePtrOutput) Automatic() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of composite path list
 func (o IndexingPolicyResponsePtrOutput) CompositeIndexes() CompositePathResponseArrayArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) [][]CompositePathResponse {
 		if v == nil {
@@ -9680,7 +8947,6 @@ func (o IndexingPolicyResponsePtrOutput) CompositeIndexes() CompositePathRespons
 	}).(CompositePathResponseArrayArrayOutput)
 }
 
-// List of paths to exclude from indexing
 func (o IndexingPolicyResponsePtrOutput) ExcludedPaths() ExcludedPathResponseArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) []ExcludedPathResponse {
 		if v == nil {
@@ -9690,7 +8956,6 @@ func (o IndexingPolicyResponsePtrOutput) ExcludedPaths() ExcludedPathResponseArr
 	}).(ExcludedPathResponseArrayOutput)
 }
 
-// List of paths to include in the indexing
 func (o IndexingPolicyResponsePtrOutput) IncludedPaths() IncludedPathResponseArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) []IncludedPathResponse {
 		if v == nil {
@@ -9700,7 +8965,6 @@ func (o IndexingPolicyResponsePtrOutput) IncludedPaths() IncludedPathResponseArr
 	}).(IncludedPathResponseArrayOutput)
 }
 
-// Indicates the indexing mode.
 func (o IndexingPolicyResponsePtrOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) *string {
 		if v == nil {
@@ -9710,7 +8974,6 @@ func (o IndexingPolicyResponsePtrOutput) IndexingMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of spatial specifics
 func (o IndexingPolicyResponsePtrOutput) SpatialIndexes() SpatialSpecResponseArrayOutput {
 	return o.ApplyT(func(v *IndexingPolicyResponse) []SpatialSpecResponse {
 		if v == nil {
@@ -9721,7 +8984,6 @@ func (o IndexingPolicyResponsePtrOutput) SpatialIndexes() SpatialSpecResponseArr
 }
 
 type IpAddressOrRange struct {
-	// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 	IpAddressOrRange *string `pulumi:"ipAddressOrRange"`
 }
 
@@ -9737,7 +8999,6 @@ type IpAddressOrRangeInput interface {
 }
 
 type IpAddressOrRangeArgs struct {
-	// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 	IpAddressOrRange pulumi.StringPtrInput `pulumi:"ipAddressOrRange"`
 }
 
@@ -9792,7 +9053,6 @@ func (o IpAddressOrRangeOutput) ToIpAddressOrRangeOutputWithContext(ctx context.
 	return o
 }
 
-// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 func (o IpAddressOrRangeOutput) IpAddressOrRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAddressOrRange) *string { return v.IpAddressOrRange }).(pulumi.StringPtrOutput)
 }
@@ -9818,7 +9078,6 @@ func (o IpAddressOrRangeArrayOutput) Index(i pulumi.IntInput) IpAddressOrRangeOu
 }
 
 type IpAddressOrRangeResponse struct {
-	// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 	IpAddressOrRange *string `pulumi:"ipAddressOrRange"`
 }
 
@@ -9834,7 +9093,6 @@ type IpAddressOrRangeResponseInput interface {
 }
 
 type IpAddressOrRangeResponseArgs struct {
-	// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 	IpAddressOrRange pulumi.StringPtrInput `pulumi:"ipAddressOrRange"`
 }
 
@@ -9889,7 +9147,6 @@ func (o IpAddressOrRangeResponseOutput) ToIpAddressOrRangeResponseOutputWithCont
 	return o
 }
 
-// A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 func (o IpAddressOrRangeResponseOutput) IpAddressOrRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAddressOrRangeResponse) *string { return v.IpAddressOrRange }).(pulumi.StringPtrOutput)
 }
@@ -9915,12 +9172,9 @@ func (o IpAddressOrRangeResponseArrayOutput) Index(i pulumi.IntInput) IpAddressO
 }
 
 type Location struct {
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority *int `pulumi:"failoverPriority"`
-	// Flag to indicate whether or not this region is an AvailabilityZone region
-	IsZoneRedundant *bool `pulumi:"isZoneRedundant"`
-	// The name of the region.
-	LocationName *string `pulumi:"locationName"`
+	FailoverPriority *int    `pulumi:"failoverPriority"`
+	IsZoneRedundant  *bool   `pulumi:"isZoneRedundant"`
+	LocationName     *string `pulumi:"locationName"`
 }
 
 // LocationInput is an input type that accepts LocationArgs and LocationOutput values.
@@ -9935,12 +9189,9 @@ type LocationInput interface {
 }
 
 type LocationArgs struct {
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority pulumi.IntPtrInput `pulumi:"failoverPriority"`
-	// Flag to indicate whether or not this region is an AvailabilityZone region
-	IsZoneRedundant pulumi.BoolPtrInput `pulumi:"isZoneRedundant"`
-	// The name of the region.
-	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
+	FailoverPriority pulumi.IntPtrInput    `pulumi:"failoverPriority"`
+	IsZoneRedundant  pulumi.BoolPtrInput   `pulumi:"isZoneRedundant"`
+	LocationName     pulumi.StringPtrInput `pulumi:"locationName"`
 }
 
 func (LocationArgs) ElementType() reflect.Type {
@@ -9994,17 +9245,14 @@ func (o LocationOutput) ToLocationOutputWithContext(ctx context.Context) Locatio
 	return o
 }
 
-// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
 func (o LocationOutput) FailoverPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Location) *int { return v.FailoverPriority }).(pulumi.IntPtrOutput)
 }
 
-// Flag to indicate whether or not this region is an AvailabilityZone region
 func (o LocationOutput) IsZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Location) *bool { return v.IsZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the region.
 func (o LocationOutput) LocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Location) *string { return v.LocationName }).(pulumi.StringPtrOutput)
 }
@@ -10030,18 +9278,12 @@ func (o LocationArrayOutput) Index(i pulumi.IntInput) LocationOutput {
 }
 
 type LocationResponse struct {
-	// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-	DocumentEndpoint string `pulumi:"documentEndpoint"`
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority *int `pulumi:"failoverPriority"`
-	// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-	Id string `pulumi:"id"`
-	// Flag to indicate whether or not this region is an AvailabilityZone region
-	IsZoneRedundant *bool `pulumi:"isZoneRedundant"`
-	// The name of the region.
-	LocationName *string `pulumi:"locationName"`
-	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState string `pulumi:"provisioningState"`
+	DocumentEndpoint  string  `pulumi:"documentEndpoint"`
+	FailoverPriority  *int    `pulumi:"failoverPriority"`
+	Id                string  `pulumi:"id"`
+	IsZoneRedundant   *bool   `pulumi:"isZoneRedundant"`
+	LocationName      *string `pulumi:"locationName"`
+	ProvisioningState string  `pulumi:"provisioningState"`
 }
 
 // LocationResponseInput is an input type that accepts LocationResponseArgs and LocationResponseOutput values.
@@ -10056,18 +9298,12 @@ type LocationResponseInput interface {
 }
 
 type LocationResponseArgs struct {
-	// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-	DocumentEndpoint pulumi.StringInput `pulumi:"documentEndpoint"`
-	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-	FailoverPriority pulumi.IntPtrInput `pulumi:"failoverPriority"`
-	// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Flag to indicate whether or not this region is an AvailabilityZone region
-	IsZoneRedundant pulumi.BoolPtrInput `pulumi:"isZoneRedundant"`
-	// The name of the region.
-	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
-	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	DocumentEndpoint  pulumi.StringInput    `pulumi:"documentEndpoint"`
+	FailoverPriority  pulumi.IntPtrInput    `pulumi:"failoverPriority"`
+	Id                pulumi.StringInput    `pulumi:"id"`
+	IsZoneRedundant   pulumi.BoolPtrInput   `pulumi:"isZoneRedundant"`
+	LocationName      pulumi.StringPtrInput `pulumi:"locationName"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
 }
 
 func (LocationResponseArgs) ElementType() reflect.Type {
@@ -10121,32 +9357,26 @@ func (o LocationResponseOutput) ToLocationResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
 func (o LocationResponseOutput) DocumentEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationResponse) string { return v.DocumentEndpoint }).(pulumi.StringOutput)
 }
 
-// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
 func (o LocationResponseOutput) FailoverPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LocationResponse) *int { return v.FailoverPriority }).(pulumi.IntPtrOutput)
 }
 
-// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
 func (o LocationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Flag to indicate whether or not this region is an AvailabilityZone region
 func (o LocationResponseOutput) IsZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LocationResponse) *bool { return v.IsZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the region.
 func (o LocationResponseOutput) LocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationResponse) *string { return v.LocationName }).(pulumi.StringPtrOutput)
 }
 
-// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
 func (o LocationResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -10172,9 +9402,7 @@ func (o LocationResponseArrayOutput) Index(i pulumi.IntInput) LocationResponseOu
 }
 
 type ManagedServiceIdentity struct {
-	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -10190,10 +9418,8 @@ type ManagedServiceIdentityInput interface {
 }
 
 type ManagedServiceIdentityArgs struct {
-	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -10273,12 +9499,10 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithConte
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ManagedServiceIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -10307,7 +9531,6 @@ func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
 	}).(ManagedServiceIdentityOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ManagedServiceIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -10317,7 +9540,6 @@ func (o ManagedServiceIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
 		if v == nil {
@@ -10328,13 +9550,9 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 }
 
 type ManagedServiceIdentityResponse struct {
-	// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                                          `pulumi:"principalId"`
+	TenantId               string                                                          `pulumi:"tenantId"`
+	Type                   *string                                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]ManagedServiceIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -10350,13 +9568,9 @@ type ManagedServiceIdentityResponseInput interface {
 }
 
 type ManagedServiceIdentityResponseArgs struct {
-	// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                                           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                                           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                                        `pulumi:"type"`
 	UserAssignedIdentities ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -10437,22 +9651,18 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
 func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
 func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -10483,7 +9693,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityRe
 	}).(ManagedServiceIdentityResponseOutput)
 }
 
-// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
 func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -10493,7 +9702,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
 func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -10503,7 +9711,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -10513,7 +9720,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -10524,9 +9730,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() Manage
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -10542,9 +9746,7 @@ type ManagedServiceIdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -10599,12 +9801,10 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ToManagedSer
 	return o
 }
 
-// The client id of user assigned identity.
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -10630,10 +9830,8 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 }
 
 type MongoDBCollectionGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // MongoDBCollectionGetPropertiesResponseOptionsInput is an input type that accepts MongoDBCollectionGetPropertiesResponseOptionsArgs and MongoDBCollectionGetPropertiesResponseOptionsOutput values.
@@ -10648,10 +9846,8 @@ type MongoDBCollectionGetPropertiesResponseOptionsInput interface {
 }
 
 type MongoDBCollectionGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -10731,14 +9927,12 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollection
 	}).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -10767,7 +9961,6 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBCo
 	}).(MongoDBCollectionGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -10777,7 +9970,6 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) AutoscaleSetting
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -10788,20 +9980,13 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Throughput() pul
 }
 
 type MongoDBCollectionGetPropertiesResponseResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB MongoDB collection
-	Id string `pulumi:"id"`
-	// List of index keys
-	Indexes []MongoIndexResponse `pulumi:"indexes"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey map[string]string `pulumi:"shardKey"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	AnalyticalStorageTtl *int                 `pulumi:"analyticalStorageTtl"`
+	Etag                 string               `pulumi:"etag"`
+	Id                   string               `pulumi:"id"`
+	Indexes              []MongoIndexResponse `pulumi:"indexes"`
+	Rid                  string               `pulumi:"rid"`
+	ShardKey             map[string]string    `pulumi:"shardKey"`
+	Ts                   float64              `pulumi:"ts"`
 }
 
 // MongoDBCollectionGetPropertiesResponseResourceInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs and MongoDBCollectionGetPropertiesResponseResourceOutput values.
@@ -10816,20 +10001,13 @@ type MongoDBCollectionGetPropertiesResponseResourceInput interface {
 }
 
 type MongoDBCollectionGetPropertiesResponseResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB MongoDB collection
-	Id pulumi.StringInput `pulumi:"id"`
-	// List of index keys
-	Indexes MongoIndexResponseArrayInput `pulumi:"indexes"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	AnalyticalStorageTtl pulumi.IntPtrInput           `pulumi:"analyticalStorageTtl"`
+	Etag                 pulumi.StringInput           `pulumi:"etag"`
+	Id                   pulumi.StringInput           `pulumi:"id"`
+	Indexes              MongoIndexResponseArrayInput `pulumi:"indexes"`
+	Rid                  pulumi.StringInput           `pulumi:"rid"`
+	ShardKey             pulumi.StringMapInput        `pulumi:"shardKey"`
+	Ts                   pulumi.Float64Input          `pulumi:"ts"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -10909,37 +10087,30 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectio
 	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB MongoDB collection
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of index keys
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Indexes() MongoIndexResponseArrayOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) []MongoIndexResponse { return v.Indexes }).(MongoIndexResponseArrayOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -10968,7 +10139,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Elem() MongoDBC
 	}).(MongoDBCollectionGetPropertiesResponseResourceOutput)
 }
 
-// Analytical TTL.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *int {
 		if v == nil {
@@ -10978,7 +10148,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) AnalyticalStora
 	}).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -10988,7 +10157,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Etag() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB MongoDB collection
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -10998,7 +10166,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Id() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of index keys
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Indexes() MongoIndexResponseArrayOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) []MongoIndexResponse {
 		if v == nil {
@@ -11008,7 +10175,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Indexes() Mongo
 	}).(MongoIndexResponseArrayOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -11018,7 +10184,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Rid() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]string {
 		if v == nil {
@@ -11028,7 +10193,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulu
 	}).(pulumi.StringMapOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -11039,14 +10203,10 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Flo
 }
 
 type MongoDBCollectionResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// Name of the Cosmos DB MongoDB collection
-	Id string `pulumi:"id"`
-	// List of index keys
-	Indexes []MongoIndex `pulumi:"indexes"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey map[string]string `pulumi:"shardKey"`
+	AnalyticalStorageTtl *int              `pulumi:"analyticalStorageTtl"`
+	Id                   string            `pulumi:"id"`
+	Indexes              []MongoIndex      `pulumi:"indexes"`
+	ShardKey             map[string]string `pulumi:"shardKey"`
 }
 
 // MongoDBCollectionResourceInput is an input type that accepts MongoDBCollectionResourceArgs and MongoDBCollectionResourceOutput values.
@@ -11061,14 +10221,10 @@ type MongoDBCollectionResourceInput interface {
 }
 
 type MongoDBCollectionResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
-	// Name of the Cosmos DB MongoDB collection
-	Id pulumi.StringInput `pulumi:"id"`
-	// List of index keys
-	Indexes MongoIndexArrayInput `pulumi:"indexes"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
+	AnalyticalStorageTtl pulumi.IntPtrInput    `pulumi:"analyticalStorageTtl"`
+	Id                   pulumi.StringInput    `pulumi:"id"`
+	Indexes              MongoIndexArrayInput  `pulumi:"indexes"`
+	ShardKey             pulumi.StringMapInput `pulumi:"shardKey"`
 }
 
 func (MongoDBCollectionResourceArgs) ElementType() reflect.Type {
@@ -11148,22 +10304,18 @@ func (o MongoDBCollectionResourceOutput) ToMongoDBCollectionResourcePtrOutputWit
 	}).(MongoDBCollectionResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o MongoDBCollectionResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDBCollectionResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB MongoDB collection
 func (o MongoDBCollectionResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBCollectionResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of index keys
 func (o MongoDBCollectionResourceOutput) Indexes() MongoIndexArrayOutput {
 	return o.ApplyT(func(v MongoDBCollectionResource) []MongoIndex { return v.Indexes }).(MongoIndexArrayOutput)
 }
 
-// A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionResourceOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MongoDBCollectionResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
 }
@@ -11192,7 +10344,6 @@ func (o MongoDBCollectionResourcePtrOutput) Elem() MongoDBCollectionResourceOutp
 	}).(MongoDBCollectionResourceOutput)
 }
 
-// Analytical TTL.
 func (o MongoDBCollectionResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionResource) *int {
 		if v == nil {
@@ -11202,7 +10353,6 @@ func (o MongoDBCollectionResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB MongoDB collection
 func (o MongoDBCollectionResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionResource) *string {
 		if v == nil {
@@ -11212,7 +10362,6 @@ func (o MongoDBCollectionResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of index keys
 func (o MongoDBCollectionResourcePtrOutput) Indexes() MongoIndexArrayOutput {
 	return o.ApplyT(func(v *MongoDBCollectionResource) []MongoIndex {
 		if v == nil {
@@ -11222,7 +10371,6 @@ func (o MongoDBCollectionResourcePtrOutput) Indexes() MongoIndexArrayOutput {
 	}).(MongoIndexArrayOutput)
 }
 
-// A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MongoDBCollectionResource) map[string]string {
 		if v == nil {
@@ -11233,10 +10381,8 @@ func (o MongoDBCollectionResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
 }
 
 type MongoDBDatabaseGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseOptionsInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseOptionsArgs and MongoDBDatabaseGetPropertiesResponseOptionsOutput values.
@@ -11251,10 +10397,8 @@ type MongoDBDatabaseGetPropertiesResponseOptionsInput interface {
 }
 
 type MongoDBDatabaseGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -11334,14 +10478,12 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetP
 	}).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -11370,7 +10512,6 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBData
 	}).(MongoDBDatabaseGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -11380,7 +10521,6 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings(
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -11391,14 +10531,10 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulum
 }
 
 type MongoDBDatabaseGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB MongoDB database
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseResourceInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs and MongoDBDatabaseGetPropertiesResponseResourceOutput values.
@@ -11413,14 +10549,10 @@ type MongoDBDatabaseGetPropertiesResponseResourceInput interface {
 }
 
 type MongoDBDatabaseGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB MongoDB database
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput  `pulumi:"etag"`
+	Id   pulumi.StringInput  `pulumi:"id"`
+	Rid  pulumi.StringInput  `pulumi:"rid"`
+	Ts   pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11500,22 +10632,18 @@ func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGet
 	}).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB MongoDB database
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -11544,7 +10672,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Elem() MongoDBDat
 	}).(MongoDBDatabaseGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -11554,7 +10681,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB MongoDB database
 func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -11564,7 +10690,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -11574,7 +10699,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -11585,7 +10709,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float
 }
 
 type MongoDBDatabaseResource struct {
-	// Name of the Cosmos DB MongoDB database
 	Id string `pulumi:"id"`
 }
 
@@ -11601,7 +10724,6 @@ type MongoDBDatabaseResourceInput interface {
 }
 
 type MongoDBDatabaseResourceArgs struct {
-	// Name of the Cosmos DB MongoDB database
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -11682,7 +10804,6 @@ func (o MongoDBDatabaseResourceOutput) ToMongoDBDatabaseResourcePtrOutputWithCon
 	}).(MongoDBDatabaseResourcePtrOutput)
 }
 
-// Name of the Cosmos DB MongoDB database
 func (o MongoDBDatabaseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBDatabaseResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -11711,7 +10832,6 @@ func (o MongoDBDatabaseResourcePtrOutput) Elem() MongoDBDatabaseResourceOutput {
 	}).(MongoDBDatabaseResourceOutput)
 }
 
-// Name of the Cosmos DB MongoDB database
 func (o MongoDBDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseResource) *string {
 		if v == nil {
@@ -11722,9 +10842,7 @@ func (o MongoDBDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type MongoIndex struct {
-	// Cosmos DB MongoDB collection index keys
-	Key *MongoIndexKeys `pulumi:"key"`
-	// Cosmos DB MongoDB collection index key options
+	Key     *MongoIndexKeys    `pulumi:"key"`
 	Options *MongoIndexOptions `pulumi:"options"`
 }
 
@@ -11740,9 +10858,7 @@ type MongoIndexInput interface {
 }
 
 type MongoIndexArgs struct {
-	// Cosmos DB MongoDB collection index keys
-	Key MongoIndexKeysPtrInput `pulumi:"key"`
-	// Cosmos DB MongoDB collection index key options
+	Key     MongoIndexKeysPtrInput    `pulumi:"key"`
 	Options MongoIndexOptionsPtrInput `pulumi:"options"`
 }
 
@@ -11797,12 +10913,10 @@ func (o MongoIndexOutput) ToMongoIndexOutputWithContext(ctx context.Context) Mon
 	return o
 }
 
-// Cosmos DB MongoDB collection index keys
 func (o MongoIndexOutput) Key() MongoIndexKeysPtrOutput {
 	return o.ApplyT(func(v MongoIndex) *MongoIndexKeys { return v.Key }).(MongoIndexKeysPtrOutput)
 }
 
-// Cosmos DB MongoDB collection index key options
 func (o MongoIndexOutput) Options() MongoIndexOptionsPtrOutput {
 	return o.ApplyT(func(v MongoIndex) *MongoIndexOptions { return v.Options }).(MongoIndexOptionsPtrOutput)
 }
@@ -11828,7 +10942,6 @@ func (o MongoIndexArrayOutput) Index(i pulumi.IntInput) MongoIndexOutput {
 }
 
 type MongoIndexKeys struct {
-	// List of keys for each MongoDB collection in the Azure Cosmos DB service
 	Keys []string `pulumi:"keys"`
 }
 
@@ -11844,7 +10957,6 @@ type MongoIndexKeysInput interface {
 }
 
 type MongoIndexKeysArgs struct {
-	// List of keys for each MongoDB collection in the Azure Cosmos DB service
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
@@ -11925,7 +11037,6 @@ func (o MongoIndexKeysOutput) ToMongoIndexKeysPtrOutputWithContext(ctx context.C
 	}).(MongoIndexKeysPtrOutput)
 }
 
-// List of keys for each MongoDB collection in the Azure Cosmos DB service
 func (o MongoIndexKeysOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MongoIndexKeys) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
@@ -11954,7 +11065,6 @@ func (o MongoIndexKeysPtrOutput) Elem() MongoIndexKeysOutput {
 	}).(MongoIndexKeysOutput)
 }
 
-// List of keys for each MongoDB collection in the Azure Cosmos DB service
 func (o MongoIndexKeysPtrOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MongoIndexKeys) []string {
 		if v == nil {
@@ -11965,7 +11075,6 @@ func (o MongoIndexKeysPtrOutput) Keys() pulumi.StringArrayOutput {
 }
 
 type MongoIndexKeysResponse struct {
-	// List of keys for each MongoDB collection in the Azure Cosmos DB service
 	Keys []string `pulumi:"keys"`
 }
 
@@ -11981,7 +11090,6 @@ type MongoIndexKeysResponseInput interface {
 }
 
 type MongoIndexKeysResponseArgs struct {
-	// List of keys for each MongoDB collection in the Azure Cosmos DB service
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
@@ -12062,7 +11170,6 @@ func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponsePtrOutputWithConte
 	}).(MongoIndexKeysResponsePtrOutput)
 }
 
-// List of keys for each MongoDB collection in the Azure Cosmos DB service
 func (o MongoIndexKeysResponseOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MongoIndexKeysResponse) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
@@ -12091,7 +11198,6 @@ func (o MongoIndexKeysResponsePtrOutput) Elem() MongoIndexKeysResponseOutput {
 	}).(MongoIndexKeysResponseOutput)
 }
 
-// List of keys for each MongoDB collection in the Azure Cosmos DB service
 func (o MongoIndexKeysResponsePtrOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MongoIndexKeysResponse) []string {
 		if v == nil {
@@ -12102,10 +11208,8 @@ func (o MongoIndexKeysResponsePtrOutput) Keys() pulumi.StringArrayOutput {
 }
 
 type MongoIndexOptions struct {
-	// Expire after seconds
-	ExpireAfterSeconds *int `pulumi:"expireAfterSeconds"`
-	// Is unique or not
-	Unique *bool `pulumi:"unique"`
+	ExpireAfterSeconds *int  `pulumi:"expireAfterSeconds"`
+	Unique             *bool `pulumi:"unique"`
 }
 
 // MongoIndexOptionsInput is an input type that accepts MongoIndexOptionsArgs and MongoIndexOptionsOutput values.
@@ -12120,10 +11224,8 @@ type MongoIndexOptionsInput interface {
 }
 
 type MongoIndexOptionsArgs struct {
-	// Expire after seconds
-	ExpireAfterSeconds pulumi.IntPtrInput `pulumi:"expireAfterSeconds"`
-	// Is unique or not
-	Unique pulumi.BoolPtrInput `pulumi:"unique"`
+	ExpireAfterSeconds pulumi.IntPtrInput  `pulumi:"expireAfterSeconds"`
+	Unique             pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
 func (MongoIndexOptionsArgs) ElementType() reflect.Type {
@@ -12203,12 +11305,10 @@ func (o MongoIndexOptionsOutput) ToMongoIndexOptionsPtrOutputWithContext(ctx con
 	}).(MongoIndexOptionsPtrOutput)
 }
 
-// Expire after seconds
 func (o MongoIndexOptionsOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoIndexOptions) *int { return v.ExpireAfterSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Is unique or not
 func (o MongoIndexOptionsOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MongoIndexOptions) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
 }
@@ -12237,7 +11337,6 @@ func (o MongoIndexOptionsPtrOutput) Elem() MongoIndexOptionsOutput {
 	}).(MongoIndexOptionsOutput)
 }
 
-// Expire after seconds
 func (o MongoIndexOptionsPtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoIndexOptions) *int {
 		if v == nil {
@@ -12247,7 +11346,6 @@ func (o MongoIndexOptionsPtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is unique or not
 func (o MongoIndexOptionsPtrOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MongoIndexOptions) *bool {
 		if v == nil {
@@ -12258,10 +11356,8 @@ func (o MongoIndexOptionsPtrOutput) Unique() pulumi.BoolPtrOutput {
 }
 
 type MongoIndexOptionsResponse struct {
-	// Expire after seconds
-	ExpireAfterSeconds *int `pulumi:"expireAfterSeconds"`
-	// Is unique or not
-	Unique *bool `pulumi:"unique"`
+	ExpireAfterSeconds *int  `pulumi:"expireAfterSeconds"`
+	Unique             *bool `pulumi:"unique"`
 }
 
 // MongoIndexOptionsResponseInput is an input type that accepts MongoIndexOptionsResponseArgs and MongoIndexOptionsResponseOutput values.
@@ -12276,10 +11372,8 @@ type MongoIndexOptionsResponseInput interface {
 }
 
 type MongoIndexOptionsResponseArgs struct {
-	// Expire after seconds
-	ExpireAfterSeconds pulumi.IntPtrInput `pulumi:"expireAfterSeconds"`
-	// Is unique or not
-	Unique pulumi.BoolPtrInput `pulumi:"unique"`
+	ExpireAfterSeconds pulumi.IntPtrInput  `pulumi:"expireAfterSeconds"`
+	Unique             pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
 func (MongoIndexOptionsResponseArgs) ElementType() reflect.Type {
@@ -12359,12 +11453,10 @@ func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponsePtrOutputWit
 	}).(MongoIndexOptionsResponsePtrOutput)
 }
 
-// Expire after seconds
 func (o MongoIndexOptionsResponseOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoIndexOptionsResponse) *int { return v.ExpireAfterSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Is unique or not
 func (o MongoIndexOptionsResponseOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MongoIndexOptionsResponse) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
 }
@@ -12393,7 +11485,6 @@ func (o MongoIndexOptionsResponsePtrOutput) Elem() MongoIndexOptionsResponseOutp
 	}).(MongoIndexOptionsResponseOutput)
 }
 
-// Expire after seconds
 func (o MongoIndexOptionsResponsePtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoIndexOptionsResponse) *int {
 		if v == nil {
@@ -12403,7 +11494,6 @@ func (o MongoIndexOptionsResponsePtrOutput) ExpireAfterSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is unique or not
 func (o MongoIndexOptionsResponsePtrOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MongoIndexOptionsResponse) *bool {
 		if v == nil {
@@ -12414,9 +11504,7 @@ func (o MongoIndexOptionsResponsePtrOutput) Unique() pulumi.BoolPtrOutput {
 }
 
 type MongoIndexResponse struct {
-	// Cosmos DB MongoDB collection index keys
-	Key *MongoIndexKeysResponse `pulumi:"key"`
-	// Cosmos DB MongoDB collection index key options
+	Key     *MongoIndexKeysResponse    `pulumi:"key"`
 	Options *MongoIndexOptionsResponse `pulumi:"options"`
 }
 
@@ -12432,9 +11520,7 @@ type MongoIndexResponseInput interface {
 }
 
 type MongoIndexResponseArgs struct {
-	// Cosmos DB MongoDB collection index keys
-	Key MongoIndexKeysResponsePtrInput `pulumi:"key"`
-	// Cosmos DB MongoDB collection index key options
+	Key     MongoIndexKeysResponsePtrInput    `pulumi:"key"`
 	Options MongoIndexOptionsResponsePtrInput `pulumi:"options"`
 }
 
@@ -12489,12 +11575,10 @@ func (o MongoIndexResponseOutput) ToMongoIndexResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Cosmos DB MongoDB collection index keys
 func (o MongoIndexResponseOutput) Key() MongoIndexKeysResponsePtrOutput {
 	return o.ApplyT(func(v MongoIndexResponse) *MongoIndexKeysResponse { return v.Key }).(MongoIndexKeysResponsePtrOutput)
 }
 
-// Cosmos DB MongoDB collection index key options
 func (o MongoIndexResponseOutput) Options() MongoIndexOptionsResponsePtrOutput {
 	return o.ApplyT(func(v MongoIndexResponse) *MongoIndexOptionsResponse { return v.Options }).(MongoIndexOptionsResponsePtrOutput)
 }
@@ -12520,11 +11604,8 @@ func (o MongoIndexResponseArrayOutput) Index(i pulumi.IntInput) MongoIndexRespon
 }
 
 type PeriodicModeBackupPolicy struct {
-	// Configuration values for periodic mode backup
 	PeriodicModeProperties *PeriodicModeProperties `pulumi:"periodicModeProperties"`
-	// Describes the mode of backups.
-	// Expected value is 'Periodic'.
-	Type string `pulumi:"type"`
+	Type                   string                  `pulumi:"type"`
 }
 
 // PeriodicModeBackupPolicyInput is an input type that accepts PeriodicModeBackupPolicyArgs and PeriodicModeBackupPolicyOutput values.
@@ -12539,11 +11620,8 @@ type PeriodicModeBackupPolicyInput interface {
 }
 
 type PeriodicModeBackupPolicyArgs struct {
-	// Configuration values for periodic mode backup
 	PeriodicModeProperties PeriodicModePropertiesPtrInput `pulumi:"periodicModeProperties"`
-	// Describes the mode of backups.
-	// Expected value is 'Periodic'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type                   pulumi.StringInput             `pulumi:"type"`
 }
 
 func (PeriodicModeBackupPolicyArgs) ElementType() reflect.Type {
@@ -12572,23 +11650,17 @@ func (o PeriodicModeBackupPolicyOutput) ToPeriodicModeBackupPolicyOutputWithCont
 	return o
 }
 
-// Configuration values for periodic mode backup
 func (o PeriodicModeBackupPolicyOutput) PeriodicModeProperties() PeriodicModePropertiesPtrOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicy) *PeriodicModeProperties { return v.PeriodicModeProperties }).(PeriodicModePropertiesPtrOutput)
 }
 
-// Describes the mode of backups.
-// Expected value is 'Periodic'.
 func (o PeriodicModeBackupPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PeriodicModeBackupPolicyResponse struct {
-	// Configuration values for periodic mode backup
 	PeriodicModeProperties *PeriodicModePropertiesResponse `pulumi:"periodicModeProperties"`
-	// Describes the mode of backups.
-	// Expected value is 'Periodic'.
-	Type string `pulumi:"type"`
+	Type                   string                          `pulumi:"type"`
 }
 
 // PeriodicModeBackupPolicyResponseInput is an input type that accepts PeriodicModeBackupPolicyResponseArgs and PeriodicModeBackupPolicyResponseOutput values.
@@ -12603,11 +11675,8 @@ type PeriodicModeBackupPolicyResponseInput interface {
 }
 
 type PeriodicModeBackupPolicyResponseArgs struct {
-	// Configuration values for periodic mode backup
 	PeriodicModeProperties PeriodicModePropertiesResponsePtrInput `pulumi:"periodicModeProperties"`
-	// Describes the mode of backups.
-	// Expected value is 'Periodic'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type                   pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (PeriodicModeBackupPolicyResponseArgs) ElementType() reflect.Type {
@@ -12636,23 +11705,18 @@ func (o PeriodicModeBackupPolicyResponseOutput) ToPeriodicModeBackupPolicyRespon
 	return o
 }
 
-// Configuration values for periodic mode backup
 func (o PeriodicModeBackupPolicyResponseOutput) PeriodicModeProperties() PeriodicModePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) *PeriodicModePropertiesResponse {
 		return v.PeriodicModeProperties
 	}).(PeriodicModePropertiesResponsePtrOutput)
 }
 
-// Describes the mode of backups.
-// Expected value is 'Periodic'.
 func (o PeriodicModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PeriodicModeProperties struct {
-	// An integer representing the interval in minutes between two backups
-	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
-	// An integer representing the time (in hours) that each backup is retained
+	BackupIntervalInMinutes        *int `pulumi:"backupIntervalInMinutes"`
 	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
 }
 
@@ -12668,9 +11732,7 @@ type PeriodicModePropertiesInput interface {
 }
 
 type PeriodicModePropertiesArgs struct {
-	// An integer representing the interval in minutes between two backups
-	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
-	// An integer representing the time (in hours) that each backup is retained
+	BackupIntervalInMinutes        pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
 	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
 }
 
@@ -12751,12 +11813,10 @@ func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutputWithConte
 	}).(PeriodicModePropertiesPtrOutput)
 }
 
-// An integer representing the interval in minutes between two backups
 func (o PeriodicModePropertiesOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// An integer representing the time (in hours) that each backup is retained
 func (o PeriodicModePropertiesOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
 }
@@ -12785,7 +11845,6 @@ func (o PeriodicModePropertiesPtrOutput) Elem() PeriodicModePropertiesOutput {
 	}).(PeriodicModePropertiesOutput)
 }
 
-// An integer representing the interval in minutes between two backups
 func (o PeriodicModePropertiesPtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PeriodicModeProperties) *int {
 		if v == nil {
@@ -12795,7 +11854,6 @@ func (o PeriodicModePropertiesPtrOutput) BackupIntervalInMinutes() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// An integer representing the time (in hours) that each backup is retained
 func (o PeriodicModePropertiesPtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PeriodicModeProperties) *int {
 		if v == nil {
@@ -12806,9 +11864,7 @@ func (o PeriodicModePropertiesPtrOutput) BackupRetentionIntervalInHours() pulumi
 }
 
 type PeriodicModePropertiesResponse struct {
-	// An integer representing the interval in minutes between two backups
-	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
-	// An integer representing the time (in hours) that each backup is retained
+	BackupIntervalInMinutes        *int `pulumi:"backupIntervalInMinutes"`
 	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
 }
 
@@ -12824,9 +11880,7 @@ type PeriodicModePropertiesResponseInput interface {
 }
 
 type PeriodicModePropertiesResponseArgs struct {
-	// An integer representing the interval in minutes between two backups
-	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
-	// An integer representing the time (in hours) that each backup is retained
+	BackupIntervalInMinutes        pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
 	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
 }
 
@@ -12907,12 +11961,10 @@ func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePt
 	}).(PeriodicModePropertiesResponsePtrOutput)
 }
 
-// An integer representing the interval in minutes between two backups
 func (o PeriodicModePropertiesResponseOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// An integer representing the time (in hours) that each backup is retained
 func (o PeriodicModePropertiesResponseOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
 }
@@ -12941,7 +11993,6 @@ func (o PeriodicModePropertiesResponsePtrOutput) Elem() PeriodicModePropertiesRe
 	}).(PeriodicModePropertiesResponseOutput)
 }
 
-// An integer representing the interval in minutes between two backups
 func (o PeriodicModePropertiesResponsePtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
 		if v == nil {
@@ -12951,7 +12002,6 @@ func (o PeriodicModePropertiesResponsePtrOutput) BackupIntervalInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// An integer representing the time (in hours) that each backup is retained
 func (o PeriodicModePropertiesResponsePtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
 		if v == nil {
@@ -12962,9 +12012,7 @@ func (o PeriodicModePropertiesResponsePtrOutput) BackupRetentionIntervalInHours(
 }
 
 type Permission struct {
-	// An array of data actions that are allowed.
-	DataActions []string `pulumi:"dataActions"`
-	// An array of data actions that are denied.
+	DataActions    []string `pulumi:"dataActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -12980,9 +12028,7 @@ type PermissionInput interface {
 }
 
 type PermissionArgs struct {
-	// An array of data actions that are allowed.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// An array of data actions that are denied.
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -13037,12 +12083,10 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// An array of data actions that are allowed.
 func (o PermissionOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// An array of data actions that are denied.
 func (o PermissionOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
@@ -13068,9 +12112,7 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 }
 
 type PermissionResponse struct {
-	// An array of data actions that are allowed.
-	DataActions []string `pulumi:"dataActions"`
-	// An array of data actions that are denied.
+	DataActions    []string `pulumi:"dataActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -13086,9 +12128,7 @@ type PermissionResponseInput interface {
 }
 
 type PermissionResponseArgs struct {
-	// An array of data actions that are allowed.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// An array of data actions that are denied.
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -13143,12 +12183,10 @@ func (o PermissionResponseOutput) ToPermissionResponseOutputWithContext(ctx cont
 	return o
 }
 
-// An array of data actions that are allowed.
 func (o PermissionResponseOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// An array of data actions that are denied.
 func (o PermissionResponseOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
@@ -13174,20 +12212,13 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Group id of the private endpoint.
-	GroupId *string `pulumi:"groupId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	GroupId                           *string                                            `pulumi:"groupId"`
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 *string                                            `pulumi:"provisioningState"`
+	Type                              string                                             `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -13202,20 +12233,13 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Group id of the private endpoint.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	GroupId                           pulumi.StringPtrInput                                     `pulumi:"groupId"`
+	Id                                pulumi.StringInput                                        `pulumi:"id"`
+	Name                              pulumi.StringInput                                        `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringPtrInput                                     `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                                        `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -13269,39 +12293,32 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Group id of the private endpoint.
 func (o PrivateEndpointConnectionResponseOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointPropertyResponse { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection State of the Private Endpoint Connection.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13327,7 +12344,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -13343,7 +12359,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -13424,7 +12439,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -13453,7 +12467,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -13464,7 +12477,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -13480,7 +12492,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -13561,7 +12572,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -13590,7 +12600,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -13601,10 +12610,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -13619,10 +12626,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -13702,12 +12707,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -13736,7 +12739,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -13746,7 +12748,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -13757,12 +12758,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	ActionsRequired string  `pulumi:"actionsRequired"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -13777,12 +12775,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ActionsRequired pulumi.StringInput    `pulumi:"actionsRequired"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -13862,17 +12857,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -13901,7 +12893,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -13911,7 +12902,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -13921,7 +12911,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -13932,7 +12921,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type SeedNode struct {
-	// IP address of this seed node.
 	IpAddress *string `pulumi:"ipAddress"`
 }
 
@@ -13948,7 +12936,6 @@ type SeedNodeInput interface {
 }
 
 type SeedNodeArgs struct {
-	// IP address of this seed node.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 }
 
@@ -14054,7 +13041,6 @@ func (o SeedNodeOutput) ToSeedNodePtrOutputWithContext(ctx context.Context) Seed
 	}).(SeedNodePtrOutput)
 }
 
-// IP address of this seed node.
 func (o SeedNodeOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SeedNode) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -14083,7 +13069,6 @@ func (o SeedNodePtrOutput) Elem() SeedNodeOutput {
 	}).(SeedNodeOutput)
 }
 
-// IP address of this seed node.
 func (o SeedNodePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SeedNode) *string {
 		if v == nil {
@@ -14114,7 +13099,6 @@ func (o SeedNodeArrayOutput) Index(i pulumi.IntInput) SeedNodeOutput {
 }
 
 type SeedNodeResponse struct {
-	// IP address of this seed node.
 	IpAddress *string `pulumi:"ipAddress"`
 }
 
@@ -14130,7 +13114,6 @@ type SeedNodeResponseInput interface {
 }
 
 type SeedNodeResponseArgs struct {
-	// IP address of this seed node.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 }
 
@@ -14236,7 +13219,6 @@ func (o SeedNodeResponseOutput) ToSeedNodeResponsePtrOutputWithContext(ctx conte
 	}).(SeedNodeResponsePtrOutput)
 }
 
-// IP address of this seed node.
 func (o SeedNodeResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SeedNodeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -14265,7 +13247,6 @@ func (o SeedNodeResponsePtrOutput) Elem() SeedNodeResponseOutput {
 	}).(SeedNodeResponseOutput)
 }
 
-// IP address of this seed node.
 func (o SeedNodeResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SeedNodeResponse) *string {
 		if v == nil {
@@ -14296,9 +13277,7 @@ func (o SeedNodeResponseArrayOutput) Index(i pulumi.IntInput) SeedNodeResponseOu
 }
 
 type SpatialSpec struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
-	// List of path's spatial type
+	Path  *string  `pulumi:"path"`
 	Types []string `pulumi:"types"`
 }
 
@@ -14314,9 +13293,7 @@ type SpatialSpecInput interface {
 }
 
 type SpatialSpecArgs struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// List of path's spatial type
+	Path  pulumi.StringPtrInput   `pulumi:"path"`
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -14371,12 +13348,10 @@ func (o SpatialSpecOutput) ToSpatialSpecOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o SpatialSpecOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpatialSpec) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// List of path's spatial type
 func (o SpatialSpecOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpatialSpec) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
@@ -14402,9 +13377,7 @@ func (o SpatialSpecArrayOutput) Index(i pulumi.IntInput) SpatialSpecOutput {
 }
 
 type SpatialSpecResponse struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path *string `pulumi:"path"`
-	// List of path's spatial type
+	Path  *string  `pulumi:"path"`
 	Types []string `pulumi:"types"`
 }
 
@@ -14420,9 +13393,7 @@ type SpatialSpecResponseInput interface {
 }
 
 type SpatialSpecResponseArgs struct {
-	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// List of path's spatial type
+	Path  pulumi.StringPtrInput   `pulumi:"path"`
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -14477,12 +13448,10 @@ func (o SpatialSpecResponseOutput) ToSpatialSpecResponseOutputWithContext(ctx co
 	return o
 }
 
-// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 func (o SpatialSpecResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpatialSpecResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// List of path's spatial type
 func (o SpatialSpecResponseOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpatialSpecResponse) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
@@ -14508,10 +13477,8 @@ func (o SpatialSpecResponseArrayOutput) Index(i pulumi.IntInput) SpatialSpecResp
 }
 
 type SqlContainerGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // SqlContainerGetPropertiesResponseOptionsInput is an input type that accepts SqlContainerGetPropertiesResponseOptionsArgs and SqlContainerGetPropertiesResponseOptionsOutput values.
@@ -14526,10 +13493,8 @@ type SqlContainerGetPropertiesResponseOptionsInput interface {
 }
 
 type SqlContainerGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (SqlContainerGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -14609,14 +13574,12 @@ func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropert
 	}).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o SqlContainerGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		return v.AutoscaleSettings
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o SqlContainerGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -14645,7 +13608,6 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Elem() SqlContainerGe
 	}).(SqlContainerGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -14655,7 +13617,6 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() A
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -14666,26 +13627,16 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type SqlContainerGetPropertiesResponseResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *float64 `pulumi:"analyticalStorageTtl"`
-	// The conflict resolution policy for the container.
+	AnalyticalStorageTtl     *float64                          `pulumi:"analyticalStorageTtl"`
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB SQL container
-	Id string `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               *int                              `pulumi:"defaultTtl"`
+	Etag                     string                            `pulumi:"etag"`
+	Id                       string                            `pulumi:"id"`
+	IndexingPolicy           *IndexingPolicyResponse           `pulumi:"indexingPolicy"`
+	PartitionKey             *ContainerPartitionKeyResponse    `pulumi:"partitionKey"`
+	Rid                      string                            `pulumi:"rid"`
+	Ts                       float64                           `pulumi:"ts"`
+	UniqueKeyPolicy          *UniqueKeyPolicyResponse          `pulumi:"uniqueKeyPolicy"`
 }
 
 // SqlContainerGetPropertiesResponseResourceInput is an input type that accepts SqlContainerGetPropertiesResponseResourceArgs and SqlContainerGetPropertiesResponseResourceOutput values.
@@ -14700,26 +13651,16 @@ type SqlContainerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlContainerGetPropertiesResponseResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.Float64PtrInput `pulumi:"analyticalStorageTtl"`
-	// The conflict resolution policy for the container.
+	AnalyticalStorageTtl     pulumi.Float64PtrInput                   `pulumi:"analyticalStorageTtl"`
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB SQL container
-	Id pulumi.StringInput `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrInput                       `pulumi:"defaultTtl"`
+	Etag                     pulumi.StringInput                       `pulumi:"etag"`
+	Id                       pulumi.StringInput                       `pulumi:"id"`
+	IndexingPolicy           IndexingPolicyResponsePtrInput           `pulumi:"indexingPolicy"`
+	PartitionKey             ContainerPartitionKeyResponsePtrInput    `pulumi:"partitionKey"`
+	Rid                      pulumi.StringInput                       `pulumi:"rid"`
+	Ts                       pulumi.Float64Input                      `pulumi:"ts"`
+	UniqueKeyPolicy          UniqueKeyPolicyResponsePtrInput          `pulumi:"uniqueKeyPolicy"`
 }
 
 func (SqlContainerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -14799,56 +13740,46 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o SqlContainerGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *float64 { return v.AnalyticalStorageTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
 		return v.ConflictResolutionPolicy
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
 
-// Default time to live
 func (o SqlContainerGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlContainerGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB SQL container
 func (o SqlContainerGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 func (o SqlContainerGetPropertiesResponseResourceOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *IndexingPolicyResponse { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o SqlContainerGetPropertiesResponseResourceOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlContainerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlContainerGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o SqlContainerGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
 }
@@ -14877,7 +13808,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerG
 	}).(SqlContainerGetPropertiesResponseResourceOutput)
 }
 
-// Analytical TTL.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -14887,7 +13817,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
 		if v == nil {
@@ -14897,7 +13826,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ConflictResolutionPo
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
 
-// Default time to live
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *int {
 		if v == nil {
@@ -14907,7 +13835,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -14917,7 +13844,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL container
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -14927,7 +13853,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *IndexingPolicyResponse {
 		if v == nil {
@@ -14937,7 +13862,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) IndexingPolicy() Ind
 	}).(IndexingPolicyResponsePtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		if v == nil {
@@ -14947,7 +13871,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) PartitionKey() Conta
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -14957,7 +13880,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -14967,7 +13889,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *UniqueKeyPolicyResponse {
 		if v == nil {
@@ -14978,20 +13899,13 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() Un
 }
 
 type SqlContainerResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *float64 `pulumi:"analyticalStorageTtl"`
-	// The conflict resolution policy for the container.
+	AnalyticalStorageTtl     *float64                  `pulumi:"analyticalStorageTtl"`
 	ConflictResolutionPolicy *ConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl *int `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB SQL container
-	Id string `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-	IndexingPolicy *IndexingPolicy `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey *ContainerPartitionKey `pulumi:"partitionKey"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy *UniqueKeyPolicy `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               *int                      `pulumi:"defaultTtl"`
+	Id                       string                    `pulumi:"id"`
+	IndexingPolicy           *IndexingPolicy           `pulumi:"indexingPolicy"`
+	PartitionKey             *ContainerPartitionKey    `pulumi:"partitionKey"`
+	UniqueKeyPolicy          *UniqueKeyPolicy          `pulumi:"uniqueKeyPolicy"`
 }
 
 // SqlContainerResourceInput is an input type that accepts SqlContainerResourceArgs and SqlContainerResourceOutput values.
@@ -15006,20 +13920,13 @@ type SqlContainerResourceInput interface {
 }
 
 type SqlContainerResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.Float64PtrInput `pulumi:"analyticalStorageTtl"`
-	// The conflict resolution policy for the container.
+	AnalyticalStorageTtl     pulumi.Float64PtrInput           `pulumi:"analyticalStorageTtl"`
 	ConflictResolutionPolicy ConflictResolutionPolicyPtrInput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// Name of the Cosmos DB SQL container
-	Id pulumi.StringInput `pulumi:"id"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-	IndexingPolicy IndexingPolicyPtrInput `pulumi:"indexingPolicy"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyPtrInput `pulumi:"partitionKey"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyPtrInput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrInput               `pulumi:"defaultTtl"`
+	Id                       pulumi.StringInput               `pulumi:"id"`
+	IndexingPolicy           IndexingPolicyPtrInput           `pulumi:"indexingPolicy"`
+	PartitionKey             ContainerPartitionKeyPtrInput    `pulumi:"partitionKey"`
+	UniqueKeyPolicy          UniqueKeyPolicyPtrInput          `pulumi:"uniqueKeyPolicy"`
 }
 
 func (SqlContainerResourceArgs) ElementType() reflect.Type {
@@ -15099,37 +14006,30 @@ func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutputWithContext(c
 	}).(SqlContainerResourcePtrOutput)
 }
 
-// Analytical TTL.
 func (o SqlContainerResourceOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *float64 { return v.AnalyticalStorageTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The conflict resolution policy for the container.
 func (o SqlContainerResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *ConflictResolutionPolicy { return v.ConflictResolutionPolicy }).(ConflictResolutionPolicyPtrOutput)
 }
 
-// Default time to live
 func (o SqlContainerResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB SQL container
 func (o SqlContainerResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 func (o SqlContainerResourceOutput) IndexingPolicy() IndexingPolicyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *IndexingPolicy { return v.IndexingPolicy }).(IndexingPolicyPtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o SqlContainerResourceOutput) PartitionKey() ContainerPartitionKeyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *ContainerPartitionKey { return v.PartitionKey }).(ContainerPartitionKeyPtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o SqlContainerResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *UniqueKeyPolicy { return v.UniqueKeyPolicy }).(UniqueKeyPolicyPtrOutput)
 }
@@ -15158,7 +14058,6 @@ func (o SqlContainerResourcePtrOutput) Elem() SqlContainerResourceOutput {
 	}).(SqlContainerResourceOutput)
 }
 
-// Analytical TTL.
 func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *float64 {
 		if v == nil {
@@ -15168,7 +14067,6 @@ func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The conflict resolution policy for the container.
 func (o SqlContainerResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *ConflictResolutionPolicy {
 		if v == nil {
@@ -15178,7 +14076,6 @@ func (o SqlContainerResourcePtrOutput) ConflictResolutionPolicy() ConflictResolu
 	}).(ConflictResolutionPolicyPtrOutput)
 }
 
-// Default time to live
 func (o SqlContainerResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *int {
 		if v == nil {
@@ -15188,7 +14085,6 @@ func (o SqlContainerResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Cosmos DB SQL container
 func (o SqlContainerResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *string {
 		if v == nil {
@@ -15198,7 +14094,6 @@ func (o SqlContainerResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 func (o SqlContainerResourcePtrOutput) IndexingPolicy() IndexingPolicyPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *IndexingPolicy {
 		if v == nil {
@@ -15208,7 +14103,6 @@ func (o SqlContainerResourcePtrOutput) IndexingPolicy() IndexingPolicyPtrOutput 
 	}).(IndexingPolicyPtrOutput)
 }
 
-// The configuration of the partition key to be used for partitioning data into multiple partitions
 func (o SqlContainerResourcePtrOutput) PartitionKey() ContainerPartitionKeyPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *ContainerPartitionKey {
 		if v == nil {
@@ -15218,7 +14112,6 @@ func (o SqlContainerResourcePtrOutput) PartitionKey() ContainerPartitionKeyPtrOu
 	}).(ContainerPartitionKeyPtrOutput)
 }
 
-// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o SqlContainerResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutput {
 	return o.ApplyT(func(v *SqlContainerResource) *UniqueKeyPolicy {
 		if v == nil {
@@ -15229,10 +14122,8 @@ func (o SqlContainerResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutpu
 }
 
 type SqlDatabaseGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // SqlDatabaseGetPropertiesResponseOptionsInput is an input type that accepts SqlDatabaseGetPropertiesResponseOptionsArgs and SqlDatabaseGetPropertiesResponseOptionsOutput values.
@@ -15247,10 +14138,8 @@ type SqlDatabaseGetPropertiesResponseOptionsInput interface {
 }
 
 type SqlDatabaseGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (SqlDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -15330,12 +14219,10 @@ func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertie
 	}).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o SqlDatabaseGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse { return v.AutoscaleSettings }).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o SqlDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -15364,7 +14251,6 @@ func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() SqlDatabaseGetP
 	}).(SqlDatabaseGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -15374,7 +14260,6 @@ func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() Au
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -15385,17 +14270,11 @@ func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.In
 }
 
 type SqlDatabaseGetPropertiesResponseResource struct {
-	// A system generated property that specified the addressable path of the collections resource.
 	Colls *string `pulumi:"colls"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB SQL database
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
-	// A system generated property that specifies the addressable path of the users resource.
+	Etag  string  `pulumi:"etag"`
+	Id    string  `pulumi:"id"`
+	Rid   string  `pulumi:"rid"`
+	Ts    float64 `pulumi:"ts"`
 	Users *string `pulumi:"users"`
 }
 
@@ -15411,17 +14290,11 @@ type SqlDatabaseGetPropertiesResponseResourceInput interface {
 }
 
 type SqlDatabaseGetPropertiesResponseResourceArgs struct {
-	// A system generated property that specified the addressable path of the collections resource.
 	Colls pulumi.StringPtrInput `pulumi:"colls"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB SQL database
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
-	// A system generated property that specifies the addressable path of the users resource.
+	Etag  pulumi.StringInput    `pulumi:"etag"`
+	Id    pulumi.StringInput    `pulumi:"id"`
+	Rid   pulumi.StringInput    `pulumi:"rid"`
+	Ts    pulumi.Float64Input   `pulumi:"ts"`
 	Users pulumi.StringPtrInput `pulumi:"users"`
 }
 
@@ -15502,32 +14375,26 @@ func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetProperti
 	}).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property that specified the addressable path of the collections resource.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Colls() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v.Colls }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB SQL database
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
-// A system generated property that specifies the addressable path of the users resource.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Users() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v.Users }).(pulumi.StringPtrOutput)
 }
@@ -15556,7 +14423,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Elem() SqlDatabaseGet
 	}).(SqlDatabaseGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property that specified the addressable path of the collections resource.
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Colls() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -15566,7 +14432,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Colls() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -15576,7 +14441,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL database
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -15586,7 +14450,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -15596,7 +14459,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -15606,7 +14468,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64Pt
 	}).(pulumi.Float64PtrOutput)
 }
 
-// A system generated property that specifies the addressable path of the users resource.
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Users() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -15617,7 +14478,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Users() pulumi.String
 }
 
 type SqlDatabaseResource struct {
-	// Name of the Cosmos DB SQL database
 	Id string `pulumi:"id"`
 }
 
@@ -15633,7 +14493,6 @@ type SqlDatabaseResourceInput interface {
 }
 
 type SqlDatabaseResourceArgs struct {
-	// Name of the Cosmos DB SQL database
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -15714,7 +14573,6 @@ func (o SqlDatabaseResourceOutput) ToSqlDatabaseResourcePtrOutputWithContext(ctx
 	}).(SqlDatabaseResourcePtrOutput)
 }
 
-// Name of the Cosmos DB SQL database
 func (o SqlDatabaseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -15743,7 +14601,6 @@ func (o SqlDatabaseResourcePtrOutput) Elem() SqlDatabaseResourceOutput {
 	}).(SqlDatabaseResourceOutput)
 }
 
-// Name of the Cosmos DB SQL database
 func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseResource) *string {
 		if v == nil {
@@ -15754,14 +14611,10 @@ func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SqlDedicatedGatewayRegionalServiceResourceResponse struct {
-	// The location name.
-	Location string `pulumi:"location"`
-	// The regional service name.
-	Name string `pulumi:"name"`
-	// The regional endpoint for SqlDedicatedGateway.
+	Location                    string `pulumi:"location"`
+	Name                        string `pulumi:"name"`
 	SqlDedicatedGatewayEndpoint string `pulumi:"sqlDedicatedGatewayEndpoint"`
-	// Describes the status of a service.
-	Status string `pulumi:"status"`
+	Status                      string `pulumi:"status"`
 }
 
 // SqlDedicatedGatewayRegionalServiceResourceResponseInput is an input type that accepts SqlDedicatedGatewayRegionalServiceResourceResponseArgs and SqlDedicatedGatewayRegionalServiceResourceResponseOutput values.
@@ -15776,14 +14629,10 @@ type SqlDedicatedGatewayRegionalServiceResourceResponseInput interface {
 }
 
 type SqlDedicatedGatewayRegionalServiceResourceResponseArgs struct {
-	// The location name.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The regional service name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The regional endpoint for SqlDedicatedGateway.
+	Location                    pulumi.StringInput `pulumi:"location"`
+	Name                        pulumi.StringInput `pulumi:"name"`
 	SqlDedicatedGatewayEndpoint pulumi.StringInput `pulumi:"sqlDedicatedGatewayEndpoint"`
-	// Describes the status of a service.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status                      pulumi.StringInput `pulumi:"status"`
 }
 
 func (SqlDedicatedGatewayRegionalServiceResourceResponseArgs) ElementType() reflect.Type {
@@ -15837,24 +14686,20 @@ func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) ToSqlDedicated
 	return o
 }
 
-// The location name.
 func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The regional service name.
 func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The regional endpoint for SqlDedicatedGateway.
 func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) SqlDedicatedGatewayEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string {
 		return v.SqlDedicatedGatewayEndpoint
 	}).(pulumi.StringOutput)
 }
 
-// Describes the status of a service.
 func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -15880,21 +14725,13 @@ func (o SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) Index(i p
 }
 
 type SqlDedicatedGatewayServiceResourcePropertiesResponse struct {
-	// Time of the last state change (ISO-8601 format).
-	CreationTime string `pulumi:"creationTime"`
-	// Instance count for the service.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Instance type for the service.
-	InstanceSize *string `pulumi:"instanceSize"`
-	// An array that contains all of the locations for the service.
-	Locations []SqlDedicatedGatewayRegionalServiceResourceResponse `pulumi:"locations"`
-	// ServiceType for the service.
-	// Expected value is 'SqlDedicatedGateway'.
-	ServiceType string `pulumi:"serviceType"`
-	// SqlDedicatedGateway endpoint for the service.
-	SqlDedicatedGatewayEndpoint *string `pulumi:"sqlDedicatedGatewayEndpoint"`
-	// Describes the status of a service.
-	Status string `pulumi:"status"`
+	CreationTime                string                                               `pulumi:"creationTime"`
+	InstanceCount               *int                                                 `pulumi:"instanceCount"`
+	InstanceSize                *string                                              `pulumi:"instanceSize"`
+	Locations                   []SqlDedicatedGatewayRegionalServiceResourceResponse `pulumi:"locations"`
+	ServiceType                 string                                               `pulumi:"serviceType"`
+	SqlDedicatedGatewayEndpoint *string                                              `pulumi:"sqlDedicatedGatewayEndpoint"`
+	Status                      string                                               `pulumi:"status"`
 }
 
 // SqlDedicatedGatewayServiceResourcePropertiesResponseInput is an input type that accepts SqlDedicatedGatewayServiceResourcePropertiesResponseArgs and SqlDedicatedGatewayServiceResourcePropertiesResponseOutput values.
@@ -15909,21 +14746,13 @@ type SqlDedicatedGatewayServiceResourcePropertiesResponseInput interface {
 }
 
 type SqlDedicatedGatewayServiceResourcePropertiesResponseArgs struct {
-	// Time of the last state change (ISO-8601 format).
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// Instance count for the service.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// Instance type for the service.
-	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
-	// An array that contains all of the locations for the service.
-	Locations SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
-	// ServiceType for the service.
-	// Expected value is 'SqlDedicatedGateway'.
-	ServiceType pulumi.StringInput `pulumi:"serviceType"`
-	// SqlDedicatedGateway endpoint for the service.
-	SqlDedicatedGatewayEndpoint pulumi.StringPtrInput `pulumi:"sqlDedicatedGatewayEndpoint"`
-	// Describes the status of a service.
-	Status pulumi.StringInput `pulumi:"status"`
+	CreationTime                pulumi.StringInput                                           `pulumi:"creationTime"`
+	InstanceCount               pulumi.IntPtrInput                                           `pulumi:"instanceCount"`
+	InstanceSize                pulumi.StringPtrInput                                        `pulumi:"instanceSize"`
+	Locations                   SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
+	ServiceType                 pulumi.StringInput                                           `pulumi:"serviceType"`
+	SqlDedicatedGatewayEndpoint pulumi.StringPtrInput                                        `pulumi:"sqlDedicatedGatewayEndpoint"`
+	Status                      pulumi.StringInput                                           `pulumi:"status"`
 }
 
 func (SqlDedicatedGatewayServiceResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -15952,57 +14781,44 @@ func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ToSqlDedicat
 	return o
 }
 
-// Time of the last state change (ISO-8601 format).
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Instance count for the service.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Instance type for the service.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) InstanceSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
 }
 
-// An array that contains all of the locations for the service.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) Locations() SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) []SqlDedicatedGatewayRegionalServiceResourceResponse {
 		return v.Locations
 	}).(SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput)
 }
 
-// ServiceType for the service.
-// Expected value is 'SqlDedicatedGateway'.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// SqlDedicatedGateway endpoint for the service.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) SqlDedicatedGatewayEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *string {
 		return v.SqlDedicatedGatewayEndpoint
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the status of a service.
 func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 type SqlStoredProcedureGetPropertiesResponseResource struct {
-	// Body of the Stored Procedure
 	Body *string `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB SQL storedProcedure
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseResourceInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs and SqlStoredProcedureGetPropertiesResponseResourceOutput values.
@@ -16017,16 +14833,11 @@ type SqlStoredProcedureGetPropertiesResponseResourceInput interface {
 }
 
 type SqlStoredProcedureGetPropertiesResponseResourceArgs struct {
-	// Body of the Stored Procedure
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB SQL storedProcedure
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput    `pulumi:"etag"`
+	Id   pulumi.StringInput    `pulumi:"id"`
+	Rid  pulumi.StringInput    `pulumi:"rid"`
+	Ts   pulumi.Float64Input   `pulumi:"ts"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -16106,27 +14917,22 @@ func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProced
 	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
 }
 
-// Body of the Stored Procedure
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB SQL storedProcedure
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -16155,7 +14961,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Elem() SqlStor
 	}).(SqlStoredProcedureGetPropertiesResponseResourceOutput)
 }
 
-// Body of the Stored Procedure
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16165,7 +14970,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Body() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16175,7 +14979,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Etag() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL storedProcedure
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16185,7 +14988,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Id() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16195,7 +14997,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Rid() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -16206,10 +15007,8 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Fl
 }
 
 type SqlStoredProcedureResource struct {
-	// Body of the Stored Procedure
 	Body *string `pulumi:"body"`
-	// Name of the Cosmos DB SQL storedProcedure
-	Id string `pulumi:"id"`
+	Id   string  `pulumi:"id"`
 }
 
 // SqlStoredProcedureResourceInput is an input type that accepts SqlStoredProcedureResourceArgs and SqlStoredProcedureResourceOutput values.
@@ -16224,10 +15023,8 @@ type SqlStoredProcedureResourceInput interface {
 }
 
 type SqlStoredProcedureResourceArgs struct {
-	// Body of the Stored Procedure
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Name of the Cosmos DB SQL storedProcedure
-	Id pulumi.StringInput `pulumi:"id"`
+	Id   pulumi.StringInput    `pulumi:"id"`
 }
 
 func (SqlStoredProcedureResourceArgs) ElementType() reflect.Type {
@@ -16307,12 +15104,10 @@ func (o SqlStoredProcedureResourceOutput) ToSqlStoredProcedureResourcePtrOutputW
 	}).(SqlStoredProcedureResourcePtrOutput)
 }
 
-// Body of the Stored Procedure
 func (o SqlStoredProcedureResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlStoredProcedureResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL storedProcedure
 func (o SqlStoredProcedureResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlStoredProcedureResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -16341,7 +15136,6 @@ func (o SqlStoredProcedureResourcePtrOutput) Elem() SqlStoredProcedureResourceOu
 	}).(SqlStoredProcedureResourceOutput)
 }
 
-// Body of the Stored Procedure
 func (o SqlStoredProcedureResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureResource) *string {
 		if v == nil {
@@ -16351,7 +15145,6 @@ func (o SqlStoredProcedureResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL storedProcedure
 func (o SqlStoredProcedureResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureResource) *string {
 		if v == nil {
@@ -16362,20 +15155,13 @@ func (o SqlStoredProcedureResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SqlTriggerGetPropertiesResponseResource struct {
-	// Body of the Trigger
-	Body *string `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB SQL trigger
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// The operation the trigger is associated with
+	Body             *string `pulumi:"body"`
+	Etag             string  `pulumi:"etag"`
+	Id               string  `pulumi:"id"`
+	Rid              string  `pulumi:"rid"`
 	TriggerOperation *string `pulumi:"triggerOperation"`
-	// Type of the Trigger
-	TriggerType *string `pulumi:"triggerType"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	TriggerType      *string `pulumi:"triggerType"`
+	Ts               float64 `pulumi:"ts"`
 }
 
 // SqlTriggerGetPropertiesResponseResourceInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs and SqlTriggerGetPropertiesResponseResourceOutput values.
@@ -16390,20 +15176,13 @@ type SqlTriggerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlTriggerGetPropertiesResponseResourceArgs struct {
-	// Body of the Trigger
-	Body pulumi.StringPtrInput `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB SQL trigger
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// The operation the trigger is associated with
+	Body             pulumi.StringPtrInput `pulumi:"body"`
+	Etag             pulumi.StringInput    `pulumi:"etag"`
+	Id               pulumi.StringInput    `pulumi:"id"`
+	Rid              pulumi.StringInput    `pulumi:"rid"`
 	TriggerOperation pulumi.StringPtrInput `pulumi:"triggerOperation"`
-	// Type of the Trigger
-	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	TriggerType      pulumi.StringPtrInput `pulumi:"triggerType"`
+	Ts               pulumi.Float64Input   `pulumi:"ts"`
 }
 
 func (SqlTriggerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -16483,37 +15262,30 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetProperties
 	}).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
 }
 
-// Body of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB SQL trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// The operation the trigger is associated with
 func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerOperation }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -16542,7 +15314,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Elem() SqlTriggerGetPr
 	}).(SqlTriggerGetPropertiesResponseResourceOutput)
 }
 
-// Body of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16552,7 +15323,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16562,7 +15332,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL trigger
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16572,7 +15341,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16582,7 +15350,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operation the trigger is associated with
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16592,7 +15359,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerOperation() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16602,7 +15368,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -16613,14 +15378,10 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64Ptr
 }
 
 type SqlTriggerResource struct {
-	// Body of the Trigger
-	Body *string `pulumi:"body"`
-	// Name of the Cosmos DB SQL trigger
-	Id string `pulumi:"id"`
-	// The operation the trigger is associated with
+	Body             *string `pulumi:"body"`
+	Id               string  `pulumi:"id"`
 	TriggerOperation *string `pulumi:"triggerOperation"`
-	// Type of the Trigger
-	TriggerType *string `pulumi:"triggerType"`
+	TriggerType      *string `pulumi:"triggerType"`
 }
 
 // SqlTriggerResourceInput is an input type that accepts SqlTriggerResourceArgs and SqlTriggerResourceOutput values.
@@ -16635,14 +15396,10 @@ type SqlTriggerResourceInput interface {
 }
 
 type SqlTriggerResourceArgs struct {
-	// Body of the Trigger
-	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Name of the Cosmos DB SQL trigger
-	Id pulumi.StringInput `pulumi:"id"`
-	// The operation the trigger is associated with
+	Body             pulumi.StringPtrInput `pulumi:"body"`
+	Id               pulumi.StringInput    `pulumi:"id"`
 	TriggerOperation pulumi.StringPtrInput `pulumi:"triggerOperation"`
-	// Type of the Trigger
-	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
+	TriggerType      pulumi.StringPtrInput `pulumi:"triggerType"`
 }
 
 func (SqlTriggerResourceArgs) ElementType() reflect.Type {
@@ -16722,22 +15479,18 @@ func (o SqlTriggerResourceOutput) ToSqlTriggerResourcePtrOutputWithContext(ctx c
 	}).(SqlTriggerResourcePtrOutput)
 }
 
-// Body of the Trigger
 func (o SqlTriggerResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL trigger
 func (o SqlTriggerResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlTriggerResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The operation the trigger is associated with
 func (o SqlTriggerResourceOutput) TriggerOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerResource) *string { return v.TriggerOperation }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Trigger
 func (o SqlTriggerResourceOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerResource) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
 }
@@ -16766,7 +15519,6 @@ func (o SqlTriggerResourcePtrOutput) Elem() SqlTriggerResourceOutput {
 	}).(SqlTriggerResourceOutput)
 }
 
-// Body of the Trigger
 func (o SqlTriggerResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerResource) *string {
 		if v == nil {
@@ -16776,7 +15528,6 @@ func (o SqlTriggerResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL trigger
 func (o SqlTriggerResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerResource) *string {
 		if v == nil {
@@ -16786,7 +15537,6 @@ func (o SqlTriggerResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operation the trigger is associated with
 func (o SqlTriggerResourcePtrOutput) TriggerOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerResource) *string {
 		if v == nil {
@@ -16796,7 +15546,6 @@ func (o SqlTriggerResourcePtrOutput) TriggerOperation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the Trigger
 func (o SqlTriggerResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerResource) *string {
 		if v == nil {
@@ -16807,16 +15556,11 @@ func (o SqlTriggerResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResource struct {
-	// Body of the User Defined Function
 	Body *string `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB SQL userDefinedFunction
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseResourceInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs and SqlUserDefinedFunctionGetPropertiesResponseResourceOutput values.
@@ -16831,16 +15575,11 @@ type SqlUserDefinedFunctionGetPropertiesResponseResourceInput interface {
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResourceArgs struct {
-	// Body of the User Defined Function
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB SQL userDefinedFunction
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput    `pulumi:"etag"`
+	Id   pulumi.StringInput    `pulumi:"id"`
+	Rid  pulumi.StringInput    `pulumi:"rid"`
+	Ts   pulumi.Float64Input   `pulumi:"ts"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -16920,27 +15659,22 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefi
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
 }
 
-// Body of the User Defined Function
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB SQL userDefinedFunction
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -16969,7 +15703,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Elem() Sql
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput)
 }
 
-// Body of the User Defined Function
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16979,7 +15712,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Body() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16989,7 +15721,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Etag() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL userDefinedFunction
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -16999,7 +15730,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Id() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -17009,7 +15739,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Rid() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -17020,10 +15749,8 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulum
 }
 
 type SqlUserDefinedFunctionResource struct {
-	// Body of the User Defined Function
 	Body *string `pulumi:"body"`
-	// Name of the Cosmos DB SQL userDefinedFunction
-	Id string `pulumi:"id"`
+	Id   string  `pulumi:"id"`
 }
 
 // SqlUserDefinedFunctionResourceInput is an input type that accepts SqlUserDefinedFunctionResourceArgs and SqlUserDefinedFunctionResourceOutput values.
@@ -17038,10 +15765,8 @@ type SqlUserDefinedFunctionResourceInput interface {
 }
 
 type SqlUserDefinedFunctionResourceArgs struct {
-	// Body of the User Defined Function
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Name of the Cosmos DB SQL userDefinedFunction
-	Id pulumi.StringInput `pulumi:"id"`
+	Id   pulumi.StringInput    `pulumi:"id"`
 }
 
 func (SqlUserDefinedFunctionResourceArgs) ElementType() reflect.Type {
@@ -17121,12 +15846,10 @@ func (o SqlUserDefinedFunctionResourceOutput) ToSqlUserDefinedFunctionResourcePt
 	}).(SqlUserDefinedFunctionResourcePtrOutput)
 }
 
-// Body of the User Defined Function
 func (o SqlUserDefinedFunctionResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL userDefinedFunction
 func (o SqlUserDefinedFunctionResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -17155,7 +15878,6 @@ func (o SqlUserDefinedFunctionResourcePtrOutput) Elem() SqlUserDefinedFunctionRe
 	}).(SqlUserDefinedFunctionResourceOutput)
 }
 
-// Body of the User Defined Function
 func (o SqlUserDefinedFunctionResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionResource) *string {
 		if v == nil {
@@ -17165,7 +15887,6 @@ func (o SqlUserDefinedFunctionResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB SQL userDefinedFunction
 func (o SqlUserDefinedFunctionResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionResource) *string {
 		if v == nil {
@@ -17176,10 +15897,8 @@ func (o SqlUserDefinedFunctionResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type TableGetPropertiesResponseOptions struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int                       `pulumi:"throughput"`
 }
 
 // TableGetPropertiesResponseOptionsInput is an input type that accepts TableGetPropertiesResponseOptionsArgs and TableGetPropertiesResponseOptionsOutput values.
@@ -17194,10 +15913,8 @@ type TableGetPropertiesResponseOptionsInput interface {
 }
 
 type TableGetPropertiesResponseOptionsArgs struct {
-	// Specifies the Autoscale settings.
 	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
-	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput        pulumi.IntPtrInput                `pulumi:"throughput"`
 }
 
 func (TableGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
@@ -17277,12 +15994,10 @@ func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOpt
 	}).(TableGetPropertiesResponseOptionsPtrOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o TableGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseOptions) *AutoscaleSettingsResponse { return v.AutoscaleSettings }).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o TableGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -17311,7 +16026,6 @@ func (o TableGetPropertiesResponseOptionsPtrOutput) Elem() TableGetPropertiesRes
 	}).(TableGetPropertiesResponseOptionsOutput)
 }
 
-// Specifies the Autoscale settings.
 func (o TableGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
 		if v == nil {
@@ -17321,7 +16035,6 @@ func (o TableGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() Autoscal
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
 
-// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
 func (o TableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) *int {
 		if v == nil {
@@ -17332,14 +16045,10 @@ func (o TableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOu
 }
 
 type TableGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag string `pulumi:"etag"`
-	// Name of the Cosmos DB table
-	Id string `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts float64 `pulumi:"ts"`
+	Etag string  `pulumi:"etag"`
+	Id   string  `pulumi:"id"`
+	Rid  string  `pulumi:"rid"`
+	Ts   float64 `pulumi:"ts"`
 }
 
 // TableGetPropertiesResponseResourceInput is an input type that accepts TableGetPropertiesResponseResourceArgs and TableGetPropertiesResponseResourceOutput values.
@@ -17354,14 +16063,10 @@ type TableGetPropertiesResponseResourceInput interface {
 }
 
 type TableGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Name of the Cosmos DB table
-	Id pulumi.StringInput `pulumi:"id"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Float64Input `pulumi:"ts"`
+	Etag pulumi.StringInput  `pulumi:"etag"`
+	Id   pulumi.StringInput  `pulumi:"id"`
+	Rid  pulumi.StringInput  `pulumi:"rid"`
+	Ts   pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (TableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -17441,22 +16146,18 @@ func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseRe
 	}).(TableGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o TableGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Name of the Cosmos DB table
 func (o TableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o TableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o TableGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
@@ -17485,7 +16186,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Elem() TableGetPropertiesRe
 	}).(TableGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
 func (o TableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -17495,7 +16195,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Cosmos DB table
 func (o TableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -17505,7 +16204,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property. A unique identifier.
 func (o TableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -17515,7 +16213,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
 func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *float64 {
 		if v == nil {
@@ -17526,7 +16223,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutpu
 }
 
 type TableResource struct {
-	// Name of the Cosmos DB table
 	Id string `pulumi:"id"`
 }
 
@@ -17542,7 +16238,6 @@ type TableResourceInput interface {
 }
 
 type TableResourceArgs struct {
-	// Name of the Cosmos DB table
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -17623,7 +16318,6 @@ func (o TableResourceOutput) ToTableResourcePtrOutputWithContext(ctx context.Con
 	}).(TableResourcePtrOutput)
 }
 
-// Name of the Cosmos DB table
 func (o TableResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TableResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -17652,7 +16346,6 @@ func (o TableResourcePtrOutput) Elem() TableResourceOutput {
 	}).(TableResourceOutput)
 }
 
-// Name of the Cosmos DB table
 func (o TableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableResource) *string {
 		if v == nil {
@@ -17663,7 +16356,6 @@ func (o TableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type UniqueKey struct {
-	// List of paths must be unique for each document in the Azure Cosmos DB service
 	Paths []string `pulumi:"paths"`
 }
 
@@ -17679,7 +16371,6 @@ type UniqueKeyInput interface {
 }
 
 type UniqueKeyArgs struct {
-	// List of paths must be unique for each document in the Azure Cosmos DB service
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -17734,7 +16425,6 @@ func (o UniqueKeyOutput) ToUniqueKeyOutputWithContext(ctx context.Context) Uniqu
 	return o
 }
 
-// List of paths must be unique for each document in the Azure Cosmos DB service
 func (o UniqueKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -17760,7 +16450,6 @@ func (o UniqueKeyArrayOutput) Index(i pulumi.IntInput) UniqueKeyOutput {
 }
 
 type UniqueKeyPolicy struct {
-	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeys []UniqueKey `pulumi:"uniqueKeys"`
 }
 
@@ -17776,7 +16465,6 @@ type UniqueKeyPolicyInput interface {
 }
 
 type UniqueKeyPolicyArgs struct {
-	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeys UniqueKeyArrayInput `pulumi:"uniqueKeys"`
 }
 
@@ -17857,7 +16545,6 @@ func (o UniqueKeyPolicyOutput) ToUniqueKeyPolicyPtrOutputWithContext(ctx context
 	}).(UniqueKeyPolicyPtrOutput)
 }
 
-// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 func (o UniqueKeyPolicyOutput) UniqueKeys() UniqueKeyArrayOutput {
 	return o.ApplyT(func(v UniqueKeyPolicy) []UniqueKey { return v.UniqueKeys }).(UniqueKeyArrayOutput)
 }
@@ -17886,7 +16573,6 @@ func (o UniqueKeyPolicyPtrOutput) Elem() UniqueKeyPolicyOutput {
 	}).(UniqueKeyPolicyOutput)
 }
 
-// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 func (o UniqueKeyPolicyPtrOutput) UniqueKeys() UniqueKeyArrayOutput {
 	return o.ApplyT(func(v *UniqueKeyPolicy) []UniqueKey {
 		if v == nil {
@@ -17897,7 +16583,6 @@ func (o UniqueKeyPolicyPtrOutput) UniqueKeys() UniqueKeyArrayOutput {
 }
 
 type UniqueKeyPolicyResponse struct {
-	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeys []UniqueKeyResponse `pulumi:"uniqueKeys"`
 }
 
@@ -17913,7 +16598,6 @@ type UniqueKeyPolicyResponseInput interface {
 }
 
 type UniqueKeyPolicyResponseArgs struct {
-	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeys UniqueKeyResponseArrayInput `pulumi:"uniqueKeys"`
 }
 
@@ -17994,7 +16678,6 @@ func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponsePtrOutputWithCon
 	}).(UniqueKeyPolicyResponsePtrOutput)
 }
 
-// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 func (o UniqueKeyPolicyResponseOutput) UniqueKeys() UniqueKeyResponseArrayOutput {
 	return o.ApplyT(func(v UniqueKeyPolicyResponse) []UniqueKeyResponse { return v.UniqueKeys }).(UniqueKeyResponseArrayOutput)
 }
@@ -18023,7 +16706,6 @@ func (o UniqueKeyPolicyResponsePtrOutput) Elem() UniqueKeyPolicyResponseOutput {
 	}).(UniqueKeyPolicyResponseOutput)
 }
 
-// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
 func (o UniqueKeyPolicyResponsePtrOutput) UniqueKeys() UniqueKeyResponseArrayOutput {
 	return o.ApplyT(func(v *UniqueKeyPolicyResponse) []UniqueKeyResponse {
 		if v == nil {
@@ -18034,7 +16716,6 @@ func (o UniqueKeyPolicyResponsePtrOutput) UniqueKeys() UniqueKeyResponseArrayOut
 }
 
 type UniqueKeyResponse struct {
-	// List of paths must be unique for each document in the Azure Cosmos DB service
 	Paths []string `pulumi:"paths"`
 }
 
@@ -18050,7 +16731,6 @@ type UniqueKeyResponseInput interface {
 }
 
 type UniqueKeyResponseArgs struct {
-	// List of paths must be unique for each document in the Azure Cosmos DB service
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -18105,7 +16785,6 @@ func (o UniqueKeyResponseOutput) ToUniqueKeyResponseOutputWithContext(ctx contex
 	return o
 }
 
-// List of paths must be unique for each document in the Azure Cosmos DB service
 func (o UniqueKeyResponseOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UniqueKeyResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -18131,10 +16810,8 @@ func (o UniqueKeyResponseArrayOutput) Index(i pulumi.IntInput) UniqueKeyResponse
 }
 
 type VirtualNetworkRule struct {
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-	Id *string `pulumi:"id"`
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVNetServiceEndpoint *bool `pulumi:"ignoreMissingVNetServiceEndpoint"`
+	Id                               *string `pulumi:"id"`
+	IgnoreMissingVNetServiceEndpoint *bool   `pulumi:"ignoreMissingVNetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -18149,10 +16826,8 @@ type VirtualNetworkRuleInput interface {
 }
 
 type VirtualNetworkRuleArgs struct {
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVNetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVNetServiceEndpoint"`
+	Id                               pulumi.StringPtrInput `pulumi:"id"`
+	IgnoreMissingVNetServiceEndpoint pulumi.BoolPtrInput   `pulumi:"ignoreMissingVNetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -18206,12 +16881,10 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Create firewall rule before the virtual network has vnet service endpoint enabled.
 func (o VirtualNetworkRuleOutput) IgnoreMissingVNetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *bool { return v.IgnoreMissingVNetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -18237,10 +16910,8 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 }
 
 type VirtualNetworkRuleResponse struct {
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-	Id *string `pulumi:"id"`
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVNetServiceEndpoint *bool `pulumi:"ignoreMissingVNetServiceEndpoint"`
+	Id                               *string `pulumi:"id"`
+	IgnoreMissingVNetServiceEndpoint *bool   `pulumi:"ignoreMissingVNetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -18255,10 +16926,8 @@ type VirtualNetworkRuleResponseInput interface {
 }
 
 type VirtualNetworkRuleResponseArgs struct {
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVNetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVNetServiceEndpoint"`
+	Id                               pulumi.StringPtrInput `pulumi:"id"`
+	IgnoreMissingVNetServiceEndpoint pulumi.BoolPtrInput   `pulumi:"ignoreMissingVNetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -18312,12 +16981,10 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Create firewall rule before the virtual network has vnet service endpoint enabled.
 func (o VirtualNetworkRuleResponseOutput) IgnoreMissingVNetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *bool { return v.IgnoreMissingVNetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }

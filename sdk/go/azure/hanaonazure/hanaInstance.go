@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// HANA instance info on Azure (ARM properties and HANA properties)
-// API Version: 2017-11-03-preview.
 type HanaInstance struct {
 	pulumi.CustomResourceState
 

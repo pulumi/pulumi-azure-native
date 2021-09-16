@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role management policy
-// API Version: 2020-10-01-preview.
 type RoleManagementPolicyAssignment struct {
 	pulumi.CustomResourceState
 

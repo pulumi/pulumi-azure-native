@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// States and configurations of Cost Analysis.
-// API Version: 2019-11-01.
 type ViewByScope struct {
 	pulumi.CustomResourceState
 

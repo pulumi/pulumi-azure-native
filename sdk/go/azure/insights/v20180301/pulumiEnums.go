@@ -840,7 +840,6 @@ type Operator string
 
 const (
 	OperatorEquals             = Operator("Equals")
-	OperatorNotEquals          = Operator("NotEquals")
 	OperatorGreaterThan        = Operator("GreaterThan")
 	OperatorGreaterThanOrEqual = Operator("GreaterThanOrEqual")
 	OperatorLessThan           = Operator("LessThan")

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage Sync Service object.
-// API Version: 2020-03-01.
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 

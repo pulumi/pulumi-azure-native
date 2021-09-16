@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Streaming Policy resource
-// API Version: 2020-05-01.
 type StreamingPolicy struct {
 	pulumi.CustomResourceState
 

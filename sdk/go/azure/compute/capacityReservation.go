@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the capacity reservation.
-// API Version: 2021-04-01.
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 

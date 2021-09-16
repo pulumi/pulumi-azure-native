@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for backup ProtectionIntent.
-// API Version: 2021-02-01.
 type ProtectionIntent struct {
 	pulumi.CustomResourceState
 

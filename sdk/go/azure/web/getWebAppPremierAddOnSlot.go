@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Premier add-on.
-// API Version: 2020-12-01.
 func LookupWebAppPremierAddOnSlot(ctx *pulumi.Context, args *LookupWebAppPremierAddOnSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnSlotResult, error) {
 	var rv LookupWebAppPremierAddOnSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppPremierAddOnSlot", args, &rv, opts...)
@@ -19,38 +17,23 @@ func LookupWebAppPremierAddOnSlot(ctx *pulumi.Context, args *LookupWebAppPremier
 }
 
 type LookupWebAppPremierAddOnSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Add-on name.
-	PremierAddOnName string `pulumi:"premierAddOnName"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
+	PremierAddOnName  string `pulumi:"premierAddOnName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Premier add-on.
 type LookupWebAppPremierAddOnSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Premier add on Marketplace offer.
-	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
-	// Premier add on Marketplace publisher.
-	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Premier add on Product.
-	Product *string `pulumi:"product"`
-	// Premier add on SKU.
-	Sku *string `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Premier add on Vendor.
-	Vendor *string `pulumi:"vendor"`
+	Id                   string            `pulumi:"id"`
+	Kind                 *string           `pulumi:"kind"`
+	Location             string            `pulumi:"location"`
+	MarketplaceOffer     *string           `pulumi:"marketplaceOffer"`
+	MarketplacePublisher *string           `pulumi:"marketplacePublisher"`
+	Name                 string            `pulumi:"name"`
+	Product              *string           `pulumi:"product"`
+	Sku                  *string           `pulumi:"sku"`
+	Tags                 map[string]string `pulumi:"tags"`
+	Type                 string            `pulumi:"type"`
+	Vendor               *string           `pulumi:"vendor"`
 }

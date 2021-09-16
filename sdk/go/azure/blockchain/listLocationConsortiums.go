@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of the consortium payload.
-// API Version: 2018-06-01-preview.
 func ListLocationConsortiums(ctx *pulumi.Context, args *ListLocationConsortiumsArgs, opts ...pulumi.InvokeOption) (*ListLocationConsortiumsResult, error) {
 	var rv ListLocationConsortiumsResult
 	err := ctx.Invoke("azure-native:blockchain:listLocationConsortiums", args, &rv, opts...)
@@ -19,12 +17,10 @@ func ListLocationConsortiums(ctx *pulumi.Context, args *ListLocationConsortiumsA
 }
 
 type ListLocationConsortiumsArgs struct {
-	// Location Name.
 	LocationName string `pulumi:"locationName"`
 }
 
 // Collection of the consortium payload.
 type ListLocationConsortiumsResult struct {
-	// Gets or sets the collection of consortiums.
 	Value []ConsortiumResponse `pulumi:"value"`
 }

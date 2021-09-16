@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of File services in storage account.
-// API Version: 2021-02-01.
 type FileServiceProperties struct {
 	pulumi.CustomResourceState
 

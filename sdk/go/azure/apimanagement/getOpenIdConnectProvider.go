@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenId Connect Provider details.
-// API Version: 2020-12-01.
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	var rv LookupOpenIdConnectProviderResult
 	err := ctx.Invoke("azure-native:apimanagement:getOpenIdConnectProvider", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectP
 }
 
 type LookupOpenIdConnectProviderArgs struct {
-	// Identifier of the OpenID Connect Provider.
-	Opid string `pulumi:"opid"`
-	// The name of the resource group.
+	Opid              string `pulumi:"opid"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // OpenId Connect Provider details.
 type LookupOpenIdConnectProviderResult struct {
-	// Client ID of developer console which is the client application.
-	ClientId string `pulumi:"clientId"`
-	// Client Secret of developer console which is the client application.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// User-friendly description of OpenID Connect Provider.
-	Description *string `pulumi:"description"`
-	// User-friendly OpenID Connect Provider name.
-	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Metadata endpoint URI.
-	MetadataEndpoint string `pulumi:"metadataEndpoint"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	ClientId         string  `pulumi:"clientId"`
+	ClientSecret     *string `pulumi:"clientSecret"`
+	Description      *string `pulumi:"description"`
+	DisplayName      string  `pulumi:"displayName"`
+	Id               string  `pulumi:"id"`
+	MetadataEndpoint string  `pulumi:"metadataEndpoint"`
+	Name             string  `pulumi:"name"`
+	Type             string  `pulumi:"type"`
 }

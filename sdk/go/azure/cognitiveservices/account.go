@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-// API Version: 2017-04-18.
 type Account struct {
 	pulumi.CustomResourceState
 

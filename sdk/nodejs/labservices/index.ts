@@ -18,11 +18,15 @@ export * from "./getGlobalUserPersonalPreferences";
 export * from "./getLab";
 export * from "./getLabAccount";
 export * from "./getLabAccountRegionalAvailability";
+export * from "./getLabPlan";
+export * from "./getSchedule";
 export * from "./getUser";
 export * from "./lab";
 export * from "./labAccount";
+export * from "./labPlan";
 export * from "./listGlobalUserEnvironments";
 export * from "./listGlobalUserLabs";
+export * from "./schedule";
 export * from "./user";
 
 // Export enums:
@@ -30,9 +34,11 @@ export * from "../types/enums/labservices";
 
 // Export sub-modules:
 import * as v20181015 from "./v20181015";
+import * as v20211001preview from "./v20211001preview";
 
 export {
     v20181015,
+    v20211001preview,
 };
 
 // Import resources to register:
@@ -41,6 +47,8 @@ import { EnvironmentSetting } from "./environmentSetting";
 import { GalleryImage } from "./galleryImage";
 import { Lab } from "./lab";
 import { LabAccount } from "./labAccount";
+import { LabPlan } from "./labPlan";
+import { Schedule } from "./schedule";
 import { User } from "./user";
 
 const _module = {
@@ -57,6 +65,10 @@ const _module = {
                 return new Lab(name, <any>undefined, { urn })
             case "azure-native:labservices:LabAccount":
                 return new LabAccount(name, <any>undefined, { urn })
+            case "azure-native:labservices:LabPlan":
+                return new LabPlan(name, <any>undefined, { urn })
+            case "azure-native:labservices:Schedule":
+                return new Schedule(name, <any>undefined, { urn })
             case "azure-native:labservices:User":
                 return new User(name, <any>undefined, { urn })
             default:

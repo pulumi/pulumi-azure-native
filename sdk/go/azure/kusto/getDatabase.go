@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto database.
-// API Version: 2021-01-01.
-//
 // Deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
@@ -21,24 +18,16 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 }
 
 type LookupDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Class representing a Kusto database.
 type LookupDatabaseResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Kind of the database
-	Kind string `pulumi:"kind"`
-	// Resource location.
+	Id       string  `pulumi:"id"`
+	Kind     string  `pulumi:"kind"`
 	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Name     string  `pulumi:"name"`
+	Type     string  `pulumi:"type"`
 }

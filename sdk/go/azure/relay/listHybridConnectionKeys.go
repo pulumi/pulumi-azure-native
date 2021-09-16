@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/Relay Connection String
-// API Version: 2017-04-01.
 func ListHybridConnectionKeys(ctx *pulumi.Context, args *ListHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListHybridConnectionKeysResult, error) {
 	var rv ListHybridConnectionKeysResult
 	err := ctx.Invoke("azure-native:relay:listHybridConnectionKeys", args, &rv, opts...)
@@ -19,26 +17,17 @@ func ListHybridConnectionKeys(ctx *pulumi.Context, args *ListHybridConnectionKey
 }
 
 type ListHybridConnectionKeysArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The hybrid connection name.
-	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	HybridConnectionName  string `pulumi:"hybridConnectionName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/Relay Connection String
 type ListHybridConnectionKeysResult struct {
-	// A string that describes the authorization rule.
-	KeyName *string `pulumi:"keyName"`
-	// Primary connection string of the created namespace authorization rule.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Secondary connection string of the created namespace authorization rule.
+	KeyName                   *string `pulumi:"keyName"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit secondary key for signing and validating the SAS token.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

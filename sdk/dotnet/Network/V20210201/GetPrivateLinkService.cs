@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The resource id of private link service.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.Network.V20210201
 
             string provisioningState,
 
+            string? resourceGuid,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.Network.V20210201
             NetworkInterfaces = networkInterfaces;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
             Visibility = visibility;

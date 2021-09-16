@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IpConfigurations.
-// API Version: 2020-11-01.
 type VirtualHubIpConfiguration struct {
 	pulumi.CustomResourceState
 

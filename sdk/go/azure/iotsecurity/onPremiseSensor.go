@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// On-premise IoT sensor
-// API Version: 2021-02-01-preview.
 type OnPremiseSensor struct {
 	pulumi.CustomResourceState
 

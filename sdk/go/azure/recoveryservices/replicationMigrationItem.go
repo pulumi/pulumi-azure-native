@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migration item.
-// API Version: 2018-07-10.
 type ReplicationMigrationItem struct {
 	pulumi.CustomResourceState
 

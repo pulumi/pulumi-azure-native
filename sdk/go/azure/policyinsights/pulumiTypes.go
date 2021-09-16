@@ -11,10 +11,8 @@ import (
 )
 
 type AttestationEvidence struct {
-	// The description for this piece of evidence.
 	Description *string `pulumi:"description"`
-	// The URI location of the evidence.
-	SourceUri *string `pulumi:"sourceUri"`
+	SourceUri   *string `pulumi:"sourceUri"`
 }
 
 // AttestationEvidenceInput is an input type that accepts AttestationEvidenceArgs and AttestationEvidenceOutput values.
@@ -29,10 +27,8 @@ type AttestationEvidenceInput interface {
 }
 
 type AttestationEvidenceArgs struct {
-	// The description for this piece of evidence.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The URI location of the evidence.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
+	SourceUri   pulumi.StringPtrInput `pulumi:"sourceUri"`
 }
 
 func (AttestationEvidenceArgs) ElementType() reflect.Type {
@@ -86,12 +82,10 @@ func (o AttestationEvidenceOutput) ToAttestationEvidenceOutputWithContext(ctx co
 	return o
 }
 
-// The description for this piece of evidence.
 func (o AttestationEvidenceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttestationEvidence) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The URI location of the evidence.
 func (o AttestationEvidenceOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttestationEvidence) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
@@ -117,10 +111,8 @@ func (o AttestationEvidenceArrayOutput) Index(i pulumi.IntInput) AttestationEvid
 }
 
 type AttestationEvidenceResponse struct {
-	// The description for this piece of evidence.
 	Description *string `pulumi:"description"`
-	// The URI location of the evidence.
-	SourceUri *string `pulumi:"sourceUri"`
+	SourceUri   *string `pulumi:"sourceUri"`
 }
 
 // AttestationEvidenceResponseInput is an input type that accepts AttestationEvidenceResponseArgs and AttestationEvidenceResponseOutput values.
@@ -135,10 +127,8 @@ type AttestationEvidenceResponseInput interface {
 }
 
 type AttestationEvidenceResponseArgs struct {
-	// The description for this piece of evidence.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The URI location of the evidence.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
+	SourceUri   pulumi.StringPtrInput `pulumi:"sourceUri"`
 }
 
 func (AttestationEvidenceResponseArgs) ElementType() reflect.Type {
@@ -192,12 +182,10 @@ func (o AttestationEvidenceResponseOutput) ToAttestationEvidenceResponseOutputWi
 	return o
 }
 
-// The description for this piece of evidence.
 func (o AttestationEvidenceResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttestationEvidenceResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The URI location of the evidence.
 func (o AttestationEvidenceResponseOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttestationEvidenceResponse) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
@@ -223,16 +211,11 @@ func (o AttestationEvidenceResponseArrayOutput) Index(i pulumi.IntInput) Attesta
 }
 
 type ErrorDefinitionResponse struct {
-	// Additional scenario specific error details.
-	AdditionalInfo []TypedErrorInfoResponse `pulumi:"additionalInfo"`
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code string `pulumi:"code"`
-	// Internal error details.
-	Details []ErrorDefinitionResponse `pulumi:"details"`
-	// Description of the error.
-	Message string `pulumi:"message"`
-	// The target of the error.
-	Target string `pulumi:"target"`
+	AdditionalInfo []TypedErrorInfoResponse  `pulumi:"additionalInfo"`
+	Code           string                    `pulumi:"code"`
+	Details        []ErrorDefinitionResponse `pulumi:"details"`
+	Message        string                    `pulumi:"message"`
+	Target         string                    `pulumi:"target"`
 }
 
 // ErrorDefinitionResponseInput is an input type that accepts ErrorDefinitionResponseArgs and ErrorDefinitionResponseOutput values.
@@ -247,16 +230,11 @@ type ErrorDefinitionResponseInput interface {
 }
 
 type ErrorDefinitionResponseArgs struct {
-	// Additional scenario specific error details.
-	AdditionalInfo TypedErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Internal error details.
-	Details ErrorDefinitionResponseArrayInput `pulumi:"details"`
-	// Description of the error.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The target of the error.
-	Target pulumi.StringInput `pulumi:"target"`
+	AdditionalInfo TypedErrorInfoResponseArrayInput  `pulumi:"additionalInfo"`
+	Code           pulumi.StringInput                `pulumi:"code"`
+	Details        ErrorDefinitionResponseArrayInput `pulumi:"details"`
+	Message        pulumi.StringInput                `pulumi:"message"`
+	Target         pulumi.StringInput                `pulumi:"target"`
 }
 
 func (ErrorDefinitionResponseArgs) ElementType() reflect.Type {
@@ -310,27 +288,22 @@ func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContex
 	return o
 }
 
-// Additional scenario specific error details.
 func (o ErrorDefinitionResponseOutput) AdditionalInfo() TypedErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) []TypedErrorInfoResponse { return v.AdditionalInfo }).(TypedErrorInfoResponseArrayOutput)
 }
 
-// Service specific error code which serves as the substatus for the HTTP error code.
 func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Internal error details.
 func (o ErrorDefinitionResponseOutput) Details() ErrorDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) []ErrorDefinitionResponse { return v.Details }).(ErrorDefinitionResponseArrayOutput)
 }
 
-// Description of the error.
 func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The target of the error.
 func (o ErrorDefinitionResponseOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -356,20 +329,13 @@ func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefini
 }
 
 type RemediationDeploymentResponse struct {
-	// The time at which the remediation was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// Resource ID of the template deployment that will remediate the resource.
-	DeploymentId string `pulumi:"deploymentId"`
-	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponse `pulumi:"error"`
-	// The time at which the remediation deployment was last updated.
-	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
-	// Resource ID of the resource that is being remediated by the deployment.
-	RemediatedResourceId string `pulumi:"remediatedResourceId"`
-	// Location of the resource that is being remediated.
-	ResourceLocation string `pulumi:"resourceLocation"`
-	// Status of the remediation deployment.
-	Status string `pulumi:"status"`
+	CreatedOn            string                  `pulumi:"createdOn"`
+	DeploymentId         string                  `pulumi:"deploymentId"`
+	Error                ErrorDefinitionResponse `pulumi:"error"`
+	LastUpdatedOn        string                  `pulumi:"lastUpdatedOn"`
+	RemediatedResourceId string                  `pulumi:"remediatedResourceId"`
+	ResourceLocation     string                  `pulumi:"resourceLocation"`
+	Status               string                  `pulumi:"status"`
 }
 
 // RemediationDeploymentResponseInput is an input type that accepts RemediationDeploymentResponseArgs and RemediationDeploymentResponseOutput values.
@@ -384,20 +350,13 @@ type RemediationDeploymentResponseInput interface {
 }
 
 type RemediationDeploymentResponseArgs struct {
-	// The time at which the remediation was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// Resource ID of the template deployment that will remediate the resource.
-	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
-	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponseInput `pulumi:"error"`
-	// The time at which the remediation deployment was last updated.
-	LastUpdatedOn pulumi.StringInput `pulumi:"lastUpdatedOn"`
-	// Resource ID of the resource that is being remediated by the deployment.
-	RemediatedResourceId pulumi.StringInput `pulumi:"remediatedResourceId"`
-	// Location of the resource that is being remediated.
-	ResourceLocation pulumi.StringInput `pulumi:"resourceLocation"`
-	// Status of the remediation deployment.
-	Status pulumi.StringInput `pulumi:"status"`
+	CreatedOn            pulumi.StringInput           `pulumi:"createdOn"`
+	DeploymentId         pulumi.StringInput           `pulumi:"deploymentId"`
+	Error                ErrorDefinitionResponseInput `pulumi:"error"`
+	LastUpdatedOn        pulumi.StringInput           `pulumi:"lastUpdatedOn"`
+	RemediatedResourceId pulumi.StringInput           `pulumi:"remediatedResourceId"`
+	ResourceLocation     pulumi.StringInput           `pulumi:"resourceLocation"`
+	Status               pulumi.StringInput           `pulumi:"status"`
 }
 
 func (RemediationDeploymentResponseArgs) ElementType() reflect.Type {
@@ -451,37 +410,30 @@ func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutp
 	return o
 }
 
-// The time at which the remediation was created.
 func (o RemediationDeploymentResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Resource ID of the template deployment that will remediate the resource.
 func (o RemediationDeploymentResponseOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// Error encountered while remediated the resource.
 func (o RemediationDeploymentResponseOutput) Error() ErrorDefinitionResponseOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) ErrorDefinitionResponse { return v.Error }).(ErrorDefinitionResponseOutput)
 }
 
-// The time at which the remediation deployment was last updated.
 func (o RemediationDeploymentResponseOutput) LastUpdatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
 }
 
-// Resource ID of the resource that is being remediated by the deployment.
 func (o RemediationDeploymentResponseOutput) RemediatedResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.RemediatedResourceId }).(pulumi.StringOutput)
 }
 
-// Location of the resource that is being remediated.
 func (o RemediationDeploymentResponseOutput) ResourceLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.ResourceLocation }).(pulumi.StringOutput)
 }
 
-// Status of the remediation deployment.
 func (o RemediationDeploymentResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -507,12 +459,9 @@ func (o RemediationDeploymentResponseArrayOutput) Index(i pulumi.IntInput) Remed
 }
 
 type RemediationDeploymentSummaryResponse struct {
-	// The number of deployments required by the remediation that have failed.
-	FailedDeployments int `pulumi:"failedDeployments"`
-	// The number of deployments required by the remediation that have succeeded.
+	FailedDeployments     int `pulumi:"failedDeployments"`
 	SuccessfulDeployments int `pulumi:"successfulDeployments"`
-	// The number of deployments required by the remediation.
-	TotalDeployments int `pulumi:"totalDeployments"`
+	TotalDeployments      int `pulumi:"totalDeployments"`
 }
 
 // RemediationDeploymentSummaryResponseInput is an input type that accepts RemediationDeploymentSummaryResponseArgs and RemediationDeploymentSummaryResponseOutput values.
@@ -527,12 +476,9 @@ type RemediationDeploymentSummaryResponseInput interface {
 }
 
 type RemediationDeploymentSummaryResponseArgs struct {
-	// The number of deployments required by the remediation that have failed.
-	FailedDeployments pulumi.IntInput `pulumi:"failedDeployments"`
-	// The number of deployments required by the remediation that have succeeded.
+	FailedDeployments     pulumi.IntInput `pulumi:"failedDeployments"`
 	SuccessfulDeployments pulumi.IntInput `pulumi:"successfulDeployments"`
-	// The number of deployments required by the remediation.
-	TotalDeployments pulumi.IntInput `pulumi:"totalDeployments"`
+	TotalDeployments      pulumi.IntInput `pulumi:"totalDeployments"`
 }
 
 func (RemediationDeploymentSummaryResponseArgs) ElementType() reflect.Type {
@@ -612,17 +558,14 @@ func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSumma
 	}).(RemediationDeploymentSummaryResponsePtrOutput)
 }
 
-// The number of deployments required by the remediation that have failed.
 func (o RemediationDeploymentSummaryResponseOutput) FailedDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.FailedDeployments }).(pulumi.IntOutput)
 }
 
-// The number of deployments required by the remediation that have succeeded.
 func (o RemediationDeploymentSummaryResponseOutput) SuccessfulDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.SuccessfulDeployments }).(pulumi.IntOutput)
 }
 
-// The number of deployments required by the remediation.
 func (o RemediationDeploymentSummaryResponseOutput) TotalDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.TotalDeployments }).(pulumi.IntOutput)
 }
@@ -651,7 +594,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) Elem() RemediationDeploym
 	}).(RemediationDeploymentSummaryResponseOutput)
 }
 
-// The number of deployments required by the remediation that have failed.
 func (o RemediationDeploymentSummaryResponsePtrOutput) FailedDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -661,7 +603,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) FailedDeployments() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of deployments required by the remediation that have succeeded.
 func (o RemediationDeploymentSummaryResponsePtrOutput) SuccessfulDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -671,7 +612,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) SuccessfulDeployments() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of deployments required by the remediation.
 func (o RemediationDeploymentSummaryResponsePtrOutput) TotalDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -682,7 +622,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) TotalDeployments() pulumi
 }
 
 type RemediationFilters struct {
-	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
 }
 
@@ -698,7 +637,6 @@ type RemediationFiltersInput interface {
 }
 
 type RemediationFiltersArgs struct {
-	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 }
 
@@ -779,7 +717,6 @@ func (o RemediationFiltersOutput) ToRemediationFiltersPtrOutputWithContext(ctx c
 	}).(RemediationFiltersPtrOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RemediationFilters) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -808,7 +745,6 @@ func (o RemediationFiltersPtrOutput) Elem() RemediationFiltersOutput {
 	}).(RemediationFiltersOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemediationFilters) []string {
 		if v == nil {
@@ -819,7 +755,6 @@ func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 }
 
 type RemediationFiltersResponse struct {
-	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
 }
 
@@ -835,7 +770,6 @@ type RemediationFiltersResponseInput interface {
 }
 
 type RemediationFiltersResponseArgs struct {
-	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 }
 
@@ -916,7 +850,6 @@ func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutputW
 	}).(RemediationFiltersResponsePtrOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RemediationFiltersResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -945,7 +878,6 @@ func (o RemediationFiltersResponsePtrOutput) Elem() RemediationFiltersResponseOu
 	}).(RemediationFiltersResponseOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemediationFiltersResponse) []string {
 		if v == nil {
@@ -956,17 +888,11 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -982,17 +908,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1073,32 +993,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1127,7 +1041,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1137,7 +1050,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1147,7 +1059,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1157,7 +1068,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1167,7 +1077,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1177,7 +1086,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1188,10 +1096,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TypedErrorInfoResponse struct {
-	// The scenario specific error details.
 	Info interface{} `pulumi:"info"`
-	// The type of included error details.
-	Type string `pulumi:"type"`
+	Type string      `pulumi:"type"`
 }
 
 // TypedErrorInfoResponseInput is an input type that accepts TypedErrorInfoResponseArgs and TypedErrorInfoResponseOutput values.
@@ -1206,9 +1112,7 @@ type TypedErrorInfoResponseInput interface {
 }
 
 type TypedErrorInfoResponseArgs struct {
-	// The scenario specific error details.
-	Info pulumi.Input `pulumi:"info"`
-	// The type of included error details.
+	Info pulumi.Input       `pulumi:"info"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1263,12 +1167,10 @@ func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(
 	return o
 }
 
-// The scenario specific error details.
 func (o TypedErrorInfoResponseOutput) Info() pulumi.AnyOutput {
 	return o.ApplyT(func(v TypedErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
-// The type of included error details.
 func (o TypedErrorInfoResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TypedErrorInfoResponse) string { return v.Type }).(pulumi.StringOutput)
 }

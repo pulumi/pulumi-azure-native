@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The result of the GetSupportedOptimizationTypes API
-// API Version: 2020-09-01.
 func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileSupportedOptimizationTypesArgs, opts ...pulumi.InvokeOption) (*GetProfileSupportedOptimizationTypesResult, error) {
 	var rv GetProfileSupportedOptimizationTypesResult
 	err := ctx.Invoke("azure-native:cdn:getProfileSupportedOptimizationTypes", args, &rv, opts...)
@@ -19,14 +17,11 @@ func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileS
 }
 
 type GetProfileSupportedOptimizationTypesArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The result of the GetSupportedOptimizationTypes API
 type GetProfileSupportedOptimizationTypesResult struct {
-	// Supported optimization types for a profile.
 	SupportedOptimizationTypes []string `pulumi:"supportedOptimizationTypes"`
 }

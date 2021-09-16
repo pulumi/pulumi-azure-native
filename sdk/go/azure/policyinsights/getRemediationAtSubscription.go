@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The remediation definition.
-// API Version: 2019-07-01.
 func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediationAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtSubscriptionResult, error) {
 	var rv LookupRemediationAtSubscriptionResult
 	err := ctx.Invoke("azure-native:policyinsights:getRemediationAtSubscription", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediatio
 }
 
 type LookupRemediationAtSubscriptionArgs struct {
-	// The name of the remediation.
 	RemediationName string `pulumi:"remediationName"`
 }
 
 // The remediation definition.
 type LookupRemediationAtSubscriptionResult struct {
-	// The time at which the remediation was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
-	// The filters that will be applied to determine which resources to remediate.
-	Filters *RemediationFiltersResponse `pulumi:"filters"`
-	// The ID of the remediation.
-	Id string `pulumi:"id"`
-	// The time at which the remediation was last updated.
-	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
-	// The name of the remediation.
-	Name string `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	// The status of the remediation.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
-	// The type of the remediation.
-	Type string `pulumi:"type"`
+	CreatedOn                   string                               `pulumi:"createdOn"`
+	DeploymentStatus            RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
+	Filters                     *RemediationFiltersResponse          `pulumi:"filters"`
+	Id                          string                               `pulumi:"id"`
+	LastUpdatedOn               string                               `pulumi:"lastUpdatedOn"`
+	Name                        string                               `pulumi:"name"`
+	PolicyAssignmentId          *string                              `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId *string                              `pulumi:"policyDefinitionReferenceId"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
+	ResourceDiscoveryMode       *string                              `pulumi:"resourceDiscoveryMode"`
+	Type                        string                               `pulumi:"type"`
 }

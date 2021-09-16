@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response on GET of a hybrid use benefit
-// API Version: 2019-06-01-preview.
 type HybridUseBenefit struct {
 	pulumi.CustomResourceState
 

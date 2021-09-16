@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A type of trigger based on schedule
-// API Version: 2020-09-01.
 type ScheduledTrigger struct {
 	pulumi.CustomResourceState
 

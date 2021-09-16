@@ -182,7 +182,6 @@ namespace Pulumi.AzureNative.Insights.V20180301
         }
 
         public static Operator EqualsValue { get; } = new Operator("Equals");
-        public static Operator NotEquals { get; } = new Operator("NotEquals");
         public static Operator GreaterThan { get; } = new Operator("GreaterThan");
         public static Operator GreaterThanOrEqual { get; } = new Operator("GreaterThanOrEqual");
         public static Operator LessThan { get; } = new Operator("LessThan");

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
 type Device struct {
 	pulumi.CustomResourceState
 

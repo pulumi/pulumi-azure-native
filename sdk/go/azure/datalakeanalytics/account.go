@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-// API Version: 2016-11-01.
 type Account struct {
 	pulumi.CustomResourceState
 

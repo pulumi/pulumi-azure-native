@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB container.
-// API Version: 2021-03-15.
 type SqlResourceSqlContainer struct {
 	pulumi.CustomResourceState
 

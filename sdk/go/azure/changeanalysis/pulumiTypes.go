@@ -11,12 +11,9 @@ import (
 )
 
 type AzureMonitorWorkspaceProperties struct {
-	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
-	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-	WorkspaceId *string `pulumi:"workspaceId"`
-	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+	WorkspaceId          *string `pulumi:"workspaceId"`
+	WorkspaceResourceId  *string `pulumi:"workspaceResourceId"`
 }
 
 // AzureMonitorWorkspacePropertiesInput is an input type that accepts AzureMonitorWorkspacePropertiesArgs and AzureMonitorWorkspacePropertiesOutput values.
@@ -31,12 +28,9 @@ type AzureMonitorWorkspacePropertiesInput interface {
 }
 
 type AzureMonitorWorkspacePropertiesArgs struct {
-	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
-	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
-	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+	WorkspaceId          pulumi.StringPtrInput `pulumi:"workspaceId"`
+	WorkspaceResourceId  pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
 func (AzureMonitorWorkspacePropertiesArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o AzureMonitorWorkspacePropertiesOutput) ToAzureMonitorWorkspaceProperties
 	}).(AzureMonitorWorkspacePropertiesPtrOutput)
 }
 
-// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 func (o AzureMonitorWorkspacePropertiesOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *string { return v.IncludeChangeDetails }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
 func (o AzureMonitorWorkspacePropertiesOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -155,7 +146,6 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) Elem() AzureMonitorWorkspacePr
 	}).(AzureMonitorWorkspacePropertiesOutput)
 }
 
-// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 func (o AzureMonitorWorkspacePropertiesPtrOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) *string {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) IncludeChangeDetails() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
 func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) *string {
 		if v == nil {
@@ -186,12 +174,9 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceResourceId() pulumi.S
 }
 
 type AzureMonitorWorkspacePropertiesResponse struct {
-	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
-	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-	WorkspaceId *string `pulumi:"workspaceId"`
-	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+	WorkspaceId          *string `pulumi:"workspaceId"`
+	WorkspaceResourceId  *string `pulumi:"workspaceResourceId"`
 }
 
 // AzureMonitorWorkspacePropertiesResponseInput is an input type that accepts AzureMonitorWorkspacePropertiesResponseArgs and AzureMonitorWorkspacePropertiesResponseOutput values.
@@ -206,12 +191,9 @@ type AzureMonitorWorkspacePropertiesResponseInput interface {
 }
 
 type AzureMonitorWorkspacePropertiesResponseArgs struct {
-	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
-	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
-	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+	WorkspaceId          pulumi.StringPtrInput `pulumi:"workspaceId"`
+	WorkspaceResourceId  pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
 func (AzureMonitorWorkspacePropertiesResponseArgs) ElementType() reflect.Type {
@@ -291,17 +273,14 @@ func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePr
 	}).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
 
-// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 func (o AzureMonitorWorkspacePropertiesResponseOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *string { return v.IncludeChangeDetails }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
 func (o AzureMonitorWorkspacePropertiesResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -330,7 +309,6 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) Elem() AzureMonitorWor
 	}).(AzureMonitorWorkspacePropertiesResponseOutput)
 }
 
-// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
 func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) *string {
 		if v == nil {
@@ -340,7 +318,6 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) IncludeChangeDetails()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) *string {
 		if v == nil {
@@ -350,7 +327,6 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) WorkspaceId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
 func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) *string {
 		if v == nil {
@@ -361,7 +337,6 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) WorkspaceResourceId() 
 }
 
 type ConfigurationProfileResourceProperties struct {
-	// Settings of change notification configuration for a subscription.
 	Notifications *NotificationSettings `pulumi:"notifications"`
 }
 
@@ -377,7 +352,6 @@ type ConfigurationProfileResourcePropertiesInput interface {
 }
 
 type ConfigurationProfileResourcePropertiesArgs struct {
-	// Settings of change notification configuration for a subscription.
 	Notifications NotificationSettingsPtrInput `pulumi:"notifications"`
 }
 
@@ -458,7 +432,6 @@ func (o ConfigurationProfileResourcePropertiesOutput) ToConfigurationProfileReso
 	}).(ConfigurationProfileResourcePropertiesPtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 func (o ConfigurationProfileResourcePropertiesOutput) Notifications() NotificationSettingsPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileResourceProperties) *NotificationSettings { return v.Notifications }).(NotificationSettingsPtrOutput)
 }
@@ -487,7 +460,6 @@ func (o ConfigurationProfileResourcePropertiesPtrOutput) Elem() ConfigurationPro
 	}).(ConfigurationProfileResourcePropertiesOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 func (o ConfigurationProfileResourcePropertiesPtrOutput) Notifications() NotificationSettingsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileResourceProperties) *NotificationSettings {
 		if v == nil {
@@ -498,7 +470,6 @@ func (o ConfigurationProfileResourcePropertiesPtrOutput) Notifications() Notific
 }
 
 type ConfigurationProfileResourcePropertiesResponse struct {
-	// Settings of change notification configuration for a subscription.
 	Notifications *NotificationSettingsResponse `pulumi:"notifications"`
 }
 
@@ -514,7 +485,6 @@ type ConfigurationProfileResourcePropertiesResponseInput interface {
 }
 
 type ConfigurationProfileResourcePropertiesResponseArgs struct {
-	// Settings of change notification configuration for a subscription.
 	Notifications NotificationSettingsResponsePtrInput `pulumi:"notifications"`
 }
 
@@ -595,7 +565,6 @@ func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationPro
 	}).(ConfigurationProfileResourcePropertiesResponsePtrOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 func (o ConfigurationProfileResourcePropertiesResponseOutput) Notifications() NotificationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileResourcePropertiesResponse) *NotificationSettingsResponse {
 		return v.Notifications
@@ -626,7 +595,6 @@ func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Elem() Configur
 	}).(ConfigurationProfileResourcePropertiesResponseOutput)
 }
 
-// Settings of change notification configuration for a subscription.
 func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Notifications() NotificationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileResourcePropertiesResponse) *NotificationSettingsResponse {
 		if v == nil {
@@ -637,9 +605,7 @@ func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Notifications()
 }
 
 type NotificationSettings struct {
-	// The state of notifications feature.
-	ActivationState *string `pulumi:"activationState"`
-	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	ActivationState                 *string                          `pulumi:"activationState"`
 	AzureMonitorWorkspaceProperties *AzureMonitorWorkspaceProperties `pulumi:"azureMonitorWorkspaceProperties"`
 }
 
@@ -655,9 +621,7 @@ type NotificationSettingsInput interface {
 }
 
 type NotificationSettingsArgs struct {
-	// The state of notifications feature.
-	ActivationState pulumi.StringPtrInput `pulumi:"activationState"`
-	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	ActivationState                 pulumi.StringPtrInput                   `pulumi:"activationState"`
 	AzureMonitorWorkspaceProperties AzureMonitorWorkspacePropertiesPtrInput `pulumi:"azureMonitorWorkspaceProperties"`
 }
 
@@ -738,12 +702,10 @@ func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutputWithContext(c
 	}).(NotificationSettingsPtrOutput)
 }
 
-// The state of notifications feature.
 func (o NotificationSettingsOutput) ActivationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *string { return v.ActivationState }).(pulumi.StringPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 func (o NotificationSettingsOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *AzureMonitorWorkspaceProperties {
 		return v.AzureMonitorWorkspaceProperties
@@ -774,7 +736,6 @@ func (o NotificationSettingsPtrOutput) Elem() NotificationSettingsOutput {
 	}).(NotificationSettingsOutput)
 }
 
-// The state of notifications feature.
 func (o NotificationSettingsPtrOutput) ActivationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *string {
 		if v == nil {
@@ -784,7 +745,6 @@ func (o NotificationSettingsPtrOutput) ActivationState() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 func (o NotificationSettingsPtrOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *AzureMonitorWorkspaceProperties {
 		if v == nil {
@@ -795,9 +755,7 @@ func (o NotificationSettingsPtrOutput) AzureMonitorWorkspaceProperties() AzureMo
 }
 
 type NotificationSettingsResponse struct {
-	// The state of notifications feature.
-	ActivationState *string `pulumi:"activationState"`
-	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	ActivationState                 *string                                  `pulumi:"activationState"`
 	AzureMonitorWorkspaceProperties *AzureMonitorWorkspacePropertiesResponse `pulumi:"azureMonitorWorkspaceProperties"`
 }
 
@@ -813,9 +771,7 @@ type NotificationSettingsResponseInput interface {
 }
 
 type NotificationSettingsResponseArgs struct {
-	// The state of notifications feature.
-	ActivationState pulumi.StringPtrInput `pulumi:"activationState"`
-	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	ActivationState                 pulumi.StringPtrInput                           `pulumi:"activationState"`
 	AzureMonitorWorkspaceProperties AzureMonitorWorkspacePropertiesResponsePtrInput `pulumi:"azureMonitorWorkspaceProperties"`
 }
 
@@ -896,12 +852,10 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOut
 	}).(NotificationSettingsResponsePtrOutput)
 }
 
-// The state of notifications feature.
 func (o NotificationSettingsResponseOutput) ActivationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *string { return v.ActivationState }).(pulumi.StringPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 func (o NotificationSettingsResponseOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *AzureMonitorWorkspacePropertiesResponse {
 		return v.AzureMonitorWorkspaceProperties
@@ -932,7 +886,6 @@ func (o NotificationSettingsResponsePtrOutput) Elem() NotificationSettingsRespon
 	}).(NotificationSettingsResponseOutput)
 }
 
-// The state of notifications feature.
 func (o NotificationSettingsResponsePtrOutput) ActivationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *string {
 		if v == nil {
@@ -942,7 +895,6 @@ func (o NotificationSettingsResponsePtrOutput) ActivationState() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration properties of an Azure Monitor workspace that receives change notifications.
 func (o NotificationSettingsResponsePtrOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *AzureMonitorWorkspacePropertiesResponse {
 		if v == nil {
@@ -953,7 +905,6 @@ func (o NotificationSettingsResponsePtrOutput) AzureMonitorWorkspaceProperties()
 }
 
 type ResourceIdentity struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
 }
 
@@ -969,7 +920,6 @@ type ResourceIdentityInput interface {
 }
 
 type ResourceIdentityArgs struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1050,7 +1000,6 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx conte
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1079,7 +1028,6 @@ func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
 	}).(ResourceIdentityOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -1090,12 +1038,9 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ResourceIdentityResponse struct {
-	// The principal id of the identity. This property will only be provided for a system-assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
@@ -1110,12 +1055,9 @@ type ResourceIdentityResponseInput interface {
 }
 
 type ResourceIdentityResponseArgs struct {
-	// The principal id of the identity. This property will only be provided for a system-assigned identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -1195,17 +1137,14 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithC
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The principal id of the identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1234,7 +1173,6 @@ func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput
 	}).(ResourceIdentityResponseOutput)
 }
 
-// The principal id of the identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -1244,7 +1182,6 @@ func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -1254,7 +1191,6 @@ func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -1265,17 +1201,11 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt string `pulumi:"createdAt"`
-	// A string identifier for the identity that created the resource
-	CreatedBy string `pulumi:"createdBy"`
-	// The type of identity that created the resource: user, application, managedIdentity, key
-	CreatedByType string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt string `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource
-	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: user, application, managedIdentity, key
+	CreatedAt          string `pulumi:"createdAt"`
+	CreatedBy          string `pulumi:"createdBy"`
+	CreatedByType      string `pulumi:"createdByType"`
+	LastModifiedAt     string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     string `pulumi:"lastModifiedBy"`
 	LastModifiedByType string `pulumi:"lastModifiedByType"`
 }
 
@@ -1291,17 +1221,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// A string identifier for the identity that created the resource
-	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
-	// The type of identity that created the resource: user, application, managedIdentity, key
-	CreatedByType pulumi.StringInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource
-	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: user, application, managedIdentity, key
+	CreatedAt          pulumi.StringInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1382,32 +1306,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A string identifier for the identity that created the resource
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The type of identity that created the resource: user, application, managedIdentity, key
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedByType }).(pulumi.StringOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
-// A string identifier for the identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// The type of identity that last modified the resource: user, application, managedIdentity, key
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
@@ -1436,7 +1354,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1446,7 +1363,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1456,7 +1372,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource: user, application, managedIdentity, key
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1466,7 +1381,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1476,7 +1390,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1486,7 +1399,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource: user, application, managedIdentity, key
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

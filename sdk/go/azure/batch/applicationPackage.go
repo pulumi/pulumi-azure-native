@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application package which represents a particular version of an application.
-// API Version: 2021-01-01.
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 

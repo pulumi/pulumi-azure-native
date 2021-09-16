@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-06-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:eventgrid:getPrivateEndpointConnection", args, &rv, opts...)
@@ -18,29 +17,18 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the parent resource (namely, either, the topic name or domain name).
-	ParentName string `pulumi:"parentName"`
-	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
-	ParentType string `pulumi:"parentType"`
-	// The name of the private endpoint connection connection.
+	ParentName                    string `pulumi:"parentName"`
+	ParentType                    string `pulumi:"parentType"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 type LookupPrivateEndpointConnectionResult struct {
-	// GroupIds from the private link service resource.
-	GroupIds []string `pulumi:"groupIds"`
-	// Fully qualified identifier of the resource.
-	Id string `pulumi:"id"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// The Private Endpoint resource for this Connection.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Details about the state of the connection.
+	GroupIds                          []string                 `pulumi:"groupIds"`
+	Id                                string                   `pulumi:"id"`
+	Name                              string                   `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState                 *string                  `pulumi:"provisioningState"`
+	Type                              string                   `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sentinel onboarding state
-// API Version: 2021-03-01-preview.
 type SentinelOnboardingState struct {
 	pulumi.CustomResourceState
 

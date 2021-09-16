@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configures how to correlate scan data and logs with resources associated with the subscription.
-// API Version: 2021-01-15-preview.
 func LookupIngestionSetting(ctx *pulumi.Context, args *LookupIngestionSettingArgs, opts ...pulumi.InvokeOption) (*LookupIngestionSettingResult, error) {
 	var rv LookupIngestionSettingResult
 	err := ctx.Invoke("azure-native:security:getIngestionSetting", args, &rv, opts...)
@@ -19,16 +17,12 @@ func LookupIngestionSetting(ctx *pulumi.Context, args *LookupIngestionSettingArg
 }
 
 type LookupIngestionSettingArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName string `pulumi:"ingestionSettingName"`
 }
 
 // Configures how to correlate scan data and logs with resources associated with the subscription.
 type LookupIngestionSettingResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// Resource type
 	Type string `pulumi:"type"`
 }

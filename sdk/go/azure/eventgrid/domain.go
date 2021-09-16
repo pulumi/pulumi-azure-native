@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Domain.
-// API Version: 2020-06-01.
 type Domain struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A custom image.
-// API Version: 2018-09-15.
 type CustomImage struct {
 	pulumi.CustomResourceState
 

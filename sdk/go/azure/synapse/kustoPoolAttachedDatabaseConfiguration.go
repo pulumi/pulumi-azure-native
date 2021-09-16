@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an attached database configuration.
-// API Version: 2021-06-01-preview.
 type KustoPoolAttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 

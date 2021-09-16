@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Log Analytics QueryPack-Query definition.
-// API Version: 2019-09-01-preview.
 type Query struct {
 	pulumi.CustomResourceState
 

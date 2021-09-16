@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for Disk pool request.
-// API Version: 2020-03-15-preview.
 type DiskPool struct {
 	pulumi.CustomResourceState
 

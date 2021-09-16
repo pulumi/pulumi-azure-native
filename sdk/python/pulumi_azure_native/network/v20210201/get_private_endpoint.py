@@ -20,7 +20,7 @@ class GetPrivateEndpointResult:
     """
     Private endpoint resource.
     """
-    def __init__(__self__, custom_dns_configs=None, etag=None, extended_location=None, id=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, custom_dns_configs=None, etag=None, extended_location=None, id=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, resource_guid=None, subnet=None, tags=None, type=None):
         if custom_dns_configs and not isinstance(custom_dns_configs, list):
             raise TypeError("Expected argument 'custom_dns_configs' to be a list")
         pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
@@ -51,6 +51,9 @@ class GetPrivateEndpointResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if subnet and not isinstance(subnet, dict):
             raise TypeError("Expected argument 'subnet' to be a dict")
         pulumi.set(__self__, "subnet", subnet)
@@ -142,6 +145,14 @@ class GetPrivateEndpointResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource id of private endpoint.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter
     def subnet(self) -> Optional['outputs.SubnetResponse']:
         """
@@ -182,6 +193,7 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
             network_interfaces=self.network_interfaces,
             private_link_service_connections=self.private_link_service_connections,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             subnet=self.subnet,
             tags=self.tags,
             type=self.type)
@@ -220,6 +232,7 @@ def get_private_endpoint(expand: Optional[str] = None,
         network_interfaces=__ret__.network_interfaces,
         private_link_service_connections=__ret__.private_link_service_connections,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         subnet=__ret__.subnet,
         tags=__ret__.tags,
         type=__ret__.type)

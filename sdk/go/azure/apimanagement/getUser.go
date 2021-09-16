@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User details.
-// API Version: 2020-12-01.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azure-native:apimanagement:getUser", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 }
 
 type LookupUserArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId string `pulumi:"userId"`
+	ServiceName       string `pulumi:"serviceName"`
+	UserId            string `pulumi:"userId"`
 }
 
 // User details.
 type LookupUserResult struct {
-	// Email address.
-	Email *string `pulumi:"email"`
-	// First name.
-	FirstName *string `pulumi:"firstName"`
-	// Collection of groups user is part of.
-	Groups []GroupContractPropertiesResponse `pulumi:"groups"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Collection of user identities.
-	Identities []UserIdentityContractResponse `pulumi:"identities"`
-	// Last name.
-	LastName *string `pulumi:"lastName"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Optional note about a user set by the administrator.
-	Note *string `pulumi:"note"`
-	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	RegistrationDate *string `pulumi:"registrationDate"`
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State *string `pulumi:"state"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Email            *string                           `pulumi:"email"`
+	FirstName        *string                           `pulumi:"firstName"`
+	Groups           []GroupContractPropertiesResponse `pulumi:"groups"`
+	Id               string                            `pulumi:"id"`
+	Identities       []UserIdentityContractResponse    `pulumi:"identities"`
+	LastName         *string                           `pulumi:"lastName"`
+	Name             string                            `pulumi:"name"`
+	Note             *string                           `pulumi:"note"`
+	RegistrationDate *string                           `pulumi:"registrationDate"`
+	State            *string                           `pulumi:"state"`
+	Type             string                            `pulumi:"type"`
 }

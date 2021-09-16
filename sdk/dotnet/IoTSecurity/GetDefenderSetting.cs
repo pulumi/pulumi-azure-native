@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     public sealed class GetDefenderSettingResult
     {
         /// <summary>
-        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// Size of the device quota. Value is required to be in multiples of 100.
         /// </summary>
         public readonly int DeviceQuota;
         /// <summary>

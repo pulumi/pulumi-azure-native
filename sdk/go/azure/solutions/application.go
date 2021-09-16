@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about managed application.
-// API Version: 2019-07-01.
 type Application struct {
 	pulumi.CustomResourceState
 

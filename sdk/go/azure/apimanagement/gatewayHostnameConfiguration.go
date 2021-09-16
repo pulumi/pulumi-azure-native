@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway hostname configuration details.
-// API Version: 2020-12-01.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 

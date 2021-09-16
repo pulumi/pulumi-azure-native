@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Restore Point details.
-// API Version: 2021-03-01.
 type RestorePoint struct {
 	pulumi.CustomResourceState
 

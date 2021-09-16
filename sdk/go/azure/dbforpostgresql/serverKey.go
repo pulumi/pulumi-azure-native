@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A PostgreSQL Server key.
-// API Version: 2020-01-01.
 type ServerKey struct {
 	pulumi.CustomResourceState
 

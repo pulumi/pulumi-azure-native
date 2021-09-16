@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Customer Notification Event resource.
-// API Version: 2020-12-16-preview.
 type CustomerEvent struct {
 	pulumi.CustomResourceState
 

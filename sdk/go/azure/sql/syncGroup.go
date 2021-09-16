@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync group.
-// API Version: 2020-11-01-preview.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 

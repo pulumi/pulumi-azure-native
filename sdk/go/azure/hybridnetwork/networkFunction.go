@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network function resource response.
-// API Version: 2020-01-01-preview.
 type NetworkFunction struct {
 	pulumi.CustomResourceState
 

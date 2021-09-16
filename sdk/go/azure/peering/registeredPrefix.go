@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The customer's prefix that is registered by the peering service provider.
-// API Version: 2021-01-01.
 type RegisteredPrefix struct {
 	pulumi.CustomResourceState
 

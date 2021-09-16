@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dedicated cloud service model
-// API Version: 2019-04-01.
 func LookupDedicatedCloudService(ctx *pulumi.Context, args *LookupDedicatedCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudServiceResult, error) {
 	var rv LookupDedicatedCloudServiceResult
 	err := ctx.Invoke("azure-native:vmwarecloudsimple:getDedicatedCloudService", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupDedicatedCloudService(ctx *pulumi.Context, args *LookupDedicatedCloud
 }
 
 type LookupDedicatedCloudServiceArgs struct {
-	// dedicated cloud Service name
 	DedicatedCloudServiceName string `pulumi:"dedicatedCloudServiceName"`
-	// The name of the resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 }
 
 // Dedicated cloud service model
 type LookupDedicatedCloudServiceResult struct {
-	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-	GatewaySubnet string `pulumi:"gatewaySubnet"`
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudServices/{dedicatedCloudServiceName}
-	Id string `pulumi:"id"`
-	// indicates whether account onboarded or not in a given region
-	IsAccountOnboarded string `pulumi:"isAccountOnboarded"`
-	// Azure region
-	Location string `pulumi:"location"`
-	// {dedicatedCloudServiceName}
-	Name string `pulumi:"name"`
-	// total nodes purchased
-	Nodes int `pulumi:"nodes"`
-	// link to a service management web portal
-	ServiceURL string `pulumi:"serviceURL"`
-	// The list of tags
-	Tags map[string]string `pulumi:"tags"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type string `pulumi:"type"`
+	GatewaySubnet      string            `pulumi:"gatewaySubnet"`
+	Id                 string            `pulumi:"id"`
+	IsAccountOnboarded string            `pulumi:"isAccountOnboarded"`
+	Location           string            `pulumi:"location"`
+	Name               string            `pulumi:"name"`
+	Nodes              int               `pulumi:"nodes"`
+	ServiceURL         string            `pulumi:"serviceURL"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
 }

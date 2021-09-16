@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-10-01.
 func LookupServerCollector(ctx *pulumi.Context, args *LookupServerCollectorArgs, opts ...pulumi.InvokeOption) (*LookupServerCollectorResult, error) {
 	var rv LookupServerCollectorResult
 	err := ctx.Invoke("azure-native:migrate:getServerCollector", args, &rv, opts...)
@@ -18,11 +17,8 @@ func LookupServerCollector(ctx *pulumi.Context, args *LookupServerCollectorArgs,
 }
 
 type LookupServerCollectorArgs struct {
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique name of a Server collector within a project.
+	ProjectName         string `pulumi:"projectName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	ServerCollectorName string `pulumi:"serverCollectorName"`
 }
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// vCenter definition.
-// API Version: 2018-07-10.
 func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCenterArgs, opts ...pulumi.InvokeOption) (*LookupReplicationvCenterResult, error) {
 	var rv LookupReplicationvCenterResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationvCenter", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCente
 }
 
 type LookupReplicationvCenterArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        string `pulumi:"fabricName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
-	// vCenter name.
-	VCenterName string `pulumi:"vCenterName"`
+	ResourceName      string `pulumi:"resourceName"`
+	VCenterName       string `pulumi:"vCenterName"`
 }
 
 // vCenter definition.
 type LookupReplicationvCenterResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// VCenter related data.
+	Id         string                    `pulumi:"id"`
+	Location   *string                   `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
 	Properties VCenterPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                    `pulumi:"type"`
 }

@@ -27,6 +27,7 @@ type PrivateLinkService struct {
 	NetworkInterfaces                    NetworkInterfaceResponseArrayOutput                       `pulumi:"networkInterfaces"`
 	PrivateEndpointConnections           PrivateEndpointConnectionResponseArrayOutput              `pulumi:"privateEndpointConnections"`
 	ProvisioningState                    pulumi.StringOutput                                       `pulumi:"provisioningState"`
+	ResourceGuid                         pulumi.StringPtrOutput                                    `pulumi:"resourceGuid"`
 	Tags                                 pulumi.StringMapOutput                                    `pulumi:"tags"`
 	Type                                 pulumi.StringOutput                                       `pulumi:"type"`
 	Visibility                           PrivateLinkServicePropertiesResponseVisibilityPtrOutput   `pulumi:"visibility"`
@@ -185,6 +186,7 @@ type privateLinkServiceArgs struct {
 	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration                 `pulumi:"loadBalancerFrontendIpConfigurations"`
 	Location                             *string                                   `pulumi:"location"`
 	ResourceGroupName                    string                                    `pulumi:"resourceGroupName"`
+	ResourceGuid                         *string                                   `pulumi:"resourceGuid"`
 	ServiceName                          *string                                   `pulumi:"serviceName"`
 	Tags                                 map[string]string                         `pulumi:"tags"`
 	Visibility                           *PrivateLinkServicePropertiesVisibility   `pulumi:"visibility"`
@@ -201,6 +203,7 @@ type PrivateLinkServiceArgs struct {
 	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput
 	Location                             pulumi.StringPtrInput
 	ResourceGroupName                    pulumi.StringInput
+	ResourceGuid                         pulumi.StringPtrInput
 	ServiceName                          pulumi.StringPtrInput
 	Tags                                 pulumi.StringMapInput
 	Visibility                           PrivateLinkServicePropertiesVisibilityPtrInput

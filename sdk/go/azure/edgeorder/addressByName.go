@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Address Resource.
-// API Version: 2020-12-01-preview.
 type AddressByName struct {
 	pulumi.CustomResourceState
 

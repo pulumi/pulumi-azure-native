@@ -89,6 +89,10 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The resource id of private endpoint.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
         public readonly Outputs.SubnetResponse? Subnet;
@@ -123,6 +127,8 @@ namespace Pulumi.AzureNative.Network.V20210201
 
             string provisioningState,
 
+            string? resourceGuid,
+
             Outputs.SubnetResponse? subnet,
 
             ImmutableDictionary<string, string>? tags,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.Network.V20210201
             NetworkInterfaces = networkInterfaces;
             PrivateLinkServiceConnections = privateLinkServiceConnections;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Subnet = subnet;
             Tags = tags;
             Type = type;

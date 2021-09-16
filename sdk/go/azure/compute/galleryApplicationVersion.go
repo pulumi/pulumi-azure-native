@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the gallery Application Version that you want to create or update.
-// API Version: 2020-09-30.
 type GalleryApplicationVersion struct {
 	pulumi.CustomResourceState
 

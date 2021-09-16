@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-// API Version: 2020-09-01.
 type Profile struct {
 	pulumi.CustomResourceState
 

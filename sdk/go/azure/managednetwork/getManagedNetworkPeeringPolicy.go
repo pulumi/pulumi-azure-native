@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network Peering Policy resource
-// API Version: 2019-06-01-preview.
 func LookupManagedNetworkPeeringPolicy(ctx *pulumi.Context, args *LookupManagedNetworkPeeringPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkPeeringPolicyResult, error) {
 	var rv LookupManagedNetworkPeeringPolicyResult
 	err := ctx.Invoke("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupManagedNetworkPeeringPolicy(ctx *pulumi.Context, args *LookupManagedN
 }
 
 type LookupManagedNetworkPeeringPolicyArgs struct {
-	// The name of the Managed Network.
-	ManagedNetworkName string `pulumi:"managedNetworkName"`
-	// The name of the Managed Network Peering Policy.
+	ManagedNetworkName              string `pulumi:"managedNetworkName"`
 	ManagedNetworkPeeringPolicyName string `pulumi:"managedNetworkPeeringPolicyName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName               string `pulumi:"resourceGroupName"`
 }
 
 // The Managed Network Peering Policy resource
 type LookupManagedNetworkPeeringPolicyResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of a Managed Network Policy
+	Id         string                                        `pulumi:"id"`
+	Location   *string                                       `pulumi:"location"`
+	Name       string                                        `pulumi:"name"`
 	Properties ManagedNetworkPeeringPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Type       string                                        `pulumi:"type"`
 }

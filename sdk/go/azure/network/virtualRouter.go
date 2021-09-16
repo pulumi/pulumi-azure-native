@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualRouter Resource.
-// API Version: 2020-08-01.
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom domain resource payload.
-// API Version: 2020-07-01.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 

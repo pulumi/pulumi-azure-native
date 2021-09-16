@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The diagnostic setting resource.
-// API Version: 2017-04-01.
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 

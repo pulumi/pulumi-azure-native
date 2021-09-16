@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connector model definition
-// API Version: 2019-03-01-preview.
 type CloudConnector struct {
 	pulumi.CustomResourceState
 

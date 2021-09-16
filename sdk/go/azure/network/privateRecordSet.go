@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-// API Version: 2020-06-01.
 type PrivateRecordSet struct {
 	pulumi.CustomResourceState
 

@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details and configurations for notifications coming from Azure Security Center.
-// API Version: 2020-01-01-preview.
 type SecurityContact struct {
 	pulumi.CustomResourceState
 

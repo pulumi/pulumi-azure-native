@@ -11,7 +11,6 @@ import (
 )
 
 type AppSkuInfo struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -27,7 +26,6 @@ type AppSkuInfoInput interface {
 }
 
 type AppSkuInfoArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -108,7 +106,6 @@ func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) 
 	}).(AppSkuInfoPtrOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -137,7 +134,6 @@ func (o AppSkuInfoPtrOutput) Elem() AppSkuInfoOutput {
 	}).(AppSkuInfoOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSkuInfo) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type AppSkuInfoResponse struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -164,7 +159,6 @@ type AppSkuInfoResponseInput interface {
 }
 
 type AppSkuInfoResponseArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -245,7 +239,6 @@ func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutputWithContext(ctx c
 	}).(AppSkuInfoResponsePtrOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -274,7 +267,6 @@ func (o AppSkuInfoResponsePtrOutput) Elem() AppSkuInfoResponseOutput {
 	}).(AppSkuInfoResponseOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSkuInfoResponse) *string {
 		if v == nil {

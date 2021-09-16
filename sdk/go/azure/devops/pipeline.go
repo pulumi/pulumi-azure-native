@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
-// API Version: 2020-07-13-preview.
 type Pipeline struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Key Vault container ARM resource for a certificate that is purchased through Azure.
-// API Version: 2020-10-01.
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 

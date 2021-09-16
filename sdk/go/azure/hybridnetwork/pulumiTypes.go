@@ -11,7 +11,6 @@ import (
 )
 
 type CustomProfile struct {
-	// Path for metadata configuration.
 	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
 }
 
@@ -27,7 +26,6 @@ type CustomProfileInput interface {
 }
 
 type CustomProfileArgs struct {
-	// Path for metadata configuration.
 	MetadataConfigurationPath pulumi.StringPtrInput `pulumi:"metadataConfigurationPath"`
 }
 
@@ -108,7 +106,6 @@ func (o CustomProfileOutput) ToCustomProfilePtrOutputWithContext(ctx context.Con
 	}).(CustomProfilePtrOutput)
 }
 
-// Path for metadata configuration.
 func (o CustomProfileOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomProfile) *string { return v.MetadataConfigurationPath }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o CustomProfilePtrOutput) Elem() CustomProfileOutput {
 	}).(CustomProfileOutput)
 }
 
-// Path for metadata configuration.
 func (o CustomProfilePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomProfile) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o CustomProfilePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutp
 }
 
 type CustomProfileResponse struct {
-	// Path for metadata configuration.
 	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
 }
 
@@ -164,7 +159,6 @@ type CustomProfileResponseInput interface {
 }
 
 type CustomProfileResponseArgs struct {
-	// Path for metadata configuration.
 	MetadataConfigurationPath pulumi.StringPtrInput `pulumi:"metadataConfigurationPath"`
 }
 
@@ -245,7 +239,6 @@ func (o CustomProfileResponseOutput) ToCustomProfileResponsePtrOutputWithContext
 	}).(CustomProfileResponsePtrOutput)
 }
 
-// Path for metadata configuration.
 func (o CustomProfileResponseOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomProfileResponse) *string { return v.MetadataConfigurationPath }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o CustomProfileResponsePtrOutput) Elem() CustomProfileResponseOutput {
 	}).(CustomProfileResponseOutput)
 }
 
-// Path for metadata configuration.
 func (o CustomProfileResponsePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomProfileResponse) *string {
 		if v == nil {
@@ -285,12 +277,9 @@ func (o CustomProfileResponsePtrOutput) MetadataConfigurationPath() pulumi.Strin
 }
 
 type DataDisk struct {
-	// Specifies how the virtual machine should be created.
 	CreateOption *string `pulumi:"createOption"`
-	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The name of data disk.
-	Name *string `pulumi:"name"`
+	DiskSizeGB   *int    `pulumi:"diskSizeGB"`
+	Name         *string `pulumi:"name"`
 }
 
 // DataDiskInput is an input type that accepts DataDiskArgs and DataDiskOutput values.
@@ -305,12 +294,9 @@ type DataDiskInput interface {
 }
 
 type DataDiskArgs struct {
-	// Specifies how the virtual machine should be created.
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
-	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// The name of data disk.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	DiskSizeGB   pulumi.IntPtrInput    `pulumi:"diskSizeGB"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DataDiskArgs) ElementType() reflect.Type {
@@ -364,17 +350,14 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 	return o
 }
 
-// Specifies how the virtual machine should be created.
 func (o DataDiskOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
 func (o DataDiskOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataDisk) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The name of data disk.
 func (o DataDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -400,12 +383,9 @@ func (o DataDiskArrayOutput) Index(i pulumi.IntInput) DataDiskOutput {
 }
 
 type DataDiskResponse struct {
-	// Specifies how the virtual machine should be created.
 	CreateOption *string `pulumi:"createOption"`
-	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The name of data disk.
-	Name *string `pulumi:"name"`
+	DiskSizeGB   *int    `pulumi:"diskSizeGB"`
+	Name         *string `pulumi:"name"`
 }
 
 // DataDiskResponseInput is an input type that accepts DataDiskResponseArgs and DataDiskResponseOutput values.
@@ -420,12 +400,9 @@ type DataDiskResponseInput interface {
 }
 
 type DataDiskResponseArgs struct {
-	// Specifies how the virtual machine should be created.
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
-	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// The name of data disk.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	DiskSizeGB   pulumi.IntPtrInput    `pulumi:"diskSizeGB"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DataDiskResponseArgs) ElementType() reflect.Type {
@@ -479,17 +456,14 @@ func (o DataDiskResponseOutput) ToDataDiskResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Specifies how the virtual machine should be created.
 func (o DataDiskResponseOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskResponse) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
 func (o DataDiskResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataDiskResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The name of data disk.
 func (o DataDiskResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -515,16 +489,11 @@ func (o DataDiskResponseArrayOutput) Index(i pulumi.IntInput) DataDiskResponseOu
 }
 
 type ImageReference struct {
-	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion *string `pulumi:"exactVersion"`
-	// Specifies the offer of the image used to create the virtual machine.
-	Offer *string `pulumi:"offer"`
-	// The image publisher.
-	Publisher *string `pulumi:"publisher"`
-	// The image SKU.
-	Sku *string `pulumi:"sku"`
-	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-	Version *string `pulumi:"version"`
+	Offer        *string `pulumi:"offer"`
+	Publisher    *string `pulumi:"publisher"`
+	Sku          *string `pulumi:"sku"`
+	Version      *string `pulumi:"version"`
 }
 
 // ImageReferenceInput is an input type that accepts ImageReferenceArgs and ImageReferenceOutput values.
@@ -539,16 +508,11 @@ type ImageReferenceInput interface {
 }
 
 type ImageReferenceArgs struct {
-	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
-	// Specifies the offer of the image used to create the virtual machine.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The image publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The image SKU.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Offer        pulumi.StringPtrInput `pulumi:"offer"`
+	Publisher    pulumi.StringPtrInput `pulumi:"publisher"`
+	Sku          pulumi.StringPtrInput `pulumi:"sku"`
+	Version      pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ImageReferenceArgs) ElementType() reflect.Type {
@@ -628,27 +592,22 @@ func (o ImageReferenceOutput) ToImageReferencePtrOutputWithContext(ctx context.C
 	}).(ImageReferencePtrOutput)
 }
 
-// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 func (o ImageReferenceOutput) ExactVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.ExactVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the offer of the image used to create the virtual machine.
 func (o ImageReferenceOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The image publisher.
 func (o ImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// The image SKU.
 func (o ImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 func (o ImageReferenceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -677,7 +636,6 @@ func (o ImageReferencePtrOutput) Elem() ImageReferenceOutput {
 	}).(ImageReferenceOutput)
 }
 
-// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 func (o ImageReferencePtrOutput) ExactVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -687,7 +645,6 @@ func (o ImageReferencePtrOutput) ExactVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the offer of the image used to create the virtual machine.
 func (o ImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -697,7 +654,6 @@ func (o ImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image publisher.
 func (o ImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -707,7 +663,6 @@ func (o ImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image SKU.
 func (o ImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -717,7 +672,6 @@ func (o ImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 func (o ImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -728,16 +682,11 @@ func (o ImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type ImageReferenceResponse struct {
-	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion *string `pulumi:"exactVersion"`
-	// Specifies the offer of the image used to create the virtual machine.
-	Offer *string `pulumi:"offer"`
-	// The image publisher.
-	Publisher *string `pulumi:"publisher"`
-	// The image SKU.
-	Sku *string `pulumi:"sku"`
-	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-	Version *string `pulumi:"version"`
+	Offer        *string `pulumi:"offer"`
+	Publisher    *string `pulumi:"publisher"`
+	Sku          *string `pulumi:"sku"`
+	Version      *string `pulumi:"version"`
 }
 
 // ImageReferenceResponseInput is an input type that accepts ImageReferenceResponseArgs and ImageReferenceResponseOutput values.
@@ -752,16 +701,11 @@ type ImageReferenceResponseInput interface {
 }
 
 type ImageReferenceResponseArgs struct {
-	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
-	// Specifies the offer of the image used to create the virtual machine.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The image publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The image SKU.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Offer        pulumi.StringPtrInput `pulumi:"offer"`
+	Publisher    pulumi.StringPtrInput `pulumi:"publisher"`
+	Sku          pulumi.StringPtrInput `pulumi:"sku"`
+	Version      pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ImageReferenceResponseArgs) ElementType() reflect.Type {
@@ -841,27 +785,22 @@ func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutputWithConte
 	}).(ImageReferenceResponsePtrOutput)
 }
 
-// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 func (o ImageReferenceResponseOutput) ExactVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.ExactVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the offer of the image used to create the virtual machine.
 func (o ImageReferenceResponseOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The image publisher.
 func (o ImageReferenceResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// The image SKU.
 func (o ImageReferenceResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 func (o ImageReferenceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -890,7 +829,6 @@ func (o ImageReferenceResponsePtrOutput) Elem() ImageReferenceResponseOutput {
 	}).(ImageReferenceResponseOutput)
 }
 
-// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
 func (o ImageReferenceResponsePtrOutput) ExactVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -900,7 +838,6 @@ func (o ImageReferenceResponsePtrOutput) ExactVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the offer of the image used to create the virtual machine.
 func (o ImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -910,7 +847,6 @@ func (o ImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image publisher.
 func (o ImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -920,7 +856,6 @@ func (o ImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image SKU.
 func (o ImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -930,7 +865,6 @@ func (o ImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 func (o ImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -941,7 +875,6 @@ func (o ImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type LinuxConfiguration struct {
-	// Specifies the ssh key configuration for a Linux OS.
 	Ssh *SshConfiguration `pulumi:"ssh"`
 }
 
@@ -957,7 +890,6 @@ type LinuxConfigurationInput interface {
 }
 
 type LinuxConfigurationArgs struct {
-	// Specifies the ssh key configuration for a Linux OS.
 	Ssh SshConfigurationPtrInput `pulumi:"ssh"`
 }
 
@@ -1038,7 +970,6 @@ func (o LinuxConfigurationOutput) ToLinuxConfigurationPtrOutputWithContext(ctx c
 	}).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies the ssh key configuration for a Linux OS.
 func (o LinuxConfigurationOutput) Ssh() SshConfigurationPtrOutput {
 	return o.ApplyT(func(v LinuxConfiguration) *SshConfiguration { return v.Ssh }).(SshConfigurationPtrOutput)
 }
@@ -1067,7 +998,6 @@ func (o LinuxConfigurationPtrOutput) Elem() LinuxConfigurationOutput {
 	}).(LinuxConfigurationOutput)
 }
 
-// Specifies the ssh key configuration for a Linux OS.
 func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 	return o.ApplyT(func(v *LinuxConfiguration) *SshConfiguration {
 		if v == nil {
@@ -1078,7 +1008,6 @@ func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 }
 
 type LinuxConfigurationResponse struct {
-	// Specifies the ssh key configuration for a Linux OS.
 	Ssh *SshConfigurationResponse `pulumi:"ssh"`
 }
 
@@ -1094,7 +1023,6 @@ type LinuxConfigurationResponseInput interface {
 }
 
 type LinuxConfigurationResponseArgs struct {
-	// Specifies the ssh key configuration for a Linux OS.
 	Ssh SshConfigurationResponsePtrInput `pulumi:"ssh"`
 }
 
@@ -1175,7 +1103,6 @@ func (o LinuxConfigurationResponseOutput) ToLinuxConfigurationResponsePtrOutputW
 	}).(LinuxConfigurationResponsePtrOutput)
 }
 
-// Specifies the ssh key configuration for a Linux OS.
 func (o LinuxConfigurationResponseOutput) Ssh() SshConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v LinuxConfigurationResponse) *SshConfigurationResponse { return v.Ssh }).(SshConfigurationResponsePtrOutput)
 }
@@ -1204,7 +1131,6 @@ func (o LinuxConfigurationResponsePtrOutput) Elem() LinuxConfigurationResponseOu
 	}).(LinuxConfigurationResponseOutput)
 }
 
-// Specifies the ssh key configuration for a Linux OS.
 func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *LinuxConfigurationResponse) *SshConfigurationResponse {
 		if v == nil {
@@ -1215,24 +1141,15 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 }
 
 type NetworkFunctionRoleConfiguration struct {
-	// Specifies the custom settings for the virtual machine.
-	CustomProfile *CustomProfile `pulumi:"customProfile"`
-	// The network interface configurations.
-	NetworkInterfaces []NetworkInterface `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
-	OsProfile *OsProfile `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName *string `pulumi:"roleName"`
-	// Role type.
-	RoleType *string `pulumi:"roleType"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters interface{} `pulumi:"userDataParameters"`
-	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-	UserDataTemplate interface{} `pulumi:"userDataTemplate"`
-	// The size of the virtual machine.
-	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+	CustomProfile      *CustomProfile     `pulumi:"customProfile"`
+	NetworkInterfaces  []NetworkInterface `pulumi:"networkInterfaces"`
+	OsProfile          *OsProfile         `pulumi:"osProfile"`
+	RoleName           *string            `pulumi:"roleName"`
+	RoleType           *string            `pulumi:"roleType"`
+	StorageProfile     *StorageProfile    `pulumi:"storageProfile"`
+	UserDataParameters interface{}        `pulumi:"userDataParameters"`
+	UserDataTemplate   interface{}        `pulumi:"userDataTemplate"`
+	VirtualMachineSize *string            `pulumi:"virtualMachineSize"`
 }
 
 // NetworkFunctionRoleConfigurationInput is an input type that accepts NetworkFunctionRoleConfigurationArgs and NetworkFunctionRoleConfigurationOutput values.
@@ -1247,24 +1164,15 @@ type NetworkFunctionRoleConfigurationInput interface {
 }
 
 type NetworkFunctionRoleConfigurationArgs struct {
-	// Specifies the custom settings for the virtual machine.
-	CustomProfile CustomProfilePtrInput `pulumi:"customProfile"`
-	// The network interface configurations.
-	NetworkInterfaces NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
-	OsProfile OsProfilePtrInput `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// Role type.
-	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
-	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
-	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-	UserDataTemplate pulumi.Input `pulumi:"userDataTemplate"`
-	// The size of the virtual machine.
-	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
+	CustomProfile      CustomProfilePtrInput      `pulumi:"customProfile"`
+	NetworkInterfaces  NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	OsProfile          OsProfilePtrInput          `pulumi:"osProfile"`
+	RoleName           pulumi.StringPtrInput      `pulumi:"roleName"`
+	RoleType           pulumi.StringPtrInput      `pulumi:"roleType"`
+	StorageProfile     StorageProfilePtrInput     `pulumi:"storageProfile"`
+	UserDataParameters pulumi.Input               `pulumi:"userDataParameters"`
+	UserDataTemplate   pulumi.Input               `pulumi:"userDataTemplate"`
+	VirtualMachineSize pulumi.StringPtrInput      `pulumi:"virtualMachineSize"`
 }
 
 func (NetworkFunctionRoleConfigurationArgs) ElementType() reflect.Type {
@@ -1318,47 +1226,38 @@ func (o NetworkFunctionRoleConfigurationOutput) ToNetworkFunctionRoleConfigurati
 	return o
 }
 
-// Specifies the custom settings for the virtual machine.
 func (o NetworkFunctionRoleConfigurationOutput) CustomProfile() CustomProfilePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *CustomProfile { return v.CustomProfile }).(CustomProfilePtrOutput)
 }
 
-// The network interface configurations.
 func (o NetworkFunctionRoleConfigurationOutput) NetworkInterfaces() NetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) []NetworkInterface { return v.NetworkInterfaces }).(NetworkInterfaceArrayOutput)
 }
 
-// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
 func (o NetworkFunctionRoleConfigurationOutput) OsProfile() OsProfilePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *OsProfile { return v.OsProfile }).(OsProfilePtrOutput)
 }
 
-// The name of the network function role.
 func (o NetworkFunctionRoleConfigurationOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// Role type.
 func (o NetworkFunctionRoleConfigurationOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *string { return v.RoleType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 func (o NetworkFunctionRoleConfigurationOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
-// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
 func (o NetworkFunctionRoleConfigurationOutput) UserDataParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
-// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
 func (o NetworkFunctionRoleConfigurationOutput) UserDataTemplate() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) interface{} { return v.UserDataTemplate }).(pulumi.AnyOutput)
 }
 
-// The size of the virtual machine.
 func (o NetworkFunctionRoleConfigurationOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfiguration) *string { return v.VirtualMachineSize }).(pulumi.StringPtrOutput)
 }
@@ -1384,24 +1283,15 @@ func (o NetworkFunctionRoleConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 }
 
 type NetworkFunctionRoleConfigurationResponse struct {
-	// Specifies the custom settings for the virtual machine.
-	CustomProfile *CustomProfileResponse `pulumi:"customProfile"`
-	// The network interface configurations.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
-	OsProfile *OsProfileResponse `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName *string `pulumi:"roleName"`
-	// Role type.
-	RoleType *string `pulumi:"roleType"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters interface{} `pulumi:"userDataParameters"`
-	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-	UserDataTemplate interface{} `pulumi:"userDataTemplate"`
-	// The size of the virtual machine.
-	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+	CustomProfile      *CustomProfileResponse     `pulumi:"customProfile"`
+	NetworkInterfaces  []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	OsProfile          *OsProfileResponse         `pulumi:"osProfile"`
+	RoleName           *string                    `pulumi:"roleName"`
+	RoleType           *string                    `pulumi:"roleType"`
+	StorageProfile     *StorageProfileResponse    `pulumi:"storageProfile"`
+	UserDataParameters interface{}                `pulumi:"userDataParameters"`
+	UserDataTemplate   interface{}                `pulumi:"userDataTemplate"`
+	VirtualMachineSize *string                    `pulumi:"virtualMachineSize"`
 }
 
 // NetworkFunctionRoleConfigurationResponseInput is an input type that accepts NetworkFunctionRoleConfigurationResponseArgs and NetworkFunctionRoleConfigurationResponseOutput values.
@@ -1416,24 +1306,15 @@ type NetworkFunctionRoleConfigurationResponseInput interface {
 }
 
 type NetworkFunctionRoleConfigurationResponseArgs struct {
-	// Specifies the custom settings for the virtual machine.
-	CustomProfile CustomProfileResponsePtrInput `pulumi:"customProfile"`
-	// The network interface configurations.
-	NetworkInterfaces NetworkInterfaceResponseArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
-	OsProfile OsProfileResponsePtrInput `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// Role type.
-	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile StorageProfileResponsePtrInput `pulumi:"storageProfile"`
-	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
-	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-	UserDataTemplate pulumi.Input `pulumi:"userDataTemplate"`
-	// The size of the virtual machine.
-	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
+	CustomProfile      CustomProfileResponsePtrInput      `pulumi:"customProfile"`
+	NetworkInterfaces  NetworkInterfaceResponseArrayInput `pulumi:"networkInterfaces"`
+	OsProfile          OsProfileResponsePtrInput          `pulumi:"osProfile"`
+	RoleName           pulumi.StringPtrInput              `pulumi:"roleName"`
+	RoleType           pulumi.StringPtrInput              `pulumi:"roleType"`
+	StorageProfile     StorageProfileResponsePtrInput     `pulumi:"storageProfile"`
+	UserDataParameters pulumi.Input                       `pulumi:"userDataParameters"`
+	UserDataTemplate   pulumi.Input                       `pulumi:"userDataTemplate"`
+	VirtualMachineSize pulumi.StringPtrInput              `pulumi:"virtualMachineSize"`
 }
 
 func (NetworkFunctionRoleConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1487,49 +1368,40 @@ func (o NetworkFunctionRoleConfigurationResponseOutput) ToNetworkFunctionRoleCon
 	return o
 }
 
-// Specifies the custom settings for the virtual machine.
 func (o NetworkFunctionRoleConfigurationResponseOutput) CustomProfile() CustomProfileResponsePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *CustomProfileResponse { return v.CustomProfile }).(CustomProfileResponsePtrOutput)
 }
 
-// The network interface configurations.
 func (o NetworkFunctionRoleConfigurationResponseOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) []NetworkInterfaceResponse {
 		return v.NetworkInterfaces
 	}).(NetworkInterfaceResponseArrayOutput)
 }
 
-// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
 func (o NetworkFunctionRoleConfigurationResponseOutput) OsProfile() OsProfileResponsePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *OsProfileResponse { return v.OsProfile }).(OsProfileResponsePtrOutput)
 }
 
-// The name of the network function role.
 func (o NetworkFunctionRoleConfigurationResponseOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// Role type.
 func (o NetworkFunctionRoleConfigurationResponseOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *string { return v.RoleType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage settings for the virtual machine disks.
 func (o NetworkFunctionRoleConfigurationResponseOutput) StorageProfile() StorageProfileResponsePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
 }
 
-// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
 func (o NetworkFunctionRoleConfigurationResponseOutput) UserDataParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
-// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
 func (o NetworkFunctionRoleConfigurationResponseOutput) UserDataTemplate() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) interface{} { return v.UserDataTemplate }).(pulumi.AnyOutput)
 }
 
-// The size of the virtual machine.
 func (o NetworkFunctionRoleConfigurationResponseOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionRoleConfigurationResponse) *string { return v.VirtualMachineSize }).(pulumi.StringPtrOutput)
 }
@@ -1555,7 +1427,6 @@ func (o NetworkFunctionRoleConfigurationResponseArrayOutput) Index(i pulumi.IntI
 }
 
 type NetworkFunctionTemplate struct {
-	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfiguration `pulumi:"networkFunctionRoleConfigurations"`
 }
 
@@ -1571,7 +1442,6 @@ type NetworkFunctionTemplateInput interface {
 }
 
 type NetworkFunctionTemplateArgs struct {
-	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations NetworkFunctionRoleConfigurationArrayInput `pulumi:"networkFunctionRoleConfigurations"`
 }
 
@@ -1652,7 +1522,6 @@ func (o NetworkFunctionTemplateOutput) ToNetworkFunctionTemplatePtrOutputWithCon
 	}).(NetworkFunctionTemplatePtrOutput)
 }
 
-// An array of network function role definitions.
 func (o NetworkFunctionTemplateOutput) NetworkFunctionRoleConfigurations() NetworkFunctionRoleConfigurationArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionTemplate) []NetworkFunctionRoleConfiguration {
 		return v.NetworkFunctionRoleConfigurations
@@ -1683,7 +1552,6 @@ func (o NetworkFunctionTemplatePtrOutput) Elem() NetworkFunctionTemplateOutput {
 	}).(NetworkFunctionTemplateOutput)
 }
 
-// An array of network function role definitions.
 func (o NetworkFunctionTemplatePtrOutput) NetworkFunctionRoleConfigurations() NetworkFunctionRoleConfigurationArrayOutput {
 	return o.ApplyT(func(v *NetworkFunctionTemplate) []NetworkFunctionRoleConfiguration {
 		if v == nil {
@@ -1694,7 +1562,6 @@ func (o NetworkFunctionTemplatePtrOutput) NetworkFunctionRoleConfigurations() Ne
 }
 
 type NetworkFunctionTemplateResponse struct {
-	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfigurationResponse `pulumi:"networkFunctionRoleConfigurations"`
 }
 
@@ -1710,7 +1577,6 @@ type NetworkFunctionTemplateResponseInput interface {
 }
 
 type NetworkFunctionTemplateResponseArgs struct {
-	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations NetworkFunctionRoleConfigurationResponseArrayInput `pulumi:"networkFunctionRoleConfigurations"`
 }
 
@@ -1791,7 +1657,6 @@ func (o NetworkFunctionTemplateResponseOutput) ToNetworkFunctionTemplateResponse
 	}).(NetworkFunctionTemplateResponsePtrOutput)
 }
 
-// An array of network function role definitions.
 func (o NetworkFunctionTemplateResponseOutput) NetworkFunctionRoleConfigurations() NetworkFunctionRoleConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionTemplateResponse) []NetworkFunctionRoleConfigurationResponse {
 		return v.NetworkFunctionRoleConfigurations
@@ -1822,7 +1687,6 @@ func (o NetworkFunctionTemplateResponsePtrOutput) Elem() NetworkFunctionTemplate
 	}).(NetworkFunctionTemplateResponseOutput)
 }
 
-// An array of network function role definitions.
 func (o NetworkFunctionTemplateResponsePtrOutput) NetworkFunctionRoleConfigurations() NetworkFunctionRoleConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkFunctionTemplateResponse) []NetworkFunctionRoleConfigurationResponse {
 		if v == nil {
@@ -1833,14 +1697,10 @@ func (o NetworkFunctionTemplateResponsePtrOutput) NetworkFunctionRoleConfigurati
 }
 
 type NetworkFunctionUserConfiguration struct {
-	// The network interface configuration.
-	NetworkInterfaces []NetworkInterface `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance.
-	OsProfile *NetworkFunctionUserConfigurationOsProfile `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName *string `pulumi:"roleName"`
-	// The user data parameters from the customer.
-	UserDataParameters interface{} `pulumi:"userDataParameters"`
+	NetworkInterfaces  []NetworkInterface                         `pulumi:"networkInterfaces"`
+	OsProfile          *NetworkFunctionUserConfigurationOsProfile `pulumi:"osProfile"`
+	RoleName           *string                                    `pulumi:"roleName"`
+	UserDataParameters interface{}                                `pulumi:"userDataParameters"`
 }
 
 // NetworkFunctionUserConfigurationInput is an input type that accepts NetworkFunctionUserConfigurationArgs and NetworkFunctionUserConfigurationOutput values.
@@ -1855,14 +1715,10 @@ type NetworkFunctionUserConfigurationInput interface {
 }
 
 type NetworkFunctionUserConfigurationArgs struct {
-	// The network interface configuration.
-	NetworkInterfaces NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance.
-	OsProfile NetworkFunctionUserConfigurationOsProfilePtrInput `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// The user data parameters from the customer.
-	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
+	NetworkInterfaces  NetworkInterfaceArrayInput                        `pulumi:"networkInterfaces"`
+	OsProfile          NetworkFunctionUserConfigurationOsProfilePtrInput `pulumi:"osProfile"`
+	RoleName           pulumi.StringPtrInput                             `pulumi:"roleName"`
+	UserDataParameters pulumi.Input                                      `pulumi:"userDataParameters"`
 }
 
 func (NetworkFunctionUserConfigurationArgs) ElementType() reflect.Type {
@@ -1916,24 +1772,20 @@ func (o NetworkFunctionUserConfigurationOutput) ToNetworkFunctionUserConfigurati
 	return o
 }
 
-// The network interface configuration.
 func (o NetworkFunctionUserConfigurationOutput) NetworkInterfaces() NetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfiguration) []NetworkInterface { return v.NetworkInterfaces }).(NetworkInterfaceArrayOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 func (o NetworkFunctionUserConfigurationOutput) OsProfile() NetworkFunctionUserConfigurationOsProfilePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfiguration) *NetworkFunctionUserConfigurationOsProfile {
 		return v.OsProfile
 	}).(NetworkFunctionUserConfigurationOsProfilePtrOutput)
 }
 
-// The name of the network function role.
 func (o NetworkFunctionUserConfigurationOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfiguration) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// The user data parameters from the customer.
 func (o NetworkFunctionUserConfigurationOutput) UserDataParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfiguration) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
@@ -1959,7 +1811,6 @@ func (o NetworkFunctionUserConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 }
 
 type NetworkFunctionUserConfigurationOsProfile struct {
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData *string `pulumi:"customData"`
 }
 
@@ -1975,7 +1826,6 @@ type NetworkFunctionUserConfigurationOsProfileInput interface {
 }
 
 type NetworkFunctionUserConfigurationOsProfileArgs struct {
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
@@ -2056,7 +1906,6 @@ func (o NetworkFunctionUserConfigurationOsProfileOutput) ToNetworkFunctionUserCo
 	}).(NetworkFunctionUserConfigurationOsProfilePtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o NetworkFunctionUserConfigurationOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -2085,7 +1934,6 @@ func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) Elem() NetworkFuncti
 	}).(NetworkFunctionUserConfigurationOsProfileOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkFunctionUserConfigurationOsProfile) *string {
 		if v == nil {
@@ -2096,14 +1944,10 @@ func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) CustomData() pulumi.
 }
 
 type NetworkFunctionUserConfigurationResponse struct {
-	// The network interface configuration.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance.
-	OsProfile *NetworkFunctionUserConfigurationResponseOsProfile `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName *string `pulumi:"roleName"`
-	// The user data parameters from the customer.
-	UserDataParameters interface{} `pulumi:"userDataParameters"`
+	NetworkInterfaces  []NetworkInterfaceResponse                         `pulumi:"networkInterfaces"`
+	OsProfile          *NetworkFunctionUserConfigurationResponseOsProfile `pulumi:"osProfile"`
+	RoleName           *string                                            `pulumi:"roleName"`
+	UserDataParameters interface{}                                        `pulumi:"userDataParameters"`
 }
 
 // NetworkFunctionUserConfigurationResponseInput is an input type that accepts NetworkFunctionUserConfigurationResponseArgs and NetworkFunctionUserConfigurationResponseOutput values.
@@ -2118,14 +1962,10 @@ type NetworkFunctionUserConfigurationResponseInput interface {
 }
 
 type NetworkFunctionUserConfigurationResponseArgs struct {
-	// The network interface configuration.
-	NetworkInterfaces NetworkInterfaceResponseArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the operating system settings for the role instance.
-	OsProfile NetworkFunctionUserConfigurationResponseOsProfilePtrInput `pulumi:"osProfile"`
-	// The name of the network function role.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// The user data parameters from the customer.
-	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
+	NetworkInterfaces  NetworkInterfaceResponseArrayInput                        `pulumi:"networkInterfaces"`
+	OsProfile          NetworkFunctionUserConfigurationResponseOsProfilePtrInput `pulumi:"osProfile"`
+	RoleName           pulumi.StringPtrInput                                     `pulumi:"roleName"`
+	UserDataParameters pulumi.Input                                              `pulumi:"userDataParameters"`
 }
 
 func (NetworkFunctionUserConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2179,26 +2019,22 @@ func (o NetworkFunctionUserConfigurationResponseOutput) ToNetworkFunctionUserCon
 	return o
 }
 
-// The network interface configuration.
 func (o NetworkFunctionUserConfigurationResponseOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponse) []NetworkInterfaceResponse {
 		return v.NetworkInterfaces
 	}).(NetworkInterfaceResponseArrayOutput)
 }
 
-// Specifies the operating system settings for the role instance.
 func (o NetworkFunctionUserConfigurationResponseOutput) OsProfile() NetworkFunctionUserConfigurationResponseOsProfilePtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponse) *NetworkFunctionUserConfigurationResponseOsProfile {
 		return v.OsProfile
 	}).(NetworkFunctionUserConfigurationResponseOsProfilePtrOutput)
 }
 
-// The name of the network function role.
 func (o NetworkFunctionUserConfigurationResponseOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponse) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// The user data parameters from the customer.
 func (o NetworkFunctionUserConfigurationResponseOutput) UserDataParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
@@ -2224,7 +2060,6 @@ func (o NetworkFunctionUserConfigurationResponseArrayOutput) Index(i pulumi.IntI
 }
 
 type NetworkFunctionUserConfigurationResponseOsProfile struct {
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData *string `pulumi:"customData"`
 }
 
@@ -2240,7 +2075,6 @@ type NetworkFunctionUserConfigurationResponseOsProfileInput interface {
 }
 
 type NetworkFunctionUserConfigurationResponseOsProfileArgs struct {
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
@@ -2321,7 +2155,6 @@ func (o NetworkFunctionUserConfigurationResponseOsProfileOutput) ToNetworkFuncti
 	}).(NetworkFunctionUserConfigurationResponseOsProfilePtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o NetworkFunctionUserConfigurationResponseOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponseOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -2350,7 +2183,6 @@ func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) Elem() Netwo
 	}).(NetworkFunctionUserConfigurationResponseOsProfileOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkFunctionUserConfigurationResponseOsProfile) *string {
 		if v == nil {
@@ -2361,14 +2193,10 @@ func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) CustomData()
 }
 
 type NetworkInterface struct {
-	// A list of IP configurations of the network interface.
-	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
-	// The MAC address of the network interface.
-	MacAddress *string `pulumi:"macAddress"`
-	// The name of the network interface.
-	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
-	// The type of the VM switch.
-	VmSwitchType *string `pulumi:"vmSwitchType"`
+	IpConfigurations     []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
+	MacAddress           *string                           `pulumi:"macAddress"`
+	NetworkInterfaceName *string                           `pulumi:"networkInterfaceName"`
+	VmSwitchType         *string                           `pulumi:"vmSwitchType"`
 }
 
 // NetworkInterfaceInput is an input type that accepts NetworkInterfaceArgs and NetworkInterfaceOutput values.
@@ -2383,14 +2211,10 @@ type NetworkInterfaceInput interface {
 }
 
 type NetworkInterfaceArgs struct {
-	// A list of IP configurations of the network interface.
-	IpConfigurations NetworkInterfaceIPConfigurationArrayInput `pulumi:"ipConfigurations"`
-	// The MAC address of the network interface.
-	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	// The name of the network interface.
-	NetworkInterfaceName pulumi.StringPtrInput `pulumi:"networkInterfaceName"`
-	// The type of the VM switch.
-	VmSwitchType pulumi.StringPtrInput `pulumi:"vmSwitchType"`
+	IpConfigurations     NetworkInterfaceIPConfigurationArrayInput `pulumi:"ipConfigurations"`
+	MacAddress           pulumi.StringPtrInput                     `pulumi:"macAddress"`
+	NetworkInterfaceName pulumi.StringPtrInput                     `pulumi:"networkInterfaceName"`
+	VmSwitchType         pulumi.StringPtrInput                     `pulumi:"vmSwitchType"`
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {
@@ -2444,22 +2268,18 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 	return o
 }
 
-// A list of IP configurations of the network interface.
 func (o NetworkInterfaceOutput) IpConfigurations() NetworkInterfaceIPConfigurationArrayOutput {
 	return o.ApplyT(func(v NetworkInterface) []NetworkInterfaceIPConfiguration { return v.IpConfigurations }).(NetworkInterfaceIPConfigurationArrayOutput)
 }
 
-// The MAC address of the network interface.
 func (o NetworkInterfaceOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterface) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of the network interface.
 func (o NetworkInterfaceOutput) NetworkInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterface) *string { return v.NetworkInterfaceName }).(pulumi.StringPtrOutput)
 }
 
-// The type of the VM switch.
 func (o NetworkInterfaceOutput) VmSwitchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterface) *string { return v.VmSwitchType }).(pulumi.StringPtrOutput)
 }
@@ -2485,18 +2305,12 @@ func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOu
 }
 
 type NetworkInterfaceIPConfiguration struct {
-	// The list of DNS servers IP addresses.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The value of the gateway.
-	Gateway *string `pulumi:"gateway"`
-	// The value of the IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IP address allocation method.
-	IpAllocationMethod *string `pulumi:"ipAllocationMethod"`
-	// IP address version.
-	IpVersion *string `pulumi:"ipVersion"`
-	// The value of the subnet.
-	Subnet *string `pulumi:"subnet"`
+	DnsServers         []string `pulumi:"dnsServers"`
+	Gateway            *string  `pulumi:"gateway"`
+	IpAddress          *string  `pulumi:"ipAddress"`
+	IpAllocationMethod *string  `pulumi:"ipAllocationMethod"`
+	IpVersion          *string  `pulumi:"ipVersion"`
+	Subnet             *string  `pulumi:"subnet"`
 }
 
 // NetworkInterfaceIPConfigurationInput is an input type that accepts NetworkInterfaceIPConfigurationArgs and NetworkInterfaceIPConfigurationOutput values.
@@ -2511,18 +2325,12 @@ type NetworkInterfaceIPConfigurationInput interface {
 }
 
 type NetworkInterfaceIPConfigurationArgs struct {
-	// The list of DNS servers IP addresses.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// The value of the gateway.
-	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
-	// The value of the IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// IP address allocation method.
-	IpAllocationMethod pulumi.StringPtrInput `pulumi:"ipAllocationMethod"`
-	// IP address version.
-	IpVersion pulumi.StringPtrInput `pulumi:"ipVersion"`
-	// The value of the subnet.
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	DnsServers         pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Gateway            pulumi.StringPtrInput   `pulumi:"gateway"`
+	IpAddress          pulumi.StringPtrInput   `pulumi:"ipAddress"`
+	IpAllocationMethod pulumi.StringPtrInput   `pulumi:"ipAllocationMethod"`
+	IpVersion          pulumi.StringPtrInput   `pulumi:"ipVersion"`
+	Subnet             pulumi.StringPtrInput   `pulumi:"subnet"`
 }
 
 func (NetworkInterfaceIPConfigurationArgs) ElementType() reflect.Type {
@@ -2576,32 +2384,26 @@ func (o NetworkInterfaceIPConfigurationOutput) ToNetworkInterfaceIPConfiguration
 	return o
 }
 
-// The list of DNS servers IP addresses.
 func (o NetworkInterfaceIPConfigurationOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// The value of the gateway.
 func (o NetworkInterfaceIPConfigurationOutput) Gateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) *string { return v.Gateway }).(pulumi.StringPtrOutput)
 }
 
-// The value of the IP address.
 func (o NetworkInterfaceIPConfigurationOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// IP address allocation method.
 func (o NetworkInterfaceIPConfigurationOutput) IpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) *string { return v.IpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// IP address version.
 func (o NetworkInterfaceIPConfigurationOutput) IpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) *string { return v.IpVersion }).(pulumi.StringPtrOutput)
 }
 
-// The value of the subnet.
 func (o NetworkInterfaceIPConfigurationOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfiguration) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -2627,18 +2429,12 @@ func (o NetworkInterfaceIPConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 }
 
 type NetworkInterfaceIPConfigurationResponse struct {
-	// The list of DNS servers IP addresses.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The value of the gateway.
-	Gateway *string `pulumi:"gateway"`
-	// The value of the IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IP address allocation method.
-	IpAllocationMethod *string `pulumi:"ipAllocationMethod"`
-	// IP address version.
-	IpVersion *string `pulumi:"ipVersion"`
-	// The value of the subnet.
-	Subnet *string `pulumi:"subnet"`
+	DnsServers         []string `pulumi:"dnsServers"`
+	Gateway            *string  `pulumi:"gateway"`
+	IpAddress          *string  `pulumi:"ipAddress"`
+	IpAllocationMethod *string  `pulumi:"ipAllocationMethod"`
+	IpVersion          *string  `pulumi:"ipVersion"`
+	Subnet             *string  `pulumi:"subnet"`
 }
 
 // NetworkInterfaceIPConfigurationResponseInput is an input type that accepts NetworkInterfaceIPConfigurationResponseArgs and NetworkInterfaceIPConfigurationResponseOutput values.
@@ -2653,18 +2449,12 @@ type NetworkInterfaceIPConfigurationResponseInput interface {
 }
 
 type NetworkInterfaceIPConfigurationResponseArgs struct {
-	// The list of DNS servers IP addresses.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// The value of the gateway.
-	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
-	// The value of the IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// IP address allocation method.
-	IpAllocationMethod pulumi.StringPtrInput `pulumi:"ipAllocationMethod"`
-	// IP address version.
-	IpVersion pulumi.StringPtrInput `pulumi:"ipVersion"`
-	// The value of the subnet.
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	DnsServers         pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Gateway            pulumi.StringPtrInput   `pulumi:"gateway"`
+	IpAddress          pulumi.StringPtrInput   `pulumi:"ipAddress"`
+	IpAllocationMethod pulumi.StringPtrInput   `pulumi:"ipAllocationMethod"`
+	IpVersion          pulumi.StringPtrInput   `pulumi:"ipVersion"`
+	Subnet             pulumi.StringPtrInput   `pulumi:"subnet"`
 }
 
 func (NetworkInterfaceIPConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2718,32 +2508,26 @@ func (o NetworkInterfaceIPConfigurationResponseOutput) ToNetworkInterfaceIPConfi
 	return o
 }
 
-// The list of DNS servers IP addresses.
 func (o NetworkInterfaceIPConfigurationResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// The value of the gateway.
 func (o NetworkInterfaceIPConfigurationResponseOutput) Gateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) *string { return v.Gateway }).(pulumi.StringPtrOutput)
 }
 
-// The value of the IP address.
 func (o NetworkInterfaceIPConfigurationResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// IP address allocation method.
 func (o NetworkInterfaceIPConfigurationResponseOutput) IpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) *string { return v.IpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// IP address version.
 func (o NetworkInterfaceIPConfigurationResponseOutput) IpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) *string { return v.IpVersion }).(pulumi.StringPtrOutput)
 }
 
-// The value of the subnet.
 func (o NetworkInterfaceIPConfigurationResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIPConfigurationResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -2769,14 +2553,10 @@ func (o NetworkInterfaceIPConfigurationResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type NetworkInterfaceResponse struct {
-	// A list of IP configurations of the network interface.
-	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// The MAC address of the network interface.
-	MacAddress *string `pulumi:"macAddress"`
-	// The name of the network interface.
-	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
-	// The type of the VM switch.
-	VmSwitchType *string `pulumi:"vmSwitchType"`
+	IpConfigurations     []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
+	MacAddress           *string                                   `pulumi:"macAddress"`
+	NetworkInterfaceName *string                                   `pulumi:"networkInterfaceName"`
+	VmSwitchType         *string                                   `pulumi:"vmSwitchType"`
 }
 
 // NetworkInterfaceResponseInput is an input type that accepts NetworkInterfaceResponseArgs and NetworkInterfaceResponseOutput values.
@@ -2791,14 +2571,10 @@ type NetworkInterfaceResponseInput interface {
 }
 
 type NetworkInterfaceResponseArgs struct {
-	// A list of IP configurations of the network interface.
-	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayInput `pulumi:"ipConfigurations"`
-	// The MAC address of the network interface.
-	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	// The name of the network interface.
-	NetworkInterfaceName pulumi.StringPtrInput `pulumi:"networkInterfaceName"`
-	// The type of the VM switch.
-	VmSwitchType pulumi.StringPtrInput `pulumi:"vmSwitchType"`
+	IpConfigurations     NetworkInterfaceIPConfigurationResponseArrayInput `pulumi:"ipConfigurations"`
+	MacAddress           pulumi.StringPtrInput                             `pulumi:"macAddress"`
+	NetworkInterfaceName pulumi.StringPtrInput                             `pulumi:"networkInterfaceName"`
+	VmSwitchType         pulumi.StringPtrInput                             `pulumi:"vmSwitchType"`
 }
 
 func (NetworkInterfaceResponseArgs) ElementType() reflect.Type {
@@ -2852,22 +2628,18 @@ func (o NetworkInterfaceResponseOutput) ToNetworkInterfaceResponseOutputWithCont
 	return o
 }
 
-// A list of IP configurations of the network interface.
 func (o NetworkInterfaceResponseOutput) IpConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) []NetworkInterfaceIPConfigurationResponse { return v.IpConfigurations }).(NetworkInterfaceIPConfigurationResponseArrayOutput)
 }
 
-// The MAC address of the network interface.
 func (o NetworkInterfaceResponseOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of the network interface.
 func (o NetworkInterfaceResponseOutput) NetworkInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) *string { return v.NetworkInterfaceName }).(pulumi.StringPtrOutput)
 }
 
-// The type of the VM switch.
 func (o NetworkInterfaceResponseOutput) VmSwitchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) *string { return v.VmSwitchType }).(pulumi.StringPtrOutput)
 }
@@ -2893,14 +2665,10 @@ func (o NetworkInterfaceResponseArrayOutput) Index(i pulumi.IntInput) NetworkInt
 }
 
 type OsDisk struct {
-	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The VHD name.
-	Name *string `pulumi:"name"`
-	// The OS type.
-	OsType *string `pulumi:"osType"`
-	// The virtual hard disk.
-	Vhd *VirtualHardDisk `pulumi:"vhd"`
+	DiskSizeGB *int             `pulumi:"diskSizeGB"`
+	Name       *string          `pulumi:"name"`
+	OsType     *string          `pulumi:"osType"`
+	Vhd        *VirtualHardDisk `pulumi:"vhd"`
 }
 
 // OsDiskInput is an input type that accepts OsDiskArgs and OsDiskOutput values.
@@ -2915,14 +2683,10 @@ type OsDiskInput interface {
 }
 
 type OsDiskArgs struct {
-	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// The VHD name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The OS type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The virtual hard disk.
-	Vhd VirtualHardDiskPtrInput `pulumi:"vhd"`
+	DiskSizeGB pulumi.IntPtrInput      `pulumi:"diskSizeGB"`
+	Name       pulumi.StringPtrInput   `pulumi:"name"`
+	OsType     pulumi.StringPtrInput   `pulumi:"osType"`
+	Vhd        VirtualHardDiskPtrInput `pulumi:"vhd"`
 }
 
 func (OsDiskArgs) ElementType() reflect.Type {
@@ -3002,22 +2766,18 @@ func (o OsDiskOutput) ToOsDiskPtrOutputWithContext(ctx context.Context) OsDiskPt
 	}).(OsDiskPtrOutput)
 }
 
-// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 func (o OsDiskOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OsDisk) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The VHD name.
 func (o OsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The OS type.
 func (o OsDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The virtual hard disk.
 func (o OsDiskOutput) Vhd() VirtualHardDiskPtrOutput {
 	return o.ApplyT(func(v OsDisk) *VirtualHardDisk { return v.Vhd }).(VirtualHardDiskPtrOutput)
 }
@@ -3046,7 +2806,6 @@ func (o OsDiskPtrOutput) Elem() OsDiskOutput {
 	}).(OsDiskOutput)
 }
 
-// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 func (o OsDiskPtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OsDisk) *int {
 		if v == nil {
@@ -3056,7 +2815,6 @@ func (o OsDiskPtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The VHD name.
 func (o OsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsDisk) *string {
 		if v == nil {
@@ -3066,7 +2824,6 @@ func (o OsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type.
 func (o OsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsDisk) *string {
 		if v == nil {
@@ -3076,7 +2833,6 @@ func (o OsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The virtual hard disk.
 func (o OsDiskPtrOutput) Vhd() VirtualHardDiskPtrOutput {
 	return o.ApplyT(func(v *OsDisk) *VirtualHardDisk {
 		if v == nil {
@@ -3087,12 +2843,9 @@ func (o OsDiskPtrOutput) Vhd() VirtualHardDiskPtrOutput {
 }
 
 type OsDiskResponse struct {
-	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The VHD name.
-	Name *string `pulumi:"name"`
-	// The OS type.
-	OsType *string `pulumi:"osType"`
+	DiskSizeGB *int    `pulumi:"diskSizeGB"`
+	Name       *string `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
 }
 
 // OsDiskResponseInput is an input type that accepts OsDiskResponseArgs and OsDiskResponseOutput values.
@@ -3107,12 +2860,9 @@ type OsDiskResponseInput interface {
 }
 
 type OsDiskResponseArgs struct {
-	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// The VHD name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The OS type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	DiskSizeGB pulumi.IntPtrInput    `pulumi:"diskSizeGB"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
 }
 
 func (OsDiskResponseArgs) ElementType() reflect.Type {
@@ -3192,17 +2942,14 @@ func (o OsDiskResponseOutput) ToOsDiskResponsePtrOutputWithContext(ctx context.C
 	}).(OsDiskResponsePtrOutput)
 }
 
-// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 func (o OsDiskResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OsDiskResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The VHD name.
 func (o OsDiskResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsDiskResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The OS type.
 func (o OsDiskResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsDiskResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -3231,7 +2978,6 @@ func (o OsDiskResponsePtrOutput) Elem() OsDiskResponseOutput {
 	}).(OsDiskResponseOutput)
 }
 
-// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
 func (o OsDiskResponsePtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OsDiskResponse) *int {
 		if v == nil {
@@ -3241,7 +2987,6 @@ func (o OsDiskResponsePtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The VHD name.
 func (o OsDiskResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsDiskResponse) *string {
 		if v == nil {
@@ -3251,7 +2996,6 @@ func (o OsDiskResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type.
 func (o OsDiskResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsDiskResponse) *string {
 		if v == nil {
@@ -3262,13 +3006,9 @@ func (o OsDiskResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 }
 
 type OsProfile struct {
-	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-	AdminUsername *string `pulumi:"adminUsername"`
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-	CustomData *string `pulumi:"customData"`
-	// Indicates if custom data is required to deploy this role.
-	CustomDataRequired *bool `pulumi:"customDataRequired"`
-	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername      *string             `pulumi:"adminUsername"`
+	CustomData         *string             `pulumi:"customData"`
+	CustomDataRequired *bool               `pulumi:"customDataRequired"`
 	LinuxConfiguration *LinuxConfiguration `pulumi:"linuxConfiguration"`
 }
 
@@ -3284,13 +3024,9 @@ type OsProfileInput interface {
 }
 
 type OsProfileArgs struct {
-	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-	CustomData pulumi.StringPtrInput `pulumi:"customData"`
-	// Indicates if custom data is required to deploy this role.
-	CustomDataRequired pulumi.BoolPtrInput `pulumi:"customDataRequired"`
-	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername      pulumi.StringPtrInput      `pulumi:"adminUsername"`
+	CustomData         pulumi.StringPtrInput      `pulumi:"customData"`
+	CustomDataRequired pulumi.BoolPtrInput        `pulumi:"customDataRequired"`
 	LinuxConfiguration LinuxConfigurationPtrInput `pulumi:"linuxConfiguration"`
 }
 
@@ -3371,22 +3107,18 @@ func (o OsProfileOutput) ToOsProfilePtrOutputWithContext(ctx context.Context) Os
 	}).(OsProfilePtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsProfile) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o OsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if custom data is required to deploy this role.
 func (o OsProfileOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OsProfile) *bool { return v.CustomDataRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 	return o.ApplyT(func(v OsProfile) *LinuxConfiguration { return v.LinuxConfiguration }).(LinuxConfigurationPtrOutput)
 }
@@ -3415,7 +3147,6 @@ func (o OsProfilePtrOutput) Elem() OsProfileOutput {
 	}).(OsProfileOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsProfile) *string {
 		if v == nil {
@@ -3425,7 +3156,6 @@ func (o OsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o OsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsProfile) *string {
 		if v == nil {
@@ -3435,7 +3165,6 @@ func (o OsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates if custom data is required to deploy this role.
 func (o OsProfilePtrOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OsProfile) *bool {
 		if v == nil {
@@ -3445,7 +3174,6 @@ func (o OsProfilePtrOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfilePtrOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 	return o.ApplyT(func(v *OsProfile) *LinuxConfiguration {
 		if v == nil {
@@ -3456,13 +3184,9 @@ func (o OsProfilePtrOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 }
 
 type OsProfileResponse struct {
-	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-	AdminUsername *string `pulumi:"adminUsername"`
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-	CustomData *string `pulumi:"customData"`
-	// Indicates if custom data is required to deploy this role.
-	CustomDataRequired *bool `pulumi:"customDataRequired"`
-	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername      *string                     `pulumi:"adminUsername"`
+	CustomData         *string                     `pulumi:"customData"`
+	CustomDataRequired *bool                       `pulumi:"customDataRequired"`
 	LinuxConfiguration *LinuxConfigurationResponse `pulumi:"linuxConfiguration"`
 }
 
@@ -3478,13 +3202,9 @@ type OsProfileResponseInput interface {
 }
 
 type OsProfileResponseArgs struct {
-	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
-	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-	CustomData pulumi.StringPtrInput `pulumi:"customData"`
-	// Indicates if custom data is required to deploy this role.
-	CustomDataRequired pulumi.BoolPtrInput `pulumi:"customDataRequired"`
-	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername      pulumi.StringPtrInput              `pulumi:"adminUsername"`
+	CustomData         pulumi.StringPtrInput              `pulumi:"customData"`
+	CustomDataRequired pulumi.BoolPtrInput                `pulumi:"customDataRequired"`
 	LinuxConfiguration LinuxConfigurationResponsePtrInput `pulumi:"linuxConfiguration"`
 }
 
@@ -3565,22 +3285,18 @@ func (o OsProfileResponseOutput) ToOsProfileResponsePtrOutputWithContext(ctx con
 	}).(OsProfileResponsePtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileResponseOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsProfileResponse) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o OsProfileResponseOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsProfileResponse) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if custom data is required to deploy this role.
 func (o OsProfileResponseOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OsProfileResponse) *bool { return v.CustomDataRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileResponseOutput) LinuxConfiguration() LinuxConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v OsProfileResponse) *LinuxConfigurationResponse { return v.LinuxConfiguration }).(LinuxConfigurationResponsePtrOutput)
 }
@@ -3609,7 +3325,6 @@ func (o OsProfileResponsePtrOutput) Elem() OsProfileResponseOutput {
 	}).(OsProfileResponseOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsProfileResponse) *string {
 		if v == nil {
@@ -3619,7 +3334,6 @@ func (o OsProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 func (o OsProfileResponsePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OsProfileResponse) *string {
 		if v == nil {
@@ -3629,7 +3343,6 @@ func (o OsProfileResponsePtrOutput) CustomData() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates if custom data is required to deploy this role.
 func (o OsProfileResponsePtrOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OsProfileResponse) *bool {
 		if v == nil {
@@ -3639,7 +3352,6 @@ func (o OsProfileResponsePtrOutput) CustomDataRequired() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o OsProfileResponsePtrOutput) LinuxConfiguration() LinuxConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *OsProfileResponse) *LinuxConfigurationResponse {
 		if v == nil {
@@ -3650,7 +3362,6 @@ func (o OsProfileResponsePtrOutput) LinuxConfiguration() LinuxConfigurationRespo
 }
 
 type SshConfiguration struct {
-	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKey `pulumi:"publicKeys"`
 }
 
@@ -3666,7 +3377,6 @@ type SshConfigurationInput interface {
 }
 
 type SshConfigurationArgs struct {
-	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyArrayInput `pulumi:"publicKeys"`
 }
 
@@ -3747,7 +3457,6 @@ func (o SshConfigurationOutput) ToSshConfigurationPtrOutputWithContext(ctx conte
 	}).(SshConfigurationPtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with linux based VMs.
 func (o SshConfigurationOutput) PublicKeys() SshPublicKeyArrayOutput {
 	return o.ApplyT(func(v SshConfiguration) []SshPublicKey { return v.PublicKeys }).(SshPublicKeyArrayOutput)
 }
@@ -3776,7 +3485,6 @@ func (o SshConfigurationPtrOutput) Elem() SshConfigurationOutput {
 	}).(SshConfigurationOutput)
 }
 
-// The list of SSH public keys used to authenticate with linux based VMs.
 func (o SshConfigurationPtrOutput) PublicKeys() SshPublicKeyArrayOutput {
 	return o.ApplyT(func(v *SshConfiguration) []SshPublicKey {
 		if v == nil {
@@ -3787,7 +3495,6 @@ func (o SshConfigurationPtrOutput) PublicKeys() SshPublicKeyArrayOutput {
 }
 
 type SshConfigurationResponse struct {
-	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKeyResponse `pulumi:"publicKeys"`
 }
 
@@ -3803,7 +3510,6 @@ type SshConfigurationResponseInput interface {
 }
 
 type SshConfigurationResponseArgs struct {
-	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys SshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
 }
 
@@ -3884,7 +3590,6 @@ func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutputWithC
 	}).(SshConfigurationResponsePtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with linux based VMs.
 func (o SshConfigurationResponseOutput) PublicKeys() SshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v SshConfigurationResponse) []SshPublicKeyResponse { return v.PublicKeys }).(SshPublicKeyResponseArrayOutput)
 }
@@ -3913,7 +3618,6 @@ func (o SshConfigurationResponsePtrOutput) Elem() SshConfigurationResponseOutput
 	}).(SshConfigurationResponseOutput)
 }
 
-// The list of SSH public keys used to authenticate with linux based VMs.
 func (o SshConfigurationResponsePtrOutput) PublicKeys() SshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v *SshConfigurationResponse) []SshPublicKeyResponse {
 		if v == nil {
@@ -3924,10 +3628,8 @@ func (o SshConfigurationResponsePtrOutput) PublicKeys() SshPublicKeyResponseArra
 }
 
 type SshPublicKey struct {
-	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData *string `pulumi:"keyData"`
-	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-	Path *string `pulumi:"path"`
+	Path    *string `pulumi:"path"`
 }
 
 // SshPublicKeyInput is an input type that accepts SshPublicKeyArgs and SshPublicKeyOutput values.
@@ -3942,10 +3644,8 @@ type SshPublicKeyInput interface {
 }
 
 type SshPublicKeyArgs struct {
-	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
-	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path    pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (SshPublicKeyArgs) ElementType() reflect.Type {
@@ -3999,12 +3699,10 @@ func (o SshPublicKeyOutput) ToSshPublicKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o SshPublicKeyOutput) KeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SshPublicKey) *string { return v.KeyData }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 func (o SshPublicKeyOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SshPublicKey) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4030,10 +3728,8 @@ func (o SshPublicKeyArrayOutput) Index(i pulumi.IntInput) SshPublicKeyOutput {
 }
 
 type SshPublicKeyResponse struct {
-	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData *string `pulumi:"keyData"`
-	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-	Path *string `pulumi:"path"`
+	Path    *string `pulumi:"path"`
 }
 
 // SshPublicKeyResponseInput is an input type that accepts SshPublicKeyResponseArgs and SshPublicKeyResponseOutput values.
@@ -4048,10 +3744,8 @@ type SshPublicKeyResponseInput interface {
 }
 
 type SshPublicKeyResponseArgs struct {
-	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
-	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path    pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (SshPublicKeyResponseArgs) ElementType() reflect.Type {
@@ -4105,12 +3799,10 @@ func (o SshPublicKeyResponseOutput) ToSshPublicKeyResponseOutputWithContext(ctx 
 	return o
 }
 
-// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 func (o SshPublicKeyResponseOutput) KeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SshPublicKeyResponse) *string { return v.KeyData }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 func (o SshPublicKeyResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SshPublicKeyResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4136,12 +3828,9 @@ func (o SshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput) SshPublicKeyRe
 }
 
 type StorageProfile struct {
-	// Specifies the parameters that are used to add a data disk to a virtual machine.
-	DataDisks []DataDisk `pulumi:"dataDisks"`
-	// The image reference properties.
+	DataDisks      []DataDisk      `pulumi:"dataDisks"`
 	ImageReference *ImageReference `pulumi:"imageReference"`
-	// Specifies information about the operating system disk used by the virtual machine.
-	OsDisk *OsDisk `pulumi:"osDisk"`
+	OsDisk         *OsDisk         `pulumi:"osDisk"`
 }
 
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
@@ -4156,12 +3845,9 @@ type StorageProfileInput interface {
 }
 
 type StorageProfileArgs struct {
-	// Specifies the parameters that are used to add a data disk to a virtual machine.
-	DataDisks DataDiskArrayInput `pulumi:"dataDisks"`
-	// The image reference properties.
+	DataDisks      DataDiskArrayInput     `pulumi:"dataDisks"`
 	ImageReference ImageReferencePtrInput `pulumi:"imageReference"`
-	// Specifies information about the operating system disk used by the virtual machine.
-	OsDisk OsDiskPtrInput `pulumi:"osDisk"`
+	OsDisk         OsDiskPtrInput         `pulumi:"osDisk"`
 }
 
 func (StorageProfileArgs) ElementType() reflect.Type {
@@ -4241,17 +3927,14 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.C
 	}).(StorageProfilePtrOutput)
 }
 
-// Specifies the parameters that are used to add a data disk to a virtual machine.
 func (o StorageProfileOutput) DataDisks() DataDiskArrayOutput {
 	return o.ApplyT(func(v StorageProfile) []DataDisk { return v.DataDisks }).(DataDiskArrayOutput)
 }
 
-// The image reference properties.
 func (o StorageProfileOutput) ImageReference() ImageReferencePtrOutput {
 	return o.ApplyT(func(v StorageProfile) *ImageReference { return v.ImageReference }).(ImageReferencePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine.
 func (o StorageProfileOutput) OsDisk() OsDiskPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *OsDisk { return v.OsDisk }).(OsDiskPtrOutput)
 }
@@ -4280,7 +3963,6 @@ func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
 	}).(StorageProfileOutput)
 }
 
-// Specifies the parameters that are used to add a data disk to a virtual machine.
 func (o StorageProfilePtrOutput) DataDisks() DataDiskArrayOutput {
 	return o.ApplyT(func(v *StorageProfile) []DataDisk {
 		if v == nil {
@@ -4290,7 +3972,6 @@ func (o StorageProfilePtrOutput) DataDisks() DataDiskArrayOutput {
 	}).(DataDiskArrayOutput)
 }
 
-// The image reference properties.
 func (o StorageProfilePtrOutput) ImageReference() ImageReferencePtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *ImageReference {
 		if v == nil {
@@ -4300,7 +3981,6 @@ func (o StorageProfilePtrOutput) ImageReference() ImageReferencePtrOutput {
 	}).(ImageReferencePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine.
 func (o StorageProfilePtrOutput) OsDisk() OsDiskPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *OsDisk {
 		if v == nil {
@@ -4311,12 +3991,9 @@ func (o StorageProfilePtrOutput) OsDisk() OsDiskPtrOutput {
 }
 
 type StorageProfileResponse struct {
-	// Specifies the parameters that are used to add a data disk to a virtual machine.
-	DataDisks []DataDiskResponse `pulumi:"dataDisks"`
-	// The image reference properties.
+	DataDisks      []DataDiskResponse      `pulumi:"dataDisks"`
 	ImageReference *ImageReferenceResponse `pulumi:"imageReference"`
-	// Specifies information about the operating system disk used by the virtual machine.
-	OsDisk *OsDiskResponse `pulumi:"osDisk"`
+	OsDisk         *OsDiskResponse         `pulumi:"osDisk"`
 }
 
 // StorageProfileResponseInput is an input type that accepts StorageProfileResponseArgs and StorageProfileResponseOutput values.
@@ -4331,12 +4008,9 @@ type StorageProfileResponseInput interface {
 }
 
 type StorageProfileResponseArgs struct {
-	// Specifies the parameters that are used to add a data disk to a virtual machine.
-	DataDisks DataDiskResponseArrayInput `pulumi:"dataDisks"`
-	// The image reference properties.
+	DataDisks      DataDiskResponseArrayInput     `pulumi:"dataDisks"`
 	ImageReference ImageReferenceResponsePtrInput `pulumi:"imageReference"`
-	// Specifies information about the operating system disk used by the virtual machine.
-	OsDisk OsDiskResponsePtrInput `pulumi:"osDisk"`
+	OsDisk         OsDiskResponsePtrInput         `pulumi:"osDisk"`
 }
 
 func (StorageProfileResponseArgs) ElementType() reflect.Type {
@@ -4416,17 +4090,14 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithConte
 	}).(StorageProfileResponsePtrOutput)
 }
 
-// Specifies the parameters that are used to add a data disk to a virtual machine.
 func (o StorageProfileResponseOutput) DataDisks() DataDiskResponseArrayOutput {
 	return o.ApplyT(func(v StorageProfileResponse) []DataDiskResponse { return v.DataDisks }).(DataDiskResponseArrayOutput)
 }
 
-// The image reference properties.
 func (o StorageProfileResponseOutput) ImageReference() ImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *ImageReferenceResponse { return v.ImageReference }).(ImageReferenceResponsePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine.
 func (o StorageProfileResponseOutput) OsDisk() OsDiskResponsePtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *OsDiskResponse { return v.OsDisk }).(OsDiskResponsePtrOutput)
 }
@@ -4455,7 +4126,6 @@ func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
 	}).(StorageProfileResponseOutput)
 }
 
-// Specifies the parameters that are used to add a data disk to a virtual machine.
 func (o StorageProfileResponsePtrOutput) DataDisks() DataDiskResponseArrayOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) []DataDiskResponse {
 		if v == nil {
@@ -4465,7 +4135,6 @@ func (o StorageProfileResponsePtrOutput) DataDisks() DataDiskResponseArrayOutput
 	}).(DataDiskResponseArrayOutput)
 }
 
-// The image reference properties.
 func (o StorageProfileResponsePtrOutput) ImageReference() ImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *ImageReferenceResponse {
 		if v == nil {
@@ -4475,7 +4144,6 @@ func (o StorageProfileResponsePtrOutput) ImageReference() ImageReferenceResponse
 	}).(ImageReferenceResponsePtrOutput)
 }
 
-// Specifies information about the operating system disk used by the virtual machine.
 func (o StorageProfileResponsePtrOutput) OsDisk() OsDiskResponsePtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *OsDiskResponse {
 		if v == nil {
@@ -4486,7 +4154,6 @@ func (o StorageProfileResponsePtrOutput) OsDisk() OsDiskResponsePtrOutput {
 }
 
 type SubResource struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -4502,7 +4169,6 @@ type SubResourceInput interface {
 }
 
 type SubResourceArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -4583,7 +4249,6 @@ func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context
 	}).(SubResourcePtrOutput)
 }
 
-// Resource ID.
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4612,7 +4277,6 @@ func (o SubResourcePtrOutput) Elem() SubResourceOutput {
 	}).(SubResourceOutput)
 }
 
-// Resource ID.
 func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResource) *string {
 		if v == nil {
@@ -4623,7 +4287,6 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SubResourceResponse struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -4639,7 +4302,6 @@ type SubResourceResponseInput interface {
 }
 
 type SubResourceResponseArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -4745,7 +4407,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Resource ID.
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4774,7 +4435,6 @@ func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
 	}).(SubResourceResponseOutput)
 }
 
-// Resource ID.
 func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResourceResponse) *string {
 		if v == nil {
@@ -4805,7 +4465,6 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 }
 
 type VirtualHardDisk struct {
-	// Specifies the virtual hard disk's uri.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -4821,7 +4480,6 @@ type VirtualHardDiskInput interface {
 }
 
 type VirtualHardDiskArgs struct {
-	// Specifies the virtual hard disk's uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -4902,7 +4560,6 @@ func (o VirtualHardDiskOutput) ToVirtualHardDiskPtrOutputWithContext(ctx context
 	}).(VirtualHardDiskPtrOutput)
 }
 
-// Specifies the virtual hard disk's uri.
 func (o VirtualHardDiskOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualHardDisk) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -4931,7 +4588,6 @@ func (o VirtualHardDiskPtrOutput) Elem() VirtualHardDiskOutput {
 	}).(VirtualHardDiskOutput)
 }
 
-// Specifies the virtual hard disk's uri.
 func (o VirtualHardDiskPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualHardDisk) *string {
 		if v == nil {

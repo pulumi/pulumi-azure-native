@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager profile.
-// API Version: 2018-08-01.
 type Profile struct {
 	pulumi.CustomResourceState
 

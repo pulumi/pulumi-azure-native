@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// DigitalTwinsInstance endpoint resource.
-// API Version: 2020-12-01.
 func LookupDigitalTwinsEndpoint(ctx *pulumi.Context, args *LookupDigitalTwinsEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinsEndpointResult, error) {
 	var rv LookupDigitalTwinsEndpointResult
 	err := ctx.Invoke("azure-native:digitaltwins:getDigitalTwinsEndpoint", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupDigitalTwinsEndpoint(ctx *pulumi.Context, args *LookupDigitalTwinsEnd
 }
 
 type LookupDigitalTwinsEndpointArgs struct {
-	// Name of Endpoint Resource.
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group that contains the DigitalTwinsInstance.
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DigitalTwinsInstance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // DigitalTwinsInstance endpoint resource.
 type LookupDigitalTwinsEndpointResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// Extension resource name.
-	Name string `pulumi:"name"`
-	// DigitalTwinsInstance endpoint resource properties.
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

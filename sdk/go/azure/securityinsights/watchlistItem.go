@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Watchlist item in Azure Security Insights.
-// API Version: 2021-03-01-preview.
 type WatchlistItem struct {
 	pulumi.CustomResourceState
 

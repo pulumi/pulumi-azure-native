@@ -29,4 +29,5 @@ type LookupPrivateDnsZoneGroupResult struct {
 	Name                  *string                        `pulumi:"name"`
 	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
 	ProvisioningState     string                         `pulumi:"provisioningState"`
+	Type                  *string                        `pulumi:"type"`
 }

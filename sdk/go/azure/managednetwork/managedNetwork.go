@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network resource
-// API Version: 2019-06-01-preview.
 type ManagedNetwork struct {
 	pulumi.CustomResourceState
 

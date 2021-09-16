@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An event source that receives its data from an Azure IoTHub.
-// API Version: 2020-05-15.
 type IoTHubEventSource struct {
 	pulumi.CustomResourceState
 

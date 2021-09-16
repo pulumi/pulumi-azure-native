@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact that deploys a Resource Manager template.
-// API Version: 2018-11-01-preview.
 type TemplateArtifact struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenShift Managed cluster.
-// API Version: 2019-04-30.
 type OpenShiftManagedCluster struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action rule object containing target scope, conditions and suppression logic
-// API Version: 2019-05-05-preview.
 type ActionRuleByName struct {
 	pulumi.CustomResourceState
 

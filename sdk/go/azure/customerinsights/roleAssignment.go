@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Role Assignment resource format.
-// API Version: 2017-04-26.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

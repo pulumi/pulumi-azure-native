@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage account blob inventory policy.
-// API Version: 2021-02-01.
 type BlobInventoryPolicy struct {
 	pulumi.CustomResourceState
 

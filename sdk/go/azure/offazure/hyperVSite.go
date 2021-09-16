@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site REST Resource.
-// API Version: 2020-01-01.
 type HyperVSite struct {
 	pulumi.CustomResourceState
 

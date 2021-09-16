@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An instance of a script executed by a user - custom or AVS
-// API Version: 2021-06-01.
 type ScriptExecution struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS zone.
-// API Version: 2018-05-01.
 type Zone struct {
 	pulumi.CustomResourceState
 

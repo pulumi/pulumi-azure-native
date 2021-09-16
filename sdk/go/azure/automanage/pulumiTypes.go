@@ -11,7 +11,6 @@ import (
 )
 
 type AccountIdentity struct {
-	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -27,7 +26,6 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
-	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -108,7 +106,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
-// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o AccountIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -137,7 +134,6 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 	}).(AccountIdentityOutput)
 }
 
-// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o AccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -148,12 +144,9 @@ func (o AccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 type AccountIdentityResponse struct {
-	// The principal id of Automanage account identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the Automanage account.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // AccountIdentityResponseInput is an input type that accepts AccountIdentityResponseArgs and AccountIdentityResponseOutput values.
@@ -168,12 +161,9 @@ type AccountIdentityResponseInput interface {
 }
 
 type AccountIdentityResponseArgs struct {
-	// The principal id of Automanage account identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the Automanage account.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AccountIdentityResponseArgs) ElementType() reflect.Type {
@@ -253,17 +243,14 @@ func (o AccountIdentityResponseOutput) ToAccountIdentityResponsePtrOutputWithCon
 	}).(AccountIdentityResponsePtrOutput)
 }
 
-// The principal id of Automanage account identity.
 func (o AccountIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the Automanage account.
 func (o AccountIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o AccountIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -292,7 +279,6 @@ func (o AccountIdentityResponsePtrOutput) Elem() AccountIdentityResponseOutput {
 	}).(AccountIdentityResponseOutput)
 }
 
-// The principal id of Automanage account identity.
 func (o AccountIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentityResponse) *string {
 		if v == nil {
@@ -302,7 +288,6 @@ func (o AccountIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the Automanage account.
 func (o AccountIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentityResponse) *string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o AccountIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o AccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentityResponse) *string {
 		if v == nil {
@@ -323,7 +307,6 @@ func (o AccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ConfigurationProfileAssignmentComplianceResponse struct {
-	// The state of compliance, which only appears in the response.
 	UpdateStatus string `pulumi:"updateStatus"`
 }
 
@@ -339,7 +322,6 @@ type ConfigurationProfileAssignmentComplianceResponseInput interface {
 }
 
 type ConfigurationProfileAssignmentComplianceResponseArgs struct {
-	// The state of compliance, which only appears in the response.
 	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
 }
 
@@ -420,7 +402,6 @@ func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationP
 	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
 
-// The state of compliance, which only appears in the response.
 func (o ConfigurationProfileAssignmentComplianceResponseOutput) UpdateStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceResponse) string { return v.UpdateStatus }).(pulumi.StringOutput)
 }
@@ -449,7 +430,6 @@ func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) Elem() Config
 	}).(ConfigurationProfileAssignmentComplianceResponseOutput)
 }
 
-// The state of compliance, which only appears in the response.
 func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) UpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) *string {
 		if v == nil {
@@ -460,14 +440,10 @@ func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) UpdateStatus(
 }
 
 type ConfigurationProfileAssignmentProperties struct {
-	// The Automanage account ARM Resource URI
-	AccountId *string `pulumi:"accountId"`
-	// A value indicating configuration profile.
-	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
+	AccountId                        *string `pulumi:"accountId"`
+	ConfigurationProfile             *string `pulumi:"configurationProfile"`
 	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
-	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
+	TargetId                         *string `pulumi:"targetId"`
 }
 
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
@@ -482,14 +458,10 @@ type ConfigurationProfileAssignmentPropertiesInput interface {
 }
 
 type ConfigurationProfileAssignmentPropertiesArgs struct {
-	// The Automanage account ARM Resource URI
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// A value indicating configuration profile.
-	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
+	AccountId                        pulumi.StringPtrInput `pulumi:"accountId"`
+	ConfigurationProfile             pulumi.StringPtrInput `pulumi:"configurationProfile"`
 	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
-	// The target VM resource URI
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+	TargetId                         pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -569,22 +541,18 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ToConfigurationProfileAs
 	}).(ConfigurationProfileAssignmentPropertiesPtrOutput)
 }
 
-// The Automanage account ARM Resource URI
 func (o ConfigurationProfileAssignmentPropertiesOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
 func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfilePreferenceId }).(pulumi.StringPtrOutput)
 }
 
-// The target VM resource URI
 func (o ConfigurationProfileAssignmentPropertiesOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
@@ -613,7 +581,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) Elem() ConfigurationP
 	}).(ConfigurationProfileAssignmentPropertiesOutput)
 }
 
-// The Automanage account ARM Resource URI
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -623,7 +590,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) AccountId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -633,7 +599,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -643,7 +608,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfileP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target VM resource URI
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -654,18 +618,12 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.Str
 }
 
 type ConfigurationProfileAssignmentPropertiesResponse struct {
-	// The Automanage account ARM Resource URI
-	AccountId *string `pulumi:"accountId"`
-	// The configuration setting for the configuration profile.
-	Compliance *ConfigurationProfileAssignmentComplianceResponse `pulumi:"compliance"`
-	// A value indicating configuration profile.
-	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
-	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
-	// The state of onboarding, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
+	AccountId                        *string                                           `pulumi:"accountId"`
+	Compliance                       *ConfigurationProfileAssignmentComplianceResponse `pulumi:"compliance"`
+	ConfigurationProfile             *string                                           `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId *string                                           `pulumi:"configurationProfilePreferenceId"`
+	ProvisioningState                string                                            `pulumi:"provisioningState"`
+	TargetId                         *string                                           `pulumi:"targetId"`
 }
 
 // ConfigurationProfileAssignmentPropertiesResponseInput is an input type that accepts ConfigurationProfileAssignmentPropertiesResponseArgs and ConfigurationProfileAssignmentPropertiesResponseOutput values.
@@ -680,18 +638,12 @@ type ConfigurationProfileAssignmentPropertiesResponseInput interface {
 }
 
 type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
-	// The Automanage account ARM Resource URI
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The configuration setting for the configuration profile.
-	Compliance ConfigurationProfileAssignmentComplianceResponsePtrInput `pulumi:"compliance"`
-	// A value indicating configuration profile.
-	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
-	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
-	// The state of onboarding, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The target VM resource URI
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+	AccountId                        pulumi.StringPtrInput                                    `pulumi:"accountId"`
+	Compliance                       ConfigurationProfileAssignmentComplianceResponsePtrInput `pulumi:"compliance"`
+	ConfigurationProfile             pulumi.StringPtrInput                                    `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId pulumi.StringPtrInput                                    `pulumi:"configurationProfilePreferenceId"`
+	ProvisioningState                pulumi.StringInput                                       `pulumi:"provisioningState"`
+	TargetId                         pulumi.StringPtrInput                                    `pulumi:"targetId"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -771,36 +723,30 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 	}).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
 
-// The Automanage account ARM Resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The configuration setting for the configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
 		return v.Compliance
 	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
 
-// A value indicating configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string {
 		return v.ConfigurationProfilePreferenceId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The target VM resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
@@ -829,7 +775,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Elem() Config
 	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
 }
 
-// The Automanage account ARM Resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -839,7 +784,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) AccountId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration setting for the configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
 		if v == nil {
@@ -849,7 +793,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Compliance() 
 	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
 
-// A value indicating configuration profile.
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -859,7 +802,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Configuration
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -869,7 +811,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Configuration
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -879,7 +820,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningS
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target VM resource URI
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -890,18 +830,12 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) TargetId() pu
 }
 
 type ConfigurationProfilePreferenceAntiMalware struct {
-	// Enables or disables Real Time Protection
-	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
-	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions interface{} `pulumi:"exclusions"`
-	// Enables or disables a periodic scan for antimalware
-	RunScheduledScan *string `pulumi:"runScheduledScan"`
-	// Schedule scan settings day
-	ScanDay *string `pulumi:"scanDay"`
-	// Schedule scan settings time
-	ScanTimeInMinutes *string `pulumi:"scanTimeInMinutes"`
-	// Type of scheduled scan
-	ScanType *string `pulumi:"scanType"`
+	EnableRealTimeProtection *string     `pulumi:"enableRealTimeProtection"`
+	Exclusions               interface{} `pulumi:"exclusions"`
+	RunScheduledScan         *string     `pulumi:"runScheduledScan"`
+	ScanDay                  *string     `pulumi:"scanDay"`
+	ScanTimeInMinutes        *string     `pulumi:"scanTimeInMinutes"`
+	ScanType                 *string     `pulumi:"scanType"`
 }
 
 // ConfigurationProfilePreferenceAntiMalwareInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareArgs and ConfigurationProfilePreferenceAntiMalwareOutput values.
@@ -916,18 +850,12 @@ type ConfigurationProfilePreferenceAntiMalwareInput interface {
 }
 
 type ConfigurationProfilePreferenceAntiMalwareArgs struct {
-	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
-	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions pulumi.Input `pulumi:"exclusions"`
-	// Enables or disables a periodic scan for antimalware
-	RunScheduledScan pulumi.StringPtrInput `pulumi:"runScheduledScan"`
-	// Schedule scan settings day
-	ScanDay pulumi.StringPtrInput `pulumi:"scanDay"`
-	// Schedule scan settings time
-	ScanTimeInMinutes pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
-	// Type of scheduled scan
-	ScanType pulumi.StringPtrInput `pulumi:"scanType"`
+	Exclusions               pulumi.Input          `pulumi:"exclusions"`
+	RunScheduledScan         pulumi.StringPtrInput `pulumi:"runScheduledScan"`
+	ScanDay                  pulumi.StringPtrInput `pulumi:"scanDay"`
+	ScanTimeInMinutes        pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
+	ScanType                 pulumi.StringPtrInput `pulumi:"scanType"`
 }
 
 func (ConfigurationProfilePreferenceAntiMalwareArgs) ElementType() reflect.Type {
@@ -1007,32 +935,26 @@ func (o ConfigurationProfilePreferenceAntiMalwareOutput) ToConfigurationProfileP
 	}).(ConfigurationProfilePreferenceAntiMalwarePtrOutput)
 }
 
-// Enables or disables Real Time Protection
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *string { return v.EnableRealTimeProtection }).(pulumi.StringPtrOutput)
 }
 
-// Extensions, Paths and Processes that must be excluded from scan
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) Exclusions() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) interface{} { return v.Exclusions }).(pulumi.AnyOutput)
 }
 
-// Enables or disables a periodic scan for antimalware
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) RunScheduledScan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *string { return v.RunScheduledScan }).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings day
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) ScanDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *string { return v.ScanDay }).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings time
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *string { return v.ScanTimeInMinutes }).(pulumi.StringPtrOutput)
 }
 
-// Type of scheduled scan
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) ScanType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *string { return v.ScanType }).(pulumi.StringPtrOutput)
 }
@@ -1061,7 +983,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Elem() Configuration
 	}).(ConfigurationProfilePreferenceAntiMalwareOutput)
 }
 
-// Enables or disables Real Time Protection
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) *string {
 		if v == nil {
@@ -1071,7 +992,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) EnableRealTimeProtec
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extensions, Paths and Processes that must be excluded from scan
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Exclusions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) interface{} {
 		if v == nil {
@@ -1081,7 +1001,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Exclusions() pulumi.
 	}).(pulumi.AnyOutput)
 }
 
-// Enables or disables a periodic scan for antimalware
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) RunScheduledScan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) *string {
 		if v == nil {
@@ -1091,7 +1010,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) RunScheduledScan() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings day
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) *string {
 		if v == nil {
@@ -1101,7 +1019,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanDay() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings time
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) *string {
 		if v == nil {
@@ -1111,7 +1028,6 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanTimeInMinutes() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of scheduled scan
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) *string {
 		if v == nil {
@@ -1122,18 +1038,12 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanType() pulumi.St
 }
 
 type ConfigurationProfilePreferenceAntiMalwareResponse struct {
-	// Enables or disables Real Time Protection
-	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
-	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions interface{} `pulumi:"exclusions"`
-	// Enables or disables a periodic scan for antimalware
-	RunScheduledScan *string `pulumi:"runScheduledScan"`
-	// Schedule scan settings day
-	ScanDay *string `pulumi:"scanDay"`
-	// Schedule scan settings time
-	ScanTimeInMinutes *string `pulumi:"scanTimeInMinutes"`
-	// Type of scheduled scan
-	ScanType *string `pulumi:"scanType"`
+	EnableRealTimeProtection *string     `pulumi:"enableRealTimeProtection"`
+	Exclusions               interface{} `pulumi:"exclusions"`
+	RunScheduledScan         *string     `pulumi:"runScheduledScan"`
+	ScanDay                  *string     `pulumi:"scanDay"`
+	ScanTimeInMinutes        *string     `pulumi:"scanTimeInMinutes"`
+	ScanType                 *string     `pulumi:"scanType"`
 }
 
 // ConfigurationProfilePreferenceAntiMalwareResponseInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareResponseArgs and ConfigurationProfilePreferenceAntiMalwareResponseOutput values.
@@ -1148,18 +1058,12 @@ type ConfigurationProfilePreferenceAntiMalwareResponseInput interface {
 }
 
 type ConfigurationProfilePreferenceAntiMalwareResponseArgs struct {
-	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
-	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions pulumi.Input `pulumi:"exclusions"`
-	// Enables or disables a periodic scan for antimalware
-	RunScheduledScan pulumi.StringPtrInput `pulumi:"runScheduledScan"`
-	// Schedule scan settings day
-	ScanDay pulumi.StringPtrInput `pulumi:"scanDay"`
-	// Schedule scan settings time
-	ScanTimeInMinutes pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
-	// Type of scheduled scan
-	ScanType pulumi.StringPtrInput `pulumi:"scanType"`
+	Exclusions               pulumi.Input          `pulumi:"exclusions"`
+	RunScheduledScan         pulumi.StringPtrInput `pulumi:"runScheduledScan"`
+	ScanDay                  pulumi.StringPtrInput `pulumi:"scanDay"`
+	ScanTimeInMinutes        pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
+	ScanType                 pulumi.StringPtrInput `pulumi:"scanType"`
 }
 
 func (ConfigurationProfilePreferenceAntiMalwareResponseArgs) ElementType() reflect.Type {
@@ -1239,32 +1143,26 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfiguration
 	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
 
-// Enables or disables Real Time Protection
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *string { return v.EnableRealTimeProtection }).(pulumi.StringPtrOutput)
 }
 
-// Extensions, Paths and Processes that must be excluded from scan
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) Exclusions() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) interface{} { return v.Exclusions }).(pulumi.AnyOutput)
 }
 
-// Enables or disables a periodic scan for antimalware
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) RunScheduledScan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *string { return v.RunScheduledScan }).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings day
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ScanDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *string { return v.ScanDay }).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings time
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *string { return v.ScanTimeInMinutes }).(pulumi.StringPtrOutput)
 }
 
-// Type of scheduled scan
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ScanType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *string { return v.ScanType }).(pulumi.StringPtrOutput)
 }
@@ -1293,7 +1191,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Elem() Confi
 	}).(ConfigurationProfilePreferenceAntiMalwareResponseOutput)
 }
 
-// Enables or disables Real Time Protection
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) *string {
 		if v == nil {
@@ -1303,7 +1200,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) EnableRealTi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extensions, Paths and Processes that must be excluded from scan
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Exclusions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) interface{} {
 		if v == nil {
@@ -1313,7 +1209,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Exclusions()
 	}).(pulumi.AnyOutput)
 }
 
-// Enables or disables a periodic scan for antimalware
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) RunScheduledScan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) *string {
 		if v == nil {
@@ -1323,7 +1218,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) RunScheduled
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings day
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) *string {
 		if v == nil {
@@ -1333,7 +1227,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanDay() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule scan settings time
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) *string {
 		if v == nil {
@@ -1343,7 +1236,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanTimeInMi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of scheduled scan
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) *string {
 		if v == nil {
@@ -1354,10 +1246,8 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ScanType() p
 }
 
 type ConfigurationProfilePreferenceProperties struct {
-	// The custom preferences for Azure Antimalware.
 	AntiMalware *ConfigurationProfilePreferenceAntiMalware `pulumi:"antiMalware"`
-	// The custom preferences for Azure VM Backup.
-	VmBackup *ConfigurationProfilePreferenceVmBackup `pulumi:"vmBackup"`
+	VmBackup    *ConfigurationProfilePreferenceVmBackup    `pulumi:"vmBackup"`
 }
 
 // ConfigurationProfilePreferencePropertiesInput is an input type that accepts ConfigurationProfilePreferencePropertiesArgs and ConfigurationProfilePreferencePropertiesOutput values.
@@ -1372,10 +1262,8 @@ type ConfigurationProfilePreferencePropertiesInput interface {
 }
 
 type ConfigurationProfilePreferencePropertiesArgs struct {
-	// The custom preferences for Azure Antimalware.
 	AntiMalware ConfigurationProfilePreferenceAntiMalwarePtrInput `pulumi:"antiMalware"`
-	// The custom preferences for Azure VM Backup.
-	VmBackup ConfigurationProfilePreferenceVmBackupPtrInput `pulumi:"vmBackup"`
+	VmBackup    ConfigurationProfilePreferenceVmBackupPtrInput    `pulumi:"vmBackup"`
 }
 
 func (ConfigurationProfilePreferencePropertiesArgs) ElementType() reflect.Type {
@@ -1455,14 +1343,12 @@ func (o ConfigurationProfilePreferencePropertiesOutput) ToConfigurationProfilePr
 	}).(ConfigurationProfilePreferencePropertiesPtrOutput)
 }
 
-// The custom preferences for Azure Antimalware.
 func (o ConfigurationProfilePreferencePropertiesOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwarePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceAntiMalware {
 		return v.AntiMalware
 	}).(ConfigurationProfilePreferenceAntiMalwarePtrOutput)
 }
 
-// The custom preferences for Azure VM Backup.
 func (o ConfigurationProfilePreferencePropertiesOutput) VmBackup() ConfigurationProfilePreferenceVmBackupPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceVmBackup {
 		return v.VmBackup
@@ -1493,7 +1379,6 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) Elem() ConfigurationP
 	}).(ConfigurationProfilePreferencePropertiesOutput)
 }
 
-// The custom preferences for Azure Antimalware.
 func (o ConfigurationProfilePreferencePropertiesPtrOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwarePtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceAntiMalware {
 		if v == nil {
@@ -1503,7 +1388,6 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) AntiMalware() Configu
 	}).(ConfigurationProfilePreferenceAntiMalwarePtrOutput)
 }
 
-// The custom preferences for Azure VM Backup.
 func (o ConfigurationProfilePreferencePropertiesPtrOutput) VmBackup() ConfigurationProfilePreferenceVmBackupPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceVmBackup {
 		if v == nil {
@@ -1514,10 +1398,8 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) VmBackup() Configurat
 }
 
 type ConfigurationProfilePreferencePropertiesResponse struct {
-	// The custom preferences for Azure Antimalware.
 	AntiMalware *ConfigurationProfilePreferenceAntiMalwareResponse `pulumi:"antiMalware"`
-	// The custom preferences for Azure VM Backup.
-	VmBackup *ConfigurationProfilePreferenceVmBackupResponse `pulumi:"vmBackup"`
+	VmBackup    *ConfigurationProfilePreferenceVmBackupResponse    `pulumi:"vmBackup"`
 }
 
 // ConfigurationProfilePreferencePropertiesResponseInput is an input type that accepts ConfigurationProfilePreferencePropertiesResponseArgs and ConfigurationProfilePreferencePropertiesResponseOutput values.
@@ -1532,10 +1414,8 @@ type ConfigurationProfilePreferencePropertiesResponseInput interface {
 }
 
 type ConfigurationProfilePreferencePropertiesResponseArgs struct {
-	// The custom preferences for Azure Antimalware.
 	AntiMalware ConfigurationProfilePreferenceAntiMalwareResponsePtrInput `pulumi:"antiMalware"`
-	// The custom preferences for Azure VM Backup.
-	VmBackup ConfigurationProfilePreferenceVmBackupResponsePtrInput `pulumi:"vmBackup"`
+	VmBackup    ConfigurationProfilePreferenceVmBackupResponsePtrInput    `pulumi:"vmBackup"`
 }
 
 func (ConfigurationProfilePreferencePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1615,14 +1495,12 @@ func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationP
 	}).(ConfigurationProfilePreferencePropertiesResponsePtrOutput)
 }
 
-// The custom preferences for Azure Antimalware.
 func (o ConfigurationProfilePreferencePropertiesResponseOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
 		return v.AntiMalware
 	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
 
-// The custom preferences for Azure VM Backup.
 func (o ConfigurationProfilePreferencePropertiesResponseOutput) VmBackup() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceVmBackupResponse {
 		return v.VmBackup
@@ -1653,7 +1531,6 @@ func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) Elem() Config
 	}).(ConfigurationProfilePreferencePropertiesResponseOutput)
 }
 
-// The custom preferences for Azure Antimalware.
 func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
 		if v == nil {
@@ -1663,7 +1540,6 @@ func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) AntiMalware()
 	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
 
-// The custom preferences for Azure VM Backup.
 func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) VmBackup() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceVmBackupResponse {
 		if v == nil {
@@ -1674,14 +1550,10 @@ func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) VmBackup() Co
 }
 
 type ConfigurationProfilePreferenceVmBackup struct {
-	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
-	// Retention policy with the details on backup copy retention ranges.
-	RetentionPolicy *string `pulumi:"retentionPolicy"`
-	// Backup schedule specified as part of backup policy.
-	SchedulePolicy *string `pulumi:"schedulePolicy"`
-	// TimeZone optional input as string. For example: Pacific Standard Time
-	TimeZone *string `pulumi:"timeZone"`
+	InstantRpRetentionRangeInDays *int    `pulumi:"instantRpRetentionRangeInDays"`
+	RetentionPolicy               *string `pulumi:"retentionPolicy"`
+	SchedulePolicy                *string `pulumi:"schedulePolicy"`
+	TimeZone                      *string `pulumi:"timeZone"`
 }
 
 // ConfigurationProfilePreferenceVmBackupInput is an input type that accepts ConfigurationProfilePreferenceVmBackupArgs and ConfigurationProfilePreferenceVmBackupOutput values.
@@ -1696,14 +1568,10 @@ type ConfigurationProfilePreferenceVmBackupInput interface {
 }
 
 type ConfigurationProfilePreferenceVmBackupArgs struct {
-	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
-	// Retention policy with the details on backup copy retention ranges.
-	RetentionPolicy pulumi.StringPtrInput `pulumi:"retentionPolicy"`
-	// Backup schedule specified as part of backup policy.
-	SchedulePolicy pulumi.StringPtrInput `pulumi:"schedulePolicy"`
-	// TimeZone optional input as string. For example: Pacific Standard Time
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	InstantRpRetentionRangeInDays pulumi.IntPtrInput    `pulumi:"instantRpRetentionRangeInDays"`
+	RetentionPolicy               pulumi.StringPtrInput `pulumi:"retentionPolicy"`
+	SchedulePolicy                pulumi.StringPtrInput `pulumi:"schedulePolicy"`
+	TimeZone                      pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (ConfigurationProfilePreferenceVmBackupArgs) ElementType() reflect.Type {
@@ -1783,22 +1651,18 @@ func (o ConfigurationProfilePreferenceVmBackupOutput) ToConfigurationProfilePref
 	}).(ConfigurationProfilePreferenceVmBackupPtrOutput)
 }
 
-// Instant RP retention policy range in days
 func (o ConfigurationProfilePreferenceVmBackupOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackup) *int { return v.InstantRpRetentionRangeInDays }).(pulumi.IntPtrOutput)
 }
 
-// Retention policy with the details on backup copy retention ranges.
 func (o ConfigurationProfilePreferenceVmBackupOutput) RetentionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackup) *string { return v.RetentionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Backup schedule specified as part of backup policy.
 func (o ConfigurationProfilePreferenceVmBackupOutput) SchedulePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackup) *string { return v.SchedulePolicy }).(pulumi.StringPtrOutput)
 }
 
-// TimeZone optional input as string. For example: Pacific Standard Time
 func (o ConfigurationProfilePreferenceVmBackupOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackup) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -1827,7 +1691,6 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) Elem() ConfigurationPro
 	}).(ConfigurationProfilePreferenceVmBackupOutput)
 }
 
-// Instant RP retention policy range in days
 func (o ConfigurationProfilePreferenceVmBackupPtrOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) *int {
 		if v == nil {
@@ -1837,7 +1700,6 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) InstantRpRetentionRange
 	}).(pulumi.IntPtrOutput)
 }
 
-// Retention policy with the details on backup copy retention ranges.
 func (o ConfigurationProfilePreferenceVmBackupPtrOutput) RetentionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) *string {
 		if v == nil {
@@ -1847,7 +1709,6 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) RetentionPolicy() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backup schedule specified as part of backup policy.
 func (o ConfigurationProfilePreferenceVmBackupPtrOutput) SchedulePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) *string {
 		if v == nil {
@@ -1857,7 +1718,6 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) SchedulePolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// TimeZone optional input as string. For example: Pacific Standard Time
 func (o ConfigurationProfilePreferenceVmBackupPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) *string {
 		if v == nil {
@@ -1868,14 +1728,10 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) TimeZone() pulumi.Strin
 }
 
 type ConfigurationProfilePreferenceVmBackupResponse struct {
-	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
-	// Retention policy with the details on backup copy retention ranges.
-	RetentionPolicy *string `pulumi:"retentionPolicy"`
-	// Backup schedule specified as part of backup policy.
-	SchedulePolicy *string `pulumi:"schedulePolicy"`
-	// TimeZone optional input as string. For example: Pacific Standard Time
-	TimeZone *string `pulumi:"timeZone"`
+	InstantRpRetentionRangeInDays *int    `pulumi:"instantRpRetentionRangeInDays"`
+	RetentionPolicy               *string `pulumi:"retentionPolicy"`
+	SchedulePolicy                *string `pulumi:"schedulePolicy"`
+	TimeZone                      *string `pulumi:"timeZone"`
 }
 
 // ConfigurationProfilePreferenceVmBackupResponseInput is an input type that accepts ConfigurationProfilePreferenceVmBackupResponseArgs and ConfigurationProfilePreferenceVmBackupResponseOutput values.
@@ -1890,14 +1746,10 @@ type ConfigurationProfilePreferenceVmBackupResponseInput interface {
 }
 
 type ConfigurationProfilePreferenceVmBackupResponseArgs struct {
-	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
-	// Retention policy with the details on backup copy retention ranges.
-	RetentionPolicy pulumi.StringPtrInput `pulumi:"retentionPolicy"`
-	// Backup schedule specified as part of backup policy.
-	SchedulePolicy pulumi.StringPtrInput `pulumi:"schedulePolicy"`
-	// TimeZone optional input as string. For example: Pacific Standard Time
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	InstantRpRetentionRangeInDays pulumi.IntPtrInput    `pulumi:"instantRpRetentionRangeInDays"`
+	RetentionPolicy               pulumi.StringPtrInput `pulumi:"retentionPolicy"`
+	SchedulePolicy                pulumi.StringPtrInput `pulumi:"schedulePolicy"`
+	TimeZone                      pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (ConfigurationProfilePreferenceVmBackupResponseArgs) ElementType() reflect.Type {
@@ -1977,22 +1829,18 @@ func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationPro
 	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
 
-// Instant RP retention policy range in days
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupResponse) *int { return v.InstantRpRetentionRangeInDays }).(pulumi.IntPtrOutput)
 }
 
-// Retention policy with the details on backup copy retention ranges.
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) RetentionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupResponse) *string { return v.RetentionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Backup schedule specified as part of backup policy.
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) SchedulePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupResponse) *string { return v.SchedulePolicy }).(pulumi.StringPtrOutput)
 }
 
-// TimeZone optional input as string. For example: Pacific Standard Time
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -2021,7 +1869,6 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) Elem() Configur
 	}).(ConfigurationProfilePreferenceVmBackupResponseOutput)
 }
 
-// Instant RP retention policy range in days
 func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupResponse) *int {
 		if v == nil {
@@ -2031,7 +1878,6 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) InstantRpRetent
 	}).(pulumi.IntPtrOutput)
 }
 
-// Retention policy with the details on backup copy retention ranges.
 func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) RetentionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupResponse) *string {
 		if v == nil {
@@ -2041,7 +1887,6 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) RetentionPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backup schedule specified as part of backup policy.
 func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) SchedulePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupResponse) *string {
 		if v == nil {
@@ -2051,7 +1896,6 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) SchedulePolicy(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TimeZone optional input as string. For example: Pacific Standard Time
 func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupResponse) *string {
 		if v == nil {

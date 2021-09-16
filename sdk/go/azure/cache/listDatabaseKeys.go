@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The secret access keys used for authenticating connections to redis
-// API Version: 2021-03-01.
 func ListDatabaseKeys(ctx *pulumi.Context, args *ListDatabaseKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseKeysResult, error) {
 	var rv ListDatabaseKeysResult
 	err := ctx.Invoke("azure-native:cache:listDatabaseKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListDatabaseKeys(ctx *pulumi.Context, args *ListDatabaseKeysArgs, opts ...p
 }
 
 type ListDatabaseKeysArgs struct {
-	// The name of the RedisEnterprise cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The secret access keys used for authenticating connections to redis
 type ListDatabaseKeysResult struct {
-	// The current primary key that clients can use to authenticate
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

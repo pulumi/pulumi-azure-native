@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection to SignalR resource
-// API Version: 2020-05-01.
 type SignalRPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +66,12 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server.
-// API Version: 2019-07-24-preview.
 func LookupSqlServer(ctx *pulumi.Context, args *LookupSqlServerArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerResult, error) {
 	var rv LookupSqlServerResult
 	err := ctx.Invoke("azure-native:azuredata:getSqlServer", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupSqlServer(ctx *pulumi.Context, args *LookupSqlServerArgs, opts ...pul
 }
 
 type LookupSqlServerArgs struct {
-	// The child resources to include in the response.
-	Expand *string `pulumi:"expand"`
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL Server.
-	SqlServerName string `pulumi:"sqlServerName"`
-	// Name of the SQL Server registration.
-	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
+	Expand                    *string `pulumi:"expand"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
+	SqlServerName             string  `pulumi:"sqlServerName"`
+	SqlServerRegistrationName string  `pulumi:"sqlServerRegistrationName"`
 }
 
 // A SQL server.
 type LookupSqlServerResult struct {
-	// Cores of the Sql Server.
-	Cores *int `pulumi:"cores"`
-	// Sql Server Edition.
-	Edition *string `pulumi:"edition"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Sql Server Json Property Bag.
-	PropertyBag *string `pulumi:"propertyBag"`
-	// ID for Parent Sql Server Registration.
+	Cores          *int    `pulumi:"cores"`
+	Edition        *string `pulumi:"edition"`
+	Id             string  `pulumi:"id"`
+	Name           string  `pulumi:"name"`
+	PropertyBag    *string `pulumi:"propertyBag"`
 	RegistrationID *string `pulumi:"registrationID"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-	// Version of the Sql Server.
-	Version *string `pulumi:"version"`
+	Type           string  `pulumi:"type"`
+	Version        *string `pulumi:"version"`
 }

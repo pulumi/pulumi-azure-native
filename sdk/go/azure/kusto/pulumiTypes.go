@@ -11,12 +11,9 @@ import (
 )
 
 type AzureSku struct {
-	// The number of instances of the cluster.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+	Tier     string `pulumi:"tier"`
 }
 
 // AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
@@ -31,12 +28,9 @@ type AzureSkuInput interface {
 }
 
 type AzureSkuArgs struct {
-	// The number of instances of the cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Tier     pulumi.StringInput `pulumi:"tier"`
 }
 
 func (AzureSkuArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) Azur
 	}).(AzureSkuPtrOutput)
 }
 
-// The number of instances of the cluster.
 func (o AzureSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier.
 func (o AzureSkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -155,7 +146,6 @@ func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
 	}).(AzureSkuOutput)
 }
 
-// The number of instances of the cluster.
 func (o AzureSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *int {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o AzureSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier.
 func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -186,12 +174,9 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type AzureSkuResponse struct {
-	// The number of instances of the cluster.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+	Tier     string `pulumi:"tier"`
 }
 
 // AzureSkuResponseInput is an input type that accepts AzureSkuResponseArgs and AzureSkuResponseOutput values.
@@ -206,12 +191,9 @@ type AzureSkuResponseInput interface {
 }
 
 type AzureSkuResponseArgs struct {
-	// The number of instances of the cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Tier     pulumi.StringInput `pulumi:"tier"`
 }
 
 func (AzureSkuResponseArgs) ElementType() reflect.Type {
@@ -291,17 +273,14 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx conte
 	}).(AzureSkuResponsePtrOutput)
 }
 
-// The number of instances of the cluster.
 func (o AzureSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier.
 func (o AzureSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -330,7 +309,6 @@ func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
 	}).(AzureSkuResponseOutput)
 }
 
-// The number of instances of the cluster.
 func (o AzureSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *int {
 		if v == nil {
@@ -340,7 +318,6 @@ func (o AzureSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {
@@ -350,7 +327,6 @@ func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier.
 func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {
@@ -361,20 +337,13 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type DatabasePrincipalResponse struct {
-	// Application id - relevant only for application principal type.
-	AppId *string `pulumi:"appId"`
-	// Database principal email if exists.
-	Email *string `pulumi:"email"`
-	// Database principal fully qualified name.
-	Fqn *string `pulumi:"fqn"`
-	// Database principal name.
-	Name string `pulumi:"name"`
-	// Database principal role.
-	Role string `pulumi:"role"`
-	// The tenant name of the principal
-	TenantName string `pulumi:"tenantName"`
-	// Database principal type.
-	Type string `pulumi:"type"`
+	AppId      *string `pulumi:"appId"`
+	Email      *string `pulumi:"email"`
+	Fqn        *string `pulumi:"fqn"`
+	Name       string  `pulumi:"name"`
+	Role       string  `pulumi:"role"`
+	TenantName string  `pulumi:"tenantName"`
+	Type       string  `pulumi:"type"`
 }
 
 // DatabasePrincipalResponseInput is an input type that accepts DatabasePrincipalResponseArgs and DatabasePrincipalResponseOutput values.
@@ -389,20 +358,13 @@ type DatabasePrincipalResponseInput interface {
 }
 
 type DatabasePrincipalResponseArgs struct {
-	// Application id - relevant only for application principal type.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Database principal email if exists.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Database principal fully qualified name.
-	Fqn pulumi.StringPtrInput `pulumi:"fqn"`
-	// Database principal name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Database principal role.
-	Role pulumi.StringInput `pulumi:"role"`
-	// The tenant name of the principal
-	TenantName pulumi.StringInput `pulumi:"tenantName"`
-	// Database principal type.
-	Type pulumi.StringInput `pulumi:"type"`
+	AppId      pulumi.StringPtrInput `pulumi:"appId"`
+	Email      pulumi.StringPtrInput `pulumi:"email"`
+	Fqn        pulumi.StringPtrInput `pulumi:"fqn"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Role       pulumi.StringInput    `pulumi:"role"`
+	TenantName pulumi.StringInput    `pulumi:"tenantName"`
+	Type       pulumi.StringInput    `pulumi:"type"`
 }
 
 func (DatabasePrincipalResponseArgs) ElementType() reflect.Type {
@@ -456,37 +418,30 @@ func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutputWithCo
 	return o
 }
 
-// Application id - relevant only for application principal type.
 func (o DatabasePrincipalResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Database principal email if exists.
 func (o DatabasePrincipalResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Database principal fully qualified name.
 func (o DatabasePrincipalResponseOutput) Fqn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Fqn }).(pulumi.StringPtrOutput)
 }
 
-// Database principal name.
 func (o DatabasePrincipalResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Database principal role.
 func (o DatabasePrincipalResponseOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// The tenant name of the principal
 func (o DatabasePrincipalResponseOutput) TenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.TenantName }).(pulumi.StringOutput)
 }
 
-// Database principal type.
 func (o DatabasePrincipalResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -512,7 +467,6 @@ func (o DatabasePrincipalResponseArrayOutput) Index(i pulumi.IntInput) DatabaseP
 }
 
 type DatabaseStatisticsResponse struct {
-	// The database size - the total size of compressed data and index in bytes.
 	Size *float64 `pulumi:"size"`
 }
 
@@ -528,7 +482,6 @@ type DatabaseStatisticsResponseInput interface {
 }
 
 type DatabaseStatisticsResponseArgs struct {
-	// The database size - the total size of compressed data and index in bytes.
 	Size pulumi.Float64PtrInput `pulumi:"size"`
 }
 
@@ -609,7 +562,6 @@ func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutputW
 	}).(DatabaseStatisticsResponsePtrOutput)
 }
 
-// The database size - the total size of compressed data and index in bytes.
 func (o DatabaseStatisticsResponseOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DatabaseStatisticsResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
@@ -638,7 +590,6 @@ func (o DatabaseStatisticsResponsePtrOutput) Elem() DatabaseStatisticsResponseOu
 	}).(DatabaseStatisticsResponseOutput)
 }
 
-// The database size - the total size of compressed data and index in bytes.
 func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DatabaseStatisticsResponse) *float64 {
 		if v == nil {
@@ -649,12 +600,9 @@ func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 }
 
 type FollowerDatabaseDefinitionResponse struct {
-	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
-	// Resource id of the cluster that follows a database owned by this cluster.
-	ClusterResourceId string `pulumi:"clusterResourceId"`
-	// The database name owned by this cluster that was followed. * in case following all databases.
-	DatabaseName string `pulumi:"databaseName"`
+	ClusterResourceId                 string `pulumi:"clusterResourceId"`
+	DatabaseName                      string `pulumi:"databaseName"`
 }
 
 // FollowerDatabaseDefinitionResponseInput is an input type that accepts FollowerDatabaseDefinitionResponseArgs and FollowerDatabaseDefinitionResponseOutput values.
@@ -669,12 +617,9 @@ type FollowerDatabaseDefinitionResponseInput interface {
 }
 
 type FollowerDatabaseDefinitionResponseArgs struct {
-	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName pulumi.StringInput `pulumi:"attachedDatabaseConfigurationName"`
-	// Resource id of the cluster that follows a database owned by this cluster.
-	ClusterResourceId pulumi.StringInput `pulumi:"clusterResourceId"`
-	// The database name owned by this cluster that was followed. * in case following all databases.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	ClusterResourceId                 pulumi.StringInput `pulumi:"clusterResourceId"`
+	DatabaseName                      pulumi.StringInput `pulumi:"databaseName"`
 }
 
 func (FollowerDatabaseDefinitionResponseArgs) ElementType() reflect.Type {
@@ -728,17 +673,14 @@ func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionRe
 	return o
 }
 
-// Resource name of the attached database configuration in the follower cluster.
 func (o FollowerDatabaseDefinitionResponseOutput) AttachedDatabaseConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
 }
 
-// Resource id of the cluster that follows a database owned by this cluster.
 func (o FollowerDatabaseDefinitionResponseOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
 
-// The database name owned by this cluster that was followed. * in case following all databases.
 func (o FollowerDatabaseDefinitionResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -764,9 +706,7 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type Identity struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   string                 `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -782,10 +722,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -865,12 +803,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -899,7 +835,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -909,7 +844,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -920,13 +854,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                            `pulumi:"principalId"`
+	TenantId               string                                            `pulumi:"tenantId"`
+	Type                   string                                            `pulumi:"type"`
 	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -942,13 +872,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                             `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                             `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                             `pulumi:"type"`
 	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1029,22 +955,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -1075,7 +997,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1085,7 +1006,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1095,7 +1015,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1105,7 +1024,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -1116,9 +1034,7 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUser
 }
 
 type IdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -1134,9 +1050,7 @@ type IdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type IdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -1191,12 +1105,10 @@ func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssi
 	return o
 }
 
-// The client id of user assigned identity.
 func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -1222,13 +1134,9 @@ func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.Strin
 }
 
 type KeyVaultProperties struct {
-	// The name of the key vault key.
-	KeyName string `pulumi:"keyName"`
-	// The Uri of the key vault.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The version of the key vault key.
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The user assigned identity (ARM resource id) that has access to the key.
+	KeyName      string  `pulumi:"keyName"`
+	KeyVaultUri  string  `pulumi:"keyVaultUri"`
+	KeyVersion   *string `pulumi:"keyVersion"`
 	UserIdentity *string `pulumi:"userIdentity"`
 }
 
@@ -1244,13 +1152,9 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// The name of the key vault key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The Uri of the key vault.
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The version of the key vault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The user assigned identity (ARM resource id) that has access to the key.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	KeyVaultUri  pulumi.StringInput    `pulumi:"keyVaultUri"`
+	KeyVersion   pulumi.StringPtrInput `pulumi:"keyVersion"`
 	UserIdentity pulumi.StringPtrInput `pulumi:"userIdentity"`
 }
 
@@ -1331,22 +1235,18 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The name of the key vault key.
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The Uri of the key vault.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The version of the key vault key.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The user assigned identity (ARM resource id) that has access to the key.
 func (o KeyVaultPropertiesOutput) UserIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
 }
@@ -1375,7 +1275,6 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 	}).(KeyVaultPropertiesOutput)
 }
 
-// The name of the key vault key.
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1385,7 +1284,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of the key vault.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1395,7 +1293,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the key vault key.
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1405,7 +1302,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user assigned identity (ARM resource id) that has access to the key.
 func (o KeyVaultPropertiesPtrOutput) UserIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1416,13 +1312,9 @@ func (o KeyVaultPropertiesPtrOutput) UserIdentity() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// The name of the key vault key.
-	KeyName string `pulumi:"keyName"`
-	// The Uri of the key vault.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The version of the key vault key.
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The user assigned identity (ARM resource id) that has access to the key.
+	KeyName      string  `pulumi:"keyName"`
+	KeyVaultUri  string  `pulumi:"keyVaultUri"`
+	KeyVersion   *string `pulumi:"keyVersion"`
 	UserIdentity *string `pulumi:"userIdentity"`
 }
 
@@ -1438,13 +1330,9 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// The name of the key vault key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The Uri of the key vault.
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The version of the key vault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The user assigned identity (ARM resource id) that has access to the key.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	KeyVaultUri  pulumi.StringInput    `pulumi:"keyVaultUri"`
+	KeyVersion   pulumi.StringPtrInput `pulumi:"keyVersion"`
 	UserIdentity pulumi.StringPtrInput `pulumi:"userIdentity"`
 }
 
@@ -1525,22 +1413,18 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputW
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The name of the key vault key.
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The Uri of the key vault.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The version of the key vault key.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The user assigned identity (ARM resource id) that has access to the key.
 func (o KeyVaultPropertiesResponseOutput) UserIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
 }
@@ -1569,7 +1453,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The name of the key vault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1579,7 +1462,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of the key vault.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1589,7 +1471,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the key vault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1599,7 +1480,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user assigned identity (ARM resource id) that has access to the key.
 func (o KeyVaultPropertiesResponsePtrOutput) UserIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1610,7 +1490,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) UserIdentity() pulumi.StringPtrOutp
 }
 
 type LanguageExtensionResponse struct {
-	// The language extension name.
 	LanguageExtensionName *string `pulumi:"languageExtensionName"`
 }
 
@@ -1626,7 +1505,6 @@ type LanguageExtensionResponseInput interface {
 }
 
 type LanguageExtensionResponseArgs struct {
-	// The language extension name.
 	LanguageExtensionName pulumi.StringPtrInput `pulumi:"languageExtensionName"`
 }
 
@@ -1681,7 +1559,6 @@ func (o LanguageExtensionResponseOutput) ToLanguageExtensionResponseOutputWithCo
 	return o
 }
 
-// The language extension name.
 func (o LanguageExtensionResponseOutput) LanguageExtensionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LanguageExtensionResponse) *string { return v.LanguageExtensionName }).(pulumi.StringPtrOutput)
 }
@@ -1707,7 +1584,6 @@ func (o LanguageExtensionResponseArrayOutput) Index(i pulumi.IntInput) LanguageE
 }
 
 type LanguageExtensionsListResponse struct {
-	// The list of language extensions.
 	Value []LanguageExtensionResponse `pulumi:"value"`
 }
 
@@ -1723,7 +1599,6 @@ type LanguageExtensionsListResponseInput interface {
 }
 
 type LanguageExtensionsListResponseArgs struct {
-	// The list of language extensions.
 	Value LanguageExtensionResponseArrayInput `pulumi:"value"`
 }
 
@@ -1804,7 +1679,6 @@ func (o LanguageExtensionsListResponseOutput) ToLanguageExtensionsListResponsePt
 	}).(LanguageExtensionsListResponsePtrOutput)
 }
 
-// The list of language extensions.
 func (o LanguageExtensionsListResponseOutput) Value() LanguageExtensionResponseArrayOutput {
 	return o.ApplyT(func(v LanguageExtensionsListResponse) []LanguageExtensionResponse { return v.Value }).(LanguageExtensionResponseArrayOutput)
 }
@@ -1833,7 +1707,6 @@ func (o LanguageExtensionsListResponsePtrOutput) Elem() LanguageExtensionsListRe
 	}).(LanguageExtensionsListResponseOutput)
 }
 
-// The list of language extensions.
 func (o LanguageExtensionsListResponsePtrOutput) Value() LanguageExtensionResponseArrayOutput {
 	return o.ApplyT(func(v *LanguageExtensionsListResponse) []LanguageExtensionResponse {
 		if v == nil {
@@ -1844,14 +1717,10 @@ func (o LanguageExtensionsListResponsePtrOutput) Value() LanguageExtensionRespon
 }
 
 type OptimizedAutoscale struct {
-	// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 	IsEnabled bool `pulumi:"isEnabled"`
-	// Maximum allowed instances count.
-	Maximum int `pulumi:"maximum"`
-	// Minimum allowed instances count.
-	Minimum int `pulumi:"minimum"`
-	// The version of the template defined, for instance 1.
-	Version int `pulumi:"version"`
+	Maximum   int  `pulumi:"maximum"`
+	Minimum   int  `pulumi:"minimum"`
+	Version   int  `pulumi:"version"`
 }
 
 // OptimizedAutoscaleInput is an input type that accepts OptimizedAutoscaleArgs and OptimizedAutoscaleOutput values.
@@ -1866,14 +1735,10 @@ type OptimizedAutoscaleInput interface {
 }
 
 type OptimizedAutoscaleArgs struct {
-	// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// Maximum allowed instances count.
-	Maximum pulumi.IntInput `pulumi:"maximum"`
-	// Minimum allowed instances count.
-	Minimum pulumi.IntInput `pulumi:"minimum"`
-	// The version of the template defined, for instance 1.
-	Version pulumi.IntInput `pulumi:"version"`
+	Maximum   pulumi.IntInput  `pulumi:"maximum"`
+	Minimum   pulumi.IntInput  `pulumi:"minimum"`
+	Version   pulumi.IntInput  `pulumi:"version"`
 }
 
 func (OptimizedAutoscaleArgs) ElementType() reflect.Type {
@@ -1953,22 +1818,18 @@ func (o OptimizedAutoscaleOutput) ToOptimizedAutoscalePtrOutputWithContext(ctx c
 	}).(OptimizedAutoscalePtrOutput)
 }
 
-// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 func (o OptimizedAutoscaleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OptimizedAutoscale) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// Maximum allowed instances count.
 func (o OptimizedAutoscaleOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscale) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
-// Minimum allowed instances count.
 func (o OptimizedAutoscaleOutput) Minimum() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscale) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
-// The version of the template defined, for instance 1.
 func (o OptimizedAutoscaleOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscale) int { return v.Version }).(pulumi.IntOutput)
 }
@@ -1997,7 +1858,6 @@ func (o OptimizedAutoscalePtrOutput) Elem() OptimizedAutoscaleOutput {
 	}).(OptimizedAutoscaleOutput)
 }
 
-// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 func (o OptimizedAutoscalePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscale) *bool {
 		if v == nil {
@@ -2007,7 +1867,6 @@ func (o OptimizedAutoscalePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Maximum allowed instances count.
 func (o OptimizedAutoscalePtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscale) *int {
 		if v == nil {
@@ -2017,7 +1876,6 @@ func (o OptimizedAutoscalePtrOutput) Maximum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum allowed instances count.
 func (o OptimizedAutoscalePtrOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscale) *int {
 		if v == nil {
@@ -2027,7 +1885,6 @@ func (o OptimizedAutoscalePtrOutput) Minimum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of the template defined, for instance 1.
 func (o OptimizedAutoscalePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscale) *int {
 		if v == nil {
@@ -2038,14 +1895,10 @@ func (o OptimizedAutoscalePtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 type OptimizedAutoscaleResponse struct {
-	// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 	IsEnabled bool `pulumi:"isEnabled"`
-	// Maximum allowed instances count.
-	Maximum int `pulumi:"maximum"`
-	// Minimum allowed instances count.
-	Minimum int `pulumi:"minimum"`
-	// The version of the template defined, for instance 1.
-	Version int `pulumi:"version"`
+	Maximum   int  `pulumi:"maximum"`
+	Minimum   int  `pulumi:"minimum"`
+	Version   int  `pulumi:"version"`
 }
 
 // OptimizedAutoscaleResponseInput is an input type that accepts OptimizedAutoscaleResponseArgs and OptimizedAutoscaleResponseOutput values.
@@ -2060,14 +1913,10 @@ type OptimizedAutoscaleResponseInput interface {
 }
 
 type OptimizedAutoscaleResponseArgs struct {
-	// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// Maximum allowed instances count.
-	Maximum pulumi.IntInput `pulumi:"maximum"`
-	// Minimum allowed instances count.
-	Minimum pulumi.IntInput `pulumi:"minimum"`
-	// The version of the template defined, for instance 1.
-	Version pulumi.IntInput `pulumi:"version"`
+	Maximum   pulumi.IntInput  `pulumi:"maximum"`
+	Minimum   pulumi.IntInput  `pulumi:"minimum"`
+	Version   pulumi.IntInput  `pulumi:"version"`
 }
 
 func (OptimizedAutoscaleResponseArgs) ElementType() reflect.Type {
@@ -2147,22 +1996,18 @@ func (o OptimizedAutoscaleResponseOutput) ToOptimizedAutoscaleResponsePtrOutputW
 	}).(OptimizedAutoscaleResponsePtrOutput)
 }
 
-// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 func (o OptimizedAutoscaleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OptimizedAutoscaleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// Maximum allowed instances count.
 func (o OptimizedAutoscaleResponseOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscaleResponse) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
-// Minimum allowed instances count.
 func (o OptimizedAutoscaleResponseOutput) Minimum() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscaleResponse) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
-// The version of the template defined, for instance 1.
 func (o OptimizedAutoscaleResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v OptimizedAutoscaleResponse) int { return v.Version }).(pulumi.IntOutput)
 }
@@ -2191,7 +2036,6 @@ func (o OptimizedAutoscaleResponsePtrOutput) Elem() OptimizedAutoscaleResponseOu
 	}).(OptimizedAutoscaleResponseOutput)
 }
 
-// A boolean value that indicate if the optimized autoscale feature is enabled or not.
 func (o OptimizedAutoscaleResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscaleResponse) *bool {
 		if v == nil {
@@ -2201,7 +2045,6 @@ func (o OptimizedAutoscaleResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Maximum allowed instances count.
 func (o OptimizedAutoscaleResponsePtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscaleResponse) *int {
 		if v == nil {
@@ -2211,7 +2054,6 @@ func (o OptimizedAutoscaleResponsePtrOutput) Maximum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum allowed instances count.
 func (o OptimizedAutoscaleResponsePtrOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscaleResponse) *int {
 		if v == nil {
@@ -2221,7 +2063,6 @@ func (o OptimizedAutoscaleResponsePtrOutput) Minimum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of the template defined, for instance 1.
 func (o OptimizedAutoscaleResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OptimizedAutoscaleResponse) *int {
 		if v == nil {
@@ -2232,7 +2073,6 @@ func (o OptimizedAutoscaleResponsePtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id string `pulumi:"id"`
 }
 
@@ -2248,7 +2088,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2329,7 +2168,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2358,7 +2196,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -2369,10 +2206,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -2387,10 +2222,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -2470,12 +2303,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2504,7 +2335,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -2514,7 +2344,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -2525,12 +2354,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	ActionsRequired string  `pulumi:"actionsRequired"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -2545,12 +2371,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ActionsRequired pulumi.StringInput    `pulumi:"actionsRequired"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -2630,17 +2453,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2669,7 +2489,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2679,7 +2498,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2689,7 +2507,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2700,17 +2517,11 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2726,17 +2537,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2817,32 +2622,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2871,7 +2670,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2881,7 +2679,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2891,7 +2688,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2901,7 +2697,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2911,7 +2706,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2921,7 +2715,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2932,18 +2725,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TableLevelSharingProperties struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
+	ExternalTablesToExclude    []string `pulumi:"externalTablesToExclude"`
+	ExternalTablesToInclude    []string `pulumi:"externalTablesToInclude"`
 	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
 	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude []string `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude []string `pulumi:"tablesToInclude"`
+	TablesToExclude            []string `pulumi:"tablesToExclude"`
+	TablesToInclude            []string `pulumi:"tablesToInclude"`
 }
 
 // TableLevelSharingPropertiesInput is an input type that accepts TableLevelSharingPropertiesArgs and TableLevelSharingPropertiesOutput values.
@@ -2958,18 +2745,12 @@ type TableLevelSharingPropertiesInput interface {
 }
 
 type TableLevelSharingPropertiesArgs struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
+	ExternalTablesToExclude    pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
+	ExternalTablesToInclude    pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
 	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
 	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
+	TablesToExclude            pulumi.StringArrayInput `pulumi:"tablesToExclude"`
+	TablesToInclude            pulumi.StringArrayInput `pulumi:"tablesToInclude"`
 }
 
 func (TableLevelSharingPropertiesArgs) ElementType() reflect.Type {
@@ -3049,32 +2830,26 @@ func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesPtrOutpu
 	}).(TableLevelSharingPropertiesPtrOutput)
 }
 
-// List of external tables exclude from the follower database
 func (o TableLevelSharingPropertiesOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of external tables to include in the follower database
 func (o TableLevelSharingPropertiesOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views exclude from the follower database
 func (o TableLevelSharingPropertiesOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views to include in the follower database
 func (o TableLevelSharingPropertiesOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// List of tables to exclude from the follower database
 func (o TableLevelSharingPropertiesOutput) TablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of tables to include in the follower database
 func (o TableLevelSharingPropertiesOutput) TablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
 }
@@ -3103,7 +2878,6 @@ func (o TableLevelSharingPropertiesPtrOutput) Elem() TableLevelSharingProperties
 	}).(TableLevelSharingPropertiesOutput)
 }
 
-// List of external tables exclude from the follower database
 func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3113,7 +2887,6 @@ func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToExclude() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of external tables to include in the follower database
 func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3123,7 +2896,6 @@ func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToInclude() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views exclude from the follower database
 func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3133,7 +2905,6 @@ func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToExclude() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views to include in the follower database
 func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3143,7 +2914,6 @@ func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToInclude() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of tables to exclude from the follower database
 func (o TableLevelSharingPropertiesPtrOutput) TablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3153,7 +2923,6 @@ func (o TableLevelSharingPropertiesPtrOutput) TablesToExclude() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of tables to include in the follower database
 func (o TableLevelSharingPropertiesPtrOutput) TablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
 		if v == nil {
@@ -3164,18 +2933,12 @@ func (o TableLevelSharingPropertiesPtrOutput) TablesToInclude() pulumi.StringArr
 }
 
 type TableLevelSharingPropertiesResponse struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
+	ExternalTablesToExclude    []string `pulumi:"externalTablesToExclude"`
+	ExternalTablesToInclude    []string `pulumi:"externalTablesToInclude"`
 	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
 	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude []string `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude []string `pulumi:"tablesToInclude"`
+	TablesToExclude            []string `pulumi:"tablesToExclude"`
+	TablesToInclude            []string `pulumi:"tablesToInclude"`
 }
 
 // TableLevelSharingPropertiesResponseInput is an input type that accepts TableLevelSharingPropertiesResponseArgs and TableLevelSharingPropertiesResponseOutput values.
@@ -3190,18 +2953,12 @@ type TableLevelSharingPropertiesResponseInput interface {
 }
 
 type TableLevelSharingPropertiesResponseArgs struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
+	ExternalTablesToExclude    pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
+	ExternalTablesToInclude    pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
 	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
 	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
+	TablesToExclude            pulumi.StringArrayInput `pulumi:"tablesToExclude"`
+	TablesToInclude            pulumi.StringArrayInput `pulumi:"tablesToInclude"`
 }
 
 func (TableLevelSharingPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3281,32 +3038,26 @@ func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingProperties
 	}).(TableLevelSharingPropertiesResponsePtrOutput)
 }
 
-// List of external tables exclude from the follower database
 func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of external tables to include in the follower database
 func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views exclude from the follower database
 func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views to include in the follower database
 func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// List of tables to exclude from the follower database
 func (o TableLevelSharingPropertiesResponseOutput) TablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
 }
 
-// List of tables to include in the follower database
 func (o TableLevelSharingPropertiesResponseOutput) TablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
 }
@@ -3335,7 +3086,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) Elem() TableLevelSharingPr
 	}).(TableLevelSharingPropertiesResponseOutput)
 }
 
-// List of external tables exclude from the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3345,7 +3095,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToExclude() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of external tables to include in the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3355,7 +3104,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToInclude() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views exclude from the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3365,7 +3113,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToExclude
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of materialized views to include in the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3375,7 +3122,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToInclude
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of tables to exclude from the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3385,7 +3131,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToExclude() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of tables to include in the follower database
 func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
 		if v == nil {
@@ -3396,7 +3141,6 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.S
 }
 
 type TrustedExternalTenant struct {
-	// GUID representing an external tenant.
 	Value *string `pulumi:"value"`
 }
 
@@ -3412,7 +3156,6 @@ type TrustedExternalTenantInput interface {
 }
 
 type TrustedExternalTenantArgs struct {
-	// GUID representing an external tenant.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3467,7 +3210,6 @@ func (o TrustedExternalTenantOutput) ToTrustedExternalTenantOutputWithContext(ct
 	return o
 }
 
-// GUID representing an external tenant.
 func (o TrustedExternalTenantOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustedExternalTenant) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3493,7 +3235,6 @@ func (o TrustedExternalTenantArrayOutput) Index(i pulumi.IntInput) TrustedExtern
 }
 
 type TrustedExternalTenantResponse struct {
-	// GUID representing an external tenant.
 	Value *string `pulumi:"value"`
 }
 
@@ -3509,7 +3250,6 @@ type TrustedExternalTenantResponseInput interface {
 }
 
 type TrustedExternalTenantResponseArgs struct {
-	// GUID representing an external tenant.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3564,7 +3304,6 @@ func (o TrustedExternalTenantResponseOutput) ToTrustedExternalTenantResponseOutp
 	return o
 }
 
-// GUID representing an external tenant.
 func (o TrustedExternalTenantResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustedExternalTenantResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3590,12 +3329,9 @@ func (o TrustedExternalTenantResponseArrayOutput) Index(i pulumi.IntInput) Trust
 }
 
 type VirtualNetworkConfiguration struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId string `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId string `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId string `pulumi:"subnetId"`
+	EnginePublicIpId         string `pulumi:"enginePublicIpId"`
+	SubnetId                 string `pulumi:"subnetId"`
 }
 
 // VirtualNetworkConfigurationInput is an input type that accepts VirtualNetworkConfigurationArgs and VirtualNetworkConfigurationOutput values.
@@ -3610,12 +3346,9 @@ type VirtualNetworkConfigurationInput interface {
 }
 
 type VirtualNetworkConfigurationArgs struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId pulumi.StringInput `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId pulumi.StringInput `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	EnginePublicIpId         pulumi.StringInput `pulumi:"enginePublicIpId"`
+	SubnetId                 pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (VirtualNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -3695,17 +3428,14 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o VirtualNetworkConfigurationOutput) DataManagementPublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfiguration) string { return v.DataManagementPublicIpId }).(pulumi.StringOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o VirtualNetworkConfigurationOutput) EnginePublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfiguration) string { return v.EnginePublicIpId }).(pulumi.StringOutput)
 }
 
-// The subnet resource id.
 func (o VirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -3734,7 +3464,6 @@ func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfiguration
 	}).(VirtualNetworkConfigurationOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o VirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -3744,7 +3473,6 @@ func (o VirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o VirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -3754,7 +3482,6 @@ func (o VirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subnet resource id.
 func (o VirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -3765,12 +3492,9 @@ func (o VirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput 
 }
 
 type VirtualNetworkConfigurationResponse struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId string `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId string `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId string `pulumi:"subnetId"`
+	EnginePublicIpId         string `pulumi:"enginePublicIpId"`
+	SubnetId                 string `pulumi:"subnetId"`
 }
 
 // VirtualNetworkConfigurationResponseInput is an input type that accepts VirtualNetworkConfigurationResponseArgs and VirtualNetworkConfigurationResponseOutput values.
@@ -3785,12 +3509,9 @@ type VirtualNetworkConfigurationResponseInput interface {
 }
 
 type VirtualNetworkConfigurationResponseArgs struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId pulumi.StringInput `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId pulumi.StringInput `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	EnginePublicIpId         pulumi.StringInput `pulumi:"enginePublicIpId"`
+	SubnetId                 pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (VirtualNetworkConfigurationResponseArgs) ElementType() reflect.Type {
@@ -3870,17 +3591,14 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o VirtualNetworkConfigurationResponseOutput) DataManagementPublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) string { return v.DataManagementPublicIpId }).(pulumi.StringOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o VirtualNetworkConfigurationResponseOutput) EnginePublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) string { return v.EnginePublicIpId }).(pulumi.StringOutput)
 }
 
-// The subnet resource id.
 func (o VirtualNetworkConfigurationResponseOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -3909,7 +3627,6 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfi
 	}).(VirtualNetworkConfigurationResponseOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o VirtualNetworkConfigurationResponsePtrOutput) DataManagementPublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {
@@ -3919,7 +3636,6 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) DataManagementPublicIpId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o VirtualNetworkConfigurationResponsePtrOutput) EnginePublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {
@@ -3929,7 +3645,6 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) EnginePublicIpId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subnet resource id.
 func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {

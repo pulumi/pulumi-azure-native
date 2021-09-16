@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connection Monitor Test class.
-// API Version: 2021-06-01.
 type ConnectionMonitorTest struct {
 	pulumi.CustomResourceState
 

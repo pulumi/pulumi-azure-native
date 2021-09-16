@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level storage insight resource container.
-// API Version: 2020-08-01.
 func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightConfigArgs, opts ...pulumi.InvokeOption) (*LookupStorageInsightConfigResult, error) {
 	var rv LookupStorageInsightConfigResult
 	err := ctx.Invoke("azure-native:operationalinsights:getStorageInsightConfig", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightC
 }
 
 type LookupStorageInsightConfigArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the storageInsightsConfigs resource
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	StorageInsightName string `pulumi:"storageInsightName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName      string `pulumi:"workspaceName"`
 }
 
 // The top level storage insight resource container.
 type LookupStorageInsightConfigResult struct {
-	// The names of the blob containers that the workspace should read
-	Containers []string `pulumi:"containers"`
-	// The ETag of the storage insight.
-	ETag *string `pulumi:"eTag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The status of the storage insight
-	Status StorageInsightStatusResponse `pulumi:"status"`
-	// The storage account connection details
-	StorageAccount StorageAccountResponse `pulumi:"storageAccount"`
-	// The names of the Azure tables that the workspace should read
-	Tables []string `pulumi:"tables"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Containers     []string                     `pulumi:"containers"`
+	ETag           *string                      `pulumi:"eTag"`
+	Id             string                       `pulumi:"id"`
+	Name           string                       `pulumi:"name"`
+	Status         StorageInsightStatusResponse `pulumi:"status"`
+	StorageAccount StorageAccountResponse       `pulumi:"storageAccount"`
+	Tables         []string                     `pulumi:"tables"`
+	Tags           map[string]string            `pulumi:"tags"`
+	Type           string                       `pulumi:"type"`
 }

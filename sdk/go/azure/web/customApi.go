@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A custom API
-// API Version: 2016-06-01.
 type CustomApi struct {
 	pulumi.CustomResourceState
 

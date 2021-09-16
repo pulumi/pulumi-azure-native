@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network base rule.
-// API Version: 2021-02-01-preview.
-//
 // Deprecated: Please use one of the variants: DefaultUserRule, UserRule.
 type UserRule struct {
 	pulumi.CustomResourceState

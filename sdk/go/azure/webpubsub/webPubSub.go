@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represent a resource.
-// API Version: 2021-04-01-preview.
 type WebPubSub struct {
 	pulumi.CustomResourceState
 

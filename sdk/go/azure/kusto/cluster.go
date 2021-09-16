@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto cluster.
-// API Version: 2021-01-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 

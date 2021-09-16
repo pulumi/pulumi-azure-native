@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for container with backup items. Containers with specific workloads are derived from this class.
-// API Version: 2021-02-01.
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a scaling plan definition.
-// API Version: 2021-02-01-preview.
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 

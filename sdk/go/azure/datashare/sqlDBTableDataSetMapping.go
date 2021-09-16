@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DB Table data set mapping.
-// API Version: 2020-09-01.
 type SqlDBTableDataSetMapping struct {
 	pulumi.CustomResourceState
 

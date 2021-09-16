@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// P2SVpnServerConfiguration Resource.
-// API Version: 2019-07-01.
 type P2sVpnServerConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of subscription under management group.
-// API Version: 2020-05-01.
 type ManagementGroupSubscription struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents order item contract
-// API Version: 2020-12-01-preview.
 type OrderItemByName struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen2 file system data set mapping.
-// API Version: 2020-09-01.
 type ADLSGen2FileSystemDataSetMapping struct {
 	pulumi.CustomResourceState
 

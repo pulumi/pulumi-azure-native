@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
 
+        /// <summary>
+        /// The location for the resolved private link service.
+        /// </summary>
+        [Input("resolvedPrivateLinkServiceLocation")]
+        public Input<string>? ResolvedPrivateLinkServiceLocation { get; set; }
+
         public PrivateLinkServiceConnectionArgs()
         {
         }

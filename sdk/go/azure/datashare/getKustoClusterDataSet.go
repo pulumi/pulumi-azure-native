@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A kusto cluster data set.
-// API Version: 2020-09-01.
 func LookupKustoClusterDataSet(ctx *pulumi.Context, args *LookupKustoClusterDataSetArgs, opts ...pulumi.InvokeOption) (*LookupKustoClusterDataSetResult, error) {
 	var rv LookupKustoClusterDataSetResult
 	err := ctx.Invoke("azure-native:datashare:getKustoClusterDataSet", args, &rv, opts...)
@@ -19,35 +17,21 @@ func LookupKustoClusterDataSet(ctx *pulumi.Context, args *LookupKustoClusterData
 }
 
 type LookupKustoClusterDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A kusto cluster data set.
 type LookupKustoClusterDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'KustoCluster'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the kusto cluster.
-	KustoClusterResourceId string `pulumi:"kustoClusterResourceId"`
-	// Location of the kusto cluster.
-	Location string `pulumi:"location"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the kusto cluster data set.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DataSetId              string             `pulumi:"dataSetId"`
+	Id                     string             `pulumi:"id"`
+	Kind                   string             `pulumi:"kind"`
+	KustoClusterResourceId string             `pulumi:"kustoClusterResourceId"`
+	Location               string             `pulumi:"location"`
+	Name                   string             `pulumi:"name"`
+	ProvisioningState      string             `pulumi:"provisioningState"`
+	SystemData             SystemDataResponse `pulumi:"systemData"`
+	Type                   string             `pulumi:"type"`
 }

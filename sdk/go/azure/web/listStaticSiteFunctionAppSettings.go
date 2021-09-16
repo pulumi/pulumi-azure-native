@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
-// API Version: 2020-12-01.
 func ListStaticSiteFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSiteFunctionAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteFunctionAppSettingsResult, error) {
 	var rv ListStaticSiteFunctionAppSettingsResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteFunctionAppSettings", args, &rv, opts...)
@@ -19,22 +17,15 @@ func ListStaticSiteFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSite
 }
 
 type ListStaticSiteFunctionAppSettingsArgs struct {
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // String dictionary resource.
 type ListStaticSiteFunctionAppSettingsResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Settings.
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string            `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-// API Version: 2020-10-01.
 type WebAppSwiftVirtualNetworkConnectionSlot struct {
 	pulumi.CustomResourceState
 

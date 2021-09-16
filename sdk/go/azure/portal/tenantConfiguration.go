@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tenant configuration.
-// API Version: 2020-09-01-preview.
 type TenantConfiguration struct {
 	pulumi.CustomResourceState
 

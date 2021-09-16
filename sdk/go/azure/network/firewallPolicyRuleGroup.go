@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Rule Group resource.
-// API Version: 2020-04-01.
 type FirewallPolicyRuleGroup struct {
 	pulumi.CustomResourceState
 

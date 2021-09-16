@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Log Search Rule resource.
-// API Version: 2018-04-16.
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 

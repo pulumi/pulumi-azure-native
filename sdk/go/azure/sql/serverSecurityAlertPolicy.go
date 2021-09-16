@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server security alert policy.
-// API Version: 2020-11-01-preview.
 type ServerSecurityAlertPolicy struct {
 	pulumi.CustomResourceState
 

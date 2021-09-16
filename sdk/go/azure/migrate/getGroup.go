@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group created in a Migration project.
-// API Version: 2019-10-01.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azure-native:migrate:getGroup", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 }
 
 type LookupGroupArgs struct {
-	// Unique name of a group within a project.
-	GroupName string `pulumi:"groupName"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
+	GroupName         string `pulumi:"groupName"`
+	ProjectName       string `pulumi:"projectName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A group created in a Migration project.
 type LookupGroupResult struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
-	Id string `pulumi:"id"`
-	// Name of the group.
-	Name string `pulumi:"name"`
-	// Properties of the group.
+	ETag       *string                 `pulumi:"eTag"`
+	Id         string                  `pulumi:"id"`
+	Name       string                  `pulumi:"name"`
 	Properties GroupPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
-	Type string `pulumi:"type"`
+	Type       string                  `pulumi:"type"`
 }

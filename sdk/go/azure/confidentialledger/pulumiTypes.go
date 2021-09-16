@@ -11,12 +11,9 @@ import (
 )
 
 type AADBasedSecurityPrincipal struct {
-	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
-	// UUID/GUID based Principal Id of the Security Principal
-	PrincipalId *string `pulumi:"principalId"`
-	// UUID/GUID based Tenant Id of the Security Principal
-	TenantId *string `pulumi:"tenantId"`
+	PrincipalId    *string `pulumi:"principalId"`
+	TenantId       *string `pulumi:"tenantId"`
 }
 
 // AADBasedSecurityPrincipalInput is an input type that accepts AADBasedSecurityPrincipalArgs and AADBasedSecurityPrincipalOutput values.
@@ -31,12 +28,9 @@ type AADBasedSecurityPrincipalInput interface {
 }
 
 type AADBasedSecurityPrincipalArgs struct {
-	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
-	// UUID/GUID based Principal Id of the Security Principal
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// UUID/GUID based Tenant Id of the Security Principal
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	PrincipalId    pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId       pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AADBasedSecurityPrincipalArgs) ElementType() reflect.Type {
@@ -90,17 +84,14 @@ func (o AADBasedSecurityPrincipalOutput) ToAADBasedSecurityPrincipalOutputWithCo
 	return o
 }
 
-// LedgerRole associated with the Security Principal of Ledger
 func (o AADBasedSecurityPrincipalOutput) LedgerRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
 
-// UUID/GUID based Principal Id of the Security Principal
 func (o AADBasedSecurityPrincipalOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// UUID/GUID based Tenant Id of the Security Principal
 func (o AADBasedSecurityPrincipalOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -126,12 +117,9 @@ func (o AADBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) AADBasedS
 }
 
 type AADBasedSecurityPrincipalResponse struct {
-	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
-	// UUID/GUID based Principal Id of the Security Principal
-	PrincipalId *string `pulumi:"principalId"`
-	// UUID/GUID based Tenant Id of the Security Principal
-	TenantId *string `pulumi:"tenantId"`
+	PrincipalId    *string `pulumi:"principalId"`
+	TenantId       *string `pulumi:"tenantId"`
 }
 
 // AADBasedSecurityPrincipalResponseInput is an input type that accepts AADBasedSecurityPrincipalResponseArgs and AADBasedSecurityPrincipalResponseOutput values.
@@ -146,12 +134,9 @@ type AADBasedSecurityPrincipalResponseInput interface {
 }
 
 type AADBasedSecurityPrincipalResponseArgs struct {
-	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
-	// UUID/GUID based Principal Id of the Security Principal
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// UUID/GUID based Tenant Id of the Security Principal
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	PrincipalId    pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId       pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AADBasedSecurityPrincipalResponseArgs) ElementType() reflect.Type {
@@ -205,17 +190,14 @@ func (o AADBasedSecurityPrincipalResponseOutput) ToAADBasedSecurityPrincipalResp
 	return o
 }
 
-// LedgerRole associated with the Security Principal of Ledger
 func (o AADBasedSecurityPrincipalResponseOutput) LedgerRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
 
-// UUID/GUID based Principal Id of the Security Principal
 func (o AADBasedSecurityPrincipalResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// UUID/GUID based Tenant Id of the Security Principal
 func (o AADBasedSecurityPrincipalResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -241,9 +223,7 @@ func (o AADBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type CertBasedSecurityPrincipal struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert *string `pulumi:"cert"`
-	// LedgerRole associated with the Security Principal of Ledger
+	Cert           *string `pulumi:"cert"`
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
 }
 
@@ -259,9 +239,7 @@ type CertBasedSecurityPrincipalInput interface {
 }
 
 type CertBasedSecurityPrincipalArgs struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// LedgerRole associated with the Security Principal of Ledger
+	Cert           pulumi.StringPtrInput `pulumi:"cert"`
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
 }
 
@@ -316,12 +294,10 @@ func (o CertBasedSecurityPrincipalOutput) ToCertBasedSecurityPrincipalOutputWith
 	return o
 }
 
-// Base64 encoded public key of the user cert (.pem or .cer)
 func (o CertBasedSecurityPrincipalOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipal) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// LedgerRole associated with the Security Principal of Ledger
 func (o CertBasedSecurityPrincipalOutput) LedgerRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipal) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
@@ -347,9 +323,7 @@ func (o CertBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) CertBase
 }
 
 type CertBasedSecurityPrincipalResponse struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert *string `pulumi:"cert"`
-	// LedgerRole associated with the Security Principal of Ledger
+	Cert           *string `pulumi:"cert"`
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
 }
 
@@ -365,9 +339,7 @@ type CertBasedSecurityPrincipalResponseInput interface {
 }
 
 type CertBasedSecurityPrincipalResponseArgs struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// LedgerRole associated with the Security Principal of Ledger
+	Cert           pulumi.StringPtrInput `pulumi:"cert"`
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
 }
 
@@ -422,12 +394,10 @@ func (o CertBasedSecurityPrincipalResponseOutput) ToCertBasedSecurityPrincipalRe
 	return o
 }
 
-// Base64 encoded public key of the user cert (.pem or .cer)
 func (o CertBasedSecurityPrincipalResponseOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipalResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// LedgerRole associated with the Security Principal of Ledger
 func (o CertBasedSecurityPrincipalResponseOutput) LedgerRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipalResponse) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
@@ -453,14 +423,10 @@ func (o CertBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type LedgerProperties struct {
-	// Array of all AAD based Security Principals.
-	AadBasedSecurityPrincipals []AADBasedSecurityPrincipal `pulumi:"aadBasedSecurityPrincipals"`
-	// Array of all cert based Security Principals.
+	AadBasedSecurityPrincipals  []AADBasedSecurityPrincipal  `pulumi:"aadBasedSecurityPrincipals"`
 	CertBasedSecurityPrincipals []CertBasedSecurityPrincipal `pulumi:"certBasedSecurityPrincipals"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
-	// Type of Confidential Ledger
-	LedgerType *string `pulumi:"ledgerType"`
+	LedgerStorageAccount        *string                      `pulumi:"ledgerStorageAccount"`
+	LedgerType                  *string                      `pulumi:"ledgerType"`
 }
 
 // LedgerPropertiesInput is an input type that accepts LedgerPropertiesArgs and LedgerPropertiesOutput values.
@@ -475,14 +441,10 @@ type LedgerPropertiesInput interface {
 }
 
 type LedgerPropertiesArgs struct {
-	// Array of all AAD based Security Principals.
-	AadBasedSecurityPrincipals AADBasedSecurityPrincipalArrayInput `pulumi:"aadBasedSecurityPrincipals"`
-	// Array of all cert based Security Principals.
+	AadBasedSecurityPrincipals  AADBasedSecurityPrincipalArrayInput  `pulumi:"aadBasedSecurityPrincipals"`
 	CertBasedSecurityPrincipals CertBasedSecurityPrincipalArrayInput `pulumi:"certBasedSecurityPrincipals"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount pulumi.StringPtrInput `pulumi:"ledgerStorageAccount"`
-	// Type of Confidential Ledger
-	LedgerType pulumi.StringPtrInput `pulumi:"ledgerType"`
+	LedgerStorageAccount        pulumi.StringPtrInput                `pulumi:"ledgerStorageAccount"`
+	LedgerType                  pulumi.StringPtrInput                `pulumi:"ledgerType"`
 }
 
 func (LedgerPropertiesArgs) ElementType() reflect.Type {
@@ -562,22 +524,18 @@ func (o LedgerPropertiesOutput) ToLedgerPropertiesPtrOutputWithContext(ctx conte
 	}).(LedgerPropertiesPtrOutput)
 }
 
-// Array of all AAD based Security Principals.
 func (o LedgerPropertiesOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalArrayOutput {
 	return o.ApplyT(func(v LedgerProperties) []AADBasedSecurityPrincipal { return v.AadBasedSecurityPrincipals }).(AADBasedSecurityPrincipalArrayOutput)
 }
 
-// Array of all cert based Security Principals.
 func (o LedgerPropertiesOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalArrayOutput {
 	return o.ApplyT(func(v LedgerProperties) []CertBasedSecurityPrincipal { return v.CertBasedSecurityPrincipals }).(CertBasedSecurityPrincipalArrayOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
 func (o LedgerPropertiesOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LedgerProperties) *string { return v.LedgerStorageAccount }).(pulumi.StringPtrOutput)
 }
 
-// Type of Confidential Ledger
 func (o LedgerPropertiesOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LedgerProperties) *string { return v.LedgerType }).(pulumi.StringPtrOutput)
 }
@@ -606,7 +564,6 @@ func (o LedgerPropertiesPtrOutput) Elem() LedgerPropertiesOutput {
 	}).(LedgerPropertiesOutput)
 }
 
-// Array of all AAD based Security Principals.
 func (o LedgerPropertiesPtrOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalArrayOutput {
 	return o.ApplyT(func(v *LedgerProperties) []AADBasedSecurityPrincipal {
 		if v == nil {
@@ -616,7 +573,6 @@ func (o LedgerPropertiesPtrOutput) AadBasedSecurityPrincipals() AADBasedSecurity
 	}).(AADBasedSecurityPrincipalArrayOutput)
 }
 
-// Array of all cert based Security Principals.
 func (o LedgerPropertiesPtrOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalArrayOutput {
 	return o.ApplyT(func(v *LedgerProperties) []CertBasedSecurityPrincipal {
 		if v == nil {
@@ -626,7 +582,6 @@ func (o LedgerPropertiesPtrOutput) CertBasedSecurityPrincipals() CertBasedSecuri
 	}).(CertBasedSecurityPrincipalArrayOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
 func (o LedgerPropertiesPtrOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerProperties) *string {
 		if v == nil {
@@ -636,7 +591,6 @@ func (o LedgerPropertiesPtrOutput) LedgerStorageAccount() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Confidential Ledger
 func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerProperties) *string {
 		if v == nil {
@@ -647,24 +601,15 @@ func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 }
 
 type LedgerPropertiesResponse struct {
-	// Array of all AAD based Security Principals.
-	AadBasedSecurityPrincipals []AADBasedSecurityPrincipalResponse `pulumi:"aadBasedSecurityPrincipals"`
-	// Array of all cert based Security Principals.
+	AadBasedSecurityPrincipals  []AADBasedSecurityPrincipalResponse  `pulumi:"aadBasedSecurityPrincipals"`
 	CertBasedSecurityPrincipals []CertBasedSecurityPrincipalResponse `pulumi:"certBasedSecurityPrincipals"`
-	// Endpoint for accessing network identity.
-	IdentityServiceUri string `pulumi:"identityServiceUri"`
-	// Internal namespace for the Ledger
-	LedgerInternalNamespace string `pulumi:"ledgerInternalNamespace"`
-	// Unique name for the Confidential Ledger.
-	LedgerName string `pulumi:"ledgerName"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
-	// Type of Confidential Ledger
-	LedgerType *string `pulumi:"ledgerType"`
-	// Endpoint for calling Ledger Service.
-	LedgerUri string `pulumi:"ledgerUri"`
-	// Provisioning state of Ledger Resource
-	ProvisioningState string `pulumi:"provisioningState"`
+	IdentityServiceUri          string                               `pulumi:"identityServiceUri"`
+	LedgerInternalNamespace     string                               `pulumi:"ledgerInternalNamespace"`
+	LedgerName                  string                               `pulumi:"ledgerName"`
+	LedgerStorageAccount        *string                              `pulumi:"ledgerStorageAccount"`
+	LedgerType                  *string                              `pulumi:"ledgerType"`
+	LedgerUri                   string                               `pulumi:"ledgerUri"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
 }
 
 // LedgerPropertiesResponseInput is an input type that accepts LedgerPropertiesResponseArgs and LedgerPropertiesResponseOutput values.
@@ -679,24 +624,15 @@ type LedgerPropertiesResponseInput interface {
 }
 
 type LedgerPropertiesResponseArgs struct {
-	// Array of all AAD based Security Principals.
-	AadBasedSecurityPrincipals AADBasedSecurityPrincipalResponseArrayInput `pulumi:"aadBasedSecurityPrincipals"`
-	// Array of all cert based Security Principals.
+	AadBasedSecurityPrincipals  AADBasedSecurityPrincipalResponseArrayInput  `pulumi:"aadBasedSecurityPrincipals"`
 	CertBasedSecurityPrincipals CertBasedSecurityPrincipalResponseArrayInput `pulumi:"certBasedSecurityPrincipals"`
-	// Endpoint for accessing network identity.
-	IdentityServiceUri pulumi.StringInput `pulumi:"identityServiceUri"`
-	// Internal namespace for the Ledger
-	LedgerInternalNamespace pulumi.StringInput `pulumi:"ledgerInternalNamespace"`
-	// Unique name for the Confidential Ledger.
-	LedgerName pulumi.StringInput `pulumi:"ledgerName"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount pulumi.StringPtrInput `pulumi:"ledgerStorageAccount"`
-	// Type of Confidential Ledger
-	LedgerType pulumi.StringPtrInput `pulumi:"ledgerType"`
-	// Endpoint for calling Ledger Service.
-	LedgerUri pulumi.StringInput `pulumi:"ledgerUri"`
-	// Provisioning state of Ledger Resource
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	IdentityServiceUri          pulumi.StringInput                           `pulumi:"identityServiceUri"`
+	LedgerInternalNamespace     pulumi.StringInput                           `pulumi:"ledgerInternalNamespace"`
+	LedgerName                  pulumi.StringInput                           `pulumi:"ledgerName"`
+	LedgerStorageAccount        pulumi.StringPtrInput                        `pulumi:"ledgerStorageAccount"`
+	LedgerType                  pulumi.StringPtrInput                        `pulumi:"ledgerType"`
+	LedgerUri                   pulumi.StringInput                           `pulumi:"ledgerUri"`
+	ProvisioningState           pulumi.StringInput                           `pulumi:"provisioningState"`
 }
 
 func (LedgerPropertiesResponseArgs) ElementType() reflect.Type {
@@ -776,51 +712,42 @@ func (o LedgerPropertiesResponseOutput) ToLedgerPropertiesResponsePtrOutputWithC
 	}).(LedgerPropertiesResponsePtrOutput)
 }
 
-// Array of all AAD based Security Principals.
 func (o LedgerPropertiesResponseOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalResponseArrayOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) []AADBasedSecurityPrincipalResponse {
 		return v.AadBasedSecurityPrincipals
 	}).(AADBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// Array of all cert based Security Principals.
 func (o LedgerPropertiesResponseOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalResponseArrayOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) []CertBasedSecurityPrincipalResponse {
 		return v.CertBasedSecurityPrincipals
 	}).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// Endpoint for accessing network identity.
 func (o LedgerPropertiesResponseOutput) IdentityServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.IdentityServiceUri }).(pulumi.StringOutput)
 }
 
-// Internal namespace for the Ledger
 func (o LedgerPropertiesResponseOutput) LedgerInternalNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.LedgerInternalNamespace }).(pulumi.StringOutput)
 }
 
-// Unique name for the Confidential Ledger.
 func (o LedgerPropertiesResponseOutput) LedgerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.LedgerName }).(pulumi.StringOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
 func (o LedgerPropertiesResponseOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) *string { return v.LedgerStorageAccount }).(pulumi.StringPtrOutput)
 }
 
-// Type of Confidential Ledger
 func (o LedgerPropertiesResponseOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) *string { return v.LedgerType }).(pulumi.StringPtrOutput)
 }
 
-// Endpoint for calling Ledger Service.
 func (o LedgerPropertiesResponseOutput) LedgerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.LedgerUri }).(pulumi.StringOutput)
 }
 
-// Provisioning state of Ledger Resource
 func (o LedgerPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -849,7 +776,6 @@ func (o LedgerPropertiesResponsePtrOutput) Elem() LedgerPropertiesResponseOutput
 	}).(LedgerPropertiesResponseOutput)
 }
 
-// Array of all AAD based Security Principals.
 func (o LedgerPropertiesResponsePtrOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalResponseArrayOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) []AADBasedSecurityPrincipalResponse {
 		if v == nil {
@@ -859,7 +785,6 @@ func (o LedgerPropertiesResponsePtrOutput) AadBasedSecurityPrincipals() AADBased
 	}).(AADBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// Array of all cert based Security Principals.
 func (o LedgerPropertiesResponsePtrOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalResponseArrayOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) []CertBasedSecurityPrincipalResponse {
 		if v == nil {
@@ -869,7 +794,6 @@ func (o LedgerPropertiesResponsePtrOutput) CertBasedSecurityPrincipals() CertBas
 	}).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// Endpoint for accessing network identity.
 func (o LedgerPropertiesResponsePtrOutput) IdentityServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -879,7 +803,6 @@ func (o LedgerPropertiesResponsePtrOutput) IdentityServiceUri() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Internal namespace for the Ledger
 func (o LedgerPropertiesResponsePtrOutput) LedgerInternalNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -889,7 +812,6 @@ func (o LedgerPropertiesResponsePtrOutput) LedgerInternalNamespace() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unique name for the Confidential Ledger.
 func (o LedgerPropertiesResponsePtrOutput) LedgerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -899,7 +821,6 @@ func (o LedgerPropertiesResponsePtrOutput) LedgerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
 func (o LedgerPropertiesResponsePtrOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -909,7 +830,6 @@ func (o LedgerPropertiesResponsePtrOutput) LedgerStorageAccount() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Confidential Ledger
 func (o LedgerPropertiesResponsePtrOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -919,7 +839,6 @@ func (o LedgerPropertiesResponsePtrOutput) LedgerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint for calling Ledger Service.
 func (o LedgerPropertiesResponsePtrOutput) LedgerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -929,7 +848,6 @@ func (o LedgerPropertiesResponsePtrOutput) LedgerUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of Ledger Resource
 func (o LedgerPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerPropertiesResponse) *string {
 		if v == nil {
@@ -940,17 +858,11 @@ func (o LedgerPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrO
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -966,17 +878,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1057,32 +963,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1111,7 +1011,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1121,7 +1020,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1131,7 +1029,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1141,7 +1038,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1151,7 +1047,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1161,7 +1056,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

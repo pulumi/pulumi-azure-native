@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data store.
-// API Version: 2019-06-01.
 type DataStore struct {
 	pulumi.CustomResourceState
 

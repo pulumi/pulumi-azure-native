@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents ASC (Azure Security Center) data connector.
-// API Version: 2020-01-01.
 func LookupASCDataConnector(ctx *pulumi.Context, args *LookupASCDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupASCDataConnectorResult, error) {
 	var rv LookupASCDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights:getASCDataConnector", args, &rv, opts...)
@@ -19,29 +17,18 @@ func LookupASCDataConnector(ctx *pulumi.Context, args *LookupASCDataConnectorArg
 }
 
 type LookupASCDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	DataConnectorId   string `pulumi:"dataConnectorId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Represents ASC (Azure Security Center) data connector.
 type LookupASCDataConnectorResult struct {
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'AzureSecurityCenter'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The subscription id to connect to, and get the data from.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	DataTypes      *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
+	Etag           *string                                `pulumi:"etag"`
+	Id             string                                 `pulumi:"id"`
+	Kind           string                                 `pulumi:"kind"`
+	Name           string                                 `pulumi:"name"`
+	SubscriptionId *string                                `pulumi:"subscriptionId"`
+	Type           string                                 `pulumi:"type"`
 }

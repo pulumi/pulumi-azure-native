@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of ARM tracked top level resource.
-// API Version: 2019-11-01-preview.
 type DataCollectionRule struct {
 	pulumi.CustomResourceState
 

@@ -11,11 +11,8 @@ import (
 )
 
 type CustomRPActionRouteDefinition struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint string `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name string `pulumi:"name"`
-	// The routing types that are supported for action requests.
+	Endpoint    string  `pulumi:"endpoint"`
+	Name        string  `pulumi:"name"`
 	RoutingType *string `pulumi:"routingType"`
 }
 
@@ -31,11 +28,8 @@ type CustomRPActionRouteDefinitionInput interface {
 }
 
 type CustomRPActionRouteDefinitionArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for action requests.
+	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
 }
 
@@ -90,17 +84,14 @@ func (o CustomRPActionRouteDefinitionOutput) ToCustomRPActionRouteDefinitionOutp
 	return o
 }
 
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 func (o CustomRPActionRouteDefinitionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinition) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
 func (o CustomRPActionRouteDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing types that are supported for action requests.
 func (o CustomRPActionRouteDefinitionOutput) RoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinition) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
 }
@@ -126,11 +117,8 @@ func (o CustomRPActionRouteDefinitionArrayOutput) Index(i pulumi.IntInput) Custo
 }
 
 type CustomRPActionRouteDefinitionResponse struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint string `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name string `pulumi:"name"`
-	// The routing types that are supported for action requests.
+	Endpoint    string  `pulumi:"endpoint"`
+	Name        string  `pulumi:"name"`
 	RoutingType *string `pulumi:"routingType"`
 }
 
@@ -146,11 +134,8 @@ type CustomRPActionRouteDefinitionResponseInput interface {
 }
 
 type CustomRPActionRouteDefinitionResponseArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for action requests.
+	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
 }
 
@@ -205,17 +190,14 @@ func (o CustomRPActionRouteDefinitionResponseOutput) ToCustomRPActionRouteDefini
 	return o
 }
 
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 func (o CustomRPActionRouteDefinitionResponseOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinitionResponse) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
 func (o CustomRPActionRouteDefinitionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinitionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing types that are supported for action requests.
 func (o CustomRPActionRouteDefinitionResponseOutput) RoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPActionRouteDefinitionResponse) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
 }
@@ -241,11 +223,8 @@ func (o CustomRPActionRouteDefinitionResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type CustomRPResourceTypeRouteDefinition struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint string `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name string `pulumi:"name"`
-	// The routing types that are supported for resource requests.
+	Endpoint    string  `pulumi:"endpoint"`
+	Name        string  `pulumi:"name"`
 	RoutingType *string `pulumi:"routingType"`
 }
 
@@ -261,11 +240,8 @@ type CustomRPResourceTypeRouteDefinitionInput interface {
 }
 
 type CustomRPResourceTypeRouteDefinitionArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for resource requests.
+	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
 }
 
@@ -320,17 +296,14 @@ func (o CustomRPResourceTypeRouteDefinitionOutput) ToCustomRPResourceTypeRouteDe
 	return o
 }
 
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 func (o CustomRPResourceTypeRouteDefinitionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
 func (o CustomRPResourceTypeRouteDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing types that are supported for resource requests.
 func (o CustomRPResourceTypeRouteDefinitionOutput) RoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
 }
@@ -356,11 +329,8 @@ func (o CustomRPResourceTypeRouteDefinitionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type CustomRPResourceTypeRouteDefinitionResponse struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint string `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name string `pulumi:"name"`
-	// The routing types that are supported for resource requests.
+	Endpoint    string  `pulumi:"endpoint"`
+	Name        string  `pulumi:"name"`
 	RoutingType *string `pulumi:"routingType"`
 }
 
@@ -376,11 +346,8 @@ type CustomRPResourceTypeRouteDefinitionResponseInput interface {
 }
 
 type CustomRPResourceTypeRouteDefinitionResponseArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for resource requests.
+	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
 }
 
@@ -435,17 +402,14 @@ func (o CustomRPResourceTypeRouteDefinitionResponseOutput) ToCustomRPResourceTyp
 	return o
 }
 
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 func (o CustomRPResourceTypeRouteDefinitionResponseOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinitionResponse) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
 func (o CustomRPResourceTypeRouteDefinitionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinitionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing types that are supported for resource requests.
 func (o CustomRPResourceTypeRouteDefinitionResponseOutput) RoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinitionResponse) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
 }
@@ -471,9 +435,7 @@ func (o CustomRPResourceTypeRouteDefinitionResponseArrayOutput) Index(i pulumi.I
 }
 
 type CustomRPValidations struct {
-	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-	Specification string `pulumi:"specification"`
-	// The type of validation to run against a matching request.
+	Specification  string  `pulumi:"specification"`
 	ValidationType *string `pulumi:"validationType"`
 }
 
@@ -489,9 +451,7 @@ type CustomRPValidationsInput interface {
 }
 
 type CustomRPValidationsArgs struct {
-	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-	Specification pulumi.StringInput `pulumi:"specification"`
-	// The type of validation to run against a matching request.
+	Specification  pulumi.StringInput    `pulumi:"specification"`
 	ValidationType pulumi.StringPtrInput `pulumi:"validationType"`
 }
 
@@ -546,12 +506,10 @@ func (o CustomRPValidationsOutput) ToCustomRPValidationsOutputWithContext(ctx co
 	return o
 }
 
-// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 func (o CustomRPValidationsOutput) Specification() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPValidations) string { return v.Specification }).(pulumi.StringOutput)
 }
 
-// The type of validation to run against a matching request.
 func (o CustomRPValidationsOutput) ValidationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPValidations) *string { return v.ValidationType }).(pulumi.StringPtrOutput)
 }
@@ -577,9 +535,7 @@ func (o CustomRPValidationsArrayOutput) Index(i pulumi.IntInput) CustomRPValidat
 }
 
 type CustomRPValidationsResponse struct {
-	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-	Specification string `pulumi:"specification"`
-	// The type of validation to run against a matching request.
+	Specification  string  `pulumi:"specification"`
 	ValidationType *string `pulumi:"validationType"`
 }
 
@@ -595,9 +551,7 @@ type CustomRPValidationsResponseInput interface {
 }
 
 type CustomRPValidationsResponseArgs struct {
-	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-	Specification pulumi.StringInput `pulumi:"specification"`
-	// The type of validation to run against a matching request.
+	Specification  pulumi.StringInput    `pulumi:"specification"`
 	ValidationType pulumi.StringPtrInput `pulumi:"validationType"`
 }
 
@@ -652,12 +606,10 @@ func (o CustomRPValidationsResponseOutput) ToCustomRPValidationsResponseOutputWi
 	return o
 }
 
-// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 func (o CustomRPValidationsResponseOutput) Specification() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRPValidationsResponse) string { return v.Specification }).(pulumi.StringOutput)
 }
 
-// The type of validation to run against a matching request.
 func (o CustomRPValidationsResponseOutput) ValidationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRPValidationsResponse) *string { return v.ValidationType }).(pulumi.StringPtrOutput)
 }

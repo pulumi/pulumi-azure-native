@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dataset resource type.
-// API Version: 2018-06-01.
 type Dataset struct {
 	pulumi.CustomResourceState
 

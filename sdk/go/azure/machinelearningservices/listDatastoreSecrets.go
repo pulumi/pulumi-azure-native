@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base definition for datastore secrets.
-// API Version: 2021-03-01-preview.
 func ListDatastoreSecrets(ctx *pulumi.Context, args *ListDatastoreSecretsArgs, opts ...pulumi.InvokeOption) (*ListDatastoreSecretsResult, error) {
 	var rv ListDatastoreSecretsResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listDatastoreSecrets", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListDatastoreSecrets(ctx *pulumi.Context, args *ListDatastoreSecretsArgs, o
 }
 
 type ListDatastoreSecretsArgs struct {
-	// Datastore name.
-	Name string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Base definition for datastore secrets.
 type ListDatastoreSecretsResult struct {
-	// Credential type used to authentication with storage.
 	SecretsType string `pulumi:"secretsType"`
 }

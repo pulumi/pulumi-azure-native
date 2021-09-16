@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The bandwidth setting.
-// API Version: 2017-06-01.
 func LookupBandwidthSetting(ctx *pulumi.Context, args *LookupBandwidthSettingArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthSettingResult, error) {
 	var rv LookupBandwidthSettingResult
 	err := ctx.Invoke("azure-native:storsimple:getBandwidthSetting", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupBandwidthSetting(ctx *pulumi.Context, args *LookupBandwidthSettingArg
 }
 
 type LookupBandwidthSettingArgs struct {
-	// The name of bandwidth setting to be fetched.
 	BandwidthSettingName string `pulumi:"bandwidthSettingName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ManagerName          string `pulumi:"managerName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // The bandwidth setting.
 type LookupBandwidthSettingResult struct {
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The schedules.
-	Schedules []BandwidthScheduleResponse `pulumi:"schedules"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-	// The number of volumes that uses the bandwidth setting.
-	VolumeCount int `pulumi:"volumeCount"`
+	Id          string                      `pulumi:"id"`
+	Kind        *string                     `pulumi:"kind"`
+	Name        string                      `pulumi:"name"`
+	Schedules   []BandwidthScheduleResponse `pulumi:"schedules"`
+	Type        string                      `pulumi:"type"`
+	VolumeCount int                         `pulumi:"volumeCount"`
 }

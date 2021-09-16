@@ -11,7 +11,6 @@ import (
 )
 
 type PrivateEndpoint struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -27,7 +26,6 @@ type PrivateEndpointInput interface {
 }
 
 type PrivateEndpointArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -108,7 +106,6 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context
 	}).(PrivateEndpointPtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	}).(PrivateEndpointOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointResponse struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -164,7 +159,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -245,7 +239,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -285,12 +277,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -305,12 +294,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -390,17 +376,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -429,7 +412,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -439,7 +421,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -449,7 +430,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -460,12 +440,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -480,12 +457,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -565,17 +539,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -604,7 +575,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -614,7 +584,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -624,7 +593,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -635,9 +603,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type Sku struct {
-	// Name of this SKU.
-	Name SkuName `pulumi:"name"`
-	// The tier of this SKU.
+	Name SkuName  `pulumi:"name"`
 	Tier *SkuTier `pulumi:"tier"`
 }
 
@@ -653,9 +619,7 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Name of this SKU.
-	Name SkuNameInput `pulumi:"name"`
-	// The tier of this SKU.
+	Name SkuNameInput    `pulumi:"name"`
 	Tier SkuTierPtrInput `pulumi:"tier"`
 }
 
@@ -736,12 +700,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuOutput) Name() SkuNameOutput {
 	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
-// The tier of this SKU.
 func (o SkuOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v Sku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
@@ -770,7 +732,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Name of this SKU.
 func (o SkuPtrOutput) Name() SkuNamePtrOutput {
 	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
@@ -780,7 +741,6 @@ func (o SkuPtrOutput) Name() SkuNamePtrOutput {
 	}).(SkuNamePtrOutput)
 }
 
-// The tier of this SKU.
 func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v *Sku) *SkuTier {
 		if v == nil {
@@ -791,9 +751,7 @@ func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
 }
 
 type SkuResponse struct {
-	// Name of this SKU.
-	Name string `pulumi:"name"`
-	// The tier of this SKU.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -809,9 +767,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of this SKU.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -892,12 +848,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of this SKU.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -926,7 +880,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -936,7 +889,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of this SKU.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

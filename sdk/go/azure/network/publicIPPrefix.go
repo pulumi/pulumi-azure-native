@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public IP prefix resource.
-// API Version: 2020-11-01.
 type PublicIPPrefix struct {
 	pulumi.CustomResourceState
 

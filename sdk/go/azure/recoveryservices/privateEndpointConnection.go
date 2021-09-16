@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private Endpoint Connection Response Properties
-// API Version: 2021-02-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An HCX Enterprise Site resource
-// API Version: 2020-03-20.
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 

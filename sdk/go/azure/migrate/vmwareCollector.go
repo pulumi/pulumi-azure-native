@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-10-01.
 type VMwareCollector struct {
 	pulumi.CustomResourceState
 

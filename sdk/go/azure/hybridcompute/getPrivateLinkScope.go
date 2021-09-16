@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Arc PrivateLinkScope definition.
-// API Version: 2021-03-25-preview.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
 	err := ctx.Invoke("azure-native:hybridcompute:getPrivateLinkScope", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArg
 }
 
 type LookupPrivateLinkScopeArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName         string `pulumi:"scopeName"`
 }
 
 // An Azure Arc PrivateLinkScope definition.
 type LookupPrivateLinkScopeResult struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Properties that define a Azure Arc PrivateLinkScope resource.
+	Id         string                                          `pulumi:"id"`
+	Location   string                                          `pulumi:"location"`
+	Name       string                                          `pulumi:"name"`
 	Properties HybridComputePrivateLinkScopePropertiesResponse `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                              `pulumi:"systemData"`
+	Tags       map[string]string                               `pulumi:"tags"`
+	Type       string                                          `pulumi:"type"`
 }

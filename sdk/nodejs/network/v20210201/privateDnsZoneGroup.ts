@@ -51,6 +51,10 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
      * The provisioning state of the private dns zone group resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Type of resource. Will be specified as private dns zone groups.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PrivateDnsZoneGroup resource with the given unique name, arguments, and options.
@@ -75,6 +79,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             inputs["privateDnsZoneGroupName"] = args ? args.privateDnsZoneGroupName : undefined;
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         } else {
@@ -82,6 +87,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateDnsZoneConfigs"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -120,4 +126,8 @@ export interface PrivateDnsZoneGroupArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Type of resource. Will be specified as private dns zone groups.
+     */
+    type?: pulumi.Input<string>;
 }

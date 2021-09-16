@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration of App Service site logs.
-// API Version: 2020-12-01.
 type WebAppDiagnosticLogsConfiguration struct {
 	pulumi.CustomResourceState
 

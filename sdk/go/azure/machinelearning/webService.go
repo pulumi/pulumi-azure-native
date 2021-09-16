@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Instance of an Azure ML web service resource.
-// API Version: 2017-01-01.
 type WebService struct {
 	pulumi.CustomResourceState
 

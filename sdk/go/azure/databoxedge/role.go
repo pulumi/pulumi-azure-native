@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compute role.
-// API Version: 2020-12-01.
-//
 // Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 type Role struct {
 	pulumi.CustomResourceState

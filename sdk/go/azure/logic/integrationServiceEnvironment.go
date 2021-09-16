@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration service environment.
-// API Version: 2019-05-01.
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 

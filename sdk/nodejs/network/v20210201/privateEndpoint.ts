@@ -72,6 +72,10 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The resource id of private endpoint.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the subnet from which the private IP will be allocated.
      */
     public readonly subnet!: pulumi.Output<outputs.network.v20210201.SubnetResponse | undefined>;
@@ -106,6 +110,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["privateLinkServiceConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["subnet"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -172,6 +178,10 @@ export interface PrivateEndpointArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource id of private endpoint.
+     */
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */

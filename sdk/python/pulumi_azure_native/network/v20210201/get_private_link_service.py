@@ -20,7 +20,7 @@ class GetPrivateLinkServiceResult:
     """
     Private link service resource.
     """
-    def __init__(__self__, alias=None, auto_approval=None, enable_proxy_protocol=None, etag=None, extended_location=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
+    def __init__(__self__, alias=None, auto_approval=None, enable_proxy_protocol=None, etag=None, extended_location=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, resource_guid=None, tags=None, type=None, visibility=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -63,6 +63,9 @@ class GetPrivateLinkServiceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -186,6 +189,14 @@ class GetPrivateLinkServiceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource id of private link service.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -230,6 +241,7 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
             network_interfaces=self.network_interfaces,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type,
             visibility=self.visibility)
@@ -272,6 +284,7 @@ def get_private_link_service(expand: Optional[str] = None,
         network_interfaces=__ret__.network_interfaces,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type,
         visibility=__ret__.visibility)

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-05-01.
 func LookupResourceManagementPrivateLink(ctx *pulumi.Context, args *LookupResourceManagementPrivateLinkArgs, opts ...pulumi.InvokeOption) (*LookupResourceManagementPrivateLinkResult, error) {
 	var rv LookupResourceManagementPrivateLinkResult
 	err := ctx.Invoke("azure-native:authorization:getResourceManagementPrivateLink", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupResourceManagementPrivateLink(ctx *pulumi.Context, args *LookupResour
 }
 
 type LookupResourceManagementPrivateLinkArgs struct {
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource management private link.
-	RmplName string `pulumi:"rmplName"`
+	RmplName          string `pulumi:"rmplName"`
 }
 
 type LookupResourceManagementPrivateLinkResult struct {
-	// The rmplResourceID.
-	Id string `pulumi:"id"`
-	// the region of the rmpl
-	Location *string `pulumi:"location"`
-	// The rmpl Name.
+	Id         string                                                   `pulumi:"id"`
+	Location   *string                                                  `pulumi:"location"`
 	Name       string                                                   `pulumi:"name"`
 	Properties ResourceManagementPrivateLinkEndpointConnectionsResponse `pulumi:"properties"`
-	// The operation type.
-	Type string `pulumi:"type"`
+	Type       string                                                   `pulumi:"type"`
 }

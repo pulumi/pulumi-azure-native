@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Arc PrivateLinkScope definition.
-// API Version: 2021-03-25-preview.
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 

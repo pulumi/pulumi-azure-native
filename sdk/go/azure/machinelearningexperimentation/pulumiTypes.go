@@ -11,9 +11,7 @@ import (
 )
 
 type StorageAccountProperties struct {
-	// The access key to the storage account.
-	AccessKey string `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        string `pulumi:"accessKey"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -29,9 +27,7 @@ type StorageAccountPropertiesInput interface {
 }
 
 type StorageAccountPropertiesArgs struct {
-	// The access key to the storage account.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        pulumi.StringInput `pulumi:"accessKey"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -112,12 +108,10 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithC
 	}).(StorageAccountPropertiesPtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -146,7 +140,6 @@ func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput
 	}).(StorageAccountPropertiesOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -167,9 +159,7 @@ func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOu
 }
 
 type StorageAccountPropertiesResponse struct {
-	// The access key to the storage account.
-	AccessKey string `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        string `pulumi:"accessKey"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -185,9 +175,7 @@ type StorageAccountPropertiesResponseInput interface {
 }
 
 type StorageAccountPropertiesResponseArgs struct {
-	// The access key to the storage account.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        pulumi.StringInput `pulumi:"accessKey"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -268,12 +256,10 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponseOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -302,7 +288,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountProperti
 	}).(StorageAccountPropertiesResponseOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Service Token
-// API Version: 2021-03-01-preview.
 func GetOnlineEndpointToken(ctx *pulumi.Context, args *GetOnlineEndpointTokenArgs, opts ...pulumi.InvokeOption) (*GetOnlineEndpointTokenResult, error) {
 	var rv GetOnlineEndpointTokenResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getOnlineEndpointToken", args, &rv, opts...)
@@ -19,22 +17,15 @@ func GetOnlineEndpointToken(ctx *pulumi.Context, args *GetOnlineEndpointTokenArg
 }
 
 type GetOnlineEndpointTokenArgs struct {
-	// Online Endpoint name.
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group. The name is case insensitive.
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Service Token
 type GetOnlineEndpointTokenResult struct {
-	// Access token.
-	AccessToken *string `pulumi:"accessToken"`
-	// Access token expiry time (UTC).
-	ExpiryTimeUtc *float64 `pulumi:"expiryTimeUtc"`
-	// Refresh access token after time (UTC).
+	AccessToken         *string  `pulumi:"accessToken"`
+	ExpiryTimeUtc       *float64 `pulumi:"expiryTimeUtc"`
 	RefreshAfterTimeUtc *float64 `pulumi:"refreshAfterTimeUtc"`
-	// Access token type.
-	TokenType *string `pulumi:"tokenType"`
+	TokenType           *string  `pulumi:"tokenType"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the provisioning service.
-// API Version: 2020-03-01.
 func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourceResult, error) {
 	var rv LookupIotDpsResourceResult
 	err := ctx.Invoke("azure-native:devices:getIotDpsResource", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, o
 }
 
 type LookupIotDpsResourceArgs struct {
-	// Name of the provisioning service to retrieve.
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
-	// Resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // The description of the provisioning service.
 type LookupIotDpsResourceResult struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Service specific properties for a provisioning service
+	Etag       *string                             `pulumi:"etag"`
+	Id         string                              `pulumi:"id"`
+	Location   string                              `pulumi:"location"`
+	Name       string                              `pulumi:"name"`
 	Properties IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Sku        IotDpsSkuInfoResponse               `pulumi:"sku"`
+	Tags       map[string]string                   `pulumi:"tags"`
+	Type       string                              `pulumi:"type"`
 }

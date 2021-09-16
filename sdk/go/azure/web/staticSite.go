@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Static Site ARM resource.
-// API Version: 2020-12-01.
 type StaticSite struct {
 	pulumi.CustomResourceState
 

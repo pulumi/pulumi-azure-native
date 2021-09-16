@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-06-22.
 func ListKeyByAutomationAccount(ctx *pulumi.Context, args *ListKeyByAutomationAccountArgs, opts ...pulumi.InvokeOption) (*ListKeyByAutomationAccountResult, error) {
 	var rv ListKeyByAutomationAccountResult
 	err := ctx.Invoke("azure-native:automation:listKeyByAutomationAccount", args, &rv, opts...)
@@ -18,13 +17,10 @@ func ListKeyByAutomationAccount(ctx *pulumi.Context, args *ListKeyByAutomationAc
 }
 
 type ListKeyByAutomationAccountArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 type ListKeyByAutomationAccountResult struct {
-	// Lists the automation keys.
 	Keys []KeyResponse `pulumi:"keys"`
 }

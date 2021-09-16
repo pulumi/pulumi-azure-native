@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20181015 from "./v20181015";
+import * as v20211001preview from "./v20211001preview";
 
 export {
     v20181015,
+    v20211001preview,
 };
 
 export const AddRemove = {
@@ -40,6 +42,27 @@ export const ConfigurationState = {
  * Describes the user's progress in configuring their environment setting
  */
 export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
+
+export const ConnectionType = {
+    Public: "Public",
+    Private: "Private",
+    None: "None",
+} as const;
+
+/**
+ * The enabled access level for Web Access over SSH.
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+export const EnableState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether a VM will get shutdown when it hasn't been connected to after a period of time.
+ */
+export type EnableState = (typeof EnableState)[keyof typeof EnableState];
 
 export const LabUserAccessMode = {
     /**
@@ -76,3 +99,75 @@ export const ManagedLabVmSize = {
  * The size of the virtual machine
  */
 export type ManagedLabVmSize = (typeof ManagedLabVmSize)[keyof typeof ManagedLabVmSize];
+
+export const RecurrenceFrequency = {
+    /**
+     * Schedule will run every days.
+     */
+    Daily: "Daily",
+    /**
+     * Schedule will run every week on days specified in weekDays.
+     */
+    Weekly: "Weekly",
+} as const;
+
+/**
+ * The frequency of the recurrence.
+ */
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
+
+export const ShutdownOnIdleMode = {
+    /**
+     * The VM won't be shut down when it is idle.
+     */
+    None: "None",
+    /**
+     * The VM will be considered as idle when there is no keyboard or mouse input.
+     */
+    UserAbsence: "UserAbsence",
+    /**
+     * The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
+     */
+    LowUsage: "LowUsage",
+} as const;
+
+/**
+ * Whether a VM will get shutdown when it has idled for a period of time.
+ */
+export type ShutdownOnIdleMode = (typeof ShutdownOnIdleMode)[keyof typeof ShutdownOnIdleMode];
+
+export const WeekDay = {
+    /**
+     * Schedule will run on Sunday
+     */
+    Sunday: "Sunday",
+    /**
+     * Schedule will run on Monday
+     */
+    Monday: "Monday",
+    /**
+     * Schedule will run on Tuesday
+     */
+    Tuesday: "Tuesday",
+    /**
+     * Schedule will run on Wednesday
+     */
+    Wednesday: "Wednesday",
+    /**
+     * Schedule will run on Thursday
+     */
+    Thursday: "Thursday",
+    /**
+     * Schedule will run on Friday
+     */
+    Friday: "Friday",
+    /**
+     * Schedule will run on Saturday
+     */
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * Days of the week.
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

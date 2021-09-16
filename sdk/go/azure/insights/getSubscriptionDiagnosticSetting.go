@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The subscription diagnostic setting resource.
-// API Version: 2017-05-01-preview.
 func LookupSubscriptionDiagnosticSetting(ctx *pulumi.Context, args *LookupSubscriptionDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionDiagnosticSettingResult, error) {
 	var rv LookupSubscriptionDiagnosticSettingResult
 	err := ctx.Invoke("azure-native:insights:getSubscriptionDiagnosticSetting", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupSubscriptionDiagnosticSetting(ctx *pulumi.Context, args *LookupSubscr
 }
 
 type LookupSubscriptionDiagnosticSettingArgs struct {
-	// The name of the diagnostic setting.
 	Name string `pulumi:"name"`
 }
 
 // The subscription diagnostic setting resource.
 type LookupSubscriptionDiagnosticSettingResult struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The list of logs settings.
-	Logs []SubscriptionLogSettingsResponse `pulumi:"logs"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId *string                           `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                *string                           `pulumi:"eventHubName"`
+	Id                          string                            `pulumi:"id"`
+	Location                    *string                           `pulumi:"location"`
+	Logs                        []SubscriptionLogSettingsResponse `pulumi:"logs"`
+	Name                        string                            `pulumi:"name"`
+	ServiceBusRuleId            *string                           `pulumi:"serviceBusRuleId"`
+	StorageAccountId            *string                           `pulumi:"storageAccountId"`
+	Type                        string                            `pulumi:"type"`
+	WorkspaceId                 *string                           `pulumi:"workspaceId"`
 }

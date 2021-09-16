@@ -11,12 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Defender settings
-// API Version: 2021-02-01-preview.
 type DefenderSetting struct {
 	pulumi.CustomResourceState
 
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	// Size of the device quota. Value is required to be in multiples of 100.
 	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
 	// End time of the evaluation period, if such exist
 	EvaluationEndTime pulumi.StringOutput `pulumi:"evaluationEndTime"`
@@ -95,7 +93,7 @@ func (DefenderSettingState) ElementType() reflect.Type {
 }
 
 type defenderSettingArgs struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	// Size of the device quota. Value is required to be in multiples of 100.
 	DeviceQuota int `pulumi:"deviceQuota"`
 	// MDE integration configuration
 	MdeIntegration DefenderSettingsPropertiesMdeIntegration `pulumi:"mdeIntegration"`
@@ -107,7 +105,7 @@ type defenderSettingArgs struct {
 
 // The set of arguments for constructing a DefenderSetting resource.
 type DefenderSettingArgs struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	// Size of the device quota. Value is required to be in multiples of 100.
 	DeviceQuota pulumi.IntInput
 	// MDE integration configuration
 	MdeIntegration DefenderSettingsPropertiesMdeIntegrationInput

@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Lab{}
 	case "azure-native:labservices:LabAccount":
 		r = &LabAccount{}
+	case "azure-native:labservices:LabPlan":
+		r = &LabPlan{}
+	case "azure-native:labservices:Schedule":
+		r = &Schedule{}
 	case "azure-native:labservices:User":
 		r = &User{}
 	default:

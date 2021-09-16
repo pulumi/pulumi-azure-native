@@ -34,6 +34,7 @@ type LookupPrivateEndpointResult struct {
 	NetworkInterfaces                   []NetworkInterfaceResponse                `pulumi:"networkInterfaces"`
 	PrivateLinkServiceConnections       []PrivateLinkServiceConnectionResponse    `pulumi:"privateLinkServiceConnections"`
 	ProvisioningState                   string                                    `pulumi:"provisioningState"`
+	ResourceGuid                        *string                                   `pulumi:"resourceGuid"`
 	Subnet                              *SubnetResponse                           `pulumi:"subnet"`
 	Tags                                map[string]string                         `pulumi:"tags"`
 	Type                                string                                    `pulumi:"type"`

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration profile assignment is an association between a VM and automanage profile configuration.
-// API Version: 2020-06-30-preview.
 type ConfigurationProfileAssignment struct {
 	pulumi.CustomResourceState
 

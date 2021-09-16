@@ -30,7 +30,7 @@ export interface GetDefenderSettingArgs {
  */
 export interface GetDefenderSettingResult {
     /**
-     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     * Size of the device quota. Value is required to be in multiples of 100.
      */
     readonly deviceQuota: number;
     /**

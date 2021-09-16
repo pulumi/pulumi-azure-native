@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of a single video in a Video Analyzer account.
-// API Version: 2021-05-01-preview.
 type Video struct {
 	pulumi.CustomResourceState
 

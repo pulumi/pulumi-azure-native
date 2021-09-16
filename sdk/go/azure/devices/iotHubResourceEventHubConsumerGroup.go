@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of the EventHubConsumerGroupInfo object.
-// API Version: 2020-08-31.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 

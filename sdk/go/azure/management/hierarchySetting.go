@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings defined at the Management Group scope.
-// API Version: 2020-05-01.
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 

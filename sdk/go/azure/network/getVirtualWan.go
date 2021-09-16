@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualWAN Resource.
-// API Version: 2020-11-01.
 func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWanResult, error) {
 	var rv LookupVirtualWanResult
 	err := ctx.Invoke("azure-native:network:getVirtualWan", args, &rv, opts...)
@@ -19,38 +17,23 @@ func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...p
 }
 
 type LookupVirtualWanArgs struct {
-	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualWAN being retrieved.
-	VirtualWANName string `pulumi:"virtualWANName"`
+	VirtualWANName    string `pulumi:"virtualWANName"`
 }
 
 // VirtualWAN Resource.
 type LookupVirtualWanResult struct {
-	// True if branch to branch traffic is allowed.
-	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The office local breakout category.
-	Office365LocalBreakoutCategory string `pulumi:"office365LocalBreakoutCategory"`
-	// The provisioning state of the virtual WAN resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
-	// List of VpnSites in the VirtualWAN.
-	VpnSites []SubResourceResponse `pulumi:"vpnSites"`
+	AllowBranchToBranchTraffic     *bool                 `pulumi:"allowBranchToBranchTraffic"`
+	AllowVnetToVnetTraffic         *bool                 `pulumi:"allowVnetToVnetTraffic"`
+	DisableVpnEncryption           *bool                 `pulumi:"disableVpnEncryption"`
+	Etag                           string                `pulumi:"etag"`
+	Id                             *string               `pulumi:"id"`
+	Location                       string                `pulumi:"location"`
+	Name                           string                `pulumi:"name"`
+	Office365LocalBreakoutCategory string                `pulumi:"office365LocalBreakoutCategory"`
+	ProvisioningState              string                `pulumi:"provisioningState"`
+	Tags                           map[string]string     `pulumi:"tags"`
+	Type                           string                `pulumi:"type"`
+	VirtualHubs                    []SubResourceResponse `pulumi:"virtualHubs"`
+	VpnSites                       []SubResourceResponse `pulumi:"vpnSites"`
 }

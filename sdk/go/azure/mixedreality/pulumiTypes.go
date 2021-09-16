@@ -11,7 +11,6 @@ import (
 )
 
 type Identity struct {
-	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -27,7 +26,6 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -108,7 +106,6 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
 func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -137,7 +134,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type.
 func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
@@ -148,12 +144,9 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -168,12 +161,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -253,17 +243,14 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -292,7 +279,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -302,7 +288,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -323,7 +307,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ObjectAnchorsAccountIdentity struct {
-	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -339,7 +322,6 @@ type ObjectAnchorsAccountIdentityInput interface {
 }
 
 type ObjectAnchorsAccountIdentityArgs struct {
-	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -420,7 +402,6 @@ func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityPtrOut
 	}).(ObjectAnchorsAccountIdentityPtrOutput)
 }
 
-// The identity type.
 func (o ObjectAnchorsAccountIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -449,7 +430,6 @@ func (o ObjectAnchorsAccountIdentityPtrOutput) Elem() ObjectAnchorsAccountIdenti
 	}).(ObjectAnchorsAccountIdentityOutput)
 }
 
-// The identity type.
 func (o ObjectAnchorsAccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -460,12 +440,9 @@ func (o ObjectAnchorsAccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOut
 }
 
 type ObjectAnchorsAccountResponseIdentity struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ObjectAnchorsAccountResponseIdentityInput is an input type that accepts ObjectAnchorsAccountResponseIdentityArgs and ObjectAnchorsAccountResponseIdentityOutput values.
@@ -480,12 +457,9 @@ type ObjectAnchorsAccountResponseIdentityInput interface {
 }
 
 type ObjectAnchorsAccountResponseIdentityArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ObjectAnchorsAccountResponseIdentityArgs) ElementType() reflect.Type {
@@ -565,17 +539,14 @@ func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountRespon
 	}).(ObjectAnchorsAccountResponseIdentityPtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o ObjectAnchorsAccountResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o ObjectAnchorsAccountResponseIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o ObjectAnchorsAccountResponseIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -604,7 +575,6 @@ func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Elem() ObjectAnchorsAccou
 	}).(ObjectAnchorsAccountResponseIdentityOutput)
 }
 
-// The principal ID of resource identity.
 func (o ObjectAnchorsAccountResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
 		if v == nil {
@@ -614,7 +584,6 @@ func (o ObjectAnchorsAccountResponseIdentityPtrOutput) PrincipalId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o ObjectAnchorsAccountResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
 		if v == nil {
@@ -624,7 +593,6 @@ func (o ObjectAnchorsAccountResponseIdentityPtrOutput) TenantId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
 		if v == nil {
@@ -635,16 +603,11 @@ func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Type() pulumi.StringPtrOu
 }
 
 type Sku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Capacity *int     `pulumi:"capacity"`
+	Family   *string  `pulumi:"family"`
+	Name     string   `pulumi:"name"`
+	Size     *string  `pulumi:"size"`
+	Tier     *SkuTier `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -659,16 +622,11 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     SkuTierPtrInput       `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -748,27 +706,22 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v Sku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
@@ -797,7 +750,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -807,7 +759,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -817,7 +768,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -827,7 +777,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -837,7 +786,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v *Sku) *SkuTier {
 		if v == nil {
@@ -848,16 +796,11 @@ func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
 }
 
 type SkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -872,16 +815,11 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -961,27 +899,22 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1010,7 +943,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1020,7 +952,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1030,7 +961,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1040,7 +970,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1050,7 +979,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1061,17 +989,11 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1087,17 +1009,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1178,32 +1094,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1232,7 +1142,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1242,7 +1151,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1252,7 +1160,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1262,7 +1169,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1272,7 +1178,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1282,7 +1187,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

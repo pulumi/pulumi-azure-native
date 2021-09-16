@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2016-03-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:scheduler:getJob", args, &rv, opts...)
@@ -18,21 +17,14 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupJobArgs struct {
-	// The job collection name.
 	JobCollectionName string `pulumi:"jobCollectionName"`
-	// The job name.
-	JobName string `pulumi:"jobName"`
-	// The resource group name.
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupJobResult struct {
-	// Gets the job resource identifier.
-	Id string `pulumi:"id"`
-	// Gets the job resource name.
-	Name string `pulumi:"name"`
-	// Gets or sets the job properties.
+	Id         string                `pulumi:"id"`
+	Name       string                `pulumi:"name"`
 	Properties JobPropertiesResponse `pulumi:"properties"`
-	// Gets the job resource type.
-	Type string `pulumi:"type"`
+	Type       string                `pulumi:"type"`
 }

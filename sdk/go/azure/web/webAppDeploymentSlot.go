@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User credentials used for publishing activity.
-// API Version: 2020-12-01.
 type WebAppDeploymentSlot struct {
 	pulumi.CustomResourceState
 

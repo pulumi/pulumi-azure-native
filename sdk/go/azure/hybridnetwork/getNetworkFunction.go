@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network function resource response.
-// API Version: 2020-01-01-preview.
 func LookupNetworkFunction(ctx *pulumi.Context, args *LookupNetworkFunctionArgs, opts ...pulumi.InvokeOption) (*LookupNetworkFunctionResult, error) {
 	var rv LookupNetworkFunctionResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getNetworkFunction", args, &rv, opts...)
@@ -19,44 +17,26 @@ func LookupNetworkFunction(ctx *pulumi.Context, args *LookupNetworkFunctionArgs,
 }
 
 type LookupNetworkFunctionArgs struct {
-	// The name of the network function resource.
 	NetworkFunctionName string `pulumi:"networkFunctionName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // Network function resource response.
 type LookupNetworkFunctionResult struct {
-	// The reference to the device resource.
-	Device *SubResourceResponse `pulumi:"device"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The resource URI of the managed application.
-	ManagedApplication SubResourceResponse `pulumi:"managedApplication"`
-	// The parameters for the managed application.
-	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The network function configurations from the user.
+	Device                            *SubResourceResponse                       `pulumi:"device"`
+	Etag                              *string                                    `pulumi:"etag"`
+	Id                                string                                     `pulumi:"id"`
+	Location                          string                                     `pulumi:"location"`
+	ManagedApplication                SubResourceResponse                        `pulumi:"managedApplication"`
+	ManagedApplicationParameters      interface{}                                `pulumi:"managedApplicationParameters"`
+	Name                              string                                     `pulumi:"name"`
 	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationResponse `pulumi:"networkFunctionUserConfigurations"`
-	// The provisioning state of the network function resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The service key for the network function resource.
-	ServiceKey string `pulumi:"serviceKey"`
-	// The sku name for the network function.
-	SkuName *string `pulumi:"skuName"`
-	// The sku type for the network function.
-	SkuType string `pulumi:"skuType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The vendor name for the network function.
-	VendorName *string `pulumi:"vendorName"`
-	// The vendor provisioning state for the network function resource.
-	VendorProvisioningState string `pulumi:"vendorProvisioningState"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
+	ServiceKey                        string                                     `pulumi:"serviceKey"`
+	SkuName                           *string                                    `pulumi:"skuName"`
+	SkuType                           string                                     `pulumi:"skuType"`
+	Tags                              map[string]string                          `pulumi:"tags"`
+	Type                              string                                     `pulumi:"type"`
+	VendorName                        *string                                    `pulumi:"vendorName"`
+	VendorProvisioningState           string                                     `pulumi:"vendorProvisioningState"`
 }

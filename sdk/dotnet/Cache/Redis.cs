@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Cache
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         /// </summary>
         [Output("redisConfiguration")]
-        public Output<ImmutableDictionary<string, string>?> RedisConfiguration { get; private set; } = null!;
+        public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Redis version.
@@ -255,17 +255,11 @@ namespace Pulumi.AzureNative.Cache
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Cache.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
-        [Input("redisConfiguration")]
-        private InputMap<string>? _redisConfiguration;
-
         /// <summary>
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         /// </summary>
-        public InputMap<string> RedisConfiguration
-        {
-            get => _redisConfiguration ?? (_redisConfiguration = new InputMap<string>());
-            set => _redisConfiguration = value;
-        }
+        [Input("redisConfiguration")]
+        public Input<Inputs.RedisCommonPropertiesRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
         /// The number of replicas to be created per master.

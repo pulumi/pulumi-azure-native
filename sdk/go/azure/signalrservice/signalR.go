@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represent a SignalR service resource.
-// API Version: 2020-05-01.
 type SignalR struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +107,12 @@ func NewSignalR(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20210601preview:SignalR"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20210901preview:SignalR"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:signalrservice/v20210901preview:SignalR"),
 		},
 	})
 	opts = append(opts, aliases)

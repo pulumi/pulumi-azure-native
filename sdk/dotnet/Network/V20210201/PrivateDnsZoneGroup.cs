@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of resource. Will be specified as private dns zone groups.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PrivateDnsZoneGroup resource with the given unique name, arguments, and options.
@@ -147,6 +153,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Type of resource. Will be specified as private dns zone groups.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public PrivateDnsZoneGroupArgs()
         {

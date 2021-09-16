@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get patch schedules for Redis cache.
-// API Version: 2020-06-01.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 

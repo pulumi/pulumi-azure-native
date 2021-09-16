@@ -11,24 +11,15 @@ import (
 )
 
 type ClusterNodeResponse struct {
-	// Number of physical cores on the cluster node.
-	CoreCount float64 `pulumi:"coreCount"`
-	// Id of the node in the cluster.
-	Id float64 `pulumi:"id"`
-	// Manufacturer of the cluster node hardware.
-	Manufacturer string `pulumi:"manufacturer"`
-	// Total available memory on the cluster node (in GiB).
-	MemoryInGiB float64 `pulumi:"memoryInGiB"`
-	// Model name of the cluster node hardware.
-	Model string `pulumi:"model"`
-	// Name of the cluster node.
-	Name string `pulumi:"name"`
-	// Operating system running on the cluster node.
-	OsName string `pulumi:"osName"`
-	// Version of the operating system running on the cluster node.
-	OsVersion string `pulumi:"osVersion"`
-	// Immutable id of the cluster node.
-	SerialNumber string `pulumi:"serialNumber"`
+	CoreCount    float64 `pulumi:"coreCount"`
+	Id           float64 `pulumi:"id"`
+	Manufacturer string  `pulumi:"manufacturer"`
+	MemoryInGiB  float64 `pulumi:"memoryInGiB"`
+	Model        string  `pulumi:"model"`
+	Name         string  `pulumi:"name"`
+	OsName       string  `pulumi:"osName"`
+	OsVersion    string  `pulumi:"osVersion"`
+	SerialNumber string  `pulumi:"serialNumber"`
 }
 
 // ClusterNodeResponseInput is an input type that accepts ClusterNodeResponseArgs and ClusterNodeResponseOutput values.
@@ -43,24 +34,15 @@ type ClusterNodeResponseInput interface {
 }
 
 type ClusterNodeResponseArgs struct {
-	// Number of physical cores on the cluster node.
-	CoreCount pulumi.Float64Input `pulumi:"coreCount"`
-	// Id of the node in the cluster.
-	Id pulumi.Float64Input `pulumi:"id"`
-	// Manufacturer of the cluster node hardware.
-	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
-	// Total available memory on the cluster node (in GiB).
-	MemoryInGiB pulumi.Float64Input `pulumi:"memoryInGiB"`
-	// Model name of the cluster node hardware.
-	Model pulumi.StringInput `pulumi:"model"`
-	// Name of the cluster node.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operating system running on the cluster node.
-	OsName pulumi.StringInput `pulumi:"osName"`
-	// Version of the operating system running on the cluster node.
-	OsVersion pulumi.StringInput `pulumi:"osVersion"`
-	// Immutable id of the cluster node.
-	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+	CoreCount    pulumi.Float64Input `pulumi:"coreCount"`
+	Id           pulumi.Float64Input `pulumi:"id"`
+	Manufacturer pulumi.StringInput  `pulumi:"manufacturer"`
+	MemoryInGiB  pulumi.Float64Input `pulumi:"memoryInGiB"`
+	Model        pulumi.StringInput  `pulumi:"model"`
+	Name         pulumi.StringInput  `pulumi:"name"`
+	OsName       pulumi.StringInput  `pulumi:"osName"`
+	OsVersion    pulumi.StringInput  `pulumi:"osVersion"`
+	SerialNumber pulumi.StringInput  `pulumi:"serialNumber"`
 }
 
 func (ClusterNodeResponseArgs) ElementType() reflect.Type {
@@ -114,47 +96,38 @@ func (o ClusterNodeResponseOutput) ToClusterNodeResponseOutputWithContext(ctx co
 	return o
 }
 
-// Number of physical cores on the cluster node.
 func (o ClusterNodeResponseOutput) CoreCount() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterNodeResponse) float64 { return v.CoreCount }).(pulumi.Float64Output)
 }
 
-// Id of the node in the cluster.
 func (o ClusterNodeResponseOutput) Id() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterNodeResponse) float64 { return v.Id }).(pulumi.Float64Output)
 }
 
-// Manufacturer of the cluster node hardware.
 func (o ClusterNodeResponseOutput) Manufacturer() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.Manufacturer }).(pulumi.StringOutput)
 }
 
-// Total available memory on the cluster node (in GiB).
 func (o ClusterNodeResponseOutput) MemoryInGiB() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterNodeResponse) float64 { return v.MemoryInGiB }).(pulumi.Float64Output)
 }
 
-// Model name of the cluster node hardware.
 func (o ClusterNodeResponseOutput) Model() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.Model }).(pulumi.StringOutput)
 }
 
-// Name of the cluster node.
 func (o ClusterNodeResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operating system running on the cluster node.
 func (o ClusterNodeResponseOutput) OsName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.OsName }).(pulumi.StringOutput)
 }
 
-// Version of the operating system running on the cluster node.
 func (o ClusterNodeResponseOutput) OsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.OsVersion }).(pulumi.StringOutput)
 }
 
-// Immutable id of the cluster node.
 func (o ClusterNodeResponseOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
 }
@@ -180,16 +153,11 @@ func (o ClusterNodeResponseArrayOutput) Index(i pulumi.IntInput) ClusterNodeResp
 }
 
 type ClusterReportedPropertiesResponse struct {
-	// Unique id generated by the on-prem cluster.
-	ClusterId string `pulumi:"clusterId"`
-	// Name of the on-prem cluster connected to this resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Version of the cluster software.
-	ClusterVersion string `pulumi:"clusterVersion"`
-	// Last time the cluster reported the data.
-	LastUpdated string `pulumi:"lastUpdated"`
-	// List of nodes reported by the cluster.
-	Nodes []ClusterNodeResponse `pulumi:"nodes"`
+	ClusterId      string                `pulumi:"clusterId"`
+	ClusterName    string                `pulumi:"clusterName"`
+	ClusterVersion string                `pulumi:"clusterVersion"`
+	LastUpdated    string                `pulumi:"lastUpdated"`
+	Nodes          []ClusterNodeResponse `pulumi:"nodes"`
 }
 
 // ClusterReportedPropertiesResponseInput is an input type that accepts ClusterReportedPropertiesResponseArgs and ClusterReportedPropertiesResponseOutput values.
@@ -204,16 +172,11 @@ type ClusterReportedPropertiesResponseInput interface {
 }
 
 type ClusterReportedPropertiesResponseArgs struct {
-	// Unique id generated by the on-prem cluster.
-	ClusterId pulumi.StringInput `pulumi:"clusterId"`
-	// Name of the on-prem cluster connected to this resource.
-	ClusterName pulumi.StringInput `pulumi:"clusterName"`
-	// Version of the cluster software.
-	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
-	// Last time the cluster reported the data.
-	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
-	// List of nodes reported by the cluster.
-	Nodes ClusterNodeResponseArrayInput `pulumi:"nodes"`
+	ClusterId      pulumi.StringInput            `pulumi:"clusterId"`
+	ClusterName    pulumi.StringInput            `pulumi:"clusterName"`
+	ClusterVersion pulumi.StringInput            `pulumi:"clusterVersion"`
+	LastUpdated    pulumi.StringInput            `pulumi:"lastUpdated"`
+	Nodes          ClusterNodeResponseArrayInput `pulumi:"nodes"`
 }
 
 func (ClusterReportedPropertiesResponseArgs) ElementType() reflect.Type {
@@ -293,27 +256,22 @@ func (o ClusterReportedPropertiesResponseOutput) ToClusterReportedPropertiesResp
 	}).(ClusterReportedPropertiesResponsePtrOutput)
 }
 
-// Unique id generated by the on-prem cluster.
 func (o ClusterReportedPropertiesResponseOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
-// Name of the on-prem cluster connected to this resource.
 func (o ClusterReportedPropertiesResponseOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Version of the cluster software.
 func (o ClusterReportedPropertiesResponseOutput) ClusterVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.ClusterVersion }).(pulumi.StringOutput)
 }
 
-// Last time the cluster reported the data.
 func (o ClusterReportedPropertiesResponseOutput) LastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
-// List of nodes reported by the cluster.
 func (o ClusterReportedPropertiesResponseOutput) Nodes() ClusterNodeResponseArrayOutput {
 	return o.ApplyT(func(v ClusterReportedPropertiesResponse) []ClusterNodeResponse { return v.Nodes }).(ClusterNodeResponseArrayOutput)
 }
@@ -342,7 +300,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Elem() ClusterReportedProper
 	}).(ClusterReportedPropertiesResponseOutput)
 }
 
-// Unique id generated by the on-prem cluster.
 func (o ClusterReportedPropertiesResponsePtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
 		if v == nil {
@@ -352,7 +309,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) ClusterId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the on-prem cluster connected to this resource.
 func (o ClusterReportedPropertiesResponsePtrOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
 		if v == nil {
@@ -362,7 +318,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) ClusterName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the cluster software.
 func (o ClusterReportedPropertiesResponsePtrOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
 		if v == nil {
@@ -372,7 +327,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) ClusterVersion() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last time the cluster reported the data.
 func (o ClusterReportedPropertiesResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) *string {
 		if v == nil {
@@ -382,7 +336,6 @@ func (o ClusterReportedPropertiesResponsePtrOutput) LastUpdated() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of nodes reported by the cluster.
 func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseArrayOutput {
 	return o.ApplyT(func(v *ClusterReportedPropertiesResponse) []ClusterNodeResponse {
 		if v == nil {
@@ -393,12 +346,9 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseA
 }
 
 type PerNodeExtensionStateResponse struct {
-	// Fully qualified resource ID for the particular Arc Extension on this node.
 	Extension string `pulumi:"extension"`
-	// Name of the node in HCI Cluster.
-	Name string `pulumi:"name"`
-	// State of Arc Extension in this node.
-	State string `pulumi:"state"`
+	Name      string `pulumi:"name"`
+	State     string `pulumi:"state"`
 }
 
 // PerNodeExtensionStateResponseInput is an input type that accepts PerNodeExtensionStateResponseArgs and PerNodeExtensionStateResponseOutput values.
@@ -413,12 +363,9 @@ type PerNodeExtensionStateResponseInput interface {
 }
 
 type PerNodeExtensionStateResponseArgs struct {
-	// Fully qualified resource ID for the particular Arc Extension on this node.
 	Extension pulumi.StringInput `pulumi:"extension"`
-	// Name of the node in HCI Cluster.
-	Name pulumi.StringInput `pulumi:"name"`
-	// State of Arc Extension in this node.
-	State pulumi.StringInput `pulumi:"state"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	State     pulumi.StringInput `pulumi:"state"`
 }
 
 func (PerNodeExtensionStateResponseArgs) ElementType() reflect.Type {
@@ -472,17 +419,14 @@ func (o PerNodeExtensionStateResponseOutput) ToPerNodeExtensionStateResponseOutp
 	return o
 }
 
-// Fully qualified resource ID for the particular Arc Extension on this node.
 func (o PerNodeExtensionStateResponseOutput) Extension() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.Extension }).(pulumi.StringOutput)
 }
 
-// Name of the node in HCI Cluster.
 func (o PerNodeExtensionStateResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// State of Arc Extension in this node.
 func (o PerNodeExtensionStateResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -508,12 +452,9 @@ func (o PerNodeExtensionStateResponseArrayOutput) Index(i pulumi.IntInput) PerNo
 }
 
 type PerNodeStateResponse struct {
-	// Fully qualified resource ID for the Arc agent of this node.
 	ArcInstance string `pulumi:"arcInstance"`
-	// Name of the Node in HCI Cluster
-	Name string `pulumi:"name"`
-	// State of Arc agent in this node.
-	State string `pulumi:"state"`
+	Name        string `pulumi:"name"`
+	State       string `pulumi:"state"`
 }
 
 // PerNodeStateResponseInput is an input type that accepts PerNodeStateResponseArgs and PerNodeStateResponseOutput values.
@@ -528,12 +469,9 @@ type PerNodeStateResponseInput interface {
 }
 
 type PerNodeStateResponseArgs struct {
-	// Fully qualified resource ID for the Arc agent of this node.
 	ArcInstance pulumi.StringInput `pulumi:"arcInstance"`
-	// Name of the Node in HCI Cluster
-	Name pulumi.StringInput `pulumi:"name"`
-	// State of Arc agent in this node.
-	State pulumi.StringInput `pulumi:"state"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	State       pulumi.StringInput `pulumi:"state"`
 }
 
 func (PerNodeStateResponseArgs) ElementType() reflect.Type {
@@ -587,17 +525,14 @@ func (o PerNodeStateResponseOutput) ToPerNodeStateResponseOutputWithContext(ctx 
 	return o
 }
 
-// Fully qualified resource ID for the Arc agent of this node.
 func (o PerNodeStateResponseOutput) ArcInstance() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeStateResponse) string { return v.ArcInstance }).(pulumi.StringOutput)
 }
 
-// Name of the Node in HCI Cluster
 func (o PerNodeStateResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeStateResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// State of Arc agent in this node.
 func (o PerNodeStateResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v PerNodeStateResponse) string { return v.State }).(pulumi.StringOutput)
 }

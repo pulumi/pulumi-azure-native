@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account partner.
-// API Version: 2019-05-01.
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 

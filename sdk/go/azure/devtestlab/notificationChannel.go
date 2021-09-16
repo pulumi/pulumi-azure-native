@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A notification.
-// API Version: 2018-09-15.
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 

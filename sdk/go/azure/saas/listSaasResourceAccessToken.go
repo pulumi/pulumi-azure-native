@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// the ISV access token result response.
-// API Version: 2018-03-01-beta.
 func ListSaasResourceAccessToken(ctx *pulumi.Context, args *ListSaasResourceAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasResourceAccessTokenResult, error) {
 	var rv ListSaasResourceAccessTokenResult
 	err := ctx.Invoke("azure-native:saas:listSaasResourceAccessToken", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListSaasResourceAccessToken(ctx *pulumi.Context, args *ListSaasResourceAcce
 }
 
 type ListSaasResourceAccessTokenArgs struct {
-	// The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 	ResourceId string `pulumi:"resourceId"`
 }
 
 // the ISV access token result response.
 type ListSaasResourceAccessTokenResult struct {
-	// The Publisher Offer Base Uri
 	PublisherOfferBaseUri *string `pulumi:"publisherOfferBaseUri"`
-	// The generated token
-	Token *string `pulumi:"token"`
+	Token                 *string `pulumi:"token"`
 }

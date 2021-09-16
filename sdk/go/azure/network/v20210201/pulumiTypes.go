@@ -47509,9 +47509,13 @@ func (o PrivateDnsZoneConfigArrayOutput) Index(i pulumi.IntInput) PrivateDnsZone
 }
 
 type PrivateDnsZoneConfigResponse struct {
-	Name             *string             `pulumi:"name"`
-	PrivateDnsZoneId *string             `pulumi:"privateDnsZoneId"`
-	RecordSets       []RecordSetResponse `pulumi:"recordSets"`
+	Etag              string              `pulumi:"etag"`
+	Id                string              `pulumi:"id"`
+	Name              *string             `pulumi:"name"`
+	PrivateDnsZoneId  *string             `pulumi:"privateDnsZoneId"`
+	ProvisioningState string              `pulumi:"provisioningState"`
+	RecordSets        []RecordSetResponse `pulumi:"recordSets"`
+	Type              string              `pulumi:"type"`
 }
 
 // PrivateDnsZoneConfigResponseInput is an input type that accepts PrivateDnsZoneConfigResponseArgs and PrivateDnsZoneConfigResponseOutput values.
@@ -47526,9 +47530,13 @@ type PrivateDnsZoneConfigResponseInput interface {
 }
 
 type PrivateDnsZoneConfigResponseArgs struct {
-	Name             pulumi.StringPtrInput       `pulumi:"name"`
-	PrivateDnsZoneId pulumi.StringPtrInput       `pulumi:"privateDnsZoneId"`
-	RecordSets       RecordSetResponseArrayInput `pulumi:"recordSets"`
+	Etag              pulumi.StringInput          `pulumi:"etag"`
+	Id                pulumi.StringInput          `pulumi:"id"`
+	Name              pulumi.StringPtrInput       `pulumi:"name"`
+	PrivateDnsZoneId  pulumi.StringPtrInput       `pulumi:"privateDnsZoneId"`
+	ProvisioningState pulumi.StringInput          `pulumi:"provisioningState"`
+	RecordSets        RecordSetResponseArrayInput `pulumi:"recordSets"`
+	Type              pulumi.StringInput          `pulumi:"type"`
 }
 
 func (PrivateDnsZoneConfigResponseArgs) ElementType() reflect.Type {
@@ -47582,6 +47590,14 @@ func (o PrivateDnsZoneConfigResponseOutput) ToPrivateDnsZoneConfigResponseOutput
 	return o
 }
 
+func (o PrivateDnsZoneConfigResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+func (o PrivateDnsZoneConfigResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
 func (o PrivateDnsZoneConfigResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -47590,8 +47606,16 @@ func (o PrivateDnsZoneConfigResponseOutput) PrivateDnsZoneId() pulumi.StringPtrO
 	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) *string { return v.PrivateDnsZoneId }).(pulumi.StringPtrOutput)
 }
 
+func (o PrivateDnsZoneConfigResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 func (o PrivateDnsZoneConfigResponseOutput) RecordSets() RecordSetResponseArrayOutput {
 	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) []RecordSetResponse { return v.RecordSets }).(RecordSetResponseArrayOutput)
+}
+
+func (o PrivateDnsZoneConfigResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateDnsZoneConfigResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PrivateDnsZoneConfigResponseArrayOutput struct{ *pulumi.OutputState }
@@ -47763,6 +47787,7 @@ type PrivateEndpointResponse struct {
 	NetworkInterfaces                   []NetworkInterfaceResponse                `pulumi:"networkInterfaces"`
 	PrivateLinkServiceConnections       []PrivateLinkServiceConnectionResponse    `pulumi:"privateLinkServiceConnections"`
 	ProvisioningState                   string                                    `pulumi:"provisioningState"`
+	ResourceGuid                        *string                                   `pulumi:"resourceGuid"`
 	Subnet                              *SubnetResponse                           `pulumi:"subnet"`
 	Tags                                map[string]string                         `pulumi:"tags"`
 	Type                                string                                    `pulumi:"type"`
@@ -47790,6 +47815,7 @@ type PrivateEndpointResponseArgs struct {
 	NetworkInterfaces                   NetworkInterfaceResponseArrayInput                `pulumi:"networkInterfaces"`
 	PrivateLinkServiceConnections       PrivateLinkServiceConnectionResponseArrayInput    `pulumi:"privateLinkServiceConnections"`
 	ProvisioningState                   pulumi.StringInput                                `pulumi:"provisioningState"`
+	ResourceGuid                        pulumi.StringPtrInput                             `pulumi:"resourceGuid"`
 	Subnet                              SubnetResponsePtrInput                            `pulumi:"subnet"`
 	Tags                                pulumi.StringMapInput                             `pulumi:"tags"`
 	Type                                pulumi.StringInput                                `pulumi:"type"`
@@ -47941,6 +47967,10 @@ func (o PrivateEndpointResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+func (o PrivateEndpointResponseOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
 func (o PrivateEndpointResponseOutput) Subnet() SubnetResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *SubnetResponse { return v.Subnet }).(SubnetResponsePtrOutput)
 }
@@ -48067,6 +48097,15 @@ func (o PrivateEndpointResponsePtrOutput) ProvisioningState() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o PrivateEndpointResponsePtrOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuid
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o PrivateEndpointResponsePtrOutput) Subnet() SubnetResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *SubnetResponse {
 		if v == nil {
@@ -48123,6 +48162,7 @@ type PrivateLinkServiceType struct {
 	IpConfigurations                     []PrivateLinkServiceIpConfiguration       `pulumi:"ipConfigurations"`
 	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration                 `pulumi:"loadBalancerFrontendIpConfigurations"`
 	Location                             *string                                   `pulumi:"location"`
+	ResourceGuid                         *string                                   `pulumi:"resourceGuid"`
 	Tags                                 map[string]string                         `pulumi:"tags"`
 	Visibility                           *PrivateLinkServicePropertiesVisibility   `pulumi:"visibility"`
 }
@@ -48147,6 +48187,7 @@ type PrivateLinkServiceTypeArgs struct {
 	IpConfigurations                     PrivateLinkServiceIpConfigurationArrayInput      `pulumi:"ipConfigurations"`
 	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput                `pulumi:"loadBalancerFrontendIpConfigurations"`
 	Location                             pulumi.StringPtrInput                            `pulumi:"location"`
+	ResourceGuid                         pulumi.StringPtrInput                            `pulumi:"resourceGuid"`
 	Tags                                 pulumi.StringMapInput                            `pulumi:"tags"`
 	Visibility                           PrivateLinkServicePropertiesVisibilityPtrInput   `pulumi:"visibility"`
 }
@@ -48262,6 +48303,10 @@ func (o PrivateLinkServiceTypeOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+func (o PrivateLinkServiceTypeOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceType) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
 func (o PrivateLinkServiceTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PrivateLinkServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -48366,6 +48411,15 @@ func (o PrivateLinkServiceTypePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o PrivateLinkServiceTypePtrOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuid
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o PrivateLinkServiceTypePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceType) map[string]string {
 		if v == nil {
@@ -48385,12 +48439,13 @@ func (o PrivateLinkServiceTypePtrOutput) Visibility() PrivateLinkServiceProperti
 }
 
 type PrivateLinkServiceConnection struct {
-	GroupIds                          []string                           `pulumi:"groupIds"`
-	Id                                *string                            `pulumi:"id"`
-	Name                              *string                            `pulumi:"name"`
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	PrivateLinkServiceId              *string                            `pulumi:"privateLinkServiceId"`
-	RequestMessage                    *string                            `pulumi:"requestMessage"`
+	GroupIds                           []string                           `pulumi:"groupIds"`
+	Id                                 *string                            `pulumi:"id"`
+	Name                               *string                            `pulumi:"name"`
+	PrivateLinkServiceConnectionState  *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceId               *string                            `pulumi:"privateLinkServiceId"`
+	RequestMessage                     *string                            `pulumi:"requestMessage"`
+	ResolvedPrivateLinkServiceLocation *string                            `pulumi:"resolvedPrivateLinkServiceLocation"`
 }
 
 // PrivateLinkServiceConnectionInput is an input type that accepts PrivateLinkServiceConnectionArgs and PrivateLinkServiceConnectionOutput values.
@@ -48405,12 +48460,13 @@ type PrivateLinkServiceConnectionInput interface {
 }
 
 type PrivateLinkServiceConnectionArgs struct {
-	GroupIds                          pulumi.StringArrayInput                   `pulumi:"groupIds"`
-	Id                                pulumi.StringPtrInput                     `pulumi:"id"`
-	Name                              pulumi.StringPtrInput                     `pulumi:"name"`
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	PrivateLinkServiceId              pulumi.StringPtrInput                     `pulumi:"privateLinkServiceId"`
-	RequestMessage                    pulumi.StringPtrInput                     `pulumi:"requestMessage"`
+	GroupIds                           pulumi.StringArrayInput                   `pulumi:"groupIds"`
+	Id                                 pulumi.StringPtrInput                     `pulumi:"id"`
+	Name                               pulumi.StringPtrInput                     `pulumi:"name"`
+	PrivateLinkServiceConnectionState  PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceId               pulumi.StringPtrInput                     `pulumi:"privateLinkServiceId"`
+	RequestMessage                     pulumi.StringPtrInput                     `pulumi:"requestMessage"`
+	ResolvedPrivateLinkServiceLocation pulumi.StringPtrInput                     `pulumi:"resolvedPrivateLinkServiceLocation"`
 }
 
 func (PrivateLinkServiceConnectionArgs) ElementType() reflect.Type {
@@ -48490,6 +48546,10 @@ func (o PrivateLinkServiceConnectionOutput) RequestMessage() pulumi.StringPtrOut
 	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
+func (o PrivateLinkServiceConnectionOutput) ResolvedPrivateLinkServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.ResolvedPrivateLinkServiceLocation }).(pulumi.StringPtrOutput)
+}
+
 type PrivateLinkServiceConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionArrayOutput) ElementType() reflect.Type {
@@ -48511,15 +48571,16 @@ func (o PrivateLinkServiceConnectionArrayOutput) Index(i pulumi.IntInput) Privat
 }
 
 type PrivateLinkServiceConnectionResponse struct {
-	Etag                              string                                     `pulumi:"etag"`
-	GroupIds                          []string                                   `pulumi:"groupIds"`
-	Id                                *string                                    `pulumi:"id"`
-	Name                              *string                                    `pulumi:"name"`
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	PrivateLinkServiceId              *string                                    `pulumi:"privateLinkServiceId"`
-	ProvisioningState                 string                                     `pulumi:"provisioningState"`
-	RequestMessage                    *string                                    `pulumi:"requestMessage"`
-	Type                              string                                     `pulumi:"type"`
+	Etag                               string                                     `pulumi:"etag"`
+	GroupIds                           []string                                   `pulumi:"groupIds"`
+	Id                                 *string                                    `pulumi:"id"`
+	Name                               *string                                    `pulumi:"name"`
+	PrivateLinkServiceConnectionState  *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceId               *string                                    `pulumi:"privateLinkServiceId"`
+	ProvisioningState                  string                                     `pulumi:"provisioningState"`
+	RequestMessage                     *string                                    `pulumi:"requestMessage"`
+	ResolvedPrivateLinkServiceLocation *string                                    `pulumi:"resolvedPrivateLinkServiceLocation"`
+	Type                               string                                     `pulumi:"type"`
 }
 
 // PrivateLinkServiceConnectionResponseInput is an input type that accepts PrivateLinkServiceConnectionResponseArgs and PrivateLinkServiceConnectionResponseOutput values.
@@ -48534,15 +48595,16 @@ type PrivateLinkServiceConnectionResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionResponseArgs struct {
-	Etag                              pulumi.StringInput                                `pulumi:"etag"`
-	GroupIds                          pulumi.StringArrayInput                           `pulumi:"groupIds"`
-	Id                                pulumi.StringPtrInput                             `pulumi:"id"`
-	Name                              pulumi.StringPtrInput                             `pulumi:"name"`
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	PrivateLinkServiceId              pulumi.StringPtrInput                             `pulumi:"privateLinkServiceId"`
-	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
-	RequestMessage                    pulumi.StringPtrInput                             `pulumi:"requestMessage"`
-	Type                              pulumi.StringInput                                `pulumi:"type"`
+	Etag                               pulumi.StringInput                                `pulumi:"etag"`
+	GroupIds                           pulumi.StringArrayInput                           `pulumi:"groupIds"`
+	Id                                 pulumi.StringPtrInput                             `pulumi:"id"`
+	Name                               pulumi.StringPtrInput                             `pulumi:"name"`
+	PrivateLinkServiceConnectionState  PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceId               pulumi.StringPtrInput                             `pulumi:"privateLinkServiceId"`
+	ProvisioningState                  pulumi.StringInput                                `pulumi:"provisioningState"`
+	RequestMessage                     pulumi.StringPtrInput                             `pulumi:"requestMessage"`
+	ResolvedPrivateLinkServiceLocation pulumi.StringPtrInput                             `pulumi:"resolvedPrivateLinkServiceLocation"`
+	Type                               pulumi.StringInput                                `pulumi:"type"`
 }
 
 func (PrivateLinkServiceConnectionResponseArgs) ElementType() reflect.Type {
@@ -48628,6 +48690,10 @@ func (o PrivateLinkServiceConnectionResponseOutput) ProvisioningState() pulumi.S
 
 func (o PrivateLinkServiceConnectionResponseOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) ResolvedPrivateLinkServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) *string { return v.ResolvedPrivateLinkServiceLocation }).(pulumi.StringPtrOutput)
 }
 
 func (o PrivateLinkServiceConnectionResponseOutput) Type() pulumi.StringOutput {
@@ -49805,6 +49871,7 @@ type PrivateLinkServiceResponse struct {
 	NetworkInterfaces                    []NetworkInterfaceResponse                        `pulumi:"networkInterfaces"`
 	PrivateEndpointConnections           []PrivateEndpointConnectionResponse               `pulumi:"privateEndpointConnections"`
 	ProvisioningState                    string                                            `pulumi:"provisioningState"`
+	ResourceGuid                         *string                                           `pulumi:"resourceGuid"`
 	Tags                                 map[string]string                                 `pulumi:"tags"`
 	Type                                 string                                            `pulumi:"type"`
 	Visibility                           *PrivateLinkServicePropertiesResponseVisibility   `pulumi:"visibility"`
@@ -49836,6 +49903,7 @@ type PrivateLinkServiceResponseArgs struct {
 	NetworkInterfaces                    NetworkInterfaceResponseArrayInput                       `pulumi:"networkInterfaces"`
 	PrivateEndpointConnections           PrivateEndpointConnectionResponseArrayInput              `pulumi:"privateEndpointConnections"`
 	ProvisioningState                    pulumi.StringInput                                       `pulumi:"provisioningState"`
+	ResourceGuid                         pulumi.StringPtrInput                                    `pulumi:"resourceGuid"`
 	Tags                                 pulumi.StringMapInput                                    `pulumi:"tags"`
 	Type                                 pulumi.StringInput                                       `pulumi:"type"`
 	Visibility                           PrivateLinkServicePropertiesResponseVisibilityPtrInput   `pulumi:"visibility"`
@@ -49980,6 +50048,10 @@ func (o PrivateLinkServiceResponseOutput) PrivateEndpointConnections() PrivateEn
 
 func (o PrivateLinkServiceResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PrivateLinkServiceResponseOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceResponse) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
 }
 
 func (o PrivateLinkServiceResponseOutput) Tags() pulumi.StringMapOutput {
@@ -50143,6 +50215,15 @@ func (o PrivateLinkServiceResponsePtrOutput) ProvisioningState() pulumi.StringPt
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceResponsePtrOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuid
 	}).(pulumi.StringPtrOutput)
 }
 

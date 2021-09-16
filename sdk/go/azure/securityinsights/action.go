@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action for alert rule.
-// API Version: 2020-01-01.
 type Action struct {
 	pulumi.CustomResourceState
 

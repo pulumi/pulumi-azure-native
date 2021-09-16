@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to an extension resource GET request.
-// API Version: 2014-04-01-preview.
 type Extension struct {
 	pulumi.CustomResourceState
 

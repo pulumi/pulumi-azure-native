@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Partner Namespace.
-// API Version: 2021-06-01-preview.
 type PartnerNamespace struct {
 	pulumi.CustomResourceState
 

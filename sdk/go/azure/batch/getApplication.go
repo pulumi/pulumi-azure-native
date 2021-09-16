@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an application in a Batch account.
-// API Version: 2021-01-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:batch:getApplication", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the application. This must be unique within the account.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the resource group that contains the Batch account.
+	AccountName       string `pulumi:"accountName"`
+	ApplicationName   string `pulumi:"applicationName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Contains information about an application in a Batch account.
 type LookupApplicationResult struct {
-	// A value indicating whether packages within the application may be overwritten using the same version string.
-	AllowUpdates *bool `pulumi:"allowUpdates"`
-	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	AllowUpdates   *bool   `pulumi:"allowUpdates"`
 	DefaultVersion *string `pulumi:"defaultVersion"`
-	// The display name for the application.
-	DisplayName *string `pulumi:"displayName"`
-	// The ETag of the resource, used for concurrency statements.
-	Etag string `pulumi:"etag"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	DisplayName    *string `pulumi:"displayName"`
+	Etag           string  `pulumi:"etag"`
+	Id             string  `pulumi:"id"`
+	Name           string  `pulumi:"name"`
+	Type           string  `pulumi:"type"`
 }

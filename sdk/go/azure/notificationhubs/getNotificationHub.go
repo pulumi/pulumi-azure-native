@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub Resource.
-// API Version: 2017-04-01.
 func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubResult, error) {
 	var rv LookupNotificationHubResult
 	err := ctx.Invoke("azure-native:notificationhubs:getNotificationHub", args, &rv, opts...)
@@ -19,42 +17,25 @@ func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs,
 }
 
 type LookupNotificationHubArgs struct {
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The notification hub name.
+	NamespaceName       string `pulumi:"namespaceName"`
 	NotificationHubName string `pulumi:"notificationHubName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // Description of a NotificationHub Resource.
 type LookupNotificationHubResult struct {
-	// The AdmCredential of the created NotificationHub
-	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
-	// The ApnsCredential of the created NotificationHub
-	ApnsCredential *ApnsCredentialResponse `pulumi:"apnsCredential"`
-	// The AuthorizationRules of the created NotificationHub
+	AdmCredential      *AdmCredentialResponse                            `pulumi:"admCredential"`
+	ApnsCredential     *ApnsCredentialResponse                           `pulumi:"apnsCredential"`
 	AuthorizationRules []SharedAccessAuthorizationRulePropertiesResponse `pulumi:"authorizationRules"`
-	// The BaiduCredential of the created NotificationHub
-	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
-	// The GcmCredential of the created NotificationHub
-	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The MpnsCredential of the created NotificationHub
-	MpnsCredential *MpnsCredentialResponse `pulumi:"mpnsCredential"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The RegistrationTtl of the created NotificationHub
-	RegistrationTtl *string `pulumi:"registrationTtl"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The WnsCredential of the created NotificationHub
-	WnsCredential *WnsCredentialResponse `pulumi:"wnsCredential"`
+	BaiduCredential    *BaiduCredentialResponse                          `pulumi:"baiduCredential"`
+	GcmCredential      *GcmCredentialResponse                            `pulumi:"gcmCredential"`
+	Id                 string                                            `pulumi:"id"`
+	Location           *string                                           `pulumi:"location"`
+	MpnsCredential     *MpnsCredentialResponse                           `pulumi:"mpnsCredential"`
+	Name               string                                            `pulumi:"name"`
+	RegistrationTtl    *string                                           `pulumi:"registrationTtl"`
+	Sku                *SkuResponse                                      `pulumi:"sku"`
+	Tags               map[string]string                                 `pulumi:"tags"`
+	Type               string                                            `pulumi:"type"`
+	WnsCredential      *WnsCredentialResponse                            `pulumi:"wnsCredential"`
 }

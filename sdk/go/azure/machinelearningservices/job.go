@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
 type Job struct {
 	pulumi.CustomResourceState
 

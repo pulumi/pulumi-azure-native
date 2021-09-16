@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-02-01-preview.
 func LookupResourceGuardProxy(ctx *pulumi.Context, args *LookupResourceGuardProxyArgs, opts ...pulumi.InvokeOption) (*LookupResourceGuardProxyResult, error) {
 	var rv LookupResourceGuardProxyResult
 	err := ctx.Invoke("azure-native:recoveryservices:getResourceGuardProxy", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupResourceGuardProxy(ctx *pulumi.Context, args *LookupResourceGuardProx
 }
 
 type LookupResourceGuardProxyArgs struct {
-	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	ResourceGuardProxyName string `pulumi:"resourceGuardProxyName"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName              string `pulumi:"vaultName"`
 }
 
 type LookupResourceGuardProxyResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ResourceGuardProxyBaseResource properties
+	ETag       *string                        `pulumi:"eTag"`
+	Id         string                         `pulumi:"id"`
+	Location   *string                        `pulumi:"location"`
+	Name       string                         `pulumi:"name"`
 	Properties ResourceGuardProxyBaseResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	Tags       map[string]string              `pulumi:"tags"`
+	Type       string                         `pulumi:"type"`
 }

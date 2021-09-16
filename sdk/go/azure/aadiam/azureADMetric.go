@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AzureADMetrics resource.
-// API Version: 2020-07-01-preview.
 type AzureADMetric struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network security default user rule.
-// API Version: 2021-02-01-preview.
 type DefaultUserRule struct {
 	pulumi.CustomResourceState
 

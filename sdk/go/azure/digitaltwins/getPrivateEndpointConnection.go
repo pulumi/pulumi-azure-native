@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private endpoint connection of a Digital Twin.
-// API Version: 2020-12-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:digitaltwins:getPrivateEndpointConnection", args, &rv, opts...)
@@ -19,21 +17,15 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group that contains the DigitalTwinsInstance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DigitalTwinsInstance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ResourceName                  string `pulumi:"resourceName"`
 }
 
 // The private endpoint connection of a Digital Twin.
 type LookupPrivateEndpointConnectionResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
+	Id         string                                      `pulumi:"id"`
 	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionResponseProperties `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }

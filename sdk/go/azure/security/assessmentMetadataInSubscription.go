@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment metadata
-// API Version: 2020-01-01.
 type AssessmentMetadataInSubscription struct {
 	pulumi.CustomResourceState
 

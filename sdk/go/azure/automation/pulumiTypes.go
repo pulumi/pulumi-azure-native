@@ -11,12 +11,9 @@ import (
 )
 
 type AdvancedSchedule struct {
-	// Days of the month that the job should execute on. Must be between 1 and 31.
-	MonthDays []int `pulumi:"monthDays"`
-	// Occurrences of days within a month.
+	MonthDays          []int                               `pulumi:"monthDays"`
 	MonthlyOccurrences []AdvancedScheduleMonthlyOccurrence `pulumi:"monthlyOccurrences"`
-	// Days of the week that the job should execute on.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays           []string                            `pulumi:"weekDays"`
 }
 
 // AdvancedScheduleInput is an input type that accepts AdvancedScheduleArgs and AdvancedScheduleOutput values.
@@ -31,12 +28,9 @@ type AdvancedScheduleInput interface {
 }
 
 type AdvancedScheduleArgs struct {
-	// Days of the month that the job should execute on. Must be between 1 and 31.
-	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
-	// Occurrences of days within a month.
+	MonthDays          pulumi.IntArrayInput                        `pulumi:"monthDays"`
 	MonthlyOccurrences AdvancedScheduleMonthlyOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
-	// Days of the week that the job should execute on.
-	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+	WeekDays           pulumi.StringArrayInput                     `pulumi:"weekDays"`
 }
 
 func (AdvancedScheduleArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o AdvancedScheduleOutput) ToAdvancedSchedulePtrOutputWithContext(ctx conte
 	}).(AdvancedSchedulePtrOutput)
 }
 
-// Days of the month that the job should execute on. Must be between 1 and 31.
 func (o AdvancedScheduleOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AdvancedSchedule) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
 }
 
-// Occurrences of days within a month.
 func (o AdvancedScheduleOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceArrayOutput {
 	return o.ApplyT(func(v AdvancedSchedule) []AdvancedScheduleMonthlyOccurrence { return v.MonthlyOccurrences }).(AdvancedScheduleMonthlyOccurrenceArrayOutput)
 }
 
-// Days of the week that the job should execute on.
 func (o AdvancedScheduleOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdvancedSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
@@ -155,7 +146,6 @@ func (o AdvancedSchedulePtrOutput) Elem() AdvancedScheduleOutput {
 	}).(AdvancedScheduleOutput)
 }
 
-// Days of the month that the job should execute on. Must be between 1 and 31.
 func (o AdvancedSchedulePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AdvancedSchedule) []int {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o AdvancedSchedulePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// Occurrences of days within a month.
 func (o AdvancedSchedulePtrOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceArrayOutput {
 	return o.ApplyT(func(v *AdvancedSchedule) []AdvancedScheduleMonthlyOccurrence {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o AdvancedSchedulePtrOutput) MonthlyOccurrences() AdvancedScheduleMonthlyO
 	}).(AdvancedScheduleMonthlyOccurrenceArrayOutput)
 }
 
-// Days of the week that the job should execute on.
 func (o AdvancedSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedSchedule) []string {
 		if v == nil {
@@ -186,10 +174,8 @@ func (o AdvancedSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 }
 
 type AdvancedScheduleMonthlyOccurrence struct {
-	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day *string `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between 1 and 5
-	Occurrence *int `pulumi:"occurrence"`
+	Day        *string `pulumi:"day"`
+	Occurrence *int    `pulumi:"occurrence"`
 }
 
 // AdvancedScheduleMonthlyOccurrenceInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceArgs and AdvancedScheduleMonthlyOccurrenceOutput values.
@@ -204,10 +190,8 @@ type AdvancedScheduleMonthlyOccurrenceInput interface {
 }
 
 type AdvancedScheduleMonthlyOccurrenceArgs struct {
-	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between 1 and 5
-	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+	Day        pulumi.StringPtrInput `pulumi:"day"`
+	Occurrence pulumi.IntPtrInput    `pulumi:"occurrence"`
 }
 
 func (AdvancedScheduleMonthlyOccurrenceArgs) ElementType() reflect.Type {
@@ -261,12 +245,10 @@ func (o AdvancedScheduleMonthlyOccurrenceOutput) ToAdvancedScheduleMonthlyOccurr
 	return o
 }
 
-// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 func (o AdvancedScheduleMonthlyOccurrenceOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// Occurrence of the week within the month. Must be between 1 and 5
 func (o AdvancedScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrence) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
@@ -292,10 +274,8 @@ func (o AdvancedScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type AdvancedScheduleMonthlyOccurrenceResponse struct {
-	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day *string `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between 1 and 5
-	Occurrence *int `pulumi:"occurrence"`
+	Day        *string `pulumi:"day"`
+	Occurrence *int    `pulumi:"occurrence"`
 }
 
 // AdvancedScheduleMonthlyOccurrenceResponseInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceResponseArgs and AdvancedScheduleMonthlyOccurrenceResponseOutput values.
@@ -310,10 +290,8 @@ type AdvancedScheduleMonthlyOccurrenceResponseInput interface {
 }
 
 type AdvancedScheduleMonthlyOccurrenceResponseArgs struct {
-	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between 1 and 5
-	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+	Day        pulumi.StringPtrInput `pulumi:"day"`
+	Occurrence pulumi.IntPtrInput    `pulumi:"occurrence"`
 }
 
 func (AdvancedScheduleMonthlyOccurrenceResponseArgs) ElementType() reflect.Type {
@@ -367,12 +345,10 @@ func (o AdvancedScheduleMonthlyOccurrenceResponseOutput) ToAdvancedScheduleMonth
 	return o
 }
 
-// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 func (o AdvancedScheduleMonthlyOccurrenceResponseOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// Occurrence of the week within the month. Must be between 1 and 5
 func (o AdvancedScheduleMonthlyOccurrenceResponseOutput) Occurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
@@ -398,12 +374,9 @@ func (o AdvancedScheduleMonthlyOccurrenceResponseArrayOutput) Index(i pulumi.Int
 }
 
 type AdvancedScheduleResponse struct {
-	// Days of the month that the job should execute on. Must be between 1 and 31.
-	MonthDays []int `pulumi:"monthDays"`
-	// Occurrences of days within a month.
+	MonthDays          []int                                       `pulumi:"monthDays"`
 	MonthlyOccurrences []AdvancedScheduleMonthlyOccurrenceResponse `pulumi:"monthlyOccurrences"`
-	// Days of the week that the job should execute on.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays           []string                                    `pulumi:"weekDays"`
 }
 
 // AdvancedScheduleResponseInput is an input type that accepts AdvancedScheduleResponseArgs and AdvancedScheduleResponseOutput values.
@@ -418,12 +391,9 @@ type AdvancedScheduleResponseInput interface {
 }
 
 type AdvancedScheduleResponseArgs struct {
-	// Days of the month that the job should execute on. Must be between 1 and 31.
-	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
-	// Occurrences of days within a month.
+	MonthDays          pulumi.IntArrayInput                                `pulumi:"monthDays"`
 	MonthlyOccurrences AdvancedScheduleMonthlyOccurrenceResponseArrayInput `pulumi:"monthlyOccurrences"`
-	// Days of the week that the job should execute on.
-	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+	WeekDays           pulumi.StringArrayInput                             `pulumi:"weekDays"`
 }
 
 func (AdvancedScheduleResponseArgs) ElementType() reflect.Type {
@@ -503,19 +473,16 @@ func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponsePtrOutputWithC
 	}).(AdvancedScheduleResponsePtrOutput)
 }
 
-// Days of the month that the job should execute on. Must be between 1 and 31.
 func (o AdvancedScheduleResponseOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AdvancedScheduleResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
 }
 
-// Occurrences of days within a month.
 func (o AdvancedScheduleResponseOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceResponseArrayOutput {
 	return o.ApplyT(func(v AdvancedScheduleResponse) []AdvancedScheduleMonthlyOccurrenceResponse {
 		return v.MonthlyOccurrences
 	}).(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput)
 }
 
-// Days of the week that the job should execute on.
 func (o AdvancedScheduleResponseOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdvancedScheduleResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
@@ -544,7 +511,6 @@ func (o AdvancedScheduleResponsePtrOutput) Elem() AdvancedScheduleResponseOutput
 	}).(AdvancedScheduleResponseOutput)
 }
 
-// Days of the month that the job should execute on. Must be between 1 and 31.
 func (o AdvancedScheduleResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AdvancedScheduleResponse) []int {
 		if v == nil {
@@ -554,7 +520,6 @@ func (o AdvancedScheduleResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// Occurrences of days within a month.
 func (o AdvancedScheduleResponsePtrOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceResponseArrayOutput {
 	return o.ApplyT(func(v *AdvancedScheduleResponse) []AdvancedScheduleMonthlyOccurrenceResponse {
 		if v == nil {
@@ -564,7 +529,6 @@ func (o AdvancedScheduleResponsePtrOutput) MonthlyOccurrences() AdvancedSchedule
 	}).(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput)
 }
 
-// Days of the week that the job should execute on.
 func (o AdvancedScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedScheduleResponse) []string {
 		if v == nil {
@@ -575,11 +539,8 @@ func (o AdvancedScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
 }
 
 type AzureQueryProperties struct {
-	// List of locations to scope the query to.
-	Locations []string `pulumi:"locations"`
-	// List of Subscription or Resource Group ARM Ids.
-	Scope []string `pulumi:"scope"`
-	// Tag settings for the VM.
+	Locations   []string               `pulumi:"locations"`
+	Scope       []string               `pulumi:"scope"`
 	TagSettings *TagSettingsProperties `pulumi:"tagSettings"`
 }
 
@@ -595,11 +556,8 @@ type AzureQueryPropertiesInput interface {
 }
 
 type AzureQueryPropertiesArgs struct {
-	// List of locations to scope the query to.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// List of Subscription or Resource Group ARM Ids.
-	Scope pulumi.StringArrayInput `pulumi:"scope"`
-	// Tag settings for the VM.
+	Locations   pulumi.StringArrayInput       `pulumi:"locations"`
+	Scope       pulumi.StringArrayInput       `pulumi:"scope"`
 	TagSettings TagSettingsPropertiesPtrInput `pulumi:"tagSettings"`
 }
 
@@ -654,17 +612,14 @@ func (o AzureQueryPropertiesOutput) ToAzureQueryPropertiesOutputWithContext(ctx 
 	return o
 }
 
-// List of locations to scope the query to.
 func (o AzureQueryPropertiesOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureQueryProperties) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// List of Subscription or Resource Group ARM Ids.
 func (o AzureQueryPropertiesOutput) Scope() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureQueryProperties) []string { return v.Scope }).(pulumi.StringArrayOutput)
 }
 
-// Tag settings for the VM.
 func (o AzureQueryPropertiesOutput) TagSettings() TagSettingsPropertiesPtrOutput {
 	return o.ApplyT(func(v AzureQueryProperties) *TagSettingsProperties { return v.TagSettings }).(TagSettingsPropertiesPtrOutput)
 }
@@ -690,11 +645,8 @@ func (o AzureQueryPropertiesArrayOutput) Index(i pulumi.IntInput) AzureQueryProp
 }
 
 type AzureQueryPropertiesResponse struct {
-	// List of locations to scope the query to.
-	Locations []string `pulumi:"locations"`
-	// List of Subscription or Resource Group ARM Ids.
-	Scope []string `pulumi:"scope"`
-	// Tag settings for the VM.
+	Locations   []string                       `pulumi:"locations"`
+	Scope       []string                       `pulumi:"scope"`
 	TagSettings *TagSettingsPropertiesResponse `pulumi:"tagSettings"`
 }
 
@@ -710,11 +662,8 @@ type AzureQueryPropertiesResponseInput interface {
 }
 
 type AzureQueryPropertiesResponseArgs struct {
-	// List of locations to scope the query to.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// List of Subscription or Resource Group ARM Ids.
-	Scope pulumi.StringArrayInput `pulumi:"scope"`
-	// Tag settings for the VM.
+	Locations   pulumi.StringArrayInput               `pulumi:"locations"`
+	Scope       pulumi.StringArrayInput               `pulumi:"scope"`
 	TagSettings TagSettingsPropertiesResponsePtrInput `pulumi:"tagSettings"`
 }
 
@@ -769,17 +718,14 @@ func (o AzureQueryPropertiesResponseOutput) ToAzureQueryPropertiesResponseOutput
 	return o
 }
 
-// List of locations to scope the query to.
 func (o AzureQueryPropertiesResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureQueryPropertiesResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// List of Subscription or Resource Group ARM Ids.
 func (o AzureQueryPropertiesResponseOutput) Scope() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureQueryPropertiesResponse) []string { return v.Scope }).(pulumi.StringArrayOutput)
 }
 
-// Tag settings for the VM.
 func (o AzureQueryPropertiesResponseOutput) TagSettings() TagSettingsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureQueryPropertiesResponse) *TagSettingsPropertiesResponse { return v.TagSettings }).(TagSettingsPropertiesResponsePtrOutput)
 }
@@ -805,7 +751,6 @@ func (o AzureQueryPropertiesResponseArrayOutput) Index(i pulumi.IntInput) AzureQ
 }
 
 type ConnectionTypeAssociationProperty struct {
-	// Gets or sets the name of the connection type.
 	Name *string `pulumi:"name"`
 }
 
@@ -821,7 +766,6 @@ type ConnectionTypeAssociationPropertyInput interface {
 }
 
 type ConnectionTypeAssociationPropertyArgs struct {
-	// Gets or sets the name of the connection type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -902,7 +846,6 @@ func (o ConnectionTypeAssociationPropertyOutput) ToConnectionTypeAssociationProp
 	}).(ConnectionTypeAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the connection type.
 func (o ConnectionTypeAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionTypeAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -931,7 +874,6 @@ func (o ConnectionTypeAssociationPropertyPtrOutput) Elem() ConnectionTypeAssocia
 	}).(ConnectionTypeAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the connection type.
 func (o ConnectionTypeAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionTypeAssociationProperty) *string {
 		if v == nil {
@@ -942,7 +884,6 @@ func (o ConnectionTypeAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutpu
 }
 
 type ConnectionTypeAssociationPropertyResponse struct {
-	// Gets or sets the name of the connection type.
 	Name *string `pulumi:"name"`
 }
 
@@ -958,7 +899,6 @@ type ConnectionTypeAssociationPropertyResponseInput interface {
 }
 
 type ConnectionTypeAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the connection type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1039,7 +979,6 @@ func (o ConnectionTypeAssociationPropertyResponseOutput) ToConnectionTypeAssocia
 	}).(ConnectionTypeAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the connection type.
 func (o ConnectionTypeAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionTypeAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1068,7 +1007,6 @@ func (o ConnectionTypeAssociationPropertyResponsePtrOutput) Elem() ConnectionTyp
 	}).(ConnectionTypeAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the connection type.
 func (o ConnectionTypeAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionTypeAssociationPropertyResponse) *string {
 		if v == nil {
@@ -1079,10 +1017,8 @@ func (o ConnectionTypeAssociationPropertyResponsePtrOutput) Name() pulumi.String
 }
 
 type ContentHash struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
@@ -1097,10 +1033,8 @@ type ContentHashInput interface {
 }
 
 type ContentHashArgs struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContentHashArgs) ElementType() reflect.Type {
@@ -1180,12 +1114,10 @@ func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1214,7 +1146,6 @@ func (o ContentHashPtrOutput) Elem() ContentHashOutput {
 	}).(ContentHashOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -1224,7 +1155,6 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -1235,10 +1165,8 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ContentHashResponse struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // ContentHashResponseInput is an input type that accepts ContentHashResponseArgs and ContentHashResponseOutput values.
@@ -1253,10 +1181,8 @@ type ContentHashResponseInput interface {
 }
 
 type ContentHashResponseArgs struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContentHashResponseArgs) ElementType() reflect.Type {
@@ -1336,12 +1262,10 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashResponseOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHashResponse) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHashResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1370,7 +1294,6 @@ func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
 	}).(ContentHashResponseOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -1380,7 +1303,6 @@ func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -1391,12 +1313,9 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ContentLink struct {
-	// Gets or sets the hash.
 	ContentHash *ContentHash `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri *string `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Uri         *string      `pulumi:"uri"`
+	Version     *string      `pulumi:"version"`
 }
 
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
@@ -1411,12 +1330,9 @@ type ContentLinkInput interface {
 }
 
 type ContentLinkArgs struct {
-	// Gets or sets the hash.
-	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentHash ContentHashPtrInput   `pulumi:"contentHash"`
+	Uri         pulumi.StringPtrInput `pulumi:"uri"`
+	Version     pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ContentLinkArgs) ElementType() reflect.Type {
@@ -1496,17 +1412,14 @@ func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context
 	}).(ContentLinkPtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentLink) *ContentHash { return v.ContentHash }).(ContentHashPtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1535,7 +1448,6 @@ func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
 	}).(ContentLinkOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *ContentHash {
 		if v == nil {
@@ -1545,7 +1457,6 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -1555,7 +1466,6 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -1566,12 +1476,9 @@ func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type ContentLinkResponse struct {
-	// Gets or sets the hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri *string `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Uri         *string              `pulumi:"uri"`
+	Version     *string              `pulumi:"version"`
 }
 
 // ContentLinkResponseInput is an input type that accepts ContentLinkResponseArgs and ContentLinkResponseOutput values.
@@ -1586,12 +1493,9 @@ type ContentLinkResponseInput interface {
 }
 
 type ContentLinkResponseArgs struct {
-	// Gets or sets the hash.
 	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Uri         pulumi.StringPtrInput       `pulumi:"uri"`
+	Version     pulumi.StringPtrInput       `pulumi:"version"`
 }
 
 func (ContentLinkResponseArgs) ElementType() reflect.Type {
@@ -1671,17 +1575,14 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *ContentHashResponse { return v.ContentHash }).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1710,7 +1611,6 @@ func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
 	}).(ContentLinkResponseOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *ContentHashResponse {
 		if v == nil {
@@ -1720,7 +1620,6 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -1730,7 +1629,6 @@ func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -1741,14 +1639,10 @@ func (o ContentLinkResponsePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type ContentSource struct {
-	// Gets or sets the hash.
-	Hash *ContentHash `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value *string `pulumi:"value"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Hash    *ContentHash `pulumi:"hash"`
+	Type    *string      `pulumi:"type"`
+	Value   *string      `pulumi:"value"`
+	Version *string      `pulumi:"version"`
 }
 
 // ContentSourceInput is an input type that accepts ContentSourceArgs and ContentSourceOutput values.
@@ -1763,13 +1657,9 @@ type ContentSourceInput interface {
 }
 
 type ContentSourceArgs struct {
-	// Gets or sets the hash.
-	Hash ContentHashPtrInput `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	// Gets or sets the version of the content.
+	Hash    ContentHashPtrInput   `pulumi:"hash"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1850,22 +1740,18 @@ func (o ContentSourceOutput) ToContentSourcePtrOutputWithContext(ctx context.Con
 	}).(ContentSourcePtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourceOutput) Hash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentSource) *ContentHash { return v.Hash }).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourceOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1894,7 +1780,6 @@ func (o ContentSourcePtrOutput) Elem() ContentSourceOutput {
 	}).(ContentSourceOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourcePtrOutput) Hash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *ContentHash {
 		if v == nil {
@@ -1904,7 +1789,6 @@ func (o ContentSourcePtrOutput) Hash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -1914,7 +1798,6 @@ func (o ContentSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourcePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -1924,7 +1807,6 @@ func (o ContentSourcePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourcePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -1935,14 +1817,10 @@ func (o ContentSourcePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type ContentSourceResponse struct {
-	// Gets or sets the hash.
-	Hash *ContentHashResponse `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value *string `pulumi:"value"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Hash    *ContentHashResponse `pulumi:"hash"`
+	Type    *string              `pulumi:"type"`
+	Value   *string              `pulumi:"value"`
+	Version *string              `pulumi:"version"`
 }
 
 // ContentSourceResponseInput is an input type that accepts ContentSourceResponseArgs and ContentSourceResponseOutput values.
@@ -1957,14 +1835,10 @@ type ContentSourceResponseInput interface {
 }
 
 type ContentSourceResponseArgs struct {
-	// Gets or sets the hash.
-	Hash ContentHashResponsePtrInput `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	// Gets or sets the version of the content.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Hash    ContentHashResponsePtrInput `pulumi:"hash"`
+	Type    pulumi.StringPtrInput       `pulumi:"type"`
+	Value   pulumi.StringPtrInput       `pulumi:"value"`
+	Version pulumi.StringPtrInput       `pulumi:"version"`
 }
 
 func (ContentSourceResponseArgs) ElementType() reflect.Type {
@@ -2044,22 +1918,18 @@ func (o ContentSourceResponseOutput) ToContentSourceResponsePtrOutputWithContext
 	}).(ContentSourceResponsePtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourceResponseOutput) Hash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v ContentSourceResponse) *ContentHashResponse { return v.Hash }).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourceResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourceResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSourceResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSourceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2088,7 +1958,6 @@ func (o ContentSourceResponsePtrOutput) Elem() ContentSourceResponseOutput {
 	}).(ContentSourceResponseOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourceResponsePtrOutput) Hash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v *ContentSourceResponse) *ContentHashResponse {
 		if v == nil {
@@ -2098,7 +1967,6 @@ func (o ContentSourceResponsePtrOutput) Hash() ContentHashResponsePtrOutput {
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSourceResponse) *string {
 		if v == nil {
@@ -2108,7 +1976,6 @@ func (o ContentSourceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourceResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSourceResponse) *string {
 		if v == nil {
@@ -2118,7 +1985,6 @@ func (o ContentSourceResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSourceResponse) *string {
 		if v == nil {
@@ -2129,7 +1995,6 @@ func (o ContentSourceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type DscConfigurationAssociationProperty struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
 }
 
@@ -2145,7 +2010,6 @@ type DscConfigurationAssociationPropertyInput interface {
 }
 
 type DscConfigurationAssociationPropertyArgs struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2226,7 +2090,6 @@ func (o DscConfigurationAssociationPropertyOutput) ToDscConfigurationAssociation
 	}).(DscConfigurationAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2255,7 +2118,6 @@ func (o DscConfigurationAssociationPropertyPtrOutput) Elem() DscConfigurationAss
 	}).(DscConfigurationAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationProperty) *string {
 		if v == nil {
@@ -2266,7 +2128,6 @@ func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOut
 }
 
 type DscConfigurationAssociationPropertyResponse struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
 }
 
@@ -2282,7 +2143,6 @@ type DscConfigurationAssociationPropertyResponseInput interface {
 }
 
 type DscConfigurationAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2363,7 +2223,6 @@ func (o DscConfigurationAssociationPropertyResponseOutput) ToDscConfigurationAss
 	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2392,7 +2251,6 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) Elem() DscConfigur
 	}).(DscConfigurationAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationPropertyResponse) *string {
 		if v == nil {
@@ -2403,14 +2261,10 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.Stri
 }
 
 type DscConfigurationParameter struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // DscConfigurationParameterInput is an input type that accepts DscConfigurationParameterArgs and DscConfigurationParameterOutput values.
@@ -2425,14 +2279,10 @@ type DscConfigurationParameterInput interface {
 }
 
 type DscConfigurationParameterArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DscConfigurationParameterArgs) ElementType() reflect.Type {
@@ -2486,22 +2336,18 @@ func (o DscConfigurationParameterOutput) ToDscConfigurationParameterOutputWithCo
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o DscConfigurationParameterOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o DscConfigurationParameterOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameter) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o DscConfigurationParameterOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o DscConfigurationParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2527,14 +2373,10 @@ func (o DscConfigurationParameterMapOutput) MapIndex(k pulumi.StringInput) DscCo
 }
 
 type DscConfigurationParameterResponse struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // DscConfigurationParameterResponseInput is an input type that accepts DscConfigurationParameterResponseArgs and DscConfigurationParameterResponseOutput values.
@@ -2549,14 +2391,10 @@ type DscConfigurationParameterResponseInput interface {
 }
 
 type DscConfigurationParameterResponseArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DscConfigurationParameterResponseArgs) ElementType() reflect.Type {
@@ -2610,22 +2448,18 @@ func (o DscConfigurationParameterResponseOutput) ToDscConfigurationParameterResp
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o DscConfigurationParameterResponseOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameterResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o DscConfigurationParameterResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameterResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o DscConfigurationParameterResponseOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameterResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o DscConfigurationParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2651,12 +2485,9 @@ func (o DscConfigurationParameterResponseMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 type EncryptionProperties struct {
-	// User identity used for CMK.
-	Identity *EncryptionPropertiesIdentity `pulumi:"identity"`
-	// Encryption Key Source
-	KeySource *EncryptionKeySourceType `pulumi:"keySource"`
-	// Key vault properties.
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	Identity           *EncryptionPropertiesIdentity `pulumi:"identity"`
+	KeySource          *EncryptionKeySourceType      `pulumi:"keySource"`
+	KeyVaultProperties *KeyVaultProperties           `pulumi:"keyVaultProperties"`
 }
 
 // EncryptionPropertiesInput is an input type that accepts EncryptionPropertiesArgs and EncryptionPropertiesOutput values.
@@ -2671,12 +2502,9 @@ type EncryptionPropertiesInput interface {
 }
 
 type EncryptionPropertiesArgs struct {
-	// User identity used for CMK.
-	Identity EncryptionPropertiesIdentityPtrInput `pulumi:"identity"`
-	// Encryption Key Source
-	KeySource EncryptionKeySourceTypePtrInput `pulumi:"keySource"`
-	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	Identity           EncryptionPropertiesIdentityPtrInput `pulumi:"identity"`
+	KeySource          EncryptionKeySourceTypePtrInput      `pulumi:"keySource"`
+	KeyVaultProperties KeyVaultPropertiesPtrInput           `pulumi:"keyVaultProperties"`
 }
 
 func (EncryptionPropertiesArgs) ElementType() reflect.Type {
@@ -2756,17 +2584,14 @@ func (o EncryptionPropertiesOutput) ToEncryptionPropertiesPtrOutputWithContext(c
 	}).(EncryptionPropertiesPtrOutput)
 }
 
-// User identity used for CMK.
 func (o EncryptionPropertiesOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
 	return o.ApplyT(func(v EncryptionProperties) *EncryptionPropertiesIdentity { return v.Identity }).(EncryptionPropertiesIdentityPtrOutput)
 }
 
-// Encryption Key Source
 func (o EncryptionPropertiesOutput) KeySource() EncryptionKeySourceTypePtrOutput {
 	return o.ApplyT(func(v EncryptionProperties) *EncryptionKeySourceType { return v.KeySource }).(EncryptionKeySourceTypePtrOutput)
 }
 
-// Key vault properties.
 func (o EncryptionPropertiesOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v EncryptionProperties) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
@@ -2795,7 +2620,6 @@ func (o EncryptionPropertiesPtrOutput) Elem() EncryptionPropertiesOutput {
 	}).(EncryptionPropertiesOutput)
 }
 
-// User identity used for CMK.
 func (o EncryptionPropertiesPtrOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
 	return o.ApplyT(func(v *EncryptionProperties) *EncryptionPropertiesIdentity {
 		if v == nil {
@@ -2805,7 +2629,6 @@ func (o EncryptionPropertiesPtrOutput) Identity() EncryptionPropertiesIdentityPt
 	}).(EncryptionPropertiesIdentityPtrOutput)
 }
 
-// Encryption Key Source
 func (o EncryptionPropertiesPtrOutput) KeySource() EncryptionKeySourceTypePtrOutput {
 	return o.ApplyT(func(v *EncryptionProperties) *EncryptionKeySourceType {
 		if v == nil {
@@ -2815,7 +2638,6 @@ func (o EncryptionPropertiesPtrOutput) KeySource() EncryptionKeySourceTypePtrOut
 	}).(EncryptionKeySourceTypePtrOutput)
 }
 
-// Key vault properties.
 func (o EncryptionPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *EncryptionProperties) *KeyVaultProperties {
 		if v == nil {
@@ -2826,7 +2648,6 @@ func (o EncryptionPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPt
 }
 
 type EncryptionPropertiesIdentity struct {
-	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentity interface{} `pulumi:"userAssignedIdentity"`
 }
 
@@ -2842,7 +2663,6 @@ type EncryptionPropertiesIdentityInput interface {
 }
 
 type EncryptionPropertiesIdentityArgs struct {
-	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentity pulumi.Input `pulumi:"userAssignedIdentity"`
 }
 
@@ -2923,7 +2743,6 @@ func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityPtrOut
 	}).(EncryptionPropertiesIdentityPtrOutput)
 }
 
-// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o EncryptionPropertiesIdentityOutput) UserAssignedIdentity() pulumi.AnyOutput {
 	return o.ApplyT(func(v EncryptionPropertiesIdentity) interface{} { return v.UserAssignedIdentity }).(pulumi.AnyOutput)
 }
@@ -2952,7 +2771,6 @@ func (o EncryptionPropertiesIdentityPtrOutput) Elem() EncryptionPropertiesIdenti
 	}).(EncryptionPropertiesIdentityOutput)
 }
 
-// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o EncryptionPropertiesIdentityPtrOutput) UserAssignedIdentity() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesIdentity) interface{} {
 		if v == nil {
@@ -2963,12 +2781,9 @@ func (o EncryptionPropertiesIdentityPtrOutput) UserAssignedIdentity() pulumi.Any
 }
 
 type EncryptionPropertiesResponse struct {
-	// User identity used for CMK.
-	Identity *EncryptionPropertiesResponseIdentity `pulumi:"identity"`
-	// Encryption Key Source
-	KeySource *string `pulumi:"keySource"`
-	// Key vault properties.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	Identity           *EncryptionPropertiesResponseIdentity `pulumi:"identity"`
+	KeySource          *string                               `pulumi:"keySource"`
+	KeyVaultProperties *KeyVaultPropertiesResponse           `pulumi:"keyVaultProperties"`
 }
 
 // EncryptionPropertiesResponseInput is an input type that accepts EncryptionPropertiesResponseArgs and EncryptionPropertiesResponseOutput values.
@@ -2983,12 +2798,9 @@ type EncryptionPropertiesResponseInput interface {
 }
 
 type EncryptionPropertiesResponseArgs struct {
-	// User identity used for CMK.
-	Identity EncryptionPropertiesResponseIdentityPtrInput `pulumi:"identity"`
-	// Encryption Key Source
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+	Identity           EncryptionPropertiesResponseIdentityPtrInput `pulumi:"identity"`
+	KeySource          pulumi.StringPtrInput                        `pulumi:"keySource"`
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput           `pulumi:"keyVaultProperties"`
 }
 
 func (EncryptionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3068,17 +2880,14 @@ func (o EncryptionPropertiesResponseOutput) ToEncryptionPropertiesResponsePtrOut
 	}).(EncryptionPropertiesResponsePtrOutput)
 }
 
-// User identity used for CMK.
 func (o EncryptionPropertiesResponseOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity { return v.Identity }).(EncryptionPropertiesResponseIdentityPtrOutput)
 }
 
-// Encryption Key Source
 func (o EncryptionPropertiesResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// Key vault properties.
 func (o EncryptionPropertiesResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -3107,7 +2916,6 @@ func (o EncryptionPropertiesResponsePtrOutput) Elem() EncryptionPropertiesRespon
 	}).(EncryptionPropertiesResponseOutput)
 }
 
-// User identity used for CMK.
 func (o EncryptionPropertiesResponsePtrOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity {
 		if v == nil {
@@ -3117,7 +2925,6 @@ func (o EncryptionPropertiesResponsePtrOutput) Identity() EncryptionPropertiesRe
 	}).(EncryptionPropertiesResponseIdentityPtrOutput)
 }
 
-// Encryption Key Source
 func (o EncryptionPropertiesResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesResponse) *string {
 		if v == nil {
@@ -3127,7 +2934,6 @@ func (o EncryptionPropertiesResponsePtrOutput) KeySource() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key vault properties.
 func (o EncryptionPropertiesResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -3138,7 +2944,6 @@ func (o EncryptionPropertiesResponsePtrOutput) KeyVaultProperties() KeyVaultProp
 }
 
 type EncryptionPropertiesResponseIdentity struct {
-	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentity interface{} `pulumi:"userAssignedIdentity"`
 }
 
@@ -3154,7 +2959,6 @@ type EncryptionPropertiesResponseIdentityInput interface {
 }
 
 type EncryptionPropertiesResponseIdentityArgs struct {
-	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentity pulumi.Input `pulumi:"userAssignedIdentity"`
 }
 
@@ -3235,7 +3039,6 @@ func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesRespon
 	}).(EncryptionPropertiesResponseIdentityPtrOutput)
 }
 
-// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o EncryptionPropertiesResponseIdentityOutput) UserAssignedIdentity() pulumi.AnyOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponseIdentity) interface{} { return v.UserAssignedIdentity }).(pulumi.AnyOutput)
 }
@@ -3264,7 +3067,6 @@ func (o EncryptionPropertiesResponseIdentityPtrOutput) Elem() EncryptionProperti
 	}).(EncryptionPropertiesResponseIdentityOutput)
 }
 
-// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o EncryptionPropertiesResponseIdentityPtrOutput) UserAssignedIdentity() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) interface{} {
 		if v == nil {
@@ -3275,9 +3077,7 @@ func (o EncryptionPropertiesResponseIdentityPtrOutput) UserAssignedIdentity() pu
 }
 
 type ErrorResponse struct {
-	// Error code
-	Code *string `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -3293,9 +3093,7 @@ type ErrorResponseInput interface {
 }
 
 type ErrorResponseArgs struct {
-	// Error code
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -3376,12 +3174,10 @@ func (o ErrorResponseOutput) ToErrorResponsePtrOutputWithContext(ctx context.Con
 	}).(ErrorResponsePtrOutput)
 }
 
-// Error code
 func (o ErrorResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -3410,7 +3206,6 @@ func (o ErrorResponsePtrOutput) Elem() ErrorResponseOutput {
 	}).(ErrorResponseOutput)
 }
 
-// Error code
 func (o ErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponse) *string {
 		if v == nil {
@@ -3420,7 +3215,6 @@ func (o ErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponse) *string {
 		if v == nil {
@@ -3431,9 +3225,7 @@ func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type ErrorResponseResponse struct {
-	// Error code
-	Code *string `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -3449,9 +3241,7 @@ type ErrorResponseResponseInput interface {
 }
 
 type ErrorResponseResponseArgs struct {
-	// Error code
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -3532,12 +3322,10 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext
 	}).(ErrorResponseResponsePtrOutput)
 }
 
-// Error code
 func (o ErrorResponseResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorResponseResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -3566,7 +3354,6 @@ func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
 	}).(ErrorResponseResponseOutput)
 }
 
-// Error code
 func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -3576,7 +3363,6 @@ func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -3587,12 +3373,9 @@ func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type FieldDefinition struct {
-	// Gets or sets the isEncrypted flag of the connection field definition.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// Gets or sets the isOptional flag of the connection field definition.
-	IsOptional *bool `pulumi:"isOptional"`
-	// Gets or sets the type of the connection field definition.
-	Type string `pulumi:"type"`
+	IsEncrypted *bool  `pulumi:"isEncrypted"`
+	IsOptional  *bool  `pulumi:"isOptional"`
+	Type        string `pulumi:"type"`
 }
 
 // FieldDefinitionInput is an input type that accepts FieldDefinitionArgs and FieldDefinitionOutput values.
@@ -3607,12 +3390,9 @@ type FieldDefinitionInput interface {
 }
 
 type FieldDefinitionArgs struct {
-	// Gets or sets the isEncrypted flag of the connection field definition.
 	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
-	// Gets or sets the isOptional flag of the connection field definition.
-	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
-	// Gets or sets the type of the connection field definition.
-	Type pulumi.StringInput `pulumi:"type"`
+	IsOptional  pulumi.BoolPtrInput `pulumi:"isOptional"`
+	Type        pulumi.StringInput  `pulumi:"type"`
 }
 
 func (FieldDefinitionArgs) ElementType() reflect.Type {
@@ -3666,17 +3446,14 @@ func (o FieldDefinitionOutput) ToFieldDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
-// Gets or sets the isEncrypted flag of the connection field definition.
 func (o FieldDefinitionOutput) IsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FieldDefinition) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the isOptional flag of the connection field definition.
 func (o FieldDefinitionOutput) IsOptional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FieldDefinition) *bool { return v.IsOptional }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the type of the connection field definition.
 func (o FieldDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FieldDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3702,12 +3479,9 @@ func (o FieldDefinitionMapOutput) MapIndex(k pulumi.StringInput) FieldDefinition
 }
 
 type FieldDefinitionResponse struct {
-	// Gets or sets the isEncrypted flag of the connection field definition.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// Gets or sets the isOptional flag of the connection field definition.
-	IsOptional *bool `pulumi:"isOptional"`
-	// Gets or sets the type of the connection field definition.
-	Type string `pulumi:"type"`
+	IsEncrypted *bool  `pulumi:"isEncrypted"`
+	IsOptional  *bool  `pulumi:"isOptional"`
+	Type        string `pulumi:"type"`
 }
 
 // FieldDefinitionResponseInput is an input type that accepts FieldDefinitionResponseArgs and FieldDefinitionResponseOutput values.
@@ -3722,12 +3496,9 @@ type FieldDefinitionResponseInput interface {
 }
 
 type FieldDefinitionResponseArgs struct {
-	// Gets or sets the isEncrypted flag of the connection field definition.
 	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
-	// Gets or sets the isOptional flag of the connection field definition.
-	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
-	// Gets or sets the type of the connection field definition.
-	Type pulumi.StringInput `pulumi:"type"`
+	IsOptional  pulumi.BoolPtrInput `pulumi:"isOptional"`
+	Type        pulumi.StringInput  `pulumi:"type"`
 }
 
 func (FieldDefinitionResponseArgs) ElementType() reflect.Type {
@@ -3781,17 +3552,14 @@ func (o FieldDefinitionResponseOutput) ToFieldDefinitionResponseOutputWithContex
 	return o
 }
 
-// Gets or sets the isEncrypted flag of the connection field definition.
 func (o FieldDefinitionResponseOutput) IsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FieldDefinitionResponse) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the isOptional flag of the connection field definition.
 func (o FieldDefinitionResponseOutput) IsOptional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FieldDefinitionResponse) *bool { return v.IsOptional }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the type of the connection field definition.
 func (o FieldDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FieldDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3817,13 +3585,9 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 }
 
 type HybridRunbookWorkerLegacyResponse struct {
-	// Gets or sets the assigned machine IP address.
-	Ip *string `pulumi:"ip"`
-	// Last Heartbeat from the Worker
+	Ip               *string `pulumi:"ip"`
 	LastSeenDateTime *string `pulumi:"lastSeenDateTime"`
-	// Gets or sets the worker machine name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the registration time of the worker machine.
+	Name             *string `pulumi:"name"`
 	RegistrationTime *string `pulumi:"registrationTime"`
 }
 
@@ -3839,13 +3603,9 @@ type HybridRunbookWorkerLegacyResponseInput interface {
 }
 
 type HybridRunbookWorkerLegacyResponseArgs struct {
-	// Gets or sets the assigned machine IP address.
-	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// Last Heartbeat from the Worker
+	Ip               pulumi.StringPtrInput `pulumi:"ip"`
 	LastSeenDateTime pulumi.StringPtrInput `pulumi:"lastSeenDateTime"`
-	// Gets or sets the worker machine name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the registration time of the worker machine.
+	Name             pulumi.StringPtrInput `pulumi:"name"`
 	RegistrationTime pulumi.StringPtrInput `pulumi:"registrationTime"`
 }
 
@@ -3900,22 +3660,18 @@ func (o HybridRunbookWorkerLegacyResponseOutput) ToHybridRunbookWorkerLegacyResp
 	return o
 }
 
-// Gets or sets the assigned machine IP address.
 func (o HybridRunbookWorkerLegacyResponseOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// Last Heartbeat from the Worker
 func (o HybridRunbookWorkerLegacyResponseOutput) LastSeenDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.LastSeenDateTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the worker machine name.
 func (o HybridRunbookWorkerLegacyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the registration time of the worker machine.
 func (o HybridRunbookWorkerLegacyResponseOutput) RegistrationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.RegistrationTime }).(pulumi.StringPtrOutput)
 }
@@ -3941,9 +3697,7 @@ func (o HybridRunbookWorkerLegacyResponseArrayOutput) Index(i pulumi.IntInput) H
 }
 
 type Identity struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -3959,10 +3713,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -4042,12 +3794,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
 func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -4076,7 +3826,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type.
 func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
@@ -4086,7 +3835,6 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -4097,13 +3845,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                            `pulumi:"principalId"`
+	TenantId               string                                            `pulumi:"tenantId"`
+	Type                   *string                                           `pulumi:"type"`
 	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -4119,13 +3863,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                             `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                             `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                          `pulumi:"type"`
 	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -4206,22 +3946,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -4252,7 +3988,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -4262,7 +3997,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -4272,7 +4006,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -4282,7 +4015,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -4293,9 +4025,7 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUser
 }
 
 type IdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -4311,9 +4041,7 @@ type IdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type IdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -4368,12 +4096,10 @@ func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssi
 	return o
 }
 
-// The client id of user assigned identity.
 func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -4399,12 +4125,9 @@ func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.Strin
 }
 
 type KeyResponse struct {
-	// Automation key name.
-	KeyName string `pulumi:"keyName"`
-	// Automation key permissions.
+	KeyName     string `pulumi:"keyName"`
 	Permissions string `pulumi:"permissions"`
-	// Value of the Automation Key used for registration.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }
 
 // KeyResponseInput is an input type that accepts KeyResponseArgs and KeyResponseOutput values.
@@ -4419,12 +4142,9 @@ type KeyResponseInput interface {
 }
 
 type KeyResponseArgs struct {
-	// Automation key name.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Automation key permissions.
+	KeyName     pulumi.StringInput `pulumi:"keyName"`
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// Value of the Automation Key used for registration.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value       pulumi.StringInput `pulumi:"value"`
 }
 
 func (KeyResponseArgs) ElementType() reflect.Type {
@@ -4478,17 +4198,14 @@ func (o KeyResponseOutput) ToKeyResponseOutputWithContext(ctx context.Context) K
 	return o
 }
 
-// Automation key name.
 func (o KeyResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Automation key permissions.
 func (o KeyResponseOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// Value of the Automation Key used for registration.
 func (o KeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4514,11 +4231,8 @@ func (o KeyResponseArrayOutput) Index(i pulumi.IntInput) KeyResponseOutput {
 }
 
 type KeyVaultProperties struct {
-	// The name of key used to encrypt data.
-	KeyName *string `pulumi:"keyName"`
-	// The key version of the key used to encrypt data.
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The URI of the key vault key used to encrypt data.
+	KeyName     *string `pulumi:"keyName"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 	KeyvaultUri *string `pulumi:"keyvaultUri"`
 }
 
@@ -4534,11 +4248,8 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// The name of key used to encrypt data.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The key version of the key used to encrypt data.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The URI of the key vault key used to encrypt data.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 	KeyvaultUri pulumi.StringPtrInput `pulumi:"keyvaultUri"`
 }
 
@@ -4619,17 +4330,14 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The name of key used to encrypt data.
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The key version of the key used to encrypt data.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The URI of the key vault key used to encrypt data.
 func (o KeyVaultPropertiesOutput) KeyvaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyvaultUri }).(pulumi.StringPtrOutput)
 }
@@ -4658,7 +4366,6 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 	}).(KeyVaultPropertiesOutput)
 }
 
-// The name of key used to encrypt data.
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -4668,7 +4375,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key version of the key used to encrypt data.
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -4678,7 +4384,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the key vault key used to encrypt data.
 func (o KeyVaultPropertiesPtrOutput) KeyvaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -4689,11 +4394,8 @@ func (o KeyVaultPropertiesPtrOutput) KeyvaultUri() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// The name of key used to encrypt data.
-	KeyName *string `pulumi:"keyName"`
-	// The key version of the key used to encrypt data.
-	KeyVersion *string `pulumi:"keyVersion"`
-	// The URI of the key vault key used to encrypt data.
+	KeyName     *string `pulumi:"keyName"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 	KeyvaultUri *string `pulumi:"keyvaultUri"`
 }
 
@@ -4709,11 +4411,8 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// The name of key used to encrypt data.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The key version of the key used to encrypt data.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// The URI of the key vault key used to encrypt data.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 	KeyvaultUri pulumi.StringPtrInput `pulumi:"keyvaultUri"`
 }
 
@@ -4794,17 +4493,14 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputW
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The name of key used to encrypt data.
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The key version of the key used to encrypt data.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The URI of the key vault key used to encrypt data.
 func (o KeyVaultPropertiesResponseOutput) KeyvaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyvaultUri }).(pulumi.StringPtrOutput)
 }
@@ -4833,7 +4529,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The name of key used to encrypt data.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -4843,7 +4538,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key version of the key used to encrypt data.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -4853,7 +4547,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the key vault key used to encrypt data.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyvaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -4864,14 +4557,10 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyvaultUri() pulumi.StringPtrOutpu
 }
 
 type LinuxProperties struct {
-	// packages excluded from the software update configuration.
-	ExcludedPackageNameMasks []string `pulumi:"excludedPackageNameMasks"`
-	// Update classifications included in the software update configuration.
-	IncludedPackageClassifications *string `pulumi:"includedPackageClassifications"`
-	// packages included from the software update configuration.
-	IncludedPackageNameMasks []string `pulumi:"includedPackageNameMasks"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
+	ExcludedPackageNameMasks       []string `pulumi:"excludedPackageNameMasks"`
+	IncludedPackageClassifications *string  `pulumi:"includedPackageClassifications"`
+	IncludedPackageNameMasks       []string `pulumi:"includedPackageNameMasks"`
+	RebootSetting                  *string  `pulumi:"rebootSetting"`
 }
 
 // LinuxPropertiesInput is an input type that accepts LinuxPropertiesArgs and LinuxPropertiesOutput values.
@@ -4886,14 +4575,10 @@ type LinuxPropertiesInput interface {
 }
 
 type LinuxPropertiesArgs struct {
-	// packages excluded from the software update configuration.
-	ExcludedPackageNameMasks pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
-	// Update classifications included in the software update configuration.
-	IncludedPackageClassifications pulumi.StringPtrInput `pulumi:"includedPackageClassifications"`
-	// packages included from the software update configuration.
-	IncludedPackageNameMasks pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+	ExcludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
+	IncludedPackageClassifications pulumi.StringPtrInput   `pulumi:"includedPackageClassifications"`
+	IncludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
+	RebootSetting                  pulumi.StringPtrInput   `pulumi:"rebootSetting"`
 }
 
 func (LinuxPropertiesArgs) ElementType() reflect.Type {
@@ -4973,22 +4658,18 @@ func (o LinuxPropertiesOutput) ToLinuxPropertiesPtrOutputWithContext(ctx context
 	}).(LinuxPropertiesPtrOutput)
 }
 
-// packages excluded from the software update configuration.
 func (o LinuxPropertiesOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxProperties) []string { return v.ExcludedPackageNameMasks }).(pulumi.StringArrayOutput)
 }
 
-// Update classifications included in the software update configuration.
 func (o LinuxPropertiesOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxProperties) *string { return v.IncludedPackageClassifications }).(pulumi.StringPtrOutput)
 }
 
-// packages included from the software update configuration.
 func (o LinuxPropertiesOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxProperties) []string { return v.IncludedPackageNameMasks }).(pulumi.StringArrayOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o LinuxPropertiesOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxProperties) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
@@ -5017,7 +4698,6 @@ func (o LinuxPropertiesPtrOutput) Elem() LinuxPropertiesOutput {
 	}).(LinuxPropertiesOutput)
 }
 
-// packages excluded from the software update configuration.
 func (o LinuxPropertiesPtrOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxProperties) []string {
 		if v == nil {
@@ -5027,7 +4707,6 @@ func (o LinuxPropertiesPtrOutput) ExcludedPackageNameMasks() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Update classifications included in the software update configuration.
 func (o LinuxPropertiesPtrOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxProperties) *string {
 		if v == nil {
@@ -5037,7 +4716,6 @@ func (o LinuxPropertiesPtrOutput) IncludedPackageClassifications() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// packages included from the software update configuration.
 func (o LinuxPropertiesPtrOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxProperties) []string {
 		if v == nil {
@@ -5047,7 +4725,6 @@ func (o LinuxPropertiesPtrOutput) IncludedPackageNameMasks() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o LinuxPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxProperties) *string {
 		if v == nil {
@@ -5058,14 +4735,10 @@ func (o LinuxPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 }
 
 type LinuxPropertiesResponse struct {
-	// packages excluded from the software update configuration.
-	ExcludedPackageNameMasks []string `pulumi:"excludedPackageNameMasks"`
-	// Update classifications included in the software update configuration.
-	IncludedPackageClassifications *string `pulumi:"includedPackageClassifications"`
-	// packages included from the software update configuration.
-	IncludedPackageNameMasks []string `pulumi:"includedPackageNameMasks"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
+	ExcludedPackageNameMasks       []string `pulumi:"excludedPackageNameMasks"`
+	IncludedPackageClassifications *string  `pulumi:"includedPackageClassifications"`
+	IncludedPackageNameMasks       []string `pulumi:"includedPackageNameMasks"`
+	RebootSetting                  *string  `pulumi:"rebootSetting"`
 }
 
 // LinuxPropertiesResponseInput is an input type that accepts LinuxPropertiesResponseArgs and LinuxPropertiesResponseOutput values.
@@ -5080,14 +4753,10 @@ type LinuxPropertiesResponseInput interface {
 }
 
 type LinuxPropertiesResponseArgs struct {
-	// packages excluded from the software update configuration.
-	ExcludedPackageNameMasks pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
-	// Update classifications included in the software update configuration.
-	IncludedPackageClassifications pulumi.StringPtrInput `pulumi:"includedPackageClassifications"`
-	// packages included from the software update configuration.
-	IncludedPackageNameMasks pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+	ExcludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
+	IncludedPackageClassifications pulumi.StringPtrInput   `pulumi:"includedPackageClassifications"`
+	IncludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
+	RebootSetting                  pulumi.StringPtrInput   `pulumi:"rebootSetting"`
 }
 
 func (LinuxPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5167,22 +4836,18 @@ func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponsePtrOutputWithCon
 	}).(LinuxPropertiesResponsePtrOutput)
 }
 
-// packages excluded from the software update configuration.
 func (o LinuxPropertiesResponseOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxPropertiesResponse) []string { return v.ExcludedPackageNameMasks }).(pulumi.StringArrayOutput)
 }
 
-// Update classifications included in the software update configuration.
 func (o LinuxPropertiesResponseOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxPropertiesResponse) *string { return v.IncludedPackageClassifications }).(pulumi.StringPtrOutput)
 }
 
-// packages included from the software update configuration.
 func (o LinuxPropertiesResponseOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxPropertiesResponse) []string { return v.IncludedPackageNameMasks }).(pulumi.StringArrayOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o LinuxPropertiesResponseOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxPropertiesResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
@@ -5211,7 +4876,6 @@ func (o LinuxPropertiesResponsePtrOutput) Elem() LinuxPropertiesResponseOutput {
 	}).(LinuxPropertiesResponseOutput)
 }
 
-// packages excluded from the software update configuration.
 func (o LinuxPropertiesResponsePtrOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxPropertiesResponse) []string {
 		if v == nil {
@@ -5221,7 +4885,6 @@ func (o LinuxPropertiesResponsePtrOutput) ExcludedPackageNameMasks() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Update classifications included in the software update configuration.
 func (o LinuxPropertiesResponsePtrOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxPropertiesResponse) *string {
 		if v == nil {
@@ -5231,7 +4894,6 @@ func (o LinuxPropertiesResponsePtrOutput) IncludedPackageClassifications() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// packages included from the software update configuration.
 func (o LinuxPropertiesResponsePtrOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxPropertiesResponse) []string {
 		if v == nil {
@@ -5241,7 +4903,6 @@ func (o LinuxPropertiesResponsePtrOutput) IncludedPackageNameMasks() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o LinuxPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxPropertiesResponse) *string {
 		if v == nil {
@@ -5252,9 +4913,7 @@ func (o LinuxPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput
 }
 
 type ModuleErrorInfoResponse struct {
-	// Gets or sets the error code.
-	Code *string `pulumi:"code"`
-	// Gets or sets the error message.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -5270,9 +4929,7 @@ type ModuleErrorInfoResponseInput interface {
 }
 
 type ModuleErrorInfoResponseArgs struct {
-	// Gets or sets the error code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Gets or sets the error message.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -5353,12 +5010,10 @@ func (o ModuleErrorInfoResponseOutput) ToModuleErrorInfoResponsePtrOutputWithCon
 	}).(ModuleErrorInfoResponsePtrOutput)
 }
 
-// Gets or sets the error code.
 func (o ModuleErrorInfoResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleErrorInfoResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the error message.
 func (o ModuleErrorInfoResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleErrorInfoResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -5387,7 +5042,6 @@ func (o ModuleErrorInfoResponsePtrOutput) Elem() ModuleErrorInfoResponseOutput {
 	}).(ModuleErrorInfoResponseOutput)
 }
 
-// Gets or sets the error code.
 func (o ModuleErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleErrorInfoResponse) *string {
 		if v == nil {
@@ -5397,7 +5051,6 @@ func (o ModuleErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the error message.
 func (o ModuleErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleErrorInfoResponse) *string {
 		if v == nil {
@@ -5408,10 +5061,8 @@ func (o ModuleErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type NonAzureQueryProperties struct {
-	// Log Analytics Saved Search name.
 	FunctionAlias *string `pulumi:"functionAlias"`
-	// Workspace Id for Log Analytics in which the saved Search is resided.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	WorkspaceId   *string `pulumi:"workspaceId"`
 }
 
 // NonAzureQueryPropertiesInput is an input type that accepts NonAzureQueryPropertiesArgs and NonAzureQueryPropertiesOutput values.
@@ -5426,10 +5077,8 @@ type NonAzureQueryPropertiesInput interface {
 }
 
 type NonAzureQueryPropertiesArgs struct {
-	// Log Analytics Saved Search name.
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
-	// Workspace Id for Log Analytics in which the saved Search is resided.
-	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
+	WorkspaceId   pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
 func (NonAzureQueryPropertiesArgs) ElementType() reflect.Type {
@@ -5483,12 +5132,10 @@ func (o NonAzureQueryPropertiesOutput) ToNonAzureQueryPropertiesOutputWithContex
 	return o
 }
 
-// Log Analytics Saved Search name.
 func (o NonAzureQueryPropertiesOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonAzureQueryProperties) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
 
-// Workspace Id for Log Analytics in which the saved Search is resided.
 func (o NonAzureQueryPropertiesOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonAzureQueryProperties) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -5514,10 +5161,8 @@ func (o NonAzureQueryPropertiesArrayOutput) Index(i pulumi.IntInput) NonAzureQue
 }
 
 type NonAzureQueryPropertiesResponse struct {
-	// Log Analytics Saved Search name.
 	FunctionAlias *string `pulumi:"functionAlias"`
-	// Workspace Id for Log Analytics in which the saved Search is resided.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	WorkspaceId   *string `pulumi:"workspaceId"`
 }
 
 // NonAzureQueryPropertiesResponseInput is an input type that accepts NonAzureQueryPropertiesResponseArgs and NonAzureQueryPropertiesResponseOutput values.
@@ -5532,10 +5177,8 @@ type NonAzureQueryPropertiesResponseInput interface {
 }
 
 type NonAzureQueryPropertiesResponseArgs struct {
-	// Log Analytics Saved Search name.
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
-	// Workspace Id for Log Analytics in which the saved Search is resided.
-	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
+	WorkspaceId   pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
 func (NonAzureQueryPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5589,12 +5232,10 @@ func (o NonAzureQueryPropertiesResponseOutput) ToNonAzureQueryPropertiesResponse
 	return o
 }
 
-// Log Analytics Saved Search name.
 func (o NonAzureQueryPropertiesResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonAzureQueryPropertiesResponse) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
 
-// Workspace Id for Log Analytics in which the saved Search is resided.
 func (o NonAzureQueryPropertiesResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonAzureQueryPropertiesResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -5620,16 +5261,11 @@ func (o NonAzureQueryPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Non
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Type                              string                                             `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -5644,16 +5280,11 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource Id for the resource
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	Id                                pulumi.StringInput                                        `pulumi:"id"`
+	Name                              pulumi.StringInput                                        `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type                              pulumi.StringInput                                        `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -5707,29 +5338,24 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource Id for the resource
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointPropertyResponse { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection State of the Private Endpoint Connection.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The type of the resource.
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5755,7 +5381,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -5771,7 +5396,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5852,7 +5476,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5881,7 +5504,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -5892,7 +5514,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -5908,7 +5529,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5989,7 +5609,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6018,7 +5637,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -6029,10 +5647,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -6047,10 +5663,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -6130,12 +5744,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -6164,7 +5776,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -6174,7 +5785,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -6185,12 +5795,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	ActionsRequired string  `pulumi:"actionsRequired"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -6205,12 +5812,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ActionsRequired pulumi.StringInput    `pulumi:"actionsRequired"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -6290,17 +5894,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -6329,7 +5930,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6339,7 +5939,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6349,7 +5948,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6360,7 +5958,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type RunAsCredentialAssociationProperty struct {
-	// Gets or sets the name of the credential.
 	Name *string `pulumi:"name"`
 }
 
@@ -6376,7 +5973,6 @@ type RunAsCredentialAssociationPropertyInput interface {
 }
 
 type RunAsCredentialAssociationPropertyArgs struct {
-	// Gets or sets the name of the credential.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6457,7 +6053,6 @@ func (o RunAsCredentialAssociationPropertyOutput) ToRunAsCredentialAssociationPr
 	}).(RunAsCredentialAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the credential.
 func (o RunAsCredentialAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunAsCredentialAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6486,7 +6081,6 @@ func (o RunAsCredentialAssociationPropertyPtrOutput) Elem() RunAsCredentialAssoc
 	}).(RunAsCredentialAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the credential.
 func (o RunAsCredentialAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunAsCredentialAssociationProperty) *string {
 		if v == nil {
@@ -6497,7 +6091,6 @@ func (o RunAsCredentialAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutp
 }
 
 type RunAsCredentialAssociationPropertyResponse struct {
-	// Gets or sets the name of the credential.
 	Name *string `pulumi:"name"`
 }
 
@@ -6513,7 +6106,6 @@ type RunAsCredentialAssociationPropertyResponseInput interface {
 }
 
 type RunAsCredentialAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the credential.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6594,7 +6186,6 @@ func (o RunAsCredentialAssociationPropertyResponseOutput) ToRunAsCredentialAssoc
 	}).(RunAsCredentialAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the credential.
 func (o RunAsCredentialAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunAsCredentialAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6623,7 +6214,6 @@ func (o RunAsCredentialAssociationPropertyResponsePtrOutput) Elem() RunAsCredent
 	}).(RunAsCredentialAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the credential.
 func (o RunAsCredentialAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunAsCredentialAssociationPropertyResponse) *string {
 		if v == nil {
@@ -6634,7 +6224,6 @@ func (o RunAsCredentialAssociationPropertyResponsePtrOutput) Name() pulumi.Strin
 }
 
 type RunbookAssociationProperty struct {
-	// Gets or sets the name of the runbook.
 	Name *string `pulumi:"name"`
 }
 
@@ -6650,7 +6239,6 @@ type RunbookAssociationPropertyInput interface {
 }
 
 type RunbookAssociationPropertyArgs struct {
-	// Gets or sets the name of the runbook.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6731,7 +6319,6 @@ func (o RunbookAssociationPropertyOutput) ToRunbookAssociationPropertyPtrOutputW
 	}).(RunbookAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o RunbookAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6760,7 +6347,6 @@ func (o RunbookAssociationPropertyPtrOutput) Elem() RunbookAssociationPropertyOu
 	}).(RunbookAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o RunbookAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookAssociationProperty) *string {
 		if v == nil {
@@ -6771,7 +6357,6 @@ func (o RunbookAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type RunbookAssociationPropertyResponse struct {
-	// Gets or sets the name of the runbook.
 	Name *string `pulumi:"name"`
 }
 
@@ -6787,7 +6372,6 @@ type RunbookAssociationPropertyResponseInput interface {
 }
 
 type RunbookAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the runbook.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6868,7 +6452,6 @@ func (o RunbookAssociationPropertyResponseOutput) ToRunbookAssociationPropertyRe
 	}).(RunbookAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o RunbookAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6897,7 +6480,6 @@ func (o RunbookAssociationPropertyResponsePtrOutput) Elem() RunbookAssociationPr
 	}).(RunbookAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o RunbookAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookAssociationPropertyResponse) *string {
 		if v == nil {
@@ -6908,18 +6490,12 @@ func (o RunbookAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutp
 }
 
 type RunbookDraft struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink *ContentLink `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit *bool `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes []string `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters map[string]RunbookParameter `pulumi:"parameters"`
+	CreationTime     *string                     `pulumi:"creationTime"`
+	DraftContentLink *ContentLink                `pulumi:"draftContentLink"`
+	InEdit           *bool                       `pulumi:"inEdit"`
+	LastModifiedTime *string                     `pulumi:"lastModifiedTime"`
+	OutputTypes      []string                    `pulumi:"outputTypes"`
+	Parameters       map[string]RunbookParameter `pulumi:"parameters"`
 }
 
 // RunbookDraftInput is an input type that accepts RunbookDraftArgs and RunbookDraftOutput values.
@@ -6934,18 +6510,12 @@ type RunbookDraftInput interface {
 }
 
 type RunbookDraftArgs struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink ContentLinkPtrInput `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters RunbookParameterMapInput `pulumi:"parameters"`
+	CreationTime     pulumi.StringPtrInput    `pulumi:"creationTime"`
+	DraftContentLink ContentLinkPtrInput      `pulumi:"draftContentLink"`
+	InEdit           pulumi.BoolPtrInput      `pulumi:"inEdit"`
+	LastModifiedTime pulumi.StringPtrInput    `pulumi:"lastModifiedTime"`
+	OutputTypes      pulumi.StringArrayInput  `pulumi:"outputTypes"`
+	Parameters       RunbookParameterMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftArgs) ElementType() reflect.Type {
@@ -7025,32 +6595,26 @@ func (o RunbookDraftOutput) ToRunbookDraftPtrOutputWithContext(ctx context.Conte
 	}).(RunbookDraftPtrOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftOutput) DraftContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *ContentLink { return v.DraftContentLink }).(ContentLinkPtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunbookDraft) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftOutput) Parameters() RunbookParameterMapOutput {
 	return o.ApplyT(func(v RunbookDraft) map[string]RunbookParameter { return v.Parameters }).(RunbookParameterMapOutput)
 }
@@ -7079,7 +6643,6 @@ func (o RunbookDraftPtrOutput) Elem() RunbookDraftOutput {
 	}).(RunbookDraftOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *string {
 		if v == nil {
@@ -7089,7 +6652,6 @@ func (o RunbookDraftPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftPtrOutput) DraftContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *ContentLink {
 		if v == nil {
@@ -7099,7 +6661,6 @@ func (o RunbookDraftPtrOutput) DraftContentLink() ContentLinkPtrOutput {
 	}).(ContentLinkPtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftPtrOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *bool {
 		if v == nil {
@@ -7109,7 +6670,6 @@ func (o RunbookDraftPtrOutput) InEdit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *string {
 		if v == nil {
@@ -7119,7 +6679,6 @@ func (o RunbookDraftPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RunbookDraft) []string {
 		if v == nil {
@@ -7129,7 +6688,6 @@ func (o RunbookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 	return o.ApplyT(func(v *RunbookDraft) map[string]RunbookParameter {
 		if v == nil {
@@ -7140,18 +6698,12 @@ func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 }
 
 type RunbookDraftResponse struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink *ContentLinkResponse `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit *bool `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes []string `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
+	CreationTime     *string                             `pulumi:"creationTime"`
+	DraftContentLink *ContentLinkResponse                `pulumi:"draftContentLink"`
+	InEdit           *bool                               `pulumi:"inEdit"`
+	LastModifiedTime *string                             `pulumi:"lastModifiedTime"`
+	OutputTypes      []string                            `pulumi:"outputTypes"`
+	Parameters       map[string]RunbookParameterResponse `pulumi:"parameters"`
 }
 
 // RunbookDraftResponseInput is an input type that accepts RunbookDraftResponseArgs and RunbookDraftResponseOutput values.
@@ -7166,18 +6718,12 @@ type RunbookDraftResponseInput interface {
 }
 
 type RunbookDraftResponseArgs struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink ContentLinkResponsePtrInput `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters RunbookParameterResponseMapInput `pulumi:"parameters"`
+	CreationTime     pulumi.StringPtrInput            `pulumi:"creationTime"`
+	DraftContentLink ContentLinkResponsePtrInput      `pulumi:"draftContentLink"`
+	InEdit           pulumi.BoolPtrInput              `pulumi:"inEdit"`
+	LastModifiedTime pulumi.StringPtrInput            `pulumi:"lastModifiedTime"`
+	OutputTypes      pulumi.StringArrayInput          `pulumi:"outputTypes"`
+	Parameters       RunbookParameterResponseMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftResponseArgs) ElementType() reflect.Type {
@@ -7257,32 +6803,26 @@ func (o RunbookDraftResponseOutput) ToRunbookDraftResponsePtrOutputWithContext(c
 	}).(RunbookDraftResponsePtrOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftResponseOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftResponseOutput) DraftContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *ContentLinkResponse { return v.DraftContentLink }).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftResponseOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftResponseOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftResponseOutput) Parameters() RunbookParameterResponseMapOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) map[string]RunbookParameterResponse { return v.Parameters }).(RunbookParameterResponseMapOutput)
 }
@@ -7311,7 +6851,6 @@ func (o RunbookDraftResponsePtrOutput) Elem() RunbookDraftResponseOutput {
 	}).(RunbookDraftResponseOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *string {
 		if v == nil {
@@ -7321,7 +6860,6 @@ func (o RunbookDraftResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftResponsePtrOutput) DraftContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *ContentLinkResponse {
 		if v == nil {
@@ -7331,7 +6869,6 @@ func (o RunbookDraftResponsePtrOutput) DraftContentLink() ContentLinkResponsePtr
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftResponsePtrOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *bool {
 		if v == nil {
@@ -7341,7 +6878,6 @@ func (o RunbookDraftResponsePtrOutput) InEdit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *string {
 		if v == nil {
@@ -7351,7 +6887,6 @@ func (o RunbookDraftResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftResponsePtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) []string {
 		if v == nil {
@@ -7361,7 +6896,6 @@ func (o RunbookDraftResponsePtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftResponsePtrOutput) Parameters() RunbookParameterResponseMapOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) map[string]RunbookParameterResponse {
 		if v == nil {
@@ -7372,14 +6906,10 @@ func (o RunbookDraftResponsePtrOutput) Parameters() RunbookParameterResponseMapO
 }
 
 type RunbookParameter struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // RunbookParameterInput is an input type that accepts RunbookParameterArgs and RunbookParameterOutput values.
@@ -7394,14 +6924,10 @@ type RunbookParameterInput interface {
 }
 
 type RunbookParameterArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RunbookParameterArgs) ElementType() reflect.Type {
@@ -7455,22 +6981,18 @@ func (o RunbookParameterOutput) ToRunbookParameterOutputWithContext(ctx context.
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o RunbookParameterOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o RunbookParameterOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o RunbookParameterOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o RunbookParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7496,14 +7018,10 @@ func (o RunbookParameterMapOutput) MapIndex(k pulumi.StringInput) RunbookParamet
 }
 
 type RunbookParameterResponse struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // RunbookParameterResponseInput is an input type that accepts RunbookParameterResponseArgs and RunbookParameterResponseOutput values.
@@ -7518,14 +7036,10 @@ type RunbookParameterResponseInput interface {
 }
 
 type RunbookParameterResponseArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RunbookParameterResponseArgs) ElementType() reflect.Type {
@@ -7579,22 +7093,18 @@ func (o RunbookParameterResponseOutput) ToRunbookParameterResponseOutputWithCont
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o RunbookParameterResponseOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o RunbookParameterResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o RunbookParameterResponseOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o RunbookParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7620,32 +7130,19 @@ func (o RunbookParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Runboo
 }
 
 type SUCScheduleProperties struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule *AdvancedSchedule `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency *string `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval *float64 `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the next run time of the schedule.
-	NextRun *string `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime *string `pulumi:"startTime"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone *string `pulumi:"timeZone"`
+	AdvancedSchedule        *AdvancedSchedule `pulumi:"advancedSchedule"`
+	CreationTime            *string           `pulumi:"creationTime"`
+	Description             *string           `pulumi:"description"`
+	ExpiryTime              *string           `pulumi:"expiryTime"`
+	ExpiryTimeOffsetMinutes *float64          `pulumi:"expiryTimeOffsetMinutes"`
+	Frequency               *string           `pulumi:"frequency"`
+	Interval                *float64          `pulumi:"interval"`
+	IsEnabled               *bool             `pulumi:"isEnabled"`
+	LastModifiedTime        *string           `pulumi:"lastModifiedTime"`
+	NextRun                 *string           `pulumi:"nextRun"`
+	NextRunOffsetMinutes    *float64          `pulumi:"nextRunOffsetMinutes"`
+	StartTime               *string           `pulumi:"startTime"`
+	TimeZone                *string           `pulumi:"timeZone"`
 }
 
 // SUCSchedulePropertiesInput is an input type that accepts SUCSchedulePropertiesArgs and SUCSchedulePropertiesOutput values.
@@ -7660,32 +7157,19 @@ type SUCSchedulePropertiesInput interface {
 }
 
 type SUCSchedulePropertiesArgs struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule AdvancedSchedulePtrInput `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval pulumi.Float64PtrInput `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the next run time of the schedule.
-	NextRun pulumi.StringPtrInput `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes pulumi.Float64PtrInput `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	AdvancedSchedule        AdvancedSchedulePtrInput `pulumi:"advancedSchedule"`
+	CreationTime            pulumi.StringPtrInput    `pulumi:"creationTime"`
+	Description             pulumi.StringPtrInput    `pulumi:"description"`
+	ExpiryTime              pulumi.StringPtrInput    `pulumi:"expiryTime"`
+	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput   `pulumi:"expiryTimeOffsetMinutes"`
+	Frequency               pulumi.StringPtrInput    `pulumi:"frequency"`
+	Interval                pulumi.Float64PtrInput   `pulumi:"interval"`
+	IsEnabled               pulumi.BoolPtrInput      `pulumi:"isEnabled"`
+	LastModifiedTime        pulumi.StringPtrInput    `pulumi:"lastModifiedTime"`
+	NextRun                 pulumi.StringPtrInput    `pulumi:"nextRun"`
+	NextRunOffsetMinutes    pulumi.Float64PtrInput   `pulumi:"nextRunOffsetMinutes"`
+	StartTime               pulumi.StringPtrInput    `pulumi:"startTime"`
+	TimeZone                pulumi.StringPtrInput    `pulumi:"timeZone"`
 }
 
 func (SUCSchedulePropertiesArgs) ElementType() reflect.Type {
@@ -7765,67 +7249,54 @@ func (o SUCSchedulePropertiesOutput) ToSUCSchedulePropertiesPtrOutputWithContext
 	}).(SUCSchedulePropertiesPtrOutput)
 }
 
-// Gets or sets the advanced schedule.
 func (o SUCSchedulePropertiesOutput) AdvancedSchedule() AdvancedSchedulePtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *AdvancedSchedule { return v.AdvancedSchedule }).(AdvancedSchedulePtrOutput)
 }
 
-// Gets or sets the creation time.
 func (o SUCSchedulePropertiesOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the description.
 func (o SUCSchedulePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the end time of the schedule.
 func (o SUCSchedulePropertiesOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the expiry time's offset in minutes.
 func (o SUCSchedulePropertiesOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *float64 { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the frequency of the schedule.
 func (o SUCSchedulePropertiesOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval of the schedule.
 func (o SUCSchedulePropertiesOutput) Interval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *float64 { return v.Interval }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets a value indicating whether this schedule is enabled.
 func (o SUCSchedulePropertiesOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time.
 func (o SUCSchedulePropertiesOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time of the schedule.
 func (o SUCSchedulePropertiesOutput) NextRun() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.NextRun }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time's offset in minutes.
 func (o SUCSchedulePropertiesOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *float64 { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the start time of the schedule.
 func (o SUCSchedulePropertiesOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the time zone of the schedule.
 func (o SUCSchedulePropertiesOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCScheduleProperties) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -7854,7 +7325,6 @@ func (o SUCSchedulePropertiesPtrOutput) Elem() SUCSchedulePropertiesOutput {
 	}).(SUCSchedulePropertiesOutput)
 }
 
-// Gets or sets the advanced schedule.
 func (o SUCSchedulePropertiesPtrOutput) AdvancedSchedule() AdvancedSchedulePtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *AdvancedSchedule {
 		if v == nil {
@@ -7864,7 +7334,6 @@ func (o SUCSchedulePropertiesPtrOutput) AdvancedSchedule() AdvancedSchedulePtrOu
 	}).(AdvancedSchedulePtrOutput)
 }
 
-// Gets or sets the creation time.
 func (o SUCSchedulePropertiesPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7874,7 +7343,6 @@ func (o SUCSchedulePropertiesPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the description.
 func (o SUCSchedulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7884,7 +7352,6 @@ func (o SUCSchedulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the end time of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7894,7 +7361,6 @@ func (o SUCSchedulePropertiesPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the expiry time's offset in minutes.
 func (o SUCSchedulePropertiesPtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *float64 {
 		if v == nil {
@@ -7904,7 +7370,6 @@ func (o SUCSchedulePropertiesPtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the frequency of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7914,7 +7379,6 @@ func (o SUCSchedulePropertiesPtrOutput) Frequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) Interval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *float64 {
 		if v == nil {
@@ -7924,7 +7388,6 @@ func (o SUCSchedulePropertiesPtrOutput) Interval() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets a value indicating whether this schedule is enabled.
 func (o SUCSchedulePropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *bool {
 		if v == nil {
@@ -7934,7 +7397,6 @@ func (o SUCSchedulePropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time.
 func (o SUCSchedulePropertiesPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7944,7 +7406,6 @@ func (o SUCSchedulePropertiesPtrOutput) LastModifiedTime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) NextRun() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7954,7 +7415,6 @@ func (o SUCSchedulePropertiesPtrOutput) NextRun() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time's offset in minutes.
 func (o SUCSchedulePropertiesPtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *float64 {
 		if v == nil {
@@ -7964,7 +7424,6 @@ func (o SUCSchedulePropertiesPtrOutput) NextRunOffsetMinutes() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the start time of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7974,7 +7433,6 @@ func (o SUCSchedulePropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the time zone of the schedule.
 func (o SUCSchedulePropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCScheduleProperties) *string {
 		if v == nil {
@@ -7985,34 +7443,20 @@ func (o SUCSchedulePropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type SUCSchedulePropertiesResponse struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency *string `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval *float64 `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the next run time of the schedule.
-	NextRun *string `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime *string `pulumi:"startTime"`
-	// Gets the start time's offset in minutes.
-	StartTimeOffsetMinutes float64 `pulumi:"startTimeOffsetMinutes"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone *string `pulumi:"timeZone"`
+	AdvancedSchedule        *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
+	CreationTime            *string                   `pulumi:"creationTime"`
+	Description             *string                   `pulumi:"description"`
+	ExpiryTime              *string                   `pulumi:"expiryTime"`
+	ExpiryTimeOffsetMinutes *float64                  `pulumi:"expiryTimeOffsetMinutes"`
+	Frequency               *string                   `pulumi:"frequency"`
+	Interval                *float64                  `pulumi:"interval"`
+	IsEnabled               *bool                     `pulumi:"isEnabled"`
+	LastModifiedTime        *string                   `pulumi:"lastModifiedTime"`
+	NextRun                 *string                   `pulumi:"nextRun"`
+	NextRunOffsetMinutes    *float64                  `pulumi:"nextRunOffsetMinutes"`
+	StartTime               *string                   `pulumi:"startTime"`
+	StartTimeOffsetMinutes  float64                   `pulumi:"startTimeOffsetMinutes"`
+	TimeZone                *string                   `pulumi:"timeZone"`
 }
 
 // SUCSchedulePropertiesResponseInput is an input type that accepts SUCSchedulePropertiesResponseArgs and SUCSchedulePropertiesResponseOutput values.
@@ -8027,34 +7471,20 @@ type SUCSchedulePropertiesResponseInput interface {
 }
 
 type SUCSchedulePropertiesResponseArgs struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule AdvancedScheduleResponsePtrInput `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval pulumi.Float64PtrInput `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the next run time of the schedule.
-	NextRun pulumi.StringPtrInput `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes pulumi.Float64PtrInput `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Gets the start time's offset in minutes.
-	StartTimeOffsetMinutes pulumi.Float64Input `pulumi:"startTimeOffsetMinutes"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	AdvancedSchedule        AdvancedScheduleResponsePtrInput `pulumi:"advancedSchedule"`
+	CreationTime            pulumi.StringPtrInput            `pulumi:"creationTime"`
+	Description             pulumi.StringPtrInput            `pulumi:"description"`
+	ExpiryTime              pulumi.StringPtrInput            `pulumi:"expiryTime"`
+	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput           `pulumi:"expiryTimeOffsetMinutes"`
+	Frequency               pulumi.StringPtrInput            `pulumi:"frequency"`
+	Interval                pulumi.Float64PtrInput           `pulumi:"interval"`
+	IsEnabled               pulumi.BoolPtrInput              `pulumi:"isEnabled"`
+	LastModifiedTime        pulumi.StringPtrInput            `pulumi:"lastModifiedTime"`
+	NextRun                 pulumi.StringPtrInput            `pulumi:"nextRun"`
+	NextRunOffsetMinutes    pulumi.Float64PtrInput           `pulumi:"nextRunOffsetMinutes"`
+	StartTime               pulumi.StringPtrInput            `pulumi:"startTime"`
+	StartTimeOffsetMinutes  pulumi.Float64Input              `pulumi:"startTimeOffsetMinutes"`
+	TimeZone                pulumi.StringPtrInput            `pulumi:"timeZone"`
 }
 
 func (SUCSchedulePropertiesResponseArgs) ElementType() reflect.Type {
@@ -8134,72 +7564,58 @@ func (o SUCSchedulePropertiesResponseOutput) ToSUCSchedulePropertiesResponsePtrO
 	}).(SUCSchedulePropertiesResponsePtrOutput)
 }
 
-// Gets or sets the advanced schedule.
 func (o SUCSchedulePropertiesResponseOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *AdvancedScheduleResponse { return v.AdvancedSchedule }).(AdvancedScheduleResponsePtrOutput)
 }
 
-// Gets or sets the creation time.
 func (o SUCSchedulePropertiesResponseOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the description.
 func (o SUCSchedulePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the end time of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the expiry time's offset in minutes.
 func (o SUCSchedulePropertiesResponseOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *float64 { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the frequency of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) Interval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *float64 { return v.Interval }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets a value indicating whether this schedule is enabled.
 func (o SUCSchedulePropertiesResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time.
 func (o SUCSchedulePropertiesResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) NextRun() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.NextRun }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time's offset in minutes.
 func (o SUCSchedulePropertiesResponseOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *float64 { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the start time of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets the start time's offset in minutes.
 func (o SUCSchedulePropertiesResponseOutput) StartTimeOffsetMinutes() pulumi.Float64Output {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) float64 { return v.StartTimeOffsetMinutes }).(pulumi.Float64Output)
 }
 
-// Gets or sets the time zone of the schedule.
 func (o SUCSchedulePropertiesResponseOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SUCSchedulePropertiesResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -8228,7 +7644,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) Elem() SUCSchedulePropertiesResp
 	}).(SUCSchedulePropertiesResponseOutput)
 }
 
-// Gets or sets the advanced schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *AdvancedScheduleResponse {
 		if v == nil {
@@ -8238,7 +7653,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) AdvancedSchedule() AdvancedSched
 	}).(AdvancedScheduleResponsePtrOutput)
 }
 
-// Gets or sets the creation time.
 func (o SUCSchedulePropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8248,7 +7662,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the description.
 func (o SUCSchedulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8258,7 +7671,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the end time of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8268,7 +7680,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) ExpiryTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the expiry time's offset in minutes.
 func (o SUCSchedulePropertiesResponsePtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *float64 {
 		if v == nil {
@@ -8278,7 +7689,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) ExpiryTimeOffsetMinutes() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the frequency of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8288,7 +7698,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) Frequency() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) Interval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *float64 {
 		if v == nil {
@@ -8298,7 +7707,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) Interval() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets a value indicating whether this schedule is enabled.
 func (o SUCSchedulePropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *bool {
 		if v == nil {
@@ -8308,7 +7716,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time.
 func (o SUCSchedulePropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8318,7 +7725,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) LastModifiedTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) NextRun() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8328,7 +7734,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) NextRun() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the next run time's offset in minutes.
 func (o SUCSchedulePropertiesResponsePtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *float64 {
 		if v == nil {
@@ -8338,7 +7743,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) NextRunOffsetMinutes() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the start time of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8348,7 +7752,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) StartTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the start time's offset in minutes.
 func (o SUCSchedulePropertiesResponsePtrOutput) StartTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *float64 {
 		if v == nil {
@@ -8358,7 +7761,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) StartTimeOffsetMinutes() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the time zone of the schedule.
 func (o SUCSchedulePropertiesResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SUCSchedulePropertiesResponse) *string {
 		if v == nil {
@@ -8369,7 +7771,6 @@ func (o SUCSchedulePropertiesResponsePtrOutput) TimeZone() pulumi.StringPtrOutpu
 }
 
 type ScheduleAssociationProperty struct {
-	// Gets or sets the name of the Schedule.
 	Name *string `pulumi:"name"`
 }
 
@@ -8385,7 +7786,6 @@ type ScheduleAssociationPropertyInput interface {
 }
 
 type ScheduleAssociationPropertyArgs struct {
-	// Gets or sets the name of the Schedule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -8466,7 +7866,6 @@ func (o ScheduleAssociationPropertyOutput) ToScheduleAssociationPropertyPtrOutpu
 	}).(ScheduleAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the Schedule.
 func (o ScheduleAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -8495,7 +7894,6 @@ func (o ScheduleAssociationPropertyPtrOutput) Elem() ScheduleAssociationProperty
 	}).(ScheduleAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the Schedule.
 func (o ScheduleAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleAssociationProperty) *string {
 		if v == nil {
@@ -8506,7 +7904,6 @@ func (o ScheduleAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ScheduleAssociationPropertyResponse struct {
-	// Gets or sets the name of the Schedule.
 	Name *string `pulumi:"name"`
 }
 
@@ -8522,7 +7919,6 @@ type ScheduleAssociationPropertyResponseInput interface {
 }
 
 type ScheduleAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the Schedule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -8603,7 +7999,6 @@ func (o ScheduleAssociationPropertyResponseOutput) ToScheduleAssociationProperty
 	}).(ScheduleAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the Schedule.
 func (o ScheduleAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -8632,7 +8027,6 @@ func (o ScheduleAssociationPropertyResponsePtrOutput) Elem() ScheduleAssociation
 	}).(ScheduleAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the Schedule.
 func (o ScheduleAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleAssociationPropertyResponse) *string {
 		if v == nil {
@@ -8643,12 +8037,9 @@ func (o ScheduleAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOut
 }
 
 type Sku struct {
-	// Gets or sets the SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// Gets or sets the SKU family.
-	Family *string `pulumi:"family"`
-	// Gets or sets the SKU name of the account.
-	Name string `pulumi:"name"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -8663,12 +8054,9 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Gets or sets the SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Gets or sets the SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Gets or sets the SKU name of the account.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -8748,17 +8136,14 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the SKU capacity.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the SKU family.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the SKU name of the account.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8787,7 +8172,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Gets or sets the SKU capacity.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -8797,7 +8181,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the SKU family.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8807,7 +8190,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the SKU name of the account.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8818,12 +8200,9 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// Gets or sets the SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// Gets or sets the SKU family.
-	Family *string `pulumi:"family"`
-	// Gets or sets the SKU name of the account.
-	Name string `pulumi:"name"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -8838,12 +8217,9 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Gets or sets the SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Gets or sets the SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Gets or sets the SKU name of the account.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -8923,17 +8299,14 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets the SKU capacity.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the SKU family.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the SKU name of the account.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8962,7 +8335,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Gets or sets the SKU capacity.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -8972,7 +8344,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the SKU family.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8982,7 +8353,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the SKU name of the account.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8993,10 +8363,8 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SoftwareUpdateConfigurationTasks struct {
-	// Post task properties.
 	PostTask *TaskProperties `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask *TaskProperties `pulumi:"preTask"`
+	PreTask  *TaskProperties `pulumi:"preTask"`
 }
 
 // SoftwareUpdateConfigurationTasksInput is an input type that accepts SoftwareUpdateConfigurationTasksArgs and SoftwareUpdateConfigurationTasksOutput values.
@@ -9011,10 +8379,8 @@ type SoftwareUpdateConfigurationTasksInput interface {
 }
 
 type SoftwareUpdateConfigurationTasksArgs struct {
-	// Post task properties.
 	PostTask TaskPropertiesPtrInput `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask TaskPropertiesPtrInput `pulumi:"preTask"`
+	PreTask  TaskPropertiesPtrInput `pulumi:"preTask"`
 }
 
 func (SoftwareUpdateConfigurationTasksArgs) ElementType() reflect.Type {
@@ -9094,12 +8460,10 @@ func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTas
 	}).(SoftwareUpdateConfigurationTasksPtrOutput)
 }
 
-// Post task properties.
 func (o SoftwareUpdateConfigurationTasksOutput) PostTask() TaskPropertiesPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PostTask }).(TaskPropertiesPtrOutput)
 }
 
-// Pre task properties.
 func (o SoftwareUpdateConfigurationTasksOutput) PreTask() TaskPropertiesPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PreTask }).(TaskPropertiesPtrOutput)
 }
@@ -9128,7 +8492,6 @@ func (o SoftwareUpdateConfigurationTasksPtrOutput) Elem() SoftwareUpdateConfigur
 	}).(SoftwareUpdateConfigurationTasksOutput)
 }
 
-// Post task properties.
 func (o SoftwareUpdateConfigurationTasksPtrOutput) PostTask() TaskPropertiesPtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
 		if v == nil {
@@ -9138,7 +8501,6 @@ func (o SoftwareUpdateConfigurationTasksPtrOutput) PostTask() TaskPropertiesPtrO
 	}).(TaskPropertiesPtrOutput)
 }
 
-// Pre task properties.
 func (o SoftwareUpdateConfigurationTasksPtrOutput) PreTask() TaskPropertiesPtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
 		if v == nil {
@@ -9149,10 +8511,8 @@ func (o SoftwareUpdateConfigurationTasksPtrOutput) PreTask() TaskPropertiesPtrOu
 }
 
 type SoftwareUpdateConfigurationTasksResponse struct {
-	// Post task properties.
 	PostTask *TaskPropertiesResponse `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask *TaskPropertiesResponse `pulumi:"preTask"`
+	PreTask  *TaskPropertiesResponse `pulumi:"preTask"`
 }
 
 // SoftwareUpdateConfigurationTasksResponseInput is an input type that accepts SoftwareUpdateConfigurationTasksResponseArgs and SoftwareUpdateConfigurationTasksResponseOutput values.
@@ -9167,10 +8527,8 @@ type SoftwareUpdateConfigurationTasksResponseInput interface {
 }
 
 type SoftwareUpdateConfigurationTasksResponseArgs struct {
-	// Post task properties.
 	PostTask TaskPropertiesResponsePtrInput `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask TaskPropertiesResponsePtrInput `pulumi:"preTask"`
+	PreTask  TaskPropertiesResponsePtrInput `pulumi:"preTask"`
 }
 
 func (SoftwareUpdateConfigurationTasksResponseArgs) ElementType() reflect.Type {
@@ -9250,12 +8608,10 @@ func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigur
 	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
 }
 
-// Post task properties.
 func (o SoftwareUpdateConfigurationTasksResponseOutput) PostTask() TaskPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PostTask }).(TaskPropertiesResponsePtrOutput)
 }
 
-// Pre task properties.
 func (o SoftwareUpdateConfigurationTasksResponseOutput) PreTask() TaskPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PreTask }).(TaskPropertiesResponsePtrOutput)
 }
@@ -9284,7 +8640,6 @@ func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) Elem() SoftwareUpdate
 	}).(SoftwareUpdateConfigurationTasksResponseOutput)
 }
 
-// Post task properties.
 func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PostTask() TaskPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
 		if v == nil {
@@ -9294,7 +8649,6 @@ func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PostTask() TaskProper
 	}).(TaskPropertiesResponsePtrOutput)
 }
 
-// Pre task properties.
 func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PreTask() TaskPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
 		if v == nil {
@@ -9305,12 +8659,9 @@ func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PreTask() TaskPropert
 }
 
 type SourceControlSecurityTokenProperties struct {
-	// The access token.
-	AccessToken *string `pulumi:"accessToken"`
-	// The refresh token.
+	AccessToken  *string `pulumi:"accessToken"`
 	RefreshToken *string `pulumi:"refreshToken"`
-	// The token type. Must be either PersonalAccessToken or Oauth.
-	TokenType *string `pulumi:"tokenType"`
+	TokenType    *string `pulumi:"tokenType"`
 }
 
 // SourceControlSecurityTokenPropertiesInput is an input type that accepts SourceControlSecurityTokenPropertiesArgs and SourceControlSecurityTokenPropertiesOutput values.
@@ -9325,12 +8676,9 @@ type SourceControlSecurityTokenPropertiesInput interface {
 }
 
 type SourceControlSecurityTokenPropertiesArgs struct {
-	// The access token.
-	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The refresh token.
+	AccessToken  pulumi.StringPtrInput `pulumi:"accessToken"`
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
-	// The token type. Must be either PersonalAccessToken or Oauth.
-	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+	TokenType    pulumi.StringPtrInput `pulumi:"tokenType"`
 }
 
 func (SourceControlSecurityTokenPropertiesArgs) ElementType() reflect.Type {
@@ -9410,17 +8758,14 @@ func (o SourceControlSecurityTokenPropertiesOutput) ToSourceControlSecurityToken
 	}).(SourceControlSecurityTokenPropertiesPtrOutput)
 }
 
-// The access token.
 func (o SourceControlSecurityTokenPropertiesOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlSecurityTokenProperties) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The refresh token.
 func (o SourceControlSecurityTokenPropertiesOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlSecurityTokenProperties) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
-// The token type. Must be either PersonalAccessToken or Oauth.
 func (o SourceControlSecurityTokenPropertiesOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlSecurityTokenProperties) *string { return v.TokenType }).(pulumi.StringPtrOutput)
 }
@@ -9449,7 +8794,6 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) Elem() SourceControlSecur
 	}).(SourceControlSecurityTokenPropertiesOutput)
 }
 
-// The access token.
 func (o SourceControlSecurityTokenPropertiesPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlSecurityTokenProperties) *string {
 		if v == nil {
@@ -9459,7 +8803,6 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) AccessToken() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The refresh token.
 func (o SourceControlSecurityTokenPropertiesPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlSecurityTokenProperties) *string {
 		if v == nil {
@@ -9469,7 +8812,6 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) RefreshToken() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The token type. Must be either PersonalAccessToken or Oauth.
 func (o SourceControlSecurityTokenPropertiesPtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlSecurityTokenProperties) *string {
 		if v == nil {
@@ -9480,17 +8822,11 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) TokenType() pulumi.String
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -9506,17 +8842,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -9597,32 +8927,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -9651,7 +8975,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9661,7 +8984,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9671,7 +8993,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9681,7 +9002,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9691,7 +9011,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9701,7 +9020,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9712,10 +9030,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TagSettingsProperties struct {
-	// Filter VMs by Any or All specified tags.
-	FilterOperator *TagOperators `pulumi:"filterOperator"`
-	// Dictionary of tags with its list of values.
-	Tags map[string][]string `pulumi:"tags"`
+	FilterOperator *TagOperators       `pulumi:"filterOperator"`
+	Tags           map[string][]string `pulumi:"tags"`
 }
 
 // TagSettingsPropertiesInput is an input type that accepts TagSettingsPropertiesArgs and TagSettingsPropertiesOutput values.
@@ -9730,10 +9046,8 @@ type TagSettingsPropertiesInput interface {
 }
 
 type TagSettingsPropertiesArgs struct {
-	// Filter VMs by Any or All specified tags.
-	FilterOperator TagOperatorsPtrInput `pulumi:"filterOperator"`
-	// Dictionary of tags with its list of values.
-	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
+	FilterOperator TagOperatorsPtrInput       `pulumi:"filterOperator"`
+	Tags           pulumi.StringArrayMapInput `pulumi:"tags"`
 }
 
 func (TagSettingsPropertiesArgs) ElementType() reflect.Type {
@@ -9813,12 +9127,10 @@ func (o TagSettingsPropertiesOutput) ToTagSettingsPropertiesPtrOutputWithContext
 	}).(TagSettingsPropertiesPtrOutput)
 }
 
-// Filter VMs by Any or All specified tags.
 func (o TagSettingsPropertiesOutput) FilterOperator() TagOperatorsPtrOutput {
 	return o.ApplyT(func(v TagSettingsProperties) *TagOperators { return v.FilterOperator }).(TagOperatorsPtrOutput)
 }
 
-// Dictionary of tags with its list of values.
 func (o TagSettingsPropertiesOutput) Tags() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v TagSettingsProperties) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
 }
@@ -9847,7 +9159,6 @@ func (o TagSettingsPropertiesPtrOutput) Elem() TagSettingsPropertiesOutput {
 	}).(TagSettingsPropertiesOutput)
 }
 
-// Filter VMs by Any or All specified tags.
 func (o TagSettingsPropertiesPtrOutput) FilterOperator() TagOperatorsPtrOutput {
 	return o.ApplyT(func(v *TagSettingsProperties) *TagOperators {
 		if v == nil {
@@ -9857,7 +9168,6 @@ func (o TagSettingsPropertiesPtrOutput) FilterOperator() TagOperatorsPtrOutput {
 	}).(TagOperatorsPtrOutput)
 }
 
-// Dictionary of tags with its list of values.
 func (o TagSettingsPropertiesPtrOutput) Tags() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *TagSettingsProperties) map[string][]string {
 		if v == nil {
@@ -9868,10 +9178,8 @@ func (o TagSettingsPropertiesPtrOutput) Tags() pulumi.StringArrayMapOutput {
 }
 
 type TagSettingsPropertiesResponse struct {
-	// Filter VMs by Any or All specified tags.
-	FilterOperator *string `pulumi:"filterOperator"`
-	// Dictionary of tags with its list of values.
-	Tags map[string][]string `pulumi:"tags"`
+	FilterOperator *string             `pulumi:"filterOperator"`
+	Tags           map[string][]string `pulumi:"tags"`
 }
 
 // TagSettingsPropertiesResponseInput is an input type that accepts TagSettingsPropertiesResponseArgs and TagSettingsPropertiesResponseOutput values.
@@ -9886,10 +9194,8 @@ type TagSettingsPropertiesResponseInput interface {
 }
 
 type TagSettingsPropertiesResponseArgs struct {
-	// Filter VMs by Any or All specified tags.
-	FilterOperator pulumi.StringPtrInput `pulumi:"filterOperator"`
-	// Dictionary of tags with its list of values.
-	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
+	FilterOperator pulumi.StringPtrInput      `pulumi:"filterOperator"`
+	Tags           pulumi.StringArrayMapInput `pulumi:"tags"`
 }
 
 func (TagSettingsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9969,12 +9275,10 @@ func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponsePtrO
 	}).(TagSettingsPropertiesResponsePtrOutput)
 }
 
-// Filter VMs by Any or All specified tags.
 func (o TagSettingsPropertiesResponseOutput) FilterOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TagSettingsPropertiesResponse) *string { return v.FilterOperator }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of tags with its list of values.
 func (o TagSettingsPropertiesResponseOutput) Tags() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v TagSettingsPropertiesResponse) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
 }
@@ -10003,7 +9307,6 @@ func (o TagSettingsPropertiesResponsePtrOutput) Elem() TagSettingsPropertiesResp
 	}).(TagSettingsPropertiesResponseOutput)
 }
 
-// Filter VMs by Any or All specified tags.
 func (o TagSettingsPropertiesResponsePtrOutput) FilterOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -10013,7 +9316,6 @@ func (o TagSettingsPropertiesResponsePtrOutput) FilterOperator() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of tags with its list of values.
 func (o TagSettingsPropertiesResponsePtrOutput) Tags() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *TagSettingsPropertiesResponse) map[string][]string {
 		if v == nil {
@@ -10024,9 +9326,7 @@ func (o TagSettingsPropertiesResponsePtrOutput) Tags() pulumi.StringArrayMapOutp
 }
 
 type TargetProperties struct {
-	// List of Azure queries in the software update configuration.
-	AzureQueries []AzureQueryProperties `pulumi:"azureQueries"`
-	// List of non Azure queries in the software update configuration.
+	AzureQueries    []AzureQueryProperties    `pulumi:"azureQueries"`
 	NonAzureQueries []NonAzureQueryProperties `pulumi:"nonAzureQueries"`
 }
 
@@ -10042,9 +9342,7 @@ type TargetPropertiesInput interface {
 }
 
 type TargetPropertiesArgs struct {
-	// List of Azure queries in the software update configuration.
-	AzureQueries AzureQueryPropertiesArrayInput `pulumi:"azureQueries"`
-	// List of non Azure queries in the software update configuration.
+	AzureQueries    AzureQueryPropertiesArrayInput    `pulumi:"azureQueries"`
 	NonAzureQueries NonAzureQueryPropertiesArrayInput `pulumi:"nonAzureQueries"`
 }
 
@@ -10125,12 +9423,10 @@ func (o TargetPropertiesOutput) ToTargetPropertiesPtrOutputWithContext(ctx conte
 	}).(TargetPropertiesPtrOutput)
 }
 
-// List of Azure queries in the software update configuration.
 func (o TargetPropertiesOutput) AzureQueries() AzureQueryPropertiesArrayOutput {
 	return o.ApplyT(func(v TargetProperties) []AzureQueryProperties { return v.AzureQueries }).(AzureQueryPropertiesArrayOutput)
 }
 
-// List of non Azure queries in the software update configuration.
 func (o TargetPropertiesOutput) NonAzureQueries() NonAzureQueryPropertiesArrayOutput {
 	return o.ApplyT(func(v TargetProperties) []NonAzureQueryProperties { return v.NonAzureQueries }).(NonAzureQueryPropertiesArrayOutput)
 }
@@ -10159,7 +9455,6 @@ func (o TargetPropertiesPtrOutput) Elem() TargetPropertiesOutput {
 	}).(TargetPropertiesOutput)
 }
 
-// List of Azure queries in the software update configuration.
 func (o TargetPropertiesPtrOutput) AzureQueries() AzureQueryPropertiesArrayOutput {
 	return o.ApplyT(func(v *TargetProperties) []AzureQueryProperties {
 		if v == nil {
@@ -10169,7 +9464,6 @@ func (o TargetPropertiesPtrOutput) AzureQueries() AzureQueryPropertiesArrayOutpu
 	}).(AzureQueryPropertiesArrayOutput)
 }
 
-// List of non Azure queries in the software update configuration.
 func (o TargetPropertiesPtrOutput) NonAzureQueries() NonAzureQueryPropertiesArrayOutput {
 	return o.ApplyT(func(v *TargetProperties) []NonAzureQueryProperties {
 		if v == nil {
@@ -10180,9 +9474,7 @@ func (o TargetPropertiesPtrOutput) NonAzureQueries() NonAzureQueryPropertiesArra
 }
 
 type TargetPropertiesResponse struct {
-	// List of Azure queries in the software update configuration.
-	AzureQueries []AzureQueryPropertiesResponse `pulumi:"azureQueries"`
-	// List of non Azure queries in the software update configuration.
+	AzureQueries    []AzureQueryPropertiesResponse    `pulumi:"azureQueries"`
 	NonAzureQueries []NonAzureQueryPropertiesResponse `pulumi:"nonAzureQueries"`
 }
 
@@ -10198,9 +9490,7 @@ type TargetPropertiesResponseInput interface {
 }
 
 type TargetPropertiesResponseArgs struct {
-	// List of Azure queries in the software update configuration.
-	AzureQueries AzureQueryPropertiesResponseArrayInput `pulumi:"azureQueries"`
-	// List of non Azure queries in the software update configuration.
+	AzureQueries    AzureQueryPropertiesResponseArrayInput    `pulumi:"azureQueries"`
 	NonAzureQueries NonAzureQueryPropertiesResponseArrayInput `pulumi:"nonAzureQueries"`
 }
 
@@ -10281,12 +9571,10 @@ func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponsePtrOutputWithC
 	}).(TargetPropertiesResponsePtrOutput)
 }
 
-// List of Azure queries in the software update configuration.
 func (o TargetPropertiesResponseOutput) AzureQueries() AzureQueryPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v TargetPropertiesResponse) []AzureQueryPropertiesResponse { return v.AzureQueries }).(AzureQueryPropertiesResponseArrayOutput)
 }
 
-// List of non Azure queries in the software update configuration.
 func (o TargetPropertiesResponseOutput) NonAzureQueries() NonAzureQueryPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v TargetPropertiesResponse) []NonAzureQueryPropertiesResponse { return v.NonAzureQueries }).(NonAzureQueryPropertiesResponseArrayOutput)
 }
@@ -10315,7 +9603,6 @@ func (o TargetPropertiesResponsePtrOutput) Elem() TargetPropertiesResponseOutput
 	}).(TargetPropertiesResponseOutput)
 }
 
-// List of Azure queries in the software update configuration.
 func (o TargetPropertiesResponsePtrOutput) AzureQueries() AzureQueryPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *TargetPropertiesResponse) []AzureQueryPropertiesResponse {
 		if v == nil {
@@ -10325,7 +9612,6 @@ func (o TargetPropertiesResponsePtrOutput) AzureQueries() AzureQueryPropertiesRe
 	}).(AzureQueryPropertiesResponseArrayOutput)
 }
 
-// List of non Azure queries in the software update configuration.
 func (o TargetPropertiesResponsePtrOutput) NonAzureQueries() NonAzureQueryPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *TargetPropertiesResponse) []NonAzureQueryPropertiesResponse {
 		if v == nil {
@@ -10336,10 +9622,8 @@ func (o TargetPropertiesResponsePtrOutput) NonAzureQueries() NonAzureQueryProper
 }
 
 type TaskProperties struct {
-	// Gets or sets the parameters of the task.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source *string `pulumi:"source"`
+	Source     *string           `pulumi:"source"`
 }
 
 // TaskPropertiesInput is an input type that accepts TaskPropertiesArgs and TaskPropertiesOutput values.
@@ -10354,10 +9638,8 @@ type TaskPropertiesInput interface {
 }
 
 type TaskPropertiesArgs struct {
-	// Gets or sets the parameters of the task.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source pulumi.StringPtrInput `pulumi:"source"`
+	Source     pulumi.StringPtrInput `pulumi:"source"`
 }
 
 func (TaskPropertiesArgs) ElementType() reflect.Type {
@@ -10437,12 +9719,10 @@ func (o TaskPropertiesOutput) ToTaskPropertiesPtrOutputWithContext(ctx context.C
 	}).(TaskPropertiesPtrOutput)
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskProperties) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -10471,7 +9751,6 @@ func (o TaskPropertiesPtrOutput) Elem() TaskPropertiesOutput {
 	}).(TaskPropertiesOutput)
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskProperties) map[string]string {
 		if v == nil {
@@ -10481,7 +9760,6 @@ func (o TaskPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskProperties) *string {
 		if v == nil {
@@ -10492,10 +9770,8 @@ func (o TaskPropertiesPtrOutput) Source() pulumi.StringPtrOutput {
 }
 
 type TaskPropertiesResponse struct {
-	// Gets or sets the parameters of the task.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source *string `pulumi:"source"`
+	Source     *string           `pulumi:"source"`
 }
 
 // TaskPropertiesResponseInput is an input type that accepts TaskPropertiesResponseArgs and TaskPropertiesResponseOutput values.
@@ -10510,10 +9786,8 @@ type TaskPropertiesResponseInput interface {
 }
 
 type TaskPropertiesResponseArgs struct {
-	// Gets or sets the parameters of the task.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source pulumi.StringPtrInput `pulumi:"source"`
+	Source     pulumi.StringPtrInput `pulumi:"source"`
 }
 
 func (TaskPropertiesResponseArgs) ElementType() reflect.Type {
@@ -10593,12 +9867,10 @@ func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponsePtrOutputWithConte
 	}).(TaskPropertiesResponsePtrOutput)
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesResponseOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskPropertiesResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -10627,7 +9899,6 @@ func (o TaskPropertiesResponsePtrOutput) Elem() TaskPropertiesResponseOutput {
 	}).(TaskPropertiesResponseOutput)
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskPropertiesResponse) map[string]string {
 		if v == nil {
@@ -10637,7 +9908,6 @@ func (o TaskPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskPropertiesResponse) *string {
 		if v == nil {
@@ -10648,20 +9918,13 @@ func (o TaskPropertiesResponsePtrOutput) Source() pulumi.StringPtrOutput {
 }
 
 type UpdateConfiguration struct {
-	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
-	AzureVirtualMachines []string `pulumi:"azureVirtualMachines"`
-	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-	Duration *string `pulumi:"duration"`
-	// Linux specific update configuration.
-	Linux *LinuxProperties `pulumi:"linux"`
-	// List of names of non-azure machines targeted by the software update configuration.
-	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
-	// operating system of target machines
-	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
-	// Group targets for the software update configuration.
-	Targets *TargetProperties `pulumi:"targets"`
-	// Windows specific update configuration.
-	Windows *WindowsProperties `pulumi:"windows"`
+	AzureVirtualMachines  []string            `pulumi:"azureVirtualMachines"`
+	Duration              *string             `pulumi:"duration"`
+	Linux                 *LinuxProperties    `pulumi:"linux"`
+	NonAzureComputerNames []string            `pulumi:"nonAzureComputerNames"`
+	OperatingSystem       OperatingSystemType `pulumi:"operatingSystem"`
+	Targets               *TargetProperties   `pulumi:"targets"`
+	Windows               *WindowsProperties  `pulumi:"windows"`
 }
 
 // UpdateConfigurationInput is an input type that accepts UpdateConfigurationArgs and UpdateConfigurationOutput values.
@@ -10676,20 +9939,13 @@ type UpdateConfigurationInput interface {
 }
 
 type UpdateConfigurationArgs struct {
-	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
-	AzureVirtualMachines pulumi.StringArrayInput `pulumi:"azureVirtualMachines"`
-	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Linux specific update configuration.
-	Linux LinuxPropertiesPtrInput `pulumi:"linux"`
-	// List of names of non-azure machines targeted by the software update configuration.
-	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
-	// operating system of target machines
-	OperatingSystem OperatingSystemTypeInput `pulumi:"operatingSystem"`
-	// Group targets for the software update configuration.
-	Targets TargetPropertiesPtrInput `pulumi:"targets"`
-	// Windows specific update configuration.
-	Windows WindowsPropertiesPtrInput `pulumi:"windows"`
+	AzureVirtualMachines  pulumi.StringArrayInput   `pulumi:"azureVirtualMachines"`
+	Duration              pulumi.StringPtrInput     `pulumi:"duration"`
+	Linux                 LinuxPropertiesPtrInput   `pulumi:"linux"`
+	NonAzureComputerNames pulumi.StringArrayInput   `pulumi:"nonAzureComputerNames"`
+	OperatingSystem       OperatingSystemTypeInput  `pulumi:"operatingSystem"`
+	Targets               TargetPropertiesPtrInput  `pulumi:"targets"`
+	Windows               WindowsPropertiesPtrInput `pulumi:"windows"`
 }
 
 func (UpdateConfigurationArgs) ElementType() reflect.Type {
@@ -10769,37 +10025,30 @@ func (o UpdateConfigurationOutput) ToUpdateConfigurationPtrOutputWithContext(ctx
 	}).(UpdateConfigurationPtrOutput)
 }
 
-// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
 func (o UpdateConfigurationOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UpdateConfiguration) []string { return v.AzureVirtualMachines }).(pulumi.StringArrayOutput)
 }
 
-// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
 func (o UpdateConfigurationOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpdateConfiguration) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// Linux specific update configuration.
 func (o UpdateConfigurationOutput) Linux() LinuxPropertiesPtrOutput {
 	return o.ApplyT(func(v UpdateConfiguration) *LinuxProperties { return v.Linux }).(LinuxPropertiesPtrOutput)
 }
 
-// List of names of non-azure machines targeted by the software update configuration.
 func (o UpdateConfigurationOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UpdateConfiguration) []string { return v.NonAzureComputerNames }).(pulumi.StringArrayOutput)
 }
 
-// operating system of target machines
 func (o UpdateConfigurationOutput) OperatingSystem() OperatingSystemTypeOutput {
 	return o.ApplyT(func(v UpdateConfiguration) OperatingSystemType { return v.OperatingSystem }).(OperatingSystemTypeOutput)
 }
 
-// Group targets for the software update configuration.
 func (o UpdateConfigurationOutput) Targets() TargetPropertiesPtrOutput {
 	return o.ApplyT(func(v UpdateConfiguration) *TargetProperties { return v.Targets }).(TargetPropertiesPtrOutput)
 }
 
-// Windows specific update configuration.
 func (o UpdateConfigurationOutput) Windows() WindowsPropertiesPtrOutput {
 	return o.ApplyT(func(v UpdateConfiguration) *WindowsProperties { return v.Windows }).(WindowsPropertiesPtrOutput)
 }
@@ -10828,7 +10077,6 @@ func (o UpdateConfigurationPtrOutput) Elem() UpdateConfigurationOutput {
 	}).(UpdateConfigurationOutput)
 }
 
-// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
 func (o UpdateConfigurationPtrOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) []string {
 		if v == nil {
@@ -10838,7 +10086,6 @@ func (o UpdateConfigurationPtrOutput) AzureVirtualMachines() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
 func (o UpdateConfigurationPtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) *string {
 		if v == nil {
@@ -10848,7 +10095,6 @@ func (o UpdateConfigurationPtrOutput) Duration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Linux specific update configuration.
 func (o UpdateConfigurationPtrOutput) Linux() LinuxPropertiesPtrOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) *LinuxProperties {
 		if v == nil {
@@ -10858,7 +10104,6 @@ func (o UpdateConfigurationPtrOutput) Linux() LinuxPropertiesPtrOutput {
 	}).(LinuxPropertiesPtrOutput)
 }
 
-// List of names of non-azure machines targeted by the software update configuration.
 func (o UpdateConfigurationPtrOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) []string {
 		if v == nil {
@@ -10868,7 +10113,6 @@ func (o UpdateConfigurationPtrOutput) NonAzureComputerNames() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// operating system of target machines
 func (o UpdateConfigurationPtrOutput) OperatingSystem() OperatingSystemTypePtrOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) *OperatingSystemType {
 		if v == nil {
@@ -10878,7 +10122,6 @@ func (o UpdateConfigurationPtrOutput) OperatingSystem() OperatingSystemTypePtrOu
 	}).(OperatingSystemTypePtrOutput)
 }
 
-// Group targets for the software update configuration.
 func (o UpdateConfigurationPtrOutput) Targets() TargetPropertiesPtrOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) *TargetProperties {
 		if v == nil {
@@ -10888,7 +10131,6 @@ func (o UpdateConfigurationPtrOutput) Targets() TargetPropertiesPtrOutput {
 	}).(TargetPropertiesPtrOutput)
 }
 
-// Windows specific update configuration.
 func (o UpdateConfigurationPtrOutput) Windows() WindowsPropertiesPtrOutput {
 	return o.ApplyT(func(v *UpdateConfiguration) *WindowsProperties {
 		if v == nil {
@@ -10899,20 +10141,13 @@ func (o UpdateConfigurationPtrOutput) Windows() WindowsPropertiesPtrOutput {
 }
 
 type UpdateConfigurationResponse struct {
-	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
-	AzureVirtualMachines []string `pulumi:"azureVirtualMachines"`
-	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-	Duration *string `pulumi:"duration"`
-	// Linux specific update configuration.
-	Linux *LinuxPropertiesResponse `pulumi:"linux"`
-	// List of names of non-azure machines targeted by the software update configuration.
-	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
-	// operating system of target machines
-	OperatingSystem string `pulumi:"operatingSystem"`
-	// Group targets for the software update configuration.
-	Targets *TargetPropertiesResponse `pulumi:"targets"`
-	// Windows specific update configuration.
-	Windows *WindowsPropertiesResponse `pulumi:"windows"`
+	AzureVirtualMachines  []string                   `pulumi:"azureVirtualMachines"`
+	Duration              *string                    `pulumi:"duration"`
+	Linux                 *LinuxPropertiesResponse   `pulumi:"linux"`
+	NonAzureComputerNames []string                   `pulumi:"nonAzureComputerNames"`
+	OperatingSystem       string                     `pulumi:"operatingSystem"`
+	Targets               *TargetPropertiesResponse  `pulumi:"targets"`
+	Windows               *WindowsPropertiesResponse `pulumi:"windows"`
 }
 
 // UpdateConfigurationResponseInput is an input type that accepts UpdateConfigurationResponseArgs and UpdateConfigurationResponseOutput values.
@@ -10927,20 +10162,13 @@ type UpdateConfigurationResponseInput interface {
 }
 
 type UpdateConfigurationResponseArgs struct {
-	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
-	AzureVirtualMachines pulumi.StringArrayInput `pulumi:"azureVirtualMachines"`
-	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Linux specific update configuration.
-	Linux LinuxPropertiesResponsePtrInput `pulumi:"linux"`
-	// List of names of non-azure machines targeted by the software update configuration.
-	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
-	// operating system of target machines
-	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
-	// Group targets for the software update configuration.
-	Targets TargetPropertiesResponsePtrInput `pulumi:"targets"`
-	// Windows specific update configuration.
-	Windows WindowsPropertiesResponsePtrInput `pulumi:"windows"`
+	AzureVirtualMachines  pulumi.StringArrayInput           `pulumi:"azureVirtualMachines"`
+	Duration              pulumi.StringPtrInput             `pulumi:"duration"`
+	Linux                 LinuxPropertiesResponsePtrInput   `pulumi:"linux"`
+	NonAzureComputerNames pulumi.StringArrayInput           `pulumi:"nonAzureComputerNames"`
+	OperatingSystem       pulumi.StringInput                `pulumi:"operatingSystem"`
+	Targets               TargetPropertiesResponsePtrInput  `pulumi:"targets"`
+	Windows               WindowsPropertiesResponsePtrInput `pulumi:"windows"`
 }
 
 func (UpdateConfigurationResponseArgs) ElementType() reflect.Type {
@@ -11020,37 +10248,30 @@ func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponsePtrOutpu
 	}).(UpdateConfigurationResponsePtrOutput)
 }
 
-// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
 func (o UpdateConfigurationResponseOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) []string { return v.AzureVirtualMachines }).(pulumi.StringArrayOutput)
 }
 
-// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
 func (o UpdateConfigurationResponseOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// Linux specific update configuration.
 func (o UpdateConfigurationResponseOutput) Linux() LinuxPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) *LinuxPropertiesResponse { return v.Linux }).(LinuxPropertiesResponsePtrOutput)
 }
 
-// List of names of non-azure machines targeted by the software update configuration.
 func (o UpdateConfigurationResponseOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) []string { return v.NonAzureComputerNames }).(pulumi.StringArrayOutput)
 }
 
-// operating system of target machines
 func (o UpdateConfigurationResponseOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// Group targets for the software update configuration.
 func (o UpdateConfigurationResponseOutput) Targets() TargetPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) *TargetPropertiesResponse { return v.Targets }).(TargetPropertiesResponsePtrOutput)
 }
 
-// Windows specific update configuration.
 func (o UpdateConfigurationResponseOutput) Windows() WindowsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) *WindowsPropertiesResponse { return v.Windows }).(WindowsPropertiesResponsePtrOutput)
 }
@@ -11079,7 +10300,6 @@ func (o UpdateConfigurationResponsePtrOutput) Elem() UpdateConfigurationResponse
 	}).(UpdateConfigurationResponseOutput)
 }
 
-// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
 func (o UpdateConfigurationResponsePtrOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) []string {
 		if v == nil {
@@ -11089,7 +10309,6 @@ func (o UpdateConfigurationResponsePtrOutput) AzureVirtualMachines() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
 func (o UpdateConfigurationResponsePtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) *string {
 		if v == nil {
@@ -11099,7 +10318,6 @@ func (o UpdateConfigurationResponsePtrOutput) Duration() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Linux specific update configuration.
 func (o UpdateConfigurationResponsePtrOutput) Linux() LinuxPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) *LinuxPropertiesResponse {
 		if v == nil {
@@ -11109,7 +10327,6 @@ func (o UpdateConfigurationResponsePtrOutput) Linux() LinuxPropertiesResponsePtr
 	}).(LinuxPropertiesResponsePtrOutput)
 }
 
-// List of names of non-azure machines targeted by the software update configuration.
 func (o UpdateConfigurationResponsePtrOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) []string {
 		if v == nil {
@@ -11119,7 +10336,6 @@ func (o UpdateConfigurationResponsePtrOutput) NonAzureComputerNames() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// operating system of target machines
 func (o UpdateConfigurationResponsePtrOutput) OperatingSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) *string {
 		if v == nil {
@@ -11129,7 +10345,6 @@ func (o UpdateConfigurationResponsePtrOutput) OperatingSystem() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Group targets for the software update configuration.
 func (o UpdateConfigurationResponsePtrOutput) Targets() TargetPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) *TargetPropertiesResponse {
 		if v == nil {
@@ -11139,7 +10354,6 @@ func (o UpdateConfigurationResponsePtrOutput) Targets() TargetPropertiesResponse
 	}).(TargetPropertiesResponsePtrOutput)
 }
 
-// Windows specific update configuration.
 func (o UpdateConfigurationResponsePtrOutput) Windows() WindowsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *UpdateConfigurationResponse) *WindowsPropertiesResponse {
 		if v == nil {
@@ -11150,14 +10364,10 @@ func (o UpdateConfigurationResponsePtrOutput) Windows() WindowsPropertiesRespons
 }
 
 type WindowsProperties struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
+	ExcludedKbNumbers             []string `pulumi:"excludedKbNumbers"`
+	IncludedKbNumbers             []string `pulumi:"includedKbNumbers"`
+	IncludedUpdateClassifications *string  `pulumi:"includedUpdateClassifications"`
+	RebootSetting                 *string  `pulumi:"rebootSetting"`
 }
 
 // WindowsPropertiesInput is an input type that accepts WindowsPropertiesArgs and WindowsPropertiesOutput values.
@@ -11172,14 +10382,10 @@ type WindowsPropertiesInput interface {
 }
 
 type WindowsPropertiesArgs struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+	ExcludedKbNumbers             pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
+	IncludedKbNumbers             pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
+	IncludedUpdateClassifications pulumi.StringPtrInput   `pulumi:"includedUpdateClassifications"`
+	RebootSetting                 pulumi.StringPtrInput   `pulumi:"rebootSetting"`
 }
 
 func (WindowsPropertiesArgs) ElementType() reflect.Type {
@@ -11259,22 +10465,18 @@ func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutputWithContext(ctx con
 	}).(WindowsPropertiesPtrOutput)
 }
 
-// KB numbers excluded from the software update configuration.
 func (o WindowsPropertiesOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsProperties) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
 }
 
-// KB numbers included from the software update configuration.
 func (o WindowsPropertiesOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsProperties) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
 }
 
-// Update classification included in the software update configuration. A comma separated string with required values
 func (o WindowsPropertiesOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsProperties) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o WindowsPropertiesOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsProperties) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
@@ -11303,7 +10505,6 @@ func (o WindowsPropertiesPtrOutput) Elem() WindowsPropertiesOutput {
 	}).(WindowsPropertiesOutput)
 }
 
-// KB numbers excluded from the software update configuration.
 func (o WindowsPropertiesPtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsProperties) []string {
 		if v == nil {
@@ -11313,7 +10514,6 @@ func (o WindowsPropertiesPtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// KB numbers included from the software update configuration.
 func (o WindowsPropertiesPtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsProperties) []string {
 		if v == nil {
@@ -11323,7 +10523,6 @@ func (o WindowsPropertiesPtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Update classification included in the software update configuration. A comma separated string with required values
 func (o WindowsPropertiesPtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsProperties) *string {
 		if v == nil {
@@ -11333,7 +10532,6 @@ func (o WindowsPropertiesPtrOutput) IncludedUpdateClassifications() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o WindowsPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsProperties) *string {
 		if v == nil {
@@ -11344,14 +10542,10 @@ func (o WindowsPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 }
 
 type WindowsPropertiesResponse struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
+	ExcludedKbNumbers             []string `pulumi:"excludedKbNumbers"`
+	IncludedKbNumbers             []string `pulumi:"includedKbNumbers"`
+	IncludedUpdateClassifications *string  `pulumi:"includedUpdateClassifications"`
+	RebootSetting                 *string  `pulumi:"rebootSetting"`
 }
 
 // WindowsPropertiesResponseInput is an input type that accepts WindowsPropertiesResponseArgs and WindowsPropertiesResponseOutput values.
@@ -11366,14 +10560,10 @@ type WindowsPropertiesResponseInput interface {
 }
 
 type WindowsPropertiesResponseArgs struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+	ExcludedKbNumbers             pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
+	IncludedKbNumbers             pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
+	IncludedUpdateClassifications pulumi.StringPtrInput   `pulumi:"includedUpdateClassifications"`
+	RebootSetting                 pulumi.StringPtrInput   `pulumi:"rebootSetting"`
 }
 
 func (WindowsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -11453,22 +10643,18 @@ func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutputWit
 	}).(WindowsPropertiesResponsePtrOutput)
 }
 
-// KB numbers excluded from the software update configuration.
 func (o WindowsPropertiesResponseOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
 }
 
-// KB numbers included from the software update configuration.
 func (o WindowsPropertiesResponseOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
 }
 
-// Update classification included in the software update configuration. A comma separated string with required values
 func (o WindowsPropertiesResponseOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o WindowsPropertiesResponseOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
@@ -11497,7 +10683,6 @@ func (o WindowsPropertiesResponsePtrOutput) Elem() WindowsPropertiesResponseOutp
 	}).(WindowsPropertiesResponseOutput)
 }
 
-// KB numbers excluded from the software update configuration.
 func (o WindowsPropertiesResponsePtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
 		if v == nil {
@@ -11507,7 +10692,6 @@ func (o WindowsPropertiesResponsePtrOutput) ExcludedKbNumbers() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// KB numbers included from the software update configuration.
 func (o WindowsPropertiesResponsePtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
 		if v == nil {
@@ -11517,7 +10701,6 @@ func (o WindowsPropertiesResponsePtrOutput) IncludedKbNumbers() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Update classification included in the software update configuration. A comma separated string with required values
 func (o WindowsPropertiesResponsePtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
 		if v == nil {
@@ -11527,7 +10710,6 @@ func (o WindowsPropertiesResponsePtrOutput) IncludedUpdateClassifications() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reboot setting for the software update configuration.
 func (o WindowsPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
 		if v == nil {

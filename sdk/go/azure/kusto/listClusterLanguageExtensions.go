@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of language extension objects.
-// API Version: 2021-01-01.
 func ListClusterLanguageExtensions(ctx *pulumi.Context, args *ListClusterLanguageExtensionsArgs, opts ...pulumi.InvokeOption) (*ListClusterLanguageExtensionsResult, error) {
 	var rv ListClusterLanguageExtensionsResult
 	err := ctx.Invoke("azure-native:kusto:listClusterLanguageExtensions", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListClusterLanguageExtensions(ctx *pulumi.Context, args *ListClusterLanguag
 }
 
 type ListClusterLanguageExtensionsArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The list of language extension objects.
 type ListClusterLanguageExtensionsResult struct {
-	// The list of language extensions.
 	Value []LanguageExtensionResponse `pulumi:"value"`
 }

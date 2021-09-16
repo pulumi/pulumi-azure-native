@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private cloud resource
-// API Version: 2020-03-20.
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 

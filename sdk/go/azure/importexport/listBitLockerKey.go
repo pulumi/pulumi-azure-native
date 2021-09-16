@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// GetBitLockerKeys response
-// API Version: 2020-08-01.
 func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...pulumi.InvokeOption) (*ListBitLockerKeyResult, error) {
 	var rv ListBitLockerKeyResult
 	err := ctx.Invoke("azure-native:importexport:listBitLockerKey", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...p
 }
 
 type ListBitLockerKeyArgs struct {
-	// The name of the import/export job.
-	JobName string `pulumi:"jobName"`
-	// The resource group name uniquely identifies the resource group within the user subscription.
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // GetBitLockerKeys response
 type ListBitLockerKeyResult struct {
-	// drive status
 	Value []DriveBitLockerKeyResponse `pulumi:"value"`
 }

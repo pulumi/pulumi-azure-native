@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines an Network Experiment Profile and lists of Experiments
-// API Version: 2019-11-01.
 func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExperimentProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkExperimentProfileResult, error) {
 	var rv LookupNetworkExperimentProfileResult
 	err := ctx.Invoke("azure-native:network:getNetworkExperimentProfile", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExpe
 }
 
 type LookupNetworkExperimentProfileArgs struct {
-	// The Profile identifier associated with the Tenant and Partner
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Defines an Network Experiment Profile and lists of Experiments
 type LookupNetworkExperimentProfileResult struct {
-	// The state of the Experiment
-	EnabledState *string `pulumi:"enabledState"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	EnabledState  *string           `pulumi:"enabledState"`
+	Etag          *string           `pulumi:"etag"`
+	Id            string            `pulumi:"id"`
+	Location      *string           `pulumi:"location"`
+	Name          string            `pulumi:"name"`
+	ResourceState string            `pulumi:"resourceState"`
+	Tags          map[string]string `pulumi:"tags"`
+	Type          string            `pulumi:"type"`
 }

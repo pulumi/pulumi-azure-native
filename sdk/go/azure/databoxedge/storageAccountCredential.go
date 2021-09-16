@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage account credential.
-// API Version: 2020-12-01.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 

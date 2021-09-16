@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen 2 folder data set.
-// API Version: 2020-09-01.
 func LookupADLSGen2FolderDataSet(ctx *pulumi.Context, args *LookupADLSGen2FolderDataSetArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FolderDataSetResult, error) {
 	var rv LookupADLSGen2FolderDataSetResult
 	err := ctx.Invoke("azure-native:datashare:getADLSGen2FolderDataSet", args, &rv, opts...)
@@ -19,39 +17,23 @@ func LookupADLSGen2FolderDataSet(ctx *pulumi.Context, args *LookupADLSGen2Folder
 }
 
 type LookupADLSGen2FolderDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An ADLS Gen 2 folder data set.
 type LookupADLSGen2FolderDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// File system to which the folder belongs.
-	FileSystem string `pulumi:"fileSystem"`
-	// Folder path within the file system.
-	FolderPath string `pulumi:"folderPath"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2Folder'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DataSetId          string             `pulumi:"dataSetId"`
+	FileSystem         string             `pulumi:"fileSystem"`
+	FolderPath         string             `pulumi:"folderPath"`
+	Id                 string             `pulumi:"id"`
+	Kind               string             `pulumi:"kind"`
+	Name               string             `pulumi:"name"`
+	ResourceGroup      string             `pulumi:"resourceGroup"`
+	StorageAccountName string             `pulumi:"storageAccountName"`
+	SubscriptionId     string             `pulumi:"subscriptionId"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
 }

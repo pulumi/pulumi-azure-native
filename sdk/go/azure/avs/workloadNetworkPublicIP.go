@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Public IP Block
-// API Version: 2021-06-01.
 type WorkloadNetworkPublicIP struct {
 	pulumi.CustomResourceState
 

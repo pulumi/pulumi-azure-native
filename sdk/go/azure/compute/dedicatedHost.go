@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the Dedicated host.
-// API Version: 2020-12-01.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 

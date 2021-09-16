@@ -23,7 +23,7 @@ class RedisArgs:
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 redis_configuration: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -42,7 +42,7 @@ class RedisArgs:
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
@@ -172,14 +172,14 @@ class RedisArgs:
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def redis_configuration(self) -> Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def redis_configuration(self, value: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @property
@@ -301,7 +301,7 @@ class Redis(pulumi.CustomResource):
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['RedisCommonPropertiesRedisConfigurationArgs']]] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -324,7 +324,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[pulumi.InputType['RedisCommonPropertiesRedisConfigurationArgs']] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
@@ -366,7 +366,7 @@ class Redis(pulumi.CustomResource):
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['RedisCommonPropertiesRedisConfigurationArgs']]] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -569,7 +569,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def redis_configuration(self) -> pulumi.Output[Optional['outputs.RedisCommonPropertiesResponseRedisConfiguration']]:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         """

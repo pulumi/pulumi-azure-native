@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
-// API Version: 2020-05-01.
 type RulesEngine struct {
 	pulumi.CustomResourceState
 

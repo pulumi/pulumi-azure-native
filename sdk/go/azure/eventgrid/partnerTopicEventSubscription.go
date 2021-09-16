@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Event Subscription
-// API Version: 2020-04-01-preview.
 type PartnerTopicEventSubscription struct {
 	pulumi.CustomResourceState
 

@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The agentpool that has the ARM resource and properties.
-// The agentpool will have all information to create an agent pool.
-// API Version: 2019-06-01-preview.
 type AgentPool struct {
 	pulumi.CustomResourceState
 

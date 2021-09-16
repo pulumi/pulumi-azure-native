@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway details.
-// API Version: 2020-12-01.
 type Gateway struct {
 	pulumi.CustomResourceState
 

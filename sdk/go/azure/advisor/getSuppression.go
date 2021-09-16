@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-// API Version: 2020-01-01.
 func LookupSuppression(ctx *pulumi.Context, args *LookupSuppressionArgs, opts ...pulumi.InvokeOption) (*LookupSuppressionResult, error) {
 	var rv LookupSuppressionResult
 	err := ctx.Invoke("azure-native:advisor:getSuppression", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupSuppression(ctx *pulumi.Context, args *LookupSuppressionArgs, opts ..
 }
 
 type LookupSuppressionArgs struct {
-	// The name of the suppression.
-	Name string `pulumi:"name"`
-	// The recommendation ID.
+	Name             string `pulumi:"name"`
 	RecommendationId string `pulumi:"recommendationId"`
-	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-	ResourceUri string `pulumi:"resourceUri"`
+	ResourceUri      string `pulumi:"resourceUri"`
 }
 
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 type LookupSuppressionResult struct {
-	// Gets or sets the expiration time stamp.
-	ExpirationTimeStamp string `pulumi:"expirationTimeStamp"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The GUID of the suppression.
-	SuppressionId *string `pulumi:"suppressionId"`
-	// The duration for which the suppression is valid.
-	Ttl *string `pulumi:"ttl"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ExpirationTimeStamp string  `pulumi:"expirationTimeStamp"`
+	Id                  string  `pulumi:"id"`
+	Name                string  `pulumi:"name"`
+	SuppressionId       *string `pulumi:"suppressionId"`
+	Ttl                 *string `pulumi:"ttl"`
+	Type                string  `pulumi:"type"`
 }

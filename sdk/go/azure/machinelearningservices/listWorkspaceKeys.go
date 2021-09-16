@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-01-01.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listWorkspaceKeys", args, &rv, opts...)
@@ -18,10 +17,8 @@ func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ..
 }
 
 type ListWorkspaceKeysArgs struct {
-	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type ListWorkspaceKeysResult struct {

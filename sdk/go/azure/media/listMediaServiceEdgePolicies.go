@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-05-01.
 func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceEdgePoliciesResult, error) {
 	var rv ListMediaServiceEdgePoliciesResult
 	err := ctx.Invoke("azure-native:media:listMediaServiceEdgePolicies", args, &rv, opts...)
@@ -18,12 +17,9 @@ func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdg
 }
 
 type ListMediaServiceEdgePoliciesArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// Unique identifier of the edge device.
-	DeviceId *string `pulumi:"deviceId"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string  `pulumi:"accountName"`
+	DeviceId          *string `pulumi:"deviceId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 type ListMediaServiceEdgePoliciesResult struct {

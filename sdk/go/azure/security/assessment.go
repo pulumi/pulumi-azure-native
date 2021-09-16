@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource
-// API Version: 2020-01-01.
 type Assessment struct {
 	pulumi.CustomResourceState
 

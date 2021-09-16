@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A single API Management service resource in List or Get response.
-// API Version: 2020-12-01.
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 

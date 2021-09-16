@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest configuration assignment is an association between a machine and guest configuration.
-// API Version: 2020-06-25.
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 

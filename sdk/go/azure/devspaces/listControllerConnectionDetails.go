@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-04-01.
 func ListControllerConnectionDetails(ctx *pulumi.Context, args *ListControllerConnectionDetailsArgs, opts ...pulumi.InvokeOption) (*ListControllerConnectionDetailsResult, error) {
 	var rv ListControllerConnectionDetailsResult
 	err := ctx.Invoke("azure-native:devspaces:listControllerConnectionDetails", args, &rv, opts...)
@@ -18,15 +17,11 @@ func ListControllerConnectionDetails(ctx *pulumi.Context, args *ListControllerCo
 }
 
 type ListControllerConnectionDetailsArgs struct {
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
+	Name                          string `pulumi:"name"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
 }
 
 type ListControllerConnectionDetailsResult struct {
-	// List of Azure Dev Spaces Controller connection details.
 	ConnectionDetailsList []ControllerConnectionDetailsResponse `pulumi:"connectionDetailsList"`
 }

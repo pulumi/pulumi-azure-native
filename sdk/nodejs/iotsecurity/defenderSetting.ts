@@ -37,7 +37,7 @@ export class DefenderSetting extends pulumi.CustomResource {
     }
 
     /**
-     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     * Size of the device quota. Value is required to be in multiples of 100.
      */
     public readonly deviceQuota!: pulumi.Output<number>;
     /**
@@ -118,7 +118,7 @@ export class DefenderSetting extends pulumi.CustomResource {
  */
 export interface DefenderSettingArgs {
     /**
-     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     * Size of the device quota. Value is required to be in multiples of 100.
      */
     deviceQuota: pulumi.Input<number>;
     /**

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom Locations definition.
-// API Version: 2021-03-15-preview.
 type CustomLocation struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The result of a request to list API keys.
-// API Version: 2020-06-01.
 func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStoreKeysArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeysResult, error) {
 	var rv ListConfigurationStoreKeysResult
 	err := ctx.Invoke("azure-native:appconfiguration:listConfigurationStoreKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStor
 }
 
 type ListConfigurationStoreKeysArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
-	SkipToken *string `pulumi:"skipToken"`
+	ConfigStoreName   string  `pulumi:"configStoreName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SkipToken         *string `pulumi:"skipToken"`
 }
 
 // The result of a request to list API keys.
 type ListConfigurationStoreKeysResult struct {
-	// The URI that can be used to request the next set of paged results.
-	NextLink *string `pulumi:"nextLink"`
-	// The collection value.
-	Value []ApiKeyResponse `pulumi:"value"`
+	NextLink *string          `pulumi:"nextLink"`
+	Value    []ApiKeyResponse `pulumi:"value"`
 }

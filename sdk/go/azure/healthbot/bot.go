@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// HealthBot resource definition
-// API Version: 2020-12-08.
 type Bot struct {
 	pulumi.CustomResourceState
 

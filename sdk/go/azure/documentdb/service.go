@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for the database account.
-// API Version: 2021-04-01-preview.
 type Service struct {
 	pulumi.CustomResourceState
 
