@@ -40591,7 +40591,141 @@
           "South Central US"
         ],
         "properties": null,
-        "resourceType": "flexibleServers"
+        "resourceType": "flexibleServers",
+        "zoneMappings": [
+          {
+            "location": "East US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Central US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "France Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Southeast Asia",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "North Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "East US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "UK South",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Japan East",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Australia East",
+            "zones": []
+          },
+          {
+            "location": "South Africa North",
+            "zones": []
+          },
+          {
+            "location": "South Central US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Canada Central",
+            "zones": []
+          },
+          {
+            "location": "Germany West Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Brazil South",
+            "zones": []
+          },
+          {
+            "location": "Central India",
+            "zones": []
+          },
+          {
+            "location": "Korea Central",
+            "zones": []
+          },
+          {
+            "location": "Norway East",
+            "zones": []
+          },
+          {
+            "location": "East Asia",
+            "zones": []
+          },
+          {
+            "location": "Switzerland North",
+            "zones": []
+          }
+        ]
       },
       {
         "aliases": null,
@@ -46548,6 +46682,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01-preview",
           "2021-04-01-preview",
           "2021-03-01-preview"
@@ -57235,7 +57370,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US 2"
+          "East US 2",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "objectAnchorsAccounts"
@@ -86226,6 +86362,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
           "2020-05-01-preview",
           "2019-01-01-preview",
           "2018-10-15",
@@ -86273,6 +86410,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
           "2020-05-01-preview",
           "2019-01-01-preview",
           "2018-10-15",
@@ -87660,6 +87798,7 @@
     ]
   },
   {
+    "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ObjectStore",
     "namespace": "Microsoft.ObjectStore",
     "providerAuthorizationConsentState": null,
@@ -87670,16 +87809,29 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2019-06-01-preview"
+          "2021-09-01-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "osNamespaces"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-09-02-preview"
+        ],
+        "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "West US"
+          "global"
         ],
         "properties": null,
-        "resourceType": "osNamespaces"
+        "resourceType": "Locations"
       }
     ]
   },
