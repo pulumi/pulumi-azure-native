@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EnterpriseKnowledgeGraph resource definition
-// API Version: 2018-12-03.
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 

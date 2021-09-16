@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define an Analytics item that is associated to an Application Insights component.
-// API Version: 2015-05-01.
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 

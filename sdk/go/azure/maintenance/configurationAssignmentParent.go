@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration Assignment
-// API Version: 2021-04-01-preview.
 type ConfigurationAssignmentParent struct {
 	pulumi.CustomResourceState
 

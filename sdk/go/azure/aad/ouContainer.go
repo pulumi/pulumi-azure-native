@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for OuContainer.
-// API Version: 2021-03-01.
 type OuContainer struct {
 	pulumi.CustomResourceState
 

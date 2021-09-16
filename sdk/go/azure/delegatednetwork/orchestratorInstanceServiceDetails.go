@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a orchestrator.
-// API Version: 2021-03-15.
 type OrchestratorInstanceServiceDetails struct {
 	pulumi.CustomResourceState
 

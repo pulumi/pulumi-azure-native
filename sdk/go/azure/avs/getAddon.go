@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An addon resource
-// API Version: 2020-07-17-preview.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:avs:getAddon", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.Invo
 }
 
 type LookupAddonArgs struct {
-	// Name of the addon for the private cloud
-	AddonName string `pulumi:"addonName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	AddonName         string `pulumi:"addonName"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An addon resource
 type LookupAddonResult struct {
-	// The type of private cloud addon
-	AddonType *string `pulumi:"addonType"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The SRM license
-	LicenseKey *string `pulumi:"licenseKey"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the addon provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AddonType         *string `pulumi:"addonType"`
+	Id                string  `pulumi:"id"`
+	LicenseKey        *string `pulumi:"licenseKey"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	Type              string  `pulumi:"type"`
 }

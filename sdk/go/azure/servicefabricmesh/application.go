@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes an application resource.
-// API Version: 2018-09-01-preview.
 type Application struct {
 	pulumi.CustomResourceState
 

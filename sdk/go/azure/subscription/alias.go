@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription Information with the alias.
-// API Version: 2020-09-01.
 type Alias struct {
 	pulumi.CustomResourceState
 

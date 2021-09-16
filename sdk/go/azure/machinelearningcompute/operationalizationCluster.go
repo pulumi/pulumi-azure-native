@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Instance of an Azure ML Operationalization Cluster resource.
-// API Version: 2017-08-01-preview.
 type OperationalizationCluster struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Activity Log Alert rule resource.
-// API Version: 2020-10-01.
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 

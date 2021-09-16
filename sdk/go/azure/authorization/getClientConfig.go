@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this function to access the current configuration of the native Azure provider.
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	var rv GetClientConfigResult
 	err := ctx.Invoke("azure-native:authorization:getClientConfig", nil, &rv, opts...)
@@ -19,12 +18,8 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 
 // Configuration values returned by getClientConfig.
 type GetClientConfigResult struct {
-	// Azure Client ID (Application Object ID).
-	ClientId string `pulumi:"clientId"`
-	// Azure Object ID of the current user or service principal.
-	ObjectId string `pulumi:"objectId"`
-	// Azure Subscription ID
+	ClientId       string `pulumi:"clientId"`
+	ObjectId       string `pulumi:"objectId"`
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// Azure Tenant ID
-	TenantId string `pulumi:"tenantId"`
+	TenantId       string `pulumi:"tenantId"`
 }

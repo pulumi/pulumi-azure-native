@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload group operations for a data warehouse
-// API Version: 2020-11-01-preview.
 type WorkloadGroup struct {
 	pulumi.CustomResourceState
 

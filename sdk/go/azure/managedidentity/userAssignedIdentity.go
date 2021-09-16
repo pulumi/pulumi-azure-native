@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes an identity resource.
-// API Version: 2018-11-30.
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 

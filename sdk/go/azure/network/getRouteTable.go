@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route table resource.
-// API Version: 2020-11-01.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("azure-native:network:getRouteTable", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 }
 
 type LookupRouteTableArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route table.
-	RouteTableName string `pulumi:"routeTableName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RouteTableName    string  `pulumi:"routeTableName"`
 }
 
 // Route table resource.
 type LookupRouteTableResult struct {
-	// Whether to disable the routes learned by BGP on that route table. True means disable.
-	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the route table resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the route table.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// Collection of routes contained within a route table.
-	Routes []RouteResponse `pulumi:"routes"`
-	// A collection of references to subnets.
-	Subnets []SubnetResponse `pulumi:"subnets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DisableBgpRoutePropagation *bool             `pulumi:"disableBgpRoutePropagation"`
+	Etag                       string            `pulumi:"etag"`
+	Id                         *string           `pulumi:"id"`
+	Location                   *string           `pulumi:"location"`
+	Name                       string            `pulumi:"name"`
+	ProvisioningState          string            `pulumi:"provisioningState"`
+	ResourceGuid               string            `pulumi:"resourceGuid"`
+	Routes                     []RouteResponse   `pulumi:"routes"`
+	Subnets                    []SubnetResponse  `pulumi:"subnets"`
+	Tags                       map[string]string `pulumi:"tags"`
+	Type                       string            `pulumi:"type"`
 }

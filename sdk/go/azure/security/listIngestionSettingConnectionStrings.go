@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Connection string for ingesting security data and logs
-// API Version: 2021-01-15-preview.
 func ListIngestionSettingConnectionStrings(ctx *pulumi.Context, args *ListIngestionSettingConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListIngestionSettingConnectionStringsResult, error) {
 	var rv ListIngestionSettingConnectionStringsResult
 	err := ctx.Invoke("azure-native:security:listIngestionSettingConnectionStrings", args, &rv, opts...)
@@ -19,12 +17,10 @@ func ListIngestionSettingConnectionStrings(ctx *pulumi.Context, args *ListIngest
 }
 
 type ListIngestionSettingConnectionStringsArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName string `pulumi:"ingestionSettingName"`
 }
 
 // Connection string for ingesting security data and logs
 type ListIngestionSettingConnectionStringsResult struct {
-	// Connection strings
 	Value []IngestionConnectionStringResponse `pulumi:"value"`
 }

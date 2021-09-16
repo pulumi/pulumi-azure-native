@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-// API Version: 2020-12-01-preview.
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	var rv LookupLedgerResult
 	err := ctx.Invoke("azure-native:confidentialledger:getLedger", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.In
 }
 
 type LookupLedgerArgs struct {
-	// Name of the Confidential Ledger
-	LedgerName string `pulumi:"ledgerName"`
-	// The name of the resource group.
+	LedgerName        string `pulumi:"ledgerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Confidential Ledger. Contains the properties of Confidential Ledger Resource.
 type LookupLedgerResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The Azure location where the Confidential Ledger is running.
-	Location *string `pulumi:"location"`
-	// Name of the Resource.
-	Name string `pulumi:"name"`
-	// Properties of Confidential Ledger Resource.
+	Id         string                   `pulumi:"id"`
+	Location   *string                  `pulumi:"location"`
+	Name       string                   `pulumi:"name"`
 	Properties LedgerPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Additional tags for Confidential Ledger
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse       `pulumi:"systemData"`
+	Tags       map[string]string        `pulumi:"tags"`
+	Type       string                   `pulumi:"type"`
 }

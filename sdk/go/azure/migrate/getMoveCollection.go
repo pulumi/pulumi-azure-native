@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Define the move collection.
-// API Version: 2021-01-01.
 func LookupMoveCollection(ctx *pulumi.Context, args *LookupMoveCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMoveCollectionResult, error) {
 	var rv LookupMoveCollectionResult
 	err := ctx.Invoke("azure-native:migrate:getMoveCollection", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupMoveCollection(ctx *pulumi.Context, args *LookupMoveCollectionArgs, o
 }
 
 type LookupMoveCollectionArgs struct {
-	// The Move Collection Name.
 	MoveCollectionName string `pulumi:"moveCollectionName"`
-	// The Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Define the move collection.
 type LookupMoveCollectionResult struct {
-	// The etag of the resource.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// Defines the MSI properties of the Move Collection.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Defines the move collection properties.
+	Etag       string                           `pulumi:"etag"`
+	Id         string                           `pulumi:"id"`
+	Identity   *IdentityResponse                `pulumi:"identity"`
+	Location   *string                          `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties MoveCollectionPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Tags       map[string]string                `pulumi:"tags"`
+	Type       string                           `pulumi:"type"`
 }

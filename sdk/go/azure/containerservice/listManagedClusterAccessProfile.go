@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed cluster Access Profile.
-// API Version: 2020-03-01.
 func ListManagedClusterAccessProfile(ctx *pulumi.Context, args *ListManagedClusterAccessProfileArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterAccessProfileResult, error) {
 	var rv ListManagedClusterAccessProfileResult
 	err := ctx.Invoke("azure-native:containerservice:listManagedClusterAccessProfile", args, &rv, opts...)
@@ -19,26 +17,17 @@ func ListManagedClusterAccessProfile(ctx *pulumi.Context, args *ListManagedClust
 }
 
 type ListManagedClusterAccessProfileArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The name of the role for managed cluster accessProfile resource.
-	RoleName string `pulumi:"roleName"`
+	ResourceName      string `pulumi:"resourceName"`
+	RoleName          string `pulumi:"roleName"`
 }
 
 // Managed cluster Access Profile.
 type ListManagedClusterAccessProfileResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Base64-encoded Kubernetes configuration file.
-	KubeConfig *string `pulumi:"kubeConfig"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	KubeConfig *string           `pulumi:"kubeConfig"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

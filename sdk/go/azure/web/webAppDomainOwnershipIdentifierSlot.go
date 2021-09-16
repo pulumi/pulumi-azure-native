@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A domain specific resource identifier.
-// API Version: 2020-12-01.
 type WebAppDomainOwnershipIdentifierSlot struct {
 	pulumi.CustomResourceState
 

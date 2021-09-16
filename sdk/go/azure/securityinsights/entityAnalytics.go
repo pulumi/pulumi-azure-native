@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
-// API Version: 2021-03-01-preview.
 type EntityAnalytics struct {
 	pulumi.CustomResourceState
 

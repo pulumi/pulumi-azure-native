@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB MongoDB collection.
-// API Version: 2021-03-15.
 type MongoDBResourceMongoDBCollection struct {
 	pulumi.CustomResourceState
 

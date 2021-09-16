@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an automation rule.
-// API Version: 2019-01-01-preview.
 type AutomationRule struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
-// API Version: 2021-01-01.
 func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDeploymentAtManagementGroupScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtManagementGroupScopeResult, error) {
 	var rv LookupDeploymentAtManagementGroupScopeResult
 	err := ctx.Invoke("azure-native:resources:getDeploymentAtManagementGroupScope", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDep
 }
 
 type LookupDeploymentAtManagementGroupScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName string `pulumi:"deploymentName"`
-	// The management group ID.
-	GroupId string `pulumi:"groupId"`
+	GroupId        string `pulumi:"groupId"`
 }
 
 // Deployment information.
 type LookupDeploymentAtManagementGroupScopeResult struct {
-	// The ID of the deployment.
-	Id string `pulumi:"id"`
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
+	Id         string                               `pulumi:"id"`
+	Location   *string                              `pulumi:"location"`
+	Name       string                               `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
+	Tags       map[string]string                    `pulumi:"tags"`
+	Type       string                               `pulumi:"type"`
 }

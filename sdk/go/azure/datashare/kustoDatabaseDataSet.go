@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A kusto database data set.
-// API Version: 2020-09-01.
 type KustoDatabaseDataSet struct {
 	pulumi.CustomResourceState
 

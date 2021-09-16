@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Analytics compute policy information.
-// API Version: 2016-11-01.
 func LookupComputePolicy(ctx *pulumi.Context, args *LookupComputePolicyArgs, opts ...pulumi.InvokeOption) (*LookupComputePolicyResult, error) {
 	var rv LookupComputePolicyResult
 	err := ctx.Invoke("azure-native:datalakeanalytics:getComputePolicy", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupComputePolicy(ctx *pulumi.Context, args *LookupComputePolicyArgs, opt
 }
 
 type LookupComputePolicyArgs struct {
-	// The name of the Data Lake Analytics account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the compute policy to retrieve.
+	AccountName       string `pulumi:"accountName"`
 	ComputePolicyName string `pulumi:"computePolicyName"`
-	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Data Lake Analytics compute policy information.
 type LookupComputePolicyResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Id                           string `pulumi:"id"`
+	MaxDegreeOfParallelismPerJob int    `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            int    `pulumi:"minPriorityPerJob"`
+	Name                         string `pulumi:"name"`
+	ObjectId                     string `pulumi:"objectId"`
+	ObjectType                   string `pulumi:"objectType"`
+	Type                         string `pulumi:"type"`
 }

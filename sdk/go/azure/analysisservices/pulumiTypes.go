@@ -11,7 +11,6 @@ import (
 )
 
 type GatewayDetails struct {
-	// Gateway resource to be associated with the server.
 	GatewayResourceId *string `pulumi:"gatewayResourceId"`
 }
 
@@ -27,7 +26,6 @@ type GatewayDetailsInput interface {
 }
 
 type GatewayDetailsArgs struct {
-	// Gateway resource to be associated with the server.
 	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
 }
 
@@ -108,7 +106,6 @@ func (o GatewayDetailsOutput) ToGatewayDetailsPtrOutputWithContext(ctx context.C
 	}).(GatewayDetailsPtrOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayDetails) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o GatewayDetailsPtrOutput) Elem() GatewayDetailsOutput {
 	}).(GatewayDetailsOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetails) *string {
 		if v == nil {
@@ -148,11 +144,8 @@ func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 }
 
 type GatewayDetailsResponse struct {
-	// Uri of the DMTS cluster.
-	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
-	// Gateway object id from in the DMTS cluster for the gateway resource.
-	GatewayObjectId string `pulumi:"gatewayObjectId"`
-	// Gateway resource to be associated with the server.
+	DmtsClusterUri    string  `pulumi:"dmtsClusterUri"`
+	GatewayObjectId   string  `pulumi:"gatewayObjectId"`
 	GatewayResourceId *string `pulumi:"gatewayResourceId"`
 }
 
@@ -168,11 +161,8 @@ type GatewayDetailsResponseInput interface {
 }
 
 type GatewayDetailsResponseArgs struct {
-	// Uri of the DMTS cluster.
-	DmtsClusterUri pulumi.StringInput `pulumi:"dmtsClusterUri"`
-	// Gateway object id from in the DMTS cluster for the gateway resource.
-	GatewayObjectId pulumi.StringInput `pulumi:"gatewayObjectId"`
-	// Gateway resource to be associated with the server.
+	DmtsClusterUri    pulumi.StringInput    `pulumi:"dmtsClusterUri"`
+	GatewayObjectId   pulumi.StringInput    `pulumi:"gatewayObjectId"`
 	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
 }
 
@@ -253,17 +243,14 @@ func (o GatewayDetailsResponseOutput) ToGatewayDetailsResponsePtrOutputWithConte
 	}).(GatewayDetailsResponsePtrOutput)
 }
 
-// Uri of the DMTS cluster.
 func (o GatewayDetailsResponseOutput) DmtsClusterUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) string { return v.DmtsClusterUri }).(pulumi.StringOutput)
 }
 
-// Gateway object id from in the DMTS cluster for the gateway resource.
 func (o GatewayDetailsResponseOutput) GatewayObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) string { return v.GatewayObjectId }).(pulumi.StringOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsResponseOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
 }
@@ -292,7 +279,6 @@ func (o GatewayDetailsResponsePtrOutput) Elem() GatewayDetailsResponseOutput {
 	}).(GatewayDetailsResponseOutput)
 }
 
-// Uri of the DMTS cluster.
 func (o GatewayDetailsResponsePtrOutput) DmtsClusterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -302,7 +288,6 @@ func (o GatewayDetailsResponsePtrOutput) DmtsClusterUri() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gateway object id from in the DMTS cluster for the gateway resource.
 func (o GatewayDetailsResponsePtrOutput) GatewayObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o GatewayDetailsResponsePtrOutput) GatewayObjectId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsResponsePtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -323,12 +307,9 @@ func (o GatewayDetailsResponsePtrOutput) GatewayResourceId() pulumi.StringPtrOut
 }
 
 type IPv4FirewallRule struct {
-	// The rule name.
 	FirewallRuleName *string `pulumi:"firewallRuleName"`
-	// The end range of IPv4.
-	RangeEnd *string `pulumi:"rangeEnd"`
-	// The start range of IPv4.
-	RangeStart *string `pulumi:"rangeStart"`
+	RangeEnd         *string `pulumi:"rangeEnd"`
+	RangeStart       *string `pulumi:"rangeStart"`
 }
 
 // IPv4FirewallRuleInput is an input type that accepts IPv4FirewallRuleArgs and IPv4FirewallRuleOutput values.
@@ -343,12 +324,9 @@ type IPv4FirewallRuleInput interface {
 }
 
 type IPv4FirewallRuleArgs struct {
-	// The rule name.
 	FirewallRuleName pulumi.StringPtrInput `pulumi:"firewallRuleName"`
-	// The end range of IPv4.
-	RangeEnd pulumi.StringPtrInput `pulumi:"rangeEnd"`
-	// The start range of IPv4.
-	RangeStart pulumi.StringPtrInput `pulumi:"rangeStart"`
+	RangeEnd         pulumi.StringPtrInput `pulumi:"rangeEnd"`
+	RangeStart       pulumi.StringPtrInput `pulumi:"rangeStart"`
 }
 
 func (IPv4FirewallRuleArgs) ElementType() reflect.Type {
@@ -402,17 +380,14 @@ func (o IPv4FirewallRuleOutput) ToIPv4FirewallRuleOutputWithContext(ctx context.
 	return o
 }
 
-// The rule name.
 func (o IPv4FirewallRuleOutput) FirewallRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRule) *string { return v.FirewallRuleName }).(pulumi.StringPtrOutput)
 }
 
-// The end range of IPv4.
 func (o IPv4FirewallRuleOutput) RangeEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRule) *string { return v.RangeEnd }).(pulumi.StringPtrOutput)
 }
 
-// The start range of IPv4.
 func (o IPv4FirewallRuleOutput) RangeStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRule) *string { return v.RangeStart }).(pulumi.StringPtrOutput)
 }
@@ -438,12 +413,9 @@ func (o IPv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) IPv4FirewallRuleOu
 }
 
 type IPv4FirewallRuleResponse struct {
-	// The rule name.
 	FirewallRuleName *string `pulumi:"firewallRuleName"`
-	// The end range of IPv4.
-	RangeEnd *string `pulumi:"rangeEnd"`
-	// The start range of IPv4.
-	RangeStart *string `pulumi:"rangeStart"`
+	RangeEnd         *string `pulumi:"rangeEnd"`
+	RangeStart       *string `pulumi:"rangeStart"`
 }
 
 // IPv4FirewallRuleResponseInput is an input type that accepts IPv4FirewallRuleResponseArgs and IPv4FirewallRuleResponseOutput values.
@@ -458,12 +430,9 @@ type IPv4FirewallRuleResponseInput interface {
 }
 
 type IPv4FirewallRuleResponseArgs struct {
-	// The rule name.
 	FirewallRuleName pulumi.StringPtrInput `pulumi:"firewallRuleName"`
-	// The end range of IPv4.
-	RangeEnd pulumi.StringPtrInput `pulumi:"rangeEnd"`
-	// The start range of IPv4.
-	RangeStart pulumi.StringPtrInput `pulumi:"rangeStart"`
+	RangeEnd         pulumi.StringPtrInput `pulumi:"rangeEnd"`
+	RangeStart       pulumi.StringPtrInput `pulumi:"rangeStart"`
 }
 
 func (IPv4FirewallRuleResponseArgs) ElementType() reflect.Type {
@@ -517,17 +486,14 @@ func (o IPv4FirewallRuleResponseOutput) ToIPv4FirewallRuleResponseOutputWithCont
 	return o
 }
 
-// The rule name.
 func (o IPv4FirewallRuleResponseOutput) FirewallRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRuleResponse) *string { return v.FirewallRuleName }).(pulumi.StringPtrOutput)
 }
 
-// The end range of IPv4.
 func (o IPv4FirewallRuleResponseOutput) RangeEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRuleResponse) *string { return v.RangeEnd }).(pulumi.StringPtrOutput)
 }
 
-// The start range of IPv4.
 func (o IPv4FirewallRuleResponseOutput) RangeStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallRuleResponse) *string { return v.RangeStart }).(pulumi.StringPtrOutput)
 }
@@ -553,10 +519,8 @@ func (o IPv4FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) IPv4Firewa
 }
 
 type IPv4FirewallSettings struct {
-	// The indicator of enabling PBI service.
-	EnablePowerBIService *bool `pulumi:"enablePowerBIService"`
-	// An array of firewall rules.
-	FirewallRules []IPv4FirewallRule `pulumi:"firewallRules"`
+	EnablePowerBIService *bool              `pulumi:"enablePowerBIService"`
+	FirewallRules        []IPv4FirewallRule `pulumi:"firewallRules"`
 }
 
 // IPv4FirewallSettingsInput is an input type that accepts IPv4FirewallSettingsArgs and IPv4FirewallSettingsOutput values.
@@ -571,10 +535,8 @@ type IPv4FirewallSettingsInput interface {
 }
 
 type IPv4FirewallSettingsArgs struct {
-	// The indicator of enabling PBI service.
-	EnablePowerBIService pulumi.BoolPtrInput `pulumi:"enablePowerBIService"`
-	// An array of firewall rules.
-	FirewallRules IPv4FirewallRuleArrayInput `pulumi:"firewallRules"`
+	EnablePowerBIService pulumi.BoolPtrInput        `pulumi:"enablePowerBIService"`
+	FirewallRules        IPv4FirewallRuleArrayInput `pulumi:"firewallRules"`
 }
 
 func (IPv4FirewallSettingsArgs) ElementType() reflect.Type {
@@ -654,12 +616,10 @@ func (o IPv4FirewallSettingsOutput) ToIPv4FirewallSettingsPtrOutputWithContext(c
 	}).(IPv4FirewallSettingsPtrOutput)
 }
 
-// The indicator of enabling PBI service.
 func (o IPv4FirewallSettingsOutput) EnablePowerBIService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallSettings) *bool { return v.EnablePowerBIService }).(pulumi.BoolPtrOutput)
 }
 
-// An array of firewall rules.
 func (o IPv4FirewallSettingsOutput) FirewallRules() IPv4FirewallRuleArrayOutput {
 	return o.ApplyT(func(v IPv4FirewallSettings) []IPv4FirewallRule { return v.FirewallRules }).(IPv4FirewallRuleArrayOutput)
 }
@@ -688,7 +648,6 @@ func (o IPv4FirewallSettingsPtrOutput) Elem() IPv4FirewallSettingsOutput {
 	}).(IPv4FirewallSettingsOutput)
 }
 
-// The indicator of enabling PBI service.
 func (o IPv4FirewallSettingsPtrOutput) EnablePowerBIService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IPv4FirewallSettings) *bool {
 		if v == nil {
@@ -698,7 +657,6 @@ func (o IPv4FirewallSettingsPtrOutput) EnablePowerBIService() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An array of firewall rules.
 func (o IPv4FirewallSettingsPtrOutput) FirewallRules() IPv4FirewallRuleArrayOutput {
 	return o.ApplyT(func(v *IPv4FirewallSettings) []IPv4FirewallRule {
 		if v == nil {
@@ -709,10 +667,8 @@ func (o IPv4FirewallSettingsPtrOutput) FirewallRules() IPv4FirewallRuleArrayOutp
 }
 
 type IPv4FirewallSettingsResponse struct {
-	// The indicator of enabling PBI service.
-	EnablePowerBIService *bool `pulumi:"enablePowerBIService"`
-	// An array of firewall rules.
-	FirewallRules []IPv4FirewallRuleResponse `pulumi:"firewallRules"`
+	EnablePowerBIService *bool                      `pulumi:"enablePowerBIService"`
+	FirewallRules        []IPv4FirewallRuleResponse `pulumi:"firewallRules"`
 }
 
 // IPv4FirewallSettingsResponseInput is an input type that accepts IPv4FirewallSettingsResponseArgs and IPv4FirewallSettingsResponseOutput values.
@@ -727,10 +683,8 @@ type IPv4FirewallSettingsResponseInput interface {
 }
 
 type IPv4FirewallSettingsResponseArgs struct {
-	// The indicator of enabling PBI service.
-	EnablePowerBIService pulumi.BoolPtrInput `pulumi:"enablePowerBIService"`
-	// An array of firewall rules.
-	FirewallRules IPv4FirewallRuleResponseArrayInput `pulumi:"firewallRules"`
+	EnablePowerBIService pulumi.BoolPtrInput                `pulumi:"enablePowerBIService"`
+	FirewallRules        IPv4FirewallRuleResponseArrayInput `pulumi:"firewallRules"`
 }
 
 func (IPv4FirewallSettingsResponseArgs) ElementType() reflect.Type {
@@ -810,12 +764,10 @@ func (o IPv4FirewallSettingsResponseOutput) ToIPv4FirewallSettingsResponsePtrOut
 	}).(IPv4FirewallSettingsResponsePtrOutput)
 }
 
-// The indicator of enabling PBI service.
 func (o IPv4FirewallSettingsResponseOutput) EnablePowerBIService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IPv4FirewallSettingsResponse) *bool { return v.EnablePowerBIService }).(pulumi.BoolPtrOutput)
 }
 
-// An array of firewall rules.
 func (o IPv4FirewallSettingsResponseOutput) FirewallRules() IPv4FirewallRuleResponseArrayOutput {
 	return o.ApplyT(func(v IPv4FirewallSettingsResponse) []IPv4FirewallRuleResponse { return v.FirewallRules }).(IPv4FirewallRuleResponseArrayOutput)
 }
@@ -844,7 +796,6 @@ func (o IPv4FirewallSettingsResponsePtrOutput) Elem() IPv4FirewallSettingsRespon
 	}).(IPv4FirewallSettingsResponseOutput)
 }
 
-// The indicator of enabling PBI service.
 func (o IPv4FirewallSettingsResponsePtrOutput) EnablePowerBIService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IPv4FirewallSettingsResponse) *bool {
 		if v == nil {
@@ -854,7 +805,6 @@ func (o IPv4FirewallSettingsResponsePtrOutput) EnablePowerBIService() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An array of firewall rules.
 func (o IPv4FirewallSettingsResponsePtrOutput) FirewallRules() IPv4FirewallRuleResponseArrayOutput {
 	return o.ApplyT(func(v *IPv4FirewallSettingsResponse) []IPv4FirewallRuleResponse {
 		if v == nil {
@@ -865,12 +815,9 @@ func (o IPv4FirewallSettingsResponsePtrOutput) FirewallRules() IPv4FirewallRuleR
 }
 
 type ResourceSku struct {
-	// The number of instances in the read only query pool.
-	Capacity *int `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
@@ -885,12 +832,9 @@ type ResourceSkuInput interface {
 }
 
 type ResourceSkuArgs struct {
-	// The number of instances in the read only query pool.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuArgs) ElementType() reflect.Type {
@@ -970,17 +914,14 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 	}).(ResourceSkuPtrOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1009,7 +950,6 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 	}).(ResourceSkuOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -1019,7 +959,6 @@ func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -1029,7 +968,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -1040,12 +978,9 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ResourceSkuResponse struct {
-	// The number of instances in the read only query pool.
-	Capacity *int `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuResponseInput is an input type that accepts ResourceSkuResponseArgs and ResourceSkuResponseOutput values.
@@ -1060,12 +995,9 @@ type ResourceSkuResponseInput interface {
 }
 
 type ResourceSkuResponseArgs struct {
-	// The number of instances in the read only query pool.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuResponseArgs) ElementType() reflect.Type {
@@ -1145,17 +1077,14 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1184,7 +1113,6 @@ func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 	}).(ResourceSkuResponseOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -1194,7 +1122,6 @@ func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1204,7 +1131,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1215,7 +1141,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ServerAdministrators struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -1231,7 +1156,6 @@ type ServerAdministratorsInput interface {
 }
 
 type ServerAdministratorsArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -1312,7 +1236,6 @@ func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutputWithContext(c
 	}).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministrators) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -1341,7 +1264,6 @@ func (o ServerAdministratorsPtrOutput) Elem() ServerAdministratorsOutput {
 	}).(ServerAdministratorsOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministrators) []string {
 		if v == nil {
@@ -1352,7 +1274,6 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 }
 
 type ServerAdministratorsResponse struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -1368,7 +1289,6 @@ type ServerAdministratorsResponseInput interface {
 }
 
 type ServerAdministratorsResponseArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -1449,7 +1369,6 @@ func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOut
 	}).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponseOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministratorsResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -1478,7 +1397,6 @@ func (o ServerAdministratorsResponsePtrOutput) Elem() ServerAdministratorsRespon
 	}).(ServerAdministratorsResponseOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministratorsResponse) []string {
 		if v == nil {

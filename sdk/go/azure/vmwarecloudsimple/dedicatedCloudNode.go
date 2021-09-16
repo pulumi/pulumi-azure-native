@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dedicated cloud node model
-// API Version: 2019-04-01.
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 

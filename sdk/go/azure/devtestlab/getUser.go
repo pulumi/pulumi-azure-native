@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Profile of a lab user.
-// API Version: 2018-09-15.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azure-native:devtestlab:getUser", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 }
 
 type LookupUserArgs struct {
-	// Specify the $expand query. Example: 'properties($select=identity)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the user profile.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand            *string `pulumi:"expand"`
+	LabName           string  `pulumi:"labName"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // Profile of a lab user.
 type LookupUserResult struct {
-	// The creation date of the user profile.
-	CreatedDate string `pulumi:"createdDate"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The identity of the user.
-	Identity *UserIdentityResponse `pulumi:"identity"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The secret store of the user.
-	SecretStore *UserSecretStoreResponse `pulumi:"secretStore"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+	CreatedDate       string                   `pulumi:"createdDate"`
+	Id                string                   `pulumi:"id"`
+	Identity          *UserIdentityResponse    `pulumi:"identity"`
+	Location          *string                  `pulumi:"location"`
+	Name              string                   `pulumi:"name"`
+	ProvisioningState string                   `pulumi:"provisioningState"`
+	SecretStore       *UserSecretStoreResponse `pulumi:"secretStore"`
+	Tags              map[string]string        `pulumi:"tags"`
+	Type              string                   `pulumi:"type"`
+	UniqueIdentifier  string                   `pulumi:"uniqueIdentifier"`
 }

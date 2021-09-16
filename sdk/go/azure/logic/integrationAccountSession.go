@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account session.
-// API Version: 2019-05-01.
 type IntegrationAccountSession struct {
 	pulumi.CustomResourceState
 

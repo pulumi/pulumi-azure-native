@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The HDInsight cluster application
-// API Version: 2018-06-01-preview.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:hdinsight:getApplication", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	// The constant value for the application name.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ApplicationName   string `pulumi:"applicationName"`
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The HDInsight cluster application
 type LookupApplicationResult struct {
-	// The ETag for the application
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the application.
+	Etag       *string                       `pulumi:"etag"`
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
 	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	// The tags for the application.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Tags       map[string]string             `pulumi:"tags"`
+	Type       string                        `pulumi:"type"`
 }

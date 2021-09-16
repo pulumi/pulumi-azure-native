@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peerings in a VirtualNetwork resource
-// API Version: 2018-04-01.
 type VNetPeering struct {
 	pulumi.CustomResourceState
 

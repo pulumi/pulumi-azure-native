@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Device group
-// API Version: 2021-02-01-preview.
 func LookupDeviceGroup(ctx *pulumi.Context, args *LookupDeviceGroupArgs, opts ...pulumi.InvokeOption) (*LookupDeviceGroupResult, error) {
 	var rv LookupDeviceGroupResult
 	err := ctx.Invoke("azure-native:iotsecurity:getDeviceGroup", args, &rv, opts...)
@@ -19,20 +17,14 @@ func LookupDeviceGroup(ctx *pulumi.Context, args *LookupDeviceGroupArgs, opts ..
 }
 
 type LookupDeviceGroupArgs struct {
-	// Device group name
-	DeviceGroupName string `pulumi:"deviceGroupName"`
-	// Defender for IoT location
+	DeviceGroupName     string `pulumi:"deviceGroupName"`
 	IotDefenderLocation string `pulumi:"iotDefenderLocation"`
 }
 
 // Device group
 type LookupDeviceGroupResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

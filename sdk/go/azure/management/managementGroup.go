@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group details.
-// API Version: 2020-05-01.
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 

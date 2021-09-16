@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
-// API Version: 2021-02-01-preview.
 func ListActiveSecurityUserRule(ctx *pulumi.Context, args *ListActiveSecurityUserRuleArgs, opts ...pulumi.InvokeOption) (*ListActiveSecurityUserRuleResult, error) {
 	var rv ListActiveSecurityUserRuleResult
 	err := ctx.Invoke("azure-native:network:listActiveSecurityUserRule", args, &rv, opts...)
@@ -19,20 +17,14 @@ func ListActiveSecurityUserRule(ctx *pulumi.Context, args *ListActiveSecurityUse
 }
 
 type ListActiveSecurityUserRuleArgs struct {
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// List of regions.
-	Regions []string `pulumi:"regions"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
+	NetworkManagerName string   `pulumi:"networkManagerName"`
+	Regions            []string `pulumi:"regions"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
+	SkipToken          *string  `pulumi:"skipToken"`
 }
 
 // Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
 type ListActiveSecurityUserRuleResult struct {
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// Gets a page of active security user rules.
-	Value []interface{} `pulumi:"value"`
+	SkipToken *string       `pulumi:"skipToken"`
+	Value     []interface{} `pulumi:"value"`
 }

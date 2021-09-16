@@ -11,26 +11,16 @@ import (
 )
 
 type CognitiveServicesAccountApiProperties struct {
-	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
-	AadClientId *string `pulumi:"aadClientId"`
-	// (Metrics Advisor Only) The Azure AD Tenant Id.
-	AadTenantId *string `pulumi:"aadTenantId"`
-	// (Personalization Only) The flag to enable statistics of Bing Search.
-	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
-	// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
-	QnaAzureSearchEndpointId *string `pulumi:"qnaAzureSearchEndpointId"`
-	// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
-	QnaAzureSearchEndpointKey *string `pulumi:"qnaAzureSearchEndpointKey"`
-	// (QnAMaker Only) The runtime endpoint of QnAMaker.
-	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
-	// (Bing Search Only) The flag to enable statistics of Bing Search.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
-	// (Personalization Only) The storage account connection string.
+	AadClientId                    *string `pulumi:"aadClientId"`
+	AadTenantId                    *string `pulumi:"aadTenantId"`
+	EventHubConnectionString       *string `pulumi:"eventHubConnectionString"`
+	QnaAzureSearchEndpointId       *string `pulumi:"qnaAzureSearchEndpointId"`
+	QnaAzureSearchEndpointKey      *string `pulumi:"qnaAzureSearchEndpointKey"`
+	QnaRuntimeEndpoint             *string `pulumi:"qnaRuntimeEndpoint"`
+	StatisticsEnabled              *bool   `pulumi:"statisticsEnabled"`
 	StorageAccountConnectionString *string `pulumi:"storageAccountConnectionString"`
-	// (Metrics Advisor Only) The super user of Metrics Advisor.
-	SuperUser *string `pulumi:"superUser"`
-	// (Metrics Advisor Only) The website name of Metrics Advisor.
-	WebsiteName *string `pulumi:"websiteName"`
+	SuperUser                      *string `pulumi:"superUser"`
+	WebsiteName                    *string `pulumi:"websiteName"`
 }
 
 // CognitiveServicesAccountApiPropertiesInput is an input type that accepts CognitiveServicesAccountApiPropertiesArgs and CognitiveServicesAccountApiPropertiesOutput values.
@@ -45,26 +35,16 @@ type CognitiveServicesAccountApiPropertiesInput interface {
 }
 
 type CognitiveServicesAccountApiPropertiesArgs struct {
-	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
-	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
-	// (Metrics Advisor Only) The Azure AD Tenant Id.
-	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
-	// (Personalization Only) The flag to enable statistics of Bing Search.
-	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
-	// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
-	QnaAzureSearchEndpointId pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointId"`
-	// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
-	QnaAzureSearchEndpointKey pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointKey"`
-	// (QnAMaker Only) The runtime endpoint of QnAMaker.
-	QnaRuntimeEndpoint pulumi.StringPtrInput `pulumi:"qnaRuntimeEndpoint"`
-	// (Bing Search Only) The flag to enable statistics of Bing Search.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
-	// (Personalization Only) The storage account connection string.
+	AadClientId                    pulumi.StringPtrInput `pulumi:"aadClientId"`
+	AadTenantId                    pulumi.StringPtrInput `pulumi:"aadTenantId"`
+	EventHubConnectionString       pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
+	QnaAzureSearchEndpointId       pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointId"`
+	QnaAzureSearchEndpointKey      pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointKey"`
+	QnaRuntimeEndpoint             pulumi.StringPtrInput `pulumi:"qnaRuntimeEndpoint"`
+	StatisticsEnabled              pulumi.BoolPtrInput   `pulumi:"statisticsEnabled"`
 	StorageAccountConnectionString pulumi.StringPtrInput `pulumi:"storageAccountConnectionString"`
-	// (Metrics Advisor Only) The super user of Metrics Advisor.
-	SuperUser pulumi.StringPtrInput `pulumi:"superUser"`
-	// (Metrics Advisor Only) The website name of Metrics Advisor.
-	WebsiteName pulumi.StringPtrInput `pulumi:"websiteName"`
+	SuperUser                      pulumi.StringPtrInput `pulumi:"superUser"`
+	WebsiteName                    pulumi.StringPtrInput `pulumi:"websiteName"`
 }
 
 func (CognitiveServicesAccountApiPropertiesArgs) ElementType() reflect.Type {
@@ -144,52 +124,42 @@ func (o CognitiveServicesAccountApiPropertiesOutput) ToCognitiveServicesAccountA
 	}).(CognitiveServicesAccountApiPropertiesPtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 func (o CognitiveServicesAccountApiPropertiesOutput) AadClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.AadClientId }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Tenant Id.
 func (o CognitiveServicesAccountApiPropertiesOutput) AadTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
 }
 
-// (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesOutput) QnaAzureSearchEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.QnaAzureSearchEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesOutput) QnaAzureSearchEndpointKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.QnaAzureSearchEndpointKey }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The runtime endpoint of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesOutput) QnaRuntimeEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.QnaRuntimeEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// (Bing Search Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Personalization Only) The storage account connection string.
 func (o CognitiveServicesAccountApiPropertiesOutput) StorageAccountConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.StorageAccountConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The super user of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesOutput) SuperUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.SuperUser }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The website name of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesOutput) WebsiteName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.WebsiteName }).(pulumi.StringPtrOutput)
 }
@@ -218,7 +188,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) Elem() CognitiveServices
 	}).(CognitiveServicesAccountApiPropertiesOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -228,7 +197,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadClientId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Tenant Id.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -238,7 +206,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadTenantId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -248,7 +215,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) EventHubConnectionString
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaAzureSearchEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -258,7 +224,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaAzureSearchEndpointId
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaAzureSearchEndpointKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -268,7 +233,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaAzureSearchEndpointKe
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The runtime endpoint of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaRuntimeEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -278,7 +242,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) QnaRuntimeEndpoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Bing Search Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *bool {
 		if v == nil {
@@ -288,7 +251,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) StatisticsEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Personalization Only) The storage account connection string.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) StorageAccountConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -298,7 +260,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) StorageAccountConnection
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The super user of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) SuperUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -308,7 +269,6 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) SuperUser() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The website name of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) WebsiteName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
 		if v == nil {
@@ -319,26 +279,16 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) WebsiteName() pulumi.Str
 }
 
 type CognitiveServicesAccountApiPropertiesResponse struct {
-	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
-	AadClientId *string `pulumi:"aadClientId"`
-	// (Metrics Advisor Only) The Azure AD Tenant Id.
-	AadTenantId *string `pulumi:"aadTenantId"`
-	// (Personalization Only) The flag to enable statistics of Bing Search.
-	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
-	// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
-	QnaAzureSearchEndpointId *string `pulumi:"qnaAzureSearchEndpointId"`
-	// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
-	QnaAzureSearchEndpointKey *string `pulumi:"qnaAzureSearchEndpointKey"`
-	// (QnAMaker Only) The runtime endpoint of QnAMaker.
-	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
-	// (Bing Search Only) The flag to enable statistics of Bing Search.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
-	// (Personalization Only) The storage account connection string.
+	AadClientId                    *string `pulumi:"aadClientId"`
+	AadTenantId                    *string `pulumi:"aadTenantId"`
+	EventHubConnectionString       *string `pulumi:"eventHubConnectionString"`
+	QnaAzureSearchEndpointId       *string `pulumi:"qnaAzureSearchEndpointId"`
+	QnaAzureSearchEndpointKey      *string `pulumi:"qnaAzureSearchEndpointKey"`
+	QnaRuntimeEndpoint             *string `pulumi:"qnaRuntimeEndpoint"`
+	StatisticsEnabled              *bool   `pulumi:"statisticsEnabled"`
 	StorageAccountConnectionString *string `pulumi:"storageAccountConnectionString"`
-	// (Metrics Advisor Only) The super user of Metrics Advisor.
-	SuperUser *string `pulumi:"superUser"`
-	// (Metrics Advisor Only) The website name of Metrics Advisor.
-	WebsiteName *string `pulumi:"websiteName"`
+	SuperUser                      *string `pulumi:"superUser"`
+	WebsiteName                    *string `pulumi:"websiteName"`
 }
 
 // CognitiveServicesAccountApiPropertiesResponseInput is an input type that accepts CognitiveServicesAccountApiPropertiesResponseArgs and CognitiveServicesAccountApiPropertiesResponseOutput values.
@@ -353,26 +303,16 @@ type CognitiveServicesAccountApiPropertiesResponseInput interface {
 }
 
 type CognitiveServicesAccountApiPropertiesResponseArgs struct {
-	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
-	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
-	// (Metrics Advisor Only) The Azure AD Tenant Id.
-	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
-	// (Personalization Only) The flag to enable statistics of Bing Search.
-	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
-	// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
-	QnaAzureSearchEndpointId pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointId"`
-	// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
-	QnaAzureSearchEndpointKey pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointKey"`
-	// (QnAMaker Only) The runtime endpoint of QnAMaker.
-	QnaRuntimeEndpoint pulumi.StringPtrInput `pulumi:"qnaRuntimeEndpoint"`
-	// (Bing Search Only) The flag to enable statistics of Bing Search.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
-	// (Personalization Only) The storage account connection string.
+	AadClientId                    pulumi.StringPtrInput `pulumi:"aadClientId"`
+	AadTenantId                    pulumi.StringPtrInput `pulumi:"aadTenantId"`
+	EventHubConnectionString       pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
+	QnaAzureSearchEndpointId       pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointId"`
+	QnaAzureSearchEndpointKey      pulumi.StringPtrInput `pulumi:"qnaAzureSearchEndpointKey"`
+	QnaRuntimeEndpoint             pulumi.StringPtrInput `pulumi:"qnaRuntimeEndpoint"`
+	StatisticsEnabled              pulumi.BoolPtrInput   `pulumi:"statisticsEnabled"`
 	StorageAccountConnectionString pulumi.StringPtrInput `pulumi:"storageAccountConnectionString"`
-	// (Metrics Advisor Only) The super user of Metrics Advisor.
-	SuperUser pulumi.StringPtrInput `pulumi:"superUser"`
-	// (Metrics Advisor Only) The website name of Metrics Advisor.
-	WebsiteName pulumi.StringPtrInput `pulumi:"websiteName"`
+	SuperUser                      pulumi.StringPtrInput `pulumi:"superUser"`
+	WebsiteName                    pulumi.StringPtrInput `pulumi:"websiteName"`
 }
 
 func (CognitiveServicesAccountApiPropertiesResponseArgs) ElementType() reflect.Type {
@@ -452,52 +392,42 @@ func (o CognitiveServicesAccountApiPropertiesResponseOutput) ToCognitiveServices
 	}).(CognitiveServicesAccountApiPropertiesResponsePtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) AadClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.AadClientId }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Tenant Id.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) AadTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
 }
 
-// (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) QnaAzureSearchEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.QnaAzureSearchEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) QnaAzureSearchEndpointKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.QnaAzureSearchEndpointKey }).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The runtime endpoint of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) QnaRuntimeEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.QnaRuntimeEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// (Bing Search Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Personalization Only) The storage account connection string.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) StorageAccountConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.StorageAccountConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The super user of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) SuperUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.SuperUser }).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The website name of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) WebsiteName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.WebsiteName }).(pulumi.StringPtrOutput)
 }
@@ -526,7 +456,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) Elem() Cognitive
 	}).(CognitiveServicesAccountApiPropertiesResponseOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -536,7 +465,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadClientId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The Azure AD Tenant Id.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -546,7 +474,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadTenantId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -556,7 +483,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) EventHubConnecti
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaAzureSearchEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -566,7 +492,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaAzureSearchEn
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaAzureSearchEndpointKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -576,7 +501,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaAzureSearchEn
 	}).(pulumi.StringPtrOutput)
 }
 
-// (QnAMaker Only) The runtime endpoint of QnAMaker.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaRuntimeEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -586,7 +510,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) QnaRuntimeEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Bing Search Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *bool {
 		if v == nil {
@@ -596,7 +519,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) StatisticsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Personalization Only) The storage account connection string.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) StorageAccountConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -606,7 +528,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) StorageAccountCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The super user of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) SuperUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -616,7 +537,6 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) SuperUser() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Metrics Advisor Only) The website name of Metrics Advisor.
 func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) WebsiteName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
 		if v == nil {
@@ -627,20 +547,13 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) WebsiteName() pu
 }
 
 type CognitiveServicesAccountProperties struct {
-	// The api properties for special APIs.
-	ApiProperties *CognitiveServicesAccountApiProperties `pulumi:"apiProperties"`
-	// Optional subdomain name used for token-based authentication.
-	CustomSubDomainName *string `pulumi:"customSubDomainName"`
-	// The encryption properties for this resource.
-	Encryption *Encryption `pulumi:"encryption"`
-	// A collection of rules governing the accessibility from specific network locations.
-	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
-	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The storage accounts for this resource.
-	UserOwnedStorage []UserOwnedStorage `pulumi:"userOwnedStorage"`
+	ApiProperties              *CognitiveServicesAccountApiProperties `pulumi:"apiProperties"`
+	CustomSubDomainName        *string                                `pulumi:"customSubDomainName"`
+	Encryption                 *Encryption                            `pulumi:"encryption"`
+	NetworkAcls                *NetworkRuleSet                        `pulumi:"networkAcls"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType        `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess        *string                                `pulumi:"publicNetworkAccess"`
+	UserOwnedStorage           []UserOwnedStorage                     `pulumi:"userOwnedStorage"`
 }
 
 // CognitiveServicesAccountPropertiesInput is an input type that accepts CognitiveServicesAccountPropertiesArgs and CognitiveServicesAccountPropertiesOutput values.
@@ -655,20 +568,13 @@ type CognitiveServicesAccountPropertiesInput interface {
 }
 
 type CognitiveServicesAccountPropertiesArgs struct {
-	// The api properties for special APIs.
-	ApiProperties CognitiveServicesAccountApiPropertiesPtrInput `pulumi:"apiProperties"`
-	// Optional subdomain name used for token-based authentication.
-	CustomSubDomainName pulumi.StringPtrInput `pulumi:"customSubDomainName"`
-	// The encryption properties for this resource.
-	Encryption EncryptionPtrInput `pulumi:"encryption"`
-	// A collection of rules governing the accessibility from specific network locations.
-	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
-	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
-	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// The storage accounts for this resource.
-	UserOwnedStorage UserOwnedStorageArrayInput `pulumi:"userOwnedStorage"`
+	ApiProperties              CognitiveServicesAccountApiPropertiesPtrInput `pulumi:"apiProperties"`
+	CustomSubDomainName        pulumi.StringPtrInput                         `pulumi:"customSubDomainName"`
+	Encryption                 EncryptionPtrInput                            `pulumi:"encryption"`
+	NetworkAcls                NetworkRuleSetPtrInput                        `pulumi:"networkAcls"`
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput       `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess        pulumi.StringPtrInput                         `pulumi:"publicNetworkAccess"`
+	UserOwnedStorage           UserOwnedStorageArrayInput                    `pulumi:"userOwnedStorage"`
 }
 
 func (CognitiveServicesAccountPropertiesArgs) ElementType() reflect.Type {
@@ -748,41 +654,34 @@ func (o CognitiveServicesAccountPropertiesOutput) ToCognitiveServicesAccountProp
 	}).(CognitiveServicesAccountPropertiesPtrOutput)
 }
 
-// The api properties for special APIs.
 func (o CognitiveServicesAccountPropertiesOutput) ApiProperties() CognitiveServicesAccountApiPropertiesPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) *CognitiveServicesAccountApiProperties {
 		return v.ApiProperties
 	}).(CognitiveServicesAccountApiPropertiesPtrOutput)
 }
 
-// Optional subdomain name used for token-based authentication.
 func (o CognitiveServicesAccountPropertiesOutput) CustomSubDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) *string { return v.CustomSubDomainName }).(pulumi.StringPtrOutput)
 }
 
-// The encryption properties for this resource.
 func (o CognitiveServicesAccountPropertiesOutput) Encryption() EncryptionPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) *Encryption { return v.Encryption }).(EncryptionPtrOutput)
 }
 
-// A collection of rules governing the accessibility from specific network locations.
 func (o CognitiveServicesAccountPropertiesOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) *NetworkRuleSet { return v.NetworkAcls }).(NetworkRuleSetPtrOutput)
 }
 
-// The private endpoint connection associated with the Cognitive Services account.
 func (o CognitiveServicesAccountPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) []PrivateEndpointConnectionType {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o CognitiveServicesAccountPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// The storage accounts for this resource.
 func (o CognitiveServicesAccountPropertiesOutput) UserOwnedStorage() UserOwnedStorageArrayOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountProperties) []UserOwnedStorage { return v.UserOwnedStorage }).(UserOwnedStorageArrayOutput)
 }
@@ -811,7 +710,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) Elem() CognitiveServicesAcc
 	}).(CognitiveServicesAccountPropertiesOutput)
 }
 
-// The api properties for special APIs.
 func (o CognitiveServicesAccountPropertiesPtrOutput) ApiProperties() CognitiveServicesAccountApiPropertiesPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) *CognitiveServicesAccountApiProperties {
 		if v == nil {
@@ -821,7 +719,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) ApiProperties() CognitiveSe
 	}).(CognitiveServicesAccountApiPropertiesPtrOutput)
 }
 
-// Optional subdomain name used for token-based authentication.
 func (o CognitiveServicesAccountPropertiesPtrOutput) CustomSubDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) *string {
 		if v == nil {
@@ -831,7 +728,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) CustomSubDomainName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption properties for this resource.
 func (o CognitiveServicesAccountPropertiesPtrOutput) Encryption() EncryptionPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) *Encryption {
 		if v == nil {
@@ -841,7 +737,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) Encryption() EncryptionPtrO
 	}).(EncryptionPtrOutput)
 }
 
-// A collection of rules governing the accessibility from specific network locations.
 func (o CognitiveServicesAccountPropertiesPtrOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) *NetworkRuleSet {
 		if v == nil {
@@ -851,7 +746,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) NetworkAcls() NetworkRuleSe
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// The private endpoint connection associated with the Cognitive Services account.
 func (o CognitiveServicesAccountPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) []PrivateEndpointConnectionType {
 		if v == nil {
@@ -861,7 +755,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) PrivateEndpointConnections(
 	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o CognitiveServicesAccountPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) *string {
 		if v == nil {
@@ -871,7 +764,6 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) PublicNetworkAccess() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage accounts for this resource.
 func (o CognitiveServicesAccountPropertiesPtrOutput) UserOwnedStorage() UserOwnedStorageArrayOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountProperties) []UserOwnedStorage {
 		if v == nil {
@@ -882,34 +774,20 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) UserOwnedStorage() UserOwne
 }
 
 type CognitiveServicesAccountPropertiesResponse struct {
-	// The api properties for special APIs.
-	ApiProperties *CognitiveServicesAccountApiPropertiesResponse `pulumi:"apiProperties"`
-	// Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
-	Capabilities []SkuCapabilityResponse `pulumi:"capabilities"`
-	// Optional subdomain name used for token-based authentication.
-	CustomSubDomainName *string `pulumi:"customSubDomainName"`
-	// Gets the date of cognitive services account creation.
-	DateCreated string `pulumi:"dateCreated"`
-	// The encryption properties for this resource.
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// Endpoint of the created account.
-	Endpoint string `pulumi:"endpoint"`
-	// The internal identifier.
-	InternalId string `pulumi:"internalId"`
-	// If the resource is migrated from an existing key.
-	IsMigrated bool `pulumi:"isMigrated"`
-	// A collection of rules governing the accessibility from specific network locations.
-	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
-	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets the status of the cognitive services account at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Sku change info of account.
-	SkuChangeInfo CognitiveServicesAccountSkuChangeInfoResponse `pulumi:"skuChangeInfo"`
-	// The storage accounts for this resource.
-	UserOwnedStorage []UserOwnedStorageResponse `pulumi:"userOwnedStorage"`
+	ApiProperties              *CognitiveServicesAccountApiPropertiesResponse `pulumi:"apiProperties"`
+	Capabilities               []SkuCapabilityResponse                        `pulumi:"capabilities"`
+	CustomSubDomainName        *string                                        `pulumi:"customSubDomainName"`
+	DateCreated                string                                         `pulumi:"dateCreated"`
+	Encryption                 *EncryptionResponse                            `pulumi:"encryption"`
+	Endpoint                   string                                         `pulumi:"endpoint"`
+	InternalId                 string                                         `pulumi:"internalId"`
+	IsMigrated                 bool                                           `pulumi:"isMigrated"`
+	NetworkAcls                *NetworkRuleSetResponse                        `pulumi:"networkAcls"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse            `pulumi:"privateEndpointConnections"`
+	ProvisioningState          string                                         `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                        `pulumi:"publicNetworkAccess"`
+	SkuChangeInfo              CognitiveServicesAccountSkuChangeInfoResponse  `pulumi:"skuChangeInfo"`
+	UserOwnedStorage           []UserOwnedStorageResponse                     `pulumi:"userOwnedStorage"`
 }
 
 // CognitiveServicesAccountPropertiesResponseInput is an input type that accepts CognitiveServicesAccountPropertiesResponseArgs and CognitiveServicesAccountPropertiesResponseOutput values.
@@ -924,34 +802,20 @@ type CognitiveServicesAccountPropertiesResponseInput interface {
 }
 
 type CognitiveServicesAccountPropertiesResponseArgs struct {
-	// The api properties for special APIs.
-	ApiProperties CognitiveServicesAccountApiPropertiesResponsePtrInput `pulumi:"apiProperties"`
-	// Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
-	Capabilities SkuCapabilityResponseArrayInput `pulumi:"capabilities"`
-	// Optional subdomain name used for token-based authentication.
-	CustomSubDomainName pulumi.StringPtrInput `pulumi:"customSubDomainName"`
-	// Gets the date of cognitive services account creation.
-	DateCreated pulumi.StringInput `pulumi:"dateCreated"`
-	// The encryption properties for this resource.
-	Encryption EncryptionResponsePtrInput `pulumi:"encryption"`
-	// Endpoint of the created account.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The internal identifier.
-	InternalId pulumi.StringInput `pulumi:"internalId"`
-	// If the resource is migrated from an existing key.
-	IsMigrated pulumi.BoolInput `pulumi:"isMigrated"`
-	// A collection of rules governing the accessibility from specific network locations.
-	NetworkAcls NetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
-	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// Gets the status of the cognitive services account at the time the operation was called.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Sku change info of account.
-	SkuChangeInfo CognitiveServicesAccountSkuChangeInfoResponseInput `pulumi:"skuChangeInfo"`
-	// The storage accounts for this resource.
-	UserOwnedStorage UserOwnedStorageResponseArrayInput `pulumi:"userOwnedStorage"`
+	ApiProperties              CognitiveServicesAccountApiPropertiesResponsePtrInput `pulumi:"apiProperties"`
+	Capabilities               SkuCapabilityResponseArrayInput                       `pulumi:"capabilities"`
+	CustomSubDomainName        pulumi.StringPtrInput                                 `pulumi:"customSubDomainName"`
+	DateCreated                pulumi.StringInput                                    `pulumi:"dateCreated"`
+	Encryption                 EncryptionResponsePtrInput                            `pulumi:"encryption"`
+	Endpoint                   pulumi.StringInput                                    `pulumi:"endpoint"`
+	InternalId                 pulumi.StringInput                                    `pulumi:"internalId"`
+	IsMigrated                 pulumi.BoolInput                                      `pulumi:"isMigrated"`
+	NetworkAcls                NetworkRuleSetResponsePtrInput                        `pulumi:"networkAcls"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput           `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringInput                                    `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrInput                                 `pulumi:"publicNetworkAccess"`
+	SkuChangeInfo              CognitiveServicesAccountSkuChangeInfoResponseInput    `pulumi:"skuChangeInfo"`
+	UserOwnedStorage           UserOwnedStorageResponseArrayInput                    `pulumi:"userOwnedStorage"`
 }
 
 func (CognitiveServicesAccountPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1031,78 +895,64 @@ func (o CognitiveServicesAccountPropertiesResponseOutput) ToCognitiveServicesAcc
 	}).(CognitiveServicesAccountPropertiesResponsePtrOutput)
 }
 
-// The api properties for special APIs.
 func (o CognitiveServicesAccountPropertiesResponseOutput) ApiProperties() CognitiveServicesAccountApiPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *CognitiveServicesAccountApiPropertiesResponse {
 		return v.ApiProperties
 	}).(CognitiveServicesAccountApiPropertiesResponsePtrOutput)
 }
 
-// Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
 func (o CognitiveServicesAccountPropertiesResponseOutput) Capabilities() SkuCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) []SkuCapabilityResponse { return v.Capabilities }).(SkuCapabilityResponseArrayOutput)
 }
 
-// Optional subdomain name used for token-based authentication.
 func (o CognitiveServicesAccountPropertiesResponseOutput) CustomSubDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *string { return v.CustomSubDomainName }).(pulumi.StringPtrOutput)
 }
 
-// Gets the date of cognitive services account creation.
 func (o CognitiveServicesAccountPropertiesResponseOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) string { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// The encryption properties for this resource.
 func (o CognitiveServicesAccountPropertiesResponseOutput) Encryption() EncryptionResponsePtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *EncryptionResponse { return v.Encryption }).(EncryptionResponsePtrOutput)
 }
 
-// Endpoint of the created account.
 func (o CognitiveServicesAccountPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The internal identifier.
 func (o CognitiveServicesAccountPropertiesResponseOutput) InternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) string { return v.InternalId }).(pulumi.StringOutput)
 }
 
-// If the resource is migrated from an existing key.
 func (o CognitiveServicesAccountPropertiesResponseOutput) IsMigrated() pulumi.BoolOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) bool { return v.IsMigrated }).(pulumi.BoolOutput)
 }
 
-// A collection of rules governing the accessibility from specific network locations.
 func (o CognitiveServicesAccountPropertiesResponseOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *NetworkRuleSetResponse { return v.NetworkAcls }).(NetworkRuleSetResponsePtrOutput)
 }
 
-// The private endpoint connection associated with the Cognitive Services account.
 func (o CognitiveServicesAccountPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Gets the status of the cognitive services account at the time the operation was called.
 func (o CognitiveServicesAccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o CognitiveServicesAccountPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Sku change info of account.
 func (o CognitiveServicesAccountPropertiesResponseOutput) SkuChangeInfo() CognitiveServicesAccountSkuChangeInfoResponseOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) CognitiveServicesAccountSkuChangeInfoResponse {
 		return v.SkuChangeInfo
 	}).(CognitiveServicesAccountSkuChangeInfoResponseOutput)
 }
 
-// The storage accounts for this resource.
 func (o CognitiveServicesAccountPropertiesResponseOutput) UserOwnedStorage() UserOwnedStorageResponseArrayOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) []UserOwnedStorageResponse {
 		return v.UserOwnedStorage
@@ -1133,7 +983,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Elem() CognitiveSer
 	}).(CognitiveServicesAccountPropertiesResponseOutput)
 }
 
-// The api properties for special APIs.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) ApiProperties() CognitiveServicesAccountApiPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *CognitiveServicesAccountApiPropertiesResponse {
 		if v == nil {
@@ -1143,7 +992,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) ApiProperties() Cog
 	}).(CognitiveServicesAccountApiPropertiesResponsePtrOutput)
 }
 
-// Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Capabilities() SkuCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) []SkuCapabilityResponse {
 		if v == nil {
@@ -1153,7 +1001,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Capabilities() SkuC
 	}).(SkuCapabilityResponseArrayOutput)
 }
 
-// Optional subdomain name used for token-based authentication.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) CustomSubDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1163,7 +1010,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) CustomSubDomainName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the date of cognitive services account creation.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) DateCreated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1173,7 +1019,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) DateCreated() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption properties for this resource.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Encryption() EncryptionResponsePtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *EncryptionResponse {
 		if v == nil {
@@ -1183,7 +1028,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Encryption() Encryp
 	}).(EncryptionResponsePtrOutput)
 }
 
-// Endpoint of the created account.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1193,7 +1037,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) Endpoint() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The internal identifier.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) InternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1203,7 +1046,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) InternalId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the resource is migrated from an existing key.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) IsMigrated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *bool {
 		if v == nil {
@@ -1213,7 +1055,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) IsMigrated() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of rules governing the accessibility from specific network locations.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *NetworkRuleSetResponse {
 		if v == nil {
@@ -1223,7 +1064,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) NetworkAcls() Netwo
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// The private endpoint connection associated with the Cognitive Services account.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -1233,7 +1073,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) PrivateEndpointConn
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Gets the status of the cognitive services account at the time the operation was called.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1243,7 +1082,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) ProvisioningState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1253,7 +1091,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku change info of account.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) SkuChangeInfo() CognitiveServicesAccountSkuChangeInfoResponsePtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *CognitiveServicesAccountSkuChangeInfoResponse {
 		if v == nil {
@@ -1263,7 +1100,6 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) SkuChangeInfo() Cog
 	}).(CognitiveServicesAccountSkuChangeInfoResponsePtrOutput)
 }
 
-// The storage accounts for this resource.
 func (o CognitiveServicesAccountPropertiesResponsePtrOutput) UserOwnedStorage() UserOwnedStorageResponseArrayOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) []UserOwnedStorageResponse {
 		if v == nil {
@@ -1274,12 +1110,9 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) UserOwnedStorage() 
 }
 
 type CognitiveServicesAccountSkuChangeInfoResponse struct {
-	// Gets the count of downgrades.
-	CountOfDowngrades float64 `pulumi:"countOfDowngrades"`
-	// Gets the count of upgrades after downgrades.
+	CountOfDowngrades              float64 `pulumi:"countOfDowngrades"`
 	CountOfUpgradesAfterDowngrades float64 `pulumi:"countOfUpgradesAfterDowngrades"`
-	// Gets the last change date.
-	LastChangeDate string `pulumi:"lastChangeDate"`
+	LastChangeDate                 string  `pulumi:"lastChangeDate"`
 }
 
 // CognitiveServicesAccountSkuChangeInfoResponseInput is an input type that accepts CognitiveServicesAccountSkuChangeInfoResponseArgs and CognitiveServicesAccountSkuChangeInfoResponseOutput values.
@@ -1294,12 +1127,9 @@ type CognitiveServicesAccountSkuChangeInfoResponseInput interface {
 }
 
 type CognitiveServicesAccountSkuChangeInfoResponseArgs struct {
-	// Gets the count of downgrades.
-	CountOfDowngrades pulumi.Float64Input `pulumi:"countOfDowngrades"`
-	// Gets the count of upgrades after downgrades.
+	CountOfDowngrades              pulumi.Float64Input `pulumi:"countOfDowngrades"`
 	CountOfUpgradesAfterDowngrades pulumi.Float64Input `pulumi:"countOfUpgradesAfterDowngrades"`
-	// Gets the last change date.
-	LastChangeDate pulumi.StringInput `pulumi:"lastChangeDate"`
+	LastChangeDate                 pulumi.StringInput  `pulumi:"lastChangeDate"`
 }
 
 func (CognitiveServicesAccountSkuChangeInfoResponseArgs) ElementType() reflect.Type {
@@ -1379,17 +1209,14 @@ func (o CognitiveServicesAccountSkuChangeInfoResponseOutput) ToCognitiveServices
 	}).(CognitiveServicesAccountSkuChangeInfoResponsePtrOutput)
 }
 
-// Gets the count of downgrades.
 func (o CognitiveServicesAccountSkuChangeInfoResponseOutput) CountOfDowngrades() pulumi.Float64Output {
 	return o.ApplyT(func(v CognitiveServicesAccountSkuChangeInfoResponse) float64 { return v.CountOfDowngrades }).(pulumi.Float64Output)
 }
 
-// Gets the count of upgrades after downgrades.
 func (o CognitiveServicesAccountSkuChangeInfoResponseOutput) CountOfUpgradesAfterDowngrades() pulumi.Float64Output {
 	return o.ApplyT(func(v CognitiveServicesAccountSkuChangeInfoResponse) float64 { return v.CountOfUpgradesAfterDowngrades }).(pulumi.Float64Output)
 }
 
-// Gets the last change date.
 func (o CognitiveServicesAccountSkuChangeInfoResponseOutput) LastChangeDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountSkuChangeInfoResponse) string { return v.LastChangeDate }).(pulumi.StringOutput)
 }
@@ -1418,7 +1245,6 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) Elem() Cognitive
 	}).(CognitiveServicesAccountSkuChangeInfoResponseOutput)
 }
 
-// Gets the count of downgrades.
 func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) CountOfDowngrades() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountSkuChangeInfoResponse) *float64 {
 		if v == nil {
@@ -1428,7 +1254,6 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) CountOfDowngrade
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets the count of upgrades after downgrades.
 func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) CountOfUpgradesAfterDowngrades() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountSkuChangeInfoResponse) *float64 {
 		if v == nil {
@@ -1438,7 +1263,6 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) CountOfUpgradesA
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets the last change date.
 func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) LastChangeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountSkuChangeInfoResponse) *string {
 		if v == nil {
@@ -1449,9 +1273,7 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) LastChangeDate()
 }
 
 type Encryption struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          *string             `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 }
 
@@ -1467,9 +1289,7 @@ type EncryptionInput interface {
 }
 
 type EncryptionArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          pulumi.StringPtrInput      `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1550,12 +1370,10 @@ func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) 
 	}).(EncryptionPtrOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
@@ -1584,7 +1402,6 @@ func (o EncryptionPtrOutput) Elem() EncryptionOutput {
 	}).(EncryptionOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -1594,7 +1411,6 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *KeyVaultProperties {
 		if v == nil {
@@ -1605,9 +1421,7 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 }
 
 type EncryptionResponse struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          *string                     `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 }
 
@@ -1623,9 +1437,7 @@ type EncryptionResponseInput interface {
 }
 
 type EncryptionResponseArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          pulumi.StringPtrInput              `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1706,12 +1518,10 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx c
 	}).(EncryptionResponsePtrOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -1740,7 +1550,6 @@ func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
 	}).(EncryptionResponseOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -1750,7 +1559,6 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -1761,9 +1569,7 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 }
 
 type Identity struct {
-	// Type of managed service identity.
-	Type *IdentityType `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	Type                   *IdentityType                   `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentity `pulumi:"userAssignedIdentities"`
 }
 
@@ -1779,9 +1585,7 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// Type of managed service identity.
-	Type IdentityTypePtrInput `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	Type                   IdentityTypePtrInput         `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1862,12 +1666,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityOutput) Type() IdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *IdentityType { return v.Type }).(IdentityTypePtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o IdentityOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
 	return o.ApplyT(func(v Identity) map[string]UserAssignedIdentity { return v.UserAssignedIdentities }).(UserAssignedIdentityMapOutput)
 }
@@ -1896,7 +1698,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
@@ -1906,7 +1707,6 @@ func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
 	}).(IdentityTypePtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o IdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
 	return o.ApplyT(func(v *Identity) map[string]UserAssignedIdentity {
 		if v == nil {
@@ -1917,13 +1717,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutpu
 }
 
 type IdentityResponse struct {
-	// Principal Id of managed service identity.
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant of managed service identity.
-	TenantId string `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type *string `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -1939,13 +1735,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// Principal Id of managed service identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant of managed service identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -2026,22 +1818,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// Principal Id of managed service identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Tenant of managed service identity.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
 }
@@ -2070,7 +1858,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// Principal Id of managed service identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2080,7 +1867,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant of managed service identity.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2090,7 +1876,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2100,7 +1885,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
@@ -2111,7 +1895,6 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentity
 }
 
 type IpRule struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
 }
 
@@ -2127,7 +1910,6 @@ type IpRuleInput interface {
 }
 
 type IpRuleArgs struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2182,7 +1964,6 @@ func (o IpRuleOutput) ToIpRuleOutputWithContext(ctx context.Context) IpRuleOutpu
 	return o
 }
 
-// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 func (o IpRuleOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IpRule) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2208,7 +1989,6 @@ func (o IpRuleArrayOutput) Index(i pulumi.IntInput) IpRuleOutput {
 }
 
 type IpRuleResponse struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
 }
 
@@ -2224,7 +2004,6 @@ type IpRuleResponseInput interface {
 }
 
 type IpRuleResponseArgs struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2279,7 +2058,6 @@ func (o IpRuleResponseOutput) ToIpRuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 func (o IpRuleResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IpRuleResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2305,12 +2083,9 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 }
 
 type KeyVaultProperties struct {
-	// Name of the Key from KeyVault
-	KeyName *string `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// Version of the Key from KeyVault
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -2325,12 +2100,9 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// Name of the Key from KeyVault
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// Version of the Key from KeyVault
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -2410,17 +2182,14 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// Version of the Key from KeyVault
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2449,7 +2218,6 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 	}).(KeyVaultPropertiesOutput)
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2459,7 +2227,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2469,7 +2236,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the Key from KeyVault
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2480,12 +2246,9 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// Name of the Key from KeyVault
-	KeyName *string `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// Version of the Key from KeyVault
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -2500,12 +2263,9 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// Name of the Key from KeyVault
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// Version of the Key from KeyVault
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2585,17 +2345,14 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputW
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// Version of the Key from KeyVault
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2624,7 +2381,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2634,7 +2390,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2644,7 +2399,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the Key from KeyVault
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2655,11 +2409,8 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 }
 
 type NetworkRuleSet struct {
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules []IpRule `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	DefaultAction       *string              `pulumi:"defaultAction"`
+	IpRules             []IpRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -2675,11 +2426,8 @@ type NetworkRuleSetInput interface {
 }
 
 type NetworkRuleSetArgs struct {
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules IpRuleArrayInput `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	DefaultAction       pulumi.StringPtrInput        `pulumi:"defaultAction"`
+	IpRules             IpRuleArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -2760,17 +2508,14 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.C
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetOutput) IpRules() IpRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IpRule { return v.IpRules }).(IpRuleArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
 }
@@ -2799,7 +2544,6 @@ func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
 	}).(NetworkRuleSetOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -2809,7 +2553,6 @@ func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []IpRule {
 		if v == nil {
@@ -2819,7 +2562,6 @@ func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 	}).(IpRuleArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
 		if v == nil {
@@ -2830,11 +2572,8 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 }
 
 type NetworkRuleSetResponse struct {
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules []IpRuleResponse `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	DefaultAction       *string                      `pulumi:"defaultAction"`
+	IpRules             []IpRuleResponse             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
 
@@ -2850,11 +2589,8 @@ type NetworkRuleSetResponseInput interface {
 }
 
 type NetworkRuleSetResponseArgs struct {
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules IpRuleResponseArrayInput `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	DefaultAction       pulumi.StringPtrInput                `pulumi:"defaultAction"`
+	IpRules             IpRuleResponseArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -2935,17 +2671,14 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithConte
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetResponseOutput) IpRules() IpRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IpRuleResponse { return v.IpRules }).(IpRuleResponseArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
 }
@@ -2974,7 +2707,6 @@ func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
 	}).(NetworkRuleSetResponseOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -2984,7 +2716,6 @@ func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []IpRuleResponse {
 		if v == nil {
@@ -2994,7 +2725,6 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 	}).(IpRuleResponseArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []VirtualNetworkRuleResponse {
 		if v == nil {
@@ -3005,9 +2735,7 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 }
 
 type PrivateEndpointConnectionType struct {
-	// The location of the private endpoint connection
-	Location *string `pulumi:"location"`
-	// Resource properties.
+	Location   *string                              `pulumi:"location"`
 	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
 
@@ -3023,9 +2751,7 @@ type PrivateEndpointConnectionTypeInput interface {
 }
 
 type PrivateEndpointConnectionTypeArgs struct {
-	// The location of the private endpoint connection
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource properties.
+	Location   pulumi.StringPtrInput                       `pulumi:"location"`
 	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -3080,12 +2806,10 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutp
 	return o
 }
 
-// The location of the private endpoint connection
 func (o PrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Resource properties.
 func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -3111,9 +2835,7 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 }
 
 type PrivateEndpointConnectionProperties struct {
-	// The private link resource group ids.
-	GroupIds []string `pulumi:"groupIds"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	GroupIds                          []string                          `pulumi:"groupIds"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -3129,9 +2851,7 @@ type PrivateEndpointConnectionPropertiesInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The private link resource group ids.
-	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	GroupIds                          pulumi.StringArrayInput                `pulumi:"groupIds"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -3212,12 +2932,10 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The private link resource group ids.
 func (o PrivateEndpointConnectionPropertiesOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -3248,7 +2966,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// The private link resource group ids.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) []string {
 		if v == nil {
@@ -3258,7 +2975,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) GroupIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
 		if v == nil {
@@ -3269,11 +2985,8 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 }
 
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// The private link resource group ids.
-	GroupIds []string `pulumi:"groupIds"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	GroupIds                          []string                                  `pulumi:"groupIds"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -3289,11 +3002,8 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// The private link resource group ids.
-	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	GroupIds                          pulumi.StringArrayInput                        `pulumi:"groupIds"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -3374,17 +3084,14 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The private link resource group ids.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
@@ -3415,7 +3122,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndp
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The private link resource group ids.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) []string {
 		if v == nil {
@@ -3425,7 +3131,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) GroupIds() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse {
 		if v == nil {
@@ -3435,7 +3140,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
@@ -3446,18 +3150,12 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Entity Tag
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The location of the private endpoint connection
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
+	Etag       string                                       `pulumi:"etag"`
+	Id         string                                       `pulumi:"id"`
+	Location   *string                                      `pulumi:"location"`
+	Name       string                                       `pulumi:"name"`
 	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                       `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -3472,18 +3170,12 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Entity Tag
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The location of the private endpoint connection
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
+	Etag       pulumi.StringInput                                  `pulumi:"etag"`
+	Id         pulumi.StringInput                                  `pulumi:"id"`
+	Location   pulumi.StringPtrInput                               `pulumi:"location"`
+	Name       pulumi.StringInput                                  `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponsePtrInput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                  `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -3537,34 +3229,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Entity Tag
 func (o PrivateEndpointConnectionResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource properties.
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3590,7 +3276,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -3606,7 +3291,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3687,7 +3371,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3716,7 +3399,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -3727,12 +3409,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -3747,12 +3426,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -3832,17 +3508,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3871,7 +3544,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3881,7 +3553,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3891,7 +3562,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3902,12 +3572,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -3922,12 +3589,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -4007,17 +3671,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -4046,7 +3707,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -4056,7 +3716,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -4066,7 +3725,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -4077,7 +3735,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type Sku struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
 }
 
@@ -4093,7 +3750,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4174,7 +3830,6 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4203,7 +3858,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4214,9 +3868,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuCapabilityResponse struct {
-	// The name of the SkuCapability.
-	Name *string `pulumi:"name"`
-	// The value of the SkuCapability.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4232,9 +3884,7 @@ type SkuCapabilityResponseInput interface {
 }
 
 type SkuCapabilityResponseArgs struct {
-	// The name of the SkuCapability.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the SkuCapability.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4289,12 +3939,10 @@ func (o SkuCapabilityResponseOutput) ToSkuCapabilityResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the SkuCapability.
 func (o SkuCapabilityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuCapabilityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the SkuCapability.
 func (o SkuCapabilityResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuCapabilityResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4320,9 +3968,7 @@ func (o SkuCapabilityResponseArrayOutput) Index(i pulumi.IntInput) SkuCapability
 }
 
 type SkuResponse struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -4338,9 +3984,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -4421,12 +4065,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -4455,7 +4097,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -4465,7 +4106,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -4476,9 +4116,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type UserAssignedIdentity struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -4494,9 +4132,7 @@ type UserAssignedIdentityInput interface {
 }
 
 type UserAssignedIdentityArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -4551,12 +4187,10 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 	return o
 }
 
-// Client App Id associated with this identity.
 func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -4582,9 +4216,7 @@ func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssign
 }
 
 type UserAssignedIdentityResponse struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -4600,9 +4232,7 @@ type UserAssignedIdentityResponseInput interface {
 }
 
 type UserAssignedIdentityResponseArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -4657,12 +4287,10 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// Client App Id associated with this identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -4688,7 +4316,6 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 type UserOwnedStorage struct {
-	// Full resource id of a Microsoft.Storage resource.
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -4704,7 +4331,6 @@ type UserOwnedStorageInput interface {
 }
 
 type UserOwnedStorageArgs struct {
-	// Full resource id of a Microsoft.Storage resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -4759,7 +4385,6 @@ func (o UserOwnedStorageOutput) ToUserOwnedStorageOutputWithContext(ctx context.
 	return o
 }
 
-// Full resource id of a Microsoft.Storage resource.
 func (o UserOwnedStorageOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserOwnedStorage) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -4785,7 +4410,6 @@ func (o UserOwnedStorageArrayOutput) Index(i pulumi.IntInput) UserOwnedStorageOu
 }
 
 type UserOwnedStorageResponse struct {
-	// Full resource id of a Microsoft.Storage resource.
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -4801,7 +4425,6 @@ type UserOwnedStorageResponseInput interface {
 }
 
 type UserOwnedStorageResponseArgs struct {
-	// Full resource id of a Microsoft.Storage resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -4856,7 +4479,6 @@ func (o UserOwnedStorageResponseOutput) ToUserOwnedStorageResponseOutputWithCont
 	return o
 }
 
-// Full resource id of a Microsoft.Storage resource.
 func (o UserOwnedStorageResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserOwnedStorageResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -4882,12 +4504,9 @@ func (o UserOwnedStorageResponseArrayOutput) Index(i pulumi.IntInput) UserOwnedS
 }
 
 type VirtualNetworkRule struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-	Id string `pulumi:"id"`
-	// Ignore missing vnet service endpoint or not.
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
+	Id                               string  `pulumi:"id"`
+	IgnoreMissingVnetServiceEndpoint *bool   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	State                            *string `pulumi:"state"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -4902,12 +4521,9 @@ type VirtualNetworkRuleInput interface {
 }
 
 type VirtualNetworkRuleArgs struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Ignore missing vnet service endpoint or not.
-	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Id                               pulumi.StringInput    `pulumi:"id"`
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	State                            pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -4961,17 +4577,14 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Ignore missing vnet service endpoint or not.
 func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Gets the state of virtual network rule.
 func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -4997,12 +4610,9 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 }
 
 type VirtualNetworkRuleResponse struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-	Id string `pulumi:"id"`
-	// Ignore missing vnet service endpoint or not.
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
+	Id                               string  `pulumi:"id"`
+	IgnoreMissingVnetServiceEndpoint *bool   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	State                            *string `pulumi:"state"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -5017,12 +4627,9 @@ type VirtualNetworkRuleResponseInput interface {
 }
 
 type VirtualNetworkRuleResponseArgs struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Ignore missing vnet service endpoint or not.
-	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Id                               pulumi.StringInput    `pulumi:"id"`
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	State                            pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -5076,17 +4683,14 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Ignore missing vnet service endpoint or not.
 func (o VirtualNetworkRuleResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Gets the state of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }

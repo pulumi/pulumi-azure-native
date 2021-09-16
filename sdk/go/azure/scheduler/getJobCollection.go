@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2016-03-01.
 func LookupJobCollection(ctx *pulumi.Context, args *LookupJobCollectionArgs, opts ...pulumi.InvokeOption) (*LookupJobCollectionResult, error) {
 	var rv LookupJobCollectionResult
 	err := ctx.Invoke("azure-native:scheduler:getJobCollection", args, &rv, opts...)
@@ -18,23 +17,15 @@ func LookupJobCollection(ctx *pulumi.Context, args *LookupJobCollectionArgs, opt
 }
 
 type LookupJobCollectionArgs struct {
-	// The job collection name.
 	JobCollectionName string `pulumi:"jobCollectionName"`
-	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupJobCollectionResult struct {
-	// Gets the job collection resource identifier.
-	Id string `pulumi:"id"`
-	// Gets or sets the storage account location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the job collection properties.
+	Id         string                          `pulumi:"id"`
+	Location   *string                         `pulumi:"location"`
+	Name       *string                         `pulumi:"name"`
 	Properties JobCollectionPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the job collection resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string               `pulumi:"tags"`
+	Type       string                          `pulumi:"type"`
 }

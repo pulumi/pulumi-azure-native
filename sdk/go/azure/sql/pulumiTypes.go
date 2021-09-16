@@ -11,7 +11,6 @@ import (
 )
 
 type DatabaseVulnerabilityAssessmentRuleBaselineItem struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -27,7 +26,6 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemInput interface {
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineItemArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -82,7 +80,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) ToDatabaseVulnera
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItem) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -108,7 +105,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulu
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -124,7 +120,6 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -179,7 +174,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToDatabas
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItemResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -205,9 +199,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Inde
 }
 
 type ElasticPoolPerDatabaseSettings struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
@@ -223,9 +215,7 @@ type ElasticPoolPerDatabaseSettingsInput interface {
 }
 
 type ElasticPoolPerDatabaseSettingsArgs struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
@@ -306,12 +296,10 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -340,7 +328,6 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSe
 	}).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
 		if v == nil {
@@ -350,7 +337,6 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
 		if v == nil {
@@ -361,9 +347,7 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 }
 
 type ElasticPoolPerDatabaseSettingsResponse struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
@@ -379,9 +363,7 @@ type ElasticPoolPerDatabaseSettingsResponseInput interface {
 }
 
 type ElasticPoolPerDatabaseSettingsResponseArgs struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
@@ -462,12 +444,10 @@ func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSe
 	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -496,7 +476,6 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) Elem() ElasticPoolPerDa
 	}).(ElasticPoolPerDatabaseSettingsResponseOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
 		if v == nil {
@@ -506,7 +485,6 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MaxCapacity() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
 		if v == nil {
@@ -517,7 +495,6 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MinCapacity() pulumi.Fl
 }
 
 type FailoverGroupReadOnlyEndpoint struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -533,7 +510,6 @@ type FailoverGroupReadOnlyEndpointInput interface {
 }
 
 type FailoverGroupReadOnlyEndpointArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -614,7 +590,6 @@ func (o FailoverGroupReadOnlyEndpointOutput) ToFailoverGroupReadOnlyEndpointPtrO
 	}).(FailoverGroupReadOnlyEndpointPtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o FailoverGroupReadOnlyEndpointOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadOnlyEndpoint) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -643,7 +618,6 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) Elem() FailoverGroupReadOnlyEndp
 	}).(FailoverGroupReadOnlyEndpointOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o FailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpoint) *string {
 		if v == nil {
@@ -654,7 +628,6 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPt
 }
 
 type FailoverGroupReadOnlyEndpointResponse struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -670,7 +643,6 @@ type FailoverGroupReadOnlyEndpointResponseInput interface {
 }
 
 type FailoverGroupReadOnlyEndpointResponseArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -751,7 +723,6 @@ func (o FailoverGroupReadOnlyEndpointResponseOutput) ToFailoverGroupReadOnlyEndp
 	}).(FailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o FailoverGroupReadOnlyEndpointResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadOnlyEndpointResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -780,7 +751,6 @@ func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() FailoverGroupRead
 	}).(FailoverGroupReadOnlyEndpointResponseOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpointResponse) *string {
 		if v == nil {
@@ -791,10 +761,8 @@ func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy() pulumi.
 }
 
 type FailoverGroupReadWriteEndpoint struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // FailoverGroupReadWriteEndpointInput is an input type that accepts FailoverGroupReadWriteEndpointArgs and FailoverGroupReadWriteEndpointOutput values.
@@ -809,9 +777,7 @@ type FailoverGroupReadWriteEndpointInput interface {
 }
 
 type FailoverGroupReadWriteEndpointArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -892,12 +858,10 @@ func (o FailoverGroupReadWriteEndpointOutput) ToFailoverGroupReadWriteEndpointPt
 	}).(FailoverGroupReadWriteEndpointPtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpoint) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpoint) *int { return v.FailoverWithDataLossGracePeriodMinutes }).(pulumi.IntPtrOutput)
 }
@@ -926,7 +890,6 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) Elem() FailoverGroupReadWriteEn
 	}).(FailoverGroupReadWriteEndpointOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) *string {
 		if v == nil {
@@ -936,7 +899,6 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) *int {
 		if v == nil {
@@ -947,10 +909,8 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriod
 }
 
 type FailoverGroupReadWriteEndpointResponse struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // FailoverGroupReadWriteEndpointResponseInput is an input type that accepts FailoverGroupReadWriteEndpointResponseArgs and FailoverGroupReadWriteEndpointResponseOutput values.
@@ -965,9 +925,7 @@ type FailoverGroupReadWriteEndpointResponseInput interface {
 }
 
 type FailoverGroupReadWriteEndpointResponseArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -1048,12 +1006,10 @@ func (o FailoverGroupReadWriteEndpointResponseOutput) ToFailoverGroupReadWriteEn
 	}).(FailoverGroupReadWriteEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointResponseOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointResponse) *int { return v.FailoverWithDataLossGracePeriodMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1082,7 +1038,6 @@ func (o FailoverGroupReadWriteEndpointResponsePtrOutput) Elem() FailoverGroupRea
 	}).(FailoverGroupReadWriteEndpointResponseOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) *string {
 		if v == nil {
@@ -1092,7 +1047,6 @@ func (o FailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o FailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) *int {
 		if v == nil {
@@ -1103,7 +1057,6 @@ func (o FailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDataLossGra
 }
 
 type InstanceFailoverGroupReadOnlyEndpoint struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -1119,7 +1072,6 @@ type InstanceFailoverGroupReadOnlyEndpointInput interface {
 }
 
 type InstanceFailoverGroupReadOnlyEndpointArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -1200,7 +1152,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupRead
 	}).(InstanceFailoverGroupReadOnlyEndpointPtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpoint) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1229,7 +1180,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) Elem() InstanceFailoverG
 	}).(InstanceFailoverGroupReadOnlyEndpointOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) *string {
 		if v == nil {
@@ -1240,7 +1190,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.
 }
 
 type InstanceFailoverGroupReadOnlyEndpointResponse struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -1256,7 +1205,6 @@ type InstanceFailoverGroupReadOnlyEndpointResponseInput interface {
 }
 
 type InstanceFailoverGroupReadOnlyEndpointResponseArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -1337,7 +1285,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverG
 	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1366,7 +1313,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() InstanceF
 	}).(InstanceFailoverGroupReadOnlyEndpointResponseOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpointResponse) *string {
 		if v == nil {
@@ -1377,10 +1323,8 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy()
 }
 
 type InstanceFailoverGroupReadWriteEndpoint struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // InstanceFailoverGroupReadWriteEndpointInput is an input type that accepts InstanceFailoverGroupReadWriteEndpointArgs and InstanceFailoverGroupReadWriteEndpointOutput values.
@@ -1395,9 +1339,7 @@ type InstanceFailoverGroupReadWriteEndpointInput interface {
 }
 
 type InstanceFailoverGroupReadWriteEndpointArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -1478,12 +1420,10 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupRea
 	}).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *int { return v.FailoverWithDataLossGracePeriodMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1512,7 +1452,6 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) Elem() InstanceFailover
 	}).(InstanceFailoverGroupReadWriteEndpointOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *string {
 		if v == nil {
@@ -1522,7 +1461,6 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *int {
 		if v == nil {
@@ -1533,10 +1471,8 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGra
 }
 
 type InstanceFailoverGroupReadWriteEndpointResponse struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // InstanceFailoverGroupReadWriteEndpointResponseInput is an input type that accepts InstanceFailoverGroupReadWriteEndpointResponseArgs and InstanceFailoverGroupReadWriteEndpointResponseOutput values.
@@ -1551,9 +1487,7 @@ type InstanceFailoverGroupReadWriteEndpointResponseInput interface {
 }
 
 type InstanceFailoverGroupReadWriteEndpointResponseArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -1634,12 +1568,10 @@ func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailover
 	}).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *int {
 		return v.FailoverWithDataLossGracePeriodMinutes
@@ -1670,7 +1602,6 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) Elem() Instance
 	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *string {
 		if v == nil {
@@ -1680,7 +1611,6 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *int {
 		if v == nil {
@@ -1691,16 +1621,11 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDat
 }
 
 type JobSchedule struct {
-	// Whether or not the schedule is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime *string `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
-	Interval *string `pulumi:"interval"`
-	// Schedule start time.
-	StartTime *string `pulumi:"startTime"`
-	// Schedule interval type
-	Type *JobScheduleType `pulumi:"type"`
+	Enabled   *bool            `pulumi:"enabled"`
+	EndTime   *string          `pulumi:"endTime"`
+	Interval  *string          `pulumi:"interval"`
+	StartTime *string          `pulumi:"startTime"`
+	Type      *JobScheduleType `pulumi:"type"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -1715,16 +1640,11 @@ type JobScheduleInput interface {
 }
 
 type JobScheduleArgs struct {
-	// Whether or not the schedule is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
-	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// Schedule start time.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Schedule interval type
-	Type JobScheduleTypePtrInput `pulumi:"type"`
+	Enabled   pulumi.BoolPtrInput     `pulumi:"enabled"`
+	EndTime   pulumi.StringPtrInput   `pulumi:"endTime"`
+	Interval  pulumi.StringPtrInput   `pulumi:"interval"`
+	StartTime pulumi.StringPtrInput   `pulumi:"startTime"`
+	Type      JobScheduleTypePtrInput `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -1804,27 +1724,22 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context
 	}).(JobSchedulePtrOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
 func (o JobScheduleOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobScheduleOutput) Type() JobScheduleTypePtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleType { return v.Type }).(JobScheduleTypePtrOutput)
 }
@@ -1853,7 +1768,6 @@ func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
 	}).(JobScheduleOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobSchedulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *bool {
 		if v == nil {
@@ -1863,7 +1777,6 @@ func (o JobSchedulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -1873,7 +1786,6 @@ func (o JobSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
 func (o JobSchedulePtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -1883,7 +1795,6 @@ func (o JobSchedulePtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -1893,7 +1804,6 @@ func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *JobScheduleType {
 		if v == nil {
@@ -1904,16 +1814,11 @@ func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
 }
 
 type JobScheduleResponse struct {
-	// Whether or not the schedule is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime *string `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
-	Interval *string `pulumi:"interval"`
-	// Schedule start time.
+	Enabled   *bool   `pulumi:"enabled"`
+	EndTime   *string `pulumi:"endTime"`
+	Interval  *string `pulumi:"interval"`
 	StartTime *string `pulumi:"startTime"`
-	// Schedule interval type
-	Type *string `pulumi:"type"`
+	Type      *string `pulumi:"type"`
 }
 
 // JobScheduleResponseInput is an input type that accepts JobScheduleResponseArgs and JobScheduleResponseOutput values.
@@ -1928,16 +1833,11 @@ type JobScheduleResponseInput interface {
 }
 
 type JobScheduleResponseArgs struct {
-	// Whether or not the schedule is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
-	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// Schedule start time.
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	EndTime   pulumi.StringPtrInput `pulumi:"endTime"`
+	Interval  pulumi.StringPtrInput `pulumi:"interval"`
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Schedule interval type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobScheduleResponseArgs) ElementType() reflect.Type {
@@ -2017,27 +1917,22 @@ func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutputWithContext(ctx
 	}).(JobScheduleResponsePtrOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
 func (o JobScheduleResponseOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobScheduleResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2066,7 +1961,6 @@ func (o JobScheduleResponsePtrOutput) Elem() JobScheduleResponseOutput {
 	}).(JobScheduleResponseOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *bool {
 		if v == nil {
@@ -2076,7 +1970,6 @@ func (o JobScheduleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -2086,7 +1979,6 @@ func (o JobScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
 func (o JobScheduleResponsePtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -2096,7 +1988,6 @@ func (o JobScheduleResponsePtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -2106,7 +1997,6 @@ func (o JobScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -2117,12 +2007,9 @@ func (o JobScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type JobStepAction struct {
-	// The source of the action to execute.
 	Source *string `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type *string `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value string `pulumi:"value"`
+	Type   *string `pulumi:"type"`
+	Value  string  `pulumi:"value"`
 }
 
 // JobStepActionInput is an input type that accepts JobStepActionArgs and JobStepActionOutput values.
@@ -2137,12 +2024,9 @@ type JobStepActionInput interface {
 }
 
 type JobStepActionArgs struct {
-	// The source of the action to execute.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
+	Value  pulumi.StringInput    `pulumi:"value"`
 }
 
 func (JobStepActionArgs) ElementType() reflect.Type {
@@ -2222,17 +2106,14 @@ func (o JobStepActionOutput) ToJobStepActionPtrOutputWithContext(ctx context.Con
 	}).(JobStepActionPtrOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepAction) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepAction) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2261,7 +2142,6 @@ func (o JobStepActionPtrOutput) Elem() JobStepActionOutput {
 	}).(JobStepActionOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -2271,7 +2151,6 @@ func (o JobStepActionPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -2281,7 +2160,6 @@ func (o JobStepActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -2292,12 +2170,9 @@ func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type JobStepActionResponse struct {
-	// The source of the action to execute.
 	Source *string `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type *string `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value string `pulumi:"value"`
+	Type   *string `pulumi:"type"`
+	Value  string  `pulumi:"value"`
 }
 
 // JobStepActionResponseInput is an input type that accepts JobStepActionResponseArgs and JobStepActionResponseOutput values.
@@ -2312,12 +2187,9 @@ type JobStepActionResponseInput interface {
 }
 
 type JobStepActionResponseArgs struct {
-	// The source of the action to execute.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
+	Value  pulumi.StringInput    `pulumi:"value"`
 }
 
 func (JobStepActionResponseArgs) ElementType() reflect.Type {
@@ -2397,17 +2269,14 @@ func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutputWithContext
 	}).(JobStepActionResponsePtrOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionResponseOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepActionResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepActionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepActionResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2436,7 +2305,6 @@ func (o JobStepActionResponsePtrOutput) Elem() JobStepActionResponseOutput {
 	}).(JobStepActionResponseOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -2446,7 +2314,6 @@ func (o JobStepActionResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -2456,7 +2323,6 @@ func (o JobStepActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -2467,16 +2333,11 @@ func (o JobStepActionResponsePtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type JobStepExecutionOptions struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    *int     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    *int     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  *int     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 *int     `pulumi:"timeoutSeconds"`
 }
 
 // JobStepExecutionOptionsInput is an input type that accepts JobStepExecutionOptionsArgs and JobStepExecutionOptionsOutput values.
@@ -2491,16 +2352,11 @@ type JobStepExecutionOptionsInput interface {
 }
 
 type JobStepExecutionOptionsArgs struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  pulumi.IntPtrInput     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 pulumi.IntPtrInput     `pulumi:"timeoutSeconds"`
 }
 
 func (JobStepExecutionOptionsArgs) ElementType() reflect.Type {
@@ -2580,27 +2436,22 @@ func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutputWithCon
 	}).(JobStepExecutionOptionsPtrOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2629,7 +2480,6 @@ func (o JobStepExecutionOptionsPtrOutput) Elem() JobStepExecutionOptionsOutput {
 	}).(JobStepExecutionOptionsOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsPtrOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -2639,7 +2489,6 @@ func (o JobStepExecutionOptionsPtrOutput) InitialRetryIntervalSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsPtrOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -2649,7 +2498,6 @@ func (o JobStepExecutionOptionsPtrOutput) MaximumRetryIntervalSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsPtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -2659,7 +2507,6 @@ func (o JobStepExecutionOptionsPtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsPtrOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *float64 {
 		if v == nil {
@@ -2669,7 +2516,6 @@ func (o JobStepExecutionOptionsPtrOutput) RetryIntervalBackoffMultiplier() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -2680,16 +2526,11 @@ func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 }
 
 type JobStepExecutionOptionsResponse struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    *int     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    *int     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  *int     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 *int     `pulumi:"timeoutSeconds"`
 }
 
 // JobStepExecutionOptionsResponseInput is an input type that accepts JobStepExecutionOptionsResponseArgs and JobStepExecutionOptionsResponseOutput values.
@@ -2704,16 +2545,11 @@ type JobStepExecutionOptionsResponseInput interface {
 }
 
 type JobStepExecutionOptionsResponseArgs struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  pulumi.IntPtrInput     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 pulumi.IntPtrInput     `pulumi:"timeoutSeconds"`
 }
 
 func (JobStepExecutionOptionsResponseArgs) ElementType() reflect.Type {
@@ -2793,27 +2629,22 @@ func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponse
 	}).(JobStepExecutionOptionsResponsePtrOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsResponseOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsResponseOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsResponseOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsResponseOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsResponseOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2842,7 +2673,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) Elem() JobStepExecutionOptions
 	}).(JobStepExecutionOptionsResponseOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsResponsePtrOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -2852,7 +2682,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) InitialRetryIntervalSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsResponsePtrOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -2862,7 +2691,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) MaximumRetryIntervalSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsResponsePtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -2872,7 +2700,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) RetryAttempts() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsResponsePtrOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *float64 {
 		if v == nil {
@@ -2882,7 +2709,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) RetryIntervalBackoffMultiplier
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsResponsePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -2893,22 +2719,14 @@ func (o JobStepExecutionOptionsResponsePtrOutput) TimeoutSeconds() pulumi.IntPtr
 }
 
 type JobStepOutputType struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential string `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        string  `pulumi:"credential"`
+	DatabaseName      string  `pulumi:"databaseName"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName *string `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName string `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName string `pulumi:"tableName"`
-	// The output destination type.
-	Type *string `pulumi:"type"`
+	SchemaName        *string `pulumi:"schemaName"`
+	ServerName        string  `pulumi:"serverName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TableName         string  `pulumi:"tableName"`
+	Type              *string `pulumi:"type"`
 }
 
 // JobStepOutputTypeInput is an input type that accepts JobStepOutputTypeArgs and JobStepOutputTypeOutput values.
@@ -2923,22 +2741,14 @@ type JobStepOutputTypeInput interface {
 }
 
 type JobStepOutputTypeArgs struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential pulumi.StringInput `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        pulumi.StringInput    `pulumi:"credential"`
+	DatabaseName      pulumi.StringInput    `pulumi:"databaseName"`
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// The output destination type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	SchemaName        pulumi.StringPtrInput `pulumi:"schemaName"`
+	ServerName        pulumi.StringInput    `pulumi:"serverName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TableName         pulumi.StringInput    `pulumi:"tableName"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobStepOutputTypeArgs) ElementType() reflect.Type {
@@ -3018,42 +2828,34 @@ func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutputWithContext(ctx con
 	}).(JobStepOutputTypePtrOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputTypeOutput) Credential() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.Credential }).(pulumi.StringOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputTypeOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputTypeOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputTypeOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputTypeOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputTypeOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputTypeOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3082,7 +2884,6 @@ func (o JobStepOutputTypePtrOutput) Elem() JobStepOutputTypeOutput {
 	}).(JobStepOutputTypeOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputTypePtrOutput) Credential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3092,7 +2893,6 @@ func (o JobStepOutputTypePtrOutput) Credential() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputTypePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3102,7 +2902,6 @@ func (o JobStepOutputTypePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputTypePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3112,7 +2911,6 @@ func (o JobStepOutputTypePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputTypePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3122,7 +2920,6 @@ func (o JobStepOutputTypePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputTypePtrOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3132,7 +2929,6 @@ func (o JobStepOutputTypePtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputTypePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3142,7 +2938,6 @@ func (o JobStepOutputTypePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputTypePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3152,7 +2947,6 @@ func (o JobStepOutputTypePtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -3163,22 +2957,14 @@ func (o JobStepOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type JobStepOutputResponse struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential string `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        string  `pulumi:"credential"`
+	DatabaseName      string  `pulumi:"databaseName"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName *string `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName string `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName string `pulumi:"tableName"`
-	// The output destination type.
-	Type *string `pulumi:"type"`
+	SchemaName        *string `pulumi:"schemaName"`
+	ServerName        string  `pulumi:"serverName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TableName         string  `pulumi:"tableName"`
+	Type              *string `pulumi:"type"`
 }
 
 // JobStepOutputResponseInput is an input type that accepts JobStepOutputResponseArgs and JobStepOutputResponseOutput values.
@@ -3193,22 +2979,14 @@ type JobStepOutputResponseInput interface {
 }
 
 type JobStepOutputResponseArgs struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential pulumi.StringInput `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        pulumi.StringInput    `pulumi:"credential"`
+	DatabaseName      pulumi.StringInput    `pulumi:"databaseName"`
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// The output destination type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	SchemaName        pulumi.StringPtrInput `pulumi:"schemaName"`
+	ServerName        pulumi.StringInput    `pulumi:"serverName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TableName         pulumi.StringInput    `pulumi:"tableName"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobStepOutputResponseArgs) ElementType() reflect.Type {
@@ -3288,42 +3066,34 @@ func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutputWithContext
 	}).(JobStepOutputResponsePtrOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputResponseOutput) Credential() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.Credential }).(pulumi.StringOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputResponseOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputResponseOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputResponseOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3352,7 +3122,6 @@ func (o JobStepOutputResponsePtrOutput) Elem() JobStepOutputResponseOutput {
 	}).(JobStepOutputResponseOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputResponsePtrOutput) Credential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3362,7 +3131,6 @@ func (o JobStepOutputResponsePtrOutput) Credential() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3372,7 +3140,6 @@ func (o JobStepOutputResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3382,7 +3149,6 @@ func (o JobStepOutputResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputResponsePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3392,7 +3158,6 @@ func (o JobStepOutputResponsePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3402,7 +3167,6 @@ func (o JobStepOutputResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3412,7 +3176,6 @@ func (o JobStepOutputResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputResponsePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3422,7 +3185,6 @@ func (o JobStepOutputResponsePtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -3433,20 +3195,13 @@ func (o JobStepOutputResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type JobTarget struct {
-	// The target database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
-	RefreshCredential *string `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName *string `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName *string `pulumi:"shardMapName"`
-	// The target type.
-	Type string `pulumi:"type"`
+	DatabaseName      *string                       `pulumi:"databaseName"`
+	ElasticPoolName   *string                       `pulumi:"elasticPoolName"`
+	MembershipType    *JobTargetGroupMembershipType `pulumi:"membershipType"`
+	RefreshCredential *string                       `pulumi:"refreshCredential"`
+	ServerName        *string                       `pulumi:"serverName"`
+	ShardMapName      *string                       `pulumi:"shardMapName"`
+	Type              string                        `pulumi:"type"`
 }
 
 // JobTargetInput is an input type that accepts JobTargetArgs and JobTargetOutput values.
@@ -3461,20 +3216,13 @@ type JobTargetInput interface {
 }
 
 type JobTargetArgs struct {
-	// The target database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
-	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
-	// The target type.
-	Type pulumi.StringInput `pulumi:"type"`
+	DatabaseName      pulumi.StringPtrInput                `pulumi:"databaseName"`
+	ElasticPoolName   pulumi.StringPtrInput                `pulumi:"elasticPoolName"`
+	MembershipType    JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
+	RefreshCredential pulumi.StringPtrInput                `pulumi:"refreshCredential"`
+	ServerName        pulumi.StringPtrInput                `pulumi:"serverName"`
+	ShardMapName      pulumi.StringPtrInput                `pulumi:"shardMapName"`
+	Type              pulumi.StringInput                   `pulumi:"type"`
 }
 
 func (JobTargetArgs) ElementType() reflect.Type {
@@ -3528,37 +3276,30 @@ func (o JobTargetOutput) ToJobTargetOutputWithContext(ctx context.Context) JobTa
 	return o
 }
 
-// The target database name.
 func (o JobTargetOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// The target elastic pool name.
 func (o JobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the target is included or excluded from the group.
 func (o JobTargetOutput) MembershipType() JobTargetGroupMembershipTypePtrOutput {
 	return o.ApplyT(func(v JobTarget) *JobTargetGroupMembershipType { return v.MembershipType }).(JobTargetGroupMembershipTypePtrOutput)
 }
 
-// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 func (o JobTargetOutput) RefreshCredential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
 }
 
-// The target server name.
 func (o JobTargetOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// The target shard map.
 func (o JobTargetOutput) ShardMapName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
 }
 
-// The target type.
 func (o JobTargetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTarget) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3584,20 +3325,13 @@ func (o JobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetOutput {
 }
 
 type JobTargetResponse struct {
-	// The target database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType *string `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	DatabaseName      *string `pulumi:"databaseName"`
+	ElasticPoolName   *string `pulumi:"elasticPoolName"`
+	MembershipType    *string `pulumi:"membershipType"`
 	RefreshCredential *string `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName *string `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName *string `pulumi:"shardMapName"`
-	// The target type.
-	Type string `pulumi:"type"`
+	ServerName        *string `pulumi:"serverName"`
+	ShardMapName      *string `pulumi:"shardMapName"`
+	Type              string  `pulumi:"type"`
 }
 
 // JobTargetResponseInput is an input type that accepts JobTargetResponseArgs and JobTargetResponseOutput values.
@@ -3612,20 +3346,13 @@ type JobTargetResponseInput interface {
 }
 
 type JobTargetResponseArgs struct {
-	// The target database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	DatabaseName      pulumi.StringPtrInput `pulumi:"databaseName"`
+	ElasticPoolName   pulumi.StringPtrInput `pulumi:"elasticPoolName"`
+	MembershipType    pulumi.StringPtrInput `pulumi:"membershipType"`
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
-	// The target type.
-	Type pulumi.StringInput `pulumi:"type"`
+	ServerName        pulumi.StringPtrInput `pulumi:"serverName"`
+	ShardMapName      pulumi.StringPtrInput `pulumi:"shardMapName"`
+	Type              pulumi.StringInput    `pulumi:"type"`
 }
 
 func (JobTargetResponseArgs) ElementType() reflect.Type {
@@ -3679,37 +3406,30 @@ func (o JobTargetResponseOutput) ToJobTargetResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The target database name.
 func (o JobTargetResponseOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// The target elastic pool name.
 func (o JobTargetResponseOutput) ElasticPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the target is included or excluded from the group.
 func (o JobTargetResponseOutput) MembershipType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 func (o JobTargetResponseOutput) RefreshCredential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
 }
 
-// The target server name.
 func (o JobTargetResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// The target shard map.
 func (o JobTargetResponseOutput) ShardMapName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
 }
 
-// The target type.
 func (o JobTargetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTargetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3735,18 +3455,12 @@ func (o JobTargetResponseArrayOutput) Index(i pulumi.IntInput) JobTargetResponse
 }
 
 type ManagedInstanceExternalAdministrator struct {
-	// Type of the sever administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login *string `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType *string `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId *string `pulumi:"tenantId"`
+	AdministratorType         *string `pulumi:"administratorType"`
+	AzureADOnlyAuthentication *bool   `pulumi:"azureADOnlyAuthentication"`
+	Login                     *string `pulumi:"login"`
+	PrincipalType             *string `pulumi:"principalType"`
+	Sid                       *string `pulumi:"sid"`
+	TenantId                  *string `pulumi:"tenantId"`
 }
 
 // ManagedInstanceExternalAdministratorInput is an input type that accepts ManagedInstanceExternalAdministratorArgs and ManagedInstanceExternalAdministratorOutput values.
@@ -3761,18 +3475,12 @@ type ManagedInstanceExternalAdministratorInput interface {
 }
 
 type ManagedInstanceExternalAdministratorArgs struct {
-	// Type of the sever administrator.
-	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login pulumi.StringPtrInput `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid pulumi.StringPtrInput `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	AdministratorType         pulumi.StringPtrInput `pulumi:"administratorType"`
+	AzureADOnlyAuthentication pulumi.BoolPtrInput   `pulumi:"azureADOnlyAuthentication"`
+	Login                     pulumi.StringPtrInput `pulumi:"login"`
+	PrincipalType             pulumi.StringPtrInput `pulumi:"principalType"`
+	Sid                       pulumi.StringPtrInput `pulumi:"sid"`
+	TenantId                  pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ManagedInstanceExternalAdministratorArgs) ElementType() reflect.Type {
@@ -3852,32 +3560,26 @@ func (o ManagedInstanceExternalAdministratorOutput) ToManagedInstanceExternalAdm
 	}).(ManagedInstanceExternalAdministratorPtrOutput)
 }
 
-// Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ManagedInstanceExternalAdministratorOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ManagedInstanceExternalAdministratorOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *string { return v.Login }).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ManagedInstanceExternalAdministratorOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ManagedInstanceExternalAdministratorOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -3906,7 +3608,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) Elem() ManagedInstanceExt
 	}).(ManagedInstanceExternalAdministratorOutput)
 }
 
-// Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorPtrOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *string {
 		if v == nil {
@@ -3916,7 +3617,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) AdministratorType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ManagedInstanceExternalAdministratorPtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *bool {
 		if v == nil {
@@ -3926,7 +3626,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) AzureADOnlyAuthentication
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ManagedInstanceExternalAdministratorPtrOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *string {
 		if v == nil {
@@ -3936,7 +3635,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) Login() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorPtrOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *string {
 		if v == nil {
@@ -3946,7 +3644,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) PrincipalType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ManagedInstanceExternalAdministratorPtrOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *string {
 		if v == nil {
@@ -3956,7 +3653,6 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) Sid() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ManagedInstanceExternalAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) *string {
 		if v == nil {
@@ -3967,18 +3663,12 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) TenantId() pulumi.StringP
 }
 
 type ManagedInstanceExternalAdministratorResponse struct {
-	// Type of the sever administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login *string `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType *string `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId *string `pulumi:"tenantId"`
+	AdministratorType         *string `pulumi:"administratorType"`
+	AzureADOnlyAuthentication *bool   `pulumi:"azureADOnlyAuthentication"`
+	Login                     *string `pulumi:"login"`
+	PrincipalType             *string `pulumi:"principalType"`
+	Sid                       *string `pulumi:"sid"`
+	TenantId                  *string `pulumi:"tenantId"`
 }
 
 // ManagedInstanceExternalAdministratorResponseInput is an input type that accepts ManagedInstanceExternalAdministratorResponseArgs and ManagedInstanceExternalAdministratorResponseOutput values.
@@ -3993,18 +3683,12 @@ type ManagedInstanceExternalAdministratorResponseInput interface {
 }
 
 type ManagedInstanceExternalAdministratorResponseArgs struct {
-	// Type of the sever administrator.
-	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login pulumi.StringPtrInput `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid pulumi.StringPtrInput `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	AdministratorType         pulumi.StringPtrInput `pulumi:"administratorType"`
+	AzureADOnlyAuthentication pulumi.BoolPtrInput   `pulumi:"azureADOnlyAuthentication"`
+	Login                     pulumi.StringPtrInput `pulumi:"login"`
+	PrincipalType             pulumi.StringPtrInput `pulumi:"principalType"`
+	Sid                       pulumi.StringPtrInput `pulumi:"sid"`
+	TenantId                  pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ManagedInstanceExternalAdministratorResponseArgs) ElementType() reflect.Type {
@@ -4084,32 +3768,26 @@ func (o ManagedInstanceExternalAdministratorResponseOutput) ToManagedInstanceExt
 	}).(ManagedInstanceExternalAdministratorResponsePtrOutput)
 }
 
-// Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorResponseOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ManagedInstanceExternalAdministratorResponseOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ManagedInstanceExternalAdministratorResponseOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *string { return v.Login }).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorResponseOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ManagedInstanceExternalAdministratorResponseOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ManagedInstanceExternalAdministratorResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -4138,7 +3816,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Elem() ManagedIns
 	}).(ManagedInstanceExternalAdministratorResponseOutput)
 }
 
-// Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *string {
 		if v == nil {
@@ -4148,7 +3825,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) AdministratorType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *bool {
 		if v == nil {
@@ -4158,7 +3834,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) AzureADOnlyAuthen
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *string {
 		if v == nil {
@@ -4168,7 +3843,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Login() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *string {
 		if v == nil {
@@ -4178,7 +3852,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) PrincipalType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *string {
 		if v == nil {
@@ -4188,7 +3861,6 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Sid() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) *string {
 		if v == nil {
@@ -4199,9 +3871,7 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) TenantId() pulumi
 }
 
 type ManagedInstancePairInfo struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -4217,9 +3887,7 @@ type ManagedInstancePairInfoInput interface {
 }
 
 type ManagedInstancePairInfoArgs struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -4274,12 +3942,10 @@ func (o ManagedInstancePairInfoOutput) ToManagedInstancePairInfoOutputWithContex
 	return o
 }
 
-// Id of Partner Managed Instance in pair.
 func (o ManagedInstancePairInfoOutput) PartnerManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfo) *string { return v.PartnerManagedInstanceId }).(pulumi.StringPtrOutput)
 }
 
-// Id of Primary Managed Instance in pair.
 func (o ManagedInstancePairInfoOutput) PrimaryManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfo) *string { return v.PrimaryManagedInstanceId }).(pulumi.StringPtrOutput)
 }
@@ -4305,9 +3971,7 @@ func (o ManagedInstancePairInfoArrayOutput) Index(i pulumi.IntInput) ManagedInst
 }
 
 type ManagedInstancePairInfoResponse struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -4323,9 +3987,7 @@ type ManagedInstancePairInfoResponseInput interface {
 }
 
 type ManagedInstancePairInfoResponseArgs struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -4380,12 +4042,10 @@ func (o ManagedInstancePairInfoResponseOutput) ToManagedInstancePairInfoResponse
 	return o
 }
 
-// Id of Partner Managed Instance in pair.
 func (o ManagedInstancePairInfoResponseOutput) PartnerManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfoResponse) *string { return v.PartnerManagedInstanceId }).(pulumi.StringPtrOutput)
 }
 
-// Id of Primary Managed Instance in pair.
 func (o ManagedInstancePairInfoResponseOutput) PrimaryManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfoResponse) *string { return v.PrimaryManagedInstanceId }).(pulumi.StringPtrOutput)
 }
@@ -4411,9 +4071,7 @@ func (o ManagedInstancePairInfoResponseArrayOutput) Index(i pulumi.IntInput) Man
 }
 
 type ManagedInstancePecPropertyResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         string                                                     `pulumi:"id"`
 	Properties ManagedInstancePrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 }
 
@@ -4429,9 +4087,7 @@ type ManagedInstancePecPropertyResponseInput interface {
 }
 
 type ManagedInstancePecPropertyResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         pulumi.StringInput                                              `pulumi:"id"`
 	Properties ManagedInstancePrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 }
 
@@ -4486,12 +4142,10 @@ func (o ManagedInstancePecPropertyResponseOutput) ToManagedInstancePecPropertyRe
 	return o
 }
 
-// Resource ID.
 func (o ManagedInstancePecPropertyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePecPropertyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Private endpoint connection properties
 func (o ManagedInstancePecPropertyResponseOutput) Properties() ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v ManagedInstancePecPropertyResponse) ManagedInstancePrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
@@ -4519,12 +4173,9 @@ func (o ManagedInstancePecPropertyResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ManagedInstancePrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *ManagedInstancePrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	PrivateEndpoint                   *ManagedInstancePrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the Private Endpoint Connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                                            `pulumi:"provisioningState"`
 }
 
 // ManagedInstancePrivateEndpointConnectionPropertiesResponseInput is an input type that accepts ManagedInstancePrivateEndpointConnectionPropertiesResponseArgs and ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput values.
@@ -4539,12 +4190,9 @@ type ManagedInstancePrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type ManagedInstancePrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint ManagedInstancePrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	PrivateEndpoint                   ManagedInstancePrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                                       `pulumi:"provisioningState"`
 }
 
 func (ManagedInstancePrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4573,27 +4221,23 @@ func (o ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput) ToMana
 	return o
 }
 
-// Private endpoint which the connection belongs to.
 func (o ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() ManagedInstancePrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesResponse) *ManagedInstancePrivateEndpointPropertyResponse {
 		return v.PrivateEndpoint
 	}).(ManagedInstancePrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection State of the Private Endpoint Connection.
 func (o ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesResponse) *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the Private Endpoint Connection.
 func (o ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type ManagedInstancePrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -4609,7 +4253,6 @@ type ManagedInstancePrivateEndpointPropertyInput interface {
 }
 
 type ManagedInstancePrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -4690,7 +4333,6 @@ func (o ManagedInstancePrivateEndpointPropertyOutput) ToManagedInstancePrivateEn
 	}).(ManagedInstancePrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o ManagedInstancePrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4719,7 +4361,6 @@ func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Elem() ManagedInstanceP
 	}).(ManagedInstancePrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateEndpointProperty) *string {
 		if v == nil {
@@ -4730,7 +4371,6 @@ func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOu
 }
 
 type ManagedInstancePrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -4746,7 +4386,6 @@ type ManagedInstancePrivateEndpointPropertyResponseInput interface {
 }
 
 type ManagedInstancePrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -4827,7 +4466,6 @@ func (o ManagedInstancePrivateEndpointPropertyResponseOutput) ToManagedInstanceP
 	}).(ManagedInstancePrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o ManagedInstancePrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4856,7 +4494,6 @@ func (o ManagedInstancePrivateEndpointPropertyResponsePtrOutput) Elem() ManagedI
 	}).(ManagedInstancePrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o ManagedInstancePrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -4867,10 +4504,8 @@ func (o ManagedInstancePrivateEndpointPropertyResponsePtrOutput) Id() pulumi.Str
 }
 
 type ManagedInstancePrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // ManagedInstancePrivateLinkServiceConnectionStatePropertyInput is an input type that accepts ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs and ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput values.
@@ -4885,10 +4520,8 @@ type ManagedInstancePrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -4968,12 +4601,10 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput) ToManage
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -5002,7 +4633,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Elem(
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -5012,7 +4642,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Descr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -5023,12 +4652,9 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Statu
 }
 
 type ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The private link service connection description.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseArgs and ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -5043,12 +4669,9 @@ type ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseInput inter
 }
 
 type ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The private link service connection description.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -5128,19 +4751,16 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) 
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) string {
 		return v.ActionsRequired
 	}).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -5169,7 +4789,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -5179,7 +4798,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -5189,7 +4807,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -5200,7 +4817,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 }
 
 type PartnerInfo struct {
-	// Resource identifier of the partner server.
 	Id string `pulumi:"id"`
 }
 
@@ -5216,7 +4832,6 @@ type PartnerInfoInput interface {
 }
 
 type PartnerInfoArgs struct {
-	// Resource identifier of the partner server.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -5271,7 +4886,6 @@ func (o PartnerInfoOutput) ToPartnerInfoOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Resource identifier of the partner server.
 func (o PartnerInfoOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerInfo) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -5297,11 +4911,8 @@ func (o PartnerInfoArrayOutput) Index(i pulumi.IntInput) PartnerInfoOutput {
 }
 
 type PartnerInfoResponse struct {
-	// Resource identifier of the partner server.
-	Id string `pulumi:"id"`
-	// Geo location of the partner server.
-	Location string `pulumi:"location"`
-	// Replication role of the partner server.
+	Id              string `pulumi:"id"`
+	Location        string `pulumi:"location"`
 	ReplicationRole string `pulumi:"replicationRole"`
 }
 
@@ -5317,11 +4928,8 @@ type PartnerInfoResponseInput interface {
 }
 
 type PartnerInfoResponseArgs struct {
-	// Resource identifier of the partner server.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Geo location of the partner server.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Replication role of the partner server.
+	Id              pulumi.StringInput `pulumi:"id"`
+	Location        pulumi.StringInput `pulumi:"location"`
 	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
 }
 
@@ -5376,17 +4984,14 @@ func (o PartnerInfoResponseOutput) ToPartnerInfoResponseOutputWithContext(ctx co
 	return o
 }
 
-// Resource identifier of the partner server.
 func (o PartnerInfoResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerInfoResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Geo location of the partner server.
 func (o PartnerInfoResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerInfoResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Replication role of the partner server.
 func (o PartnerInfoResponseOutput) ReplicationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerInfoResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
 }
@@ -5412,7 +5017,6 @@ func (o PartnerInfoResponseArrayOutput) Index(i pulumi.IntInput) PartnerInfoResp
 }
 
 type PartnerRegionInfo struct {
-	// Geo location of the partner managed instances.
 	Location *string `pulumi:"location"`
 }
 
@@ -5428,7 +5032,6 @@ type PartnerRegionInfoInput interface {
 }
 
 type PartnerRegionInfoArgs struct {
-	// Geo location of the partner managed instances.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -5483,7 +5086,6 @@ func (o PartnerRegionInfoOutput) ToPartnerRegionInfoOutputWithContext(ctx contex
 	return o
 }
 
-// Geo location of the partner managed instances.
 func (o PartnerRegionInfoOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerRegionInfo) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -5509,10 +5111,8 @@ func (o PartnerRegionInfoArrayOutput) Index(i pulumi.IntInput) PartnerRegionInfo
 }
 
 type PartnerRegionInfoResponse struct {
-	// Geo location of the partner managed instances.
-	Location *string `pulumi:"location"`
-	// Replication role of the partner managed instances.
-	ReplicationRole string `pulumi:"replicationRole"`
+	Location        *string `pulumi:"location"`
+	ReplicationRole string  `pulumi:"replicationRole"`
 }
 
 // PartnerRegionInfoResponseInput is an input type that accepts PartnerRegionInfoResponseArgs and PartnerRegionInfoResponseOutput values.
@@ -5527,10 +5127,8 @@ type PartnerRegionInfoResponseInput interface {
 }
 
 type PartnerRegionInfoResponseArgs struct {
-	// Geo location of the partner managed instances.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Replication role of the partner managed instances.
-	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
+	Location        pulumi.StringPtrInput `pulumi:"location"`
+	ReplicationRole pulumi.StringInput    `pulumi:"replicationRole"`
 }
 
 func (PartnerRegionInfoResponseArgs) ElementType() reflect.Type {
@@ -5584,12 +5182,10 @@ func (o PartnerRegionInfoResponseOutput) ToPartnerRegionInfoResponseOutputWithCo
 	return o
 }
 
-// Geo location of the partner managed instances.
 func (o PartnerRegionInfoResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerRegionInfoResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Replication role of the partner managed instances.
 func (o PartnerRegionInfoResponseOutput) ReplicationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerRegionInfoResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
 }
@@ -5615,12 +5211,9 @@ func (o PartnerRegionInfoResponseArrayOutput) Index(i pulumi.IntInput) PartnerRe
 }
 
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
@@ -5635,12 +5228,9 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5669,27 +5259,23 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 	return o
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -5705,7 +5291,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5786,7 +5371,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5815,7 +5399,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -5826,7 +5409,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -5842,7 +5424,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5923,7 +5504,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5952,7 +5532,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -5963,10 +5542,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -5981,10 +5558,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -6064,12 +5639,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6098,7 +5671,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -6108,7 +5680,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -6119,12 +5690,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -6139,12 +5707,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -6224,17 +5789,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6263,7 +5825,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6273,7 +5834,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6283,7 +5843,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -6294,9 +5853,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type RecommendedActionErrorInfoResponse struct {
-	// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
-	ErrorCode string `pulumi:"errorCode"`
-	// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+	ErrorCode   string `pulumi:"errorCode"`
 	IsRetryable string `pulumi:"isRetryable"`
 }
 
@@ -6312,9 +5869,7 @@ type RecommendedActionErrorInfoResponseInput interface {
 }
 
 type RecommendedActionErrorInfoResponseArgs struct {
-	// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
-	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
-	// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+	ErrorCode   pulumi.StringInput `pulumi:"errorCode"`
 	IsRetryable pulumi.StringInput `pulumi:"isRetryable"`
 }
 
@@ -6344,27 +5899,20 @@ func (o RecommendedActionErrorInfoResponseOutput) ToRecommendedActionErrorInfoRe
 	return o
 }
 
-// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
 func (o RecommendedActionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionErrorInfoResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
 }
 
-// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
 func (o RecommendedActionErrorInfoResponseOutput) IsRetryable() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionErrorInfoResponse) string { return v.IsRetryable }).(pulumi.StringOutput)
 }
 
 type RecommendedActionImpactRecordResponse struct {
-	// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
-	AbsoluteValue float64 `pulumi:"absoluteValue"`
-	// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+	AbsoluteValue       float64 `pulumi:"absoluteValue"`
 	ChangeValueAbsolute float64 `pulumi:"changeValueAbsolute"`
-	// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
 	ChangeValueRelative float64 `pulumi:"changeValueRelative"`
-	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
-	DimensionName string `pulumi:"dimensionName"`
-	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
-	Unit string `pulumi:"unit"`
+	DimensionName       string  `pulumi:"dimensionName"`
+	Unit                string  `pulumi:"unit"`
 }
 
 // RecommendedActionImpactRecordResponseInput is an input type that accepts RecommendedActionImpactRecordResponseArgs and RecommendedActionImpactRecordResponseOutput values.
@@ -6379,16 +5927,11 @@ type RecommendedActionImpactRecordResponseInput interface {
 }
 
 type RecommendedActionImpactRecordResponseArgs struct {
-	// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
-	AbsoluteValue pulumi.Float64Input `pulumi:"absoluteValue"`
-	// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+	AbsoluteValue       pulumi.Float64Input `pulumi:"absoluteValue"`
 	ChangeValueAbsolute pulumi.Float64Input `pulumi:"changeValueAbsolute"`
-	// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
 	ChangeValueRelative pulumi.Float64Input `pulumi:"changeValueRelative"`
-	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	DimensionName       pulumi.StringInput  `pulumi:"dimensionName"`
+	Unit                pulumi.StringInput  `pulumi:"unit"`
 }
 
 func (RecommendedActionImpactRecordResponseArgs) ElementType() reflect.Type {
@@ -6442,27 +5985,22 @@ func (o RecommendedActionImpactRecordResponseOutput) ToRecommendedActionImpactRe
 	return o
 }
 
-// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
 func (o RecommendedActionImpactRecordResponseOutput) AbsoluteValue() pulumi.Float64Output {
 	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.AbsoluteValue }).(pulumi.Float64Output)
 }
 
-// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
 func (o RecommendedActionImpactRecordResponseOutput) ChangeValueAbsolute() pulumi.Float64Output {
 	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.ChangeValueAbsolute }).(pulumi.Float64Output)
 }
 
-// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
 func (o RecommendedActionImpactRecordResponseOutput) ChangeValueRelative() pulumi.Float64Output {
 	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.ChangeValueRelative }).(pulumi.Float64Output)
 }
 
-// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
 func (o RecommendedActionImpactRecordResponseOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
-// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
 func (o RecommendedActionImpactRecordResponseOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -6488,9 +6026,7 @@ func (o RecommendedActionImpactRecordResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RecommendedActionImplementationInfoResponse struct {
-	// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
 	Method string `pulumi:"method"`
-	// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
 	Script string `pulumi:"script"`
 }
 
@@ -6506,9 +6042,7 @@ type RecommendedActionImplementationInfoResponseInput interface {
 }
 
 type RecommendedActionImplementationInfoResponseArgs struct {
-	// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
 	Method pulumi.StringInput `pulumi:"method"`
-	// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
 	Script pulumi.StringInput `pulumi:"script"`
 }
 
@@ -6538,27 +6072,20 @@ func (o RecommendedActionImplementationInfoResponseOutput) ToRecommendedActionIm
 	return o
 }
 
-// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
 func (o RecommendedActionImplementationInfoResponseOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionImplementationInfoResponse) string { return v.Method }).(pulumi.StringOutput)
 }
 
-// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
 func (o RecommendedActionImplementationInfoResponseOutput) Script() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionImplementationInfoResponse) string { return v.Script }).(pulumi.StringOutput)
 }
 
 type RecommendedActionMetricInfoResponse struct {
-	// Gets the name of the metric. e.g., CPU, Number of Queries.
-	MetricName string `pulumi:"metricName"`
-	// Gets the start time of time interval given by this MetricInfo.
-	StartTime string `pulumi:"startTime"`
-	// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
-	TimeGrain string `pulumi:"timeGrain"`
-	// Gets the unit in which metric is measured. e.g., DTU, Frequency
-	Unit string `pulumi:"unit"`
-	// Gets the value of the metric in the time interval given by this MetricInfo.
-	Value float64 `pulumi:"value"`
+	MetricName string  `pulumi:"metricName"`
+	StartTime  string  `pulumi:"startTime"`
+	TimeGrain  string  `pulumi:"timeGrain"`
+	Unit       string  `pulumi:"unit"`
+	Value      float64 `pulumi:"value"`
 }
 
 // RecommendedActionMetricInfoResponseInput is an input type that accepts RecommendedActionMetricInfoResponseArgs and RecommendedActionMetricInfoResponseOutput values.
@@ -6573,16 +6100,11 @@ type RecommendedActionMetricInfoResponseInput interface {
 }
 
 type RecommendedActionMetricInfoResponseArgs struct {
-	// Gets the name of the metric. e.g., CPU, Number of Queries.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Gets the start time of time interval given by this MetricInfo.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	// Gets the unit in which metric is measured. e.g., DTU, Frequency
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Gets the value of the metric in the time interval given by this MetricInfo.
-	Value pulumi.Float64Input `pulumi:"value"`
+	MetricName pulumi.StringInput  `pulumi:"metricName"`
+	StartTime  pulumi.StringInput  `pulumi:"startTime"`
+	TimeGrain  pulumi.StringInput  `pulumi:"timeGrain"`
+	Unit       pulumi.StringInput  `pulumi:"unit"`
+	Value      pulumi.Float64Input `pulumi:"value"`
 }
 
 func (RecommendedActionMetricInfoResponseArgs) ElementType() reflect.Type {
@@ -6636,27 +6158,22 @@ func (o RecommendedActionMetricInfoResponseOutput) ToRecommendedActionMetricInfo
 	return o
 }
 
-// Gets the name of the metric. e.g., CPU, Number of Queries.
 func (o RecommendedActionMetricInfoResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Gets the start time of time interval given by this MetricInfo.
 func (o RecommendedActionMetricInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
 func (o RecommendedActionMetricInfoResponseOutput) TimeGrain() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.TimeGrain }).(pulumi.StringOutput)
 }
 
-// Gets the unit in which metric is measured. e.g., DTU, Frequency
 func (o RecommendedActionMetricInfoResponseOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Gets the value of the metric in the time interval given by this MetricInfo.
 func (o RecommendedActionMetricInfoResponseOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -6682,62 +6199,34 @@ func (o RecommendedActionMetricInfoResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type RecommendedActionResponse struct {
-	// Gets additional details specific to this recommended action.
-	Details map[string]interface{} `pulumi:"details"`
-	// Gets the error details if and why this recommended action is put to error state.
-	ErrorDetails RecommendedActionErrorInfoResponse `pulumi:"errorDetails"`
-	// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
-	EstimatedImpact []RecommendedActionImpactRecordResponse `pulumi:"estimatedImpact"`
-	// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
-	ExecuteActionDuration string `pulumi:"executeActionDuration"`
-	// Gets if approval for applying this recommended action was given by user/system.
-	ExecuteActionInitiatedBy string `pulumi:"executeActionInitiatedBy"`
-	// Gets the time when this recommended action was approved for execution.
-	ExecuteActionInitiatedTime string `pulumi:"executeActionInitiatedTime"`
-	// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
-	ExecuteActionStartTime string `pulumi:"executeActionStartTime"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Gets the implementation details of this recommended action for user to apply it manually.
-	ImplementationDetails RecommendedActionImplementationInfoResponse `pulumi:"implementationDetails"`
-	// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
-	IsArchivedAction bool `pulumi:"isArchivedAction"`
-	// Gets if this recommended action is actionable by user
-	IsExecutableAction bool `pulumi:"isExecutableAction"`
-	// Gets if changes applied by this recommended action can be reverted by user
-	IsRevertableAction bool `pulumi:"isRevertableAction"`
-	// Resource kind.
-	Kind string `pulumi:"kind"`
-	// Gets time when this recommended action was last refreshed.
-	LastRefresh string `pulumi:"lastRefresh"`
-	// Gets the linked objects, if any.
-	LinkedObjects []string `pulumi:"linkedObjects"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
-	ObservedImpact []RecommendedActionImpactRecordResponse `pulumi:"observedImpact"`
-	// Gets the reason for recommending this action. e.g., DuplicateIndex
-	RecommendationReason string `pulumi:"recommendationReason"`
-	// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
-	RevertActionDuration string `pulumi:"revertActionDuration"`
-	// Gets if approval for reverting this recommended action was given by user/system.
-	RevertActionInitiatedBy string `pulumi:"revertActionInitiatedBy"`
-	// Gets the time when this recommended action was approved for revert.
-	RevertActionInitiatedTime string `pulumi:"revertActionInitiatedTime"`
-	// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
-	RevertActionStartTime string `pulumi:"revertActionStartTime"`
-	// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
-	Score int `pulumi:"score"`
-	// Gets the info of the current state the recommended action is in.
-	State RecommendedActionStateInfoResponse `pulumi:"state"`
-	// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
-	TimeSeries []RecommendedActionMetricInfoResponse `pulumi:"timeSeries"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Gets the time since when this recommended action is valid.
-	ValidSince string `pulumi:"validSince"`
+	Details                    map[string]interface{}                      `pulumi:"details"`
+	ErrorDetails               RecommendedActionErrorInfoResponse          `pulumi:"errorDetails"`
+	EstimatedImpact            []RecommendedActionImpactRecordResponse     `pulumi:"estimatedImpact"`
+	ExecuteActionDuration      string                                      `pulumi:"executeActionDuration"`
+	ExecuteActionInitiatedBy   string                                      `pulumi:"executeActionInitiatedBy"`
+	ExecuteActionInitiatedTime string                                      `pulumi:"executeActionInitiatedTime"`
+	ExecuteActionStartTime     string                                      `pulumi:"executeActionStartTime"`
+	Id                         string                                      `pulumi:"id"`
+	ImplementationDetails      RecommendedActionImplementationInfoResponse `pulumi:"implementationDetails"`
+	IsArchivedAction           bool                                        `pulumi:"isArchivedAction"`
+	IsExecutableAction         bool                                        `pulumi:"isExecutableAction"`
+	IsRevertableAction         bool                                        `pulumi:"isRevertableAction"`
+	Kind                       string                                      `pulumi:"kind"`
+	LastRefresh                string                                      `pulumi:"lastRefresh"`
+	LinkedObjects              []string                                    `pulumi:"linkedObjects"`
+	Location                   string                                      `pulumi:"location"`
+	Name                       string                                      `pulumi:"name"`
+	ObservedImpact             []RecommendedActionImpactRecordResponse     `pulumi:"observedImpact"`
+	RecommendationReason       string                                      `pulumi:"recommendationReason"`
+	RevertActionDuration       string                                      `pulumi:"revertActionDuration"`
+	RevertActionInitiatedBy    string                                      `pulumi:"revertActionInitiatedBy"`
+	RevertActionInitiatedTime  string                                      `pulumi:"revertActionInitiatedTime"`
+	RevertActionStartTime      string                                      `pulumi:"revertActionStartTime"`
+	Score                      int                                         `pulumi:"score"`
+	State                      RecommendedActionStateInfoResponse          `pulumi:"state"`
+	TimeSeries                 []RecommendedActionMetricInfoResponse       `pulumi:"timeSeries"`
+	Type                       string                                      `pulumi:"type"`
+	ValidSince                 string                                      `pulumi:"validSince"`
 }
 
 // RecommendedActionResponseInput is an input type that accepts RecommendedActionResponseArgs and RecommendedActionResponseOutput values.
@@ -6752,62 +6241,34 @@ type RecommendedActionResponseInput interface {
 }
 
 type RecommendedActionResponseArgs struct {
-	// Gets additional details specific to this recommended action.
-	Details pulumi.MapInput `pulumi:"details"`
-	// Gets the error details if and why this recommended action is put to error state.
-	ErrorDetails RecommendedActionErrorInfoResponseInput `pulumi:"errorDetails"`
-	// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
-	EstimatedImpact RecommendedActionImpactRecordResponseArrayInput `pulumi:"estimatedImpact"`
-	// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
-	ExecuteActionDuration pulumi.StringInput `pulumi:"executeActionDuration"`
-	// Gets if approval for applying this recommended action was given by user/system.
-	ExecuteActionInitiatedBy pulumi.StringInput `pulumi:"executeActionInitiatedBy"`
-	// Gets the time when this recommended action was approved for execution.
-	ExecuteActionInitiatedTime pulumi.StringInput `pulumi:"executeActionInitiatedTime"`
-	// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
-	ExecuteActionStartTime pulumi.StringInput `pulumi:"executeActionStartTime"`
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Gets the implementation details of this recommended action for user to apply it manually.
-	ImplementationDetails RecommendedActionImplementationInfoResponseInput `pulumi:"implementationDetails"`
-	// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
-	IsArchivedAction pulumi.BoolInput `pulumi:"isArchivedAction"`
-	// Gets if this recommended action is actionable by user
-	IsExecutableAction pulumi.BoolInput `pulumi:"isExecutableAction"`
-	// Gets if changes applied by this recommended action can be reverted by user
-	IsRevertableAction pulumi.BoolInput `pulumi:"isRevertableAction"`
-	// Resource kind.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Gets time when this recommended action was last refreshed.
-	LastRefresh pulumi.StringInput `pulumi:"lastRefresh"`
-	// Gets the linked objects, if any.
-	LinkedObjects pulumi.StringArrayInput `pulumi:"linkedObjects"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
-	ObservedImpact RecommendedActionImpactRecordResponseArrayInput `pulumi:"observedImpact"`
-	// Gets the reason for recommending this action. e.g., DuplicateIndex
-	RecommendationReason pulumi.StringInput `pulumi:"recommendationReason"`
-	// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
-	RevertActionDuration pulumi.StringInput `pulumi:"revertActionDuration"`
-	// Gets if approval for reverting this recommended action was given by user/system.
-	RevertActionInitiatedBy pulumi.StringInput `pulumi:"revertActionInitiatedBy"`
-	// Gets the time when this recommended action was approved for revert.
-	RevertActionInitiatedTime pulumi.StringInput `pulumi:"revertActionInitiatedTime"`
-	// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
-	RevertActionStartTime pulumi.StringInput `pulumi:"revertActionStartTime"`
-	// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
-	Score pulumi.IntInput `pulumi:"score"`
-	// Gets the info of the current state the recommended action is in.
-	State RecommendedActionStateInfoResponseInput `pulumi:"state"`
-	// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
-	TimeSeries RecommendedActionMetricInfoResponseArrayInput `pulumi:"timeSeries"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Gets the time since when this recommended action is valid.
-	ValidSince pulumi.StringInput `pulumi:"validSince"`
+	Details                    pulumi.MapInput                                  `pulumi:"details"`
+	ErrorDetails               RecommendedActionErrorInfoResponseInput          `pulumi:"errorDetails"`
+	EstimatedImpact            RecommendedActionImpactRecordResponseArrayInput  `pulumi:"estimatedImpact"`
+	ExecuteActionDuration      pulumi.StringInput                               `pulumi:"executeActionDuration"`
+	ExecuteActionInitiatedBy   pulumi.StringInput                               `pulumi:"executeActionInitiatedBy"`
+	ExecuteActionInitiatedTime pulumi.StringInput                               `pulumi:"executeActionInitiatedTime"`
+	ExecuteActionStartTime     pulumi.StringInput                               `pulumi:"executeActionStartTime"`
+	Id                         pulumi.StringInput                               `pulumi:"id"`
+	ImplementationDetails      RecommendedActionImplementationInfoResponseInput `pulumi:"implementationDetails"`
+	IsArchivedAction           pulumi.BoolInput                                 `pulumi:"isArchivedAction"`
+	IsExecutableAction         pulumi.BoolInput                                 `pulumi:"isExecutableAction"`
+	IsRevertableAction         pulumi.BoolInput                                 `pulumi:"isRevertableAction"`
+	Kind                       pulumi.StringInput                               `pulumi:"kind"`
+	LastRefresh                pulumi.StringInput                               `pulumi:"lastRefresh"`
+	LinkedObjects              pulumi.StringArrayInput                          `pulumi:"linkedObjects"`
+	Location                   pulumi.StringInput                               `pulumi:"location"`
+	Name                       pulumi.StringInput                               `pulumi:"name"`
+	ObservedImpact             RecommendedActionImpactRecordResponseArrayInput  `pulumi:"observedImpact"`
+	RecommendationReason       pulumi.StringInput                               `pulumi:"recommendationReason"`
+	RevertActionDuration       pulumi.StringInput                               `pulumi:"revertActionDuration"`
+	RevertActionInitiatedBy    pulumi.StringInput                               `pulumi:"revertActionInitiatedBy"`
+	RevertActionInitiatedTime  pulumi.StringInput                               `pulumi:"revertActionInitiatedTime"`
+	RevertActionStartTime      pulumi.StringInput                               `pulumi:"revertActionStartTime"`
+	Score                      pulumi.IntInput                                  `pulumi:"score"`
+	State                      RecommendedActionStateInfoResponseInput          `pulumi:"state"`
+	TimeSeries                 RecommendedActionMetricInfoResponseArrayInput    `pulumi:"timeSeries"`
+	Type                       pulumi.StringInput                               `pulumi:"type"`
+	ValidSince                 pulumi.StringInput                               `pulumi:"validSince"`
 }
 
 func (RecommendedActionResponseArgs) ElementType() reflect.Type {
@@ -6861,144 +6322,116 @@ func (o RecommendedActionResponseOutput) ToRecommendedActionResponseOutputWithCo
 	return o
 }
 
-// Gets additional details specific to this recommended action.
 func (o RecommendedActionResponseOutput) Details() pulumi.MapOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) map[string]interface{} { return v.Details }).(pulumi.MapOutput)
 }
 
-// Gets the error details if and why this recommended action is put to error state.
 func (o RecommendedActionResponseOutput) ErrorDetails() RecommendedActionErrorInfoResponseOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionErrorInfoResponse { return v.ErrorDetails }).(RecommendedActionErrorInfoResponseOutput)
 }
 
-// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
 func (o RecommendedActionResponseOutput) EstimatedImpact() RecommendedActionImpactRecordResponseArrayOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionImpactRecordResponse { return v.EstimatedImpact }).(RecommendedActionImpactRecordResponseArrayOutput)
 }
 
-// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
 func (o RecommendedActionResponseOutput) ExecuteActionDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionDuration }).(pulumi.StringOutput)
 }
 
-// Gets if approval for applying this recommended action was given by user/system.
 func (o RecommendedActionResponseOutput) ExecuteActionInitiatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionInitiatedBy }).(pulumi.StringOutput)
 }
 
-// Gets the time when this recommended action was approved for execution.
 func (o RecommendedActionResponseOutput) ExecuteActionInitiatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionInitiatedTime }).(pulumi.StringOutput)
 }
 
-// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
 func (o RecommendedActionResponseOutput) ExecuteActionStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionStartTime }).(pulumi.StringOutput)
 }
 
-// Resource ID.
 func (o RecommendedActionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Gets the implementation details of this recommended action for user to apply it manually.
 func (o RecommendedActionResponseOutput) ImplementationDetails() RecommendedActionImplementationInfoResponseOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionImplementationInfoResponse {
 		return v.ImplementationDetails
 	}).(RecommendedActionImplementationInfoResponseOutput)
 }
 
-// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
 func (o RecommendedActionResponseOutput) IsArchivedAction() pulumi.BoolOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsArchivedAction }).(pulumi.BoolOutput)
 }
 
-// Gets if this recommended action is actionable by user
 func (o RecommendedActionResponseOutput) IsExecutableAction() pulumi.BoolOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsExecutableAction }).(pulumi.BoolOutput)
 }
 
-// Gets if changes applied by this recommended action can be reverted by user
 func (o RecommendedActionResponseOutput) IsRevertableAction() pulumi.BoolOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsRevertableAction }).(pulumi.BoolOutput)
 }
 
-// Resource kind.
 func (o RecommendedActionResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Gets time when this recommended action was last refreshed.
 func (o RecommendedActionResponseOutput) LastRefresh() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.LastRefresh }).(pulumi.StringOutput)
 }
 
-// Gets the linked objects, if any.
 func (o RecommendedActionResponseOutput) LinkedObjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) []string { return v.LinkedObjects }).(pulumi.StringArrayOutput)
 }
 
-// Resource location.
 func (o RecommendedActionResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o RecommendedActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
 func (o RecommendedActionResponseOutput) ObservedImpact() RecommendedActionImpactRecordResponseArrayOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionImpactRecordResponse { return v.ObservedImpact }).(RecommendedActionImpactRecordResponseArrayOutput)
 }
 
-// Gets the reason for recommending this action. e.g., DuplicateIndex
 func (o RecommendedActionResponseOutput) RecommendationReason() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RecommendationReason }).(pulumi.StringOutput)
 }
 
-// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
 func (o RecommendedActionResponseOutput) RevertActionDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionDuration }).(pulumi.StringOutput)
 }
 
-// Gets if approval for reverting this recommended action was given by user/system.
 func (o RecommendedActionResponseOutput) RevertActionInitiatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionInitiatedBy }).(pulumi.StringOutput)
 }
 
-// Gets the time when this recommended action was approved for revert.
 func (o RecommendedActionResponseOutput) RevertActionInitiatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionInitiatedTime }).(pulumi.StringOutput)
 }
 
-// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
 func (o RecommendedActionResponseOutput) RevertActionStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionStartTime }).(pulumi.StringOutput)
 }
 
-// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
 func (o RecommendedActionResponseOutput) Score() pulumi.IntOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) int { return v.Score }).(pulumi.IntOutput)
 }
 
-// Gets the info of the current state the recommended action is in.
 func (o RecommendedActionResponseOutput) State() RecommendedActionStateInfoResponseOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionStateInfoResponse { return v.State }).(RecommendedActionStateInfoResponseOutput)
 }
 
-// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
 func (o RecommendedActionResponseOutput) TimeSeries() RecommendedActionMetricInfoResponseArrayOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionMetricInfoResponse { return v.TimeSeries }).(RecommendedActionMetricInfoResponseArrayOutput)
 }
 
-// Resource type.
 func (o RecommendedActionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Gets the time since when this recommended action is valid.
 func (o RecommendedActionResponseOutput) ValidSince() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ValidSince }).(pulumi.StringOutput)
 }
@@ -7024,12 +6457,9 @@ func (o RecommendedActionResponseArrayOutput) Index(i pulumi.IntInput) Recommend
 }
 
 type RecommendedActionStateInfoResponse struct {
-	// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
 	ActionInitiatedBy string `pulumi:"actionInitiatedBy"`
-	// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
-	CurrentValue string `pulumi:"currentValue"`
-	// Gets the time when the state was last modified
-	LastModified string `pulumi:"lastModified"`
+	CurrentValue      string `pulumi:"currentValue"`
+	LastModified      string `pulumi:"lastModified"`
 }
 
 // RecommendedActionStateInfoResponseInput is an input type that accepts RecommendedActionStateInfoResponseArgs and RecommendedActionStateInfoResponseOutput values.
@@ -7044,12 +6474,9 @@ type RecommendedActionStateInfoResponseInput interface {
 }
 
 type RecommendedActionStateInfoResponseArgs struct {
-	// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
 	ActionInitiatedBy pulumi.StringInput `pulumi:"actionInitiatedBy"`
-	// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
-	CurrentValue pulumi.StringInput `pulumi:"currentValue"`
-	// Gets the time when the state was last modified
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
+	CurrentValue      pulumi.StringInput `pulumi:"currentValue"`
+	LastModified      pulumi.StringInput `pulumi:"lastModified"`
 }
 
 func (RecommendedActionStateInfoResponseArgs) ElementType() reflect.Type {
@@ -7078,25 +6505,20 @@ func (o RecommendedActionStateInfoResponseOutput) ToRecommendedActionStateInfoRe
 	return o
 }
 
-// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
 func (o RecommendedActionStateInfoResponseOutput) ActionInitiatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.ActionInitiatedBy }).(pulumi.StringOutput)
 }
 
-// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
 func (o RecommendedActionStateInfoResponseOutput) CurrentValue() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.CurrentValue }).(pulumi.StringOutput)
 }
 
-// Gets the time when the state was last modified
 func (o RecommendedActionStateInfoResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
 type ResourceIdentity struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type *string `pulumi:"type"`
-	// The resource ids of the user assigned identities to use
+	Type                   *string                `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -7112,10 +6534,8 @@ type ResourceIdentityInput interface {
 }
 
 type ResourceIdentityArgs struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The resource ids of the user assigned identities to use
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringPtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -7195,12 +6615,10 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx conte
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The resource ids of the user assigned identities to use
 func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -7229,7 +6647,6 @@ func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
 	}).(ResourceIdentityOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -7239,7 +6656,6 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ids of the user assigned identities to use
 func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ResourceIdentity) map[string]interface{} {
 		if v == nil {
@@ -7250,13 +6666,9 @@ func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type ResourceIdentityResponse struct {
-	// The Azure Active Directory principal id.
-	PrincipalId string `pulumi:"principalId"`
-	// The Azure Active Directory tenant id.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type *string `pulumi:"type"`
-	// The resource ids of the user assigned identities to use
+	PrincipalId            string                          `pulumi:"principalId"`
+	TenantId               string                          `pulumi:"tenantId"`
+	Type                   *string                         `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -7272,13 +6684,9 @@ type ResourceIdentityResponseInput interface {
 }
 
 type ResourceIdentityResponseArgs struct {
-	// The Azure Active Directory principal id.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Azure Active Directory tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The resource ids of the user assigned identities to use
+	PrincipalId            pulumi.StringInput           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput        `pulumi:"type"`
 	UserAssignedIdentities UserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -7359,22 +6767,18 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithC
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The Azure Active Directory principal id.
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Azure Active Directory tenant id.
 func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The resource ids of the user assigned identities to use
 func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserIdentityResponse { return v.UserAssignedIdentities }).(UserIdentityResponseMapOutput)
 }
@@ -7403,7 +6807,6 @@ func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput
 	}).(ResourceIdentityResponseOutput)
 }
 
-// The Azure Active Directory principal id.
 func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -7413,7 +6816,6 @@ func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Active Directory tenant id.
 func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -7423,7 +6825,6 @@ func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -7433,7 +6834,6 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ids of the user assigned identities to use
 func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserIdentityResponse {
 		if v == nil {
@@ -7444,18 +6844,12 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentity
 }
 
 type ServerExternalAdministrator struct {
-	// Type of the sever administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login *string `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType *string `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId *string `pulumi:"tenantId"`
+	AdministratorType         *string `pulumi:"administratorType"`
+	AzureADOnlyAuthentication *bool   `pulumi:"azureADOnlyAuthentication"`
+	Login                     *string `pulumi:"login"`
+	PrincipalType             *string `pulumi:"principalType"`
+	Sid                       *string `pulumi:"sid"`
+	TenantId                  *string `pulumi:"tenantId"`
 }
 
 // ServerExternalAdministratorInput is an input type that accepts ServerExternalAdministratorArgs and ServerExternalAdministratorOutput values.
@@ -7470,18 +6864,12 @@ type ServerExternalAdministratorInput interface {
 }
 
 type ServerExternalAdministratorArgs struct {
-	// Type of the sever administrator.
-	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login pulumi.StringPtrInput `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid pulumi.StringPtrInput `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	AdministratorType         pulumi.StringPtrInput `pulumi:"administratorType"`
+	AzureADOnlyAuthentication pulumi.BoolPtrInput   `pulumi:"azureADOnlyAuthentication"`
+	Login                     pulumi.StringPtrInput `pulumi:"login"`
+	PrincipalType             pulumi.StringPtrInput `pulumi:"principalType"`
+	Sid                       pulumi.StringPtrInput `pulumi:"sid"`
+	TenantId                  pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ServerExternalAdministratorArgs) ElementType() reflect.Type {
@@ -7561,32 +6949,26 @@ func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorPtrOutpu
 	}).(ServerExternalAdministratorPtrOutput)
 }
 
-// Type of the sever administrator.
 func (o ServerExternalAdministratorOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ServerExternalAdministratorOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ServerExternalAdministratorOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.Login }).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ServerExternalAdministratorOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ServerExternalAdministratorOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ServerExternalAdministratorOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -7615,7 +6997,6 @@ func (o ServerExternalAdministratorPtrOutput) Elem() ServerExternalAdministrator
 	}).(ServerExternalAdministratorOutput)
 }
 
-// Type of the sever administrator.
 func (o ServerExternalAdministratorPtrOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
 		if v == nil {
@@ -7625,7 +7006,6 @@ func (o ServerExternalAdministratorPtrOutput) AdministratorType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ServerExternalAdministratorPtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *bool {
 		if v == nil {
@@ -7635,7 +7015,6 @@ func (o ServerExternalAdministratorPtrOutput) AzureADOnlyAuthentication() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ServerExternalAdministratorPtrOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
 		if v == nil {
@@ -7645,7 +7024,6 @@ func (o ServerExternalAdministratorPtrOutput) Login() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ServerExternalAdministratorPtrOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
 		if v == nil {
@@ -7655,7 +7033,6 @@ func (o ServerExternalAdministratorPtrOutput) PrincipalType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ServerExternalAdministratorPtrOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
 		if v == nil {
@@ -7665,7 +7042,6 @@ func (o ServerExternalAdministratorPtrOutput) Sid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ServerExternalAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
 		if v == nil {
@@ -7676,18 +7052,12 @@ func (o ServerExternalAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput 
 }
 
 type ServerExternalAdministratorResponse struct {
-	// Type of the sever administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login *string `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType *string `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId *string `pulumi:"tenantId"`
+	AdministratorType         *string `pulumi:"administratorType"`
+	AzureADOnlyAuthentication *bool   `pulumi:"azureADOnlyAuthentication"`
+	Login                     *string `pulumi:"login"`
+	PrincipalType             *string `pulumi:"principalType"`
+	Sid                       *string `pulumi:"sid"`
+	TenantId                  *string `pulumi:"tenantId"`
 }
 
 // ServerExternalAdministratorResponseInput is an input type that accepts ServerExternalAdministratorResponseArgs and ServerExternalAdministratorResponseOutput values.
@@ -7702,18 +7072,12 @@ type ServerExternalAdministratorResponseInput interface {
 }
 
 type ServerExternalAdministratorResponseArgs struct {
-	// Type of the sever administrator.
-	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
-	// Login name of the server administrator.
-	Login pulumi.StringPtrInput `pulumi:"login"`
-	// Principal Type of the sever administrator.
-	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
-	// SID (object ID) of the server administrator.
-	Sid pulumi.StringPtrInput `pulumi:"sid"`
-	// Tenant ID of the administrator.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	AdministratorType         pulumi.StringPtrInput `pulumi:"administratorType"`
+	AzureADOnlyAuthentication pulumi.BoolPtrInput   `pulumi:"azureADOnlyAuthentication"`
+	Login                     pulumi.StringPtrInput `pulumi:"login"`
+	PrincipalType             pulumi.StringPtrInput `pulumi:"principalType"`
+	Sid                       pulumi.StringPtrInput `pulumi:"sid"`
+	TenantId                  pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ServerExternalAdministratorResponseArgs) ElementType() reflect.Type {
@@ -7793,32 +7157,26 @@ func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministrator
 	}).(ServerExternalAdministratorResponsePtrOutput)
 }
 
-// Type of the sever administrator.
 func (o ServerExternalAdministratorResponseOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ServerExternalAdministratorResponseOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ServerExternalAdministratorResponseOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.Login }).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ServerExternalAdministratorResponseOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ServerExternalAdministratorResponseOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ServerExternalAdministratorResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -7847,7 +7205,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) Elem() ServerExternalAdmin
 	}).(ServerExternalAdministratorResponseOutput)
 }
 
-// Type of the sever administrator.
 func (o ServerExternalAdministratorResponsePtrOutput) AdministratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
 		if v == nil {
@@ -7857,7 +7214,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) AdministratorType() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory only Authentication enabled.
 func (o ServerExternalAdministratorResponsePtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *bool {
 		if v == nil {
@@ -7867,7 +7223,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) AzureADOnlyAuthentication(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Login name of the server administrator.
 func (o ServerExternalAdministratorResponsePtrOutput) Login() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
 		if v == nil {
@@ -7877,7 +7232,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) Login() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Principal Type of the sever administrator.
 func (o ServerExternalAdministratorResponsePtrOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
 		if v == nil {
@@ -7887,7 +7241,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) PrincipalType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// SID (object ID) of the server administrator.
 func (o ServerExternalAdministratorResponsePtrOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
 		if v == nil {
@@ -7897,7 +7250,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) Sid() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the administrator.
 func (o ServerExternalAdministratorResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
 		if v == nil {
@@ -7908,7 +7260,6 @@ func (o ServerExternalAdministratorResponsePtrOutput) TenantId() pulumi.StringPt
 }
 
 type ServerInfo struct {
-	// Server Id.
 	ServerId string `pulumi:"serverId"`
 }
 
@@ -7924,7 +7275,6 @@ type ServerInfoInput interface {
 }
 
 type ServerInfoArgs struct {
-	// Server Id.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 }
 
@@ -7979,7 +7329,6 @@ func (o ServerInfoOutput) ToServerInfoOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
-// Server Id.
 func (o ServerInfoOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerInfo) string { return v.ServerId }).(pulumi.StringOutput)
 }
@@ -8005,7 +7354,6 @@ func (o ServerInfoArrayOutput) Index(i pulumi.IntInput) ServerInfoOutput {
 }
 
 type ServerInfoResponse struct {
-	// Server Id.
 	ServerId string `pulumi:"serverId"`
 }
 
@@ -8021,7 +7369,6 @@ type ServerInfoResponseInput interface {
 }
 
 type ServerInfoResponseArgs struct {
-	// Server Id.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 }
 
@@ -8076,7 +7423,6 @@ func (o ServerInfoResponseOutput) ToServerInfoResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Server Id.
 func (o ServerInfoResponseOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerInfoResponse) string { return v.ServerId }).(pulumi.StringOutput)
 }
@@ -8102,9 +7448,7 @@ func (o ServerInfoResponseArrayOutput) Index(i pulumi.IntInput) ServerInfoRespon
 }
 
 type ServerPrivateEndpointConnectionResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         string                                      `pulumi:"id"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 }
 
@@ -8120,9 +7464,7 @@ type ServerPrivateEndpointConnectionResponseInput interface {
 }
 
 type ServerPrivateEndpointConnectionResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         pulumi.StringInput                               `pulumi:"id"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 }
 
@@ -8177,12 +7519,10 @@ func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointCo
 	return o
 }
 
-// Resource ID.
 func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Private endpoint connection properties
 func (o ServerPrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
@@ -8210,16 +7550,11 @@ func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type Sku struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -8234,16 +7569,11 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -8323,27 +7653,22 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -8372,7 +7697,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -8382,7 +7706,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8392,7 +7715,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8402,7 +7724,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8412,7 +7733,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -8423,16 +7743,11 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -8447,16 +7762,11 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -8536,27 +7846,22 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -8585,7 +7890,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -8595,7 +7899,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8605,7 +7908,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8615,7 +7917,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8625,7 +7926,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -8636,10 +7936,8 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SyncGroupSchema struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables []SyncGroupSchemaTable `pulumi:"tables"`
+	MasterSyncMemberName *string                `pulumi:"masterSyncMemberName"`
+	Tables               []SyncGroupSchemaTable `pulumi:"tables"`
 }
 
 // SyncGroupSchemaInput is an input type that accepts SyncGroupSchemaArgs and SyncGroupSchemaOutput values.
@@ -8654,10 +7952,8 @@ type SyncGroupSchemaInput interface {
 }
 
 type SyncGroupSchemaArgs struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables SyncGroupSchemaTableArrayInput `pulumi:"tables"`
+	MasterSyncMemberName pulumi.StringPtrInput          `pulumi:"masterSyncMemberName"`
+	Tables               SyncGroupSchemaTableArrayInput `pulumi:"tables"`
 }
 
 func (SyncGroupSchemaArgs) ElementType() reflect.Type {
@@ -8737,12 +8033,10 @@ func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx context
 	}).(SyncGroupSchemaPtrOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchema) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaOutput) Tables() SyncGroupSchemaTableArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchema) []SyncGroupSchemaTable { return v.Tables }).(SyncGroupSchemaTableArrayOutput)
 }
@@ -8771,7 +8065,6 @@ func (o SyncGroupSchemaPtrOutput) Elem() SyncGroupSchemaOutput {
 	}).(SyncGroupSchemaOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaPtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyncGroupSchema) *string {
 		if v == nil {
@@ -8781,7 +8074,6 @@ func (o SyncGroupSchemaPtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 	return o.ApplyT(func(v *SyncGroupSchema) []SyncGroupSchemaTable {
 		if v == nil {
@@ -8792,10 +8084,8 @@ func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 }
 
 type SyncGroupSchemaResponse struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables []SyncGroupSchemaTableResponse `pulumi:"tables"`
+	MasterSyncMemberName *string                        `pulumi:"masterSyncMemberName"`
+	Tables               []SyncGroupSchemaTableResponse `pulumi:"tables"`
 }
 
 // SyncGroupSchemaResponseInput is an input type that accepts SyncGroupSchemaResponseArgs and SyncGroupSchemaResponseOutput values.
@@ -8810,10 +8100,8 @@ type SyncGroupSchemaResponseInput interface {
 }
 
 type SyncGroupSchemaResponseArgs struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables SyncGroupSchemaTableResponseArrayInput `pulumi:"tables"`
+	MasterSyncMemberName pulumi.StringPtrInput                  `pulumi:"masterSyncMemberName"`
+	Tables               SyncGroupSchemaTableResponseArrayInput `pulumi:"tables"`
 }
 
 func (SyncGroupSchemaResponseArgs) ElementType() reflect.Type {
@@ -8893,12 +8181,10 @@ func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutputWithCon
 	}).(SyncGroupSchemaResponsePtrOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaResponseOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaResponse) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaResponseOutput) Tables() SyncGroupSchemaTableResponseArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaResponse) []SyncGroupSchemaTableResponse { return v.Tables }).(SyncGroupSchemaTableResponseArrayOutput)
 }
@@ -8927,7 +8213,6 @@ func (o SyncGroupSchemaResponsePtrOutput) Elem() SyncGroupSchemaResponseOutput {
 	}).(SyncGroupSchemaResponseOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaResponsePtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyncGroupSchemaResponse) *string {
 		if v == nil {
@@ -8937,7 +8222,6 @@ func (o SyncGroupSchemaResponsePtrOutput) MasterSyncMemberName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaResponsePtrOutput) Tables() SyncGroupSchemaTableResponseArrayOutput {
 	return o.ApplyT(func(v *SyncGroupSchemaResponse) []SyncGroupSchemaTableResponse {
 		if v == nil {
@@ -8948,10 +8232,8 @@ func (o SyncGroupSchemaResponsePtrOutput) Tables() SyncGroupSchemaTableResponseA
 }
 
 type SyncGroupSchemaTable struct {
-	// List of columns in sync group schema.
-	Columns []SyncGroupSchemaTableColumn `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName *string `pulumi:"quotedName"`
+	Columns    []SyncGroupSchemaTableColumn `pulumi:"columns"`
+	QuotedName *string                      `pulumi:"quotedName"`
 }
 
 // SyncGroupSchemaTableInput is an input type that accepts SyncGroupSchemaTableArgs and SyncGroupSchemaTableOutput values.
@@ -8966,10 +8248,8 @@ type SyncGroupSchemaTableInput interface {
 }
 
 type SyncGroupSchemaTableArgs struct {
-	// List of columns in sync group schema.
-	Columns SyncGroupSchemaTableColumnArrayInput `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+	Columns    SyncGroupSchemaTableColumnArrayInput `pulumi:"columns"`
+	QuotedName pulumi.StringPtrInput                `pulumi:"quotedName"`
 }
 
 func (SyncGroupSchemaTableArgs) ElementType() reflect.Type {
@@ -9023,12 +8303,10 @@ func (o SyncGroupSchemaTableOutput) ToSyncGroupSchemaTableOutputWithContext(ctx 
 	return o
 }
 
-// List of columns in sync group schema.
 func (o SyncGroupSchemaTableOutput) Columns() SyncGroupSchemaTableColumnArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTable) []SyncGroupSchemaTableColumn { return v.Columns }).(SyncGroupSchemaTableColumnArrayOutput)
 }
 
-// Quoted name of sync group schema table.
 func (o SyncGroupSchemaTableOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTable) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -9054,11 +8332,8 @@ func (o SyncGroupSchemaTableArrayOutput) Index(i pulumi.IntInput) SyncGroupSchem
 }
 
 type SyncGroupSchemaTableColumn struct {
-	// Data size of the column.
-	DataSize *string `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType *string `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   *string `pulumi:"dataSize"`
+	DataType   *string `pulumi:"dataType"`
 	QuotedName *string `pulumi:"quotedName"`
 }
 
@@ -9074,11 +8349,8 @@ type SyncGroupSchemaTableColumnInput interface {
 }
 
 type SyncGroupSchemaTableColumnArgs struct {
-	// Data size of the column.
-	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   pulumi.StringPtrInput `pulumi:"dataSize"`
+	DataType   pulumi.StringPtrInput `pulumi:"dataType"`
 	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
 }
 
@@ -9133,17 +8405,14 @@ func (o SyncGroupSchemaTableColumnOutput) ToSyncGroupSchemaTableColumnOutputWith
 	return o
 }
 
-// Data size of the column.
 func (o SyncGroupSchemaTableColumnOutput) DataSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.DataSize }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o SyncGroupSchemaTableColumnOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Quoted name of sync group table column.
 func (o SyncGroupSchemaTableColumnOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -9169,11 +8438,8 @@ func (o SyncGroupSchemaTableColumnArrayOutput) Index(i pulumi.IntInput) SyncGrou
 }
 
 type SyncGroupSchemaTableColumnResponse struct {
-	// Data size of the column.
-	DataSize *string `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType *string `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   *string `pulumi:"dataSize"`
+	DataType   *string `pulumi:"dataType"`
 	QuotedName *string `pulumi:"quotedName"`
 }
 
@@ -9189,11 +8455,8 @@ type SyncGroupSchemaTableColumnResponseInput interface {
 }
 
 type SyncGroupSchemaTableColumnResponseArgs struct {
-	// Data size of the column.
-	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   pulumi.StringPtrInput `pulumi:"dataSize"`
+	DataType   pulumi.StringPtrInput `pulumi:"dataType"`
 	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
 }
 
@@ -9248,17 +8511,14 @@ func (o SyncGroupSchemaTableColumnResponseOutput) ToSyncGroupSchemaTableColumnRe
 	return o
 }
 
-// Data size of the column.
 func (o SyncGroupSchemaTableColumnResponseOutput) DataSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.DataSize }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o SyncGroupSchemaTableColumnResponseOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Quoted name of sync group table column.
 func (o SyncGroupSchemaTableColumnResponseOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -9284,10 +8544,8 @@ func (o SyncGroupSchemaTableColumnResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type SyncGroupSchemaTableResponse struct {
-	// List of columns in sync group schema.
-	Columns []SyncGroupSchemaTableColumnResponse `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName *string `pulumi:"quotedName"`
+	Columns    []SyncGroupSchemaTableColumnResponse `pulumi:"columns"`
+	QuotedName *string                              `pulumi:"quotedName"`
 }
 
 // SyncGroupSchemaTableResponseInput is an input type that accepts SyncGroupSchemaTableResponseArgs and SyncGroupSchemaTableResponseOutput values.
@@ -9302,10 +8560,8 @@ type SyncGroupSchemaTableResponseInput interface {
 }
 
 type SyncGroupSchemaTableResponseArgs struct {
-	// List of columns in sync group schema.
-	Columns SyncGroupSchemaTableColumnResponseArrayInput `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+	Columns    SyncGroupSchemaTableColumnResponseArrayInput `pulumi:"columns"`
+	QuotedName pulumi.StringPtrInput                        `pulumi:"quotedName"`
 }
 
 func (SyncGroupSchemaTableResponseArgs) ElementType() reflect.Type {
@@ -9359,12 +8615,10 @@ func (o SyncGroupSchemaTableResponseOutput) ToSyncGroupSchemaTableResponseOutput
 	return o
 }
 
-// List of columns in sync group schema.
 func (o SyncGroupSchemaTableResponseOutput) Columns() SyncGroupSchemaTableColumnResponseArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableResponse) []SyncGroupSchemaTableColumnResponse { return v.Columns }).(SyncGroupSchemaTableColumnResponseArrayOutput)
 }
 
-// Quoted name of sync group schema table.
 func (o SyncGroupSchemaTableResponseOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -9390,17 +8644,11 @@ func (o SyncGroupSchemaTableResponseArrayOutput) Index(i pulumi.IntInput) SyncGr
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -9416,17 +8664,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -9507,32 +8749,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -9561,7 +8797,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9571,7 +8806,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9581,7 +8815,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9591,7 +8824,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9601,7 +8833,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9611,7 +8842,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -9622,9 +8852,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type UserIdentityResponse struct {
-	// The Azure Active Directory client id.
-	ClientId string `pulumi:"clientId"`
-	// The Azure Active Directory principal id.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -9640,9 +8868,7 @@ type UserIdentityResponseInput interface {
 }
 
 type UserIdentityResponseArgs struct {
-	// The Azure Active Directory client id.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The Azure Active Directory principal id.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -9697,12 +8923,10 @@ func (o UserIdentityResponseOutput) ToUserIdentityResponseOutputWithContext(ctx 
 	return o
 }
 
-// The Azure Active Directory client id.
 func (o UserIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The Azure Active Directory principal id.
 func (o UserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -9728,12 +8952,9 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 }
 
 type VulnerabilityAssessmentRecurringScansProperties struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesArgs and VulnerabilityAssessmentRecurringScansPropertiesOutput values.
@@ -9748,12 +8969,9 @@ type VulnerabilityAssessmentRecurringScansPropertiesInput interface {
 }
 
 type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesArgs) ElementType() reflect.Type {
@@ -9833,17 +9051,14 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -9872,7 +9087,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() Vulnera
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -9882,7 +9096,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscript
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) []string {
 		if v == nil {
@@ -9892,7 +9105,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -9903,12 +9115,9 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 }
 
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesResponseInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesResponseArgs and VulnerabilityAssessmentRecurringScansPropertiesResponseOutput values.
@@ -9923,12 +9132,9 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
 }
 
 type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ElementType() reflect.Type {
@@ -10008,19 +9214,16 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		return v.EmailSubscriptionAdmins
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -10049,7 +9252,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem()
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {
@@ -10059,7 +9261,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailS
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) []string {
 		if v == nil {
@@ -10069,7 +9270,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {

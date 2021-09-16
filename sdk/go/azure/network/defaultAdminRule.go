@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network default admin rule.
-// API Version: 2021-02-01-preview.
 type DefaultAdminRule struct {
 	pulumi.CustomResourceState
 

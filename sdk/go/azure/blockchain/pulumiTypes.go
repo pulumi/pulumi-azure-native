@@ -11,10 +11,8 @@ import (
 )
 
 type ApiKeyResponse struct {
-	// Gets or sets the API key name.
 	KeyName *string `pulumi:"keyName"`
-	// Gets or sets the API key value.
-	Value *string `pulumi:"value"`
+	Value   *string `pulumi:"value"`
 }
 
 // ApiKeyResponseInput is an input type that accepts ApiKeyResponseArgs and ApiKeyResponseOutput values.
@@ -29,10 +27,8 @@ type ApiKeyResponseInput interface {
 }
 
 type ApiKeyResponseArgs struct {
-	// Gets or sets the API key name.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Gets or sets the API key value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ApiKeyResponseArgs) ElementType() reflect.Type {
@@ -86,12 +82,10 @@ func (o ApiKeyResponseOutput) ToApiKeyResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets the API key name.
 func (o ApiKeyResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the API key value.
 func (o ApiKeyResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -117,7 +111,6 @@ func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput
 }
 
 type BlockchainMemberNodesSku struct {
-	// Gets or sets the nodes capacity.
 	Capacity *int `pulumi:"capacity"`
 }
 
@@ -133,7 +126,6 @@ type BlockchainMemberNodesSkuInput interface {
 }
 
 type BlockchainMemberNodesSkuArgs struct {
-	// Gets or sets the nodes capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 }
 
@@ -214,7 +206,6 @@ func (o BlockchainMemberNodesSkuOutput) ToBlockchainMemberNodesSkuPtrOutputWithC
 	}).(BlockchainMemberNodesSkuPtrOutput)
 }
 
-// Gets or sets the nodes capacity.
 func (o BlockchainMemberNodesSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BlockchainMemberNodesSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -243,7 +234,6 @@ func (o BlockchainMemberNodesSkuPtrOutput) Elem() BlockchainMemberNodesSkuOutput
 	}).(BlockchainMemberNodesSkuOutput)
 }
 
-// Gets or sets the nodes capacity.
 func (o BlockchainMemberNodesSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BlockchainMemberNodesSku) *int {
 		if v == nil {
@@ -254,7 +244,6 @@ func (o BlockchainMemberNodesSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 type BlockchainMemberNodesSkuResponse struct {
-	// Gets or sets the nodes capacity.
 	Capacity *int `pulumi:"capacity"`
 }
 
@@ -270,7 +259,6 @@ type BlockchainMemberNodesSkuResponseInput interface {
 }
 
 type BlockchainMemberNodesSkuResponseArgs struct {
-	// Gets or sets the nodes capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 }
 
@@ -351,7 +339,6 @@ func (o BlockchainMemberNodesSkuResponseOutput) ToBlockchainMemberNodesSkuRespon
 	}).(BlockchainMemberNodesSkuResponsePtrOutput)
 }
 
-// Gets or sets the nodes capacity.
 func (o BlockchainMemberNodesSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BlockchainMemberNodesSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -380,7 +367,6 @@ func (o BlockchainMemberNodesSkuResponsePtrOutput) Elem() BlockchainMemberNodesS
 	}).(BlockchainMemberNodesSkuResponseOutput)
 }
 
-// Gets or sets the nodes capacity.
 func (o BlockchainMemberNodesSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BlockchainMemberNodesSkuResponse) *int {
 		if v == nil {
@@ -391,9 +377,7 @@ func (o BlockchainMemberNodesSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutpu
 }
 
 type ConsortiumResponse struct {
-	// Gets or sets the blockchain member name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the protocol for the consortium.
+	Name     *string `pulumi:"name"`
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -409,9 +393,7 @@ type ConsortiumResponseInput interface {
 }
 
 type ConsortiumResponseArgs struct {
-	// Gets or sets the blockchain member name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the protocol for the consortium.
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -466,12 +448,10 @@ func (o ConsortiumResponseOutput) ToConsortiumResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Gets or sets the blockchain member name.
 func (o ConsortiumResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the protocol for the consortium.
 func (o ConsortiumResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -497,11 +477,8 @@ func (o ConsortiumResponseArrayOutput) Index(i pulumi.IntInput) ConsortiumRespon
 }
 
 type FirewallRule struct {
-	// Gets or sets the end IP address of the firewall rule range.
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Gets or sets the name of the firewall rules.
-	RuleName *string `pulumi:"ruleName"`
-	// Gets or sets the start IP address of the firewall rule range.
+	EndIpAddress   *string `pulumi:"endIpAddress"`
+	RuleName       *string `pulumi:"ruleName"`
 	StartIpAddress *string `pulumi:"startIpAddress"`
 }
 
@@ -517,11 +494,8 @@ type FirewallRuleInput interface {
 }
 
 type FirewallRuleArgs struct {
-	// Gets or sets the end IP address of the firewall rule range.
-	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
-	// Gets or sets the name of the firewall rules.
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
-	// Gets or sets the start IP address of the firewall rule range.
+	EndIpAddress   pulumi.StringPtrInput `pulumi:"endIpAddress"`
+	RuleName       pulumi.StringPtrInput `pulumi:"ruleName"`
 	StartIpAddress pulumi.StringPtrInput `pulumi:"startIpAddress"`
 }
 
@@ -576,17 +550,14 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Gets or sets the end IP address of the firewall rule range.
 func (o FirewallRuleOutput) EndIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.EndIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the name of the firewall rules.
 func (o FirewallRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the start IP address of the firewall rule range.
 func (o FirewallRuleOutput) StartIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.StartIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -612,11 +583,8 @@ func (o FirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleOutput {
 }
 
 type FirewallRuleResponse struct {
-	// Gets or sets the end IP address of the firewall rule range.
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Gets or sets the name of the firewall rules.
-	RuleName *string `pulumi:"ruleName"`
-	// Gets or sets the start IP address of the firewall rule range.
+	EndIpAddress   *string `pulumi:"endIpAddress"`
+	RuleName       *string `pulumi:"ruleName"`
 	StartIpAddress *string `pulumi:"startIpAddress"`
 }
 
@@ -632,11 +600,8 @@ type FirewallRuleResponseInput interface {
 }
 
 type FirewallRuleResponseArgs struct {
-	// Gets or sets the end IP address of the firewall rule range.
-	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
-	// Gets or sets the name of the firewall rules.
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
-	// Gets or sets the start IP address of the firewall rule range.
+	EndIpAddress   pulumi.StringPtrInput `pulumi:"endIpAddress"`
+	RuleName       pulumi.StringPtrInput `pulumi:"ruleName"`
 	StartIpAddress pulumi.StringPtrInput `pulumi:"startIpAddress"`
 }
 
@@ -691,17 +656,14 @@ func (o FirewallRuleResponseOutput) ToFirewallRuleResponseOutputWithContext(ctx 
 	return o
 }
 
-// Gets or sets the end IP address of the firewall rule range.
 func (o FirewallRuleResponseOutput) EndIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) *string { return v.EndIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the name of the firewall rules.
 func (o FirewallRuleResponseOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the start IP address of the firewall rule range.
 func (o FirewallRuleResponseOutput) StartIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) *string { return v.StartIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -727,9 +689,7 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 }
 
 type Sku struct {
-	// Gets or sets Sku name
 	Name *string `pulumi:"name"`
-	// Gets or sets Sku tier
 	Tier *string `pulumi:"tier"`
 }
 
@@ -745,9 +705,7 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Gets or sets Sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Sku tier
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -828,12 +786,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets Sku name
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Sku tier
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -862,7 +818,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Gets or sets Sku name
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -872,7 +827,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Sku tier
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -883,9 +837,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// Gets or sets Sku name
 	Name *string `pulumi:"name"`
-	// Gets or sets Sku tier
 	Tier *string `pulumi:"tier"`
 }
 
@@ -901,9 +853,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Gets or sets Sku name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Sku tier
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -984,12 +934,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets Sku name
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Sku tier
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1018,7 +966,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Gets or sets Sku name
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1028,7 +975,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Sku tier
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

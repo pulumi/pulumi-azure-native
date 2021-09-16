@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server.
-// API Version: 2019-07-24-preview.
 type SqlServer struct {
 	pulumi.CustomResourceState
 

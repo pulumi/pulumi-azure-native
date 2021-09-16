@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-// API Version: 2016-03-01.
 type Function struct {
 	pulumi.CustomResourceState
 

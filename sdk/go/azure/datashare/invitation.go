@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Invitation data transfer object.
-// API Version: 2020-09-01.
 type Invitation struct {
 	pulumi.CustomResourceState
 

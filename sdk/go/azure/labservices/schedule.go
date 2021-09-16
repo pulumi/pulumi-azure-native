@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schedule for automatically turning virtual machines in a lab on and off at specified times.
-// API Version: 2021-10-01-preview.
 type Schedule struct {
 	pulumi.CustomResourceState
 

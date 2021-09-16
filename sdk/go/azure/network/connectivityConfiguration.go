@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The network manager connectivity configuration resource
-// API Version: 2021-02-01-preview.
 type ConnectivityConfiguration struct {
 	pulumi.CustomResourceState
 

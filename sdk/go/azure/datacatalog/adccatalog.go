@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Data Catalog.
-// API Version: 2016-03-30.
 type ADCCatalog struct {
 	pulumi.CustomResourceState
 

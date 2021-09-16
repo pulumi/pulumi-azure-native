@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// RouteTable resource in a virtual hub.
-// API Version: 2020-11-01.
 type HubRouteTable struct {
 	pulumi.CustomResourceState
 

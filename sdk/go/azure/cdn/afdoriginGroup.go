@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-// API Version: 2020-09-01.
 type AFDOriginGroup struct {
 	pulumi.CustomResourceState
 

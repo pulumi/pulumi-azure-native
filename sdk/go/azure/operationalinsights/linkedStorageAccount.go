@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked storage accounts top level resource container.
-// API Version: 2020-08-01.
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 

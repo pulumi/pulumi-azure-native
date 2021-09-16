@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a read write database.
-// API Version: 2021-04-01-preview.
 func LookupReadWriteDatabase(ctx *pulumi.Context, args *LookupReadWriteDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupReadWriteDatabaseResult, error) {
 	var rv LookupReadWriteDatabaseResult
 	err := ctx.Invoke("azure-native:synapse:getReadWriteDatabase", args, &rv, opts...)
@@ -19,39 +17,23 @@ func LookupReadWriteDatabase(ctx *pulumi.Context, args *LookupReadWriteDatabaseA
 }
 
 type LookupReadWriteDatabaseArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	DatabaseName      string `pulumi:"databaseName"`
+	KustoPoolName     string `pulumi:"kustoPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Class representing a read write database.
 type LookupReadWriteDatabaseResult struct {
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Indicates whether the database is followed.
-	IsFollowed bool `pulumi:"isFollowed"`
-	// Kind of the database
-	// Expected value is 'ReadWrite'.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponse `pulumi:"statistics"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	HotCachePeriod    *string                    `pulumi:"hotCachePeriod"`
+	Id                string                     `pulumi:"id"`
+	IsFollowed        bool                       `pulumi:"isFollowed"`
+	Kind              string                     `pulumi:"kind"`
+	Location          *string                    `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	SoftDeletePeriod  *string                    `pulumi:"softDeletePeriod"`
+	Statistics        DatabaseStatisticsResponse `pulumi:"statistics"`
+	SystemData        SystemDataResponse         `pulumi:"systemData"`
+	Type              string                     `pulumi:"type"`
 }

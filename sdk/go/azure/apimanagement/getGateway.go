@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway details.
-// API Version: 2020-12-01.
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	var rv LookupGatewayResult
 	err := ctx.Invoke("azure-native:apimanagement:getGateway", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 }
 
 type LookupGatewayArgs struct {
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// The name of the resource group.
+	GatewayId         string `pulumi:"gatewayId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Gateway details.
 type LookupGatewayResult struct {
-	// Gateway description
-	Description *string `pulumi:"description"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Gateway location.
+	Description  *string                               `pulumi:"description"`
+	Id           string                                `pulumi:"id"`
 	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Name         string                                `pulumi:"name"`
+	Type         string                                `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Active Directory only authentication.
-// API Version: 2020-11-01-preview.
 type ManagedInstanceAzureADOnlyAuthentication struct {
 	pulumi.CustomResourceState
 

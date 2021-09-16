@@ -11,7 +11,6 @@ import (
 )
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -27,7 +26,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -108,7 +106,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -164,7 +159,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -245,7 +239,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -285,10 +277,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -303,10 +293,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -386,12 +374,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -420,7 +406,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -430,7 +415,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -441,12 +425,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -461,12 +442,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -546,17 +524,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -585,7 +560,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -595,7 +569,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -605,7 +578,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -616,12 +588,9 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type ServerPrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                         `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ServerPrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                                   `pulumi:"provisioningState"`
 }
 
 // ServerPrivateEndpointConnectionPropertiesResponseInput is an input type that accepts ServerPrivateEndpointConnectionPropertiesResponseArgs and ServerPrivateEndpointConnectionPropertiesResponseOutput values.
@@ -636,12 +605,9 @@ type ServerPrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type ServerPrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                         `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                              `pulumi:"provisioningState"`
 }
 
 func (ServerPrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -670,29 +636,24 @@ func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ToServerPrivate
 	return o
 }
 
-// Private endpoint which the connection belongs to.
 func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type ServerPrivateEndpointConnectionResponse struct {
-	// Resource Id of the private endpoint connection.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         string                                            `pulumi:"id"`
 	Properties ServerPrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 }
 
@@ -708,9 +669,7 @@ type ServerPrivateEndpointConnectionResponseInput interface {
 }
 
 type ServerPrivateEndpointConnectionResponseArgs struct {
-	// Resource Id of the private endpoint connection.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         pulumi.StringInput                                     `pulumi:"id"`
 	Properties ServerPrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 }
 
@@ -765,12 +724,10 @@ func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointCo
 	return o
 }
 
-// Resource Id of the private endpoint connection.
 func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Private endpoint connection properties
 func (o ServerPrivateEndpointConnectionResponseOutput) Properties() ServerPrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) ServerPrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
@@ -798,12 +755,9 @@ func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type ServerPrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // ServerPrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts ServerPrivateLinkServiceConnectionStatePropertyResponseArgs and ServerPrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -818,12 +772,9 @@ type ServerPrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type ServerPrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -903,17 +854,14 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerP
 	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -942,7 +890,6 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem()
 	}).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -952,7 +899,6 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Action
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -962,7 +908,6 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Descri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -973,23 +918,14 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status
 }
 
 type ServerPropertiesForDefaultCreate struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin string `pulumi:"administratorLogin"`
-	// The password of the administrator login.
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
-	// The mode to create a new server.
-	// Expected value is 'Default'.
-	CreateMode string `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	AdministratorLogin         string              `pulumi:"administratorLogin"`
+	AdministratorLoginPassword string              `pulumi:"administratorLoginPassword"`
+	CreateMode                 string              `pulumi:"createMode"`
+	MinimalTlsVersion          *string             `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess        *string             `pulumi:"publicNetworkAccess"`
+	SslEnforcement             *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	StorageProfile             *StorageProfile     `pulumi:"storageProfile"`
+	Version                    *string             `pulumi:"version"`
 }
 
 // ServerPropertiesForDefaultCreateInput is an input type that accepts ServerPropertiesForDefaultCreateArgs and ServerPropertiesForDefaultCreateOutput values.
@@ -1004,23 +940,14 @@ type ServerPropertiesForDefaultCreateInput interface {
 }
 
 type ServerPropertiesForDefaultCreateArgs struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
-	// The password of the administrator login.
-	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
-	// The mode to create a new server.
-	// Expected value is 'Default'.
-	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
-	// Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	AdministratorLogin         pulumi.StringInput         `pulumi:"administratorLogin"`
+	AdministratorLoginPassword pulumi.StringInput         `pulumi:"administratorLoginPassword"`
+	CreateMode                 pulumi.StringInput         `pulumi:"createMode"`
+	MinimalTlsVersion          pulumi.StringPtrInput      `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess        pulumi.StringPtrInput      `pulumi:"publicNetworkAccess"`
+	SslEnforcement             SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	StorageProfile             StorageProfilePtrInput     `pulumi:"storageProfile"`
+	Version                    pulumi.StringPtrInput      `pulumi:"version"`
 }
 
 func (ServerPropertiesForDefaultCreateArgs) ElementType() reflect.Type {
@@ -1049,63 +976,46 @@ func (o ServerPropertiesForDefaultCreateOutput) ToServerPropertiesForDefaultCrea
 	return o
 }
 
-// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 func (o ServerPropertiesForDefaultCreateOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The password of the administrator login.
 func (o ServerPropertiesForDefaultCreateOutput) AdministratorLoginPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
-// The mode to create a new server.
-// Expected value is 'Default'.
 func (o ServerPropertiesForDefaultCreateOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 func (o ServerPropertiesForDefaultCreateOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o ServerPropertiesForDefaultCreateOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
-// Storage profile of a server.
 func (o ServerPropertiesForDefaultCreateOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
-// Server version.
 func (o ServerPropertiesForDefaultCreateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type ServerPropertiesForGeoRestore struct {
-	// The mode to create a new server.
-	// Expected value is 'GeoRestore'.
-	CreateMode string `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The source server id to restore from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	CreateMode          string              `pulumi:"createMode"`
+	MinimalTlsVersion   *string             `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess *string             `pulumi:"publicNetworkAccess"`
+	SourceServerId      string              `pulumi:"sourceServerId"`
+	SslEnforcement      *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	StorageProfile      *StorageProfile     `pulumi:"storageProfile"`
+	Version             *string             `pulumi:"version"`
 }
 
 // ServerPropertiesForGeoRestoreInput is an input type that accepts ServerPropertiesForGeoRestoreArgs and ServerPropertiesForGeoRestoreOutput values.
@@ -1120,21 +1030,13 @@ type ServerPropertiesForGeoRestoreInput interface {
 }
 
 type ServerPropertiesForGeoRestoreArgs struct {
-	// The mode to create a new server.
-	// Expected value is 'GeoRestore'.
-	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// The source server id to restore from.
-	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
-	// Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	CreateMode          pulumi.StringInput         `pulumi:"createMode"`
+	MinimalTlsVersion   pulumi.StringPtrInput      `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess pulumi.StringPtrInput      `pulumi:"publicNetworkAccess"`
+	SourceServerId      pulumi.StringInput         `pulumi:"sourceServerId"`
+	SslEnforcement      SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	StorageProfile      StorageProfilePtrInput     `pulumi:"storageProfile"`
+	Version             pulumi.StringPtrInput      `pulumi:"version"`
 }
 
 func (ServerPropertiesForGeoRestoreArgs) ElementType() reflect.Type {
@@ -1163,58 +1065,42 @@ func (o ServerPropertiesForGeoRestoreOutput) ToServerPropertiesForGeoRestoreOutp
 	return o
 }
 
-// The mode to create a new server.
-// Expected value is 'GeoRestore'.
 func (o ServerPropertiesForGeoRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 func (o ServerPropertiesForGeoRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o ServerPropertiesForGeoRestoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// The source server id to restore from.
 func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
-// Storage profile of a server.
 func (o ServerPropertiesForGeoRestoreOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
-// Server version.
 func (o ServerPropertiesForGeoRestoreOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type ServerPropertiesForReplica struct {
-	// The mode to create a new server.
-	// Expected value is 'Replica'.
-	CreateMode string `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The master server id to create replica from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	CreateMode          string              `pulumi:"createMode"`
+	MinimalTlsVersion   *string             `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess *string             `pulumi:"publicNetworkAccess"`
+	SourceServerId      string              `pulumi:"sourceServerId"`
+	SslEnforcement      *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	StorageProfile      *StorageProfile     `pulumi:"storageProfile"`
+	Version             *string             `pulumi:"version"`
 }
 
 // ServerPropertiesForReplicaInput is an input type that accepts ServerPropertiesForReplicaArgs and ServerPropertiesForReplicaOutput values.
@@ -1229,21 +1115,13 @@ type ServerPropertiesForReplicaInput interface {
 }
 
 type ServerPropertiesForReplicaArgs struct {
-	// The mode to create a new server.
-	// Expected value is 'Replica'.
-	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// The master server id to create replica from.
-	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
-	// Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	CreateMode          pulumi.StringInput         `pulumi:"createMode"`
+	MinimalTlsVersion   pulumi.StringPtrInput      `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess pulumi.StringPtrInput      `pulumi:"publicNetworkAccess"`
+	SourceServerId      pulumi.StringInput         `pulumi:"sourceServerId"`
+	SslEnforcement      SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	StorageProfile      StorageProfilePtrInput     `pulumi:"storageProfile"`
+	Version             pulumi.StringPtrInput      `pulumi:"version"`
 }
 
 func (ServerPropertiesForReplicaArgs) ElementType() reflect.Type {
@@ -1272,60 +1150,43 @@ func (o ServerPropertiesForReplicaOutput) ToServerPropertiesForReplicaOutputWith
 	return o
 }
 
-// The mode to create a new server.
-// Expected value is 'Replica'.
 func (o ServerPropertiesForReplicaOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 func (o ServerPropertiesForReplicaOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o ServerPropertiesForReplicaOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// The master server id to create replica from.
 func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.SourceServerId }).(pulumi.StringOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForReplicaOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
-// Storage profile of a server.
 func (o ServerPropertiesForReplicaOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
-// Server version.
 func (o ServerPropertiesForReplicaOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type ServerPropertiesForRestore struct {
-	// The mode to create a new server.
-	// Expected value is 'PointInTimeRestore'.
-	CreateMode string `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime string `pulumi:"restorePointInTime"`
-	// The source server id to restore from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	CreateMode          string              `pulumi:"createMode"`
+	MinimalTlsVersion   *string             `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess *string             `pulumi:"publicNetworkAccess"`
+	RestorePointInTime  string              `pulumi:"restorePointInTime"`
+	SourceServerId      string              `pulumi:"sourceServerId"`
+	SslEnforcement      *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	StorageProfile      *StorageProfile     `pulumi:"storageProfile"`
+	Version             *string             `pulumi:"version"`
 }
 
 // ServerPropertiesForRestoreInput is an input type that accepts ServerPropertiesForRestoreArgs and ServerPropertiesForRestoreOutput values.
@@ -1340,23 +1201,14 @@ type ServerPropertiesForRestoreInput interface {
 }
 
 type ServerPropertiesForRestoreArgs struct {
-	// The mode to create a new server.
-	// Expected value is 'PointInTimeRestore'.
-	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
-	// The source server id to restore from.
-	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
-	// Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	CreateMode          pulumi.StringInput         `pulumi:"createMode"`
+	MinimalTlsVersion   pulumi.StringPtrInput      `pulumi:"minimalTlsVersion"`
+	PublicNetworkAccess pulumi.StringPtrInput      `pulumi:"publicNetworkAccess"`
+	RestorePointInTime  pulumi.StringInput         `pulumi:"restorePointInTime"`
+	SourceServerId      pulumi.StringInput         `pulumi:"sourceServerId"`
+	SslEnforcement      SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	StorageProfile      StorageProfilePtrInput     `pulumi:"storageProfile"`
+	Version             pulumi.StringPtrInput      `pulumi:"version"`
 }
 
 func (ServerPropertiesForRestoreArgs) ElementType() reflect.Type {
@@ -1385,58 +1237,44 @@ func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutputWith
 	return o
 }
 
-// The mode to create a new server.
-// Expected value is 'PointInTimeRestore'.
 func (o ServerPropertiesForRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Enforce a minimal Tls version for the server.
 func (o ServerPropertiesForRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o ServerPropertiesForRestoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Restore point creation time (ISO8601 format), specifying the time to restore from.
 func (o ServerPropertiesForRestoreOutput) RestorePointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.RestorePointInTime }).(pulumi.StringOutput)
 }
 
-// The source server id to restore from.
 func (o ServerPropertiesForRestoreOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
-// Storage profile of a server.
 func (o ServerPropertiesForRestoreOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
-// Server version.
 func (o ServerPropertiesForRestoreOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type Sku struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity *int `pulumi:"capacity"`
-	// The family of hardware.
-	Family *string `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name string `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size *string `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1451,16 +1289,11 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The family of hardware.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1540,27 +1373,22 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The family of hardware.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1589,7 +1417,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1599,7 +1426,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The family of hardware.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1609,7 +1435,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1619,7 +1444,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1629,7 +1453,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1640,16 +1463,11 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity *int `pulumi:"capacity"`
-	// The family of hardware.
-	Family *string `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name string `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size *string `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1664,16 +1482,11 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The family of hardware.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1753,27 +1566,22 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The family of hardware.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1802,7 +1610,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1812,7 +1619,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The family of hardware.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1822,7 +1628,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1832,7 +1637,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1842,7 +1646,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Basic.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1853,14 +1656,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type StorageProfile struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
+	StorageAutogrow     *string `pulumi:"storageAutogrow"`
+	StorageMB           *int    `pulumi:"storageMB"`
 }
 
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
@@ -1875,14 +1674,10 @@ type StorageProfileInput interface {
 }
 
 type StorageProfileArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	StorageAutogrow     pulumi.StringPtrInput `pulumi:"storageAutogrow"`
+	StorageMB           pulumi.IntPtrInput    `pulumi:"storageMB"`
 }
 
 func (StorageProfileArgs) ElementType() reflect.Type {
@@ -1962,22 +1757,18 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.C
 	}).(StorageProfilePtrOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 func (o StorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
 }
@@ -2006,7 +1797,6 @@ func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
 	}).(StorageProfileOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -2016,7 +1806,6 @@ func (o StorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 func (o StorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
 		if v == nil {
@@ -2026,7 +1815,6 @@ func (o StorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfilePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
 		if v == nil {
@@ -2036,7 +1824,6 @@ func (o StorageProfilePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -2047,14 +1834,10 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 }
 
 type StorageProfileResponse struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
+	StorageAutogrow     *string `pulumi:"storageAutogrow"`
+	StorageMB           *int    `pulumi:"storageMB"`
 }
 
 // StorageProfileResponseInput is an input type that accepts StorageProfileResponseArgs and StorageProfileResponseOutput values.
@@ -2069,14 +1852,10 @@ type StorageProfileResponseInput interface {
 }
 
 type StorageProfileResponseArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	StorageAutogrow     pulumi.StringPtrInput `pulumi:"storageAutogrow"`
+	StorageMB           pulumi.IntPtrInput    `pulumi:"storageMB"`
 }
 
 func (StorageProfileResponseArgs) ElementType() reflect.Type {
@@ -2156,22 +1935,18 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithConte
 	}).(StorageProfileResponsePtrOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 func (o StorageProfileResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileResponseOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileResponseOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
 }
@@ -2200,7 +1975,6 @@ func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
 	}).(StorageProfileResponseOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {
@@ -2210,7 +1984,6 @@ func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup.
 func (o StorageProfileResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -2220,7 +1993,6 @@ func (o StorageProfileResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileResponsePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -2230,7 +2002,6 @@ func (o StorageProfileResponsePtrOutput) StorageAutogrow() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {

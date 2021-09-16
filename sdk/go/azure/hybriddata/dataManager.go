@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The DataManager resource.
-// API Version: 2019-06-01.
 type DataManager struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of the GetSsoToken operation.
-// API Version: 2020-12-01.
 func GetApiManagementServiceSsoToken(ctx *pulumi.Context, args *GetApiManagementServiceSsoTokenArgs, opts ...pulumi.InvokeOption) (*GetApiManagementServiceSsoTokenResult, error) {
 	var rv GetApiManagementServiceSsoTokenResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiManagementServiceSsoToken", args, &rv, opts...)
@@ -19,14 +17,11 @@ func GetApiManagementServiceSsoToken(ctx *pulumi.Context, args *GetApiManagement
 }
 
 type GetApiManagementServiceSsoTokenArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // The response of the GetSsoToken operation.
 type GetApiManagementServiceSsoTokenResult struct {
-	// Redirect URL to the Publisher Portal containing the SSO token.
 	RedirectUri *string `pulumi:"redirectUri"`
 }

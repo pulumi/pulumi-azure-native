@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the webhook type.
-// API Version: 2015-10-31.
 type Webhook struct {
 	pulumi.CustomResourceState
 

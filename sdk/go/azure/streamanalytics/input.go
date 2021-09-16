@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-// API Version: 2016-03-01.
 type Input struct {
 	pulumi.CustomResourceState
 

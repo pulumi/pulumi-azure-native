@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Router Peering resource.
-// API Version: 2020-08-01.
 type VirtualRouterPeering struct {
 	pulumi.CustomResourceState
 

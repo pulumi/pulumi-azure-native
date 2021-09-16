@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SpatialAnchorsAccount Response.
-// API Version: 2021-01-01.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 

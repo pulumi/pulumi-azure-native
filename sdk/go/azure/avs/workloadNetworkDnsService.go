@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DNS Service
-// API Version: 2020-07-17-preview.
 type WorkloadNetworkDnsService struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A favorite process identifier.
-// API Version: 2020-12-16-preview.
 type FavoriteProcess struct {
 	pulumi.CustomResourceState
 

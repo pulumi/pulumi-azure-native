@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route resource.
-// API Version: 2020-11-01.
 type Route struct {
 	pulumi.CustomResourceState
 

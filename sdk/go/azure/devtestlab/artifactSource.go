@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of an artifact source.
-// API Version: 2018-09-15.
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 

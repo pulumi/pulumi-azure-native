@@ -11,9 +11,7 @@ import (
 )
 
 type EnvironmentStateDetailsResponse struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code *string `pulumi:"code"`
-	// A message that describes the state in detail.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -29,9 +27,7 @@ type EnvironmentStateDetailsResponseInput interface {
 }
 
 type EnvironmentStateDetailsResponseArgs struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// A message that describes the state in detail.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -112,12 +108,10 @@ func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponse
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
 func (o EnvironmentStateDetailsResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// A message that describes the state in detail.
 func (o EnvironmentStateDetailsResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +140,6 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetails
 	}).(EnvironmentStateDetailsResponseOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
 func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message that describes the state in detail.
 func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
 		if v == nil {
@@ -167,9 +159,7 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutp
 }
 
 type EnvironmentStatusResponse struct {
-	// An object that represents the status of ingress on an environment.
-	Ingress IngressEnvironmentStatusResponse `pulumi:"ingress"`
-	// An object that represents the status of warm storage on an environment.
+	Ingress     IngressEnvironmentStatusResponse     `pulumi:"ingress"`
 	WarmStorage WarmStorageEnvironmentStatusResponse `pulumi:"warmStorage"`
 }
 
@@ -185,9 +175,7 @@ type EnvironmentStatusResponseInput interface {
 }
 
 type EnvironmentStatusResponseArgs struct {
-	// An object that represents the status of ingress on an environment.
-	Ingress IngressEnvironmentStatusResponseInput `pulumi:"ingress"`
-	// An object that represents the status of warm storage on an environment.
+	Ingress     IngressEnvironmentStatusResponseInput     `pulumi:"ingress"`
 	WarmStorage WarmStorageEnvironmentStatusResponseInput `pulumi:"warmStorage"`
 }
 
@@ -268,12 +256,10 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWit
 	}).(EnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponseOutput {
 	return o.ApplyT(func(v EnvironmentStatusResponse) IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponseOutput)
 }
 
-// An object that represents the status of warm storage on an environment.
 func (o EnvironmentStatusResponseOutput) WarmStorage() WarmStorageEnvironmentStatusResponseOutput {
 	return o.ApplyT(func(v EnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse { return v.WarmStorage }).(WarmStorageEnvironmentStatusResponseOutput)
 }
@@ -302,7 +288,6 @@ func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutp
 	}).(EnvironmentStatusResponseOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
 	return o.ApplyT(func(v *EnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusRe
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of warm storage on an environment.
 func (o EnvironmentStatusResponsePtrOutput) WarmStorage() WarmStorageEnvironmentStatusResponsePtrOutput {
 	return o.ApplyT(func(v *EnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
 		if v == nil {
@@ -323,9 +307,7 @@ func (o EnvironmentStatusResponsePtrOutput) WarmStorage() WarmStorageEnvironment
 }
 
 type Gen2StorageConfigurationInput struct {
-	// The name of the storage account that will hold the environment's Gen2 data.
-	AccountName string `pulumi:"accountName"`
-	// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+	AccountName   string `pulumi:"accountName"`
 	ManagementKey string `pulumi:"managementKey"`
 }
 
@@ -341,9 +323,7 @@ type Gen2StorageConfigurationInputInput interface {
 }
 
 type Gen2StorageConfigurationInputArgs struct {
-	// The name of the storage account that will hold the environment's Gen2 data.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+	AccountName   pulumi.StringInput `pulumi:"accountName"`
 	ManagementKey pulumi.StringInput `pulumi:"managementKey"`
 }
 
@@ -424,12 +404,10 @@ func (o Gen2StorageConfigurationInputOutput) ToGen2StorageConfigurationInputPtrO
 	}).(Gen2StorageConfigurationInputPtrOutput)
 }
 
-// The name of the storage account that will hold the environment's Gen2 data.
 func (o Gen2StorageConfigurationInputOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v Gen2StorageConfigurationInput) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
 func (o Gen2StorageConfigurationInputOutput) ManagementKey() pulumi.StringOutput {
 	return o.ApplyT(func(v Gen2StorageConfigurationInput) string { return v.ManagementKey }).(pulumi.StringOutput)
 }
@@ -458,7 +436,6 @@ func (o Gen2StorageConfigurationInputPtrOutput) Elem() Gen2StorageConfigurationI
 	}).(Gen2StorageConfigurationInputOutput)
 }
 
-// The name of the storage account that will hold the environment's Gen2 data.
 func (o Gen2StorageConfigurationInputPtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gen2StorageConfigurationInput) *string {
 		if v == nil {
@@ -468,7 +445,6 @@ func (o Gen2StorageConfigurationInputPtrOutput) AccountName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
 func (o Gen2StorageConfigurationInputPtrOutput) ManagementKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gen2StorageConfigurationInput) *string {
 		if v == nil {
@@ -479,7 +455,6 @@ func (o Gen2StorageConfigurationInputPtrOutput) ManagementKey() pulumi.StringPtr
 }
 
 type Gen2StorageConfigurationOutputResponse struct {
-	// The name of the storage account that will hold the environment's Gen2 data.
 	AccountName string `pulumi:"accountName"`
 }
 
@@ -495,7 +470,6 @@ type Gen2StorageConfigurationOutputResponseInput interface {
 }
 
 type Gen2StorageConfigurationOutputResponseArgs struct {
-	// The name of the storage account that will hold the environment's Gen2 data.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 }
 
@@ -576,7 +550,6 @@ func (o Gen2StorageConfigurationOutputResponseOutput) ToGen2StorageConfiguration
 	}).(Gen2StorageConfigurationOutputResponsePtrOutput)
 }
 
-// The name of the storage account that will hold the environment's Gen2 data.
 func (o Gen2StorageConfigurationOutputResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v Gen2StorageConfigurationOutputResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
@@ -605,7 +578,6 @@ func (o Gen2StorageConfigurationOutputResponsePtrOutput) Elem() Gen2StorageConfi
 	}).(Gen2StorageConfigurationOutputResponseOutput)
 }
 
-// The name of the storage account that will hold the environment's Gen2 data.
 func (o Gen2StorageConfigurationOutputResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gen2StorageConfigurationOutputResponse) *string {
 		if v == nil {
@@ -616,9 +588,7 @@ func (o Gen2StorageConfigurationOutputResponsePtrOutput) AccountName() pulumi.St
 }
 
 type IngressEnvironmentStatusResponse struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State *string `pulumi:"state"`
-	// An object that contains the details about an environment's state.
+	State        *string                         `pulumi:"state"`
 	StateDetails EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
 }
 
@@ -634,9 +604,7 @@ type IngressEnvironmentStatusResponseInput interface {
 }
 
 type IngressEnvironmentStatusResponseArgs struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// An object that contains the details about an environment's state.
+	State        pulumi.StringPtrInput                `pulumi:"state"`
 	StateDetails EnvironmentStateDetailsResponseInput `pulumi:"stateDetails"`
 }
 
@@ -717,12 +685,10 @@ func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusRespon
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// An object that contains the details about an environment's state.
 func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponseOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponseOutput)
 }
@@ -751,7 +717,6 @@ func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStat
 	}).(IngressEnvironmentStatusResponseOutput)
 }
 
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *string {
 		if v == nil {
@@ -761,7 +726,6 @@ func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that contains the details about an environment's state.
 func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse {
 		if v == nil {
@@ -772,9 +736,7 @@ func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentSta
 }
 
 type LocalTimestamp struct {
-	// An enum that represents the format of the local timestamp property that needs to be set.
-	Format *string `pulumi:"format"`
-	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	Format         *string                       `pulumi:"format"`
 	TimeZoneOffset *LocalTimestampTimeZoneOffset `pulumi:"timeZoneOffset"`
 }
 
@@ -790,9 +752,7 @@ type LocalTimestampInput interface {
 }
 
 type LocalTimestampArgs struct {
-	// An enum that represents the format of the local timestamp property that needs to be set.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	Format         pulumi.StringPtrInput                `pulumi:"format"`
 	TimeZoneOffset LocalTimestampTimeZoneOffsetPtrInput `pulumi:"timeZoneOffset"`
 }
 
@@ -873,12 +833,10 @@ func (o LocalTimestampOutput) ToLocalTimestampPtrOutputWithContext(ctx context.C
 	}).(LocalTimestampPtrOutput)
 }
 
-// An enum that represents the format of the local timestamp property that needs to be set.
 func (o LocalTimestampOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocalTimestamp) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
 func (o LocalTimestampOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPtrOutput {
 	return o.ApplyT(func(v LocalTimestamp) *LocalTimestampTimeZoneOffset { return v.TimeZoneOffset }).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
@@ -907,7 +865,6 @@ func (o LocalTimestampPtrOutput) Elem() LocalTimestampOutput {
 	}).(LocalTimestampOutput)
 }
 
-// An enum that represents the format of the local timestamp property that needs to be set.
 func (o LocalTimestampPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalTimestamp) *string {
 		if v == nil {
@@ -917,7 +874,6 @@ func (o LocalTimestampPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
 func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPtrOutput {
 	return o.ApplyT(func(v *LocalTimestamp) *LocalTimestampTimeZoneOffset {
 		if v == nil {
@@ -928,9 +884,7 @@ func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPt
 }
 
 type LocalTimestampResponse struct {
-	// An enum that represents the format of the local timestamp property that needs to be set.
-	Format *string `pulumi:"format"`
-	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	Format         *string                               `pulumi:"format"`
 	TimeZoneOffset *LocalTimestampResponseTimeZoneOffset `pulumi:"timeZoneOffset"`
 }
 
@@ -946,9 +900,7 @@ type LocalTimestampResponseInput interface {
 }
 
 type LocalTimestampResponseArgs struct {
-	// An enum that represents the format of the local timestamp property that needs to be set.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	Format         pulumi.StringPtrInput                        `pulumi:"format"`
 	TimeZoneOffset LocalTimestampResponseTimeZoneOffsetPtrInput `pulumi:"timeZoneOffset"`
 }
 
@@ -1029,12 +981,10 @@ func (o LocalTimestampResponseOutput) ToLocalTimestampResponsePtrOutputWithConte
 	}).(LocalTimestampResponsePtrOutput)
 }
 
-// An enum that represents the format of the local timestamp property that needs to be set.
 func (o LocalTimestampResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocalTimestampResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
 func (o LocalTimestampResponseOutput) TimeZoneOffset() LocalTimestampResponseTimeZoneOffsetPtrOutput {
 	return o.ApplyT(func(v LocalTimestampResponse) *LocalTimestampResponseTimeZoneOffset { return v.TimeZoneOffset }).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
 }
@@ -1063,7 +1013,6 @@ func (o LocalTimestampResponsePtrOutput) Elem() LocalTimestampResponseOutput {
 	}).(LocalTimestampResponseOutput)
 }
 
-// An enum that represents the format of the local timestamp property that needs to be set.
 func (o LocalTimestampResponsePtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalTimestampResponse) *string {
 		if v == nil {
@@ -1073,7 +1022,6 @@ func (o LocalTimestampResponsePtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
 func (o LocalTimestampResponsePtrOutput) TimeZoneOffset() LocalTimestampResponseTimeZoneOffsetPtrOutput {
 	return o.ApplyT(func(v *LocalTimestampResponse) *LocalTimestampResponseTimeZoneOffset {
 		if v == nil {
@@ -1084,7 +1032,6 @@ func (o LocalTimestampResponsePtrOutput) TimeZoneOffset() LocalTimestampResponse
 }
 
 type LocalTimestampResponseTimeZoneOffset struct {
-	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName *string `pulumi:"propertyName"`
 }
 
@@ -1100,7 +1047,6 @@ type LocalTimestampResponseTimeZoneOffsetInput interface {
 }
 
 type LocalTimestampResponseTimeZoneOffsetArgs struct {
-	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
 }
 
@@ -1181,7 +1127,6 @@ func (o LocalTimestampResponseTimeZoneOffsetOutput) ToLocalTimestampResponseTime
 	}).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
 }
 
-// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 func (o LocalTimestampResponseTimeZoneOffsetOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocalTimestampResponseTimeZoneOffset) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
@@ -1210,7 +1155,6 @@ func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) Elem() LocalTimestampResp
 	}).(LocalTimestampResponseTimeZoneOffsetOutput)
 }
 
-// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalTimestampResponseTimeZoneOffset) *string {
 		if v == nil {
@@ -1221,7 +1165,6 @@ func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) PropertyName() pulumi.Str
 }
 
 type LocalTimestampTimeZoneOffset struct {
-	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName *string `pulumi:"propertyName"`
 }
 
@@ -1237,7 +1180,6 @@ type LocalTimestampTimeZoneOffsetInput interface {
 }
 
 type LocalTimestampTimeZoneOffsetArgs struct {
-	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
 }
 
@@ -1318,7 +1260,6 @@ func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetPtrOut
 	}).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
-// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 func (o LocalTimestampTimeZoneOffsetOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocalTimestampTimeZoneOffset) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
@@ -1347,7 +1288,6 @@ func (o LocalTimestampTimeZoneOffsetPtrOutput) Elem() LocalTimestampTimeZoneOffs
 	}).(LocalTimestampTimeZoneOffsetOutput)
 }
 
-// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 func (o LocalTimestampTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalTimestampTimeZoneOffset) *string {
 		if v == nil {
@@ -1358,9 +1298,7 @@ func (o LocalTimestampTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOu
 }
 
 type ReferenceDataSetKeyProperty struct {
-	// The name of the key property.
 	Name *string `pulumi:"name"`
-	// The type of the key property.
 	Type *string `pulumi:"type"`
 }
 
@@ -1376,9 +1314,7 @@ type ReferenceDataSetKeyPropertyInput interface {
 }
 
 type ReferenceDataSetKeyPropertyArgs struct {
-	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1433,12 +1369,10 @@ func (o ReferenceDataSetKeyPropertyOutput) ToReferenceDataSetKeyPropertyOutputWi
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
 func (o ReferenceDataSetKeyPropertyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1464,9 +1398,7 @@ func (o ReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) Referen
 }
 
 type ReferenceDataSetKeyPropertyResponse struct {
-	// The name of the key property.
 	Name *string `pulumi:"name"`
-	// The type of the key property.
 	Type *string `pulumi:"type"`
 }
 
@@ -1482,9 +1414,7 @@ type ReferenceDataSetKeyPropertyResponseInput interface {
 }
 
 type ReferenceDataSetKeyPropertyResponseArgs struct {
-	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1539,12 +1469,10 @@ func (o ReferenceDataSetKeyPropertyResponseOutput) ToReferenceDataSetKeyProperty
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1570,10 +1498,8 @@ func (o ReferenceDataSetKeyPropertyResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type Sku struct {
-	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1588,10 +1514,8 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1671,12 +1595,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1705,7 +1627,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1715,7 +1636,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1726,10 +1646,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1744,10 +1662,8 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1827,12 +1743,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1861,7 +1775,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1871,7 +1784,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1882,9 +1794,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type TimeSeriesIdProperty struct {
-	// The name of the property.
 	Name *string `pulumi:"name"`
-	// The type of the property.
 	Type *string `pulumi:"type"`
 }
 
@@ -1900,9 +1810,7 @@ type TimeSeriesIdPropertyInput interface {
 }
 
 type TimeSeriesIdPropertyArgs struct {
-	// The name of the property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1957,12 +1865,10 @@ func (o TimeSeriesIdPropertyOutput) ToTimeSeriesIdPropertyOutputWithContext(ctx 
 	return o
 }
 
-// The name of the property.
 func (o TimeSeriesIdPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSeriesIdProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the property.
 func (o TimeSeriesIdPropertyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSeriesIdProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1988,9 +1894,7 @@ func (o TimeSeriesIdPropertyArrayOutput) Index(i pulumi.IntInput) TimeSeriesIdPr
 }
 
 type TimeSeriesIdPropertyResponse struct {
-	// The name of the property.
 	Name *string `pulumi:"name"`
-	// The type of the property.
 	Type *string `pulumi:"type"`
 }
 
@@ -2006,9 +1910,7 @@ type TimeSeriesIdPropertyResponseInput interface {
 }
 
 type TimeSeriesIdPropertyResponseArgs struct {
-	// The name of the property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2063,12 +1965,10 @@ func (o TimeSeriesIdPropertyResponseOutput) ToTimeSeriesIdPropertyResponseOutput
 	return o
 }
 
-// The name of the property.
 func (o TimeSeriesIdPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSeriesIdPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the property.
 func (o TimeSeriesIdPropertyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSeriesIdPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2094,12 +1994,9 @@ func (o TimeSeriesIdPropertyResponseArrayOutput) Index(i pulumi.IntInput) TimeSe
 }
 
 type WarmStorageEnvironmentStatusResponse struct {
-	// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
-	CurrentCount *int `pulumi:"currentCount"`
-	// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
-	MaxCount *int `pulumi:"maxCount"`
-	// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
-	State *string `pulumi:"state"`
+	CurrentCount *int    `pulumi:"currentCount"`
+	MaxCount     *int    `pulumi:"maxCount"`
+	State        *string `pulumi:"state"`
 }
 
 // WarmStorageEnvironmentStatusResponseInput is an input type that accepts WarmStorageEnvironmentStatusResponseArgs and WarmStorageEnvironmentStatusResponseOutput values.
@@ -2114,12 +2011,9 @@ type WarmStorageEnvironmentStatusResponseInput interface {
 }
 
 type WarmStorageEnvironmentStatusResponseArgs struct {
-	// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
-	CurrentCount pulumi.IntPtrInput `pulumi:"currentCount"`
-	// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
-	State pulumi.StringPtrInput `pulumi:"state"`
+	CurrentCount pulumi.IntPtrInput    `pulumi:"currentCount"`
+	MaxCount     pulumi.IntPtrInput    `pulumi:"maxCount"`
+	State        pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (WarmStorageEnvironmentStatusResponseArgs) ElementType() reflect.Type {
@@ -2199,17 +2093,14 @@ func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStat
 	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
 }
 
-// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
 func (o WarmStorageEnvironmentStatusResponseOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
 }
 
-// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
 func (o WarmStorageEnvironmentStatusResponseOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
 func (o WarmStorageEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2238,7 +2129,6 @@ func (o WarmStorageEnvironmentStatusResponsePtrOutput) Elem() WarmStorageEnviron
 	}).(WarmStorageEnvironmentStatusResponseOutput)
 }
 
-// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
 func (o WarmStorageEnvironmentStatusResponsePtrOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
 		if v == nil {
@@ -2248,7 +2138,6 @@ func (o WarmStorageEnvironmentStatusResponsePtrOutput) CurrentCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
 func (o WarmStorageEnvironmentStatusResponsePtrOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
 		if v == nil {
@@ -2258,7 +2147,6 @@ func (o WarmStorageEnvironmentStatusResponsePtrOutput) MaxCount() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
 func (o WarmStorageEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *string {
 		if v == nil {
@@ -2269,7 +2157,6 @@ func (o WarmStorageEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrO
 }
 
 type WarmStoreConfigurationProperties struct {
-	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 	DataRetention string `pulumi:"dataRetention"`
 }
 
@@ -2285,7 +2172,6 @@ type WarmStoreConfigurationPropertiesInput interface {
 }
 
 type WarmStoreConfigurationPropertiesArgs struct {
-	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 	DataRetention pulumi.StringInput `pulumi:"dataRetention"`
 }
 
@@ -2366,7 +2252,6 @@ func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationProperti
 	}).(WarmStoreConfigurationPropertiesPtrOutput)
 }
 
-// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 func (o WarmStoreConfigurationPropertiesOutput) DataRetention() pulumi.StringOutput {
 	return o.ApplyT(func(v WarmStoreConfigurationProperties) string { return v.DataRetention }).(pulumi.StringOutput)
 }
@@ -2395,7 +2280,6 @@ func (o WarmStoreConfigurationPropertiesPtrOutput) Elem() WarmStoreConfiguration
 	}).(WarmStoreConfigurationPropertiesOutput)
 }
 
-// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 func (o WarmStoreConfigurationPropertiesPtrOutput) DataRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WarmStoreConfigurationProperties) *string {
 		if v == nil {
@@ -2406,7 +2290,6 @@ func (o WarmStoreConfigurationPropertiesPtrOutput) DataRetention() pulumi.String
 }
 
 type WarmStoreConfigurationPropertiesResponse struct {
-	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 	DataRetention string `pulumi:"dataRetention"`
 }
 
@@ -2422,7 +2305,6 @@ type WarmStoreConfigurationPropertiesResponseInput interface {
 }
 
 type WarmStoreConfigurationPropertiesResponseArgs struct {
-	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 	DataRetention pulumi.StringInput `pulumi:"dataRetention"`
 }
 
@@ -2503,7 +2385,6 @@ func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfiguration
 	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
 }
 
-// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 func (o WarmStoreConfigurationPropertiesResponseOutput) DataRetention() pulumi.StringOutput {
 	return o.ApplyT(func(v WarmStoreConfigurationPropertiesResponse) string { return v.DataRetention }).(pulumi.StringOutput)
 }
@@ -2532,7 +2413,6 @@ func (o WarmStoreConfigurationPropertiesResponsePtrOutput) Elem() WarmStoreConfi
 	}).(WarmStoreConfigurationPropertiesResponseOutput)
 }
 
-// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
 func (o WarmStoreConfigurationPropertiesResponsePtrOutput) DataRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WarmStoreConfigurationPropertiesResponse) *string {
 		if v == nil {

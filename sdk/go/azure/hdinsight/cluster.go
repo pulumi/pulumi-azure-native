@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The HDInsight cluster.
-// API Version: 2018-06-01-preview.
 type Cluster struct {
 	pulumi.CustomResourceState
 

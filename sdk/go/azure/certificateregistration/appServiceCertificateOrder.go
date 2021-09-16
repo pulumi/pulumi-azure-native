@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SSL certificate purchase order.
-// API Version: 2020-10-01.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 

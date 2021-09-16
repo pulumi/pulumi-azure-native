@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook template definition.
-// API Version: 2019-10-17-preview.
 type WorkbookTemplate struct {
 	pulumi.CustomResourceState
 

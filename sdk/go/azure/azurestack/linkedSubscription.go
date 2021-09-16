@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked Subscription information.
-// API Version: 2020-06-01-preview.
 type LinkedSubscription struct {
 	pulumi.CustomResourceState
 

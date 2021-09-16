@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Fusion alert rule.
-// API Version: 2020-01-01.
 type FusionAlertRule struct {
 	pulumi.CustomResourceState
 

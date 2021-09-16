@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Big Data pool
-// API Version: 2021-03-01.
 type BigDataPool struct {
 	pulumi.CustomResourceState
 

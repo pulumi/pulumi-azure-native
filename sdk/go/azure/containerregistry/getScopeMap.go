@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a scope map for a container registry.
-// API Version: 2020-11-01-preview.
 func LookupScopeMap(ctx *pulumi.Context, args *LookupScopeMapArgs, opts ...pulumi.InvokeOption) (*LookupScopeMapResult, error) {
 	var rv LookupScopeMapResult
 	err := ctx.Invoke("azure-native:containerregistry:getScopeMap", args, &rv, opts...)
@@ -19,32 +17,19 @@ func LookupScopeMap(ctx *pulumi.Context, args *LookupScopeMapArgs, opts ...pulum
 }
 
 type LookupScopeMapArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the scope map.
-	ScopeMapName string `pulumi:"scopeMapName"`
+	ScopeMapName      string `pulumi:"scopeMapName"`
 }
 
 // An object that represents a scope map for a container registry.
 type LookupScopeMapResult struct {
-	// The list of scoped permissions for registry artifacts.
-	// E.g. repositories/repository-name/content/read,
-	// repositories/repository-name/metadata/write
-	Actions []string `pulumi:"actions"`
-	// The creation date of scope map.
-	CreationDate string `pulumi:"creationDate"`
-	// The user friendly description of the scope map.
-	Description *string `pulumi:"description"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Actions           []string           `pulumi:"actions"`
+	CreationDate      string             `pulumi:"creationDate"`
+	Description       *string            `pulumi:"description"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Type              string             `pulumi:"type"`
 }

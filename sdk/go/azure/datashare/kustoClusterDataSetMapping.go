@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Kusto cluster data set mapping
-// API Version: 2020-09-01.
 type KustoClusterDataSetMapping struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Blueprint definition.
-// API Version: 2018-11-01-preview.
 type Blueprint struct {
 	pulumi.CustomResourceState
 

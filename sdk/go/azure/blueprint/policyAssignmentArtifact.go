@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact that applies a Policy assignment.
-// API Version: 2018-11-01-preview.
 type PolicyAssignmentArtifact struct {
 	pulumi.CustomResourceState
 

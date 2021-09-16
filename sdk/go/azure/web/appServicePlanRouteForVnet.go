@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network route contract used to pass routing information for a Virtual Network.
-// API Version: 2020-12-01.
 type AppServicePlanRouteForVnet struct {
 	pulumi.CustomResourceState
 

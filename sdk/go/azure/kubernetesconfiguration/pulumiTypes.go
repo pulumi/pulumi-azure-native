@@ -11,14 +11,10 @@ import (
 )
 
 type ComplianceStatusResponse struct {
-	// The compliance state of the configuration.
-	ComplianceState string `pulumi:"complianceState"`
-	// Datetime the configuration was last applied.
+	ComplianceState   string  `pulumi:"complianceState"`
 	LastConfigApplied *string `pulumi:"lastConfigApplied"`
-	// Message from when the configuration was applied.
-	Message *string `pulumi:"message"`
-	// Level of the message.
-	MessageLevel *string `pulumi:"messageLevel"`
+	Message           *string `pulumi:"message"`
+	MessageLevel      *string `pulumi:"messageLevel"`
 }
 
 // ComplianceStatusResponseInput is an input type that accepts ComplianceStatusResponseArgs and ComplianceStatusResponseOutput values.
@@ -33,14 +29,10 @@ type ComplianceStatusResponseInput interface {
 }
 
 type ComplianceStatusResponseArgs struct {
-	// The compliance state of the configuration.
-	ComplianceState pulumi.StringInput `pulumi:"complianceState"`
-	// Datetime the configuration was last applied.
+	ComplianceState   pulumi.StringInput    `pulumi:"complianceState"`
 	LastConfigApplied pulumi.StringPtrInput `pulumi:"lastConfigApplied"`
-	// Message from when the configuration was applied.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Level of the message.
-	MessageLevel pulumi.StringPtrInput `pulumi:"messageLevel"`
+	Message           pulumi.StringPtrInput `pulumi:"message"`
+	MessageLevel      pulumi.StringPtrInput `pulumi:"messageLevel"`
 }
 
 func (ComplianceStatusResponseArgs) ElementType() reflect.Type {
@@ -120,22 +112,18 @@ func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutputWithC
 	}).(ComplianceStatusResponsePtrOutput)
 }
 
-// The compliance state of the configuration.
 func (o ComplianceStatusResponseOutput) ComplianceState() pulumi.StringOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) string { return v.ComplianceState }).(pulumi.StringOutput)
 }
 
-// Datetime the configuration was last applied.
 func (o ComplianceStatusResponseOutput) LastConfigApplied() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.LastConfigApplied }).(pulumi.StringPtrOutput)
 }
 
-// Message from when the configuration was applied.
 func (o ComplianceStatusResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Level of the message.
 func (o ComplianceStatusResponseOutput) MessageLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.MessageLevel }).(pulumi.StringPtrOutput)
 }
@@ -164,7 +152,6 @@ func (o ComplianceStatusResponsePtrOutput) Elem() ComplianceStatusResponseOutput
 	}).(ComplianceStatusResponseOutput)
 }
 
-// The compliance state of the configuration.
 func (o ComplianceStatusResponsePtrOutput) ComplianceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -174,7 +161,6 @@ func (o ComplianceStatusResponsePtrOutput) ComplianceState() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datetime the configuration was last applied.
 func (o ComplianceStatusResponsePtrOutput) LastConfigApplied() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -184,7 +170,6 @@ func (o ComplianceStatusResponsePtrOutput) LastConfigApplied() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Message from when the configuration was applied.
 func (o ComplianceStatusResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -194,7 +179,6 @@ func (o ComplianceStatusResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of the message.
 func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -205,7 +189,6 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 }
 
 type ConfigurationIdentity struct {
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -221,7 +204,6 @@ type ConfigurationIdentityInput interface {
 }
 
 type ConfigurationIdentityArgs struct {
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -302,7 +284,6 @@ func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutputWithContext
 	}).(ConfigurationIdentityPtrOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 func (o ConfigurationIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ConfigurationIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -331,7 +312,6 @@ func (o ConfigurationIdentityPtrOutput) Elem() ConfigurationIdentityOutput {
 	}).(ConfigurationIdentityOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *ConfigurationIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -342,12 +322,9 @@ func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 type ConfigurationIdentityResponse struct {
-	// The principal id of the system assigned identity which is used by the configuration.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by the configuration.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ConfigurationIdentityResponseInput is an input type that accepts ConfigurationIdentityResponseArgs and ConfigurationIdentityResponseOutput values.
@@ -362,12 +339,9 @@ type ConfigurationIdentityResponseInput interface {
 }
 
 type ConfigurationIdentityResponseArgs struct {
-	// The principal id of the system assigned identity which is used by the configuration.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by the configuration.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConfigurationIdentityResponseArgs) ElementType() reflect.Type {
@@ -447,17 +421,14 @@ func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponsePtrO
 	}).(ConfigurationIdentityResponsePtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by the configuration.
 func (o ConfigurationIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by the configuration.
 func (o ConfigurationIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 func (o ConfigurationIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -486,7 +457,6 @@ func (o ConfigurationIdentityResponsePtrOutput) Elem() ConfigurationIdentityResp
 	}).(ConfigurationIdentityResponseOutput)
 }
 
-// The principal id of the system assigned identity which is used by the configuration.
 func (o ConfigurationIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
 		if v == nil {
@@ -496,7 +466,6 @@ func (o ConfigurationIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by the configuration.
 func (o ConfigurationIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
 		if v == nil {
@@ -506,7 +475,6 @@ func (o ConfigurationIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
 		if v == nil {
@@ -517,9 +485,7 @@ func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ErrorDefinitionResponse struct {
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code string `pulumi:"code"`
-	// Description of the error.
+	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
 }
 
@@ -535,9 +501,7 @@ type ErrorDefinitionResponseInput interface {
 }
 
 type ErrorDefinitionResponseArgs struct {
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Description of the error.
+	Code    pulumi.StringInput `pulumi:"code"`
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -618,12 +582,10 @@ func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponsePtrOutputWithCon
 	}).(ErrorDefinitionResponsePtrOutput)
 }
 
-// Service specific error code which serves as the substatus for the HTTP error code.
 func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Description of the error.
 func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -652,7 +614,6 @@ func (o ErrorDefinitionResponsePtrOutput) Elem() ErrorDefinitionResponseOutput {
 	}).(ErrorDefinitionResponseOutput)
 }
 
-// Service specific error code which serves as the substatus for the HTTP error code.
 func (o ErrorDefinitionResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDefinitionResponse) *string {
 		if v == nil {
@@ -662,7 +623,6 @@ func (o ErrorDefinitionResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the error.
 func (o ErrorDefinitionResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDefinitionResponse) *string {
 		if v == nil {
@@ -673,16 +633,11 @@ func (o ErrorDefinitionResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type ExtensionStatus struct {
-	// Status code provided by the Extension
-	Code *string `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// Level of the status.
-	Level *string `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
-	Message *string `pulumi:"message"`
-	// DateLiteral (per ISO8601) noting the time of installation status.
-	Time *string `pulumi:"time"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
 }
 
 // ExtensionStatusInput is an input type that accepts ExtensionStatusArgs and ExtensionStatusOutput values.
@@ -697,16 +652,11 @@ type ExtensionStatusInput interface {
 }
 
 type ExtensionStatusArgs struct {
-	// Status code provided by the Extension
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// Level of the status.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// DateLiteral (per ISO8601) noting the time of installation status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
 }
 
 func (ExtensionStatusArgs) ElementType() reflect.Type {
@@ -760,27 +710,22 @@ func (o ExtensionStatusOutput) ToExtensionStatusOutputWithContext(ctx context.Co
 	return o
 }
 
-// Status code provided by the Extension
 func (o ExtensionStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Short description of status of this instance of the extension.
 func (o ExtensionStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// Level of the status.
 func (o ExtensionStatusOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Detailed message of the status from the Extension instance.
 func (o ExtensionStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// DateLiteral (per ISO8601) noting the time of installation status.
 func (o ExtensionStatusOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -806,16 +751,11 @@ func (o ExtensionStatusArrayOutput) Index(i pulumi.IntInput) ExtensionStatusOutp
 }
 
 type ExtensionStatusResponse struct {
-	// Status code provided by the Extension
-	Code *string `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// Level of the status.
-	Level *string `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
-	Message *string `pulumi:"message"`
-	// DateLiteral (per ISO8601) noting the time of installation status.
-	Time *string `pulumi:"time"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
 }
 
 // ExtensionStatusResponseInput is an input type that accepts ExtensionStatusResponseArgs and ExtensionStatusResponseOutput values.
@@ -830,16 +770,11 @@ type ExtensionStatusResponseInput interface {
 }
 
 type ExtensionStatusResponseArgs struct {
-	// Status code provided by the Extension
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// Level of the status.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// DateLiteral (per ISO8601) noting the time of installation status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
 }
 
 func (ExtensionStatusResponseArgs) ElementType() reflect.Type {
@@ -893,27 +828,22 @@ func (o ExtensionStatusResponseOutput) ToExtensionStatusResponseOutputWithContex
 	return o
 }
 
-// Status code provided by the Extension
 func (o ExtensionStatusResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Short description of status of this instance of the extension.
 func (o ExtensionStatusResponseOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// Level of the status.
 func (o ExtensionStatusResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Detailed message of the status from the Extension instance.
 func (o ExtensionStatusResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// DateLiteral (per ISO8601) noting the time of installation status.
 func (o ExtensionStatusResponseOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -939,9 +869,7 @@ func (o ExtensionStatusResponseArrayOutput) Index(i pulumi.IntInput) ExtensionSt
 }
 
 type HelmOperatorProperties struct {
-	// Values override for the operator Helm chart.
-	ChartValues *string `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  *string `pulumi:"chartValues"`
 	ChartVersion *string `pulumi:"chartVersion"`
 }
 
@@ -957,9 +885,7 @@ type HelmOperatorPropertiesInput interface {
 }
 
 type HelmOperatorPropertiesArgs struct {
-	// Values override for the operator Helm chart.
-	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  pulumi.StringPtrInput `pulumi:"chartValues"`
 	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
 }
 
@@ -1040,12 +966,10 @@ func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutputWithConte
 	}).(HelmOperatorPropertiesPtrOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorProperties) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorProperties) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
 }
@@ -1074,7 +998,6 @@ func (o HelmOperatorPropertiesPtrOutput) Elem() HelmOperatorPropertiesOutput {
 	}).(HelmOperatorPropertiesOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesPtrOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorProperties) *string {
 		if v == nil {
@@ -1084,7 +1007,6 @@ func (o HelmOperatorPropertiesPtrOutput) ChartValues() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorProperties) *string {
 		if v == nil {
@@ -1095,9 +1017,7 @@ func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 }
 
 type HelmOperatorPropertiesResponse struct {
-	// Values override for the operator Helm chart.
-	ChartValues *string `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  *string `pulumi:"chartValues"`
 	ChartVersion *string `pulumi:"chartVersion"`
 }
 
@@ -1113,9 +1033,7 @@ type HelmOperatorPropertiesResponseInput interface {
 }
 
 type HelmOperatorPropertiesResponseArgs struct {
-	// Values override for the operator Helm chart.
-	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  pulumi.StringPtrInput `pulumi:"chartValues"`
 	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
 }
 
@@ -1196,12 +1114,10 @@ func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePt
 	}).(HelmOperatorPropertiesResponsePtrOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesResponseOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesResponseOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
 }
@@ -1230,7 +1146,6 @@ func (o HelmOperatorPropertiesResponsePtrOutput) Elem() HelmOperatorPropertiesRe
 	}).(HelmOperatorPropertiesResponseOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesResponsePtrOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) *string {
 		if v == nil {
@@ -1240,7 +1155,6 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartValues() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) *string {
 		if v == nil {
@@ -1251,9 +1165,7 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 }
 
 type Scope struct {
-	// Specifies that the scope of the extensionInstance is Cluster
-	Cluster *ScopeCluster `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	Cluster   *ScopeCluster   `pulumi:"cluster"`
 	Namespace *ScopeNamespace `pulumi:"namespace"`
 }
 
@@ -1269,9 +1181,7 @@ type ScopeInput interface {
 }
 
 type ScopeArgs struct {
-	// Specifies that the scope of the extensionInstance is Cluster
-	Cluster ScopeClusterPtrInput `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	Cluster   ScopeClusterPtrInput   `pulumi:"cluster"`
 	Namespace ScopeNamespacePtrInput `pulumi:"namespace"`
 }
 
@@ -1352,12 +1262,10 @@ func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOu
 	}).(ScopePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 func (o ScopeOutput) Cluster() ScopeClusterPtrOutput {
 	return o.ApplyT(func(v Scope) *ScopeCluster { return v.Cluster }).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 func (o ScopeOutput) Namespace() ScopeNamespacePtrOutput {
 	return o.ApplyT(func(v Scope) *ScopeNamespace { return v.Namespace }).(ScopeNamespacePtrOutput)
 }
@@ -1386,7 +1294,6 @@ func (o ScopePtrOutput) Elem() ScopeOutput {
 	}).(ScopeOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 func (o ScopePtrOutput) Cluster() ScopeClusterPtrOutput {
 	return o.ApplyT(func(v *Scope) *ScopeCluster {
 		if v == nil {
@@ -1396,7 +1303,6 @@ func (o ScopePtrOutput) Cluster() ScopeClusterPtrOutput {
 	}).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
 	return o.ApplyT(func(v *Scope) *ScopeNamespace {
 		if v == nil {
@@ -1407,7 +1313,6 @@ func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
 }
 
 type ScopeCluster struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 }
 
@@ -1423,7 +1328,6 @@ type ScopeClusterInput interface {
 }
 
 type ScopeClusterArgs struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
 }
 
@@ -1504,7 +1408,6 @@ func (o ScopeClusterOutput) ToScopeClusterPtrOutputWithContext(ctx context.Conte
 	}).(ScopeClusterPtrOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeClusterOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeCluster) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
 }
@@ -1533,7 +1436,6 @@ func (o ScopeClusterPtrOutput) Elem() ScopeClusterOutput {
 	}).(ScopeClusterOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeCluster) *string {
 		if v == nil {
@@ -1544,7 +1446,6 @@ func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 }
 
 type ScopeClusterResponse struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 }
 
@@ -1560,7 +1461,6 @@ type ScopeClusterResponseInput interface {
 }
 
 type ScopeClusterResponseArgs struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
 }
 
@@ -1641,7 +1541,6 @@ func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutputWithContext(c
 	}).(ScopeClusterResponsePtrOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeClusterResponseOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeClusterResponse) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
 }
@@ -1670,7 +1569,6 @@ func (o ScopeClusterResponsePtrOutput) Elem() ScopeClusterResponseOutput {
 	}).(ScopeClusterResponseOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeClusterResponse) *string {
 		if v == nil {
@@ -1681,7 +1579,6 @@ func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput
 }
 
 type ScopeNamespace struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
 
@@ -1697,7 +1594,6 @@ type ScopeNamespaceInput interface {
 }
 
 type ScopeNamespaceArgs struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
@@ -1778,7 +1674,6 @@ func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutputWithContext(ctx context.C
 	}).(ScopeNamespacePtrOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeNamespace) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -1807,7 +1702,6 @@ func (o ScopeNamespacePtrOutput) Elem() ScopeNamespaceOutput {
 	}).(ScopeNamespaceOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeNamespace) *string {
 		if v == nil {
@@ -1818,7 +1712,6 @@ func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 }
 
 type ScopeNamespaceResponse struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
 
@@ -1834,7 +1727,6 @@ type ScopeNamespaceResponseInput interface {
 }
 
 type ScopeNamespaceResponseArgs struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
@@ -1915,7 +1807,6 @@ func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutputWithConte
 	}).(ScopeNamespaceResponsePtrOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeNamespaceResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -1944,7 +1835,6 @@ func (o ScopeNamespaceResponsePtrOutput) Elem() ScopeNamespaceResponseOutput {
 	}).(ScopeNamespaceResponseOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeNamespaceResponse) *string {
 		if v == nil {
@@ -1955,9 +1845,7 @@ func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutpu
 }
 
 type ScopeResponse struct {
-	// Specifies that the scope of the extensionInstance is Cluster
-	Cluster *ScopeClusterResponse `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	Cluster   *ScopeClusterResponse   `pulumi:"cluster"`
 	Namespace *ScopeNamespaceResponse `pulumi:"namespace"`
 }
 
@@ -1973,9 +1861,7 @@ type ScopeResponseInput interface {
 }
 
 type ScopeResponseArgs struct {
-	// Specifies that the scope of the extensionInstance is Cluster
-	Cluster ScopeClusterResponsePtrInput `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	Cluster   ScopeClusterResponsePtrInput   `pulumi:"cluster"`
 	Namespace ScopeNamespaceResponsePtrInput `pulumi:"namespace"`
 }
 
@@ -2056,12 +1942,10 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Con
 	}).(ScopeResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 func (o ScopeResponseOutput) Cluster() ScopeClusterResponsePtrOutput {
 	return o.ApplyT(func(v ScopeResponse) *ScopeClusterResponse { return v.Cluster }).(ScopeClusterResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 func (o ScopeResponseOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 	return o.ApplyT(func(v ScopeResponse) *ScopeNamespaceResponse { return v.Namespace }).(ScopeNamespaceResponsePtrOutput)
 }
@@ -2090,7 +1974,6 @@ func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
 	}).(ScopeResponseOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
 func (o ScopeResponsePtrOutput) Cluster() ScopeClusterResponsePtrOutput {
 	return o.ApplyT(func(v *ScopeResponse) *ScopeClusterResponse {
 		if v == nil {
@@ -2100,7 +1983,6 @@ func (o ScopeResponsePtrOutput) Cluster() ScopeClusterResponsePtrOutput {
 	}).(ScopeClusterResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
 func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 	return o.ApplyT(func(v *ScopeResponse) *ScopeNamespaceResponse {
 		if v == nil {
@@ -2111,17 +1993,11 @@ func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2137,17 +2013,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2228,32 +2098,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2282,7 +2146,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2292,7 +2155,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2302,7 +2164,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2312,7 +2173,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2322,7 +2182,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2332,7 +2191,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

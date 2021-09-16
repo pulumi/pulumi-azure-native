@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A single Redis item in List or Get Operation.
-// API Version: 2020-06-01.
 type Redis struct {
 	pulumi.CustomResourceState
 

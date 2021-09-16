@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked service resource type.
-// API Version: 2018-06-01.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
 	err := ctx.Invoke("azure-native:datafactory:getLinkedService", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opt
 }
 
 type LookupLinkedServiceArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The linked service name.
+	FactoryName       string `pulumi:"factoryName"`
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Linked service resource type.
 type LookupLinkedServiceResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Properties of linked service.
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ADP Data Pool
-// API Version: 2021-02-01-preview.
 func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupDataPoolResult, error) {
 	var rv LookupDataPoolResult
 	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform:getDataPool", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulum
 }
 
 type LookupDataPoolArgs struct {
-	// The name of the ADP account
-	AccountName string `pulumi:"accountName"`
-	// The name of the Data Pool
-	DataPoolName string `pulumi:"dataPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
+	DataPoolName      string `pulumi:"dataPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // ADP Data Pool
 type LookupDataPoolResult struct {
-	// The Data Pool's data-plane ID
-	DataPoolId string `pulumi:"dataPoolId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Gets or sets the collection of locations where Data Pool resources should be created
-	Locations []DataPoolLocationResponse `pulumi:"locations"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets the status of the data pool at the time the operation was called
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	DataPoolId        string                     `pulumi:"dataPoolId"`
+	Id                string                     `pulumi:"id"`
+	Locations         []DataPoolLocationResponse `pulumi:"locations"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse         `pulumi:"systemData"`
+	Type              string                     `pulumi:"type"`
 }

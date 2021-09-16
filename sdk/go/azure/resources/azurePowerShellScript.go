@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Object model for the Azure PowerShell script.
-// API Version: 2020-10-01.
 type AzurePowerShellScript struct {
 	pulumi.CustomResourceState
 

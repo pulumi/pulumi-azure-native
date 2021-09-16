@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of an Analysis Services resource.
-// API Version: 2017-08-01.
 type ServerDetails struct {
 	pulumi.CustomResourceState
 

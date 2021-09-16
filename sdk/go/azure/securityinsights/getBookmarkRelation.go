@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a relation between two resources
-// API Version: 2019-01-01-preview.
 func LookupBookmarkRelation(ctx *pulumi.Context, args *LookupBookmarkRelationArgs, opts ...pulumi.InvokeOption) (*LookupBookmarkRelationResult, error) {
 	var rv LookupBookmarkRelationResult
 	err := ctx.Invoke("azure-native:securityinsights:getBookmarkRelation", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupBookmarkRelation(ctx *pulumi.Context, args *LookupBookmarkRelationArg
 }
 
 type LookupBookmarkRelationArgs struct {
-	// Bookmark ID
-	BookmarkId string `pulumi:"bookmarkId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	BookmarkId                          string `pulumi:"bookmarkId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// Relation Name
-	RelationName string `pulumi:"relationName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	RelationName                        string `pulumi:"relationName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents a relation between two resources
 type LookupBookmarkRelationResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The resource ID of the related resource
-	RelatedResourceId string `pulumi:"relatedResourceId"`
-	// The resource kind of the related resource
-	RelatedResourceKind string `pulumi:"relatedResourceKind"`
-	// The name of the related resource
-	RelatedResourceName string `pulumi:"relatedResourceName"`
-	// The resource type of the related resource
-	RelatedResourceType string `pulumi:"relatedResourceType"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag                *string `pulumi:"etag"`
+	Id                  string  `pulumi:"id"`
+	Name                string  `pulumi:"name"`
+	RelatedResourceId   string  `pulumi:"relatedResourceId"`
+	RelatedResourceKind string  `pulumi:"relatedResourceKind"`
+	RelatedResourceName string  `pulumi:"relatedResourceName"`
+	RelatedResourceType string  `pulumi:"relatedResourceType"`
+	Type                string  `pulumi:"type"`
 }

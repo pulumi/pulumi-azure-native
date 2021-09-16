@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription keys.
-// API Version: 2020-12-01.
 func ListSubscriptionSecrets(ctx *pulumi.Context, args *ListSubscriptionSecretsArgs, opts ...pulumi.InvokeOption) (*ListSubscriptionSecretsResult, error) {
 	var rv ListSubscriptionSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listSubscriptionSecrets", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListSubscriptionSecrets(ctx *pulumi.Context, args *ListSubscriptionSecretsA
 }
 
 type ListSubscriptionSecretsArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Sid string `pulumi:"sid"`
+	ServiceName       string `pulumi:"serviceName"`
+	Sid               string `pulumi:"sid"`
 }
 
 // Subscription keys.
 type ListSubscriptionSecretsResult struct {
-	// Subscription primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Subscription secondary key.
+	PrimaryKey   *string `pulumi:"primaryKey"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

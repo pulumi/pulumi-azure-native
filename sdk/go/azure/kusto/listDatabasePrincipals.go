@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list Kusto database principals operation response.
-// API Version: 2021-01-01.
 func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArgs, opts ...pulumi.InvokeOption) (*ListDatabasePrincipalsResult, error) {
 	var rv ListDatabasePrincipalsResult
 	err := ctx.Invoke("azure-native:kusto:listDatabasePrincipals", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArg
 }
 
 type ListDatabasePrincipalsArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The list Kusto database principals operation response.
 type ListDatabasePrincipalsResult struct {
-	// The list of Kusto database principals.
 	Value []DatabasePrincipalResponse `pulumi:"value"`
 }

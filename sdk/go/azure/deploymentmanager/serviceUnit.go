@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the response of a service unit resource.
-// API Version: 2019-11-01-preview.
 type ServiceUnit struct {
 	pulumi.CustomResourceState
 

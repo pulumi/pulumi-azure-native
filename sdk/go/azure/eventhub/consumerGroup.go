@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Consumer group operation
-// API Version: 2017-04-01.
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 

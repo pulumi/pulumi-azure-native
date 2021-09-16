@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Property details.
-// API Version: 2019-01-01.
 type Property struct {
 	pulumi.CustomResourceState
 

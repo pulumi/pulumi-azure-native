@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource proxy definition object for quantum workspace.
-// API Version: 2019-11-04-preview.
 type Workspace struct {
 	pulumi.CustomResourceState
 

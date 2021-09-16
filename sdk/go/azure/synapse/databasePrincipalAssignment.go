@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a database principal assignment.
-// API Version: 2021-04-01-preview.
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 

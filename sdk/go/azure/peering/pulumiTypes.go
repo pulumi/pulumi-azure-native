@@ -11,24 +11,15 @@ import (
 )
 
 type BgpSession struct {
-	// The maximum number of prefixes advertised over the IPv4 session.
-	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
-	// The maximum number of prefixes advertised over the IPv6 session.
-	MaxPrefixesAdvertisedV6 *int `pulumi:"maxPrefixesAdvertisedV6"`
-	// The MD5 authentication key of the session.
-	Md5AuthenticationKey *string `pulumi:"md5AuthenticationKey"`
-	// The IPv4 session address on Microsoft's end.
+	MaxPrefixesAdvertisedV4     *int    `pulumi:"maxPrefixesAdvertisedV4"`
+	MaxPrefixesAdvertisedV6     *int    `pulumi:"maxPrefixesAdvertisedV6"`
+	Md5AuthenticationKey        *string `pulumi:"md5AuthenticationKey"`
 	MicrosoftSessionIPv4Address *string `pulumi:"microsoftSessionIPv4Address"`
-	// The IPv6 session address on Microsoft's end.
 	MicrosoftSessionIPv6Address *string `pulumi:"microsoftSessionIPv6Address"`
-	// The IPv4 session address on peer's end.
-	PeerSessionIPv4Address *string `pulumi:"peerSessionIPv4Address"`
-	// The IPv6 session address on peer's end.
-	PeerSessionIPv6Address *string `pulumi:"peerSessionIPv6Address"`
-	// The IPv4 prefix that contains both ends' IPv4 addresses.
-	SessionPrefixV4 *string `pulumi:"sessionPrefixV4"`
-	// The IPv6 prefix that contains both ends' IPv6 addresses.
-	SessionPrefixV6 *string `pulumi:"sessionPrefixV6"`
+	PeerSessionIPv4Address      *string `pulumi:"peerSessionIPv4Address"`
+	PeerSessionIPv6Address      *string `pulumi:"peerSessionIPv6Address"`
+	SessionPrefixV4             *string `pulumi:"sessionPrefixV4"`
+	SessionPrefixV6             *string `pulumi:"sessionPrefixV6"`
 }
 
 // BgpSessionInput is an input type that accepts BgpSessionArgs and BgpSessionOutput values.
@@ -43,24 +34,15 @@ type BgpSessionInput interface {
 }
 
 type BgpSessionArgs struct {
-	// The maximum number of prefixes advertised over the IPv4 session.
-	MaxPrefixesAdvertisedV4 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV4"`
-	// The maximum number of prefixes advertised over the IPv6 session.
-	MaxPrefixesAdvertisedV6 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV6"`
-	// The MD5 authentication key of the session.
-	Md5AuthenticationKey pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
-	// The IPv4 session address on Microsoft's end.
+	MaxPrefixesAdvertisedV4     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV4"`
+	MaxPrefixesAdvertisedV6     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV6"`
+	Md5AuthenticationKey        pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
 	MicrosoftSessionIPv4Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv4Address"`
-	// The IPv6 session address on Microsoft's end.
 	MicrosoftSessionIPv6Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv6Address"`
-	// The IPv4 session address on peer's end.
-	PeerSessionIPv4Address pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
-	// The IPv6 session address on peer's end.
-	PeerSessionIPv6Address pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
-	// The IPv4 prefix that contains both ends' IPv4 addresses.
-	SessionPrefixV4 pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
-	// The IPv6 prefix that contains both ends' IPv6 addresses.
-	SessionPrefixV6 pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
+	PeerSessionIPv4Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
+	PeerSessionIPv6Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
+	SessionPrefixV4             pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
+	SessionPrefixV6             pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
 }
 
 func (BgpSessionArgs) ElementType() reflect.Type {
@@ -140,47 +122,38 @@ func (o BgpSessionOutput) ToBgpSessionPtrOutputWithContext(ctx context.Context) 
 	}).(BgpSessionPtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv4 session.
 func (o BgpSessionOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BgpSession) *int { return v.MaxPrefixesAdvertisedV4 }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv6 session.
 func (o BgpSessionOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BgpSession) *int { return v.MaxPrefixesAdvertisedV6 }).(pulumi.IntPtrOutput)
 }
 
-// The MD5 authentication key of the session.
 func (o BgpSessionOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.Md5AuthenticationKey }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on Microsoft's end.
 func (o BgpSessionOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.MicrosoftSessionIPv4Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on Microsoft's end.
 func (o BgpSessionOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.MicrosoftSessionIPv6Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on peer's end.
 func (o BgpSessionOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.PeerSessionIPv4Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on peer's end.
 func (o BgpSessionOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.PeerSessionIPv6Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 prefix that contains both ends' IPv4 addresses.
 func (o BgpSessionOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.SessionPrefixV4 }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 prefix that contains both ends' IPv6 addresses.
 func (o BgpSessionOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSession) *string { return v.SessionPrefixV6 }).(pulumi.StringPtrOutput)
 }
@@ -209,7 +182,6 @@ func (o BgpSessionPtrOutput) Elem() BgpSessionOutput {
 	}).(BgpSessionOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv4 session.
 func (o BgpSessionPtrOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *int {
 		if v == nil {
@@ -219,7 +191,6 @@ func (o BgpSessionPtrOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv6 session.
 func (o BgpSessionPtrOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *int {
 		if v == nil {
@@ -229,7 +200,6 @@ func (o BgpSessionPtrOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The MD5 authentication key of the session.
 func (o BgpSessionPtrOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -239,7 +209,6 @@ func (o BgpSessionPtrOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on Microsoft's end.
 func (o BgpSessionPtrOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -249,7 +218,6 @@ func (o BgpSessionPtrOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on Microsoft's end.
 func (o BgpSessionPtrOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -259,7 +227,6 @@ func (o BgpSessionPtrOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on peer's end.
 func (o BgpSessionPtrOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -269,7 +236,6 @@ func (o BgpSessionPtrOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on peer's end.
 func (o BgpSessionPtrOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -279,7 +245,6 @@ func (o BgpSessionPtrOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 prefix that contains both ends' IPv4 addresses.
 func (o BgpSessionPtrOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -289,7 +254,6 @@ func (o BgpSessionPtrOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 prefix that contains both ends' IPv6 addresses.
 func (o BgpSessionPtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSession) *string {
 		if v == nil {
@@ -300,28 +264,17 @@ func (o BgpSessionPtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 }
 
 type BgpSessionResponse struct {
-	// The maximum number of prefixes advertised over the IPv4 session.
-	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
-	// The maximum number of prefixes advertised over the IPv6 session.
-	MaxPrefixesAdvertisedV6 *int `pulumi:"maxPrefixesAdvertisedV6"`
-	// The MD5 authentication key of the session.
-	Md5AuthenticationKey *string `pulumi:"md5AuthenticationKey"`
-	// The IPv4 session address on Microsoft's end.
+	MaxPrefixesAdvertisedV4     *int    `pulumi:"maxPrefixesAdvertisedV4"`
+	MaxPrefixesAdvertisedV6     *int    `pulumi:"maxPrefixesAdvertisedV6"`
+	Md5AuthenticationKey        *string `pulumi:"md5AuthenticationKey"`
 	MicrosoftSessionIPv4Address *string `pulumi:"microsoftSessionIPv4Address"`
-	// The IPv6 session address on Microsoft's end.
 	MicrosoftSessionIPv6Address *string `pulumi:"microsoftSessionIPv6Address"`
-	// The IPv4 session address on peer's end.
-	PeerSessionIPv4Address *string `pulumi:"peerSessionIPv4Address"`
-	// The IPv6 session address on peer's end.
-	PeerSessionIPv6Address *string `pulumi:"peerSessionIPv6Address"`
-	// The IPv4 prefix that contains both ends' IPv4 addresses.
-	SessionPrefixV4 *string `pulumi:"sessionPrefixV4"`
-	// The IPv6 prefix that contains both ends' IPv6 addresses.
-	SessionPrefixV6 *string `pulumi:"sessionPrefixV6"`
-	// The state of the IPv4 session.
-	SessionStateV4 string `pulumi:"sessionStateV4"`
-	// The state of the IPv6 session.
-	SessionStateV6 string `pulumi:"sessionStateV6"`
+	PeerSessionIPv4Address      *string `pulumi:"peerSessionIPv4Address"`
+	PeerSessionIPv6Address      *string `pulumi:"peerSessionIPv6Address"`
+	SessionPrefixV4             *string `pulumi:"sessionPrefixV4"`
+	SessionPrefixV6             *string `pulumi:"sessionPrefixV6"`
+	SessionStateV4              string  `pulumi:"sessionStateV4"`
+	SessionStateV6              string  `pulumi:"sessionStateV6"`
 }
 
 // BgpSessionResponseInput is an input type that accepts BgpSessionResponseArgs and BgpSessionResponseOutput values.
@@ -336,28 +289,17 @@ type BgpSessionResponseInput interface {
 }
 
 type BgpSessionResponseArgs struct {
-	// The maximum number of prefixes advertised over the IPv4 session.
-	MaxPrefixesAdvertisedV4 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV4"`
-	// The maximum number of prefixes advertised over the IPv6 session.
-	MaxPrefixesAdvertisedV6 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV6"`
-	// The MD5 authentication key of the session.
-	Md5AuthenticationKey pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
-	// The IPv4 session address on Microsoft's end.
+	MaxPrefixesAdvertisedV4     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV4"`
+	MaxPrefixesAdvertisedV6     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV6"`
+	Md5AuthenticationKey        pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
 	MicrosoftSessionIPv4Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv4Address"`
-	// The IPv6 session address on Microsoft's end.
 	MicrosoftSessionIPv6Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv6Address"`
-	// The IPv4 session address on peer's end.
-	PeerSessionIPv4Address pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
-	// The IPv6 session address on peer's end.
-	PeerSessionIPv6Address pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
-	// The IPv4 prefix that contains both ends' IPv4 addresses.
-	SessionPrefixV4 pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
-	// The IPv6 prefix that contains both ends' IPv6 addresses.
-	SessionPrefixV6 pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
-	// The state of the IPv4 session.
-	SessionStateV4 pulumi.StringInput `pulumi:"sessionStateV4"`
-	// The state of the IPv6 session.
-	SessionStateV6 pulumi.StringInput `pulumi:"sessionStateV6"`
+	PeerSessionIPv4Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
+	PeerSessionIPv6Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
+	SessionPrefixV4             pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
+	SessionPrefixV6             pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
+	SessionStateV4              pulumi.StringInput    `pulumi:"sessionStateV4"`
+	SessionStateV6              pulumi.StringInput    `pulumi:"sessionStateV6"`
 }
 
 func (BgpSessionResponseArgs) ElementType() reflect.Type {
@@ -437,57 +379,46 @@ func (o BgpSessionResponseOutput) ToBgpSessionResponsePtrOutputWithContext(ctx c
 	}).(BgpSessionResponsePtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv4 session.
 func (o BgpSessionResponseOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *int { return v.MaxPrefixesAdvertisedV4 }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv6 session.
 func (o BgpSessionResponseOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *int { return v.MaxPrefixesAdvertisedV6 }).(pulumi.IntPtrOutput)
 }
 
-// The MD5 authentication key of the session.
 func (o BgpSessionResponseOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.Md5AuthenticationKey }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on Microsoft's end.
 func (o BgpSessionResponseOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.MicrosoftSessionIPv4Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on Microsoft's end.
 func (o BgpSessionResponseOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.MicrosoftSessionIPv6Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on peer's end.
 func (o BgpSessionResponseOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.PeerSessionIPv4Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on peer's end.
 func (o BgpSessionResponseOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.PeerSessionIPv6Address }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 prefix that contains both ends' IPv4 addresses.
 func (o BgpSessionResponseOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.SessionPrefixV4 }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 prefix that contains both ends' IPv6 addresses.
 func (o BgpSessionResponseOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BgpSessionResponse) *string { return v.SessionPrefixV6 }).(pulumi.StringPtrOutput)
 }
 
-// The state of the IPv4 session.
 func (o BgpSessionResponseOutput) SessionStateV4() pulumi.StringOutput {
 	return o.ApplyT(func(v BgpSessionResponse) string { return v.SessionStateV4 }).(pulumi.StringOutput)
 }
 
-// The state of the IPv6 session.
 func (o BgpSessionResponseOutput) SessionStateV6() pulumi.StringOutput {
 	return o.ApplyT(func(v BgpSessionResponse) string { return v.SessionStateV6 }).(pulumi.StringOutput)
 }
@@ -516,7 +447,6 @@ func (o BgpSessionResponsePtrOutput) Elem() BgpSessionResponseOutput {
 	}).(BgpSessionResponseOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv4 session.
 func (o BgpSessionResponsePtrOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *int {
 		if v == nil {
@@ -526,7 +456,6 @@ func (o BgpSessionResponsePtrOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of prefixes advertised over the IPv6 session.
 func (o BgpSessionResponsePtrOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *int {
 		if v == nil {
@@ -536,7 +465,6 @@ func (o BgpSessionResponsePtrOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The MD5 authentication key of the session.
 func (o BgpSessionResponsePtrOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -546,7 +474,6 @@ func (o BgpSessionResponsePtrOutput) Md5AuthenticationKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on Microsoft's end.
 func (o BgpSessionResponsePtrOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -556,7 +483,6 @@ func (o BgpSessionResponsePtrOutput) MicrosoftSessionIPv4Address() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on Microsoft's end.
 func (o BgpSessionResponsePtrOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -566,7 +492,6 @@ func (o BgpSessionResponsePtrOutput) MicrosoftSessionIPv6Address() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 session address on peer's end.
 func (o BgpSessionResponsePtrOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -576,7 +501,6 @@ func (o BgpSessionResponsePtrOutput) PeerSessionIPv4Address() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 session address on peer's end.
 func (o BgpSessionResponsePtrOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -586,7 +510,6 @@ func (o BgpSessionResponsePtrOutput) PeerSessionIPv6Address() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 prefix that contains both ends' IPv4 addresses.
 func (o BgpSessionResponsePtrOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -596,7 +519,6 @@ func (o BgpSessionResponsePtrOutput) SessionPrefixV4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 prefix that contains both ends' IPv6 addresses.
 func (o BgpSessionResponsePtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -606,7 +528,6 @@ func (o BgpSessionResponsePtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of the IPv4 session.
 func (o BgpSessionResponsePtrOutput) SessionStateV4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -616,7 +537,6 @@ func (o BgpSessionResponsePtrOutput) SessionStateV4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of the IPv6 session.
 func (o BgpSessionResponsePtrOutput) SessionStateV6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpSessionResponse) *string {
 		if v == nil {
@@ -627,12 +547,9 @@ func (o BgpSessionResponsePtrOutput) SessionStateV6() pulumi.StringPtrOutput {
 }
 
 type ContactDetail struct {
-	// The e-mail address of the contact.
 	Email *string `pulumi:"email"`
-	// The phone number of the contact.
 	Phone *string `pulumi:"phone"`
-	// The role of the contact.
-	Role *string `pulumi:"role"`
+	Role  *string `pulumi:"role"`
 }
 
 // ContactDetailInput is an input type that accepts ContactDetailArgs and ContactDetailOutput values.
@@ -647,12 +564,9 @@ type ContactDetailInput interface {
 }
 
 type ContactDetailArgs struct {
-	// The e-mail address of the contact.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The phone number of the contact.
 	Phone pulumi.StringPtrInput `pulumi:"phone"`
-	// The role of the contact.
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Role  pulumi.StringPtrInput `pulumi:"role"`
 }
 
 func (ContactDetailArgs) ElementType() reflect.Type {
@@ -706,17 +620,14 @@ func (o ContactDetailOutput) ToContactDetailOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The e-mail address of the contact.
 func (o ContactDetailOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetail) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact.
 func (o ContactDetailOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetail) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
-// The role of the contact.
 func (o ContactDetailOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetail) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
@@ -742,12 +653,9 @@ func (o ContactDetailArrayOutput) Index(i pulumi.IntInput) ContactDetailOutput {
 }
 
 type ContactDetailResponse struct {
-	// The e-mail address of the contact.
 	Email *string `pulumi:"email"`
-	// The phone number of the contact.
 	Phone *string `pulumi:"phone"`
-	// The role of the contact.
-	Role *string `pulumi:"role"`
+	Role  *string `pulumi:"role"`
 }
 
 // ContactDetailResponseInput is an input type that accepts ContactDetailResponseArgs and ContactDetailResponseOutput values.
@@ -762,12 +670,9 @@ type ContactDetailResponseInput interface {
 }
 
 type ContactDetailResponseArgs struct {
-	// The e-mail address of the contact.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The phone number of the contact.
 	Phone pulumi.StringPtrInput `pulumi:"phone"`
-	// The role of the contact.
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Role  pulumi.StringPtrInput `pulumi:"role"`
 }
 
 func (ContactDetailResponseArgs) ElementType() reflect.Type {
@@ -821,17 +726,14 @@ func (o ContactDetailResponseOutput) ToContactDetailResponseOutputWithContext(ct
 	return o
 }
 
-// The e-mail address of the contact.
 func (o ContactDetailResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact.
 func (o ContactDetailResponseOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
-// The role of the contact.
 func (o ContactDetailResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
@@ -857,18 +759,12 @@ func (o ContactDetailResponseArrayOutput) Index(i pulumi.IntInput) ContactDetail
 }
 
 type DirectConnection struct {
-	// The bandwidth of the connection.
-	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// The BGP session associated with the connection.
-	BgpSession *BgpSession `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
-	// The field indicating if Microsoft provides session ip addresses.
-	SessionAddressProvider *string `pulumi:"sessionAddressProvider"`
-	// The flag that indicates whether or not the connection is used for peering service.
-	UseForPeeringService *bool `pulumi:"useForPeeringService"`
+	BandwidthInMbps        *int        `pulumi:"bandwidthInMbps"`
+	BgpSession             *BgpSession `pulumi:"bgpSession"`
+	ConnectionIdentifier   *string     `pulumi:"connectionIdentifier"`
+	PeeringDBFacilityId    *int        `pulumi:"peeringDBFacilityId"`
+	SessionAddressProvider *string     `pulumi:"sessionAddressProvider"`
+	UseForPeeringService   *bool       `pulumi:"useForPeeringService"`
 }
 
 // DirectConnectionInput is an input type that accepts DirectConnectionArgs and DirectConnectionOutput values.
@@ -883,18 +779,12 @@ type DirectConnectionInput interface {
 }
 
 type DirectConnectionArgs struct {
-	// The bandwidth of the connection.
-	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
-	// The BGP session associated with the connection.
-	BgpSession BgpSessionPtrInput `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
-	// The field indicating if Microsoft provides session ip addresses.
+	BandwidthInMbps        pulumi.IntPtrInput    `pulumi:"bandwidthInMbps"`
+	BgpSession             BgpSessionPtrInput    `pulumi:"bgpSession"`
+	ConnectionIdentifier   pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
+	PeeringDBFacilityId    pulumi.IntPtrInput    `pulumi:"peeringDBFacilityId"`
 	SessionAddressProvider pulumi.StringPtrInput `pulumi:"sessionAddressProvider"`
-	// The flag that indicates whether or not the connection is used for peering service.
-	UseForPeeringService pulumi.BoolPtrInput `pulumi:"useForPeeringService"`
+	UseForPeeringService   pulumi.BoolPtrInput   `pulumi:"useForPeeringService"`
 }
 
 func (DirectConnectionArgs) ElementType() reflect.Type {
@@ -948,32 +838,26 @@ func (o DirectConnectionOutput) ToDirectConnectionOutputWithContext(ctx context.
 	return o
 }
 
-// The bandwidth of the connection.
 func (o DirectConnectionOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *int { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }
 
-// The BGP session associated with the connection.
 func (o DirectConnectionOutput) BgpSession() BgpSessionPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *BgpSession { return v.BgpSession }).(BgpSessionPtrOutput)
 }
 
-// The unique identifier (GUID) for the connection.
 func (o DirectConnectionOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The PeeringDB.com ID of the facility at which the connection has to be set up.
 func (o DirectConnectionOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
 }
 
-// The field indicating if Microsoft provides session ip addresses.
 func (o DirectConnectionOutput) SessionAddressProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *string { return v.SessionAddressProvider }).(pulumi.StringPtrOutput)
 }
 
-// The flag that indicates whether or not the connection is used for peering service.
 func (o DirectConnectionOutput) UseForPeeringService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DirectConnection) *bool { return v.UseForPeeringService }).(pulumi.BoolPtrOutput)
 }
@@ -999,26 +883,16 @@ func (o DirectConnectionArrayOutput) Index(i pulumi.IntInput) DirectConnectionOu
 }
 
 type DirectConnectionResponse struct {
-	// The bandwidth of the connection.
-	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// The BGP session associated with the connection.
-	BgpSession *BgpSessionResponse `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
-	// The state of the connection.
-	ConnectionState string `pulumi:"connectionState"`
-	// The error message related to the connection state, if any.
-	ErrorMessage string `pulumi:"errorMessage"`
-	// The ID used within Microsoft's peering provisioning system to track the connection
-	MicrosoftTrackingId string `pulumi:"microsoftTrackingId"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
-	// The bandwidth that is actually provisioned.
-	ProvisionedBandwidthInMbps int `pulumi:"provisionedBandwidthInMbps"`
-	// The field indicating if Microsoft provides session ip addresses.
-	SessionAddressProvider *string `pulumi:"sessionAddressProvider"`
-	// The flag that indicates whether or not the connection is used for peering service.
-	UseForPeeringService *bool `pulumi:"useForPeeringService"`
+	BandwidthInMbps            *int                `pulumi:"bandwidthInMbps"`
+	BgpSession                 *BgpSessionResponse `pulumi:"bgpSession"`
+	ConnectionIdentifier       *string             `pulumi:"connectionIdentifier"`
+	ConnectionState            string              `pulumi:"connectionState"`
+	ErrorMessage               string              `pulumi:"errorMessage"`
+	MicrosoftTrackingId        string              `pulumi:"microsoftTrackingId"`
+	PeeringDBFacilityId        *int                `pulumi:"peeringDBFacilityId"`
+	ProvisionedBandwidthInMbps int                 `pulumi:"provisionedBandwidthInMbps"`
+	SessionAddressProvider     *string             `pulumi:"sessionAddressProvider"`
+	UseForPeeringService       *bool               `pulumi:"useForPeeringService"`
 }
 
 // DirectConnectionResponseInput is an input type that accepts DirectConnectionResponseArgs and DirectConnectionResponseOutput values.
@@ -1033,26 +907,16 @@ type DirectConnectionResponseInput interface {
 }
 
 type DirectConnectionResponseArgs struct {
-	// The bandwidth of the connection.
-	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
-	// The BGP session associated with the connection.
-	BgpSession BgpSessionResponsePtrInput `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
-	// The state of the connection.
-	ConnectionState pulumi.StringInput `pulumi:"connectionState"`
-	// The error message related to the connection state, if any.
-	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// The ID used within Microsoft's peering provisioning system to track the connection
-	MicrosoftTrackingId pulumi.StringInput `pulumi:"microsoftTrackingId"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
-	// The bandwidth that is actually provisioned.
-	ProvisionedBandwidthInMbps pulumi.IntInput `pulumi:"provisionedBandwidthInMbps"`
-	// The field indicating if Microsoft provides session ip addresses.
-	SessionAddressProvider pulumi.StringPtrInput `pulumi:"sessionAddressProvider"`
-	// The flag that indicates whether or not the connection is used for peering service.
-	UseForPeeringService pulumi.BoolPtrInput `pulumi:"useForPeeringService"`
+	BandwidthInMbps            pulumi.IntPtrInput         `pulumi:"bandwidthInMbps"`
+	BgpSession                 BgpSessionResponsePtrInput `pulumi:"bgpSession"`
+	ConnectionIdentifier       pulumi.StringPtrInput      `pulumi:"connectionIdentifier"`
+	ConnectionState            pulumi.StringInput         `pulumi:"connectionState"`
+	ErrorMessage               pulumi.StringInput         `pulumi:"errorMessage"`
+	MicrosoftTrackingId        pulumi.StringInput         `pulumi:"microsoftTrackingId"`
+	PeeringDBFacilityId        pulumi.IntPtrInput         `pulumi:"peeringDBFacilityId"`
+	ProvisionedBandwidthInMbps pulumi.IntInput            `pulumi:"provisionedBandwidthInMbps"`
+	SessionAddressProvider     pulumi.StringPtrInput      `pulumi:"sessionAddressProvider"`
+	UseForPeeringService       pulumi.BoolPtrInput        `pulumi:"useForPeeringService"`
 }
 
 func (DirectConnectionResponseArgs) ElementType() reflect.Type {
@@ -1106,52 +970,42 @@ func (o DirectConnectionResponseOutput) ToDirectConnectionResponseOutputWithCont
 	return o
 }
 
-// The bandwidth of the connection.
 func (o DirectConnectionResponseOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *int { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }
 
-// The BGP session associated with the connection.
 func (o DirectConnectionResponseOutput) BgpSession() BgpSessionResponsePtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *BgpSessionResponse { return v.BgpSession }).(BgpSessionResponsePtrOutput)
 }
 
-// The unique identifier (GUID) for the connection.
 func (o DirectConnectionResponseOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The state of the connection.
 func (o DirectConnectionResponseOutput) ConnectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) string { return v.ConnectionState }).(pulumi.StringOutput)
 }
 
-// The error message related to the connection state, if any.
 func (o DirectConnectionResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The ID used within Microsoft's peering provisioning system to track the connection
 func (o DirectConnectionResponseOutput) MicrosoftTrackingId() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) string { return v.MicrosoftTrackingId }).(pulumi.StringOutput)
 }
 
-// The PeeringDB.com ID of the facility at which the connection has to be set up.
 func (o DirectConnectionResponseOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
 }
 
-// The bandwidth that is actually provisioned.
 func (o DirectConnectionResponseOutput) ProvisionedBandwidthInMbps() pulumi.IntOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) int { return v.ProvisionedBandwidthInMbps }).(pulumi.IntOutput)
 }
 
-// The field indicating if Microsoft provides session ip addresses.
 func (o DirectConnectionResponseOutput) SessionAddressProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *string { return v.SessionAddressProvider }).(pulumi.StringPtrOutput)
 }
 
-// The flag that indicates whether or not the connection is used for peering service.
 func (o DirectConnectionResponseOutput) UseForPeeringService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) *bool { return v.UseForPeeringService }).(pulumi.BoolPtrOutput)
 }
@@ -1177,12 +1031,9 @@ func (o DirectConnectionResponseArrayOutput) Index(i pulumi.IntInput) DirectConn
 }
 
 type ExchangeConnection struct {
-	// The BGP session associated with the connection.
-	BgpSession *BgpSession `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
+	BgpSession           *BgpSession `pulumi:"bgpSession"`
+	ConnectionIdentifier *string     `pulumi:"connectionIdentifier"`
+	PeeringDBFacilityId  *int        `pulumi:"peeringDBFacilityId"`
 }
 
 // ExchangeConnectionInput is an input type that accepts ExchangeConnectionArgs and ExchangeConnectionOutput values.
@@ -1197,12 +1048,9 @@ type ExchangeConnectionInput interface {
 }
 
 type ExchangeConnectionArgs struct {
-	// The BGP session associated with the connection.
-	BgpSession BgpSessionPtrInput `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
+	BgpSession           BgpSessionPtrInput    `pulumi:"bgpSession"`
 	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
+	PeeringDBFacilityId  pulumi.IntPtrInput    `pulumi:"peeringDBFacilityId"`
 }
 
 func (ExchangeConnectionArgs) ElementType() reflect.Type {
@@ -1256,17 +1104,14 @@ func (o ExchangeConnectionOutput) ToExchangeConnectionOutputWithContext(ctx cont
 	return o
 }
 
-// The BGP session associated with the connection.
 func (o ExchangeConnectionOutput) BgpSession() BgpSessionPtrOutput {
 	return o.ApplyT(func(v ExchangeConnection) *BgpSession { return v.BgpSession }).(BgpSessionPtrOutput)
 }
 
-// The unique identifier (GUID) for the connection.
 func (o ExchangeConnectionOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExchangeConnection) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The PeeringDB.com ID of the facility at which the connection has to be set up.
 func (o ExchangeConnectionOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExchangeConnection) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
 }
@@ -1292,16 +1137,11 @@ func (o ExchangeConnectionArrayOutput) Index(i pulumi.IntInput) ExchangeConnecti
 }
 
 type ExchangeConnectionResponse struct {
-	// The BGP session associated with the connection.
-	BgpSession *BgpSessionResponse `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
-	// The state of the connection.
-	ConnectionState string `pulumi:"connectionState"`
-	// The error message related to the connection state, if any.
-	ErrorMessage string `pulumi:"errorMessage"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
+	BgpSession           *BgpSessionResponse `pulumi:"bgpSession"`
+	ConnectionIdentifier *string             `pulumi:"connectionIdentifier"`
+	ConnectionState      string              `pulumi:"connectionState"`
+	ErrorMessage         string              `pulumi:"errorMessage"`
+	PeeringDBFacilityId  *int                `pulumi:"peeringDBFacilityId"`
 }
 
 // ExchangeConnectionResponseInput is an input type that accepts ExchangeConnectionResponseArgs and ExchangeConnectionResponseOutput values.
@@ -1316,16 +1156,11 @@ type ExchangeConnectionResponseInput interface {
 }
 
 type ExchangeConnectionResponseArgs struct {
-	// The BGP session associated with the connection.
-	BgpSession BgpSessionResponsePtrInput `pulumi:"bgpSession"`
-	// The unique identifier (GUID) for the connection.
-	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
-	// The state of the connection.
-	ConnectionState pulumi.StringInput `pulumi:"connectionState"`
-	// The error message related to the connection state, if any.
-	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// The PeeringDB.com ID of the facility at which the connection has to be set up.
-	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
+	BgpSession           BgpSessionResponsePtrInput `pulumi:"bgpSession"`
+	ConnectionIdentifier pulumi.StringPtrInput      `pulumi:"connectionIdentifier"`
+	ConnectionState      pulumi.StringInput         `pulumi:"connectionState"`
+	ErrorMessage         pulumi.StringInput         `pulumi:"errorMessage"`
+	PeeringDBFacilityId  pulumi.IntPtrInput         `pulumi:"peeringDBFacilityId"`
 }
 
 func (ExchangeConnectionResponseArgs) ElementType() reflect.Type {
@@ -1379,27 +1214,22 @@ func (o ExchangeConnectionResponseOutput) ToExchangeConnectionResponseOutputWith
 	return o
 }
 
-// The BGP session associated with the connection.
 func (o ExchangeConnectionResponseOutput) BgpSession() BgpSessionResponsePtrOutput {
 	return o.ApplyT(func(v ExchangeConnectionResponse) *BgpSessionResponse { return v.BgpSession }).(BgpSessionResponsePtrOutput)
 }
 
-// The unique identifier (GUID) for the connection.
 func (o ExchangeConnectionResponseOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExchangeConnectionResponse) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The state of the connection.
 func (o ExchangeConnectionResponseOutput) ConnectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v ExchangeConnectionResponse) string { return v.ConnectionState }).(pulumi.StringOutput)
 }
 
-// The error message related to the connection state, if any.
 func (o ExchangeConnectionResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v ExchangeConnectionResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The PeeringDB.com ID of the facility at which the connection has to be set up.
 func (o ExchangeConnectionResponseOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExchangeConnectionResponse) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
 }
@@ -1425,12 +1255,9 @@ func (o ExchangeConnectionResponseArrayOutput) Index(i pulumi.IntInput) Exchange
 }
 
 type PeeringPropertiesDirect struct {
-	// The set of connections that constitute a direct peering.
-	Connections []DirectConnection `pulumi:"connections"`
-	// The type of direct peering.
-	DirectPeeringType *string `pulumi:"directPeeringType"`
-	// The reference of the peer ASN.
-	PeerAsn *SubResource `pulumi:"peerAsn"`
+	Connections       []DirectConnection `pulumi:"connections"`
+	DirectPeeringType *string            `pulumi:"directPeeringType"`
+	PeerAsn           *SubResource       `pulumi:"peerAsn"`
 }
 
 // PeeringPropertiesDirectInput is an input type that accepts PeeringPropertiesDirectArgs and PeeringPropertiesDirectOutput values.
@@ -1445,12 +1272,9 @@ type PeeringPropertiesDirectInput interface {
 }
 
 type PeeringPropertiesDirectArgs struct {
-	// The set of connections that constitute a direct peering.
-	Connections DirectConnectionArrayInput `pulumi:"connections"`
-	// The type of direct peering.
-	DirectPeeringType pulumi.StringPtrInput `pulumi:"directPeeringType"`
-	// The reference of the peer ASN.
-	PeerAsn SubResourcePtrInput `pulumi:"peerAsn"`
+	Connections       DirectConnectionArrayInput `pulumi:"connections"`
+	DirectPeeringType pulumi.StringPtrInput      `pulumi:"directPeeringType"`
+	PeerAsn           SubResourcePtrInput        `pulumi:"peerAsn"`
 }
 
 func (PeeringPropertiesDirectArgs) ElementType() reflect.Type {
@@ -1530,17 +1354,14 @@ func (o PeeringPropertiesDirectOutput) ToPeeringPropertiesDirectPtrOutputWithCon
 	}).(PeeringPropertiesDirectPtrOutput)
 }
 
-// The set of connections that constitute a direct peering.
 func (o PeeringPropertiesDirectOutput) Connections() DirectConnectionArrayOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirect) []DirectConnection { return v.Connections }).(DirectConnectionArrayOutput)
 }
 
-// The type of direct peering.
 func (o PeeringPropertiesDirectOutput) DirectPeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirect) *string { return v.DirectPeeringType }).(pulumi.StringPtrOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesDirectOutput) PeerAsn() SubResourcePtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirect) *SubResource { return v.PeerAsn }).(SubResourcePtrOutput)
 }
@@ -1569,7 +1390,6 @@ func (o PeeringPropertiesDirectPtrOutput) Elem() PeeringPropertiesDirectOutput {
 	}).(PeeringPropertiesDirectOutput)
 }
 
-// The set of connections that constitute a direct peering.
 func (o PeeringPropertiesDirectPtrOutput) Connections() DirectConnectionArrayOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirect) []DirectConnection {
 		if v == nil {
@@ -1579,7 +1399,6 @@ func (o PeeringPropertiesDirectPtrOutput) Connections() DirectConnectionArrayOut
 	}).(DirectConnectionArrayOutput)
 }
 
-// The type of direct peering.
 func (o PeeringPropertiesDirectPtrOutput) DirectPeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirect) *string {
 		if v == nil {
@@ -1589,7 +1408,6 @@ func (o PeeringPropertiesDirectPtrOutput) DirectPeeringType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesDirectPtrOutput) PeerAsn() SubResourcePtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirect) *SubResource {
 		if v == nil {
@@ -1600,14 +1418,10 @@ func (o PeeringPropertiesDirectPtrOutput) PeerAsn() SubResourcePtrOutput {
 }
 
 type PeeringPropertiesDirectResponse struct {
-	// The set of connections that constitute a direct peering.
-	Connections []DirectConnectionResponse `pulumi:"connections"`
-	// The type of direct peering.
-	DirectPeeringType *string `pulumi:"directPeeringType"`
-	// The reference of the peer ASN.
-	PeerAsn *SubResourceResponse `pulumi:"peerAsn"`
-	// The flag that indicates whether or not the peering is used for peering service.
-	UseForPeeringService bool `pulumi:"useForPeeringService"`
+	Connections          []DirectConnectionResponse `pulumi:"connections"`
+	DirectPeeringType    *string                    `pulumi:"directPeeringType"`
+	PeerAsn              *SubResourceResponse       `pulumi:"peerAsn"`
+	UseForPeeringService bool                       `pulumi:"useForPeeringService"`
 }
 
 // PeeringPropertiesDirectResponseInput is an input type that accepts PeeringPropertiesDirectResponseArgs and PeeringPropertiesDirectResponseOutput values.
@@ -1622,14 +1436,10 @@ type PeeringPropertiesDirectResponseInput interface {
 }
 
 type PeeringPropertiesDirectResponseArgs struct {
-	// The set of connections that constitute a direct peering.
-	Connections DirectConnectionResponseArrayInput `pulumi:"connections"`
-	// The type of direct peering.
-	DirectPeeringType pulumi.StringPtrInput `pulumi:"directPeeringType"`
-	// The reference of the peer ASN.
-	PeerAsn SubResourceResponsePtrInput `pulumi:"peerAsn"`
-	// The flag that indicates whether or not the peering is used for peering service.
-	UseForPeeringService pulumi.BoolInput `pulumi:"useForPeeringService"`
+	Connections          DirectConnectionResponseArrayInput `pulumi:"connections"`
+	DirectPeeringType    pulumi.StringPtrInput              `pulumi:"directPeeringType"`
+	PeerAsn              SubResourceResponsePtrInput        `pulumi:"peerAsn"`
+	UseForPeeringService pulumi.BoolInput                   `pulumi:"useForPeeringService"`
 }
 
 func (PeeringPropertiesDirectResponseArgs) ElementType() reflect.Type {
@@ -1709,22 +1519,18 @@ func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponse
 	}).(PeeringPropertiesDirectResponsePtrOutput)
 }
 
-// The set of connections that constitute a direct peering.
 func (o PeeringPropertiesDirectResponseOutput) Connections() DirectConnectionResponseArrayOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirectResponse) []DirectConnectionResponse { return v.Connections }).(DirectConnectionResponseArrayOutput)
 }
 
-// The type of direct peering.
 func (o PeeringPropertiesDirectResponseOutput) DirectPeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirectResponse) *string { return v.DirectPeeringType }).(pulumi.StringPtrOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesDirectResponseOutput) PeerAsn() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirectResponse) *SubResourceResponse { return v.PeerAsn }).(SubResourceResponsePtrOutput)
 }
 
-// The flag that indicates whether or not the peering is used for peering service.
 func (o PeeringPropertiesDirectResponseOutput) UseForPeeringService() pulumi.BoolOutput {
 	return o.ApplyT(func(v PeeringPropertiesDirectResponse) bool { return v.UseForPeeringService }).(pulumi.BoolOutput)
 }
@@ -1753,7 +1559,6 @@ func (o PeeringPropertiesDirectResponsePtrOutput) Elem() PeeringPropertiesDirect
 	}).(PeeringPropertiesDirectResponseOutput)
 }
 
-// The set of connections that constitute a direct peering.
 func (o PeeringPropertiesDirectResponsePtrOutput) Connections() DirectConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) []DirectConnectionResponse {
 		if v == nil {
@@ -1763,7 +1568,6 @@ func (o PeeringPropertiesDirectResponsePtrOutput) Connections() DirectConnection
 	}).(DirectConnectionResponseArrayOutput)
 }
 
-// The type of direct peering.
 func (o PeeringPropertiesDirectResponsePtrOutput) DirectPeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) *string {
 		if v == nil {
@@ -1773,7 +1577,6 @@ func (o PeeringPropertiesDirectResponsePtrOutput) DirectPeeringType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesDirectResponsePtrOutput) PeerAsn() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) *SubResourceResponse {
 		if v == nil {
@@ -1783,7 +1586,6 @@ func (o PeeringPropertiesDirectResponsePtrOutput) PeerAsn() SubResourceResponseP
 	}).(SubResourceResponsePtrOutput)
 }
 
-// The flag that indicates whether or not the peering is used for peering service.
 func (o PeeringPropertiesDirectResponsePtrOutput) UseForPeeringService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) *bool {
 		if v == nil {
@@ -1794,10 +1596,8 @@ func (o PeeringPropertiesDirectResponsePtrOutput) UseForPeeringService() pulumi.
 }
 
 type PeeringPropertiesExchange struct {
-	// The set of connections that constitute an exchange peering.
 	Connections []ExchangeConnection `pulumi:"connections"`
-	// The reference of the peer ASN.
-	PeerAsn *SubResource `pulumi:"peerAsn"`
+	PeerAsn     *SubResource         `pulumi:"peerAsn"`
 }
 
 // PeeringPropertiesExchangeInput is an input type that accepts PeeringPropertiesExchangeArgs and PeeringPropertiesExchangeOutput values.
@@ -1812,10 +1612,8 @@ type PeeringPropertiesExchangeInput interface {
 }
 
 type PeeringPropertiesExchangeArgs struct {
-	// The set of connections that constitute an exchange peering.
 	Connections ExchangeConnectionArrayInput `pulumi:"connections"`
-	// The reference of the peer ASN.
-	PeerAsn SubResourcePtrInput `pulumi:"peerAsn"`
+	PeerAsn     SubResourcePtrInput          `pulumi:"peerAsn"`
 }
 
 func (PeeringPropertiesExchangeArgs) ElementType() reflect.Type {
@@ -1895,12 +1693,10 @@ func (o PeeringPropertiesExchangeOutput) ToPeeringPropertiesExchangePtrOutputWit
 	}).(PeeringPropertiesExchangePtrOutput)
 }
 
-// The set of connections that constitute an exchange peering.
 func (o PeeringPropertiesExchangeOutput) Connections() ExchangeConnectionArrayOutput {
 	return o.ApplyT(func(v PeeringPropertiesExchange) []ExchangeConnection { return v.Connections }).(ExchangeConnectionArrayOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesExchangeOutput) PeerAsn() SubResourcePtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesExchange) *SubResource { return v.PeerAsn }).(SubResourcePtrOutput)
 }
@@ -1929,7 +1725,6 @@ func (o PeeringPropertiesExchangePtrOutput) Elem() PeeringPropertiesExchangeOutp
 	}).(PeeringPropertiesExchangeOutput)
 }
 
-// The set of connections that constitute an exchange peering.
 func (o PeeringPropertiesExchangePtrOutput) Connections() ExchangeConnectionArrayOutput {
 	return o.ApplyT(func(v *PeeringPropertiesExchange) []ExchangeConnection {
 		if v == nil {
@@ -1939,7 +1734,6 @@ func (o PeeringPropertiesExchangePtrOutput) Connections() ExchangeConnectionArra
 	}).(ExchangeConnectionArrayOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesExchangePtrOutput) PeerAsn() SubResourcePtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesExchange) *SubResource {
 		if v == nil {
@@ -1950,10 +1744,8 @@ func (o PeeringPropertiesExchangePtrOutput) PeerAsn() SubResourcePtrOutput {
 }
 
 type PeeringPropertiesExchangeResponse struct {
-	// The set of connections that constitute an exchange peering.
 	Connections []ExchangeConnectionResponse `pulumi:"connections"`
-	// The reference of the peer ASN.
-	PeerAsn *SubResourceResponse `pulumi:"peerAsn"`
+	PeerAsn     *SubResourceResponse         `pulumi:"peerAsn"`
 }
 
 // PeeringPropertiesExchangeResponseInput is an input type that accepts PeeringPropertiesExchangeResponseArgs and PeeringPropertiesExchangeResponseOutput values.
@@ -1968,10 +1760,8 @@ type PeeringPropertiesExchangeResponseInput interface {
 }
 
 type PeeringPropertiesExchangeResponseArgs struct {
-	// The set of connections that constitute an exchange peering.
 	Connections ExchangeConnectionResponseArrayInput `pulumi:"connections"`
-	// The reference of the peer ASN.
-	PeerAsn SubResourceResponsePtrInput `pulumi:"peerAsn"`
+	PeerAsn     SubResourceResponsePtrInput          `pulumi:"peerAsn"`
 }
 
 func (PeeringPropertiesExchangeResponseArgs) ElementType() reflect.Type {
@@ -2051,12 +1841,10 @@ func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResp
 	}).(PeeringPropertiesExchangeResponsePtrOutput)
 }
 
-// The set of connections that constitute an exchange peering.
 func (o PeeringPropertiesExchangeResponseOutput) Connections() ExchangeConnectionResponseArrayOutput {
 	return o.ApplyT(func(v PeeringPropertiesExchangeResponse) []ExchangeConnectionResponse { return v.Connections }).(ExchangeConnectionResponseArrayOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesExchangeResponseOutput) PeerAsn() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v PeeringPropertiesExchangeResponse) *SubResourceResponse { return v.PeerAsn }).(SubResourceResponsePtrOutput)
 }
@@ -2085,7 +1873,6 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) Elem() PeeringPropertiesExch
 	}).(PeeringPropertiesExchangeResponseOutput)
 }
 
-// The set of connections that constitute an exchange peering.
 func (o PeeringPropertiesExchangeResponsePtrOutput) Connections() ExchangeConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *PeeringPropertiesExchangeResponse) []ExchangeConnectionResponse {
 		if v == nil {
@@ -2095,7 +1882,6 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) Connections() ExchangeConnec
 	}).(ExchangeConnectionResponseArrayOutput)
 }
 
-// The reference of the peer ASN.
 func (o PeeringPropertiesExchangeResponsePtrOutput) PeerAsn() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *PeeringPropertiesExchangeResponse) *SubResourceResponse {
 		if v == nil {
@@ -2106,16 +1892,11 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) PeerAsn() SubResourceRespons
 }
 
 type PeeringServicePrefixEventResponse struct {
-	// The description of the event associated with a prefix.
 	EventDescription string `pulumi:"eventDescription"`
-	// The level of the event associated with a prefix.
-	EventLevel string `pulumi:"eventLevel"`
-	// The summary of the event associated with a prefix.
-	EventSummary string `pulumi:"eventSummary"`
-	// The timestamp of the event associated with a prefix.
-	EventTimestamp string `pulumi:"eventTimestamp"`
-	// The type of the event associated with a prefix.
-	EventType string `pulumi:"eventType"`
+	EventLevel       string `pulumi:"eventLevel"`
+	EventSummary     string `pulumi:"eventSummary"`
+	EventTimestamp   string `pulumi:"eventTimestamp"`
+	EventType        string `pulumi:"eventType"`
 }
 
 // PeeringServicePrefixEventResponseInput is an input type that accepts PeeringServicePrefixEventResponseArgs and PeeringServicePrefixEventResponseOutput values.
@@ -2130,16 +1911,11 @@ type PeeringServicePrefixEventResponseInput interface {
 }
 
 type PeeringServicePrefixEventResponseArgs struct {
-	// The description of the event associated with a prefix.
 	EventDescription pulumi.StringInput `pulumi:"eventDescription"`
-	// The level of the event associated with a prefix.
-	EventLevel pulumi.StringInput `pulumi:"eventLevel"`
-	// The summary of the event associated with a prefix.
-	EventSummary pulumi.StringInput `pulumi:"eventSummary"`
-	// The timestamp of the event associated with a prefix.
-	EventTimestamp pulumi.StringInput `pulumi:"eventTimestamp"`
-	// The type of the event associated with a prefix.
-	EventType pulumi.StringInput `pulumi:"eventType"`
+	EventLevel       pulumi.StringInput `pulumi:"eventLevel"`
+	EventSummary     pulumi.StringInput `pulumi:"eventSummary"`
+	EventTimestamp   pulumi.StringInput `pulumi:"eventTimestamp"`
+	EventType        pulumi.StringInput `pulumi:"eventType"`
 }
 
 func (PeeringServicePrefixEventResponseArgs) ElementType() reflect.Type {
@@ -2193,27 +1969,22 @@ func (o PeeringServicePrefixEventResponseOutput) ToPeeringServicePrefixEventResp
 	return o
 }
 
-// The description of the event associated with a prefix.
 func (o PeeringServicePrefixEventResponseOutput) EventDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServicePrefixEventResponse) string { return v.EventDescription }).(pulumi.StringOutput)
 }
 
-// The level of the event associated with a prefix.
 func (o PeeringServicePrefixEventResponseOutput) EventLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServicePrefixEventResponse) string { return v.EventLevel }).(pulumi.StringOutput)
 }
 
-// The summary of the event associated with a prefix.
 func (o PeeringServicePrefixEventResponseOutput) EventSummary() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServicePrefixEventResponse) string { return v.EventSummary }).(pulumi.StringOutput)
 }
 
-// The timestamp of the event associated with a prefix.
 func (o PeeringServicePrefixEventResponseOutput) EventTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServicePrefixEventResponse) string { return v.EventTimestamp }).(pulumi.StringOutput)
 }
 
-// The type of the event associated with a prefix.
 func (o PeeringServicePrefixEventResponseOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServicePrefixEventResponse) string { return v.EventType }).(pulumi.StringOutput)
 }
@@ -2239,7 +2010,6 @@ func (o PeeringServicePrefixEventResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PeeringServiceSku struct {
-	// The name of the peering service SKU.
 	Name *string `pulumi:"name"`
 }
 
@@ -2255,7 +2025,6 @@ type PeeringServiceSkuInput interface {
 }
 
 type PeeringServiceSkuArgs struct {
-	// The name of the peering service SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2336,7 +2105,6 @@ func (o PeeringServiceSkuOutput) ToPeeringServiceSkuPtrOutputWithContext(ctx con
 	}).(PeeringServiceSkuPtrOutput)
 }
 
-// The name of the peering service SKU.
 func (o PeeringServiceSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringServiceSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2365,7 +2133,6 @@ func (o PeeringServiceSkuPtrOutput) Elem() PeeringServiceSkuOutput {
 	}).(PeeringServiceSkuOutput)
 }
 
-// The name of the peering service SKU.
 func (o PeeringServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringServiceSku) *string {
 		if v == nil {
@@ -2376,7 +2143,6 @@ func (o PeeringServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type PeeringServiceSkuResponse struct {
-	// The name of the peering service SKU.
 	Name *string `pulumi:"name"`
 }
 
@@ -2392,7 +2158,6 @@ type PeeringServiceSkuResponseInput interface {
 }
 
 type PeeringServiceSkuResponseArgs struct {
-	// The name of the peering service SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2473,7 +2238,6 @@ func (o PeeringServiceSkuResponseOutput) ToPeeringServiceSkuResponsePtrOutputWit
 	}).(PeeringServiceSkuResponsePtrOutput)
 }
 
-// The name of the peering service SKU.
 func (o PeeringServiceSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringServiceSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2502,7 +2266,6 @@ func (o PeeringServiceSkuResponsePtrOutput) Elem() PeeringServiceSkuResponseOutp
 	}).(PeeringServiceSkuResponseOutput)
 }
 
-// The name of the peering service SKU.
 func (o PeeringServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringServiceSkuResponse) *string {
 		if v == nil {
@@ -2513,14 +2276,10 @@ func (o PeeringServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type PeeringSku struct {
-	// The family of the peering SKU.
 	Family *string `pulumi:"family"`
-	// The name of the peering SKU.
-	Name *string `pulumi:"name"`
-	// The size of the peering SKU.
-	Size *string `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier *string `pulumi:"tier"`
+	Name   *string `pulumi:"name"`
+	Size   *string `pulumi:"size"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // PeeringSkuInput is an input type that accepts PeeringSkuArgs and PeeringSkuOutput values.
@@ -2535,14 +2294,10 @@ type PeeringSkuInput interface {
 }
 
 type PeeringSkuArgs struct {
-	// The family of the peering SKU.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the peering SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The size of the peering SKU.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Size   pulumi.StringPtrInput `pulumi:"size"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PeeringSkuArgs) ElementType() reflect.Type {
@@ -2622,22 +2377,18 @@ func (o PeeringSkuOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Context) 
 	}).(PeeringSkuPtrOutput)
 }
 
-// The family of the peering SKU.
 func (o PeeringSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the peering SKU.
 func (o PeeringSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The size of the peering SKU.
 func (o PeeringSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the peering SKU.
 func (o PeeringSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2666,7 +2417,6 @@ func (o PeeringSkuPtrOutput) Elem() PeeringSkuOutput {
 	}).(PeeringSkuOutput)
 }
 
-// The family of the peering SKU.
 func (o PeeringSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSku) *string {
 		if v == nil {
@@ -2676,7 +2426,6 @@ func (o PeeringSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the peering SKU.
 func (o PeeringSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSku) *string {
 		if v == nil {
@@ -2686,7 +2435,6 @@ func (o PeeringSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the peering SKU.
 func (o PeeringSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSku) *string {
 		if v == nil {
@@ -2696,7 +2444,6 @@ func (o PeeringSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the peering SKU.
 func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSku) *string {
 		if v == nil {
@@ -2707,14 +2454,10 @@ func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type PeeringSkuResponse struct {
-	// The family of the peering SKU.
 	Family *string `pulumi:"family"`
-	// The name of the peering SKU.
-	Name *string `pulumi:"name"`
-	// The size of the peering SKU.
-	Size *string `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier *string `pulumi:"tier"`
+	Name   *string `pulumi:"name"`
+	Size   *string `pulumi:"size"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // PeeringSkuResponseInput is an input type that accepts PeeringSkuResponseArgs and PeeringSkuResponseOutput values.
@@ -2729,14 +2472,10 @@ type PeeringSkuResponseInput interface {
 }
 
 type PeeringSkuResponseArgs struct {
-	// The family of the peering SKU.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the peering SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The size of the peering SKU.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Size   pulumi.StringPtrInput `pulumi:"size"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PeeringSkuResponseArgs) ElementType() reflect.Type {
@@ -2816,22 +2555,18 @@ func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutputWithContext(ctx c
 	}).(PeeringSkuResponsePtrOutput)
 }
 
-// The family of the peering SKU.
 func (o PeeringSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the peering SKU.
 func (o PeeringSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The size of the peering SKU.
 func (o PeeringSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the peering SKU.
 func (o PeeringSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2860,7 +2595,6 @@ func (o PeeringSkuResponsePtrOutput) Elem() PeeringSkuResponseOutput {
 	}).(PeeringSkuResponseOutput)
 }
 
-// The family of the peering SKU.
 func (o PeeringSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSkuResponse) *string {
 		if v == nil {
@@ -2870,7 +2604,6 @@ func (o PeeringSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the peering SKU.
 func (o PeeringSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSkuResponse) *string {
 		if v == nil {
@@ -2880,7 +2613,6 @@ func (o PeeringSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the peering SKU.
 func (o PeeringSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSkuResponse) *string {
 		if v == nil {
@@ -2890,7 +2622,6 @@ func (o PeeringSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the peering SKU.
 func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSkuResponse) *string {
 		if v == nil {
@@ -2901,7 +2632,6 @@ func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SubResource struct {
-	// The identifier of the referenced resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -2917,7 +2647,6 @@ type SubResourceInput interface {
 }
 
 type SubResourceArgs struct {
-	// The identifier of the referenced resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2998,7 +2727,6 @@ func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context
 	}).(SubResourcePtrOutput)
 }
 
-// The identifier of the referenced resource.
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3027,7 +2755,6 @@ func (o SubResourcePtrOutput) Elem() SubResourceOutput {
 	}).(SubResourceOutput)
 }
 
-// The identifier of the referenced resource.
 func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResource) *string {
 		if v == nil {
@@ -3038,7 +2765,6 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SubResourceResponse struct {
-	// The identifier of the referenced resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -3054,7 +2780,6 @@ type SubResourceResponseInput interface {
 }
 
 type SubResourceResponseArgs struct {
-	// The identifier of the referenced resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -3135,7 +2860,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx
 	}).(SubResourceResponsePtrOutput)
 }
 
-// The identifier of the referenced resource.
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3164,7 +2888,6 @@ func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
 	}).(SubResourceResponseOutput)
 }
 
-// The identifier of the referenced resource.
 func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResourceResponse) *string {
 		if v == nil {

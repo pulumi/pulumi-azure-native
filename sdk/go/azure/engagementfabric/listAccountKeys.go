@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of the EngagementFabric account keys
-// API Version: 2018-09-01-preview.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
 	err := ctx.Invoke("azure-native:engagementfabric:listAccountKeys", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pul
 }
 
 type ListAccountKeysArgs struct {
-	// Account Name
-	AccountName string `pulumi:"accountName"`
-	// Resource Group Name
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The list of the EngagementFabric account keys
 type ListAccountKeysResult struct {
-	// Account keys
 	Value []KeyDescriptionResponse `pulumi:"value"`
 }

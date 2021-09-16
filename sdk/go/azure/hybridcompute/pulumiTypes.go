@@ -11,14 +11,10 @@ import (
 )
 
 type ErrorDetailResponse struct {
-	// The error's code.
-	Code string `pulumi:"code"`
-	// Additional error details.
+	Code    string                `pulumi:"code"`
 	Details []ErrorDetailResponse `pulumi:"details"`
-	// A human readable error message.
-	Message string `pulumi:"message"`
-	// Indicates which property in the request is responsible for the error.
-	Target *string `pulumi:"target"`
+	Message string                `pulumi:"message"`
+	Target  *string               `pulumi:"target"`
 }
 
 // ErrorDetailResponseInput is an input type that accepts ErrorDetailResponseArgs and ErrorDetailResponseOutput values.
@@ -33,14 +29,10 @@ type ErrorDetailResponseInput interface {
 }
 
 type ErrorDetailResponseArgs struct {
-	// The error's code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Additional error details.
+	Code    pulumi.StringInput            `pulumi:"code"`
 	Details ErrorDetailResponseArrayInput `pulumi:"details"`
-	// A human readable error message.
-	Message pulumi.StringInput `pulumi:"message"`
-	// Indicates which property in the request is responsible for the error.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Message pulumi.StringInput            `pulumi:"message"`
+	Target  pulumi.StringPtrInput         `pulumi:"target"`
 }
 
 func (ErrorDetailResponseArgs) ElementType() reflect.Type {
@@ -94,22 +86,18 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx co
 	return o
 }
 
-// The error's code.
 func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Additional error details.
 func (o ErrorDetailResponseOutput) Details() ErrorDetailResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
 }
 
-// A human readable error message.
 func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Indicates which property in the request is responsible for the error.
 func (o ErrorDetailResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -135,7 +123,6 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 }
 
 type HybridComputePrivateLinkScopeProperties struct {
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 }
 
@@ -151,7 +138,6 @@ type HybridComputePrivateLinkScopePropertiesInput interface {
 }
 
 type HybridComputePrivateLinkScopePropertiesArgs struct {
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 }
 
@@ -232,7 +218,6 @@ func (o HybridComputePrivateLinkScopePropertiesOutput) ToHybridComputePrivateLin
 	}).(HybridComputePrivateLinkScopePropertiesPtrOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 func (o HybridComputePrivateLinkScopePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputePrivateLinkScopeProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -261,7 +246,6 @@ func (o HybridComputePrivateLinkScopePropertiesPtrOutput) Elem() HybridComputePr
 	}).(HybridComputePrivateLinkScopePropertiesOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 func (o HybridComputePrivateLinkScopePropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputePrivateLinkScopeProperties) *string {
 		if v == nil {
@@ -272,11 +256,8 @@ func (o HybridComputePrivateLinkScopePropertiesPtrOutput) PublicNetworkAccess() 
 }
 
 type HybridComputePrivateLinkScopePropertiesResponse struct {
-	// The Guid id of the private link scope.
-	PrivateLinkScopeId string `pulumi:"privateLinkScopeId"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	PrivateLinkScopeId  string  `pulumi:"privateLinkScopeId"`
+	ProvisioningState   string  `pulumi:"provisioningState"`
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 }
 
@@ -292,11 +273,8 @@ type HybridComputePrivateLinkScopePropertiesResponseInput interface {
 }
 
 type HybridComputePrivateLinkScopePropertiesResponseArgs struct {
-	// The Guid id of the private link scope.
-	PrivateLinkScopeId pulumi.StringInput `pulumi:"privateLinkScopeId"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	PrivateLinkScopeId  pulumi.StringInput    `pulumi:"privateLinkScopeId"`
+	ProvisioningState   pulumi.StringInput    `pulumi:"provisioningState"`
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 }
 
@@ -377,17 +355,14 @@ func (o HybridComputePrivateLinkScopePropertiesResponseOutput) ToHybridComputePr
 	}).(HybridComputePrivateLinkScopePropertiesResponsePtrOutput)
 }
 
-// The Guid id of the private link scope.
 func (o HybridComputePrivateLinkScopePropertiesResponseOutput) PrivateLinkScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridComputePrivateLinkScopePropertiesResponse) string { return v.PrivateLinkScopeId }).(pulumi.StringOutput)
 }
 
-// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
 func (o HybridComputePrivateLinkScopePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridComputePrivateLinkScopePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 func (o HybridComputePrivateLinkScopePropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputePrivateLinkScopePropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -416,7 +391,6 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) Elem() HybridC
 	}).(HybridComputePrivateLinkScopePropertiesResponseOutput)
 }
 
-// The Guid id of the private link scope.
 func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) PrivateLinkScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputePrivateLinkScopePropertiesResponse) *string {
 		if v == nil {
@@ -426,7 +400,6 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) PrivateLinkSco
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
 func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputePrivateLinkScopePropertiesResponse) *string {
 		if v == nil {
@@ -436,7 +409,6 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) ProvisioningSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputePrivateLinkScopePropertiesResponse) *string {
 		if v == nil {
@@ -447,14 +419,10 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) PublicNetworkA
 }
 
 type LocationData struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
@@ -469,14 +437,10 @@ type LocationDataInput interface {
 }
 
 type LocationDataArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (LocationDataArgs) ElementType() reflect.Type {
@@ -556,22 +520,18 @@ func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Conte
 	}).(LocationDataPtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationData) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -600,7 +560,6 @@ func (o LocationDataPtrOutput) Elem() LocationDataOutput {
 	}).(LocationDataOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -610,7 +569,6 @@ func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -620,7 +578,6 @@ func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -630,7 +587,6 @@ func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -641,14 +597,10 @@ func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type LocationDataResponse struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // LocationDataResponseInput is an input type that accepts LocationDataResponseArgs and LocationDataResponseOutput values.
@@ -663,14 +615,10 @@ type LocationDataResponseInput interface {
 }
 
 type LocationDataResponseArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (LocationDataResponseArgs) ElementType() reflect.Type {
@@ -750,22 +698,18 @@ func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(c
 	}).(LocationDataResponsePtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataResponseOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationDataResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -794,7 +738,6 @@ func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
 	}).(LocationDataResponseOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -804,7 +747,6 @@ func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -814,7 +756,6 @@ func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -824,7 +765,6 @@ func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -835,14 +775,10 @@ func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type MachineExtensionInstanceViewResponse struct {
-	// The machine extension name.
-	Name string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+	Name               string                                      `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               string                                      `pulumi:"type"`
+	TypeHandlerVersion string                                      `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionInstanceViewResponseInput is an input type that accepts MachineExtensionInstanceViewResponseArgs and MachineExtensionInstanceViewResponseOutput values.
@@ -857,14 +793,10 @@ type MachineExtensionInstanceViewResponseInput interface {
 }
 
 type MachineExtensionInstanceViewResponseArgs struct {
-	// The machine extension name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringInput                                 `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringInput                                 `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringInput                                 `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionInstanceViewResponseArgs) ElementType() reflect.Type {
@@ -918,24 +850,20 @@ func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceVi
 	return o
 }
 
-// The machine extension name.
 func (o MachineExtensionInstanceViewResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionInstanceViewResponseOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponseStatus {
 		return v.Status
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionInstanceViewResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionInstanceViewResponseOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
@@ -961,16 +889,11 @@ func (o MachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 type MachineExtensionInstanceViewResponseStatus struct {
-	// The status code.
-	Code string `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          string `pulumi:"code"`
 	DisplayStatus string `pulumi:"displayStatus"`
-	// The level code.
-	Level string `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message string `pulumi:"message"`
-	// The time of the status.
-	Time string `pulumi:"time"`
+	Level         string `pulumi:"level"`
+	Message       string `pulumi:"message"`
+	Time          string `pulumi:"time"`
 }
 
 // MachineExtensionInstanceViewResponseStatusInput is an input type that accepts MachineExtensionInstanceViewResponseStatusArgs and MachineExtensionInstanceViewResponseStatusOutput values.
@@ -985,16 +908,11 @@ type MachineExtensionInstanceViewResponseStatusInput interface {
 }
 
 type MachineExtensionInstanceViewResponseStatusArgs struct {
-	// The status code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          pulumi.StringInput `pulumi:"code"`
 	DisplayStatus pulumi.StringInput `pulumi:"displayStatus"`
-	// The level code.
-	Level pulumi.StringInput `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The time of the status.
-	Time pulumi.StringInput `pulumi:"time"`
+	Level         pulumi.StringInput `pulumi:"level"`
+	Message       pulumi.StringInput `pulumi:"message"`
+	Time          pulumi.StringInput `pulumi:"time"`
 }
 
 func (MachineExtensionInstanceViewResponseStatusArgs) ElementType() reflect.Type {
@@ -1074,27 +992,22 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewResponseStatusOutput) DisplayStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.DisplayStatus }).(pulumi.StringOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Level }).(pulumi.StringOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Time }).(pulumi.StringOutput)
 }
@@ -1123,7 +1036,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExten
 	}).(MachineExtensionInstanceViewResponseStatusOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -1133,7 +1045,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -1143,7 +1054,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -1153,7 +1063,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -1163,7 +1072,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -1174,14 +1082,10 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.Strin
 }
 
 type MachineExtensionPropertiesResponseInstanceView struct {
-	// The machine extension name.
-	Name string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+	Name               string                                      `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               string                                      `pulumi:"type"`
+	TypeHandlerVersion string                                      `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionPropertiesResponseInstanceViewInput is an input type that accepts MachineExtensionPropertiesResponseInstanceViewArgs and MachineExtensionPropertiesResponseInstanceViewOutput values.
@@ -1196,14 +1100,10 @@ type MachineExtensionPropertiesResponseInstanceViewInput interface {
 }
 
 type MachineExtensionPropertiesResponseInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringInput                                 `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringInput                                 `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringInput                                 `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
@@ -1283,24 +1183,20 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtension
 	}).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
 		return v.Status
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
@@ -1329,7 +1225,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Elem() MachineE
 	}).(MachineExtensionPropertiesResponseInstanceViewOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1339,7 +1234,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
 		if v == nil {
@@ -1349,7 +1243,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Status() Machin
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1359,7 +1252,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1370,7 +1262,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVers
 }
 
 type MachineIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -1386,7 +1277,6 @@ type MachineIdentityInput interface {
 }
 
 type MachineIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1467,7 +1357,6 @@ func (o MachineIdentityOutput) ToMachineIdentityPtrOutputWithContext(ctx context
 	}).(MachineIdentityPtrOutput)
 }
 
-// The identity type.
 func (o MachineIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1496,7 +1385,6 @@ func (o MachineIdentityPtrOutput) Elem() MachineIdentityOutput {
 	}).(MachineIdentityOutput)
 }
 
-// The identity type.
 func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineIdentity) *string {
 		if v == nil {
@@ -1507,7 +1395,6 @@ func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MachinePropertiesResponseOsProfile struct {
-	// Specifies the host OS name of the hybrid machine.
 	ComputerName string `pulumi:"computerName"`
 }
 
@@ -1523,7 +1410,6 @@ type MachinePropertiesResponseOsProfileInput interface {
 }
 
 type MachinePropertiesResponseOsProfileArgs struct {
-	// Specifies the host OS name of the hybrid machine.
 	ComputerName pulumi.StringInput `pulumi:"computerName"`
 }
 
@@ -1604,7 +1490,6 @@ func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsP
 	}).(MachinePropertiesResponseOsProfilePtrOutput)
 }
 
-// Specifies the host OS name of the hybrid machine.
 func (o MachinePropertiesResponseOsProfileOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v MachinePropertiesResponseOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
@@ -1633,7 +1518,6 @@ func (o MachinePropertiesResponseOsProfilePtrOutput) Elem() MachinePropertiesRes
 	}).(MachinePropertiesResponseOsProfileOutput)
 }
 
-// Specifies the host OS name of the hybrid machine.
 func (o MachinePropertiesResponseOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) *string {
 		if v == nil {
@@ -1644,12 +1528,9 @@ func (o MachinePropertiesResponseOsProfilePtrOutput) ComputerName() pulumi.Strin
 }
 
 type MachineResponseIdentity struct {
-	// The identity's principal id.
-	PrincipalId string `pulumi:"principalId"`
-	// The identity's tenant id.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // MachineResponseIdentityInput is an input type that accepts MachineResponseIdentityArgs and MachineResponseIdentityOutput values.
@@ -1664,12 +1545,9 @@ type MachineResponseIdentityInput interface {
 }
 
 type MachineResponseIdentityArgs struct {
-	// The identity's principal id.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The identity's tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MachineResponseIdentityArgs) ElementType() reflect.Type {
@@ -1749,17 +1627,14 @@ func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutputWithCon
 	}).(MachineResponseIdentityPtrOutput)
 }
 
-// The identity's principal id.
 func (o MachineResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The identity's tenant id.
 func (o MachineResponseIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o MachineResponseIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1788,7 +1663,6 @@ func (o MachineResponseIdentityPtrOutput) Elem() MachineResponseIdentityOutput {
 	}).(MachineResponseIdentityOutput)
 }
 
-// The identity's principal id.
 func (o MachineResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {
@@ -1798,7 +1672,6 @@ func (o MachineResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity's tenant id.
 func (o MachineResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {
@@ -1808,7 +1681,6 @@ func (o MachineResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o MachineResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {
@@ -1819,9 +1691,7 @@ func (o MachineResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointConnectionProperties struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   *PrivateEndpointProperty                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -1837,9 +1707,7 @@ type PrivateEndpointConnectionPropertiesInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyPtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   PrivateEndpointPropertyPtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -1920,12 +1788,10 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPropertyPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointProperty { return v.PrivateEndpoint }).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionStateProperty {
 		return v.PrivateLinkServiceConnectionState
@@ -1956,7 +1822,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPropertyPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpointProperty {
 		if v == nil {
@@ -1966,7 +1831,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateE
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionStateProperty {
 		if v == nil {
@@ -1977,12 +1841,9 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 }
 
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
@@ -1997,12 +1858,9 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2082,21 +1940,18 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -2125,7 +1980,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndp
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
 		if v == nil {
@@ -2135,7 +1989,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		if v == nil {
@@ -2145,7 +1998,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *string {
 		if v == nil {
@@ -2156,7 +2008,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState(
 }
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -2172,7 +2023,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2253,7 +2103,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2282,7 +2131,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -2293,7 +2141,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -2309,7 +2156,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2390,7 +2236,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2419,7 +2264,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -2430,10 +2274,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -2448,10 +2290,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -2531,12 +2371,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2565,7 +2403,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -2575,7 +2412,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -2586,12 +2422,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -2606,12 +2439,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -2691,17 +2521,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2730,7 +2557,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2740,7 +2566,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2750,7 +2575,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -2761,17 +2585,11 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2787,17 +2605,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2878,32 +2690,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2932,7 +2738,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2942,7 +2747,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2952,7 +2756,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2962,7 +2765,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2972,7 +2774,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2982,7 +2783,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

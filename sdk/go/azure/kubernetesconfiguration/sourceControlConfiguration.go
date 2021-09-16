@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The SourceControl Configuration object returned in Get & Put response.
-// API Version: 2021-03-01.
 type SourceControlConfiguration struct {
 	pulumi.CustomResourceState
 

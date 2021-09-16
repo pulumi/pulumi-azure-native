@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-10-01.
 func LookupHyperVCollector(ctx *pulumi.Context, args *LookupHyperVCollectorArgs, opts ...pulumi.InvokeOption) (*LookupHyperVCollectorResult, error) {
 	var rv LookupHyperVCollectorResult
 	err := ctx.Invoke("azure-native:migrate:getHyperVCollector", args, &rv, opts...)
@@ -18,12 +17,9 @@ func LookupHyperVCollector(ctx *pulumi.Context, args *LookupHyperVCollectorArgs,
 }
 
 type LookupHyperVCollectorArgs struct {
-	// Unique name of a Hyper-V collector within a project.
 	HyperVCollectorName string `pulumi:"hyperVCollectorName"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ProjectName         string `pulumi:"projectName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 type LookupHyperVCollectorResult struct {

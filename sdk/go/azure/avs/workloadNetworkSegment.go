@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Segment
-// API Version: 2020-07-17-preview.
 type WorkloadNetworkSegment struct {
 	pulumi.CustomResourceState
 

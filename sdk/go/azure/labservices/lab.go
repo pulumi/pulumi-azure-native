@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a lab.
-// API Version: 2018-10-15.
 type Lab struct {
 	pulumi.CustomResourceState
 

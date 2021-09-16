@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights component linked storage accounts
-// API Version: 2020-03-01-preview.
 type ComponentLinkedStorageAccount struct {
 	pulumi.CustomResourceState
 

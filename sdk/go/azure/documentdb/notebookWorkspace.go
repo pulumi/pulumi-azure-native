@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A notebook workspace resource
-// API Version: 2021-03-15.
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 

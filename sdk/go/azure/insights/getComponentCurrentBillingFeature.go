@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights component billing features
-// API Version: 2015-05-01.
 func LookupComponentCurrentBillingFeature(ctx *pulumi.Context, args *LookupComponentCurrentBillingFeatureArgs, opts ...pulumi.InvokeOption) (*LookupComponentCurrentBillingFeatureResult, error) {
 	var rv LookupComponentCurrentBillingFeatureResult
 	err := ctx.Invoke("azure-native:insights:getComponentCurrentBillingFeature", args, &rv, opts...)
@@ -19,16 +17,12 @@ func LookupComponentCurrentBillingFeature(ctx *pulumi.Context, args *LookupCompo
 }
 
 type LookupComponentCurrentBillingFeatureArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // An Application Insights component billing features
 type LookupComponentCurrentBillingFeatureResult struct {
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
-	CurrentBillingFeatures []string `pulumi:"currentBillingFeatures"`
-	// An Application Insights component daily data volume cap
-	DataVolumeCap *ApplicationInsightsComponentDataVolumeCapResponse `pulumi:"dataVolumeCap"`
+	CurrentBillingFeatures []string                                           `pulumi:"currentBillingFeatures"`
+	DataVolumeCap          *ApplicationInsightsComponentDataVolumeCapResponse `pulumi:"dataVolumeCap"`
 }

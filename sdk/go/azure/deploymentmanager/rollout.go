@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the PUT rollout request body.
-// API Version: 2019-11-01-preview.
 type Rollout struct {
 	pulumi.CustomResourceState
 

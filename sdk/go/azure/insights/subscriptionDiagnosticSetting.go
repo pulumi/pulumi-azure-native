@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The subscription diagnostic setting resource.
-// API Version: 2017-05-01-preview.
 type SubscriptionDiagnosticSetting struct {
 	pulumi.CustomResourceState
 

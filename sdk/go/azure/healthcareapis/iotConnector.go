@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Connector definition.
-// API Version: 2021-06-01-preview.
 type IotConnector struct {
 	pulumi.CustomResourceState
 

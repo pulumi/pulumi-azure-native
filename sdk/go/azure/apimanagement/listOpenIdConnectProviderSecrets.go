@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-// API Version: 2020-12-01.
 func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConnectProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListOpenIdConnectProviderSecretsResult, error) {
 	var rv ListOpenIdConnectProviderSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listOpenIdConnectProviderSecrets", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConne
 }
 
 type ListOpenIdConnectProviderSecretsArgs struct {
-	// Identifier of the OpenID Connect Provider.
-	Opid string `pulumi:"opid"`
-	// The name of the resource group.
+	Opid              string `pulumi:"opid"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 type ListOpenIdConnectProviderSecretsResult struct {
-	// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 	ClientSecret *string `pulumi:"clientSecret"`
 }

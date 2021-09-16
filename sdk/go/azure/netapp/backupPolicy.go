@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup policy information
-// API Version: 2020-12-01.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

@@ -11,7 +11,6 @@ import (
 )
 
 type ControllerConnectionDetailsResponse struct {
-	// Base class for types that supply values used to connect to container orchestrators
 	OrchestratorSpecificConnectionDetails *KubernetesConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
@@ -27,7 +26,6 @@ type ControllerConnectionDetailsResponseInput interface {
 }
 
 type ControllerConnectionDetailsResponseArgs struct {
-	// Base class for types that supply values used to connect to container orchestrators
 	OrchestratorSpecificConnectionDetails KubernetesConnectionDetailsResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
@@ -82,7 +80,6 @@ func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetails
 	return o
 }
 
-// Base class for types that supply values used to connect to container orchestrators
 func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() KubernetesConnectionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
 		return v.OrchestratorSpecificConnectionDetails
@@ -110,11 +107,8 @@ func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type KubernetesConnectionDetailsResponse struct {
-	// Gets the Instance type.
-	// Expected value is 'Kubernetes'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets the kubeconfig for the cluster.
-	KubeConfig *string `pulumi:"kubeConfig"`
+	InstanceType string  `pulumi:"instanceType"`
+	KubeConfig   *string `pulumi:"kubeConfig"`
 }
 
 // KubernetesConnectionDetailsResponseInput is an input type that accepts KubernetesConnectionDetailsResponseArgs and KubernetesConnectionDetailsResponseOutput values.
@@ -129,11 +123,8 @@ type KubernetesConnectionDetailsResponseInput interface {
 }
 
 type KubernetesConnectionDetailsResponseArgs struct {
-	// Gets the Instance type.
-	// Expected value is 'Kubernetes'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets the kubeconfig for the cluster.
-	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
+	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
+	KubeConfig   pulumi.StringPtrInput `pulumi:"kubeConfig"`
 }
 
 func (KubernetesConnectionDetailsResponseArgs) ElementType() reflect.Type {
@@ -213,13 +204,10 @@ func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetails
 	}).(KubernetesConnectionDetailsResponsePtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Kubernetes'.
 func (o KubernetesConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets the kubeconfig for the cluster.
 func (o KubernetesConnectionDetailsResponseOutput) KubeConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
@@ -248,8 +236,6 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) Elem() KubernetesConnectio
 	}).(KubernetesConnectionDetailsResponseOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Kubernetes'.
 func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
 		if v == nil {
@@ -259,7 +245,6 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the kubeconfig for the cluster.
 func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
 		if v == nil {
@@ -270,9 +255,7 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.String
 }
 
 type Sku struct {
-	// The name of the SKU for Azure Dev Spaces Controller.
-	Name string `pulumi:"name"`
-	// The tier of the SKU for Azure Dev Spaces Controller.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -288,9 +271,7 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The name of the SKU for Azure Dev Spaces Controller.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the SKU for Azure Dev Spaces Controller.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -371,12 +352,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU for Azure Dev Spaces Controller.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the SKU for Azure Dev Spaces Controller.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -405,7 +384,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The name of the SKU for Azure Dev Spaces Controller.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -415,7 +393,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU for Azure Dev Spaces Controller.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -426,9 +403,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The name of the SKU for Azure Dev Spaces Controller.
-	Name string `pulumi:"name"`
-	// The tier of the SKU for Azure Dev Spaces Controller.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -444,9 +419,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The name of the SKU for Azure Dev Spaces Controller.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the SKU for Azure Dev Spaces Controller.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -527,12 +500,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU for Azure Dev Spaces Controller.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the SKU for Azure Dev Spaces Controller.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -561,7 +532,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The name of the SKU for Azure Dev Spaces Controller.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -571,7 +541,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU for Azure Dev Spaces Controller.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

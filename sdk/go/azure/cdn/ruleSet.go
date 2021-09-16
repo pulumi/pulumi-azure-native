@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly RuleSet name mapping to the any RuleSet or secret related information.
-// API Version: 2020-09-01.
 type RuleSet struct {
 	pulumi.CustomResourceState
 

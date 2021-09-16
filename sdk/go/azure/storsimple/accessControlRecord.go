@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access control record.
-// API Version: 2017-06-01.
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 

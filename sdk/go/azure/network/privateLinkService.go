@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private link service resource.
-// API Version: 2020-11-01.
 type PrivateLinkService struct {
 	pulumi.CustomResourceState
 

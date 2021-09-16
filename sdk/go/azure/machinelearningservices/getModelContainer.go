@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
 func LookupModelContainer(ctx *pulumi.Context, args *LookupModelContainerArgs, opts ...pulumi.InvokeOption) (*LookupModelContainerResult, error) {
 	var rv LookupModelContainerResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getModelContainer", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupModelContainer(ctx *pulumi.Context, args *LookupModelContainerArgs, o
 }
 
 type LookupModelContainerArgs struct {
-	// Container name.
-	Name string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Azure Resource Manager resource envelope.
 type LookupModelContainerResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	Id         string                 `pulumi:"id"`
+	Name       string                 `pulumi:"name"`
 	Properties ModelContainerResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse     `pulumi:"systemData"`
+	Type       string                 `pulumi:"type"`
 }

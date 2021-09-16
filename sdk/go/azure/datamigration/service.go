@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Database Migration Service resource
-// API Version: 2018-04-19.
 type Service struct {
 	pulumi.CustomResourceState
 

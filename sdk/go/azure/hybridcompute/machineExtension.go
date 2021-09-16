@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Machine Extension.
-// API Version: 2020-08-02.
 type MachineExtension struct {
 	pulumi.CustomResourceState
 

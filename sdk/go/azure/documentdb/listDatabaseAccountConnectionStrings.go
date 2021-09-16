@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connection strings for the given database account.
-// API Version: 2021-03-15.
 func ListDatabaseAccountConnectionStrings(ctx *pulumi.Context, args *ListDatabaseAccountConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountConnectionStringsResult, error) {
 	var rv ListDatabaseAccountConnectionStringsResult
 	err := ctx.Invoke("azure-native:documentdb:listDatabaseAccountConnectionStrings", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListDatabaseAccountConnectionStrings(ctx *pulumi.Context, args *ListDatabas
 }
 
 type ListDatabaseAccountConnectionStringsArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The connection strings for the given database account.
 type ListDatabaseAccountConnectionStringsResult struct {
-	// An array that contains the connection strings for the Cosmos DB account.
 	ConnectionStrings []DatabaseAccountConnectionStringResponse `pulumi:"connectionStrings"`
 }

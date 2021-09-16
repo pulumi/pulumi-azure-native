@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The security automation resource.
-// API Version: 2019-01-01-preview.
 type Automation struct {
 	pulumi.CustomResourceState
 

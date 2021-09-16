@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The EngagementFabric channel
-// API Version: 2018-09-01-preview.
 type Channel struct {
 	pulumi.CustomResourceState
 

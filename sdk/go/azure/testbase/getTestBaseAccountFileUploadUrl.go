@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The URL response
-// API Version: 2020-12-16-preview.
 func GetTestBaseAccountFileUploadUrl(ctx *pulumi.Context, args *GetTestBaseAccountFileUploadUrlArgs, opts ...pulumi.InvokeOption) (*GetTestBaseAccountFileUploadUrlResult, error) {
 	var rv GetTestBaseAccountFileUploadUrlResult
 	err := ctx.Invoke("azure-native:testbase:getTestBaseAccountFileUploadUrl", args, &rv, opts...)
@@ -19,18 +17,13 @@ func GetTestBaseAccountFileUploadUrl(ctx *pulumi.Context, args *GetTestBaseAccou
 }
 
 type GetTestBaseAccountFileUploadUrlArgs struct {
-	// The custom file name of the uploaded blob.
-	BlobName *string `pulumi:"blobName"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
-	TestBaseAccountName string `pulumi:"testBaseAccountName"`
+	BlobName            *string `pulumi:"blobName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	TestBaseAccountName string  `pulumi:"testBaseAccountName"`
 }
 
 // The URL response
 type GetTestBaseAccountFileUploadUrlResult struct {
-	// The blob path of the uploaded package. It will be used as the 'blobPath' property of PackageResource.
-	BlobPath string `pulumi:"blobPath"`
-	// The URL used for uploading the package.
+	BlobPath  string `pulumi:"blobPath"`
 	UploadUrl string `pulumi:"uploadUrl"`
 }

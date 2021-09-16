@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Policy.
-// API Version: 2018-09-15.
 type Policy struct {
 	pulumi.CustomResourceState
 

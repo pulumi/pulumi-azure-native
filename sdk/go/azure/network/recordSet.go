@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS record set (a collection of DNS records with the same name and type).
-// API Version: 2018-05-01.
 type RecordSet struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-11-20.
 func LookupSkusNestedResourceTypeFirst(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeFirstArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeFirstResult, error) {
 	var rv LookupSkusNestedResourceTypeFirstResult
 	err := ctx.Invoke("azure-native:providerhub:getSkusNestedResourceTypeFirst", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupSkusNestedResourceTypeFirst(ctx *pulumi.Context, args *LookupSkusNest
 }
 
 type LookupSkusNestedResourceTypeFirstArgs struct {
-	// The first child resource type.
 	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
-	// The SKU.
-	Sku string `pulumi:"sku"`
+	ProviderNamespace       string `pulumi:"providerNamespace"`
+	ResourceType            string `pulumi:"resourceType"`
+	Sku                     string `pulumi:"sku"`
 }
 
 type LookupSkusNestedResourceTypeFirstResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
+	Id         string                        `pulumi:"id"`
 	Name       string                        `pulumi:"name"`
 	Properties SkuResourceResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                        `pulumi:"type"`
 }

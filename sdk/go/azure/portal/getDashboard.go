@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The shared dashboard resource definition.
-// API Version: 2020-09-01-preview.
 func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pulumi.InvokeOption) (*LookupDashboardResult, error) {
 	var rv LookupDashboardResult
 	err := ctx.Invoke("azure-native:portal:getDashboard", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 }
 
 type LookupDashboardArgs struct {
-	// The name of the dashboard.
-	DashboardName string `pulumi:"dashboardName"`
-	// The name of the resource group.
+	DashboardName     string `pulumi:"dashboardName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The shared dashboard resource definition.
 type LookupDashboardResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The dashboard lenses.
-	Lenses []DashboardLensResponse `pulumi:"lenses"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// The dashboard metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id       string                  `pulumi:"id"`
+	Lenses   []DashboardLensResponse `pulumi:"lenses"`
+	Location string                  `pulumi:"location"`
+	Metadata map[string]interface{}  `pulumi:"metadata"`
+	Name     string                  `pulumi:"name"`
+	Tags     map[string]string       `pulumi:"tags"`
+	Type     string                  `pulumi:"type"`
 }

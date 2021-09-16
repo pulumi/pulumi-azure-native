@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a database on the RedisEnterprise cluster
-// API Version: 2021-03-01.
 type Database struct {
 	pulumi.CustomResourceState
 

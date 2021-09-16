@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A cluster resource
-// API Version: 2020-03-20.
 type Cluster struct {
 	pulumi.CustomResourceState
 

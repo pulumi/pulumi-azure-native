@@ -113,18 +113,13 @@ func removeCommentsFromVersionedPkgs(pkgSpec schema.PackageSpec) *schema.Package
 			props[pn] = p
 		}
 		t.Description = ""
-		if isVersioned(n) {
-			t.Properties = props
-		}
+		t.Properties = props
 		types[n] = t
 	}
 	pkgSpec.Types = types
 	functions := map[string]schema.FunctionSpec{}
 	for n, f := range pkgSpec.Functions {
-		if !isVersioned(n) {
-			functions[n] = f
-			continue
-		}
+		f.Description = ""
 		if f.Inputs != nil {
 			inputs := map[string]schema.PropertySpec{}
 			for pn, p := range f.Inputs.Properties {
@@ -141,7 +136,6 @@ func removeCommentsFromVersionedPkgs(pkgSpec schema.PackageSpec) *schema.Package
 			}
 			f.Outputs.Properties = outputs
 		}
-		f.Description = ""
 		functions[n] = f
 	}
 	pkgSpec.Functions = functions
@@ -157,8 +151,8 @@ func removeCommentsFromVersionedPkgs(pkgSpec schema.PackageSpec) *schema.Package
 			p.Description = ""
 			properties[pn] = p
 		}
+		r.Description = ""
 		if isVersioned(n) {
-			r.Description = ""
 			r.InputProperties = inputProperties
 			r.Properties = properties
 		}

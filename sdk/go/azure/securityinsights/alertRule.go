@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Alert rule.
-// API Version: 2020-01-01.
-//
 // Deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
 type AlertRule struct {
 	pulumi.CustomResourceState

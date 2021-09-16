@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role management policy
-// API Version: 2020-10-01-preview.
 func LookupRoleManagementPolicyAssignment(ctx *pulumi.Context, args *LookupRoleManagementPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyAssignmentResult, error) {
 	var rv LookupRoleManagementPolicyAssignmentResult
 	err := ctx.Invoke("azure-native:authorization:getRoleManagementPolicyAssignment", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupRoleManagementPolicyAssignment(ctx *pulumi.Context, args *LookupRoleM
 }
 
 type LookupRoleManagementPolicyAssignmentArgs struct {
-	// The name of format {guid_guid} the role management policy assignment to get.
 	RoleManagementPolicyAssignmentName string `pulumi:"roleManagementPolicyAssignmentName"`
-	// The scope of the role management policy.
-	Scope string `pulumi:"scope"`
+	Scope                              string `pulumi:"scope"`
 }
 
 // Role management policy
 type LookupRoleManagementPolicyAssignmentResult struct {
-	// The role management policy Id.
-	Id string `pulumi:"id"`
-	// The role management policy name.
-	Name string `pulumi:"name"`
-	// Additional properties of scope, role definition and policy
+	Id                         string                             `pulumi:"id"`
+	Name                       string                             `pulumi:"name"`
 	PolicyAssignmentProperties PolicyAssignmentPropertiesResponse `pulumi:"policyAssignmentProperties"`
-	// The policy id role management policy assignment.
-	PolicyId *string `pulumi:"policyId"`
-	// The role definition of management policy assignment.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role management policy scope.
-	Scope *string `pulumi:"scope"`
-	// The role management policy type.
-	Type string `pulumi:"type"`
+	PolicyId                   *string                            `pulumi:"policyId"`
+	RoleDefinitionId           *string                            `pulumi:"roleDefinitionId"`
+	Scope                      *string                            `pulumi:"scope"`
+	Type                       string                             `pulumi:"type"`
 }

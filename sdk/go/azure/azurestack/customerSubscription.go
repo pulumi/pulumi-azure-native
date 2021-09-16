@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription.
-// API Version: 2017-06-01.
 type CustomerSubscription struct {
 	pulumi.CustomResourceState
 

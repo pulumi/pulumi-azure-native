@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Protection profile details.
-// API Version: 2018-07-10.
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 

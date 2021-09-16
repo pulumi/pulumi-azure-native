@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents office data connector.
-// API Version: 2020-01-01.
 func LookupOfficeDataConnector(ctx *pulumi.Context, args *LookupOfficeDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupOfficeDataConnectorResult, error) {
 	var rv LookupOfficeDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights:getOfficeDataConnector", args, &rv, opts...)
@@ -19,29 +17,18 @@ func LookupOfficeDataConnector(ctx *pulumi.Context, args *LookupOfficeDataConnec
 }
 
 type LookupOfficeDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	DataConnectorId   string `pulumi:"dataConnectorId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Represents office data connector.
 type LookupOfficeDataConnectorResult struct {
-	// The available data types for the connector.
 	DataTypes *OfficeDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'Office365'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag      *string                               `pulumi:"etag"`
+	Id        string                                `pulumi:"id"`
+	Kind      string                                `pulumi:"kind"`
+	Name      string                                `pulumi:"name"`
+	TenantId  *string                               `pulumi:"tenantId"`
+	Type      string                                `pulumi:"type"`
 }

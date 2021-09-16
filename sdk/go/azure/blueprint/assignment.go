@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a blueprint assignment.
-// API Version: 2018-11-01-preview.
 type Assignment struct {
 	pulumi.CustomResourceState
 

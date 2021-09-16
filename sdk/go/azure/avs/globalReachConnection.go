@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A global reach connection resource
-// API Version: 2020-07-17-preview.
 type GlobalReachConnection struct {
 	pulumi.CustomResourceState
 

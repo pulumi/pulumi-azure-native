@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB database account.
-// API Version: 2021-03-15.
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 

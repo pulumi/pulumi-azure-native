@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A provider instance associated with a SAP monitor.
-// API Version: 2020-02-07-preview.
 type ProviderInstance struct {
 	pulumi.CustomResourceState
 

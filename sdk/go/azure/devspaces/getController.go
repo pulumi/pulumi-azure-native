@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2019-04-01.
 func LookupController(ctx *pulumi.Context, args *LookupControllerArgs, opts ...pulumi.InvokeOption) (*LookupControllerResult, error) {
 	var rv LookupControllerResult
 	err := ctx.Invoke("azure-native:devspaces:getController", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupController(ctx *pulumi.Context, args *LookupControllerArgs, opts ...p
 }
 
 type LookupControllerArgs struct {
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupControllerResult struct {
-	// DNS name for accessing DataPlane services
-	DataPlaneFqdn string `pulumi:"dataPlaneFqdn"`
-	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-	HostSuffix string `pulumi:"hostSuffix"`
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// Region where the Azure resource is located.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Provisioning state of the Azure Dev Spaces Controller.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponse `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// DNS of the target container host's API server
-	TargetContainerHostApiServerFqdn string `pulumi:"targetContainerHostApiServerFqdn"`
-	// Resource ID of the target container host
-	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	DataPlaneFqdn                    string            `pulumi:"dataPlaneFqdn"`
+	HostSuffix                       string            `pulumi:"hostSuffix"`
+	Id                               string            `pulumi:"id"`
+	Location                         string            `pulumi:"location"`
+	Name                             string            `pulumi:"name"`
+	ProvisioningState                string            `pulumi:"provisioningState"`
+	Sku                              SkuResponse       `pulumi:"sku"`
+	Tags                             map[string]string `pulumi:"tags"`
+	TargetContainerHostApiServerFqdn string            `pulumi:"targetContainerHostApiServerFqdn"`
+	TargetContainerHostResourceId    string            `pulumi:"targetContainerHostResourceId"`
+	Type                             string            `pulumi:"type"`
 }

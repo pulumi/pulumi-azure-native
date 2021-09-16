@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an incident comment
-// API Version: 2021-03-01-preview.
 type IncidentComment struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Private DNS zone.
-// API Version: 2020-06-01.
 type PrivateZone struct {
 	pulumi.CustomResourceState
 

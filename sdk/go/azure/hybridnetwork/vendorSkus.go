@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sku sub resource.
-// API Version: 2020-01-01-preview.
 type VendorSkus struct {
 	pulumi.CustomResourceState
 

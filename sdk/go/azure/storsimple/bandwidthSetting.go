@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The bandwidth setting.
-// API Version: 2017-06-01.
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 

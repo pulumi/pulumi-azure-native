@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the proximity placement group.
-// API Version: 2020-12-01.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 

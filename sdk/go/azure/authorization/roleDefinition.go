@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role definition.
-// API Version: 2018-01-01-preview.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 

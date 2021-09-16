@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a relation between two resources
-// API Version: 2021-03-01-preview.
 func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArgs, opts ...pulumi.InvokeOption) (*LookupIncidentRelationResult, error) {
 	var rv LookupIncidentRelationResult
 	err := ctx.Invoke("azure-native:securityinsights:getIncidentRelation", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArg
 }
 
 type LookupIncidentRelationArgs struct {
-	// Incident ID
-	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	IncidentId                          string `pulumi:"incidentId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// Relation Name
-	RelationName string `pulumi:"relationName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	RelationName                        string `pulumi:"relationName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents a relation between two resources
 type LookupIncidentRelationResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The resource ID of the related resource
-	RelatedResourceId string `pulumi:"relatedResourceId"`
-	// The resource kind of the related resource
-	RelatedResourceKind string `pulumi:"relatedResourceKind"`
-	// The name of the related resource
-	RelatedResourceName string `pulumi:"relatedResourceName"`
-	// The resource type of the related resource
-	RelatedResourceType string `pulumi:"relatedResourceType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag                *string            `pulumi:"etag"`
+	Id                  string             `pulumi:"id"`
+	Name                string             `pulumi:"name"`
+	RelatedResourceId   string             `pulumi:"relatedResourceId"`
+	RelatedResourceKind string             `pulumi:"relatedResourceKind"`
+	RelatedResourceName string             `pulumi:"relatedResourceName"`
+	RelatedResourceType string             `pulumi:"relatedResourceType"`
+	SystemData          SystemDataResponse `pulumi:"systemData"`
+	Type                string             `pulumi:"type"`
 }

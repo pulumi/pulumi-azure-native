@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of ARM tracked top level resource.
-// API Version: 2021-04-01.
 func LookupDataCollectionEndpoint(ctx *pulumi.Context, args *LookupDataCollectionEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionEndpointResult, error) {
 	var rv LookupDataCollectionEndpointResult
 	err := ctx.Invoke("azure-native:insights:getDataCollectionEndpoint", args, &rv, opts...)
@@ -19,40 +17,24 @@ func LookupDataCollectionEndpoint(ctx *pulumi.Context, args *LookupDataCollectio
 }
 
 type LookupDataCollectionEndpointArgs struct {
-	// The name of the data collection endpoint. The name is case insensitive.
 	DataCollectionEndpointName string `pulumi:"dataCollectionEndpointName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 }
 
 // Definition of ARM tracked top level resource.
 type LookupDataCollectionEndpointResult struct {
-	// The endpoint used by agents to access their configuration.
 	ConfigurationAccess *DataCollectionEndpointResponseConfigurationAccess `pulumi:"configurationAccess"`
-	// Description of the data collection endpoint.
-	Description *string `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag string `pulumi:"etag"`
-	// Fully qualified ID of the resource.
-	Id string `pulumi:"id"`
-	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
-	ImmutableId *string `pulumi:"immutableId"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location string `pulumi:"location"`
-	// The endpoint used by clients to ingest logs.
-	LogsIngestion *DataCollectionEndpointResponseLogsIngestion `pulumi:"logsIngestion"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Network access control rules for the endpoints.
-	NetworkAcls *DataCollectionEndpointResponseNetworkAcls `pulumi:"networkAcls"`
-	// The resource provisioning state. This property is READ-ONLY.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData DataCollectionEndpointResourceResponseSystemData `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Description         *string                                            `pulumi:"description"`
+	Etag                string                                             `pulumi:"etag"`
+	Id                  string                                             `pulumi:"id"`
+	ImmutableId         *string                                            `pulumi:"immutableId"`
+	Kind                *string                                            `pulumi:"kind"`
+	Location            string                                             `pulumi:"location"`
+	LogsIngestion       *DataCollectionEndpointResponseLogsIngestion       `pulumi:"logsIngestion"`
+	Name                string                                             `pulumi:"name"`
+	NetworkAcls         *DataCollectionEndpointResponseNetworkAcls         `pulumi:"networkAcls"`
+	ProvisioningState   string                                             `pulumi:"provisioningState"`
+	SystemData          DataCollectionEndpointResourceResponseSystemData   `pulumi:"systemData"`
+	Tags                map[string]string                                  `pulumi:"tags"`
+	Type                string                                             `pulumi:"type"`
 }

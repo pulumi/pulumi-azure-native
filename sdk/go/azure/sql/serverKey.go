@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server key.
-// API Version: 2020-11-01-preview.
 type ServerKey struct {
 	pulumi.CustomResourceState
 

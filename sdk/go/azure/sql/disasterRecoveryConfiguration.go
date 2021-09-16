@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a disaster recovery configuration.
-// API Version: 2014-04-01.
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 

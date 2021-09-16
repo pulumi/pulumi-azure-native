@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-// API Version: 2020-02-14.
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

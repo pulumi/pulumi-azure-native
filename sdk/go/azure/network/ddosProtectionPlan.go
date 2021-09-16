@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A DDoS protection plan in a resource group.
-// API Version: 2020-11-01.
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
 

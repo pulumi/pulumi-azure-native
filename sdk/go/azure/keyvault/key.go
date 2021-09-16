@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The key resource.
-// API Version: 2019-09-01.
 type Key struct {
 	pulumi.CustomResourceState
 

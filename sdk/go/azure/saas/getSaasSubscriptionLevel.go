@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SaaS REST API resource definition.
-// API Version: 2018-03-01-beta.
 func LookupSaasSubscriptionLevel(ctx *pulumi.Context, args *LookupSaasSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupSaasSubscriptionLevelResult, error) {
 	var rv LookupSaasSubscriptionLevelResult
 	err := ctx.Invoke("azure-native:saas:getSaasSubscriptionLevel", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupSaasSubscriptionLevel(ctx *pulumi.Context, args *LookupSaasSubscripti
 }
 
 type LookupSaasSubscriptionLevelArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // SaaS REST API resource definition.
 type LookupSaasSubscriptionLevelResult struct {
-	// The resource uri
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// saas properties
+	Id         string                         `pulumi:"id"`
+	Name       string                         `pulumi:"name"`
 	Properties SaasResourceResponseProperties `pulumi:"properties"`
-	// the resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string              `pulumi:"tags"`
+	Type       string                         `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Public IP Block
-// API Version: 2021-06-01.
 func LookupWorkloadNetworkPublicIP(ctx *pulumi.Context, args *LookupWorkloadNetworkPublicIPArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkPublicIPResult, error) {
 	var rv LookupWorkloadNetworkPublicIPResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkPublicIP", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupWorkloadNetworkPublicIP(ctx *pulumi.Context, args *LookupWorkloadNetw
 }
 
 type LookupWorkloadNetworkPublicIPArgs struct {
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
-	PublicIPId string `pulumi:"publicIPId"`
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  string `pulumi:"privateCloudName"`
+	PublicIPId        string `pulumi:"publicIPId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NSX Public IP Block
 type LookupWorkloadNetworkPublicIPResult struct {
-	// Display name of the Public IP Block.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Number of Public IPs requested.
+	DisplayName       *string  `pulumi:"displayName"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
 	NumberOfPublicIPs *float64 `pulumi:"numberOfPublicIPs"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// CIDR Block of the Public IP Block.
-	PublicIPBlock string `pulumi:"publicIPBlock"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	PublicIPBlock     string   `pulumi:"publicIPBlock"`
+	Type              string   `pulumi:"type"`
 }

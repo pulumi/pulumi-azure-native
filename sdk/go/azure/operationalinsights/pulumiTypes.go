@@ -11,13 +11,9 @@ import (
 )
 
 type AssociatedWorkspaceResponse struct {
-	// The time of workspace association.
 	AssociateDate string `pulumi:"associateDate"`
-	// The ResourceId id the assigned workspace.
-	ResourceId string `pulumi:"resourceId"`
-	// The id of the assigned workspace.
-	WorkspaceId string `pulumi:"workspaceId"`
-	// The name id the assigned workspace.
+	ResourceId    string `pulumi:"resourceId"`
+	WorkspaceId   string `pulumi:"workspaceId"`
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -33,13 +29,9 @@ type AssociatedWorkspaceResponseInput interface {
 }
 
 type AssociatedWorkspaceResponseArgs struct {
-	// The time of workspace association.
 	AssociateDate pulumi.StringInput `pulumi:"associateDate"`
-	// The ResourceId id the assigned workspace.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The id of the assigned workspace.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-	// The name id the assigned workspace.
+	ResourceId    pulumi.StringInput `pulumi:"resourceId"`
+	WorkspaceId   pulumi.StringInput `pulumi:"workspaceId"`
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 
@@ -94,22 +86,18 @@ func (o AssociatedWorkspaceResponseOutput) ToAssociatedWorkspaceResponseOutputWi
 	return o
 }
 
-// The time of workspace association.
 func (o AssociatedWorkspaceResponseOutput) AssociateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.AssociateDate }).(pulumi.StringOutput)
 }
 
-// The ResourceId id the assigned workspace.
 func (o AssociatedWorkspaceResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The id of the assigned workspace.
 func (o AssociatedWorkspaceResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// The name id the assigned workspace.
 func (o AssociatedWorkspaceResponseOutput) WorkspaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.WorkspaceName }).(pulumi.StringOutput)
 }
@@ -135,10 +123,8 @@ func (o AssociatedWorkspaceResponseArrayOutput) Index(i pulumi.IntInput) Associa
 }
 
 type CapacityReservationPropertiesResponse struct {
-	// The last time Sku was updated.
-	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
-	// Minimum CapacityReservation value in GB.
-	MinCapacity float64 `pulumi:"minCapacity"`
+	LastSkuUpdate string  `pulumi:"lastSkuUpdate"`
+	MinCapacity   float64 `pulumi:"minCapacity"`
 }
 
 // CapacityReservationPropertiesResponseInput is an input type that accepts CapacityReservationPropertiesResponseArgs and CapacityReservationPropertiesResponseOutput values.
@@ -153,10 +139,8 @@ type CapacityReservationPropertiesResponseInput interface {
 }
 
 type CapacityReservationPropertiesResponseArgs struct {
-	// The last time Sku was updated.
-	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
-	// Minimum CapacityReservation value in GB.
-	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
+	LastSkuUpdate pulumi.StringInput  `pulumi:"lastSkuUpdate"`
+	MinCapacity   pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
 func (CapacityReservationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -236,12 +220,10 @@ func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationProper
 	}).(CapacityReservationPropertiesResponsePtrOutput)
 }
 
-// The last time Sku was updated.
 func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
 }
 
-// Minimum CapacityReservation value in GB.
 func (o CapacityReservationPropertiesResponseOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -270,7 +252,6 @@ func (o CapacityReservationPropertiesResponsePtrOutput) Elem() CapacityReservati
 	}).(CapacityReservationPropertiesResponseOutput)
 }
 
-// The last time Sku was updated.
 func (o CapacityReservationPropertiesResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *string {
 		if v == nil {
@@ -280,7 +261,6 @@ func (o CapacityReservationPropertiesResponsePtrOutput) LastSkuUpdate() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Minimum CapacityReservation value in GB.
 func (o CapacityReservationPropertiesResponsePtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *float64 {
 		if v == nil {
@@ -291,10 +271,8 @@ func (o CapacityReservationPropertiesResponsePtrOutput) MinCapacity() pulumi.Flo
 }
 
 type ClusterSku struct {
-	// The capacity value
 	Capacity *float64 `pulumi:"capacity"`
-	// The name of the SKU.
-	Name *string `pulumi:"name"`
+	Name     *string  `pulumi:"name"`
 }
 
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
@@ -309,10 +287,8 @@ type ClusterSkuInput interface {
 }
 
 type ClusterSkuArgs struct {
-	// The capacity value
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The name of the SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
 }
 
 func (ClusterSkuArgs) ElementType() reflect.Type {
@@ -392,12 +368,10 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ClusterSkuPtrOutput)
 }
 
-// The capacity value
 func (o ClusterSkuOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterSku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o ClusterSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -426,7 +400,6 @@ func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
 	}).(ClusterSkuOutput)
 }
 
-// The capacity value
 func (o ClusterSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterSku) *float64 {
 		if v == nil {
@@ -436,7 +409,6 @@ func (o ClusterSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSku) *string {
 		if v == nil {
@@ -447,10 +419,8 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ClusterSkuResponse struct {
-	// The capacity value
 	Capacity *float64 `pulumi:"capacity"`
-	// The name of the SKU.
-	Name *string `pulumi:"name"`
+	Name     *string  `pulumi:"name"`
 }
 
 // ClusterSkuResponseInput is an input type that accepts ClusterSkuResponseArgs and ClusterSkuResponseOutput values.
@@ -465,10 +435,8 @@ type ClusterSkuResponseInput interface {
 }
 
 type ClusterSkuResponseArgs struct {
-	// The capacity value
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The name of the SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
 }
 
 func (ClusterSkuResponseArgs) ElementType() reflect.Type {
@@ -548,12 +516,10 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx c
 	}).(ClusterSkuResponsePtrOutput)
 }
 
-// The capacity value
 func (o ClusterSkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterSkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o ClusterSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -582,7 +548,6 @@ func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
 	}).(ClusterSkuResponseOutput)
 }
 
-// The capacity value
 func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterSkuResponse) *float64 {
 		if v == nil {
@@ -592,7 +557,6 @@ func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSkuResponse) *string {
 		if v == nil {
@@ -603,9 +567,7 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type Identity struct {
-	// Type of managed service identity.
-	Type IdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   IdentityType           `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -621,10 +583,8 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// Type of managed service identity.
-	Type IdentityTypeInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   IdentityTypeInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput   `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -704,12 +664,10 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityOutput) Type() IdentityTypeOutput {
 	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -738,7 +696,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
@@ -748,7 +705,6 @@ func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
 	}).(IdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -759,13 +715,9 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                    `pulumi:"principalId"`
+	TenantId               string                                    `pulumi:"tenantId"`
+	Type                   string                                    `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityPropertiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -781,13 +733,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                     `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                     `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                     `pulumi:"type"`
 	UserAssignedIdentities UserIdentityPropertiesResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -868,22 +816,18 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserIdentityPropertiesResponse { return v.UserAssignedIdentities }).(UserIdentityPropertiesResponseMapOutput)
 }
@@ -912,7 +856,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -922,7 +865,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -932,7 +874,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of managed service identity.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -942,7 +883,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -953,14 +893,10 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityProperti
 }
 
 type KeyVaultProperties struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName *string `pulumi:"keyName"`
-	// Selected key minimum required size.
-	KeyRsaSize *int `pulumi:"keyRsaSize"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyName     *string `pulumi:"keyName"`
+	KeyRsaSize  *int    `pulumi:"keyRsaSize"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -975,14 +911,10 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Selected key minimum required size.
-	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyRsaSize  pulumi.IntPtrInput    `pulumi:"keyRsaSize"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -1062,22 +994,18 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The name of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required size.
 func (o KeyVaultPropertiesOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
 }
 
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -1106,7 +1034,6 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 	}).(KeyVaultPropertiesOutput)
 }
 
-// The name of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1116,7 +1043,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required size.
 func (o KeyVaultPropertiesPtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *int {
 		if v == nil {
@@ -1126,7 +1052,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1136,7 +1061,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1147,14 +1071,10 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName *string `pulumi:"keyName"`
-	// Selected key minimum required size.
-	KeyRsaSize *int `pulumi:"keyRsaSize"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyName     *string `pulumi:"keyName"`
+	KeyRsaSize  *int    `pulumi:"keyRsaSize"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -1169,14 +1089,10 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Selected key minimum required size.
-	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyRsaSize  pulumi.IntPtrInput    `pulumi:"keyRsaSize"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1256,22 +1172,18 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputW
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The name of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required size.
 func (o KeyVaultPropertiesResponseOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
 }
 
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -1300,7 +1212,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The name of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1310,7 +1221,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required size.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
 		if v == nil {
@@ -1320,7 +1230,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1330,7 +1239,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1341,12 +1249,9 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 }
 
 type LogAnalyticsQueryPackQueryPropertiesRelated struct {
-	// The related categories for the function.
-	Categories []string `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    []string `pulumi:"categories"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions []string `pulumi:"solutions"`
+	Solutions     []string `pulumi:"solutions"`
 }
 
 // LogAnalyticsQueryPackQueryPropertiesRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesRelatedArgs and LogAnalyticsQueryPackQueryPropertiesRelatedOutput values.
@@ -1361,12 +1266,9 @@ type LogAnalyticsQueryPackQueryPropertiesRelatedInput interface {
 }
 
 type LogAnalyticsQueryPackQueryPropertiesRelatedArgs struct {
-	// The related categories for the function.
-	Categories pulumi.StringArrayInput `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    pulumi.StringArrayInput `pulumi:"categories"`
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions pulumi.StringArrayInput `pulumi:"solutions"`
+	Solutions     pulumi.StringArrayInput `pulumi:"solutions"`
 }
 
 func (LogAnalyticsQueryPackQueryPropertiesRelatedArgs) ElementType() reflect.Type {
@@ -1446,17 +1348,14 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ToLogAnalyticsQueryPa
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.Solutions }).(pulumi.StringArrayOutput)
 }
@@ -1485,7 +1384,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Elem() LogAnalytic
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -1495,7 +1393,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Categories() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -1505,7 +1402,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ResourceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -1516,12 +1412,9 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Solutions() pulumi
 }
 
 type LogAnalyticsQueryPackQueryPropertiesResponseRelated struct {
-	// The related categories for the function.
-	Categories []string `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    []string `pulumi:"categories"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions []string `pulumi:"solutions"`
+	Solutions     []string `pulumi:"solutions"`
 }
 
 // LogAnalyticsQueryPackQueryPropertiesResponseRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs and LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput values.
@@ -1536,12 +1429,9 @@ type LogAnalyticsQueryPackQueryPropertiesResponseRelatedInput interface {
 }
 
 type LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs struct {
-	// The related categories for the function.
-	Categories pulumi.StringArrayInput `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    pulumi.StringArrayInput `pulumi:"categories"`
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions pulumi.StringArrayInput `pulumi:"solutions"`
+	Solutions     pulumi.StringArrayInput `pulumi:"solutions"`
 }
 
 func (LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs) ElementType() reflect.Type {
@@ -1621,17 +1511,14 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ToLogAnalytic
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.Solutions }).(pulumi.StringArrayOutput)
 }
@@ -1660,7 +1547,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Elem() Log
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -1670,7 +1556,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Categories
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -1680,7 +1565,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ResourceTy
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -1691,10 +1575,7 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Solutions(
 }
 
 type MachineReferenceWithHints struct {
-	// Resource URI.
-	Id string `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
+	Id   string `pulumi:"id"`
 	Kind string `pulumi:"kind"`
 }
 
@@ -1710,10 +1591,7 @@ type MachineReferenceWithHintsInput interface {
 }
 
 type MachineReferenceWithHintsArgs struct {
-	// Resource URI.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -1768,13 +1646,10 @@ func (o MachineReferenceWithHintsOutput) ToMachineReferenceWithHintsOutputWithCo
 	return o
 }
 
-// Resource URI.
 func (o MachineReferenceWithHintsOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHints) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies the sub-class of the reference.
-// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHints) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1800,19 +1675,12 @@ func (o MachineReferenceWithHintsArrayOutput) Index(i pulumi.IntInput) MachineRe
 }
 
 type MachineReferenceWithHintsResponse struct {
-	// Last known display name.
 	DisplayNameHint string `pulumi:"displayNameHint"`
-	// Resource URI.
-	Id string `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Last known operating system family.
-	OsFamilyHint string `pulumi:"osFamilyHint"`
-	// Resource type qualifier.
-	Type string `pulumi:"type"`
+	Id              string `pulumi:"id"`
+	Kind            string `pulumi:"kind"`
+	Name            string `pulumi:"name"`
+	OsFamilyHint    string `pulumi:"osFamilyHint"`
+	Type            string `pulumi:"type"`
 }
 
 // MachineReferenceWithHintsResponseInput is an input type that accepts MachineReferenceWithHintsResponseArgs and MachineReferenceWithHintsResponseOutput values.
@@ -1827,19 +1695,12 @@ type MachineReferenceWithHintsResponseInput interface {
 }
 
 type MachineReferenceWithHintsResponseArgs struct {
-	// Last known display name.
 	DisplayNameHint pulumi.StringInput `pulumi:"displayNameHint"`
-	// Resource URI.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Last known operating system family.
-	OsFamilyHint pulumi.StringInput `pulumi:"osFamilyHint"`
-	// Resource type qualifier.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id              pulumi.StringInput `pulumi:"id"`
+	Kind            pulumi.StringInput `pulumi:"kind"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	OsFamilyHint    pulumi.StringInput `pulumi:"osFamilyHint"`
+	Type            pulumi.StringInput `pulumi:"type"`
 }
 
 func (MachineReferenceWithHintsResponseArgs) ElementType() reflect.Type {
@@ -1893,33 +1754,26 @@ func (o MachineReferenceWithHintsResponseOutput) ToMachineReferenceWithHintsResp
 	return o
 }
 
-// Last known display name.
 func (o MachineReferenceWithHintsResponseOutput) DisplayNameHint() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.DisplayNameHint }).(pulumi.StringOutput)
 }
 
-// Resource URI.
 func (o MachineReferenceWithHintsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies the sub-class of the reference.
-// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o MachineReferenceWithHintsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Last known operating system family.
 func (o MachineReferenceWithHintsResponseOutput) OsFamilyHint() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.OsFamilyHint }).(pulumi.StringOutput)
 }
 
-// Resource type qualifier.
 func (o MachineReferenceWithHintsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1945,10 +1799,8 @@ func (o MachineReferenceWithHintsResponseArrayOutput) Index(i pulumi.IntInput) M
 }
 
 type PrivateLinkScopedResourceResponse struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"scopeId"`
+	ScopeId    *string `pulumi:"scopeId"`
 }
 
 // PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
@@ -1963,10 +1815,8 @@ type PrivateLinkScopedResourceResponseInput interface {
 }
 
 type PrivateLinkScopedResourceResponseArgs struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
 }
 
 func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
@@ -2020,12 +1870,10 @@ func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResp
 	return o
 }
 
-// The full resource Id of the private link scope resource.
 func (o PrivateLinkScopedResourceResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The private link scope unique Identifier.
 func (o PrivateLinkScopedResourceResponseOutput) ScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
 }
@@ -2051,9 +1899,7 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type StorageAccount struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id string `pulumi:"id"`
-	// The storage account key.
+	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 }
 
@@ -2069,9 +1915,7 @@ type StorageAccountInput interface {
 }
 
 type StorageAccountArgs struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The storage account key.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -2152,12 +1996,10 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.C
 	}).(StorageAccountPtrOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The storage account key.
 func (o StorageAccountOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -2186,7 +2028,6 @@ func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
 	}).(StorageAccountOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -2196,7 +2037,6 @@ func (o StorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account key.
 func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -2207,9 +2047,7 @@ func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type StorageAccountResponse struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id string `pulumi:"id"`
-	// The storage account key.
+	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 }
 
@@ -2225,9 +2063,7 @@ type StorageAccountResponseInput interface {
 }
 
 type StorageAccountResponseArgs struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The storage account key.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -2308,12 +2144,10 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithConte
 	}).(StorageAccountResponsePtrOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The storage account key.
 func (o StorageAccountResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -2342,7 +2176,6 @@ func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
 	}).(StorageAccountResponseOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -2352,7 +2185,6 @@ func (o StorageAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account key.
 func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -2363,10 +2195,8 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type StorageInsightStatusResponse struct {
-	// Description of the state of the storage insight.
 	Description *string `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State string `pulumi:"state"`
+	State       string  `pulumi:"state"`
 }
 
 // StorageInsightStatusResponseInput is an input type that accepts StorageInsightStatusResponseArgs and StorageInsightStatusResponseOutput values.
@@ -2381,10 +2211,8 @@ type StorageInsightStatusResponseInput interface {
 }
 
 type StorageInsightStatusResponseArgs struct {
-	// Description of the state of the storage insight.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State pulumi.StringInput `pulumi:"state"`
+	State       pulumi.StringInput    `pulumi:"state"`
 }
 
 func (StorageInsightStatusResponseArgs) ElementType() reflect.Type {
@@ -2464,12 +2292,10 @@ func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOut
 	}).(StorageInsightStatusResponsePtrOutput)
 }
 
-// Description of the state of the storage insight.
 func (o StorageInsightStatusResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageInsightStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The state of the storage insight connection to the workspace
 func (o StorageInsightStatusResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageInsightStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2498,7 +2324,6 @@ func (o StorageInsightStatusResponsePtrOutput) Elem() StorageInsightStatusRespon
 	}).(StorageInsightStatusResponseOutput)
 }
 
-// Description of the state of the storage insight.
 func (o StorageInsightStatusResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageInsightStatusResponse) *string {
 		if v == nil {
@@ -2508,7 +2333,6 @@ func (o StorageInsightStatusResponsePtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of the storage insight connection to the workspace
 func (o StorageInsightStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageInsightStatusResponse) *string {
 		if v == nil {
@@ -2519,17 +2343,11 @@ func (o StorageInsightStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2545,17 +2363,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2636,32 +2448,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2690,7 +2496,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2700,7 +2505,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2710,7 +2514,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2720,7 +2523,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2730,7 +2532,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2740,7 +2541,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2751,9 +2551,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type Tag struct {
-	// The tag name.
-	Name string `pulumi:"name"`
-	// The tag value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2769,9 +2567,7 @@ type TagInput interface {
 }
 
 type TagArgs struct {
-	// The tag name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tag value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2826,12 +2622,10 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// The tag name.
 func (o TagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2857,9 +2651,7 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 }
 
 type TagResponse struct {
-	// The tag name.
-	Name string `pulumi:"name"`
-	// The tag value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2875,9 +2667,7 @@ type TagResponseInput interface {
 }
 
 type TagResponseArgs struct {
-	// The tag name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tag value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2932,12 +2722,10 @@ func (o TagResponseOutput) ToTagResponseOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The tag name.
 func (o TagResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2963,9 +2751,7 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 }
 
 type UserIdentityPropertiesResponse struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -2981,9 +2767,7 @@ type UserIdentityPropertiesResponseInput interface {
 }
 
 type UserIdentityPropertiesResponseArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -3038,12 +2822,10 @@ func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOu
 	return o
 }
 
-// The client id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -3069,7 +2851,6 @@ func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 type WorkspaceCapping struct {
-	// The workspace daily quota for ingestion.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 }
 
@@ -3085,7 +2866,6 @@ type WorkspaceCappingInput interface {
 }
 
 type WorkspaceCappingArgs struct {
-	// The workspace daily quota for ingestion.
 	DailyQuotaGb pulumi.Float64PtrInput `pulumi:"dailyQuotaGb"`
 }
 
@@ -3166,7 +2946,6 @@ func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutputWithContext(ctx conte
 	}).(WorkspaceCappingPtrOutput)
 }
 
-// The workspace daily quota for ingestion.
 func (o WorkspaceCappingOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WorkspaceCapping) *float64 { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
 }
@@ -3195,7 +2974,6 @@ func (o WorkspaceCappingPtrOutput) Elem() WorkspaceCappingOutput {
 	}).(WorkspaceCappingOutput)
 }
 
-// The workspace daily quota for ingestion.
 func (o WorkspaceCappingPtrOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WorkspaceCapping) *float64 {
 		if v == nil {
@@ -3206,12 +2984,9 @@ func (o WorkspaceCappingPtrOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 }
 
 type WorkspaceCappingResponse struct {
-	// The workspace daily quota for ingestion.
-	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
-	// The status of data ingestion for this workspace.
-	DataIngestionStatus string `pulumi:"dataIngestionStatus"`
-	// The time when the quota will be rest.
-	QuotaNextResetTime string `pulumi:"quotaNextResetTime"`
+	DailyQuotaGb        *float64 `pulumi:"dailyQuotaGb"`
+	DataIngestionStatus string   `pulumi:"dataIngestionStatus"`
+	QuotaNextResetTime  string   `pulumi:"quotaNextResetTime"`
 }
 
 // WorkspaceCappingResponseInput is an input type that accepts WorkspaceCappingResponseArgs and WorkspaceCappingResponseOutput values.
@@ -3226,12 +3001,9 @@ type WorkspaceCappingResponseInput interface {
 }
 
 type WorkspaceCappingResponseArgs struct {
-	// The workspace daily quota for ingestion.
-	DailyQuotaGb pulumi.Float64PtrInput `pulumi:"dailyQuotaGb"`
-	// The status of data ingestion for this workspace.
-	DataIngestionStatus pulumi.StringInput `pulumi:"dataIngestionStatus"`
-	// The time when the quota will be rest.
-	QuotaNextResetTime pulumi.StringInput `pulumi:"quotaNextResetTime"`
+	DailyQuotaGb        pulumi.Float64PtrInput `pulumi:"dailyQuotaGb"`
+	DataIngestionStatus pulumi.StringInput     `pulumi:"dataIngestionStatus"`
+	QuotaNextResetTime  pulumi.StringInput     `pulumi:"quotaNextResetTime"`
 }
 
 func (WorkspaceCappingResponseArgs) ElementType() reflect.Type {
@@ -3311,17 +3083,14 @@ func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutputWithC
 	}).(WorkspaceCappingResponsePtrOutput)
 }
 
-// The workspace daily quota for ingestion.
 func (o WorkspaceCappingResponseOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WorkspaceCappingResponse) *float64 { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
 }
 
-// The status of data ingestion for this workspace.
 func (o WorkspaceCappingResponseOutput) DataIngestionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceCappingResponse) string { return v.DataIngestionStatus }).(pulumi.StringOutput)
 }
 
-// The time when the quota will be rest.
 func (o WorkspaceCappingResponseOutput) QuotaNextResetTime() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceCappingResponse) string { return v.QuotaNextResetTime }).(pulumi.StringOutput)
 }
@@ -3350,7 +3119,6 @@ func (o WorkspaceCappingResponsePtrOutput) Elem() WorkspaceCappingResponseOutput
 	}).(WorkspaceCappingResponseOutput)
 }
 
-// The workspace daily quota for ingestion.
 func (o WorkspaceCappingResponsePtrOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WorkspaceCappingResponse) *float64 {
 		if v == nil {
@@ -3360,7 +3128,6 @@ func (o WorkspaceCappingResponsePtrOutput) DailyQuotaGb() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The status of data ingestion for this workspace.
 func (o WorkspaceCappingResponsePtrOutput) DataIngestionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCappingResponse) *string {
 		if v == nil {
@@ -3370,7 +3137,6 @@ func (o WorkspaceCappingResponsePtrOutput) DataIngestionStatus() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time when the quota will be rest.
 func (o WorkspaceCappingResponsePtrOutput) QuotaNextResetTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCappingResponse) *string {
 		if v == nil {
@@ -3381,16 +3147,11 @@ func (o WorkspaceCappingResponsePtrOutput) QuotaNextResetTime() pulumi.StringPtr
 }
 
 type WorkspaceFeatures struct {
-	// Dedicated LA cluster resourceId that is linked to the workspaces.
-	ClusterResourceId *string `pulumi:"clusterResourceId"`
-	// Disable Non-AAD based Auth.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Flag that indicate if data should be exported.
-	EnableDataExport *bool `pulumi:"enableDataExport"`
-	// Flag that indicate which permission to use - resource or workspace or both.
-	EnableLogAccessUsingOnlyResourcePermissions *bool `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
-	// Flag that describes if we want to remove the data after 30 days.
-	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
+	ClusterResourceId                           *string `pulumi:"clusterResourceId"`
+	DisableLocalAuth                            *bool   `pulumi:"disableLocalAuth"`
+	EnableDataExport                            *bool   `pulumi:"enableDataExport"`
+	EnableLogAccessUsingOnlyResourcePermissions *bool   `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	ImmediatePurgeDataOn30Days                  *bool   `pulumi:"immediatePurgeDataOn30Days"`
 }
 
 // WorkspaceFeaturesInput is an input type that accepts WorkspaceFeaturesArgs and WorkspaceFeaturesOutput values.
@@ -3405,16 +3166,11 @@ type WorkspaceFeaturesInput interface {
 }
 
 type WorkspaceFeaturesArgs struct {
-	// Dedicated LA cluster resourceId that is linked to the workspaces.
-	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
-	// Disable Non-AAD based Auth.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// Flag that indicate if data should be exported.
-	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
-	// Flag that indicate which permission to use - resource or workspace or both.
-	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
-	// Flag that describes if we want to remove the data after 30 days.
-	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput `pulumi:"immediatePurgeDataOn30Days"`
+	ClusterResourceId                           pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	DisableLocalAuth                            pulumi.BoolPtrInput   `pulumi:"disableLocalAuth"`
+	EnableDataExport                            pulumi.BoolPtrInput   `pulumi:"enableDataExport"`
+	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput   `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	ImmediatePurgeDataOn30Days                  pulumi.BoolPtrInput   `pulumi:"immediatePurgeDataOn30Days"`
 }
 
 func (WorkspaceFeaturesArgs) ElementType() reflect.Type {
@@ -3494,27 +3250,22 @@ func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesPtrOutputWithContext(ctx con
 	}).(WorkspaceFeaturesPtrOutput)
 }
 
-// Dedicated LA cluster resourceId that is linked to the workspaces.
 func (o WorkspaceFeaturesOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Disable Non-AAD based Auth.
 func (o WorkspaceFeaturesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate which permission to use - resource or workspace or both.
 func (o WorkspaceFeaturesOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.EnableLogAccessUsingOnlyResourcePermissions }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that describes if we want to remove the data after 30 days.
 func (o WorkspaceFeaturesOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
 }
@@ -3543,7 +3294,6 @@ func (o WorkspaceFeaturesPtrOutput) Elem() WorkspaceFeaturesOutput {
 	}).(WorkspaceFeaturesOutput)
 }
 
-// Dedicated LA cluster resourceId that is linked to the workspaces.
 func (o WorkspaceFeaturesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *string {
 		if v == nil {
@@ -3553,7 +3303,6 @@ func (o WorkspaceFeaturesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disable Non-AAD based Auth.
 func (o WorkspaceFeaturesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
 		if v == nil {
@@ -3563,7 +3312,6 @@ func (o WorkspaceFeaturesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesPtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
 		if v == nil {
@@ -3573,7 +3321,6 @@ func (o WorkspaceFeaturesPtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate which permission to use - resource or workspace or both.
 func (o WorkspaceFeaturesPtrOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
 		if v == nil {
@@ -3583,7 +3330,6 @@ func (o WorkspaceFeaturesPtrOutput) EnableLogAccessUsingOnlyResourcePermissions(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that describes if we want to remove the data after 30 days.
 func (o WorkspaceFeaturesPtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
 		if v == nil {
@@ -3594,16 +3340,11 @@ func (o WorkspaceFeaturesPtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrO
 }
 
 type WorkspaceFeaturesResponse struct {
-	// Dedicated LA cluster resourceId that is linked to the workspaces.
-	ClusterResourceId *string `pulumi:"clusterResourceId"`
-	// Disable Non-AAD based Auth.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Flag that indicate if data should be exported.
-	EnableDataExport *bool `pulumi:"enableDataExport"`
-	// Flag that indicate which permission to use - resource or workspace or both.
-	EnableLogAccessUsingOnlyResourcePermissions *bool `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
-	// Flag that describes if we want to remove the data after 30 days.
-	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
+	ClusterResourceId                           *string `pulumi:"clusterResourceId"`
+	DisableLocalAuth                            *bool   `pulumi:"disableLocalAuth"`
+	EnableDataExport                            *bool   `pulumi:"enableDataExport"`
+	EnableLogAccessUsingOnlyResourcePermissions *bool   `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	ImmediatePurgeDataOn30Days                  *bool   `pulumi:"immediatePurgeDataOn30Days"`
 }
 
 // WorkspaceFeaturesResponseInput is an input type that accepts WorkspaceFeaturesResponseArgs and WorkspaceFeaturesResponseOutput values.
@@ -3618,16 +3359,11 @@ type WorkspaceFeaturesResponseInput interface {
 }
 
 type WorkspaceFeaturesResponseArgs struct {
-	// Dedicated LA cluster resourceId that is linked to the workspaces.
-	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
-	// Disable Non-AAD based Auth.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// Flag that indicate if data should be exported.
-	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
-	// Flag that indicate which permission to use - resource or workspace or both.
-	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
-	// Flag that describes if we want to remove the data after 30 days.
-	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput `pulumi:"immediatePurgeDataOn30Days"`
+	ClusterResourceId                           pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	DisableLocalAuth                            pulumi.BoolPtrInput   `pulumi:"disableLocalAuth"`
+	EnableDataExport                            pulumi.BoolPtrInput   `pulumi:"enableDataExport"`
+	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput   `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	ImmediatePurgeDataOn30Days                  pulumi.BoolPtrInput   `pulumi:"immediatePurgeDataOn30Days"`
 }
 
 func (WorkspaceFeaturesResponseArgs) ElementType() reflect.Type {
@@ -3707,27 +3443,22 @@ func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponsePtrOutputWit
 	}).(WorkspaceFeaturesResponsePtrOutput)
 }
 
-// Dedicated LA cluster resourceId that is linked to the workspaces.
 func (o WorkspaceFeaturesResponseOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Disable Non-AAD based Auth.
 func (o WorkspaceFeaturesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesResponseOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate which permission to use - resource or workspace or both.
 func (o WorkspaceFeaturesResponseOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.EnableLogAccessUsingOnlyResourcePermissions }).(pulumi.BoolPtrOutput)
 }
 
-// Flag that describes if we want to remove the data after 30 days.
 func (o WorkspaceFeaturesResponseOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
 }
@@ -3756,7 +3487,6 @@ func (o WorkspaceFeaturesResponsePtrOutput) Elem() WorkspaceFeaturesResponseOutp
 	}).(WorkspaceFeaturesResponseOutput)
 }
 
-// Dedicated LA cluster resourceId that is linked to the workspaces.
 func (o WorkspaceFeaturesResponsePtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *string {
 		if v == nil {
@@ -3766,7 +3496,6 @@ func (o WorkspaceFeaturesResponsePtrOutput) ClusterResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disable Non-AAD based Auth.
 func (o WorkspaceFeaturesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
 		if v == nil {
@@ -3776,7 +3505,6 @@ func (o WorkspaceFeaturesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesResponsePtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
 		if v == nil {
@@ -3786,7 +3514,6 @@ func (o WorkspaceFeaturesResponsePtrOutput) EnableDataExport() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that indicate which permission to use - resource or workspace or both.
 func (o WorkspaceFeaturesResponsePtrOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
 		if v == nil {
@@ -3796,7 +3523,6 @@ func (o WorkspaceFeaturesResponsePtrOutput) EnableLogAccessUsingOnlyResourcePerm
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag that describes if we want to remove the data after 30 days.
 func (o WorkspaceFeaturesResponsePtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
 		if v == nil {
@@ -3807,10 +3533,8 @@ func (o WorkspaceFeaturesResponsePtrOutput) ImmediatePurgeDataOn30Days() pulumi.
 }
 
 type WorkspaceSku struct {
-	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
-	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
-	// The name of the SKU.
-	Name string `pulumi:"name"`
+	CapacityReservationLevel *int   `pulumi:"capacityReservationLevel"`
+	Name                     string `pulumi:"name"`
 }
 
 // WorkspaceSkuInput is an input type that accepts WorkspaceSkuArgs and WorkspaceSkuOutput values.
@@ -3825,10 +3549,8 @@ type WorkspaceSkuInput interface {
 }
 
 type WorkspaceSkuArgs struct {
-	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
-	// The name of the SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name                     pulumi.StringInput `pulumi:"name"`
 }
 
 func (WorkspaceSkuArgs) ElementType() reflect.Type {
@@ -3908,12 +3630,10 @@ func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Conte
 	}).(WorkspaceSkuPtrOutput)
 }
 
-// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspaceSku) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
 }
 
-// The name of the SKU.
 func (o WorkspaceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3942,7 +3662,6 @@ func (o WorkspaceSkuPtrOutput) Elem() WorkspaceSkuOutput {
 	}).(WorkspaceSkuOutput)
 }
 
-// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuPtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSku) *int {
 		if v == nil {
@@ -3952,7 +3671,6 @@ func (o WorkspaceSkuPtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the SKU.
 func (o WorkspaceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSku) *string {
 		if v == nil {
@@ -3963,12 +3681,9 @@ func (o WorkspaceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type WorkspaceSkuResponse struct {
-	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
-	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
-	// The last time when the sku was updated.
-	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
-	// The name of the SKU.
-	Name string `pulumi:"name"`
+	CapacityReservationLevel *int   `pulumi:"capacityReservationLevel"`
+	LastSkuUpdate            string `pulumi:"lastSkuUpdate"`
+	Name                     string `pulumi:"name"`
 }
 
 // WorkspaceSkuResponseInput is an input type that accepts WorkspaceSkuResponseArgs and WorkspaceSkuResponseOutput values.
@@ -3983,12 +3698,9 @@ type WorkspaceSkuResponseInput interface {
 }
 
 type WorkspaceSkuResponseArgs struct {
-	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
-	// The last time when the sku was updated.
-	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
-	// The name of the SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	LastSkuUpdate            pulumi.StringInput `pulumi:"lastSkuUpdate"`
+	Name                     pulumi.StringInput `pulumi:"name"`
 }
 
 func (WorkspaceSkuResponseArgs) ElementType() reflect.Type {
@@ -4068,17 +3780,14 @@ func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutputWithContext(c
 	}).(WorkspaceSkuResponsePtrOutput)
 }
 
-// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuResponseOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
 }
 
-// The last time when the sku was updated.
 func (o WorkspaceSkuResponseOutput) LastSkuUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
 }
 
-// The name of the SKU.
 func (o WorkspaceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4107,7 +3816,6 @@ func (o WorkspaceSkuResponsePtrOutput) Elem() WorkspaceSkuResponseOutput {
 	}).(WorkspaceSkuResponseOutput)
 }
 
-// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSkuResponse) *int {
 		if v == nil {
@@ -4117,7 +3825,6 @@ func (o WorkspaceSkuResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The last time when the sku was updated.
 func (o WorkspaceSkuResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSkuResponse) *string {
 		if v == nil {
@@ -4127,7 +3834,6 @@ func (o WorkspaceSkuResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.
 func (o WorkspaceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSkuResponse) *string {
 		if v == nil {

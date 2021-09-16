@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for iSCSI target requests.
-// API Version: 2020-03-15-preview.
 type IscsiTarget struct {
 	pulumi.CustomResourceState
 

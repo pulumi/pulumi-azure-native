@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A NotebookProxy resource.
-// API Version: 2019-10-11-preview.
 type NotebookProxy struct {
 	pulumi.CustomResourceState
 

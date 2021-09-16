@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The network group resource
-// API Version: 2021-02-01-preview.
 func LookupNetworkGroup(ctx *pulumi.Context, args *LookupNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkGroupResult, error) {
 	var rv LookupNetworkGroupResult
 	err := ctx.Invoke("azure-native:network:getNetworkGroup", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupNetworkGroup(ctx *pulumi.Context, args *LookupNetworkGroupArgs, opts 
 }
 
 type LookupNetworkGroupArgs struct {
-	// The name of the network group to get.
-	NetworkGroupName string `pulumi:"networkGroupName"`
-	// The name of the network manager.
+	NetworkGroupName   string `pulumi:"networkGroupName"`
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // The network group resource
 type LookupNetworkGroupResult struct {
-	// Network group conditional filter.
-	ConditionalMembership *string `pulumi:"conditionalMembership"`
-	// A description of the network group.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network group.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Group members of network group.
-	GroupMembers []GroupMembersItemResponse `pulumi:"groupMembers"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Group member type.
-	MemberType *string `pulumi:"memberType"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ConditionalMembership *string                    `pulumi:"conditionalMembership"`
+	Description           *string                    `pulumi:"description"`
+	DisplayName           *string                    `pulumi:"displayName"`
+	Etag                  string                     `pulumi:"etag"`
+	GroupMembers          []GroupMembersItemResponse `pulumi:"groupMembers"`
+	Id                    string                     `pulumi:"id"`
+	MemberType            *string                    `pulumi:"memberType"`
+	Name                  string                     `pulumi:"name"`
+	ProvisioningState     string                     `pulumi:"provisioningState"`
+	SystemData            SystemDataResponse         `pulumi:"systemData"`
+	Type                  string                     `pulumi:"type"`
 }

@@ -11,15 +11,10 @@ import (
 )
 
 type AuthorizationProfileResponse struct {
-	// The approved time
-	ApprovedTime string `pulumi:"approvedTime"`
-	// The approver
-	Approver string `pulumi:"approver"`
-	// The requested time
-	RequestedTime string `pulumi:"requestedTime"`
-	// The requester
-	Requester string `pulumi:"requester"`
-	// The requester object id
+	ApprovedTime      string `pulumi:"approvedTime"`
+	Approver          string `pulumi:"approver"`
+	RequestedTime     string `pulumi:"requestedTime"`
+	Requester         string `pulumi:"requester"`
 	RequesterObjectId string `pulumi:"requesterObjectId"`
 }
 
@@ -35,15 +30,10 @@ type AuthorizationProfileResponseInput interface {
 }
 
 type AuthorizationProfileResponseArgs struct {
-	// The approved time
-	ApprovedTime pulumi.StringInput `pulumi:"approvedTime"`
-	// The approver
-	Approver pulumi.StringInput `pulumi:"approver"`
-	// The requested time
-	RequestedTime pulumi.StringInput `pulumi:"requestedTime"`
-	// The requester
-	Requester pulumi.StringInput `pulumi:"requester"`
-	// The requester object id
+	ApprovedTime      pulumi.StringInput `pulumi:"approvedTime"`
+	Approver          pulumi.StringInput `pulumi:"approver"`
+	RequestedTime     pulumi.StringInput `pulumi:"requestedTime"`
+	Requester         pulumi.StringInput `pulumi:"requester"`
 	RequesterObjectId pulumi.StringInput `pulumi:"requesterObjectId"`
 }
 
@@ -124,27 +114,22 @@ func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponsePtrOut
 	}).(AuthorizationProfileResponsePtrOutput)
 }
 
-// The approved time
 func (o AuthorizationProfileResponseOutput) ApprovedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationProfileResponse) string { return v.ApprovedTime }).(pulumi.StringOutput)
 }
 
-// The approver
 func (o AuthorizationProfileResponseOutput) Approver() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationProfileResponse) string { return v.Approver }).(pulumi.StringOutput)
 }
 
-// The requested time
 func (o AuthorizationProfileResponseOutput) RequestedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationProfileResponse) string { return v.RequestedTime }).(pulumi.StringOutput)
 }
 
-// The requester
 func (o AuthorizationProfileResponseOutput) Requester() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationProfileResponse) string { return v.Requester }).(pulumi.StringOutput)
 }
 
-// The requester object id
 func (o AuthorizationProfileResponseOutput) RequesterObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationProfileResponse) string { return v.RequesterObjectId }).(pulumi.StringOutput)
 }
@@ -173,7 +158,6 @@ func (o AuthorizationProfileResponsePtrOutput) Elem() AuthorizationProfileRespon
 	}).(AuthorizationProfileResponseOutput)
 }
 
-// The approved time
 func (o AuthorizationProfileResponsePtrOutput) ApprovedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationProfileResponse) *string {
 		if v == nil {
@@ -183,7 +167,6 @@ func (o AuthorizationProfileResponsePtrOutput) ApprovedTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The approver
 func (o AuthorizationProfileResponsePtrOutput) Approver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationProfileResponse) *string {
 		if v == nil {
@@ -193,7 +176,6 @@ func (o AuthorizationProfileResponsePtrOutput) Approver() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The requested time
 func (o AuthorizationProfileResponsePtrOutput) RequestedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationProfileResponse) *string {
 		if v == nil {
@@ -203,7 +185,6 @@ func (o AuthorizationProfileResponsePtrOutput) RequestedTime() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The requester
 func (o AuthorizationProfileResponsePtrOutput) Requester() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationProfileResponse) *string {
 		if v == nil {
@@ -213,7 +194,6 @@ func (o AuthorizationProfileResponsePtrOutput) Requester() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The requester object id
 func (o AuthorizationProfileResponsePtrOutput) RequesterObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationProfileResponse) *string {
 		if v == nil {
@@ -224,14 +204,10 @@ func (o AuthorizationProfileResponsePtrOutput) RequesterObjectId() pulumi.String
 }
 
 type SubscriptionFeatureRegistrationProperties struct {
-	// The feature description.
-	Description *string `pulumi:"description"`
-	// Key-value pairs for meta data.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Indicates whether feature should be displayed in Portal.
-	ShouldFeatureDisplayInPortal *bool `pulumi:"shouldFeatureDisplayInPortal"`
-	// The state.
-	State *string `pulumi:"state"`
+	Description                  *string           `pulumi:"description"`
+	Metadata                     map[string]string `pulumi:"metadata"`
+	ShouldFeatureDisplayInPortal *bool             `pulumi:"shouldFeatureDisplayInPortal"`
+	State                        *string           `pulumi:"state"`
 }
 
 // SubscriptionFeatureRegistrationPropertiesInput is an input type that accepts SubscriptionFeatureRegistrationPropertiesArgs and SubscriptionFeatureRegistrationPropertiesOutput values.
@@ -246,14 +222,10 @@ type SubscriptionFeatureRegistrationPropertiesInput interface {
 }
 
 type SubscriptionFeatureRegistrationPropertiesArgs struct {
-	// The feature description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Key-value pairs for meta data.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Indicates whether feature should be displayed in Portal.
-	ShouldFeatureDisplayInPortal pulumi.BoolPtrInput `pulumi:"shouldFeatureDisplayInPortal"`
-	// The state.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Description                  pulumi.StringPtrInput `pulumi:"description"`
+	Metadata                     pulumi.StringMapInput `pulumi:"metadata"`
+	ShouldFeatureDisplayInPortal pulumi.BoolPtrInput   `pulumi:"shouldFeatureDisplayInPortal"`
+	State                        pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (SubscriptionFeatureRegistrationPropertiesArgs) ElementType() reflect.Type {
@@ -333,22 +305,18 @@ func (o SubscriptionFeatureRegistrationPropertiesOutput) ToSubscriptionFeatureRe
 	}).(SubscriptionFeatureRegistrationPropertiesPtrOutput)
 }
 
-// The feature description.
 func (o SubscriptionFeatureRegistrationPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs for meta data.
 func (o SubscriptionFeatureRegistrationPropertiesOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Indicates whether feature should be displayed in Portal.
 func (o SubscriptionFeatureRegistrationPropertiesOutput) ShouldFeatureDisplayInPortal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationProperties) *bool { return v.ShouldFeatureDisplayInPortal }).(pulumi.BoolPtrOutput)
 }
 
-// The state.
 func (o SubscriptionFeatureRegistrationPropertiesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -377,7 +345,6 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Elem() SubscriptionF
 	}).(SubscriptionFeatureRegistrationPropertiesOutput)
 }
 
-// The feature description.
 func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationProperties) *string {
 		if v == nil {
@@ -387,7 +354,6 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs for meta data.
 func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationProperties) map[string]string {
 		if v == nil {
@@ -397,7 +363,6 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Metadata() pulumi.St
 	}).(pulumi.StringMapOutput)
 }
 
-// Indicates whether feature should be displayed in Portal.
 func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) ShouldFeatureDisplayInPortal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationProperties) *bool {
 		if v == nil {
@@ -407,7 +372,6 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) ShouldFeatureDisplay
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The state.
 func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationProperties) *string {
 		if v == nil {
@@ -418,34 +382,20 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) State() pulumi.Strin
 }
 
 type SubscriptionFeatureRegistrationResponseProperties struct {
-	// The feature approval type.
-	ApprovalType string `pulumi:"approvalType"`
-	// Authorization Profile
-	AuthorizationProfile *AuthorizationProfileResponse `pulumi:"authorizationProfile"`
-	// The feature description.
-	Description *string `pulumi:"description"`
-	// The featureDisplayName.
-	DisplayName string `pulumi:"displayName"`
-	// The feature documentation link.
-	DocumentationLink string `pulumi:"documentationLink"`
-	// The featureName.
-	FeatureName string `pulumi:"featureName"`
-	// Key-value pairs for meta data.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The providerNamespace.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The feature registration date.
-	RegistrationDate string `pulumi:"registrationDate"`
-	// The feature release date.
-	ReleaseDate string `pulumi:"releaseDate"`
-	// Indicates whether feature should be displayed in Portal.
-	ShouldFeatureDisplayInPortal *bool `pulumi:"shouldFeatureDisplayInPortal"`
-	// The state.
-	State *string `pulumi:"state"`
-	// The subscriptionId.
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// The tenantId.
-	TenantId string `pulumi:"tenantId"`
+	ApprovalType                 string                        `pulumi:"approvalType"`
+	AuthorizationProfile         *AuthorizationProfileResponse `pulumi:"authorizationProfile"`
+	Description                  *string                       `pulumi:"description"`
+	DisplayName                  string                        `pulumi:"displayName"`
+	DocumentationLink            string                        `pulumi:"documentationLink"`
+	FeatureName                  string                        `pulumi:"featureName"`
+	Metadata                     map[string]string             `pulumi:"metadata"`
+	ProviderNamespace            string                        `pulumi:"providerNamespace"`
+	RegistrationDate             string                        `pulumi:"registrationDate"`
+	ReleaseDate                  string                        `pulumi:"releaseDate"`
+	ShouldFeatureDisplayInPortal *bool                         `pulumi:"shouldFeatureDisplayInPortal"`
+	State                        *string                       `pulumi:"state"`
+	SubscriptionId               string                        `pulumi:"subscriptionId"`
+	TenantId                     string                        `pulumi:"tenantId"`
 }
 
 // SubscriptionFeatureRegistrationResponsePropertiesInput is an input type that accepts SubscriptionFeatureRegistrationResponsePropertiesArgs and SubscriptionFeatureRegistrationResponsePropertiesOutput values.
@@ -460,34 +410,20 @@ type SubscriptionFeatureRegistrationResponsePropertiesInput interface {
 }
 
 type SubscriptionFeatureRegistrationResponsePropertiesArgs struct {
-	// The feature approval type.
-	ApprovalType pulumi.StringInput `pulumi:"approvalType"`
-	// Authorization Profile
-	AuthorizationProfile AuthorizationProfileResponsePtrInput `pulumi:"authorizationProfile"`
-	// The feature description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The featureDisplayName.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The feature documentation link.
-	DocumentationLink pulumi.StringInput `pulumi:"documentationLink"`
-	// The featureName.
-	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	// Key-value pairs for meta data.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// The providerNamespace.
-	ProviderNamespace pulumi.StringInput `pulumi:"providerNamespace"`
-	// The feature registration date.
-	RegistrationDate pulumi.StringInput `pulumi:"registrationDate"`
-	// The feature release date.
-	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
-	// Indicates whether feature should be displayed in Portal.
-	ShouldFeatureDisplayInPortal pulumi.BoolPtrInput `pulumi:"shouldFeatureDisplayInPortal"`
-	// The state.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The subscriptionId.
-	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
-	// The tenantId.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	ApprovalType                 pulumi.StringInput                   `pulumi:"approvalType"`
+	AuthorizationProfile         AuthorizationProfileResponsePtrInput `pulumi:"authorizationProfile"`
+	Description                  pulumi.StringPtrInput                `pulumi:"description"`
+	DisplayName                  pulumi.StringInput                   `pulumi:"displayName"`
+	DocumentationLink            pulumi.StringInput                   `pulumi:"documentationLink"`
+	FeatureName                  pulumi.StringInput                   `pulumi:"featureName"`
+	Metadata                     pulumi.StringMapInput                `pulumi:"metadata"`
+	ProviderNamespace            pulumi.StringInput                   `pulumi:"providerNamespace"`
+	RegistrationDate             pulumi.StringInput                   `pulumi:"registrationDate"`
+	ReleaseDate                  pulumi.StringInput                   `pulumi:"releaseDate"`
+	ShouldFeatureDisplayInPortal pulumi.BoolPtrInput                  `pulumi:"shouldFeatureDisplayInPortal"`
+	State                        pulumi.StringPtrInput                `pulumi:"state"`
+	SubscriptionId               pulumi.StringInput                   `pulumi:"subscriptionId"`
+	TenantId                     pulumi.StringInput                   `pulumi:"tenantId"`
 }
 
 func (SubscriptionFeatureRegistrationResponsePropertiesArgs) ElementType() reflect.Type {
@@ -567,74 +503,60 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionF
 	}).(SubscriptionFeatureRegistrationResponsePropertiesPtrOutput)
 }
 
-// The feature approval type.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ApprovalType() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.ApprovalType }).(pulumi.StringOutput)
 }
 
-// Authorization Profile
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) AuthorizationProfile() AuthorizationProfileResponsePtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) *AuthorizationProfileResponse {
 		return v.AuthorizationProfile
 	}).(AuthorizationProfileResponsePtrOutput)
 }
 
-// The feature description.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The featureDisplayName.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The feature documentation link.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) DocumentationLink() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.DocumentationLink }).(pulumi.StringOutput)
 }
 
-// The featureName.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.FeatureName }).(pulumi.StringOutput)
 }
 
-// Key-value pairs for meta data.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// The providerNamespace.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ProviderNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.ProviderNamespace }).(pulumi.StringOutput)
 }
 
-// The feature registration date.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) RegistrationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.RegistrationDate }).(pulumi.StringOutput)
 }
 
-// The feature release date.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ReleaseDate() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.ReleaseDate }).(pulumi.StringOutput)
 }
 
-// Indicates whether feature should be displayed in Portal.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ShouldFeatureDisplayInPortal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) *bool { return v.ShouldFeatureDisplayInPortal }).(pulumi.BoolPtrOutput)
 }
 
-// The state.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The subscriptionId.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-// The tenantId.
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -663,7 +585,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Elem() Subsc
 	}).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
 }
 
-// The feature approval type.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ApprovalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -673,7 +594,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ApprovalType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization Profile
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) AuthorizationProfile() AuthorizationProfileResponsePtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *AuthorizationProfileResponse {
 		if v == nil {
@@ -683,7 +603,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Authorizatio
 	}).(AuthorizationProfileResponsePtrOutput)
 }
 
-// The feature description.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -693,7 +612,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The featureDisplayName.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -703,7 +621,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) DisplayName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The feature documentation link.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) DocumentationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -713,7 +630,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Documentatio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The featureName.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -723,7 +639,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) FeatureName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs for meta data.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) map[string]string {
 		if v == nil {
@@ -733,7 +648,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Metadata() p
 	}).(pulumi.StringMapOutput)
 }
 
-// The providerNamespace.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ProviderNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -743,7 +657,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ProviderName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The feature registration date.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) RegistrationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -753,7 +666,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Registration
 	}).(pulumi.StringPtrOutput)
 }
 
-// The feature release date.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ReleaseDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -763,7 +675,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ReleaseDate(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether feature should be displayed in Portal.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ShouldFeatureDisplayInPortal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *bool {
 		if v == nil {
@@ -773,7 +684,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ShouldFeatur
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The state.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -783,7 +693,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) State() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscriptionId.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {
@@ -793,7 +702,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Subscription
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenantId.
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
 		if v == nil {

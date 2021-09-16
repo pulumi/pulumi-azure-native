@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the service.
-// API Version: 2021-03-25-preview.
 func GetprivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context, args *GetprivateLinkServicesForM365ComplianceCenterArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkServicesForM365ComplianceCenterResult, error) {
 	var rv GetprivateLinkServicesForM365ComplianceCenterResult
 	err := ctx.Invoke("azure-native:m365securityandcompliance:getprivateLinkServicesForM365ComplianceCenter", args, &rv, opts...)
@@ -19,32 +17,20 @@ func GetprivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context, args *Ge
 }
 
 type GetprivateLinkServicesForM365ComplianceCenterArgs struct {
-	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service instance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The description of the service.
 type GetprivateLinkServicesForM365ComplianceCenterResult struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind string `pulumi:"kind"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponse `pulumi:"properties"`
-	// Required property for system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Etag       *string                           `pulumi:"etag"`
+	Id         string                            `pulumi:"id"`
+	Identity   *ServicesResourceResponseIdentity `pulumi:"identity"`
+	Kind       string                            `pulumi:"kind"`
+	Location   string                            `pulumi:"location"`
+	Name       string                            `pulumi:"name"`
+	Properties ServicesPropertiesResponse        `pulumi:"properties"`
+	SystemData SystemDataResponse                `pulumi:"systemData"`
+	Tags       map[string]string                 `pulumi:"tags"`
+	Type       string                            `pulumi:"type"`
 }

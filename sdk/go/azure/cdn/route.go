@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly Routes name mapping to the any Routes or secret related information.
-// API Version: 2020-09-01.
 type Route struct {
 	pulumi.CustomResourceState
 

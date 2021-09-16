@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The SAS response that contains the storage account, container and associated SAS token for connection use.
-// API Version: 2016-11-01.
 func ListStorageAccountSasTokens(ctx *pulumi.Context, args *ListStorageAccountSasTokensArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountSasTokensResult, error) {
 	var rv ListStorageAccountSasTokensResult
 	err := ctx.Invoke("azure-native:datalakeanalytics:listStorageAccountSasTokens", args, &rv, opts...)
@@ -19,20 +17,14 @@ func ListStorageAccountSasTokens(ctx *pulumi.Context, args *ListStorageAccountSa
 }
 
 type ListStorageAccountSasTokensArgs struct {
-	// The name of the Data Lake Analytics account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Azure storage container for which the SAS token is being requested.
-	ContainerName string `pulumi:"containerName"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure storage account for which the SAS token is being requested.
+	AccountName        string `pulumi:"accountName"`
+	ContainerName      string `pulumi:"containerName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
 // The SAS response that contains the storage account, container and associated SAS token for connection use.
 type ListStorageAccountSasTokensResult struct {
-	// The link (url) to the next page of results.
-	NextLink string `pulumi:"nextLink"`
-	// The results of the list operation.
-	Value []SasTokenInformationResponse `pulumi:"value"`
+	NextLink string                        `pulumi:"nextLink"`
+	Value    []SasTokenInformationResponse `pulumi:"value"`
 }

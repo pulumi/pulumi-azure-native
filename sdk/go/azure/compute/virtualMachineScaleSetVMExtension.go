@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a VMSS VM Extension.
-// API Version: 2021-03-01.
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 

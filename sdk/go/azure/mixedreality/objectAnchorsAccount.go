@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ObjectAnchorsAccount Response.
-// API Version: 2021-03-01-preview.
 type ObjectAnchorsAccount struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The training results of the prediction.
-// API Version: 2017-04-26.
 func GetPredictionTrainingResults(ctx *pulumi.Context, args *GetPredictionTrainingResultsArgs, opts ...pulumi.InvokeOption) (*GetPredictionTrainingResultsResult, error) {
 	var rv GetPredictionTrainingResultsResult
 	err := ctx.Invoke("azure-native:customerinsights:getPredictionTrainingResults", args, &rv, opts...)
@@ -19,24 +17,16 @@ func GetPredictionTrainingResults(ctx *pulumi.Context, args *GetPredictionTraini
 }
 
 type GetPredictionTrainingResultsArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the Prediction.
-	PredictionName string `pulumi:"predictionName"`
-	// The name of the resource group.
+	HubName           string `pulumi:"hubName"`
+	PredictionName    string `pulumi:"predictionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The training results of the prediction.
 type GetPredictionTrainingResultsResult struct {
-	// Canonical profiles.
-	CanonicalProfiles []CanonicalProfileDefinitionResponse `pulumi:"canonicalProfiles"`
-	// Prediction distribution.
-	PredictionDistribution PredictionDistributionDefinitionResponse `pulumi:"predictionDistribution"`
-	// Instance count of the primary profile.
-	PrimaryProfileInstanceCount float64 `pulumi:"primaryProfileInstanceCount"`
-	// Score name.
-	ScoreName string `pulumi:"scoreName"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
+	CanonicalProfiles           []CanonicalProfileDefinitionResponse     `pulumi:"canonicalProfiles"`
+	PredictionDistribution      PredictionDistributionDefinitionResponse `pulumi:"predictionDistribution"`
+	PrimaryProfileInstanceCount float64                                  `pulumi:"primaryProfileInstanceCount"`
+	ScoreName                   string                                   `pulumi:"scoreName"`
+	TenantId                    string                                   `pulumi:"tenantId"`
 }

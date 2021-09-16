@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The managed api definition.
-// API Version: 2019-05-01.
 func LookupIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentManagedApiArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentManagedApiResult, error) {
 	var rv LookupIntegrationServiceEnvironmentManagedApiResult
 	err := ctx.Invoke("azure-native:logic:getIntegrationServiceEnvironmentManagedApi", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context, args *Lo
 }
 
 type LookupIntegrationServiceEnvironmentManagedApiArgs struct {
-	// The api name.
-	ApiName string `pulumi:"apiName"`
-	// The integration service environment name.
+	ApiName                           string `pulumi:"apiName"`
 	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
-	// The resource group name.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup                     string `pulumi:"resourceGroup"`
 }
 
 // The managed api definition.
 type LookupIntegrationServiceEnvironmentManagedApiResult struct {
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The api resource properties.
+	Id         string                        `pulumi:"id"`
+	Location   *string                       `pulumi:"location"`
+	Name       string                        `pulumi:"name"`
 	Properties ApiResourcePropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string             `pulumi:"tags"`
+	Type       string                        `pulumi:"type"`
 }

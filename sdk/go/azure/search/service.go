@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes an Azure Cognitive Search service and its current state.
-// API Version: 2020-08-01.
 type Service struct {
 	pulumi.CustomResourceState
 

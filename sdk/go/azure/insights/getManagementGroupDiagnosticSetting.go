@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group diagnostic setting resource.
-// API Version: 2020-01-01-preview.
 func LookupManagementGroupDiagnosticSetting(ctx *pulumi.Context, args *LookupManagementGroupDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupDiagnosticSettingResult, error) {
 	var rv LookupManagementGroupDiagnosticSettingResult
 	err := ctx.Invoke("azure-native:insights:getManagementGroupDiagnosticSetting", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupManagementGroupDiagnosticSetting(ctx *pulumi.Context, args *LookupMan
 }
 
 type LookupManagementGroupDiagnosticSettingArgs struct {
-	// The management group id.
 	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The name of the diagnostic setting.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 }
 
 // The management group diagnostic setting resource.
 type LookupManagementGroupDiagnosticSettingResult struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The list of logs settings.
-	Logs []ManagementGroupLogSettingsResponse `pulumi:"logs"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId *string                              `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                *string                              `pulumi:"eventHubName"`
+	Id                          string                               `pulumi:"id"`
+	Location                    *string                              `pulumi:"location"`
+	Logs                        []ManagementGroupLogSettingsResponse `pulumi:"logs"`
+	Name                        string                               `pulumi:"name"`
+	ServiceBusRuleId            *string                              `pulumi:"serviceBusRuleId"`
+	StorageAccountId            *string                              `pulumi:"storageAccountId"`
+	Type                        string                               `pulumi:"type"`
+	WorkspaceId                 *string                              `pulumi:"workspaceId"`
 }

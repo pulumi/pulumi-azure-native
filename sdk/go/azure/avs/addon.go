@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An addon resource
-// API Version: 2020-07-17-preview.
 type Addon struct {
 	pulumi.CustomResourceState
 

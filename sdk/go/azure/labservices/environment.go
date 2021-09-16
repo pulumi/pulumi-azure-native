@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an environment instance
-// API Version: 2018-10-15.
 type Environment struct {
 	pulumi.CustomResourceState
 

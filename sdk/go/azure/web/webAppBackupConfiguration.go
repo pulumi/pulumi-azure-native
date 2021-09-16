@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a backup which will be performed.
-// API Version: 2020-12-01.
 type WebAppBackupConfiguration struct {
 	pulumi.CustomResourceState
 

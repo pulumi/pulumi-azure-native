@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pool of backend IP addresses.
-// API Version: 2020-11-01.
 type LoadBalancerBackendAddressPool struct {
 	pulumi.CustomResourceState
 

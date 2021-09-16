@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Media Graph.
-// API Version: 2020-02-01-preview.
 type MediaGraph struct {
 	pulumi.CustomResourceState
 

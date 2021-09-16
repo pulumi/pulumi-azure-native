@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report resource.
-// API Version: 2018-08-01-preview.
 type Report struct {
 	pulumi.CustomResourceState
 

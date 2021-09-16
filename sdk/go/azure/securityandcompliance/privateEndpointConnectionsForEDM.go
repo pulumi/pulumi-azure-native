@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Private Endpoint Connection resource.
-// API Version: 2021-03-08.
 type PrivateEndpointConnectionsForEDM struct {
 	pulumi.CustomResourceState
 

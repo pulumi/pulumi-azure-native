@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A manifest file that defines the custom resource provider resources.
-// API Version: 2018-09-01-preview.
 type CustomResourceProvider struct {
 	pulumi.CustomResourceState
 

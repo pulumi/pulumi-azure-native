@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SAP monitor info on Azure (ARM properties and SAP monitor properties)
-// API Version: 2020-02-07-preview.
 type SapMonitor struct {
 	pulumi.CustomResourceState
 

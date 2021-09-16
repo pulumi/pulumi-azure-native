@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
-// API Version: 2021-02-01-preview.
 func ListActiveConnectivityConfiguration(ctx *pulumi.Context, args *ListActiveConnectivityConfigurationArgs, opts ...pulumi.InvokeOption) (*ListActiveConnectivityConfigurationResult, error) {
 	var rv ListActiveConnectivityConfigurationResult
 	err := ctx.Invoke("azure-native:network:listActiveConnectivityConfiguration", args, &rv, opts...)
@@ -19,20 +17,14 @@ func ListActiveConnectivityConfiguration(ctx *pulumi.Context, args *ListActiveCo
 }
 
 type ListActiveConnectivityConfigurationArgs struct {
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// List of regions.
-	Regions []string `pulumi:"regions"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
+	NetworkManagerName string   `pulumi:"networkManagerName"`
+	Regions            []string `pulumi:"regions"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
+	SkipToken          *string  `pulumi:"skipToken"`
 }
 
 // Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
 type ListActiveConnectivityConfigurationResult struct {
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// Gets a page of active connectivity configurations.
-	Value []ActiveConnectivityConfigurationResponse `pulumi:"value"`
+	SkipToken *string                                   `pulumi:"skipToken"`
+	Value     []ActiveConnectivityConfigurationResponse `pulumi:"value"`
 }

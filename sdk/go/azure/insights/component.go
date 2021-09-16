@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights component definition.
-// API Version: 2015-05-01.
 type Component struct {
 	pulumi.CustomResourceState
 

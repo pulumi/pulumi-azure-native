@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The relationship resource format.
-// API Version: 2017-04-26.
 func LookupRelationship(ctx *pulumi.Context, args *LookupRelationshipArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipResult, error) {
 	var rv LookupRelationshipResult
 	err := ctx.Invoke("azure-native:customerinsights:getRelationship", args, &rv, opts...)
@@ -19,44 +17,26 @@ func LookupRelationship(ctx *pulumi.Context, args *LookupRelationshipArgs, opts 
 }
 
 type LookupRelationshipArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the relationship.
-	RelationshipName string `pulumi:"relationshipName"`
-	// The name of the resource group.
+	HubName           string `pulumi:"hubName"`
+	RelationshipName  string `pulumi:"relationshipName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The relationship resource format.
 type LookupRelationshipResult struct {
-	// The Relationship Cardinality.
-	Cardinality *string `pulumi:"cardinality"`
-	// Localized descriptions for the Relationship.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Relationship.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc *string `pulumi:"expiryDateTimeUtc"`
-	// The properties of the Relationship.
-	Fields []PropertyDefinitionResponse `pulumi:"fields"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings []RelationshipTypeMappingResponse `pulumi:"lookupMappings"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Profile type.
-	ProfileType string `pulumi:"profileType"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Related profile being referenced.
-	RelatedProfileType string `pulumi:"relatedProfileType"`
-	// The relationship guid id.
-	RelationshipGuidId string `pulumi:"relationshipGuidId"`
-	// The Relationship name.
-	RelationshipName string `pulumi:"relationshipName"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Cardinality        *string                           `pulumi:"cardinality"`
+	Description        map[string]string                 `pulumi:"description"`
+	DisplayName        map[string]string                 `pulumi:"displayName"`
+	ExpiryDateTimeUtc  *string                           `pulumi:"expiryDateTimeUtc"`
+	Fields             []PropertyDefinitionResponse      `pulumi:"fields"`
+	Id                 string                            `pulumi:"id"`
+	LookupMappings     []RelationshipTypeMappingResponse `pulumi:"lookupMappings"`
+	Name               string                            `pulumi:"name"`
+	ProfileType        string                            `pulumi:"profileType"`
+	ProvisioningState  string                            `pulumi:"provisioningState"`
+	RelatedProfileType string                            `pulumi:"relatedProfileType"`
+	RelationshipGuidId string                            `pulumi:"relationshipGuidId"`
+	RelationshipName   string                            `pulumi:"relationshipName"`
+	TenantId           string                            `pulumi:"tenantId"`
+	Type               string                            `pulumi:"type"`
 }

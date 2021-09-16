@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
-// API Version: 2021-03-01-preview.
 func LookupEyesOn(ctx *pulumi.Context, args *LookupEyesOnArgs, opts ...pulumi.InvokeOption) (*LookupEyesOnResult, error) {
 	var rv LookupEyesOnResult
 	err := ctx.Invoke("azure-native:securityinsights:getEyesOn", args, &rv, opts...)
@@ -19,31 +17,19 @@ func LookupEyesOn(ctx *pulumi.Context, args *LookupEyesOnArgs, opts ...pulumi.In
 }
 
 type LookupEyesOnArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SettingsName                        string `pulumi:"settingsName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Settings with single toggle.
 type LookupEyesOnResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'EyesOn'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       *string            `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	IsEnabled  bool               `pulumi:"isEnabled"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Streaming Locator resource
-// API Version: 2020-05-01.
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 

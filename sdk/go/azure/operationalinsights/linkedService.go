@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Linked service resource container.
-// API Version: 2020-08-01.
 type LinkedService struct {
 	pulumi.CustomResourceState
 

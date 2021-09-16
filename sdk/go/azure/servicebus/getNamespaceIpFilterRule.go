@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get IpFilterRules operation
-// API Version: 2018-01-01-preview.
 func LookupNamespaceIpFilterRule(ctx *pulumi.Context, args *LookupNamespaceIpFilterRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceIpFilterRuleResult, error) {
 	var rv LookupNamespaceIpFilterRuleResult
 	err := ctx.Invoke("azure-native:servicebus:getNamespaceIpFilterRule", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupNamespaceIpFilterRule(ctx *pulumi.Context, args *LookupNamespaceIpFil
 }
 
 type LookupNamespaceIpFilterRuleArgs struct {
-	// The IP Filter Rule name.
-	IpFilterRuleName string `pulumi:"ipFilterRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	IpFilterRuleName  string `pulumi:"ipFilterRuleName"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in a List or Get IpFilterRules operation
 type LookupNamespaceIpFilterRuleResult struct {
-	// The IP Filter Action
-	Action *string `pulumi:"action"`
-	// IP Filter name
+	Action     *string `pulumi:"action"`
 	FilterName *string `pulumi:"filterName"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// IP Mask
-	IpMask *string `pulumi:"ipMask"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id         string  `pulumi:"id"`
+	IpMask     *string `pulumi:"ipMask"`
+	Name       string  `pulumi:"name"`
+	Type       string  `pulumi:"type"`
 }

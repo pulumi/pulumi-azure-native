@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about JIT request definition.
-// API Version: 2019-07-01.
 type JitRequest struct {
 	pulumi.CustomResourceState
 

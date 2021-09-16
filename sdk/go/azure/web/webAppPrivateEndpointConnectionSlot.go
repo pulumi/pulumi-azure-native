@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Remote Private Endpoint Connection ARM resource.
-// API Version: 2020-12-01.
 type WebAppPrivateEndpointConnectionSlot struct {
 	pulumi.CustomResourceState
 

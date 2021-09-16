@@ -11,7 +11,6 @@ import (
 )
 
 type AgentPoolUpgradeSettings struct {
-	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge *string `pulumi:"maxSurge"`
 }
 
@@ -27,7 +26,6 @@ type AgentPoolUpgradeSettingsInput interface {
 }
 
 type AgentPoolUpgradeSettingsArgs struct {
-	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
 }
 
@@ -108,7 +106,6 @@ func (o AgentPoolUpgradeSettingsOutput) ToAgentPoolUpgradeSettingsPtrOutputWithC
 	}).(AgentPoolUpgradeSettingsPtrOutput)
 }
 
-// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 func (o AgentPoolUpgradeSettingsOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPoolUpgradeSettings) *string { return v.MaxSurge }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o AgentPoolUpgradeSettingsPtrOutput) Elem() AgentPoolUpgradeSettingsOutput
 	}).(AgentPoolUpgradeSettingsOutput)
 }
 
-// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 func (o AgentPoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPoolUpgradeSettings) *string {
 		if v == nil {
@@ -148,7 +144,6 @@ func (o AgentPoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
 }
 
 type AgentPoolUpgradeSettingsResponse struct {
-	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge *string `pulumi:"maxSurge"`
 }
 
@@ -164,7 +159,6 @@ type AgentPoolUpgradeSettingsResponseInput interface {
 }
 
 type AgentPoolUpgradeSettingsResponseArgs struct {
-	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
 }
 
@@ -245,7 +239,6 @@ func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsRespon
 	}).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
 
-// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 func (o AgentPoolUpgradeSettingsResponseOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPoolUpgradeSettingsResponse) *string { return v.MaxSurge }).(pulumi.StringPtrOutput)
 }
@@ -274,7 +267,6 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) Elem() AgentPoolUpgradeSettin
 	}).(AgentPoolUpgradeSettingsResponseOutput)
 }
 
-// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
 func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPoolUpgradeSettingsResponse) *string {
 		if v == nil {
@@ -285,14 +277,10 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOu
 }
 
 type CloudErrorBodyResponse struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code *string `pulumi:"code"`
-	// A list of additional details about the error.
+	Code    *string                  `pulumi:"code"`
 	Details []CloudErrorBodyResponse `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message *string `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target *string `pulumi:"target"`
+	Message *string                  `pulumi:"message"`
+	Target  *string                  `pulumi:"target"`
 }
 
 // CloudErrorBodyResponseInput is an input type that accepts CloudErrorBodyResponseArgs and CloudErrorBodyResponseOutput values.
@@ -307,14 +295,10 @@ type CloudErrorBodyResponseInput interface {
 }
 
 type CloudErrorBodyResponseArgs struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// A list of additional details about the error.
+	Code    pulumi.StringPtrInput            `pulumi:"code"`
 	Details CloudErrorBodyResponseArrayInput `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Message pulumi.StringPtrInput            `pulumi:"message"`
+	Target  pulumi.StringPtrInput            `pulumi:"target"`
 }
 
 func (CloudErrorBodyResponseArgs) ElementType() reflect.Type {
@@ -419,22 +403,18 @@ func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithConte
 	}).(CloudErrorBodyResponsePtrOutput)
 }
 
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 func (o CloudErrorBodyResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// A list of additional details about the error.
 func (o CloudErrorBodyResponseOutput) Details() CloudErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) []CloudErrorBodyResponse { return v.Details }).(CloudErrorBodyResponseArrayOutput)
 }
 
-// A message describing the error, intended to be suitable for display in a user interface.
 func (o CloudErrorBodyResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The target of the particular error. For example, the name of the property in error.
 func (o CloudErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -463,7 +443,6 @@ func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
 	}).(CloudErrorBodyResponseOutput)
 }
 
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -473,7 +452,6 @@ func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of additional details about the error.
 func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) []CloudErrorBodyResponse {
 		if v == nil {
@@ -483,7 +461,6 @@ func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOu
 	}).(CloudErrorBodyResponseArrayOutput)
 }
 
-// A message describing the error, intended to be suitable for display in a user interface.
 func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -493,7 +470,6 @@ func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target of the particular error. For example, the name of the property in error.
 func (o CloudErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
 		if v == nil {
@@ -524,7 +500,6 @@ func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBo
 }
 
 type CloudErrorResponse struct {
-	// Details about the error.
 	Error *CloudErrorBodyResponse `pulumi:"error"`
 }
 
@@ -540,7 +515,6 @@ type CloudErrorResponseInput interface {
 }
 
 type CloudErrorResponseArgs struct {
-	// Details about the error.
 	Error CloudErrorBodyResponsePtrInput `pulumi:"error"`
 }
 
@@ -621,7 +595,6 @@ func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx c
 	}).(CloudErrorResponsePtrOutput)
 }
 
-// Details about the error.
 func (o CloudErrorResponseOutput) Error() CloudErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponsePtrOutput)
 }
@@ -650,7 +623,6 @@ func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
 	}).(CloudErrorResponseOutput)
 }
 
-// Details about the error.
 func (o CloudErrorResponsePtrOutput) Error() CloudErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) *CloudErrorBodyResponse {
 		if v == nil {
@@ -661,10 +633,8 @@ func (o CloudErrorResponsePtrOutput) Error() CloudErrorBodyResponsePtrOutput {
 }
 
 type ContainerServiceLinuxProfile struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername string `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfiguration `pulumi:"ssh"`
+	AdminUsername string                           `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfiguration `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
@@ -679,10 +649,8 @@ type ContainerServiceLinuxProfileInput interface {
 }
 
 type ContainerServiceLinuxProfileArgs struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                    `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileArgs) ElementType() reflect.Type {
@@ -762,12 +730,10 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileOutput) Ssh() ContainerServiceSshConfigurationOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) ContainerServiceSshConfiguration { return v.Ssh }).(ContainerServiceSshConfigurationOutput)
 }
@@ -796,7 +762,6 @@ func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfi
 	}).(ContainerServiceLinuxProfileOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *string {
 		if v == nil {
@@ -806,7 +771,6 @@ func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *ContainerServiceSshConfiguration {
 		if v == nil {
@@ -817,10 +781,8 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 }
 
 type ContainerServiceLinuxProfileResponse struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername string `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
+	AdminUsername string                                   `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileResponseInput is an input type that accepts ContainerServiceLinuxProfileResponseArgs and ContainerServiceLinuxProfileResponseOutput values.
@@ -835,10 +797,8 @@ type ContainerServiceLinuxProfileResponseInput interface {
 }
 
 type ContainerServiceLinuxProfileResponseArgs struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                            `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileResponseArgs) ElementType() reflect.Type {
@@ -918,12 +878,10 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileResponseOutput) Ssh() ContainerServiceSshConfigurationResponseOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) ContainerServiceSshConfigurationResponse { return v.Ssh }).(ContainerServiceSshConfigurationResponseOutput)
 }
@@ -952,7 +910,6 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLi
 	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *string {
 		if v == nil {
@@ -962,7 +919,6 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSshConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *ContainerServiceSshConfigurationResponse {
 		if v == nil {
@@ -973,26 +929,16 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSsh
 }
 
 type ContainerServiceNetworkProfile struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP *string `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// Profile of the cluster load balancer.
+	DnsServiceIP        *string                            `pulumi:"dnsServiceIP"`
+	DockerBridgeCidr    *string                            `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile *ManagedClusterLoadBalancerProfile `pulumi:"loadBalancerProfile"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// Network mode used for building Kubernetes network.
-	NetworkMode *string `pulumi:"networkMode"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin *string `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method.
-	OutboundType *string `pulumi:"outboundType"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr *string `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr *string `pulumi:"serviceCidr"`
+	LoadBalancerSku     *string                            `pulumi:"loadBalancerSku"`
+	NetworkMode         *string                            `pulumi:"networkMode"`
+	NetworkPlugin       *string                            `pulumi:"networkPlugin"`
+	NetworkPolicy       *string                            `pulumi:"networkPolicy"`
+	OutboundType        *string                            `pulumi:"outboundType"`
+	PodCidr             *string                            `pulumi:"podCidr"`
+	ServiceCidr         *string                            `pulumi:"serviceCidr"`
 }
 
 // ContainerServiceNetworkProfileInput is an input type that accepts ContainerServiceNetworkProfileArgs and ContainerServiceNetworkProfileOutput values.
@@ -1007,26 +953,16 @@ type ContainerServiceNetworkProfileInput interface {
 }
 
 type ContainerServiceNetworkProfileArgs struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// Profile of the cluster load balancer.
+	DnsServiceIP        pulumi.StringPtrInput                     `pulumi:"dnsServiceIP"`
+	DockerBridgeCidr    pulumi.StringPtrInput                     `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile ManagedClusterLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// Network mode used for building Kubernetes network.
-	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin pulumi.StringPtrInput `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method.
-	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	LoadBalancerSku     pulumi.StringPtrInput                     `pulumi:"loadBalancerSku"`
+	NetworkMode         pulumi.StringPtrInput                     `pulumi:"networkMode"`
+	NetworkPlugin       pulumi.StringPtrInput                     `pulumi:"networkPlugin"`
+	NetworkPolicy       pulumi.StringPtrInput                     `pulumi:"networkPolicy"`
+	OutboundType        pulumi.StringPtrInput                     `pulumi:"outboundType"`
+	PodCidr             pulumi.StringPtrInput                     `pulumi:"podCidr"`
+	ServiceCidr         pulumi.StringPtrInput                     `pulumi:"serviceCidr"`
 }
 
 func (ContainerServiceNetworkProfileArgs) ElementType() reflect.Type {
@@ -1106,54 +1042,44 @@ func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePt
 	}).(ContainerServiceNetworkProfilePtrOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.DnsServiceIP }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// Profile of the cluster load balancer.
 func (o ContainerServiceNetworkProfileOutput) LoadBalancerProfile() ManagedClusterLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *ManagedClusterLoadBalancerProfile {
 		return v.LoadBalancerProfile
 	}).(ManagedClusterLoadBalancerProfilePtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// Network mode used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method.
 func (o ContainerServiceNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -1182,7 +1108,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) Elem() ContainerServiceNetworkP
 	}).(ContainerServiceNetworkProfileOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfilePtrOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1192,7 +1117,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) DnsServiceIP() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1202,7 +1126,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile of the cluster load balancer.
 func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerProfile() ManagedClusterLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *ManagedClusterLoadBalancerProfile {
 		if v == nil {
@@ -1212,7 +1135,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerProfile() ManagedCl
 	}).(ManagedClusterLoadBalancerProfilePtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1222,7 +1144,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerSku() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network mode used for building Kubernetes network.
 func (o ContainerServiceNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1232,7 +1153,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1242,7 +1162,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1252,7 +1171,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method.
 func (o ContainerServiceNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1262,7 +1180,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) OutboundType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1272,7 +1189,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -1283,26 +1199,16 @@ func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrO
 }
 
 type ContainerServiceNetworkProfileResponse struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP *string `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// Profile of the cluster load balancer.
+	DnsServiceIP        *string                                    `pulumi:"dnsServiceIP"`
+	DockerBridgeCidr    *string                                    `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile *ManagedClusterLoadBalancerProfileResponse `pulumi:"loadBalancerProfile"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// Network mode used for building Kubernetes network.
-	NetworkMode *string `pulumi:"networkMode"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin *string `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method.
-	OutboundType *string `pulumi:"outboundType"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr *string `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr *string `pulumi:"serviceCidr"`
+	LoadBalancerSku     *string                                    `pulumi:"loadBalancerSku"`
+	NetworkMode         *string                                    `pulumi:"networkMode"`
+	NetworkPlugin       *string                                    `pulumi:"networkPlugin"`
+	NetworkPolicy       *string                                    `pulumi:"networkPolicy"`
+	OutboundType        *string                                    `pulumi:"outboundType"`
+	PodCidr             *string                                    `pulumi:"podCidr"`
+	ServiceCidr         *string                                    `pulumi:"serviceCidr"`
 }
 
 // ContainerServiceNetworkProfileResponseInput is an input type that accepts ContainerServiceNetworkProfileResponseArgs and ContainerServiceNetworkProfileResponseOutput values.
@@ -1317,26 +1223,16 @@ type ContainerServiceNetworkProfileResponseInput interface {
 }
 
 type ContainerServiceNetworkProfileResponseArgs struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// Profile of the cluster load balancer.
+	DnsServiceIP        pulumi.StringPtrInput                             `pulumi:"dnsServiceIP"`
+	DockerBridgeCidr    pulumi.StringPtrInput                             `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile ManagedClusterLoadBalancerProfileResponsePtrInput `pulumi:"loadBalancerProfile"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// Network mode used for building Kubernetes network.
-	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin pulumi.StringPtrInput `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method.
-	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	LoadBalancerSku     pulumi.StringPtrInput                             `pulumi:"loadBalancerSku"`
+	NetworkMode         pulumi.StringPtrInput                             `pulumi:"networkMode"`
+	NetworkPlugin       pulumi.StringPtrInput                             `pulumi:"networkPlugin"`
+	NetworkPolicy       pulumi.StringPtrInput                             `pulumi:"networkPolicy"`
+	OutboundType        pulumi.StringPtrInput                             `pulumi:"outboundType"`
+	PodCidr             pulumi.StringPtrInput                             `pulumi:"podCidr"`
+	ServiceCidr         pulumi.StringPtrInput                             `pulumi:"serviceCidr"`
 }
 
 func (ContainerServiceNetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -1416,54 +1312,44 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileResponseOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.DnsServiceIP }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileResponseOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// Profile of the cluster load balancer.
 func (o ContainerServiceNetworkProfileResponseOutput) LoadBalancerProfile() ManagedClusterLoadBalancerProfileResponsePtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *ManagedClusterLoadBalancerProfileResponse {
 		return v.LoadBalancerProfile
 	}).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileResponseOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// Network mode used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponseOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponseOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponseOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method.
 func (o ContainerServiceNetworkProfileResponseOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileResponseOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -1492,7 +1378,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) Elem() ContainerService
 	}).(ContainerServiceNetworkProfileResponseOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1502,7 +1387,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) DnsServiceIP() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1512,7 +1396,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) DockerBridgeCidr() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile of the cluster load balancer.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerProfile() ManagedClusterLoadBalancerProfileResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *ManagedClusterLoadBalancerProfileResponse {
 		if v == nil {
@@ -1522,7 +1405,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerProfile() M
 	}).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1532,7 +1414,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerSku() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network mode used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1542,7 +1423,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkMode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1552,7 +1432,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPlugin() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1562,7 +1441,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPolicy() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1572,7 +1450,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) OutboundType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1582,7 +1459,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) PodCidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -1593,7 +1469,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 }
 
 type ContainerServiceSshConfiguration struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKey `pulumi:"publicKeys"`
 }
 
@@ -1609,7 +1484,6 @@ type ContainerServiceSshConfigurationInput interface {
 }
 
 type ContainerServiceSshConfigurationArgs struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyArrayInput `pulumi:"publicKeys"`
 }
 
@@ -1690,7 +1564,6 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey { return v.PublicKeys }).(ContainerServiceSshPublicKeyArrayOutput)
 }
@@ -1719,7 +1592,6 @@ func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshCon
 	}).(ContainerServiceSshConfigurationOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey {
 		if v == nil {
@@ -1730,7 +1602,6 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 }
 
 type ContainerServiceSshConfigurationResponse struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
 }
 
@@ -1746,7 +1617,6 @@ type ContainerServiceSshConfigurationResponseInput interface {
 }
 
 type ContainerServiceSshConfigurationResponseArgs struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
 }
 
@@ -1827,7 +1697,6 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationResponseOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		return v.PublicKeys
@@ -1858,7 +1727,6 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServi
 	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		if v == nil {
@@ -1869,7 +1737,6 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() Containe
 }
 
 type ContainerServiceSshPublicKey struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1885,7 +1752,6 @@ type ContainerServiceSshPublicKeyInput interface {
 }
 
 type ContainerServiceSshPublicKeyArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -1940,7 +1806,6 @@ func (o ContainerServiceSshPublicKeyOutput) ToContainerServiceSshPublicKeyOutput
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -1966,7 +1831,6 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 }
 
 type ContainerServiceSshPublicKeyResponse struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1982,7 +1846,6 @@ type ContainerServiceSshPublicKeyResponseInput interface {
 }
 
 type ContainerServiceSshPublicKeyResponseArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -2037,7 +1900,6 @@ func (o ContainerServiceSshPublicKeyResponseOutput) ToContainerServiceSshPublicK
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyResponseOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKeyResponse) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -2063,7 +1925,6 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 type CreationData struct {
-	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 }
 
@@ -2079,7 +1940,6 @@ type CreationDataInput interface {
 }
 
 type CreationDataArgs struct {
-	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 }
 
@@ -2160,7 +2020,6 @@ func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Conte
 	}).(CreationDataPtrOutput)
 }
 
-// This is the ARM ID of the source object to be used to create the target object.
 func (o CreationDataOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2189,7 +2048,6 @@ func (o CreationDataPtrOutput) Elem() CreationDataOutput {
 	}).(CreationDataOutput)
 }
 
-// This is the ARM ID of the source object to be used to create the target object.
 func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -2200,7 +2058,6 @@ func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 }
 
 type CreationDataResponse struct {
-	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 }
 
@@ -2216,7 +2073,6 @@ type CreationDataResponseInput interface {
 }
 
 type CreationDataResponseArgs struct {
-	// This is the ARM ID of the source object to be used to create the target object.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 }
 
@@ -2297,7 +2153,6 @@ func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutputWithContext(c
 	}).(CreationDataResponsePtrOutput)
 }
 
-// This is the ARM ID of the source object to be used to create the target object.
 func (o CreationDataResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2326,7 +2181,6 @@ func (o CreationDataResponsePtrOutput) Elem() CreationDataResponseOutput {
 	}).(CreationDataResponseOutput)
 }
 
-// This is the ARM ID of the source object to be used to create the target object.
 func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -2337,9 +2191,7 @@ func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput
 }
 
 type CredentialResultResponse struct {
-	// The name of the credential.
-	Name string `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2355,9 +2207,7 @@ type CredentialResultResponseInput interface {
 }
 
 type CredentialResultResponseArgs struct {
-	// The name of the credential.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2412,12 +2262,10 @@ func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithCont
 	return o
 }
 
-// The name of the credential.
 func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Base64-encoded Kubernetes configuration file.
 func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2443,9 +2291,7 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 }
 
 type ExtendedLocation struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -2461,9 +2307,7 @@ type ExtendedLocationInput interface {
 }
 
 type ExtendedLocationArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2544,12 +2388,10 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx conte
 	}).(ExtendedLocationPtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2578,7 +2420,6 @@ func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
 	}).(ExtendedLocationOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -2588,7 +2429,6 @@ func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -2599,9 +2439,7 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ExtendedLocationResponse struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -2617,9 +2455,7 @@ type ExtendedLocationResponseInput interface {
 }
 
 type ExtendedLocationResponseArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2700,12 +2536,10 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithC
 	}).(ExtendedLocationResponsePtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2734,7 +2568,6 @@ func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput
 	}).(ExtendedLocationResponseOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -2744,7 +2577,6 @@ func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -2755,28 +2587,17 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type KubeletConfig struct {
-	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
-	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
-	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
-	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
-	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
-	ContainerLogMaxSizeMB *int `pulumi:"containerLogMaxSizeMB"`
-	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
-	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
-	// Sets CPU CFS quota period value.
-	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
-	// CPU Manager policy to use.
-	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
-	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
-	FailSwapOn *bool `pulumi:"failSwapOn"`
-	// The percent of disk usage after which image garbage collection is always run.
-	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
-	// The percent of disk usage before which image garbage collection is never run.
-	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
-	// The maximum number of processes per pod.
-	PodMaxPids *int `pulumi:"podMaxPids"`
-	// Topology Manager policy to use.
-	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+	AllowedUnsafeSysctls  []string `pulumi:"allowedUnsafeSysctls"`
+	ContainerLogMaxFiles  *int     `pulumi:"containerLogMaxFiles"`
+	ContainerLogMaxSizeMB *int     `pulumi:"containerLogMaxSizeMB"`
+	CpuCfsQuota           *bool    `pulumi:"cpuCfsQuota"`
+	CpuCfsQuotaPeriod     *string  `pulumi:"cpuCfsQuotaPeriod"`
+	CpuManagerPolicy      *string  `pulumi:"cpuManagerPolicy"`
+	FailSwapOn            *bool    `pulumi:"failSwapOn"`
+	ImageGcHighThreshold  *int     `pulumi:"imageGcHighThreshold"`
+	ImageGcLowThreshold   *int     `pulumi:"imageGcLowThreshold"`
+	PodMaxPids            *int     `pulumi:"podMaxPids"`
+	TopologyManagerPolicy *string  `pulumi:"topologyManagerPolicy"`
 }
 
 // KubeletConfigInput is an input type that accepts KubeletConfigArgs and KubeletConfigOutput values.
@@ -2791,28 +2612,17 @@ type KubeletConfigInput interface {
 }
 
 type KubeletConfigArgs struct {
-	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
-	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
-	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
-	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
-	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
-	ContainerLogMaxSizeMB pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMB"`
-	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
-	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
-	// Sets CPU CFS quota period value.
-	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
-	// CPU Manager policy to use.
-	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
-	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
-	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
-	// The percent of disk usage after which image garbage collection is always run.
-	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
-	// The percent of disk usage before which image garbage collection is never run.
-	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
-	// The maximum number of processes per pod.
-	PodMaxPids pulumi.IntPtrInput `pulumi:"podMaxPids"`
-	// Topology Manager policy to use.
-	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+	AllowedUnsafeSysctls  pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	ContainerLogMaxFiles  pulumi.IntPtrInput      `pulumi:"containerLogMaxFiles"`
+	ContainerLogMaxSizeMB pulumi.IntPtrInput      `pulumi:"containerLogMaxSizeMB"`
+	CpuCfsQuota           pulumi.BoolPtrInput     `pulumi:"cpuCfsQuota"`
+	CpuCfsQuotaPeriod     pulumi.StringPtrInput   `pulumi:"cpuCfsQuotaPeriod"`
+	CpuManagerPolicy      pulumi.StringPtrInput   `pulumi:"cpuManagerPolicy"`
+	FailSwapOn            pulumi.BoolPtrInput     `pulumi:"failSwapOn"`
+	ImageGcHighThreshold  pulumi.IntPtrInput      `pulumi:"imageGcHighThreshold"`
+	ImageGcLowThreshold   pulumi.IntPtrInput      `pulumi:"imageGcLowThreshold"`
+	PodMaxPids            pulumi.IntPtrInput      `pulumi:"podMaxPids"`
+	TopologyManagerPolicy pulumi.StringPtrInput   `pulumi:"topologyManagerPolicy"`
 }
 
 func (KubeletConfigArgs) ElementType() reflect.Type {
@@ -2892,57 +2702,46 @@ func (o KubeletConfigOutput) ToKubeletConfigPtrOutputWithContext(ctx context.Con
 	}).(KubeletConfigPtrOutput)
 }
 
-// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 func (o KubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
 func (o KubeletConfigOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (e.g. 10Mi) of container log file before it is rotated.
 func (o KubeletConfigOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.ContainerLogMaxSizeMB }).(pulumi.IntPtrOutput)
 }
 
-// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
 }
 
-// Sets CPU CFS quota period value.
 func (o KubeletConfigOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
 }
 
-// CPU Manager policy to use.
 func (o KubeletConfigOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
 }
 
-// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
 func (o KubeletConfigOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
-// The percent of disk usage after which image garbage collection is always run.
 func (o KubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of processes per pod.
 func (o KubeletConfigOutput) PodMaxPids() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.PodMaxPids }).(pulumi.IntPtrOutput)
 }
 
-// Topology Manager policy to use.
 func (o KubeletConfigOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
 }
@@ -2971,7 +2770,6 @@ func (o KubeletConfigPtrOutput) Elem() KubeletConfigOutput {
 	}).(KubeletConfigOutput)
 }
 
-// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 func (o KubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubeletConfig) []string {
 		if v == nil {
@@ -2981,7 +2779,6 @@ func (o KubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
 func (o KubeletConfigPtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *int {
 		if v == nil {
@@ -2991,7 +2788,6 @@ func (o KubeletConfigPtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (e.g. 10Mi) of container log file before it is rotated.
 func (o KubeletConfigPtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *int {
 		if v == nil {
@@ -3001,7 +2797,6 @@ func (o KubeletConfigPtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigPtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *bool {
 		if v == nil {
@@ -3011,7 +2806,6 @@ func (o KubeletConfigPtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets CPU CFS quota period value.
 func (o KubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *string {
 		if v == nil {
@@ -3021,7 +2815,6 @@ func (o KubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CPU Manager policy to use.
 func (o KubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *string {
 		if v == nil {
@@ -3031,7 +2824,6 @@ func (o KubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
 func (o KubeletConfigPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *bool {
 		if v == nil {
@@ -3041,7 +2833,6 @@ func (o KubeletConfigPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The percent of disk usage after which image garbage collection is always run.
 func (o KubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *int {
 		if v == nil {
@@ -3051,7 +2842,6 @@ func (o KubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *int {
 		if v == nil {
@@ -3061,7 +2851,6 @@ func (o KubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of processes per pod.
 func (o KubeletConfigPtrOutput) PodMaxPids() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *int {
 		if v == nil {
@@ -3071,7 +2860,6 @@ func (o KubeletConfigPtrOutput) PodMaxPids() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Topology Manager policy to use.
 func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *string {
 		if v == nil {
@@ -3082,28 +2870,17 @@ func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 }
 
 type KubeletConfigResponse struct {
-	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
-	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
-	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
-	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
-	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
-	ContainerLogMaxSizeMB *int `pulumi:"containerLogMaxSizeMB"`
-	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
-	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
-	// Sets CPU CFS quota period value.
-	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
-	// CPU Manager policy to use.
-	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
-	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
-	FailSwapOn *bool `pulumi:"failSwapOn"`
-	// The percent of disk usage after which image garbage collection is always run.
-	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
-	// The percent of disk usage before which image garbage collection is never run.
-	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
-	// The maximum number of processes per pod.
-	PodMaxPids *int `pulumi:"podMaxPids"`
-	// Topology Manager policy to use.
-	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+	AllowedUnsafeSysctls  []string `pulumi:"allowedUnsafeSysctls"`
+	ContainerLogMaxFiles  *int     `pulumi:"containerLogMaxFiles"`
+	ContainerLogMaxSizeMB *int     `pulumi:"containerLogMaxSizeMB"`
+	CpuCfsQuota           *bool    `pulumi:"cpuCfsQuota"`
+	CpuCfsQuotaPeriod     *string  `pulumi:"cpuCfsQuotaPeriod"`
+	CpuManagerPolicy      *string  `pulumi:"cpuManagerPolicy"`
+	FailSwapOn            *bool    `pulumi:"failSwapOn"`
+	ImageGcHighThreshold  *int     `pulumi:"imageGcHighThreshold"`
+	ImageGcLowThreshold   *int     `pulumi:"imageGcLowThreshold"`
+	PodMaxPids            *int     `pulumi:"podMaxPids"`
+	TopologyManagerPolicy *string  `pulumi:"topologyManagerPolicy"`
 }
 
 // KubeletConfigResponseInput is an input type that accepts KubeletConfigResponseArgs and KubeletConfigResponseOutput values.
@@ -3118,28 +2895,17 @@ type KubeletConfigResponseInput interface {
 }
 
 type KubeletConfigResponseArgs struct {
-	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
-	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
-	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
-	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
-	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
-	ContainerLogMaxSizeMB pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMB"`
-	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
-	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
-	// Sets CPU CFS quota period value.
-	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
-	// CPU Manager policy to use.
-	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
-	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
-	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
-	// The percent of disk usage after which image garbage collection is always run.
-	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
-	// The percent of disk usage before which image garbage collection is never run.
-	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
-	// The maximum number of processes per pod.
-	PodMaxPids pulumi.IntPtrInput `pulumi:"podMaxPids"`
-	// Topology Manager policy to use.
-	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+	AllowedUnsafeSysctls  pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	ContainerLogMaxFiles  pulumi.IntPtrInput      `pulumi:"containerLogMaxFiles"`
+	ContainerLogMaxSizeMB pulumi.IntPtrInput      `pulumi:"containerLogMaxSizeMB"`
+	CpuCfsQuota           pulumi.BoolPtrInput     `pulumi:"cpuCfsQuota"`
+	CpuCfsQuotaPeriod     pulumi.StringPtrInput   `pulumi:"cpuCfsQuotaPeriod"`
+	CpuManagerPolicy      pulumi.StringPtrInput   `pulumi:"cpuManagerPolicy"`
+	FailSwapOn            pulumi.BoolPtrInput     `pulumi:"failSwapOn"`
+	ImageGcHighThreshold  pulumi.IntPtrInput      `pulumi:"imageGcHighThreshold"`
+	ImageGcLowThreshold   pulumi.IntPtrInput      `pulumi:"imageGcLowThreshold"`
+	PodMaxPids            pulumi.IntPtrInput      `pulumi:"podMaxPids"`
+	TopologyManagerPolicy pulumi.StringPtrInput   `pulumi:"topologyManagerPolicy"`
 }
 
 func (KubeletConfigResponseArgs) ElementType() reflect.Type {
@@ -3219,57 +2985,46 @@ func (o KubeletConfigResponseOutput) ToKubeletConfigResponsePtrOutputWithContext
 	}).(KubeletConfigResponsePtrOutput)
 }
 
-// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 func (o KubeletConfigResponseOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
 func (o KubeletConfigResponseOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (e.g. 10Mi) of container log file before it is rotated.
 func (o KubeletConfigResponseOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ContainerLogMaxSizeMB }).(pulumi.IntPtrOutput)
 }
 
-// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigResponseOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
 }
 
-// Sets CPU CFS quota period value.
 func (o KubeletConfigResponseOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
 }
 
-// CPU Manager policy to use.
 func (o KubeletConfigResponseOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
 }
 
-// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
 func (o KubeletConfigResponseOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
-// The percent of disk usage after which image garbage collection is always run.
 func (o KubeletConfigResponseOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigResponseOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of processes per pod.
 func (o KubeletConfigResponseOutput) PodMaxPids() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.PodMaxPids }).(pulumi.IntPtrOutput)
 }
 
-// Topology Manager policy to use.
 func (o KubeletConfigResponseOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
 }
@@ -3298,7 +3053,6 @@ func (o KubeletConfigResponsePtrOutput) Elem() KubeletConfigResponseOutput {
 	}).(KubeletConfigResponseOutput)
 }
 
-// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 func (o KubeletConfigResponsePtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) []string {
 		if v == nil {
@@ -3308,7 +3062,6 @@ func (o KubeletConfigResponsePtrOutput) AllowedUnsafeSysctls() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
 func (o KubeletConfigResponsePtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *int {
 		if v == nil {
@@ -3318,7 +3071,6 @@ func (o KubeletConfigResponsePtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (e.g. 10Mi) of container log file before it is rotated.
 func (o KubeletConfigResponsePtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *int {
 		if v == nil {
@@ -3328,7 +3080,6 @@ func (o KubeletConfigResponsePtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigResponsePtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *bool {
 		if v == nil {
@@ -3338,7 +3089,6 @@ func (o KubeletConfigResponsePtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets CPU CFS quota period value.
 func (o KubeletConfigResponsePtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *string {
 		if v == nil {
@@ -3348,7 +3098,6 @@ func (o KubeletConfigResponsePtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// CPU Manager policy to use.
 func (o KubeletConfigResponsePtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *string {
 		if v == nil {
@@ -3358,7 +3107,6 @@ func (o KubeletConfigResponsePtrOutput) CpuManagerPolicy() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
 func (o KubeletConfigResponsePtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *bool {
 		if v == nil {
@@ -3368,7 +3116,6 @@ func (o KubeletConfigResponsePtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The percent of disk usage after which image garbage collection is always run.
 func (o KubeletConfigResponsePtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *int {
 		if v == nil {
@@ -3378,7 +3125,6 @@ func (o KubeletConfigResponsePtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigResponsePtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *int {
 		if v == nil {
@@ -3388,7 +3134,6 @@ func (o KubeletConfigResponsePtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of processes per pod.
 func (o KubeletConfigResponsePtrOutput) PodMaxPids() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *int {
 		if v == nil {
@@ -3398,7 +3143,6 @@ func (o KubeletConfigResponsePtrOutput) PodMaxPids() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Topology Manager policy to use.
 func (o KubeletConfigResponsePtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfigResponse) *string {
 		if v == nil {
@@ -3409,14 +3153,10 @@ func (o KubeletConfigResponsePtrOutput) TopologyManagerPolicy() pulumi.StringPtr
 }
 
 type LinuxOSConfig struct {
-	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
-	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
-	// Sysctl settings for Linux agent nodes.
-	Sysctls *SysctlConfig `pulumi:"sysctls"`
-	// Transparent Huge Page defrag configuration.
-	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Transparent Huge Page enabled configuration.
-	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+	SwapFileSizeMB             *int          `pulumi:"swapFileSizeMB"`
+	Sysctls                    *SysctlConfig `pulumi:"sysctls"`
+	TransparentHugePageDefrag  *string       `pulumi:"transparentHugePageDefrag"`
+	TransparentHugePageEnabled *string       `pulumi:"transparentHugePageEnabled"`
 }
 
 // LinuxOSConfigInput is an input type that accepts LinuxOSConfigArgs and LinuxOSConfigOutput values.
@@ -3431,13 +3171,9 @@ type LinuxOSConfigInput interface {
 }
 
 type LinuxOSConfigArgs struct {
-	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
-	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
-	// Sysctl settings for Linux agent nodes.
-	Sysctls SysctlConfigPtrInput `pulumi:"sysctls"`
-	// Transparent Huge Page defrag configuration.
-	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Transparent Huge Page enabled configuration.
+	SwapFileSizeMB             pulumi.IntPtrInput    `pulumi:"swapFileSizeMB"`
+	Sysctls                    SysctlConfigPtrInput  `pulumi:"sysctls"`
+	TransparentHugePageDefrag  pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
 	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -3518,22 +3254,18 @@ func (o LinuxOSConfigOutput) ToLinuxOSConfigPtrOutputWithContext(ctx context.Con
 	}).(LinuxOSConfigPtrOutput)
 }
 
-// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 func (o LinuxOSConfigOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfig) *int { return v.SwapFileSizeMB }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 func (o LinuxOSConfigOutput) Sysctls() SysctlConfigPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfig) *SysctlConfig { return v.Sysctls }).(SysctlConfigPtrOutput)
 }
 
-// Transparent Huge Page defrag configuration.
 func (o LinuxOSConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Transparent Huge Page enabled configuration.
 func (o LinuxOSConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
 }
@@ -3562,7 +3294,6 @@ func (o LinuxOSConfigPtrOutput) Elem() LinuxOSConfigOutput {
 	}).(LinuxOSConfigOutput)
 }
 
-// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 func (o LinuxOSConfigPtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfig) *int {
 		if v == nil {
@@ -3572,7 +3303,6 @@ func (o LinuxOSConfigPtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 func (o LinuxOSConfigPtrOutput) Sysctls() SysctlConfigPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfig) *SysctlConfig {
 		if v == nil {
@@ -3582,7 +3312,6 @@ func (o LinuxOSConfigPtrOutput) Sysctls() SysctlConfigPtrOutput {
 	}).(SysctlConfigPtrOutput)
 }
 
-// Transparent Huge Page defrag configuration.
 func (o LinuxOSConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfig) *string {
 		if v == nil {
@@ -3592,7 +3321,6 @@ func (o LinuxOSConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Transparent Huge Page enabled configuration.
 func (o LinuxOSConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfig) *string {
 		if v == nil {
@@ -3603,14 +3331,10 @@ func (o LinuxOSConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOut
 }
 
 type LinuxOSConfigResponse struct {
-	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
-	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
-	// Sysctl settings for Linux agent nodes.
-	Sysctls *SysctlConfigResponse `pulumi:"sysctls"`
-	// Transparent Huge Page defrag configuration.
-	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Transparent Huge Page enabled configuration.
-	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+	SwapFileSizeMB             *int                  `pulumi:"swapFileSizeMB"`
+	Sysctls                    *SysctlConfigResponse `pulumi:"sysctls"`
+	TransparentHugePageDefrag  *string               `pulumi:"transparentHugePageDefrag"`
+	TransparentHugePageEnabled *string               `pulumi:"transparentHugePageEnabled"`
 }
 
 // LinuxOSConfigResponseInput is an input type that accepts LinuxOSConfigResponseArgs and LinuxOSConfigResponseOutput values.
@@ -3625,14 +3349,10 @@ type LinuxOSConfigResponseInput interface {
 }
 
 type LinuxOSConfigResponseArgs struct {
-	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
-	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
-	// Sysctl settings for Linux agent nodes.
-	Sysctls SysctlConfigResponsePtrInput `pulumi:"sysctls"`
-	// Transparent Huge Page defrag configuration.
-	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Transparent Huge Page enabled configuration.
-	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
+	SwapFileSizeMB             pulumi.IntPtrInput           `pulumi:"swapFileSizeMB"`
+	Sysctls                    SysctlConfigResponsePtrInput `pulumi:"sysctls"`
+	TransparentHugePageDefrag  pulumi.StringPtrInput        `pulumi:"transparentHugePageDefrag"`
+	TransparentHugePageEnabled pulumi.StringPtrInput        `pulumi:"transparentHugePageEnabled"`
 }
 
 func (LinuxOSConfigResponseArgs) ElementType() reflect.Type {
@@ -3712,22 +3432,18 @@ func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponsePtrOutputWithContext
 	}).(LinuxOSConfigResponsePtrOutput)
 }
 
-// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 func (o LinuxOSConfigResponseOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfigResponse) *int { return v.SwapFileSizeMB }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 func (o LinuxOSConfigResponseOutput) Sysctls() SysctlConfigResponsePtrOutput {
 	return o.ApplyT(func(v LinuxOSConfigResponse) *SysctlConfigResponse { return v.Sysctls }).(SysctlConfigResponsePtrOutput)
 }
 
-// Transparent Huge Page defrag configuration.
 func (o LinuxOSConfigResponseOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfigResponse) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Transparent Huge Page enabled configuration.
 func (o LinuxOSConfigResponseOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOSConfigResponse) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
 }
@@ -3756,7 +3472,6 @@ func (o LinuxOSConfigResponsePtrOutput) Elem() LinuxOSConfigResponseOutput {
 	}).(LinuxOSConfigResponseOutput)
 }
 
-// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
 func (o LinuxOSConfigResponsePtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfigResponse) *int {
 		if v == nil {
@@ -3766,7 +3481,6 @@ func (o LinuxOSConfigResponsePtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl settings for Linux agent nodes.
 func (o LinuxOSConfigResponsePtrOutput) Sysctls() SysctlConfigResponsePtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfigResponse) *SysctlConfigResponse {
 		if v == nil {
@@ -3776,7 +3490,6 @@ func (o LinuxOSConfigResponsePtrOutput) Sysctls() SysctlConfigResponsePtrOutput 
 	}).(SysctlConfigResponsePtrOutput)
 }
 
-// Transparent Huge Page defrag configuration.
 func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfigResponse) *string {
 		if v == nil {
@@ -3786,7 +3499,6 @@ func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageDefrag() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Transparent Huge Page enabled configuration.
 func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOSConfigResponse) *string {
 		if v == nil {
@@ -3797,20 +3509,13 @@ func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageEnabled() pulumi.Stri
 }
 
 type ManagedClusterAADProfile struct {
-	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs []string `pulumi:"adminGroupObjectIDs"`
-	// The client AAD application ID.
-	ClientAppID *string `pulumi:"clientAppID"`
-	// Whether to enable Azure RBAC for Kubernetes authorization.
-	EnableAzureRBAC *bool `pulumi:"enableAzureRBAC"`
-	// Whether to enable managed AAD.
-	Managed *bool `pulumi:"managed"`
-	// The server AAD application ID.
-	ServerAppID *string `pulumi:"serverAppID"`
-	// The server AAD application secret.
-	ServerAppSecret *string `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID *string `pulumi:"tenantID"`
+	ClientAppID         *string  `pulumi:"clientAppID"`
+	EnableAzureRBAC     *bool    `pulumi:"enableAzureRBAC"`
+	Managed             *bool    `pulumi:"managed"`
+	ServerAppID         *string  `pulumi:"serverAppID"`
+	ServerAppSecret     *string  `pulumi:"serverAppSecret"`
+	TenantID            *string  `pulumi:"tenantID"`
 }
 
 // ManagedClusterAADProfileInput is an input type that accepts ManagedClusterAADProfileArgs and ManagedClusterAADProfileOutput values.
@@ -3825,20 +3530,13 @@ type ManagedClusterAADProfileInput interface {
 }
 
 type ManagedClusterAADProfileArgs struct {
-	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs pulumi.StringArrayInput `pulumi:"adminGroupObjectIDs"`
-	// The client AAD application ID.
-	ClientAppID pulumi.StringPtrInput `pulumi:"clientAppID"`
-	// Whether to enable Azure RBAC for Kubernetes authorization.
-	EnableAzureRBAC pulumi.BoolPtrInput `pulumi:"enableAzureRBAC"`
-	// Whether to enable managed AAD.
-	Managed pulumi.BoolPtrInput `pulumi:"managed"`
-	// The server AAD application ID.
-	ServerAppID pulumi.StringPtrInput `pulumi:"serverAppID"`
-	// The server AAD application secret.
-	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID pulumi.StringPtrInput `pulumi:"tenantID"`
+	ClientAppID         pulumi.StringPtrInput   `pulumi:"clientAppID"`
+	EnableAzureRBAC     pulumi.BoolPtrInput     `pulumi:"enableAzureRBAC"`
+	Managed             pulumi.BoolPtrInput     `pulumi:"managed"`
+	ServerAppID         pulumi.StringPtrInput   `pulumi:"serverAppID"`
+	ServerAppSecret     pulumi.StringPtrInput   `pulumi:"serverAppSecret"`
+	TenantID            pulumi.StringPtrInput   `pulumi:"tenantID"`
 }
 
 func (ManagedClusterAADProfileArgs) ElementType() reflect.Type {
@@ -3918,37 +3616,30 @@ func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutputWithC
 	}).(ManagedClusterAADProfilePtrOutput)
 }
 
-// AAD group object IDs that will have admin role of the cluster.
 func (o ManagedClusterAADProfileOutput) AdminGroupObjectIDs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) []string { return v.AdminGroupObjectIDs }).(pulumi.StringArrayOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.ClientAppID }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Azure RBAC for Kubernetes authorization.
 func (o ManagedClusterAADProfileOutput) EnableAzureRBAC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *bool { return v.EnableAzureRBAC }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable managed AAD.
 func (o ManagedClusterAADProfileOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.ServerAppID }).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.TenantID }).(pulumi.StringPtrOutput)
 }
@@ -3977,7 +3668,6 @@ func (o ManagedClusterAADProfilePtrOutput) Elem() ManagedClusterAADProfileOutput
 	}).(ManagedClusterAADProfileOutput)
 }
 
-// AAD group object IDs that will have admin role of the cluster.
 func (o ManagedClusterAADProfilePtrOutput) AdminGroupObjectIDs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) []string {
 		if v == nil {
@@ -3987,7 +3677,6 @@ func (o ManagedClusterAADProfilePtrOutput) AdminGroupObjectIDs() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfilePtrOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -3997,7 +3686,6 @@ func (o ManagedClusterAADProfilePtrOutput) ClientAppID() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Azure RBAC for Kubernetes authorization.
 func (o ManagedClusterAADProfilePtrOutput) EnableAzureRBAC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *bool {
 		if v == nil {
@@ -4007,7 +3695,6 @@ func (o ManagedClusterAADProfilePtrOutput) EnableAzureRBAC() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable managed AAD.
 func (o ManagedClusterAADProfilePtrOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *bool {
 		if v == nil {
@@ -4017,7 +3704,6 @@ func (o ManagedClusterAADProfilePtrOutput) Managed() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfilePtrOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -4027,7 +3713,6 @@ func (o ManagedClusterAADProfilePtrOutput) ServerAppID() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfilePtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -4037,7 +3722,6 @@ func (o ManagedClusterAADProfilePtrOutput) ServerAppSecret() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -4048,20 +3732,13 @@ func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 }
 
 type ManagedClusterAADProfileResponse struct {
-	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs []string `pulumi:"adminGroupObjectIDs"`
-	// The client AAD application ID.
-	ClientAppID *string `pulumi:"clientAppID"`
-	// Whether to enable Azure RBAC for Kubernetes authorization.
-	EnableAzureRBAC *bool `pulumi:"enableAzureRBAC"`
-	// Whether to enable managed AAD.
-	Managed *bool `pulumi:"managed"`
-	// The server AAD application ID.
-	ServerAppID *string `pulumi:"serverAppID"`
-	// The server AAD application secret.
-	ServerAppSecret *string `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID *string `pulumi:"tenantID"`
+	ClientAppID         *string  `pulumi:"clientAppID"`
+	EnableAzureRBAC     *bool    `pulumi:"enableAzureRBAC"`
+	Managed             *bool    `pulumi:"managed"`
+	ServerAppID         *string  `pulumi:"serverAppID"`
+	ServerAppSecret     *string  `pulumi:"serverAppSecret"`
+	TenantID            *string  `pulumi:"tenantID"`
 }
 
 // ManagedClusterAADProfileResponseInput is an input type that accepts ManagedClusterAADProfileResponseArgs and ManagedClusterAADProfileResponseOutput values.
@@ -4076,20 +3753,13 @@ type ManagedClusterAADProfileResponseInput interface {
 }
 
 type ManagedClusterAADProfileResponseArgs struct {
-	// AAD group object IDs that will have admin role of the cluster.
 	AdminGroupObjectIDs pulumi.StringArrayInput `pulumi:"adminGroupObjectIDs"`
-	// The client AAD application ID.
-	ClientAppID pulumi.StringPtrInput `pulumi:"clientAppID"`
-	// Whether to enable Azure RBAC for Kubernetes authorization.
-	EnableAzureRBAC pulumi.BoolPtrInput `pulumi:"enableAzureRBAC"`
-	// Whether to enable managed AAD.
-	Managed pulumi.BoolPtrInput `pulumi:"managed"`
-	// The server AAD application ID.
-	ServerAppID pulumi.StringPtrInput `pulumi:"serverAppID"`
-	// The server AAD application secret.
-	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID pulumi.StringPtrInput `pulumi:"tenantID"`
+	ClientAppID         pulumi.StringPtrInput   `pulumi:"clientAppID"`
+	EnableAzureRBAC     pulumi.BoolPtrInput     `pulumi:"enableAzureRBAC"`
+	Managed             pulumi.BoolPtrInput     `pulumi:"managed"`
+	ServerAppID         pulumi.StringPtrInput   `pulumi:"serverAppID"`
+	ServerAppSecret     pulumi.StringPtrInput   `pulumi:"serverAppSecret"`
+	TenantID            pulumi.StringPtrInput   `pulumi:"tenantID"`
 }
 
 func (ManagedClusterAADProfileResponseArgs) ElementType() reflect.Type {
@@ -4169,37 +3839,30 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
-// AAD group object IDs that will have admin role of the cluster.
 func (o ManagedClusterAADProfileResponseOutput) AdminGroupObjectIDs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) []string { return v.AdminGroupObjectIDs }).(pulumi.StringArrayOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileResponseOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.ClientAppID }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Azure RBAC for Kubernetes authorization.
 func (o ManagedClusterAADProfileResponseOutput) EnableAzureRBAC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *bool { return v.EnableAzureRBAC }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable managed AAD.
 func (o ManagedClusterAADProfileResponseOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileResponseOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.ServerAppID }).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileResponseOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileResponseOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.TenantID }).(pulumi.StringPtrOutput)
 }
@@ -4228,7 +3891,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) Elem() ManagedClusterAADProfi
 	}).(ManagedClusterAADProfileResponseOutput)
 }
 
-// AAD group object IDs that will have admin role of the cluster.
 func (o ManagedClusterAADProfileResponsePtrOutput) AdminGroupObjectIDs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) []string {
 		if v == nil {
@@ -4238,7 +3900,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) AdminGroupObjectIDs() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileResponsePtrOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -4248,7 +3909,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ClientAppID() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Azure RBAC for Kubernetes authorization.
 func (o ManagedClusterAADProfileResponsePtrOutput) EnableAzureRBAC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *bool {
 		if v == nil {
@@ -4258,7 +3918,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) EnableAzureRBAC() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable managed AAD.
 func (o ManagedClusterAADProfileResponsePtrOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *bool {
 		if v == nil {
@@ -4268,7 +3927,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) Managed() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -4278,7 +3936,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppID() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -4288,7 +3945,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppSecret() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -4299,12 +3955,9 @@ func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOu
 }
 
 type ManagedClusterAPIServerAccessProfile struct {
-	// Authorized IP Ranges to kubernetes API server.
-	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
-	// Whether to create the cluster as a private cluster or not.
-	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
-	// Private dns zone mode for private cluster.
-	PrivateDNSZone *string `pulumi:"privateDNSZone"`
+	AuthorizedIPRanges   []string `pulumi:"authorizedIPRanges"`
+	EnablePrivateCluster *bool    `pulumi:"enablePrivateCluster"`
+	PrivateDNSZone       *string  `pulumi:"privateDNSZone"`
 }
 
 // ManagedClusterAPIServerAccessProfileInput is an input type that accepts ManagedClusterAPIServerAccessProfileArgs and ManagedClusterAPIServerAccessProfileOutput values.
@@ -4319,12 +3972,9 @@ type ManagedClusterAPIServerAccessProfileInput interface {
 }
 
 type ManagedClusterAPIServerAccessProfileArgs struct {
-	// Authorized IP Ranges to kubernetes API server.
-	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
-	// Whether to create the cluster as a private cluster or not.
-	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
-	// Private dns zone mode for private cluster.
-	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
+	AuthorizedIPRanges   pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
+	EnablePrivateCluster pulumi.BoolPtrInput     `pulumi:"enablePrivateCluster"`
+	PrivateDNSZone       pulumi.StringPtrInput   `pulumi:"privateDNSZone"`
 }
 
 func (ManagedClusterAPIServerAccessProfileArgs) ElementType() reflect.Type {
@@ -4404,17 +4054,14 @@ func (o ManagedClusterAPIServerAccessProfileOutput) ToManagedClusterAPIServerAcc
 	}).(ManagedClusterAPIServerAccessProfilePtrOutput)
 }
 
-// Authorized IP Ranges to kubernetes API server.
 func (o ManagedClusterAPIServerAccessProfileOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) []string { return v.AuthorizedIPRanges }).(pulumi.StringArrayOutput)
 }
 
-// Whether to create the cluster as a private cluster or not.
 func (o ManagedClusterAPIServerAccessProfileOutput) EnablePrivateCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
-// Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfileOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
 }
@@ -4443,7 +4090,6 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) Elem() ManagedClusterAPIS
 	}).(ManagedClusterAPIServerAccessProfileOutput)
 }
 
-// Authorized IP Ranges to kubernetes API server.
 func (o ManagedClusterAPIServerAccessProfilePtrOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) []string {
 		if v == nil {
@@ -4453,7 +4099,6 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) AuthorizedIPRanges() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether to create the cluster as a private cluster or not.
 func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) *bool {
 		if v == nil {
@@ -4463,7 +4108,6 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateCluster() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfilePtrOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) *string {
 		if v == nil {
@@ -4474,12 +4118,9 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) PrivateDNSZone() pulumi.S
 }
 
 type ManagedClusterAPIServerAccessProfileResponse struct {
-	// Authorized IP Ranges to kubernetes API server.
-	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
-	// Whether to create the cluster as a private cluster or not.
-	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
-	// Private dns zone mode for private cluster.
-	PrivateDNSZone *string `pulumi:"privateDNSZone"`
+	AuthorizedIPRanges   []string `pulumi:"authorizedIPRanges"`
+	EnablePrivateCluster *bool    `pulumi:"enablePrivateCluster"`
+	PrivateDNSZone       *string  `pulumi:"privateDNSZone"`
 }
 
 // ManagedClusterAPIServerAccessProfileResponseInput is an input type that accepts ManagedClusterAPIServerAccessProfileResponseArgs and ManagedClusterAPIServerAccessProfileResponseOutput values.
@@ -4494,12 +4135,9 @@ type ManagedClusterAPIServerAccessProfileResponseInput interface {
 }
 
 type ManagedClusterAPIServerAccessProfileResponseArgs struct {
-	// Authorized IP Ranges to kubernetes API server.
-	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
-	// Whether to create the cluster as a private cluster or not.
-	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
-	// Private dns zone mode for private cluster.
-	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
+	AuthorizedIPRanges   pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
+	EnablePrivateCluster pulumi.BoolPtrInput     `pulumi:"enablePrivateCluster"`
+	PrivateDNSZone       pulumi.StringPtrInput   `pulumi:"privateDNSZone"`
 }
 
 func (ManagedClusterAPIServerAccessProfileResponseArgs) ElementType() reflect.Type {
@@ -4579,17 +4217,14 @@ func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIS
 	}).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
 }
 
-// Authorized IP Ranges to kubernetes API server.
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) []string { return v.AuthorizedIPRanges }).(pulumi.StringArrayOutput)
 }
 
-// Whether to create the cluster as a private cluster or not.
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) EnablePrivateCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
-// Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
 }
@@ -4618,7 +4253,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) Elem() ManagedClu
 	}).(ManagedClusterAPIServerAccessProfileResponseOutput)
 }
 
-// Authorized IP Ranges to kubernetes API server.
 func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) []string {
 		if v == nil {
@@ -4628,7 +4262,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) AuthorizedIPRange
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether to create the cluster as a private cluster or not.
 func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) *bool {
 		if v == nil {
@@ -4638,7 +4271,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) *string {
 		if v == nil {
@@ -4649,10 +4281,8 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) PrivateDNSZone() 
 }
 
 type ManagedClusterAddonProfile struct {
-	// Key-value pairs for configuring an add-on.
-	Config map[string]string `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled bool `pulumi:"enabled"`
+	Config  map[string]string `pulumi:"config"`
+	Enabled bool              `pulumi:"enabled"`
 }
 
 // ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
@@ -4667,10 +4297,8 @@ type ManagedClusterAddonProfileInput interface {
 }
 
 type ManagedClusterAddonProfileArgs struct {
-	// Key-value pairs for configuring an add-on.
-	Config pulumi.StringMapInput `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Config  pulumi.StringMapInput `pulumi:"config"`
+	Enabled pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (ManagedClusterAddonProfileArgs) ElementType() reflect.Type {
@@ -4724,12 +4352,10 @@ func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutputWith
 	return o
 }
 
-// Key-value pairs for configuring an add-on.
 func (o ManagedClusterAddonProfileOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfile) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-// Whether the add-on is enabled or not.
 func (o ManagedClusterAddonProfileOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4755,11 +4381,8 @@ func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) Mana
 }
 
 type ManagedClusterAddonProfileResponse struct {
-	// Key-value pairs for configuring an add-on.
-	Config map[string]string `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled bool `pulumi:"enabled"`
-	// Information of user assigned identity used by this add-on.
+	Config   map[string]string                          `pulumi:"config"`
+	Enabled  bool                                       `pulumi:"enabled"`
 	Identity ManagedClusterAddonProfileResponseIdentity `pulumi:"identity"`
 }
 
@@ -4775,11 +4398,8 @@ type ManagedClusterAddonProfileResponseInput interface {
 }
 
 type ManagedClusterAddonProfileResponseArgs struct {
-	// Key-value pairs for configuring an add-on.
-	Config pulumi.StringMapInput `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Information of user assigned identity used by this add-on.
+	Config   pulumi.StringMapInput                           `pulumi:"config"`
+	Enabled  pulumi.BoolInput                                `pulumi:"enabled"`
 	Identity ManagedClusterAddonProfileResponseIdentityInput `pulumi:"identity"`
 }
 
@@ -4834,17 +4454,14 @@ func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileRe
 	return o
 }
 
-// Key-value pairs for configuring an add-on.
 func (o ManagedClusterAddonProfileResponseOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-// Whether the add-on is enabled or not.
 func (o ManagedClusterAddonProfileResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Information of user assigned identity used by this add-on.
 func (o ManagedClusterAddonProfileResponseOutput) Identity() ManagedClusterAddonProfileResponseIdentityOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) ManagedClusterAddonProfileResponseIdentity {
 		return v.Identity
@@ -4872,11 +4489,8 @@ func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInp
 }
 
 type ManagedClusterAddonProfileResponseIdentity struct {
-	// The client id of the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId *string `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   *string `pulumi:"clientId"`
+	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -4892,11 +4506,8 @@ type ManagedClusterAddonProfileResponseIdentityInput interface {
 }
 
 type ManagedClusterAddonProfileResponseIdentityArgs struct {
-	// The client id of the user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
+	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -4926,88 +4537,52 @@ func (o ManagedClusterAddonProfileResponseIdentityOutput) ToManagedClusterAddonP
 	return o
 }
 
-// The client id of the user assigned identity.
 func (o ManagedClusterAddonProfileResponseIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponseIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user assigned identity.
 func (o ManagedClusterAddonProfileResponseIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponseIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the user assigned identity.
 func (o ManagedClusterAddonProfileResponseIdentityOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponseIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type ManagedClusterAgentPoolProfile struct {
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
-	Count *int `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
-	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
-	EnableFIPS *bool `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
-	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
-	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-	KubeletDiskType *string `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
-	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount *int `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
-	Mode *string `pulumi:"mode"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
-	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-	OsDiskType *string `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-	OsSKU *string `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
-	PodSubnetID *string `pulumi:"podSubnetID"`
-	// The ID for Proximity Placement Group.
-	ProximityPlacementGroupID *string `pulumi:"proximityPlacementGroupID"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
-	Tags map[string]string `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
-	Type *string `pulumi:"type"`
-	// Settings for upgrading the agentpool
-	UpgradeSettings *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
-	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	AvailabilityZones         []string                  `pulumi:"availabilityZones"`
+	Count                     *int                      `pulumi:"count"`
+	EnableAutoScaling         *bool                     `pulumi:"enableAutoScaling"`
+	EnableEncryptionAtHost    *bool                     `pulumi:"enableEncryptionAtHost"`
+	EnableFIPS                *bool                     `pulumi:"enableFIPS"`
+	EnableNodePublicIP        *bool                     `pulumi:"enableNodePublicIP"`
+	GpuInstanceProfile        *string                   `pulumi:"gpuInstanceProfile"`
+	KubeletConfig             *KubeletConfig            `pulumi:"kubeletConfig"`
+	KubeletDiskType           *string                   `pulumi:"kubeletDiskType"`
+	LinuxOSConfig             *LinuxOSConfig            `pulumi:"linuxOSConfig"`
+	MaxCount                  *int                      `pulumi:"maxCount"`
+	MaxPods                   *int                      `pulumi:"maxPods"`
+	MinCount                  *int                      `pulumi:"minCount"`
+	Mode                      *string                   `pulumi:"mode"`
+	Name                      string                    `pulumi:"name"`
+	NodeLabels                map[string]string         `pulumi:"nodeLabels"`
+	NodePublicIPPrefixID      *string                   `pulumi:"nodePublicIPPrefixID"`
+	NodeTaints                []string                  `pulumi:"nodeTaints"`
+	OrchestratorVersion       *string                   `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB              *int                      `pulumi:"osDiskSizeGB"`
+	OsDiskType                *string                   `pulumi:"osDiskType"`
+	OsSKU                     *string                   `pulumi:"osSKU"`
+	OsType                    *string                   `pulumi:"osType"`
+	PodSubnetID               *string                   `pulumi:"podSubnetID"`
+	ProximityPlacementGroupID *string                   `pulumi:"proximityPlacementGroupID"`
+	ScaleSetEvictionPolicy    *string                   `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority          *string                   `pulumi:"scaleSetPriority"`
+	SpotMaxPrice              *float64                  `pulumi:"spotMaxPrice"`
+	Tags                      map[string]string         `pulumi:"tags"`
+	Type                      *string                   `pulumi:"type"`
+	UpgradeSettings           *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
+	VmSize                    *string                   `pulumi:"vmSize"`
+	VnetSubnetID              *string                   `pulumi:"vnetSubnetID"`
 }
 
 // ManagedClusterAgentPoolProfileInput is an input type that accepts ManagedClusterAgentPoolProfileArgs and ManagedClusterAgentPoolProfileOutput values.
@@ -5022,72 +4597,39 @@ type ManagedClusterAgentPoolProfileInput interface {
 }
 
 type ManagedClusterAgentPoolProfileArgs struct {
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
-	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
-	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
-	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
-	KubeletConfig KubeletConfigPtrInput `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
-	LinuxOSConfig LinuxOSConfigPtrInput `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
-	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-	NodePublicIPPrefixID pulumi.StringPtrInput `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-	OsSKU pulumi.StringPtrInput `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
-	PodSubnetID pulumi.StringPtrInput `pulumi:"podSubnetID"`
-	// The ID for Proximity Placement Group.
-	ProximityPlacementGroupID pulumi.StringPtrInput `pulumi:"proximityPlacementGroupID"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy pulumi.StringPtrInput `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Settings for upgrading the agentpool
-	UpgradeSettings AgentPoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+	AvailabilityZones         pulumi.StringArrayInput          `pulumi:"availabilityZones"`
+	Count                     pulumi.IntPtrInput               `pulumi:"count"`
+	EnableAutoScaling         pulumi.BoolPtrInput              `pulumi:"enableAutoScaling"`
+	EnableEncryptionAtHost    pulumi.BoolPtrInput              `pulumi:"enableEncryptionAtHost"`
+	EnableFIPS                pulumi.BoolPtrInput              `pulumi:"enableFIPS"`
+	EnableNodePublicIP        pulumi.BoolPtrInput              `pulumi:"enableNodePublicIP"`
+	GpuInstanceProfile        pulumi.StringPtrInput            `pulumi:"gpuInstanceProfile"`
+	KubeletConfig             KubeletConfigPtrInput            `pulumi:"kubeletConfig"`
+	KubeletDiskType           pulumi.StringPtrInput            `pulumi:"kubeletDiskType"`
+	LinuxOSConfig             LinuxOSConfigPtrInput            `pulumi:"linuxOSConfig"`
+	MaxCount                  pulumi.IntPtrInput               `pulumi:"maxCount"`
+	MaxPods                   pulumi.IntPtrInput               `pulumi:"maxPods"`
+	MinCount                  pulumi.IntPtrInput               `pulumi:"minCount"`
+	Mode                      pulumi.StringPtrInput            `pulumi:"mode"`
+	Name                      pulumi.StringInput               `pulumi:"name"`
+	NodeLabels                pulumi.StringMapInput            `pulumi:"nodeLabels"`
+	NodePublicIPPrefixID      pulumi.StringPtrInput            `pulumi:"nodePublicIPPrefixID"`
+	NodeTaints                pulumi.StringArrayInput          `pulumi:"nodeTaints"`
+	OrchestratorVersion       pulumi.StringPtrInput            `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB              pulumi.IntPtrInput               `pulumi:"osDiskSizeGB"`
+	OsDiskType                pulumi.StringPtrInput            `pulumi:"osDiskType"`
+	OsSKU                     pulumi.StringPtrInput            `pulumi:"osSKU"`
+	OsType                    pulumi.StringPtrInput            `pulumi:"osType"`
+	PodSubnetID               pulumi.StringPtrInput            `pulumi:"podSubnetID"`
+	ProximityPlacementGroupID pulumi.StringPtrInput            `pulumi:"proximityPlacementGroupID"`
+	ScaleSetEvictionPolicy    pulumi.StringPtrInput            `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority          pulumi.StringPtrInput            `pulumi:"scaleSetPriority"`
+	SpotMaxPrice              pulumi.Float64PtrInput           `pulumi:"spotMaxPrice"`
+	Tags                      pulumi.StringMapInput            `pulumi:"tags"`
+	Type                      pulumi.StringPtrInput            `pulumi:"type"`
+	UpgradeSettings           AgentPoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
+	VmSize                    pulumi.StringPtrInput            `pulumi:"vmSize"`
+	VnetSubnetID              pulumi.StringPtrInput            `pulumi:"vnetSubnetID"`
 }
 
 func (ManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -5141,167 +4683,134 @@ func (o ManagedClusterAgentPoolProfileOutput) ToManagedClusterAgentPoolProfileOu
 	return o
 }
 
-// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 func (o ManagedClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 func (o ManagedClusterAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable auto-scaler
 func (o ManagedClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable EncryptionAtHost
 func (o ManagedClusterAgentPoolProfileOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to use FIPS enabled OS
 func (o ManagedClusterAgentPoolProfileOutput) EnableFIPS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableFIPS }).(pulumi.BoolPtrOutput)
 }
 
-// Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
-// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 func (o ManagedClusterAgentPoolProfileOutput) GpuInstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.GpuInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-// KubeletConfig specifies the configuration of kubelet on agent nodes.
 func (o ManagedClusterAgentPoolProfileOutput) KubeletConfig() KubeletConfigPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *KubeletConfig { return v.KubeletConfig }).(KubeletConfigPtrOutput)
 }
 
-// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
 func (o ManagedClusterAgentPoolProfileOutput) KubeletDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
-// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 func (o ManagedClusterAgentPoolProfileOutput) LinuxOSConfig() LinuxOSConfigPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *LinuxOSConfig { return v.LinuxOSConfig }).(LinuxOSConfigPtrOutput)
 }
 
-// Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of pods that can run on a node.
 func (o ManagedClusterAgentPoolProfileOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// AgentPoolMode represents mode of an agent pool
 func (o ManagedClusterAgentPoolProfileOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ManagedClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Agent pool node labels to be persisted across all nodes in agent pool.
 func (o ManagedClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
 func (o ManagedClusterAgentPoolProfileOutput) NodePublicIPPrefixID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.NodePublicIPPrefixID }).(pulumi.StringPtrOutput)
 }
 
-// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o ManagedClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of orchestrator specified when creating the managed cluster.
 func (o ManagedClusterAgentPoolProfileOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
 func (o ManagedClusterAgentPoolProfileOutput) OsSKU() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsSKU }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Pod SubnetID specifies the VNet's subnet identifier for pods.
 func (o ManagedClusterAgentPoolProfileOutput) PodSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.PodSubnetID }).(pulumi.StringPtrOutput)
 }
 
-// The ID for Proximity Placement Group.
 func (o ManagedClusterAgentPoolProfileOutput) ProximityPlacementGroupID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ProximityPlacementGroupID }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
 func (o ManagedClusterAgentPoolProfileOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 func (o ManagedClusterAgentPoolProfileOutput) ScaleSetPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
 }
 
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
 func (o ManagedClusterAgentPoolProfileOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
-// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 func (o ManagedClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// AgentPoolType represents types of an agent pool
 func (o ManagedClusterAgentPoolProfileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Settings for upgrading the agentpool
 func (o ManagedClusterAgentPoolProfileOutput) UpgradeSettings() AgentPoolUpgradeSettingsPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *AgentPoolUpgradeSettings { return v.UpgradeSettings }).(AgentPoolUpgradeSettingsPtrOutput)
 }
 
-// Size of agent VMs.
 func (o ManagedClusterAgentPoolProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 func (o ManagedClusterAgentPoolProfileOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -5327,78 +4836,42 @@ func (o ManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Mana
 }
 
 type ManagedClusterAgentPoolProfileResponse struct {
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
-	Count *int `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
-	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
-	EnableFIPS *bool `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
-	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
-	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-	KubeletDiskType *string `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
-	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount *int `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
-	Mode *string `pulumi:"mode"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Version of node image
-	NodeImageVersion string `pulumi:"nodeImageVersion"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
-	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-	OsDiskType *string `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-	OsSKU *string `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
-	PodSubnetID *string `pulumi:"podSubnetID"`
-	// Describes whether the Agent Pool is Running or Stopped
-	PowerState PowerStateResponse `pulumi:"powerState"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The ID for Proximity Placement Group.
-	ProximityPlacementGroupID *string `pulumi:"proximityPlacementGroupID"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
-	Tags map[string]string `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
-	Type *string `pulumi:"type"`
-	// Settings for upgrading the agentpool
-	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
-	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	AvailabilityZones         []string                          `pulumi:"availabilityZones"`
+	Count                     *int                              `pulumi:"count"`
+	EnableAutoScaling         *bool                             `pulumi:"enableAutoScaling"`
+	EnableEncryptionAtHost    *bool                             `pulumi:"enableEncryptionAtHost"`
+	EnableFIPS                *bool                             `pulumi:"enableFIPS"`
+	EnableNodePublicIP        *bool                             `pulumi:"enableNodePublicIP"`
+	GpuInstanceProfile        *string                           `pulumi:"gpuInstanceProfile"`
+	KubeletConfig             *KubeletConfigResponse            `pulumi:"kubeletConfig"`
+	KubeletDiskType           *string                           `pulumi:"kubeletDiskType"`
+	LinuxOSConfig             *LinuxOSConfigResponse            `pulumi:"linuxOSConfig"`
+	MaxCount                  *int                              `pulumi:"maxCount"`
+	MaxPods                   *int                              `pulumi:"maxPods"`
+	MinCount                  *int                              `pulumi:"minCount"`
+	Mode                      *string                           `pulumi:"mode"`
+	Name                      string                            `pulumi:"name"`
+	NodeImageVersion          string                            `pulumi:"nodeImageVersion"`
+	NodeLabels                map[string]string                 `pulumi:"nodeLabels"`
+	NodePublicIPPrefixID      *string                           `pulumi:"nodePublicIPPrefixID"`
+	NodeTaints                []string                          `pulumi:"nodeTaints"`
+	OrchestratorVersion       *string                           `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB              *int                              `pulumi:"osDiskSizeGB"`
+	OsDiskType                *string                           `pulumi:"osDiskType"`
+	OsSKU                     *string                           `pulumi:"osSKU"`
+	OsType                    *string                           `pulumi:"osType"`
+	PodSubnetID               *string                           `pulumi:"podSubnetID"`
+	PowerState                PowerStateResponse                `pulumi:"powerState"`
+	ProvisioningState         string                            `pulumi:"provisioningState"`
+	ProximityPlacementGroupID *string                           `pulumi:"proximityPlacementGroupID"`
+	ScaleSetEvictionPolicy    *string                           `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority          *string                           `pulumi:"scaleSetPriority"`
+	SpotMaxPrice              *float64                          `pulumi:"spotMaxPrice"`
+	Tags                      map[string]string                 `pulumi:"tags"`
+	Type                      *string                           `pulumi:"type"`
+	UpgradeSettings           *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
+	VmSize                    *string                           `pulumi:"vmSize"`
+	VnetSubnetID              *string                           `pulumi:"vnetSubnetID"`
 }
 
 // ManagedClusterAgentPoolProfileResponseInput is an input type that accepts ManagedClusterAgentPoolProfileResponseArgs and ManagedClusterAgentPoolProfileResponseOutput values.
@@ -5413,78 +4886,42 @@ type ManagedClusterAgentPoolProfileResponseInput interface {
 }
 
 type ManagedClusterAgentPoolProfileResponseArgs struct {
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
-	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
-	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
-	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
-	KubeletConfig KubeletConfigResponsePtrInput `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
-	LinuxOSConfig LinuxOSConfigResponsePtrInput `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Version of node image
-	NodeImageVersion pulumi.StringInput `pulumi:"nodeImageVersion"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
-	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-	NodePublicIPPrefixID pulumi.StringPtrInput `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-	OsSKU pulumi.StringPtrInput `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
-	PodSubnetID pulumi.StringPtrInput `pulumi:"podSubnetID"`
-	// Describes whether the Agent Pool is Running or Stopped
-	PowerState PowerStateResponseInput `pulumi:"powerState"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The ID for Proximity Placement Group.
-	ProximityPlacementGroupID pulumi.StringPtrInput `pulumi:"proximityPlacementGroupID"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy pulumi.StringPtrInput `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Settings for upgrading the agentpool
-	UpgradeSettings AgentPoolUpgradeSettingsResponsePtrInput `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+	AvailabilityZones         pulumi.StringArrayInput                  `pulumi:"availabilityZones"`
+	Count                     pulumi.IntPtrInput                       `pulumi:"count"`
+	EnableAutoScaling         pulumi.BoolPtrInput                      `pulumi:"enableAutoScaling"`
+	EnableEncryptionAtHost    pulumi.BoolPtrInput                      `pulumi:"enableEncryptionAtHost"`
+	EnableFIPS                pulumi.BoolPtrInput                      `pulumi:"enableFIPS"`
+	EnableNodePublicIP        pulumi.BoolPtrInput                      `pulumi:"enableNodePublicIP"`
+	GpuInstanceProfile        pulumi.StringPtrInput                    `pulumi:"gpuInstanceProfile"`
+	KubeletConfig             KubeletConfigResponsePtrInput            `pulumi:"kubeletConfig"`
+	KubeletDiskType           pulumi.StringPtrInput                    `pulumi:"kubeletDiskType"`
+	LinuxOSConfig             LinuxOSConfigResponsePtrInput            `pulumi:"linuxOSConfig"`
+	MaxCount                  pulumi.IntPtrInput                       `pulumi:"maxCount"`
+	MaxPods                   pulumi.IntPtrInput                       `pulumi:"maxPods"`
+	MinCount                  pulumi.IntPtrInput                       `pulumi:"minCount"`
+	Mode                      pulumi.StringPtrInput                    `pulumi:"mode"`
+	Name                      pulumi.StringInput                       `pulumi:"name"`
+	NodeImageVersion          pulumi.StringInput                       `pulumi:"nodeImageVersion"`
+	NodeLabels                pulumi.StringMapInput                    `pulumi:"nodeLabels"`
+	NodePublicIPPrefixID      pulumi.StringPtrInput                    `pulumi:"nodePublicIPPrefixID"`
+	NodeTaints                pulumi.StringArrayInput                  `pulumi:"nodeTaints"`
+	OrchestratorVersion       pulumi.StringPtrInput                    `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB              pulumi.IntPtrInput                       `pulumi:"osDiskSizeGB"`
+	OsDiskType                pulumi.StringPtrInput                    `pulumi:"osDiskType"`
+	OsSKU                     pulumi.StringPtrInput                    `pulumi:"osSKU"`
+	OsType                    pulumi.StringPtrInput                    `pulumi:"osType"`
+	PodSubnetID               pulumi.StringPtrInput                    `pulumi:"podSubnetID"`
+	PowerState                PowerStateResponseInput                  `pulumi:"powerState"`
+	ProvisioningState         pulumi.StringInput                       `pulumi:"provisioningState"`
+	ProximityPlacementGroupID pulumi.StringPtrInput                    `pulumi:"proximityPlacementGroupID"`
+	ScaleSetEvictionPolicy    pulumi.StringPtrInput                    `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority          pulumi.StringPtrInput                    `pulumi:"scaleSetPriority"`
+	SpotMaxPrice              pulumi.Float64PtrInput                   `pulumi:"spotMaxPrice"`
+	Tags                      pulumi.StringMapInput                    `pulumi:"tags"`
+	Type                      pulumi.StringPtrInput                    `pulumi:"type"`
+	UpgradeSettings           AgentPoolUpgradeSettingsResponsePtrInput `pulumi:"upgradeSettings"`
+	VmSize                    pulumi.StringPtrInput                    `pulumi:"vmSize"`
+	VnetSubnetID              pulumi.StringPtrInput                    `pulumi:"vnetSubnetID"`
 }
 
 func (ManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -5538,184 +4975,148 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) ToManagedClusterAgentPoolP
 	return o
 }
 
-// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 func (o ManagedClusterAgentPoolProfileResponseOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable auto-scaler
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable EncryptionAtHost
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to use FIPS enabled OS
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableFIPS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableFIPS }).(pulumi.BoolPtrOutput)
 }
 
-// Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
-// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 func (o ManagedClusterAgentPoolProfileResponseOutput) GpuInstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.GpuInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-// KubeletConfig specifies the configuration of kubelet on agent nodes.
 func (o ManagedClusterAgentPoolProfileResponseOutput) KubeletConfig() KubeletConfigResponsePtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *KubeletConfigResponse { return v.KubeletConfig }).(KubeletConfigResponsePtrOutput)
 }
 
-// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
 func (o ManagedClusterAgentPoolProfileResponseOutput) KubeletDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
-// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 func (o ManagedClusterAgentPoolProfileResponseOutput) LinuxOSConfig() LinuxOSConfigResponsePtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *LinuxOSConfigResponse { return v.LinuxOSConfig }).(LinuxOSConfigResponsePtrOutput)
 }
 
-// Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileResponseOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of pods that can run on a node.
 func (o ManagedClusterAgentPoolProfileResponseOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileResponseOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// AgentPoolMode represents mode of an agent pool
 func (o ManagedClusterAgentPoolProfileResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Version of node image
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodeImageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) string { return v.NodeImageVersion }).(pulumi.StringOutput)
 }
 
-// Agent pool node labels to be persisted across all nodes in agent pool.
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodePublicIPPrefixID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.NodePublicIPPrefixID }).(pulumi.StringPtrOutput)
 }
 
-// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of orchestrator specified when creating the managed cluster.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsSKU() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsSKU }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Pod SubnetID specifies the VNet's subnet identifier for pods.
 func (o ManagedClusterAgentPoolProfileResponseOutput) PodSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.PodSubnetID }).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the Agent Pool is Running or Stopped
 func (o ManagedClusterAgentPoolProfileResponseOutput) PowerState() PowerStateResponseOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) PowerStateResponse { return v.PowerState }).(PowerStateResponseOutput)
 }
 
-// The current deployment or provisioning state, which only appears in the response.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The ID for Proximity Placement Group.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ProximityPlacementGroupID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.ProximityPlacementGroupID }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ScaleSetPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
 }
 
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
 func (o ManagedClusterAgentPoolProfileResponseOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
-// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// AgentPoolType represents types of an agent pool
 func (o ManagedClusterAgentPoolProfileResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Settings for upgrading the agentpool
 func (o ManagedClusterAgentPoolProfileResponseOutput) UpgradeSettings() AgentPoolUpgradeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *AgentPoolUpgradeSettingsResponse {
 		return v.UpgradeSettings
 	}).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
 
-// Size of agent VMs.
 func (o ManagedClusterAgentPoolProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 func (o ManagedClusterAgentPoolProfileResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -5741,7 +5142,6 @@ func (o ManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 type ManagedClusterAutoUpgradeProfile struct {
-	// upgrade channel for auto upgrade.
 	UpgradeChannel *string `pulumi:"upgradeChannel"`
 }
 
@@ -5757,7 +5157,6 @@ type ManagedClusterAutoUpgradeProfileInput interface {
 }
 
 type ManagedClusterAutoUpgradeProfileArgs struct {
-	// upgrade channel for auto upgrade.
 	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
 }
 
@@ -5838,7 +5237,6 @@ func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfi
 	}).(ManagedClusterAutoUpgradeProfilePtrOutput)
 }
 
-// upgrade channel for auto upgrade.
 func (o ManagedClusterAutoUpgradeProfileOutput) UpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfile) *string { return v.UpgradeChannel }).(pulumi.StringPtrOutput)
 }
@@ -5867,7 +5265,6 @@ func (o ManagedClusterAutoUpgradeProfilePtrOutput) Elem() ManagedClusterAutoUpgr
 	}).(ManagedClusterAutoUpgradeProfileOutput)
 }
 
-// upgrade channel for auto upgrade.
 func (o ManagedClusterAutoUpgradeProfilePtrOutput) UpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfile) *string {
 		if v == nil {
@@ -5878,7 +5275,6 @@ func (o ManagedClusterAutoUpgradeProfilePtrOutput) UpgradeChannel() pulumi.Strin
 }
 
 type ManagedClusterAutoUpgradeProfileResponse struct {
-	// upgrade channel for auto upgrade.
 	UpgradeChannel *string `pulumi:"upgradeChannel"`
 }
 
@@ -5894,7 +5290,6 @@ type ManagedClusterAutoUpgradeProfileResponseInput interface {
 }
 
 type ManagedClusterAutoUpgradeProfileResponseArgs struct {
-	// upgrade channel for auto upgrade.
 	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
 }
 
@@ -5975,7 +5370,6 @@ func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgr
 	}).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
 }
 
-// upgrade channel for auto upgrade.
 func (o ManagedClusterAutoUpgradeProfileResponseOutput) UpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfileResponse) *string { return v.UpgradeChannel }).(pulumi.StringPtrOutput)
 }
@@ -6004,7 +5398,6 @@ func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) Elem() ManagedCluster
 	}).(ManagedClusterAutoUpgradeProfileResponseOutput)
 }
 
-// upgrade channel for auto upgrade.
 func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) UpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfileResponse) *string {
 		if v == nil {
@@ -6015,14 +5408,10 @@ func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) UpgradeChannel() pulu
 }
 
 type ManagedClusterHTTPProxyConfig struct {
-	// HTTP proxy server endpoint to use.
-	HttpProxy *string `pulumi:"httpProxy"`
-	// HTTPS proxy server endpoint to use.
-	HttpsProxy *string `pulumi:"httpsProxy"`
-	// Endpoints that should not go through proxy.
-	NoProxy []string `pulumi:"noProxy"`
-	// Alternative CA cert to use for connecting to proxy servers.
-	TrustedCa *string `pulumi:"trustedCa"`
+	HttpProxy  *string  `pulumi:"httpProxy"`
+	HttpsProxy *string  `pulumi:"httpsProxy"`
+	NoProxy    []string `pulumi:"noProxy"`
+	TrustedCa  *string  `pulumi:"trustedCa"`
 }
 
 // ManagedClusterHTTPProxyConfigInput is an input type that accepts ManagedClusterHTTPProxyConfigArgs and ManagedClusterHTTPProxyConfigOutput values.
@@ -6037,14 +5426,10 @@ type ManagedClusterHTTPProxyConfigInput interface {
 }
 
 type ManagedClusterHTTPProxyConfigArgs struct {
-	// HTTP proxy server endpoint to use.
-	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
-	// HTTPS proxy server endpoint to use.
-	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
-	// Endpoints that should not go through proxy.
-	NoProxy pulumi.StringArrayInput `pulumi:"noProxy"`
-	// Alternative CA cert to use for connecting to proxy servers.
-	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
+	HttpProxy  pulumi.StringPtrInput   `pulumi:"httpProxy"`
+	HttpsProxy pulumi.StringPtrInput   `pulumi:"httpsProxy"`
+	NoProxy    pulumi.StringArrayInput `pulumi:"noProxy"`
+	TrustedCa  pulumi.StringPtrInput   `pulumi:"trustedCa"`
 }
 
 func (ManagedClusterHTTPProxyConfigArgs) ElementType() reflect.Type {
@@ -6124,22 +5509,18 @@ func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigPtrO
 	}).(ManagedClusterHTTPProxyConfigPtrOutput)
 }
 
-// HTTP proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
-// HTTPS proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
-// Endpoints that should not go through proxy.
 func (o ManagedClusterHTTPProxyConfigOutput) NoProxy() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) []string { return v.NoProxy }).(pulumi.StringArrayOutput)
 }
 
-// Alternative CA cert to use for connecting to proxy servers.
 func (o ManagedClusterHTTPProxyConfigOutput) TrustedCa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.TrustedCa }).(pulumi.StringPtrOutput)
 }
@@ -6168,7 +5549,6 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) Elem() ManagedClusterHTTPProxyCo
 	}).(ManagedClusterHTTPProxyConfigOutput)
 }
 
-// HTTP proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
 		if v == nil {
@@ -6178,7 +5558,6 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// HTTPS proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
 		if v == nil {
@@ -6188,7 +5567,6 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoints that should not go through proxy.
 func (o ManagedClusterHTTPProxyConfigPtrOutput) NoProxy() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) []string {
 		if v == nil {
@@ -6198,7 +5576,6 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) NoProxy() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Alternative CA cert to use for connecting to proxy servers.
 func (o ManagedClusterHTTPProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
 		if v == nil {
@@ -6209,14 +5586,10 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrOutp
 }
 
 type ManagedClusterHTTPProxyConfigResponse struct {
-	// HTTP proxy server endpoint to use.
-	HttpProxy *string `pulumi:"httpProxy"`
-	// HTTPS proxy server endpoint to use.
-	HttpsProxy *string `pulumi:"httpsProxy"`
-	// Endpoints that should not go through proxy.
-	NoProxy []string `pulumi:"noProxy"`
-	// Alternative CA cert to use for connecting to proxy servers.
-	TrustedCa *string `pulumi:"trustedCa"`
+	HttpProxy  *string  `pulumi:"httpProxy"`
+	HttpsProxy *string  `pulumi:"httpsProxy"`
+	NoProxy    []string `pulumi:"noProxy"`
+	TrustedCa  *string  `pulumi:"trustedCa"`
 }
 
 // ManagedClusterHTTPProxyConfigResponseInput is an input type that accepts ManagedClusterHTTPProxyConfigResponseArgs and ManagedClusterHTTPProxyConfigResponseOutput values.
@@ -6231,14 +5604,10 @@ type ManagedClusterHTTPProxyConfigResponseInput interface {
 }
 
 type ManagedClusterHTTPProxyConfigResponseArgs struct {
-	// HTTP proxy server endpoint to use.
-	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
-	// HTTPS proxy server endpoint to use.
-	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
-	// Endpoints that should not go through proxy.
-	NoProxy pulumi.StringArrayInput `pulumi:"noProxy"`
-	// Alternative CA cert to use for connecting to proxy servers.
-	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
+	HttpProxy  pulumi.StringPtrInput   `pulumi:"httpProxy"`
+	HttpsProxy pulumi.StringPtrInput   `pulumi:"httpsProxy"`
+	NoProxy    pulumi.StringArrayInput `pulumi:"noProxy"`
+	TrustedCa  pulumi.StringPtrInput   `pulumi:"trustedCa"`
 }
 
 func (ManagedClusterHTTPProxyConfigResponseArgs) ElementType() reflect.Type {
@@ -6318,22 +5687,18 @@ func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyCo
 	}).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
 }
 
-// HTTP proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigResponseOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
-// HTTPS proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigResponseOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
-// Endpoints that should not go through proxy.
 func (o ManagedClusterHTTPProxyConfigResponseOutput) NoProxy() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) []string { return v.NoProxy }).(pulumi.StringArrayOutput)
 }
 
-// Alternative CA cert to use for connecting to proxy servers.
 func (o ManagedClusterHTTPProxyConfigResponseOutput) TrustedCa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.TrustedCa }).(pulumi.StringPtrOutput)
 }
@@ -6362,7 +5727,6 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) Elem() ManagedClusterHTT
 	}).(ManagedClusterHTTPProxyConfigResponseOutput)
 }
 
-// HTTP proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
 		if v == nil {
@@ -6372,7 +5736,6 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpProxy() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// HTTPS proxy server endpoint to use.
 func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
 		if v == nil {
@@ -6382,7 +5745,6 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpsProxy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoints that should not go through proxy.
 func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) NoProxy() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) []string {
 		if v == nil {
@@ -6392,7 +5754,6 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) NoProxy() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Alternative CA cert to use for connecting to proxy servers.
 func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) TrustedCa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
 		if v == nil {
@@ -6403,9 +5764,7 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) TrustedCa() pulumi.Strin
 }
 
 type ManagedClusterIdentity struct {
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -6421,10 +5780,8 @@ type ManagedClusterIdentityInput interface {
 }
 
 type ManagedClusterIdentityArgs struct {
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
-	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedClusterIdentityArgs) ElementType() reflect.Type {
@@ -6504,12 +5861,10 @@ func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutputWithConte
 	}).(ManagedClusterIdentityPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ManagedClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedClusterIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ManagedClusterIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -6538,7 +5893,6 @@ func (o ManagedClusterIdentityPtrOutput) Elem() ManagedClusterIdentityOutput {
 	}).(ManagedClusterIdentityOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -6548,7 +5902,6 @@ func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentity) map[string]interface{} {
 		if v == nil {
@@ -6559,13 +5912,9 @@ func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 }
 
 type ManagedClusterIdentityResponse struct {
-	// The principal id of the system assigned identity which is used by master components.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *string `pulumi:"type"`
-	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                                          `pulumi:"principalId"`
+	TenantId               string                                                          `pulumi:"tenantId"`
+	Type                   *string                                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]ManagedClusterIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -6581,13 +5930,9 @@ type ManagedClusterIdentityResponseInput interface {
 }
 
 type ManagedClusterIdentityResponseArgs struct {
-	// The principal id of the system assigned identity which is used by master components.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                                           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                                           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                                        `pulumi:"type"`
 	UserAssignedIdentities ManagedClusterIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -6668,22 +6013,18 @@ func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePt
 	}).(ManagedClusterIdentityResponsePtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedClusterIdentityResponseOutput) UserAssignedIdentities() ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) map[string]ManagedClusterIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -6714,7 +6055,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) Elem() ManagedClusterIdentityRe
 	}).(ManagedClusterIdentityResponseOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -6724,7 +6064,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -6734,7 +6073,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -6744,7 +6082,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedClusterIdentityResponsePtrOutput) UserAssignedIdentities() ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) map[string]ManagedClusterIdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -6755,9 +6092,7 @@ func (o ManagedClusterIdentityResponsePtrOutput) UserAssignedIdentities() Manage
 }
 
 type ManagedClusterIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -6773,9 +6108,7 @@ type ManagedClusterIdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type ManagedClusterIdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -6830,12 +6163,10 @@ func (o ManagedClusterIdentityResponseUserAssignedIdentitiesOutput) ToManagedClu
 	return o
 }
 
-// The client id of user assigned identity.
 func (o ManagedClusterIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o ManagedClusterIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -6861,18 +6192,12 @@ func (o ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 }
 
 type ManagedClusterLoadBalancerProfile struct {
-	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
-	// The effective outbound IP resources of the cluster load balancer.
-	EffectiveOutboundIPs []ResourceReference `pulumi:"effectiveOutboundIPs"`
-	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileManagedOutboundIPs `pulumi:"managedOutboundIPs"`
-	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
-	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs *ManagedClusterLoadBalancerProfileOutboundIPs `pulumi:"outboundIPs"`
+	AllocatedOutboundPorts *int                                                 `pulumi:"allocatedOutboundPorts"`
+	EffectiveOutboundIPs   []ResourceReference                                  `pulumi:"effectiveOutboundIPs"`
+	IdleTimeoutInMinutes   *int                                                 `pulumi:"idleTimeoutInMinutes"`
+	ManagedOutboundIPs     *ManagedClusterLoadBalancerProfileManagedOutboundIPs `pulumi:"managedOutboundIPs"`
+	OutboundIPPrefixes     *ManagedClusterLoadBalancerProfileOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
+	OutboundIPs            *ManagedClusterLoadBalancerProfileOutboundIPs        `pulumi:"outboundIPs"`
 }
 
 // ManagedClusterLoadBalancerProfileInput is an input type that accepts ManagedClusterLoadBalancerProfileArgs and ManagedClusterLoadBalancerProfileOutput values.
@@ -6887,18 +6212,12 @@ type ManagedClusterLoadBalancerProfileInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileArgs struct {
-	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-	AllocatedOutboundPorts pulumi.IntPtrInput `pulumi:"allocatedOutboundPorts"`
-	// The effective outbound IP resources of the cluster load balancer.
-	EffectiveOutboundIPs ResourceReferenceArrayInput `pulumi:"effectiveOutboundIPs"`
-	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
-	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
-	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs ManagedClusterLoadBalancerProfileOutboundIPsPtrInput `pulumi:"outboundIPs"`
+	AllocatedOutboundPorts pulumi.IntPtrInput                                          `pulumi:"allocatedOutboundPorts"`
+	EffectiveOutboundIPs   ResourceReferenceArrayInput                                 `pulumi:"effectiveOutboundIPs"`
+	IdleTimeoutInMinutes   pulumi.IntPtrInput                                          `pulumi:"idleTimeoutInMinutes"`
+	ManagedOutboundIPs     ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
+	OutboundIPPrefixes     ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
+	OutboundIPs            ManagedClusterLoadBalancerProfileOutboundIPsPtrInput        `pulumi:"outboundIPs"`
 }
 
 func (ManagedClusterLoadBalancerProfileArgs) ElementType() reflect.Type {
@@ -6978,36 +6297,30 @@ func (o ManagedClusterLoadBalancerProfileOutput) ToManagedClusterLoadBalancerPro
 	}).(ManagedClusterLoadBalancerProfilePtrOutput)
 }
 
-// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 func (o ManagedClusterLoadBalancerProfileOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *int { return v.AllocatedOutboundPorts }).(pulumi.IntPtrOutput)
 }
 
-// The effective outbound IP resources of the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileOutput) EffectiveOutboundIPs() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) []ResourceReference { return v.EffectiveOutboundIPs }).(ResourceReferenceArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
 func (o ManagedClusterLoadBalancerProfileOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		return v.ManagedOutboundIPs
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
 		return v.OutboundIPPrefixes
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPs() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPs {
 		return v.OutboundIPs
@@ -7038,7 +6351,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) Elem() ManagedClusterLoadBal
 	}).(ManagedClusterLoadBalancerProfileOutput)
 }
 
-// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *int {
 		if v == nil {
@@ -7048,7 +6360,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) AllocatedOutboundPorts() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The effective outbound IP resources of the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) EffectiveOutboundIPs() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) []ResourceReference {
 		if v == nil {
@@ -7058,7 +6369,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) EffectiveOutboundIPs() Resou
 	}).(ResourceReferenceArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *int {
 		if v == nil {
@@ -7068,7 +6378,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) IdleTimeoutInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		if v == nil {
@@ -7078,7 +6387,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) ManagedOutboundIPs() Managed
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
 		if v == nil {
@@ -7088,7 +6396,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPPrefixes() Managed
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPs {
 		if v == nil {
@@ -7099,7 +6406,6 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedCluster
 }
 
 type ManagedClusterLoadBalancerProfileManagedOutboundIPs struct {
-	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
 }
 
@@ -7115,7 +6421,6 @@ type ManagedClusterLoadBalancerProfileManagedOutboundIPsInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs struct {
-	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -7196,7 +6501,6 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClus
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
-// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileManagedOutboundIPs) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -7225,7 +6529,6 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Elem() Man
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput)
 }
 
-// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileManagedOutboundIPs) *int {
 		if v == nil {
@@ -7236,7 +6539,6 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Count() pu
 }
 
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixes struct {
-	// A list of public IP prefix resources.
 	PublicIPPrefixes []ResourceReference `pulumi:"publicIPPrefixes"`
 }
 
@@ -7252,7 +6554,6 @@ type ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs struct {
-	// A list of public IP prefix resources.
 	PublicIPPrefixes ResourceReferenceArrayInput `pulumi:"publicIPPrefixes"`
 }
 
@@ -7333,7 +6634,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClus
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
-// A list of public IP prefix resources.
 func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPPrefixes) []ResourceReference {
 		return v.PublicIPPrefixes
@@ -7364,7 +6664,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) Elem() Man
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput)
 }
 
-// A list of public IP prefix resources.
 func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) PublicIPPrefixes() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPPrefixes) []ResourceReference {
 		if v == nil {
@@ -7375,7 +6674,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) PublicIPPr
 }
 
 type ManagedClusterLoadBalancerProfileOutboundIPs struct {
-	// A list of public IP resources.
 	PublicIPs []ResourceReference `pulumi:"publicIPs"`
 }
 
@@ -7391,7 +6689,6 @@ type ManagedClusterLoadBalancerProfileOutboundIPsInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileOutboundIPsArgs struct {
-	// A list of public IP resources.
 	PublicIPs ResourceReferenceArrayInput `pulumi:"publicIPs"`
 }
 
@@ -7472,7 +6769,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoad
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
 
-// A list of public IP resources.
 func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) PublicIPs() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPs) []ResourceReference { return v.PublicIPs }).(ResourceReferenceArrayOutput)
 }
@@ -7501,7 +6797,6 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) Elem() ManagedClu
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsOutput)
 }
 
-// A list of public IP resources.
 func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) PublicIPs() ResourceReferenceArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPs) []ResourceReference {
 		if v == nil {
@@ -7512,18 +6807,12 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) PublicIPs() Resou
 }
 
 type ManagedClusterLoadBalancerProfileResponse struct {
-	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
-	// The effective outbound IP resources of the cluster load balancer.
-	EffectiveOutboundIPs []ResourceReferenceResponse `pulumi:"effectiveOutboundIPs"`
-	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs `pulumi:"managedOutboundIPs"`
-	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
-	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs *ManagedClusterLoadBalancerProfileResponseOutboundIPs `pulumi:"outboundIPs"`
+	AllocatedOutboundPorts *int                                                         `pulumi:"allocatedOutboundPorts"`
+	EffectiveOutboundIPs   []ResourceReferenceResponse                                  `pulumi:"effectiveOutboundIPs"`
+	IdleTimeoutInMinutes   *int                                                         `pulumi:"idleTimeoutInMinutes"`
+	ManagedOutboundIPs     *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs `pulumi:"managedOutboundIPs"`
+	OutboundIPPrefixes     *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
+	OutboundIPs            *ManagedClusterLoadBalancerProfileResponseOutboundIPs        `pulumi:"outboundIPs"`
 }
 
 // ManagedClusterLoadBalancerProfileResponseInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseArgs and ManagedClusterLoadBalancerProfileResponseOutput values.
@@ -7538,18 +6827,12 @@ type ManagedClusterLoadBalancerProfileResponseInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileResponseArgs struct {
-	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-	AllocatedOutboundPorts pulumi.IntPtrInput `pulumi:"allocatedOutboundPorts"`
-	// The effective outbound IP resources of the cluster load balancer.
-	EffectiveOutboundIPs ResourceReferenceResponseArrayInput `pulumi:"effectiveOutboundIPs"`
-	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
-	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
-	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput `pulumi:"outboundIPs"`
+	AllocatedOutboundPorts pulumi.IntPtrInput                                                  `pulumi:"allocatedOutboundPorts"`
+	EffectiveOutboundIPs   ResourceReferenceResponseArrayInput                                 `pulumi:"effectiveOutboundIPs"`
+	IdleTimeoutInMinutes   pulumi.IntPtrInput                                                  `pulumi:"idleTimeoutInMinutes"`
+	ManagedOutboundIPs     ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
+	OutboundIPPrefixes     ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
+	OutboundIPs            ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput        `pulumi:"outboundIPs"`
 }
 
 func (ManagedClusterLoadBalancerProfileResponseArgs) ElementType() reflect.Type {
@@ -7629,38 +6912,32 @@ func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBal
 	}).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
 
-// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *int { return v.AllocatedOutboundPorts }).(pulumi.IntPtrOutput)
 }
 
-// The effective outbound IP resources of the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) EffectiveOutboundIPs() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) []ResourceReferenceResponse {
 		return v.EffectiveOutboundIPs
 	}).(ResourceReferenceResponseArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		return v.ManagedOutboundIPs
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
 		return v.OutboundIPPrefixes
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
 		return v.OutboundIPs
@@ -7691,7 +6968,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) Elem() ManagedCluste
 	}).(ManagedClusterLoadBalancerProfileResponseOutput)
 }
 
-// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *int {
 		if v == nil {
@@ -7701,7 +6977,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) AllocatedOutboundPor
 	}).(pulumi.IntPtrOutput)
 }
 
-// The effective outbound IP resources of the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) EffectiveOutboundIPs() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) []ResourceReferenceResponse {
 		if v == nil {
@@ -7711,7 +6986,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) EffectiveOutboundIPs
 	}).(ResourceReferenceResponseArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *int {
 		if v == nil {
@@ -7721,7 +6995,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) IdleTimeoutInMinutes
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired managed outbound IPs for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		if v == nil {
@@ -7731,7 +7004,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) ManagedOutboundIPs()
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP Prefix resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
 		if v == nil {
@@ -7741,7 +7013,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPPrefixes()
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
-// Desired outbound IP resources for the cluster load balancer.
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
 		if v == nil {
@@ -7752,7 +7023,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() Manage
 }
 
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs struct {
-	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
 }
 
@@ -7768,7 +7038,6 @@ type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput interface 
 }
 
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs struct {
-	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -7849,7 +7118,6 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToMan
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
-// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -7878,7 +7146,6 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) El
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput)
 }
 
-// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *int {
 		if v == nil {
@@ -7889,7 +7156,6 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Co
 }
 
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes struct {
-	// A list of public IP prefix resources.
 	PublicIPPrefixes []ResourceReferenceResponse `pulumi:"publicIPPrefixes"`
 }
 
@@ -7905,7 +7171,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput interface 
 }
 
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs struct {
-	// A list of public IP prefix resources.
 	PublicIPPrefixes ResourceReferenceResponseArrayInput `pulumi:"publicIPPrefixes"`
 }
 
@@ -7986,7 +7251,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToMan
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
-// A list of public IP prefix resources.
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) []ResourceReferenceResponse {
 		return v.PublicIPPrefixes
@@ -8017,7 +7281,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) El
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput)
 }
 
-// A list of public IP prefix resources.
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) PublicIPPrefixes() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) []ResourceReferenceResponse {
 		if v == nil {
@@ -8028,7 +7291,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) Pu
 }
 
 type ManagedClusterLoadBalancerProfileResponseOutboundIPs struct {
-	// A list of public IP resources.
 	PublicIPs []ResourceReferenceResponse `pulumi:"publicIPs"`
 }
 
@@ -8044,7 +7306,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPsInput interface {
 }
 
 type ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs struct {
-	// A list of public IP resources.
 	PublicIPs ResourceReferenceResponseArrayInput `pulumi:"publicIPs"`
 }
 
@@ -8125,7 +7386,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClu
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
-// A list of public IP resources.
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) PublicIPs() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPs) []ResourceReferenceResponse {
 		return v.PublicIPs
@@ -8156,7 +7416,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) Elem() Ma
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput)
 }
 
-// A list of public IP resources.
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs() ResourceReferenceResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPs) []ResourceReferenceResponse {
 		if v == nil {
@@ -8167,14 +7426,10 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 }
 
 type ManagedClusterPodIdentity struct {
-	// Binding selector to use for the AzureIdentityBinding resource.
-	BindingSelector *string `pulumi:"bindingSelector"`
-	// Information of the user assigned identity.
-	Identity UserAssignedIdentity `pulumi:"identity"`
-	// Name of the pod identity.
-	Name string `pulumi:"name"`
-	// Namespace of the pod identity.
-	Namespace string `pulumi:"namespace"`
+	BindingSelector *string              `pulumi:"bindingSelector"`
+	Identity        UserAssignedIdentity `pulumi:"identity"`
+	Name            string               `pulumi:"name"`
+	Namespace       string               `pulumi:"namespace"`
 }
 
 // ManagedClusterPodIdentityInput is an input type that accepts ManagedClusterPodIdentityArgs and ManagedClusterPodIdentityOutput values.
@@ -8189,14 +7444,10 @@ type ManagedClusterPodIdentityInput interface {
 }
 
 type ManagedClusterPodIdentityArgs struct {
-	// Binding selector to use for the AzureIdentityBinding resource.
-	BindingSelector pulumi.StringPtrInput `pulumi:"bindingSelector"`
-	// Information of the user assigned identity.
-	Identity UserAssignedIdentityInput `pulumi:"identity"`
-	// Name of the pod identity.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Namespace of the pod identity.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	BindingSelector pulumi.StringPtrInput     `pulumi:"bindingSelector"`
+	Identity        UserAssignedIdentityInput `pulumi:"identity"`
+	Name            pulumi.StringInput        `pulumi:"name"`
+	Namespace       pulumi.StringInput        `pulumi:"namespace"`
 }
 
 func (ManagedClusterPodIdentityArgs) ElementType() reflect.Type {
@@ -8250,22 +7501,18 @@ func (o ManagedClusterPodIdentityOutput) ToManagedClusterPodIdentityOutputWithCo
 	return o
 }
 
-// Binding selector to use for the AzureIdentityBinding resource.
 func (o ManagedClusterPodIdentityOutput) BindingSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentity) *string { return v.BindingSelector }).(pulumi.StringPtrOutput)
 }
 
-// Information of the user assigned identity.
 func (o ManagedClusterPodIdentityOutput) Identity() UserAssignedIdentityOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentity) UserAssignedIdentity { return v.Identity }).(UserAssignedIdentityOutput)
 }
 
-// Name of the pod identity.
 func (o ManagedClusterPodIdentityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentity) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Namespace of the pod identity.
 func (o ManagedClusterPodIdentityOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentity) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -8291,11 +7538,8 @@ func (o ManagedClusterPodIdentityArrayOutput) Index(i pulumi.IntInput) ManagedCl
 }
 
 type ManagedClusterPodIdentityException struct {
-	// Name of the pod identity exception.
-	Name string `pulumi:"name"`
-	// Namespace of the pod identity exception.
-	Namespace string `pulumi:"namespace"`
-	// Pod labels to match.
+	Name      string            `pulumi:"name"`
+	Namespace string            `pulumi:"namespace"`
 	PodLabels map[string]string `pulumi:"podLabels"`
 }
 
@@ -8311,11 +7555,8 @@ type ManagedClusterPodIdentityExceptionInput interface {
 }
 
 type ManagedClusterPodIdentityExceptionArgs struct {
-	// Name of the pod identity exception.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Namespace of the pod identity exception.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// Pod labels to match.
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
 	PodLabels pulumi.StringMapInput `pulumi:"podLabels"`
 }
 
@@ -8370,17 +7611,14 @@ func (o ManagedClusterPodIdentityExceptionOutput) ToManagedClusterPodIdentityExc
 	return o
 }
 
-// Name of the pod identity exception.
 func (o ManagedClusterPodIdentityExceptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityException) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Namespace of the pod identity exception.
 func (o ManagedClusterPodIdentityExceptionOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityException) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Pod labels to match.
 func (o ManagedClusterPodIdentityExceptionOutput) PodLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityException) map[string]string { return v.PodLabels }).(pulumi.StringMapOutput)
 }
@@ -8406,11 +7644,8 @@ func (o ManagedClusterPodIdentityExceptionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ManagedClusterPodIdentityExceptionResponse struct {
-	// Name of the pod identity exception.
-	Name string `pulumi:"name"`
-	// Namespace of the pod identity exception.
-	Namespace string `pulumi:"namespace"`
-	// Pod labels to match.
+	Name      string            `pulumi:"name"`
+	Namespace string            `pulumi:"namespace"`
 	PodLabels map[string]string `pulumi:"podLabels"`
 }
 
@@ -8426,11 +7661,8 @@ type ManagedClusterPodIdentityExceptionResponseInput interface {
 }
 
 type ManagedClusterPodIdentityExceptionResponseArgs struct {
-	// Name of the pod identity exception.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Namespace of the pod identity exception.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// Pod labels to match.
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
 	PodLabels pulumi.StringMapInput `pulumi:"podLabels"`
 }
 
@@ -8485,17 +7717,14 @@ func (o ManagedClusterPodIdentityExceptionResponseOutput) ToManagedClusterPodIde
 	return o
 }
 
-// Name of the pod identity exception.
 func (o ManagedClusterPodIdentityExceptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Namespace of the pod identity exception.
 func (o ManagedClusterPodIdentityExceptionResponseOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Pod labels to match.
 func (o ManagedClusterPodIdentityExceptionResponseOutput) PodLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) map[string]string { return v.PodLabels }).(pulumi.StringMapOutput)
 }
@@ -8521,13 +7750,9 @@ func (o ManagedClusterPodIdentityExceptionResponseArrayOutput) Index(i pulumi.In
 }
 
 type ManagedClusterPodIdentityProfile struct {
-	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
-	AllowNetworkPluginKubenet *bool `pulumi:"allowNetworkPluginKubenet"`
-	// Whether the pod identity addon is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// User assigned pod identity settings.
-	UserAssignedIdentities []ManagedClusterPodIdentity `pulumi:"userAssignedIdentities"`
-	// User assigned pod identity exception settings.
+	AllowNetworkPluginKubenet      *bool                                `pulumi:"allowNetworkPluginKubenet"`
+	Enabled                        *bool                                `pulumi:"enabled"`
+	UserAssignedIdentities         []ManagedClusterPodIdentity          `pulumi:"userAssignedIdentities"`
 	UserAssignedIdentityExceptions []ManagedClusterPodIdentityException `pulumi:"userAssignedIdentityExceptions"`
 }
 
@@ -8543,13 +7768,9 @@ type ManagedClusterPodIdentityProfileInput interface {
 }
 
 type ManagedClusterPodIdentityProfileArgs struct {
-	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
-	AllowNetworkPluginKubenet pulumi.BoolPtrInput `pulumi:"allowNetworkPluginKubenet"`
-	// Whether the pod identity addon is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// User assigned pod identity settings.
-	UserAssignedIdentities ManagedClusterPodIdentityArrayInput `pulumi:"userAssignedIdentities"`
-	// User assigned pod identity exception settings.
+	AllowNetworkPluginKubenet      pulumi.BoolPtrInput                          `pulumi:"allowNetworkPluginKubenet"`
+	Enabled                        pulumi.BoolPtrInput                          `pulumi:"enabled"`
+	UserAssignedIdentities         ManagedClusterPodIdentityArrayInput          `pulumi:"userAssignedIdentities"`
 	UserAssignedIdentityExceptions ManagedClusterPodIdentityExceptionArrayInput `pulumi:"userAssignedIdentityExceptions"`
 }
 
@@ -8630,22 +7851,18 @@ func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfi
 	}).(ManagedClusterPodIdentityProfilePtrOutput)
 }
 
-// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
 func (o ManagedClusterPodIdentityProfileOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *bool { return v.AllowNetworkPluginKubenet }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfileOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// User assigned pod identity settings.
 func (o ManagedClusterPodIdentityProfileOutput) UserAssignedIdentities() ManagedClusterPodIdentityArrayOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentity { return v.UserAssignedIdentities }).(ManagedClusterPodIdentityArrayOutput)
 }
 
-// User assigned pod identity exception settings.
 func (o ManagedClusterPodIdentityProfileOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionArrayOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentityException {
 		return v.UserAssignedIdentityExceptions
@@ -8676,7 +7893,6 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) Elem() ManagedClusterPodIdent
 	}).(ManagedClusterPodIdentityProfileOutput)
 }
 
-// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
 func (o ManagedClusterPodIdentityProfilePtrOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) *bool {
 		if v == nil {
@@ -8686,7 +7902,6 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) AllowNetworkPluginKubenet() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfilePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) *bool {
 		if v == nil {
@@ -8696,7 +7911,6 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// User assigned pod identity settings.
 func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentities() ManagedClusterPodIdentityArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentity {
 		if v == nil {
@@ -8706,7 +7920,6 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentities() Mana
 	}).(ManagedClusterPodIdentityArrayOutput)
 }
 
-// User assigned pod identity exception settings.
 func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentityException {
 		if v == nil {
@@ -8717,13 +7930,9 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentityException
 }
 
 type ManagedClusterPodIdentityProfileResponse struct {
-	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
-	AllowNetworkPluginKubenet *bool `pulumi:"allowNetworkPluginKubenet"`
-	// Whether the pod identity addon is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// User assigned pod identity settings.
-	UserAssignedIdentities []ManagedClusterPodIdentityResponse `pulumi:"userAssignedIdentities"`
-	// User assigned pod identity exception settings.
+	AllowNetworkPluginKubenet      *bool                                        `pulumi:"allowNetworkPluginKubenet"`
+	Enabled                        *bool                                        `pulumi:"enabled"`
+	UserAssignedIdentities         []ManagedClusterPodIdentityResponse          `pulumi:"userAssignedIdentities"`
 	UserAssignedIdentityExceptions []ManagedClusterPodIdentityExceptionResponse `pulumi:"userAssignedIdentityExceptions"`
 }
 
@@ -8739,13 +7948,9 @@ type ManagedClusterPodIdentityProfileResponseInput interface {
 }
 
 type ManagedClusterPodIdentityProfileResponseArgs struct {
-	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
-	AllowNetworkPluginKubenet pulumi.BoolPtrInput `pulumi:"allowNetworkPluginKubenet"`
-	// Whether the pod identity addon is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// User assigned pod identity settings.
-	UserAssignedIdentities ManagedClusterPodIdentityResponseArrayInput `pulumi:"userAssignedIdentities"`
-	// User assigned pod identity exception settings.
+	AllowNetworkPluginKubenet      pulumi.BoolPtrInput                                  `pulumi:"allowNetworkPluginKubenet"`
+	Enabled                        pulumi.BoolPtrInput                                  `pulumi:"enabled"`
+	UserAssignedIdentities         ManagedClusterPodIdentityResponseArrayInput          `pulumi:"userAssignedIdentities"`
 	UserAssignedIdentityExceptions ManagedClusterPodIdentityExceptionResponseArrayInput `pulumi:"userAssignedIdentityExceptions"`
 }
 
@@ -8826,24 +8031,20 @@ func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdent
 	}).(ManagedClusterPodIdentityProfileResponsePtrOutput)
 }
 
-// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
 func (o ManagedClusterPodIdentityProfileResponseOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *bool { return v.AllowNetworkPluginKubenet }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfileResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// User assigned pod identity settings.
 func (o ManagedClusterPodIdentityProfileResponseOutput) UserAssignedIdentities() ManagedClusterPodIdentityResponseArrayOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityResponse {
 		return v.UserAssignedIdentities
 	}).(ManagedClusterPodIdentityResponseArrayOutput)
 }
 
-// User assigned pod identity exception settings.
 func (o ManagedClusterPodIdentityProfileResponseOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionResponseArrayOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityExceptionResponse {
 		return v.UserAssignedIdentityExceptions
@@ -8874,7 +8075,6 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Elem() ManagedCluster
 	}).(ManagedClusterPodIdentityProfileResponseOutput)
 }
 
-// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) *bool {
 		if v == nil {
@@ -8884,7 +8084,6 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) AllowNetworkPluginKub
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) *bool {
 		if v == nil {
@@ -8894,7 +8093,6 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// User assigned pod identity settings.
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentities() ManagedClusterPodIdentityResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityResponse {
 		if v == nil {
@@ -8904,7 +8102,6 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentitie
 	}).(ManagedClusterPodIdentityResponseArrayOutput)
 }
 
-// User assigned pod identity exception settings.
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityExceptionResponse {
 		if v == nil {
@@ -8915,17 +8112,12 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentityE
 }
 
 type ManagedClusterPodIdentityResponse struct {
-	// Binding selector to use for the AzureIdentityBinding resource.
-	BindingSelector *string `pulumi:"bindingSelector"`
-	// Information of the user assigned identity.
-	Identity UserAssignedIdentityResponse `pulumi:"identity"`
-	// Name of the pod identity.
-	Name string `pulumi:"name"`
-	// Namespace of the pod identity.
-	Namespace        string                                            `pulumi:"namespace"`
-	ProvisioningInfo ManagedClusterPodIdentityResponseProvisioningInfo `pulumi:"provisioningInfo"`
-	// The current provisioning state of the pod identity.
-	ProvisioningState string `pulumi:"provisioningState"`
+	BindingSelector   *string                                           `pulumi:"bindingSelector"`
+	Identity          UserAssignedIdentityResponse                      `pulumi:"identity"`
+	Name              string                                            `pulumi:"name"`
+	Namespace         string                                            `pulumi:"namespace"`
+	ProvisioningInfo  ManagedClusterPodIdentityResponseProvisioningInfo `pulumi:"provisioningInfo"`
+	ProvisioningState string                                            `pulumi:"provisioningState"`
 }
 
 // ManagedClusterPodIdentityResponseInput is an input type that accepts ManagedClusterPodIdentityResponseArgs and ManagedClusterPodIdentityResponseOutput values.
@@ -8940,17 +8132,12 @@ type ManagedClusterPodIdentityResponseInput interface {
 }
 
 type ManagedClusterPodIdentityResponseArgs struct {
-	// Binding selector to use for the AzureIdentityBinding resource.
-	BindingSelector pulumi.StringPtrInput `pulumi:"bindingSelector"`
-	// Information of the user assigned identity.
-	Identity UserAssignedIdentityResponseInput `pulumi:"identity"`
-	// Name of the pod identity.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Namespace of the pod identity.
-	Namespace        pulumi.StringInput                                     `pulumi:"namespace"`
-	ProvisioningInfo ManagedClusterPodIdentityResponseProvisioningInfoInput `pulumi:"provisioningInfo"`
-	// The current provisioning state of the pod identity.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	BindingSelector   pulumi.StringPtrInput                                  `pulumi:"bindingSelector"`
+	Identity          UserAssignedIdentityResponseInput                      `pulumi:"identity"`
+	Name              pulumi.StringInput                                     `pulumi:"name"`
+	Namespace         pulumi.StringInput                                     `pulumi:"namespace"`
+	ProvisioningInfo  ManagedClusterPodIdentityResponseProvisioningInfoInput `pulumi:"provisioningInfo"`
+	ProvisioningState pulumi.StringInput                                     `pulumi:"provisioningState"`
 }
 
 func (ManagedClusterPodIdentityResponseArgs) ElementType() reflect.Type {
@@ -9004,22 +8191,18 @@ func (o ManagedClusterPodIdentityResponseOutput) ToManagedClusterPodIdentityResp
 	return o
 }
 
-// Binding selector to use for the AzureIdentityBinding resource.
 func (o ManagedClusterPodIdentityResponseOutput) BindingSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) *string { return v.BindingSelector }).(pulumi.StringPtrOutput)
 }
 
-// Information of the user assigned identity.
 func (o ManagedClusterPodIdentityResponseOutput) Identity() UserAssignedIdentityResponseOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) UserAssignedIdentityResponse { return v.Identity }).(UserAssignedIdentityResponseOutput)
 }
 
-// Name of the pod identity.
 func (o ManagedClusterPodIdentityResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Namespace of the pod identity.
 func (o ManagedClusterPodIdentityResponseOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -9030,7 +8213,6 @@ func (o ManagedClusterPodIdentityResponseOutput) ProvisioningInfo() ManagedClust
 	}).(ManagedClusterPodIdentityResponseProvisioningInfoOutput)
 }
 
-// The current provisioning state of the pod identity.
 func (o ManagedClusterPodIdentityResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -9056,7 +8238,6 @@ func (o ManagedClusterPodIdentityResponseArrayOutput) Index(i pulumi.IntInput) M
 }
 
 type ManagedClusterPodIdentityResponseProvisioningInfo struct {
-	// Pod identity assignment error (if any).
 	Error *CloudErrorResponse `pulumi:"error"`
 }
 
@@ -9072,7 +8253,6 @@ type ManagedClusterPodIdentityResponseProvisioningInfoInput interface {
 }
 
 type ManagedClusterPodIdentityResponseProvisioningInfoArgs struct {
-	// Pod identity assignment error (if any).
 	Error CloudErrorResponsePtrInput `pulumi:"error"`
 }
 
@@ -9102,7 +8282,6 @@ func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) ToManagedCluste
 	return o
 }
 
-// Pod identity assignment error (if any).
 func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) Error() CloudErrorResponsePtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityResponseProvisioningInfo) *CloudErrorResponse { return v.Error }).(CloudErrorResponsePtrOutput)
 }
@@ -9481,11 +8660,8 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithSystemP
 }
 
 type ManagedClusterPropertiesIdentityProfile struct {
-	// The client id of the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId *string `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   *string `pulumi:"clientId"`
+	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -9501,11 +8677,8 @@ type ManagedClusterPropertiesIdentityProfileInput interface {
 }
 
 type ManagedClusterPropertiesIdentityProfileArgs struct {
-	// The client id of the user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
+	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -9560,17 +8733,14 @@ func (o ManagedClusterPropertiesIdentityProfileOutput) ToManagedClusterPropertie
 	return o
 }
 
-// The client id of the user assigned identity.
 func (o ManagedClusterPropertiesIdentityProfileOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesIdentityProfile) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user assigned identity.
 func (o ManagedClusterPropertiesIdentityProfileOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesIdentityProfile) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the user assigned identity.
 func (o ManagedClusterPropertiesIdentityProfileOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesIdentityProfile) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -9971,11 +9141,8 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) SkipNodesWit
 }
 
 type ManagedClusterPropertiesResponseIdentityProfile struct {
-	// The client id of the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId *string `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   *string `pulumi:"clientId"`
+	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -9991,11 +9158,8 @@ type ManagedClusterPropertiesResponseIdentityProfileInput interface {
 }
 
 type ManagedClusterPropertiesResponseIdentityProfileArgs struct {
-	// The client id of the user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
+	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -10050,17 +9214,14 @@ func (o ManagedClusterPropertiesResponseIdentityProfileOutput) ToManagedClusterP
 	return o
 }
 
-// The client id of the user assigned identity.
 func (o ManagedClusterPropertiesResponseIdentityProfileOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseIdentityProfile) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user assigned identity.
 func (o ManagedClusterPropertiesResponseIdentityProfileOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseIdentityProfile) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the user assigned identity.
 func (o ManagedClusterPropertiesResponseIdentityProfileOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseIdentityProfile) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -10086,9 +9247,7 @@ func (o ManagedClusterPropertiesResponseIdentityProfileMapOutput) MapIndex(k pul
 }
 
 type ManagedClusterSKU struct {
-	// Name of a managed cluster SKU.
 	Name *string `pulumi:"name"`
-	// Tier of a managed cluster SKU.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -10104,9 +9263,7 @@ type ManagedClusterSKUInput interface {
 }
 
 type ManagedClusterSKUArgs struct {
-	// Name of a managed cluster SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tier of a managed cluster SKU.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -10187,12 +9344,10 @@ func (o ManagedClusterSKUOutput) ToManagedClusterSKUPtrOutputWithContext(ctx con
 	}).(ManagedClusterSKUPtrOutput)
 }
 
-// Name of a managed cluster SKU.
 func (o ManagedClusterSKUOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKU) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
 func (o ManagedClusterSKUOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKU) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -10221,7 +9376,6 @@ func (o ManagedClusterSKUPtrOutput) Elem() ManagedClusterSKUOutput {
 	}).(ManagedClusterSKUOutput)
 }
 
-// Name of a managed cluster SKU.
 func (o ManagedClusterSKUPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKU) *string {
 		if v == nil {
@@ -10231,7 +9385,6 @@ func (o ManagedClusterSKUPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
 func (o ManagedClusterSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKU) *string {
 		if v == nil {
@@ -10242,9 +9395,7 @@ func (o ManagedClusterSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ManagedClusterSKUResponse struct {
-	// Name of a managed cluster SKU.
 	Name *string `pulumi:"name"`
-	// Tier of a managed cluster SKU.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -10260,9 +9411,7 @@ type ManagedClusterSKUResponseInput interface {
 }
 
 type ManagedClusterSKUResponseArgs struct {
-	// Name of a managed cluster SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tier of a managed cluster SKU.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -10343,12 +9492,10 @@ func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponsePtrOutputWit
 	}).(ManagedClusterSKUResponsePtrOutput)
 }
 
-// Name of a managed cluster SKU.
 func (o ManagedClusterSKUResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKUResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
 func (o ManagedClusterSKUResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKUResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -10377,7 +9524,6 @@ func (o ManagedClusterSKUResponsePtrOutput) Elem() ManagedClusterSKUResponseOutp
 	}).(ManagedClusterSKUResponseOutput)
 }
 
-// Name of a managed cluster SKU.
 func (o ManagedClusterSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKUResponse) *string {
 		if v == nil {
@@ -10387,7 +9533,6 @@ func (o ManagedClusterSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
 func (o ManagedClusterSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKUResponse) *string {
 		if v == nil {
@@ -10398,10 +9543,8 @@ func (o ManagedClusterSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ManagedClusterServicePrincipalProfile struct {
-	// The ID for the service principal.
-	ClientId string `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	ClientId string  `pulumi:"clientId"`
+	Secret   *string `pulumi:"secret"`
 }
 
 // ManagedClusterServicePrincipalProfileInput is an input type that accepts ManagedClusterServicePrincipalProfileArgs and ManagedClusterServicePrincipalProfileOutput values.
@@ -10416,10 +9559,8 @@ type ManagedClusterServicePrincipalProfileInput interface {
 }
 
 type ManagedClusterServicePrincipalProfileArgs struct {
-	// The ID for the service principal.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	ClientId pulumi.StringInput    `pulumi:"clientId"`
+	Secret   pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ManagedClusterServicePrincipalProfileArgs) ElementType() reflect.Type {
@@ -10499,12 +9640,10 @@ func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrin
 	}).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -10533,7 +9672,6 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) Elem() ManagedClusterSer
 	}).(ManagedClusterServicePrincipalProfileOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfilePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) *string {
 		if v == nil {
@@ -10543,7 +9681,6 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ClientId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) *string {
 		if v == nil {
@@ -10554,10 +9691,8 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPt
 }
 
 type ManagedClusterServicePrincipalProfileResponse struct {
-	// The ID for the service principal.
-	ClientId string `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	ClientId string  `pulumi:"clientId"`
+	Secret   *string `pulumi:"secret"`
 }
 
 // ManagedClusterServicePrincipalProfileResponseInput is an input type that accepts ManagedClusterServicePrincipalProfileResponseArgs and ManagedClusterServicePrincipalProfileResponseOutput values.
@@ -10572,10 +9707,8 @@ type ManagedClusterServicePrincipalProfileResponseInput interface {
 }
 
 type ManagedClusterServicePrincipalProfileResponseArgs struct {
-	// The ID for the service principal.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	ClientId pulumi.StringInput    `pulumi:"clientId"`
+	Secret   pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ManagedClusterServicePrincipalProfileResponseArgs) ElementType() reflect.Type {
@@ -10655,12 +9788,10 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileResponseOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -10689,7 +9820,6 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Elem() ManagedCl
 	}).(ManagedClusterServicePrincipalProfileResponseOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -10699,7 +9829,6 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ClientId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -10710,14 +9839,10 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Secret() pulumi.
 }
 
 type ManagedClusterWindowsProfile struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-	AdminPassword *string `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername string `pulumi:"adminUsername"`
-	// Whether to enable CSI proxy.
-	EnableCSIProxy *bool `pulumi:"enableCSIProxy"`
-	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
-	LicenseType *string `pulumi:"licenseType"`
+	AdminPassword  *string `pulumi:"adminPassword"`
+	AdminUsername  string  `pulumi:"adminUsername"`
+	EnableCSIProxy *bool   `pulumi:"enableCSIProxy"`
+	LicenseType    *string `pulumi:"licenseType"`
 }
 
 // ManagedClusterWindowsProfileInput is an input type that accepts ManagedClusterWindowsProfileArgs and ManagedClusterWindowsProfileOutput values.
@@ -10732,14 +9857,10 @@ type ManagedClusterWindowsProfileInput interface {
 }
 
 type ManagedClusterWindowsProfileArgs struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// Whether to enable CSI proxy.
-	EnableCSIProxy pulumi.BoolPtrInput `pulumi:"enableCSIProxy"`
-	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
+	AdminPassword  pulumi.StringPtrInput `pulumi:"adminPassword"`
+	AdminUsername  pulumi.StringInput    `pulumi:"adminUsername"`
+	EnableCSIProxy pulumi.BoolPtrInput   `pulumi:"enableCSIProxy"`
+	LicenseType    pulumi.StringPtrInput `pulumi:"licenseType"`
 }
 
 func (ManagedClusterWindowsProfileArgs) ElementType() reflect.Type {
@@ -10819,22 +9940,18 @@ func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOut
 	}).(ManagedClusterWindowsProfilePtrOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Whether to enable CSI proxy.
 func (o ManagedClusterWindowsProfileOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) *bool { return v.EnableCSIProxy }).(pulumi.BoolPtrOutput)
 }
 
-// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfileOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -10863,7 +9980,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) Elem() ManagedClusterWindowsProfi
 	}).(ManagedClusterWindowsProfileOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
 		if v == nil {
@@ -10873,7 +9989,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
 		if v == nil {
@@ -10883,7 +9998,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable CSI proxy.
 func (o ManagedClusterWindowsProfilePtrOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *bool {
 		if v == nil {
@@ -10893,7 +10007,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) EnableCSIProxy() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfilePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
 		if v == nil {
@@ -10904,14 +10017,10 @@ func (o ManagedClusterWindowsProfilePtrOutput) LicenseType() pulumi.StringPtrOut
 }
 
 type ManagedClusterWindowsProfileResponse struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-	AdminPassword *string `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername string `pulumi:"adminUsername"`
-	// Whether to enable CSI proxy.
-	EnableCSIProxy *bool `pulumi:"enableCSIProxy"`
-	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
-	LicenseType *string `pulumi:"licenseType"`
+	AdminPassword  *string `pulumi:"adminPassword"`
+	AdminUsername  string  `pulumi:"adminUsername"`
+	EnableCSIProxy *bool   `pulumi:"enableCSIProxy"`
+	LicenseType    *string `pulumi:"licenseType"`
 }
 
 // ManagedClusterWindowsProfileResponseInput is an input type that accepts ManagedClusterWindowsProfileResponseArgs and ManagedClusterWindowsProfileResponseOutput values.
@@ -10926,14 +10035,10 @@ type ManagedClusterWindowsProfileResponseInput interface {
 }
 
 type ManagedClusterWindowsProfileResponseArgs struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// Whether to enable CSI proxy.
-	EnableCSIProxy pulumi.BoolPtrInput `pulumi:"enableCSIProxy"`
-	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
+	AdminPassword  pulumi.StringPtrInput `pulumi:"adminPassword"`
+	AdminUsername  pulumi.StringInput    `pulumi:"adminUsername"`
+	EnableCSIProxy pulumi.BoolPtrInput   `pulumi:"enableCSIProxy"`
+	LicenseType    pulumi.StringPtrInput `pulumi:"licenseType"`
 }
 
 func (ManagedClusterWindowsProfileResponseArgs) ElementType() reflect.Type {
@@ -11013,22 +10118,18 @@ func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfi
 	}).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileResponseOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Whether to enable CSI proxy.
 func (o ManagedClusterWindowsProfileResponseOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *bool { return v.EnableCSIProxy }).(pulumi.BoolPtrOutput)
 }
 
-// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfileResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -11057,7 +10158,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) Elem() ManagedClusterWind
 	}).(ManagedClusterWindowsProfileResponseOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *string {
 		if v == nil {
@@ -11067,7 +10167,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminPassword() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *string {
 		if v == nil {
@@ -11077,7 +10176,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminUsername() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable CSI proxy.
 func (o ManagedClusterWindowsProfileResponsePtrOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *bool {
 		if v == nil {
@@ -11087,7 +10185,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) EnableCSIProxy() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfileResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *string {
 		if v == nil {
@@ -11098,12 +10195,9 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) LicenseType() pulumi.Stri
 }
 
 type NetworkProfile struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr *string `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId *string `pulumi:"vnetId"`
+	VnetCidr   *string `pulumi:"vnetCidr"`
+	VnetId     *string `pulumi:"vnetId"`
 }
 
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
@@ -11118,12 +10212,9 @@ type NetworkProfileInput interface {
 }
 
 type NetworkProfileArgs struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	VnetCidr   pulumi.StringPtrInput `pulumi:"vnetCidr"`
+	VnetId     pulumi.StringPtrInput `pulumi:"vnetId"`
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -11203,17 +10294,14 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.C
 	}).(NetworkProfilePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.VnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.VnetId }).(pulumi.StringPtrOutput)
 }
@@ -11242,7 +10330,6 @@ func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
 	}).(NetworkProfileOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfilePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -11252,7 +10339,6 @@ func (o NetworkProfilePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfilePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -11262,7 +10348,6 @@ func (o NetworkProfilePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -11273,12 +10358,9 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 }
 
 type NetworkProfileResponse struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr *string `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId *string `pulumi:"vnetId"`
+	VnetCidr   *string `pulumi:"vnetCidr"`
+	VnetId     *string `pulumi:"vnetId"`
 }
 
 // NetworkProfileResponseInput is an input type that accepts NetworkProfileResponseArgs and NetworkProfileResponseOutput values.
@@ -11293,12 +10375,9 @@ type NetworkProfileResponseInput interface {
 }
 
 type NetworkProfileResponseArgs struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	VnetCidr   pulumi.StringPtrInput `pulumi:"vnetCidr"`
+	VnetId     pulumi.StringPtrInput `pulumi:"vnetId"`
 }
 
 func (NetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -11378,17 +10457,14 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithConte
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileResponseOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileResponseOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.VnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileResponseOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.VnetId }).(pulumi.StringPtrOutput)
 }
@@ -11417,7 +10493,6 @@ func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
 	}).(NetworkProfileResponseOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileResponsePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -11427,7 +10502,6 @@ func (o NetworkProfileResponsePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileResponsePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -11437,7 +10511,6 @@ func (o NetworkProfileResponsePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -11448,17 +10521,11 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 }
 
 type OpenShiftManagedClusterAADIdentityProvider struct {
-	// The clientId password associated with the provider.
-	ClientId *string `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             *string `pulumi:"clientId"`
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind string `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret *string `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId *string `pulumi:"tenantId"`
+	Kind                 string  `pulumi:"kind"`
+	Secret               *string `pulumi:"secret"`
+	TenantId             *string `pulumi:"tenantId"`
 }
 
 // OpenShiftManagedClusterAADIdentityProviderInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs and OpenShiftManagedClusterAADIdentityProviderOutput values.
@@ -11473,17 +10540,11 @@ type OpenShiftManagedClusterAADIdentityProviderInput interface {
 }
 
 type OpenShiftManagedClusterAADIdentityProviderArgs struct {
-	// The clientId password associated with the provider.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Kind                 pulumi.StringInput    `pulumi:"kind"`
+	Secret               pulumi.StringPtrInput `pulumi:"secret"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (OpenShiftManagedClusterAADIdentityProviderArgs) ElementType() reflect.Type {
@@ -11563,28 +10624,22 @@ func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClus
 	}).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -11613,7 +10668,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Elem() OpenShiftMan
 	}).(OpenShiftManagedClusterAADIdentityProviderOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -11623,7 +10677,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ClientId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -11633,8 +10686,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupI
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -11644,7 +10695,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -11654,7 +10704,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Secret() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -11665,17 +10714,11 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.S
 }
 
 type OpenShiftManagedClusterAADIdentityProviderResponse struct {
-	// The clientId password associated with the provider.
-	ClientId *string `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             *string `pulumi:"clientId"`
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind string `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret *string `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId *string `pulumi:"tenantId"`
+	Kind                 string  `pulumi:"kind"`
+	Secret               *string `pulumi:"secret"`
+	TenantId             *string `pulumi:"tenantId"`
 }
 
 // OpenShiftManagedClusterAADIdentityProviderResponseInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderResponseArgs and OpenShiftManagedClusterAADIdentityProviderResponseOutput values.
@@ -11690,17 +10733,11 @@ type OpenShiftManagedClusterAADIdentityProviderResponseInput interface {
 }
 
 type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
-	// The clientId password associated with the provider.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Kind                 pulumi.StringInput    `pulumi:"kind"`
+	Secret               pulumi.StringPtrInput `pulumi:"secret"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (OpenShiftManagedClusterAADIdentityProviderResponseArgs) ElementType() reflect.Type {
@@ -11780,28 +10817,22 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftMan
 	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -11830,7 +10861,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Elem() Open
 	}).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -11840,7 +10870,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ClientId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -11850,8 +10879,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdm
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -11861,7 +10888,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -11871,7 +10897,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Secret() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -11882,18 +10907,12 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() 
 }
 
 type OpenShiftManagedClusterAgentPoolProfile struct {
-	// Number of agents (VMs) to host docker containers.
-	Count int `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role *string `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       string  `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
+	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterAgentPoolProfileInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileArgs and OpenShiftManagedClusterAgentPoolProfileOutput values.
@@ -11908,18 +10927,12 @@ type OpenShiftManagedClusterAgentPoolProfileInput interface {
 }
 
 type OpenShiftManagedClusterAgentPoolProfileArgs struct {
-	// Number of agents (VMs) to host docker containers.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
+	Role       pulumi.StringPtrInput `pulumi:"role"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -11973,32 +10986,26 @@ func (o OpenShiftManagedClusterAgentPoolProfileOutput) ToOpenShiftManagedCluster
 	return o
 }
 
-// Number of agents (VMs) to host docker containers.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Define the role of the AgentPoolProfile.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -12024,18 +11031,12 @@ func (o OpenShiftManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntIn
 }
 
 type OpenShiftManagedClusterAgentPoolProfileResponse struct {
-	// Number of agents (VMs) to host docker containers.
-	Count int `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role *string `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       string  `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
+	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterAgentPoolProfileResponseInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileResponseArgs and OpenShiftManagedClusterAgentPoolProfileResponseOutput values.
@@ -12050,18 +11051,12 @@ type OpenShiftManagedClusterAgentPoolProfileResponseInput interface {
 }
 
 type OpenShiftManagedClusterAgentPoolProfileResponseArgs struct {
-	// Number of agents (VMs) to host docker containers.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
+	Role       pulumi.StringPtrInput `pulumi:"role"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -12115,32 +11110,26 @@ func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) ToOpenShiftManage
 	return o
 }
 
-// Number of agents (VMs) to host docker containers.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Define the role of the AgentPoolProfile.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -12166,7 +11155,6 @@ func (o OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulu
 }
 
 type OpenShiftManagedClusterAuthProfile struct {
-	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProvider `pulumi:"identityProviders"`
 }
 
@@ -12182,7 +11170,6 @@ type OpenShiftManagedClusterAuthProfileInput interface {
 }
 
 type OpenShiftManagedClusterAuthProfileArgs struct {
-	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderArrayInput `pulumi:"identityProviders"`
 }
 
@@ -12263,7 +11250,6 @@ func (o OpenShiftManagedClusterAuthProfileOutput) ToOpenShiftManagedClusterAuthP
 	}).(OpenShiftManagedClusterAuthProfilePtrOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderArrayOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfile) []OpenShiftManagedClusterIdentityProvider {
 		return v.IdentityProviders
@@ -12294,7 +11280,6 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) Elem() OpenShiftManagedClus
 	}).(OpenShiftManagedClusterAuthProfileOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderArrayOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) []OpenShiftManagedClusterIdentityProvider {
 		if v == nil {
@@ -12305,7 +11290,6 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShi
 }
 
 type OpenShiftManagedClusterAuthProfileResponse struct {
-	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProviderResponse `pulumi:"identityProviders"`
 }
 
@@ -12321,7 +11305,6 @@ type OpenShiftManagedClusterAuthProfileResponseInput interface {
 }
 
 type OpenShiftManagedClusterAuthProfileResponseArgs struct {
-	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderResponseArrayInput `pulumi:"identityProviders"`
 }
 
@@ -12402,7 +11385,6 @@ func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClus
 	}).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfileResponse) []OpenShiftManagedClusterIdentityProviderResponse {
 		return v.IdentityProviders
@@ -12433,7 +11415,6 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) Elem() OpenShiftMan
 	}).(OpenShiftManagedClusterAuthProfileResponseOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfileResponse) []OpenShiftManagedClusterIdentityProviderResponse {
 		if v == nil {
@@ -12444,9 +11425,7 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders()
 }
 
 type OpenShiftManagedClusterIdentityProvider struct {
-	// Name of the provider.
-	Name *string `pulumi:"name"`
-	// Configuration of the provider.
+	Name     *string                                     `pulumi:"name"`
 	Provider *OpenShiftManagedClusterAADIdentityProvider `pulumi:"provider"`
 }
 
@@ -12462,9 +11441,7 @@ type OpenShiftManagedClusterIdentityProviderInput interface {
 }
 
 type OpenShiftManagedClusterIdentityProviderArgs struct {
-	// Name of the provider.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Configuration of the provider.
+	Name     pulumi.StringPtrInput                              `pulumi:"name"`
 	Provider OpenShiftManagedClusterAADIdentityProviderPtrInput `pulumi:"provider"`
 }
 
@@ -12519,12 +11496,10 @@ func (o OpenShiftManagedClusterIdentityProviderOutput) ToOpenShiftManagedCluster
 	return o
 }
 
-// Name of the provider.
 func (o OpenShiftManagedClusterIdentityProviderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of the provider.
 func (o OpenShiftManagedClusterIdentityProviderOutput) Provider() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
 		return v.Provider
@@ -12552,9 +11527,7 @@ func (o OpenShiftManagedClusterIdentityProviderArrayOutput) Index(i pulumi.IntIn
 }
 
 type OpenShiftManagedClusterIdentityProviderResponse struct {
-	// Name of the provider.
-	Name *string `pulumi:"name"`
-	// Configuration of the provider.
+	Name     *string                                             `pulumi:"name"`
 	Provider *OpenShiftManagedClusterAADIdentityProviderResponse `pulumi:"provider"`
 }
 
@@ -12570,9 +11543,7 @@ type OpenShiftManagedClusterIdentityProviderResponseInput interface {
 }
 
 type OpenShiftManagedClusterIdentityProviderResponseArgs struct {
-	// Name of the provider.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Configuration of the provider.
+	Name     pulumi.StringPtrInput                                      `pulumi:"name"`
 	Provider OpenShiftManagedClusterAADIdentityProviderResponsePtrInput `pulumi:"provider"`
 }
 
@@ -12627,12 +11598,10 @@ func (o OpenShiftManagedClusterIdentityProviderResponseOutput) ToOpenShiftManage
 	return o
 }
 
-// Name of the provider.
 func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of the provider.
 func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Provider() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
 		return v.Provider
@@ -12660,16 +11629,11 @@ func (o OpenShiftManagedClusterIdentityProviderResponseArrayOutput) Index(i pulu
 }
 
 type OpenShiftManagedClusterMasterPoolProfile struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       *string `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterMasterPoolProfileInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileArgs and OpenShiftManagedClusterMasterPoolProfileOutput values.
@@ -12684,16 +11648,11 @@ type OpenShiftManagedClusterMasterPoolProfileInput interface {
 }
 
 type OpenShiftManagedClusterMasterPoolProfileArgs struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterMasterPoolProfileArgs) ElementType() reflect.Type {
@@ -12773,27 +11732,22 @@ func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedCluste
 	}).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -12822,7 +11776,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Elem() OpenShiftManag
 	}).(OpenShiftManagedClusterMasterPoolProfileOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *int {
 		if v == nil {
@@ -12832,7 +11785,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -12842,7 +11794,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -12852,7 +11803,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) OsType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -12862,7 +11812,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) SubnetCidr() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -12873,16 +11822,11 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.Strin
 }
 
 type OpenShiftManagedClusterMasterPoolProfileResponse struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       *string `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterMasterPoolProfileResponseInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileResponseArgs and OpenShiftManagedClusterMasterPoolProfileResponseOutput values.
@@ -12897,16 +11841,11 @@ type OpenShiftManagedClusterMasterPoolProfileResponseInput interface {
 }
 
 type OpenShiftManagedClusterMasterPoolProfileResponseArgs struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterMasterPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -12986,27 +11925,22 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManag
 	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -13035,7 +11969,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Elem() OpenSh
 	}).(OpenShiftManagedClusterMasterPoolProfileResponseOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *int {
 		if v == nil {
@@ -13045,7 +11978,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -13055,7 +11987,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -13065,7 +11996,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) OsType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -13075,7 +12005,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) SubnetCidr() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -13086,7 +12015,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulu
 }
 
 type OpenShiftRouterProfile struct {
-	// Name of the router profile.
 	Name *string `pulumi:"name"`
 }
 
@@ -13102,7 +12030,6 @@ type OpenShiftRouterProfileInput interface {
 }
 
 type OpenShiftRouterProfileArgs struct {
-	// Name of the router profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -13157,7 +12084,6 @@ func (o OpenShiftRouterProfileOutput) ToOpenShiftRouterProfileOutputWithContext(
 	return o
 }
 
-// Name of the router profile.
 func (o OpenShiftRouterProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -13183,12 +12109,9 @@ func (o OpenShiftRouterProfileArrayOutput) Index(i pulumi.IntInput) OpenShiftRou
 }
 
 type OpenShiftRouterProfileResponse struct {
-	// Auto-allocated FQDN for the OpenShift router.
-	Fqdn string `pulumi:"fqdn"`
-	// Name of the router profile.
-	Name *string `pulumi:"name"`
-	// DNS subdomain for OpenShift router.
-	PublicSubdomain string `pulumi:"publicSubdomain"`
+	Fqdn            string  `pulumi:"fqdn"`
+	Name            *string `pulumi:"name"`
+	PublicSubdomain string  `pulumi:"publicSubdomain"`
 }
 
 // OpenShiftRouterProfileResponseInput is an input type that accepts OpenShiftRouterProfileResponseArgs and OpenShiftRouterProfileResponseOutput values.
@@ -13203,12 +12126,9 @@ type OpenShiftRouterProfileResponseInput interface {
 }
 
 type OpenShiftRouterProfileResponseArgs struct {
-	// Auto-allocated FQDN for the OpenShift router.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// Name of the router profile.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// DNS subdomain for OpenShift router.
-	PublicSubdomain pulumi.StringInput `pulumi:"publicSubdomain"`
+	Fqdn            pulumi.StringInput    `pulumi:"fqdn"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	PublicSubdomain pulumi.StringInput    `pulumi:"publicSubdomain"`
 }
 
 func (OpenShiftRouterProfileResponseArgs) ElementType() reflect.Type {
@@ -13262,17 +12182,14 @@ func (o OpenShiftRouterProfileResponseOutput) ToOpenShiftRouterProfileResponseOu
 	return o
 }
 
-// Auto-allocated FQDN for the OpenShift router.
 func (o OpenShiftRouterProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Name of the router profile.
 func (o OpenShiftRouterProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// DNS subdomain for OpenShift router.
 func (o OpenShiftRouterProfileResponseOutput) PublicSubdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) string { return v.PublicSubdomain }).(pulumi.StringOutput)
 }
@@ -13298,7 +12215,6 @@ func (o OpenShiftRouterProfileResponseArrayOutput) Index(i pulumi.IntInput) Open
 }
 
 type PowerStateResponse struct {
-	// Tells whether the cluster is Running or Stopped
 	Code *string `pulumi:"code"`
 }
 
@@ -13314,7 +12230,6 @@ type PowerStateResponseInput interface {
 }
 
 type PowerStateResponseArgs struct {
-	// Tells whether the cluster is Running or Stopped
 	Code pulumi.StringPtrInput `pulumi:"code"`
 }
 
@@ -13395,7 +12310,6 @@ func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutputWithContext(ctx c
 	}).(PowerStateResponsePtrOutput)
 }
 
-// Tells whether the cluster is Running or Stopped
 func (o PowerStateResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerStateResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
@@ -13424,7 +12338,6 @@ func (o PowerStateResponsePtrOutput) Elem() PowerStateResponseOutput {
 	}).(PowerStateResponseOutput)
 }
 
-// Tells whether the cluster is Running or Stopped
 func (o PowerStateResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerStateResponse) *string {
 		if v == nil {
@@ -13435,7 +12348,6 @@ func (o PowerStateResponsePtrOutput) Code() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpoint struct {
-	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
 }
 
@@ -13451,7 +12363,6 @@ type PrivateEndpointInput interface {
 }
 
 type PrivateEndpointArgs struct {
-	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -13532,7 +12443,6 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context
 	}).(PrivateEndpointPtrOutput)
 }
 
-// The resource Id for private endpoint
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -13561,7 +12471,6 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	}).(PrivateEndpointOutput)
 }
 
-// The resource Id for private endpoint
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -13572,7 +12481,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointResponse struct {
-	// The resource Id for private endpoint
 	Id *string `pulumi:"id"`
 }
 
@@ -13588,7 +12496,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// The resource Id for private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -13669,7 +12576,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The resource Id for private endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -13698,7 +12604,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// The resource Id for private endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -13709,16 +12614,11 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkResource struct {
-	// The group ID of the resource.
-	GroupId *string `pulumi:"groupId"`
-	// The ID of the private link resource.
-	Id *string `pulumi:"id"`
-	// The name of the private link resource.
-	Name *string `pulumi:"name"`
-	// RequiredMembers of the resource
+	GroupId         *string  `pulumi:"groupId"`
+	Id              *string  `pulumi:"id"`
+	Name            *string  `pulumi:"name"`
 	RequiredMembers []string `pulumi:"requiredMembers"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Type            *string  `pulumi:"type"`
 }
 
 // PrivateLinkResourceInput is an input type that accepts PrivateLinkResourceArgs and PrivateLinkResourceOutput values.
@@ -13733,16 +12633,11 @@ type PrivateLinkResourceInput interface {
 }
 
 type PrivateLinkResourceArgs struct {
-	// The group ID of the resource.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The ID of the private link resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the private link resource.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// RequiredMembers of the resource
+	GroupId         pulumi.StringPtrInput   `pulumi:"groupId"`
+	Id              pulumi.StringPtrInput   `pulumi:"id"`
+	Name            pulumi.StringPtrInput   `pulumi:"name"`
 	RequiredMembers pulumi.StringArrayInput `pulumi:"requiredMembers"`
-	// The resource type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type            pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (PrivateLinkResourceArgs) ElementType() reflect.Type {
@@ -13796,27 +12691,22 @@ func (o PrivateLinkResourceOutput) ToPrivateLinkResourceOutputWithContext(ctx co
 	return o
 }
 
-// The group ID of the resource.
 func (o PrivateLinkResourceOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResource) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the private link resource.
 func (o PrivateLinkResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the private link resource.
 func (o PrivateLinkResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// RequiredMembers of the resource
 func (o PrivateLinkResourceOutput) RequiredMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateLinkResource) []string { return v.RequiredMembers }).(pulumi.StringArrayOutput)
 }
 
-// The resource type.
 func (o PrivateLinkResourceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -13842,18 +12732,12 @@ func (o PrivateLinkResourceArrayOutput) Index(i pulumi.IntInput) PrivateLinkReso
 }
 
 type PrivateLinkResourceResponse struct {
-	// The group ID of the resource.
-	GroupId *string `pulumi:"groupId"`
-	// The ID of the private link resource.
-	Id *string `pulumi:"id"`
-	// The name of the private link resource.
-	Name *string `pulumi:"name"`
-	// The private link service ID of the resource, this field is exposed only to NRP internally.
-	PrivateLinkServiceID string `pulumi:"privateLinkServiceID"`
-	// RequiredMembers of the resource
-	RequiredMembers []string `pulumi:"requiredMembers"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	GroupId              *string  `pulumi:"groupId"`
+	Id                   *string  `pulumi:"id"`
+	Name                 *string  `pulumi:"name"`
+	PrivateLinkServiceID string   `pulumi:"privateLinkServiceID"`
+	RequiredMembers      []string `pulumi:"requiredMembers"`
+	Type                 *string  `pulumi:"type"`
 }
 
 // PrivateLinkResourceResponseInput is an input type that accepts PrivateLinkResourceResponseArgs and PrivateLinkResourceResponseOutput values.
@@ -13868,18 +12752,12 @@ type PrivateLinkResourceResponseInput interface {
 }
 
 type PrivateLinkResourceResponseArgs struct {
-	// The group ID of the resource.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The ID of the private link resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the private link resource.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The private link service ID of the resource, this field is exposed only to NRP internally.
-	PrivateLinkServiceID pulumi.StringInput `pulumi:"privateLinkServiceID"`
-	// RequiredMembers of the resource
-	RequiredMembers pulumi.StringArrayInput `pulumi:"requiredMembers"`
-	// The resource type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	GroupId              pulumi.StringPtrInput   `pulumi:"groupId"`
+	Id                   pulumi.StringPtrInput   `pulumi:"id"`
+	Name                 pulumi.StringPtrInput   `pulumi:"name"`
+	PrivateLinkServiceID pulumi.StringInput      `pulumi:"privateLinkServiceID"`
+	RequiredMembers      pulumi.StringArrayInput `pulumi:"requiredMembers"`
+	Type                 pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (PrivateLinkResourceResponseArgs) ElementType() reflect.Type {
@@ -13933,32 +12811,26 @@ func (o PrivateLinkResourceResponseOutput) ToPrivateLinkResourceResponseOutputWi
 	return o
 }
 
-// The group ID of the resource.
 func (o PrivateLinkResourceResponseOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the private link resource.
 func (o PrivateLinkResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the private link resource.
 func (o PrivateLinkResourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The private link service ID of the resource, this field is exposed only to NRP internally.
 func (o PrivateLinkResourceResponseOutput) PrivateLinkServiceID() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) string { return v.PrivateLinkServiceID }).(pulumi.StringOutput)
 }
 
-// RequiredMembers of the resource
 func (o PrivateLinkResourceResponseOutput) RequiredMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) []string { return v.RequiredMembers }).(pulumi.StringArrayOutput)
 }
 
-// The resource type.
 func (o PrivateLinkResourceResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -13984,10 +12856,8 @@ func (o PrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) Private
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// The private link service connection description.
 	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -14002,10 +12872,8 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -14085,12 +12953,10 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -14119,7 +12985,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -14129,7 +12994,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -14140,10 +13004,8 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// The private link service connection description.
 	Description *string `pulumi:"description"`
-	// The private link service connection status.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -14158,10 +13020,8 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -14241,12 +13101,10 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -14275,7 +13133,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -14285,7 +13142,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -14296,14 +13152,10 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type PurchasePlan struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product *string `pulumi:"product"`
-	// The promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PurchasePlanInput is an input type that accepts PurchasePlanArgs and PurchasePlanOutput values.
@@ -14318,14 +13170,10 @@ type PurchasePlanInput interface {
 }
 
 type PurchasePlanArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PurchasePlanArgs) ElementType() reflect.Type {
@@ -14405,22 +13253,18 @@ func (o PurchasePlanOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Conte
 	}).(PurchasePlanPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -14449,7 +13293,6 @@ func (o PurchasePlanPtrOutput) Elem() PurchasePlanOutput {
 	}).(PurchasePlanOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -14459,7 +13302,6 @@ func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -14469,7 +13311,6 @@ func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -14479,7 +13320,6 @@ func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -14490,14 +13330,10 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 type PurchasePlanResponse struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product *string `pulumi:"product"`
-	// The promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PurchasePlanResponseInput is an input type that accepts PurchasePlanResponseArgs and PurchasePlanResponseOutput values.
@@ -14512,14 +13348,10 @@ type PurchasePlanResponseInput interface {
 }
 
 type PurchasePlanResponseArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PurchasePlanResponseArgs) ElementType() reflect.Type {
@@ -14599,22 +13431,18 @@ func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(c
 	}).(PurchasePlanResponsePtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -14643,7 +13471,6 @@ func (o PurchasePlanResponsePtrOutput) Elem() PurchasePlanResponseOutput {
 	}).(PurchasePlanResponseOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -14653,7 +13480,6 @@ func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -14663,7 +13489,6 @@ func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -14673,7 +13498,6 @@ func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -14684,7 +13508,6 @@ func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 type ResourceReference struct {
-	// The fully qualified Azure resource id.
 	Id *string `pulumi:"id"`
 }
 
@@ -14700,7 +13523,6 @@ type ResourceReferenceInput interface {
 }
 
 type ResourceReferenceArgs struct {
-	// The fully qualified Azure resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -14755,7 +13577,6 @@ func (o ResourceReferenceOutput) ToResourceReferenceOutputWithContext(ctx contex
 	return o
 }
 
-// The fully qualified Azure resource id.
 func (o ResourceReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -14781,7 +13602,6 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 }
 
 type ResourceReferenceResponse struct {
-	// The fully qualified Azure resource id.
 	Id *string `pulumi:"id"`
 }
 
@@ -14797,7 +13617,6 @@ type ResourceReferenceResponseInput interface {
 }
 
 type ResourceReferenceResponseArgs struct {
-	// The fully qualified Azure resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -14852,7 +13671,6 @@ func (o ResourceReferenceResponseOutput) ToResourceReferenceResponseOutputWithCo
 	return o
 }
 
-// The fully qualified Azure resource id.
 func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -14878,62 +13696,34 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 }
 
 type SysctlConfig struct {
-	// Sysctl setting fs.aio-max-nr.
-	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
-	// Sysctl setting fs.file-max.
-	FsFileMax *int `pulumi:"fsFileMax"`
-	// Sysctl setting fs.inotify.max_user_watches.
-	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
-	// Sysctl setting fs.nr_open.
-	FsNrOpen *int `pulumi:"fsNrOpen"`
-	// Sysctl setting kernel.threads-max.
-	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
-	// Sysctl setting net.core.netdev_max_backlog.
-	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
-	// Sysctl setting net.core.optmem_max.
-	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
-	// Sysctl setting net.core.rmem_default.
-	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
-	// Sysctl setting net.core.rmem_max.
-	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
-	// Sysctl setting net.core.somaxconn.
-	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
-	// Sysctl setting net.core.wmem_default.
-	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
-	// Sysctl setting net.core.wmem_max.
-	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
-	// Sysctl setting net.ipv4.ip_local_port_range.
-	NetIpv4IpLocalPortRange *string `pulumi:"netIpv4IpLocalPortRange"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
-	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
-	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
-	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
-	// Sysctl setting net.ipv4.tcp_fin_timeout.
-	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
-	// Sysctl setting net.ipv4.tcp_keepalive_probes.
-	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
-	// Sysctl setting net.ipv4.tcp_keepalive_time.
-	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
-	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
-	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
-	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
-	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_tw_reuse.
-	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
-	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
-	// Sysctl setting net.netfilter.nf_conntrack_buckets.
-	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// Sysctl setting net.netfilter.nf_conntrack_max.
-	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
-	// Sysctl setting vm.max_map_count.
-	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
-	// Sysctl setting vm.swappiness.
-	VmSwappiness *int `pulumi:"vmSwappiness"`
-	// Sysctl setting vm.vfs_cache_pressure.
-	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+	FsAioMaxNr                     *int    `pulumi:"fsAioMaxNr"`
+	FsFileMax                      *int    `pulumi:"fsFileMax"`
+	FsInotifyMaxUserWatches        *int    `pulumi:"fsInotifyMaxUserWatches"`
+	FsNrOpen                       *int    `pulumi:"fsNrOpen"`
+	KernelThreadsMax               *int    `pulumi:"kernelThreadsMax"`
+	NetCoreNetdevMaxBacklog        *int    `pulumi:"netCoreNetdevMaxBacklog"`
+	NetCoreOptmemMax               *int    `pulumi:"netCoreOptmemMax"`
+	NetCoreRmemDefault             *int    `pulumi:"netCoreRmemDefault"`
+	NetCoreRmemMax                 *int    `pulumi:"netCoreRmemMax"`
+	NetCoreSomaxconn               *int    `pulumi:"netCoreSomaxconn"`
+	NetCoreWmemDefault             *int    `pulumi:"netCoreWmemDefault"`
+	NetCoreWmemMax                 *int    `pulumi:"netCoreWmemMax"`
+	NetIpv4IpLocalPortRange        *string `pulumi:"netIpv4IpLocalPortRange"`
+	NetIpv4NeighDefaultGcThresh1   *int    `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	NetIpv4NeighDefaultGcThresh2   *int    `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	NetIpv4NeighDefaultGcThresh3   *int    `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	NetIpv4TcpFinTimeout           *int    `pulumi:"netIpv4TcpFinTimeout"`
+	NetIpv4TcpKeepaliveProbes      *int    `pulumi:"netIpv4TcpKeepaliveProbes"`
+	NetIpv4TcpKeepaliveTime        *int    `pulumi:"netIpv4TcpKeepaliveTime"`
+	NetIpv4TcpMaxSynBacklog        *int    `pulumi:"netIpv4TcpMaxSynBacklog"`
+	NetIpv4TcpMaxTwBuckets         *int    `pulumi:"netIpv4TcpMaxTwBuckets"`
+	NetIpv4TcpTwReuse              *bool   `pulumi:"netIpv4TcpTwReuse"`
+	NetIpv4TcpkeepaliveIntvl       *int    `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	NetNetfilterNfConntrackBuckets *int    `pulumi:"netNetfilterNfConntrackBuckets"`
+	NetNetfilterNfConntrackMax     *int    `pulumi:"netNetfilterNfConntrackMax"`
+	VmMaxMapCount                  *int    `pulumi:"vmMaxMapCount"`
+	VmSwappiness                   *int    `pulumi:"vmSwappiness"`
+	VmVfsCachePressure             *int    `pulumi:"vmVfsCachePressure"`
 }
 
 // SysctlConfigInput is an input type that accepts SysctlConfigArgs and SysctlConfigOutput values.
@@ -14948,62 +13738,34 @@ type SysctlConfigInput interface {
 }
 
 type SysctlConfigArgs struct {
-	// Sysctl setting fs.aio-max-nr.
-	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
-	// Sysctl setting fs.file-max.
-	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
-	// Sysctl setting fs.inotify.max_user_watches.
-	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
-	// Sysctl setting fs.nr_open.
-	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
-	// Sysctl setting kernel.threads-max.
-	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
-	// Sysctl setting net.core.netdev_max_backlog.
-	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
-	// Sysctl setting net.core.optmem_max.
-	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
-	// Sysctl setting net.core.rmem_default.
-	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
-	// Sysctl setting net.core.rmem_max.
-	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
-	// Sysctl setting net.core.somaxconn.
-	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
-	// Sysctl setting net.core.wmem_default.
-	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
-	// Sysctl setting net.core.wmem_max.
-	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
-	// Sysctl setting net.ipv4.ip_local_port_range.
-	NetIpv4IpLocalPortRange pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
-	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
-	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
-	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
-	// Sysctl setting net.ipv4.tcp_fin_timeout.
-	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
-	// Sysctl setting net.ipv4.tcp_keepalive_probes.
-	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
-	// Sysctl setting net.ipv4.tcp_keepalive_time.
-	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
-	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
-	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
-	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
-	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_tw_reuse.
-	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
-	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
-	// Sysctl setting net.netfilter.nf_conntrack_buckets.
-	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// Sysctl setting net.netfilter.nf_conntrack_max.
-	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
-	// Sysctl setting vm.max_map_count.
-	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
-	// Sysctl setting vm.swappiness.
-	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
-	// Sysctl setting vm.vfs_cache_pressure.
-	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+	FsAioMaxNr                     pulumi.IntPtrInput    `pulumi:"fsAioMaxNr"`
+	FsFileMax                      pulumi.IntPtrInput    `pulumi:"fsFileMax"`
+	FsInotifyMaxUserWatches        pulumi.IntPtrInput    `pulumi:"fsInotifyMaxUserWatches"`
+	FsNrOpen                       pulumi.IntPtrInput    `pulumi:"fsNrOpen"`
+	KernelThreadsMax               pulumi.IntPtrInput    `pulumi:"kernelThreadsMax"`
+	NetCoreNetdevMaxBacklog        pulumi.IntPtrInput    `pulumi:"netCoreNetdevMaxBacklog"`
+	NetCoreOptmemMax               pulumi.IntPtrInput    `pulumi:"netCoreOptmemMax"`
+	NetCoreRmemDefault             pulumi.IntPtrInput    `pulumi:"netCoreRmemDefault"`
+	NetCoreRmemMax                 pulumi.IntPtrInput    `pulumi:"netCoreRmemMax"`
+	NetCoreSomaxconn               pulumi.IntPtrInput    `pulumi:"netCoreSomaxconn"`
+	NetCoreWmemDefault             pulumi.IntPtrInput    `pulumi:"netCoreWmemDefault"`
+	NetCoreWmemMax                 pulumi.IntPtrInput    `pulumi:"netCoreWmemMax"`
+	NetIpv4IpLocalPortRange        pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
+	NetIpv4NeighDefaultGcThresh1   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	NetIpv4NeighDefaultGcThresh2   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	NetIpv4NeighDefaultGcThresh3   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	NetIpv4TcpFinTimeout           pulumi.IntPtrInput    `pulumi:"netIpv4TcpFinTimeout"`
+	NetIpv4TcpKeepaliveProbes      pulumi.IntPtrInput    `pulumi:"netIpv4TcpKeepaliveProbes"`
+	NetIpv4TcpKeepaliveTime        pulumi.IntPtrInput    `pulumi:"netIpv4TcpKeepaliveTime"`
+	NetIpv4TcpMaxSynBacklog        pulumi.IntPtrInput    `pulumi:"netIpv4TcpMaxSynBacklog"`
+	NetIpv4TcpMaxTwBuckets         pulumi.IntPtrInput    `pulumi:"netIpv4TcpMaxTwBuckets"`
+	NetIpv4TcpTwReuse              pulumi.BoolPtrInput   `pulumi:"netIpv4TcpTwReuse"`
+	NetIpv4TcpkeepaliveIntvl       pulumi.IntPtrInput    `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput    `pulumi:"netNetfilterNfConntrackBuckets"`
+	NetNetfilterNfConntrackMax     pulumi.IntPtrInput    `pulumi:"netNetfilterNfConntrackMax"`
+	VmMaxMapCount                  pulumi.IntPtrInput    `pulumi:"vmMaxMapCount"`
+	VmSwappiness                   pulumi.IntPtrInput    `pulumi:"vmSwappiness"`
+	VmVfsCachePressure             pulumi.IntPtrInput    `pulumi:"vmVfsCachePressure"`
 }
 
 func (SysctlConfigArgs) ElementType() reflect.Type {
@@ -15083,142 +13845,114 @@ func (o SysctlConfigOutput) ToSysctlConfigPtrOutputWithContext(ctx context.Conte
 	}).(SysctlConfigPtrOutput)
 }
 
-// Sysctl setting fs.aio-max-nr.
 func (o SysctlConfigOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.file-max.
 func (o SysctlConfigOutput) FsFileMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.inotify.max_user_watches.
 func (o SysctlConfigOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.FsInotifyMaxUserWatches }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.nr_open.
 func (o SysctlConfigOutput) FsNrOpen() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting kernel.threads-max.
 func (o SysctlConfigOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.netdev_max_backlog.
 func (o SysctlConfigOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreNetdevMaxBacklog }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.optmem_max.
 func (o SysctlConfigOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_default.
 func (o SysctlConfigOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_max.
 func (o SysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.somaxconn.
 func (o SysctlConfigOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_default.
 func (o SysctlConfigOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_max.
 func (o SysctlConfigOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.ip_local_port_range.
 func (o SysctlConfigOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *string { return v.NetIpv4IpLocalPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
 func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh1 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
 func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh2 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
 func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh3 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_fin_timeout.
 func (o SysctlConfigOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_probes.
 func (o SysctlConfigOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpKeepaliveProbes }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_time.
 func (o SysctlConfigOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpKeepaliveTime }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_syn_backlog.
 func (o SysctlConfigOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpMaxSynBacklog }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 func (o SysctlConfigOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 func (o SysctlConfigOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpkeepaliveIntvl }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_buckets.
 func (o SysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetNetfilterNfConntrackBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_max.
 func (o SysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.max_map_count.
 func (o SysctlConfigOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.swappiness.
 func (o SysctlConfigOutput) VmSwappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.vfs_cache_pressure.
 func (o SysctlConfigOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
 }
@@ -15247,7 +13981,6 @@ func (o SysctlConfigPtrOutput) Elem() SysctlConfigOutput {
 	}).(SysctlConfigOutput)
 }
 
-// Sysctl setting fs.aio-max-nr.
 func (o SysctlConfigPtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15257,7 +13990,6 @@ func (o SysctlConfigPtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.file-max.
 func (o SysctlConfigPtrOutput) FsFileMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15267,7 +13999,6 @@ func (o SysctlConfigPtrOutput) FsFileMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.inotify.max_user_watches.
 func (o SysctlConfigPtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15277,7 +14008,6 @@ func (o SysctlConfigPtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.nr_open.
 func (o SysctlConfigPtrOutput) FsNrOpen() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15287,7 +14017,6 @@ func (o SysctlConfigPtrOutput) FsNrOpen() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting kernel.threads-max.
 func (o SysctlConfigPtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15297,7 +14026,6 @@ func (o SysctlConfigPtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.netdev_max_backlog.
 func (o SysctlConfigPtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15307,7 +14035,6 @@ func (o SysctlConfigPtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.optmem_max.
 func (o SysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15317,7 +14044,6 @@ func (o SysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_default.
 func (o SysctlConfigPtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15327,7 +14053,6 @@ func (o SysctlConfigPtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_max.
 func (o SysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15337,7 +14062,6 @@ func (o SysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.somaxconn.
 func (o SysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15347,7 +14071,6 @@ func (o SysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_default.
 func (o SysctlConfigPtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15357,7 +14080,6 @@ func (o SysctlConfigPtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_max.
 func (o SysctlConfigPtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15367,7 +14089,6 @@ func (o SysctlConfigPtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.ip_local_port_range.
 func (o SysctlConfigPtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *string {
 		if v == nil {
@@ -15377,7 +14098,6 @@ func (o SysctlConfigPtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
 func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15387,7 +14107,6 @@ func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
 func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15397,7 +14116,6 @@ func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
 func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15407,7 +14125,6 @@ func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_fin_timeout.
 func (o SysctlConfigPtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15417,7 +14134,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_probes.
 func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15427,7 +14143,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_time.
 func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15437,7 +14152,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_syn_backlog.
 func (o SysctlConfigPtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15447,7 +14161,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 func (o SysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15457,7 +14170,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *bool {
 		if v == nil {
@@ -15467,7 +14179,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 func (o SysctlConfigPtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15477,7 +14188,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_buckets.
 func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15487,7 +14197,6 @@ func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_max.
 func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15497,7 +14206,6 @@ func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.max_map_count.
 func (o SysctlConfigPtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15507,7 +14215,6 @@ func (o SysctlConfigPtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.swappiness.
 func (o SysctlConfigPtrOutput) VmSwappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15517,7 +14224,6 @@ func (o SysctlConfigPtrOutput) VmSwappiness() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.vfs_cache_pressure.
 func (o SysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
 		if v == nil {
@@ -15528,62 +14234,34 @@ func (o SysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 }
 
 type SysctlConfigResponse struct {
-	// Sysctl setting fs.aio-max-nr.
-	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
-	// Sysctl setting fs.file-max.
-	FsFileMax *int `pulumi:"fsFileMax"`
-	// Sysctl setting fs.inotify.max_user_watches.
-	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
-	// Sysctl setting fs.nr_open.
-	FsNrOpen *int `pulumi:"fsNrOpen"`
-	// Sysctl setting kernel.threads-max.
-	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
-	// Sysctl setting net.core.netdev_max_backlog.
-	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
-	// Sysctl setting net.core.optmem_max.
-	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
-	// Sysctl setting net.core.rmem_default.
-	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
-	// Sysctl setting net.core.rmem_max.
-	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
-	// Sysctl setting net.core.somaxconn.
-	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
-	// Sysctl setting net.core.wmem_default.
-	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
-	// Sysctl setting net.core.wmem_max.
-	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
-	// Sysctl setting net.ipv4.ip_local_port_range.
-	NetIpv4IpLocalPortRange *string `pulumi:"netIpv4IpLocalPortRange"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
-	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
-	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
-	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
-	// Sysctl setting net.ipv4.tcp_fin_timeout.
-	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
-	// Sysctl setting net.ipv4.tcp_keepalive_probes.
-	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
-	// Sysctl setting net.ipv4.tcp_keepalive_time.
-	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
-	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
-	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
-	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
-	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_tw_reuse.
-	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
-	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
-	// Sysctl setting net.netfilter.nf_conntrack_buckets.
-	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// Sysctl setting net.netfilter.nf_conntrack_max.
-	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
-	// Sysctl setting vm.max_map_count.
-	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
-	// Sysctl setting vm.swappiness.
-	VmSwappiness *int `pulumi:"vmSwappiness"`
-	// Sysctl setting vm.vfs_cache_pressure.
-	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+	FsAioMaxNr                     *int    `pulumi:"fsAioMaxNr"`
+	FsFileMax                      *int    `pulumi:"fsFileMax"`
+	FsInotifyMaxUserWatches        *int    `pulumi:"fsInotifyMaxUserWatches"`
+	FsNrOpen                       *int    `pulumi:"fsNrOpen"`
+	KernelThreadsMax               *int    `pulumi:"kernelThreadsMax"`
+	NetCoreNetdevMaxBacklog        *int    `pulumi:"netCoreNetdevMaxBacklog"`
+	NetCoreOptmemMax               *int    `pulumi:"netCoreOptmemMax"`
+	NetCoreRmemDefault             *int    `pulumi:"netCoreRmemDefault"`
+	NetCoreRmemMax                 *int    `pulumi:"netCoreRmemMax"`
+	NetCoreSomaxconn               *int    `pulumi:"netCoreSomaxconn"`
+	NetCoreWmemDefault             *int    `pulumi:"netCoreWmemDefault"`
+	NetCoreWmemMax                 *int    `pulumi:"netCoreWmemMax"`
+	NetIpv4IpLocalPortRange        *string `pulumi:"netIpv4IpLocalPortRange"`
+	NetIpv4NeighDefaultGcThresh1   *int    `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	NetIpv4NeighDefaultGcThresh2   *int    `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	NetIpv4NeighDefaultGcThresh3   *int    `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	NetIpv4TcpFinTimeout           *int    `pulumi:"netIpv4TcpFinTimeout"`
+	NetIpv4TcpKeepaliveProbes      *int    `pulumi:"netIpv4TcpKeepaliveProbes"`
+	NetIpv4TcpKeepaliveTime        *int    `pulumi:"netIpv4TcpKeepaliveTime"`
+	NetIpv4TcpMaxSynBacklog        *int    `pulumi:"netIpv4TcpMaxSynBacklog"`
+	NetIpv4TcpMaxTwBuckets         *int    `pulumi:"netIpv4TcpMaxTwBuckets"`
+	NetIpv4TcpTwReuse              *bool   `pulumi:"netIpv4TcpTwReuse"`
+	NetIpv4TcpkeepaliveIntvl       *int    `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	NetNetfilterNfConntrackBuckets *int    `pulumi:"netNetfilterNfConntrackBuckets"`
+	NetNetfilterNfConntrackMax     *int    `pulumi:"netNetfilterNfConntrackMax"`
+	VmMaxMapCount                  *int    `pulumi:"vmMaxMapCount"`
+	VmSwappiness                   *int    `pulumi:"vmSwappiness"`
+	VmVfsCachePressure             *int    `pulumi:"vmVfsCachePressure"`
 }
 
 // SysctlConfigResponseInput is an input type that accepts SysctlConfigResponseArgs and SysctlConfigResponseOutput values.
@@ -15598,62 +14276,34 @@ type SysctlConfigResponseInput interface {
 }
 
 type SysctlConfigResponseArgs struct {
-	// Sysctl setting fs.aio-max-nr.
-	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
-	// Sysctl setting fs.file-max.
-	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
-	// Sysctl setting fs.inotify.max_user_watches.
-	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
-	// Sysctl setting fs.nr_open.
-	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
-	// Sysctl setting kernel.threads-max.
-	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
-	// Sysctl setting net.core.netdev_max_backlog.
-	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
-	// Sysctl setting net.core.optmem_max.
-	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
-	// Sysctl setting net.core.rmem_default.
-	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
-	// Sysctl setting net.core.rmem_max.
-	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
-	// Sysctl setting net.core.somaxconn.
-	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
-	// Sysctl setting net.core.wmem_default.
-	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
-	// Sysctl setting net.core.wmem_max.
-	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
-	// Sysctl setting net.ipv4.ip_local_port_range.
-	NetIpv4IpLocalPortRange pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
-	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
-	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
-	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
-	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
-	// Sysctl setting net.ipv4.tcp_fin_timeout.
-	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
-	// Sysctl setting net.ipv4.tcp_keepalive_probes.
-	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
-	// Sysctl setting net.ipv4.tcp_keepalive_time.
-	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
-	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
-	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
-	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
-	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_tw_reuse.
-	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
-	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
-	// Sysctl setting net.netfilter.nf_conntrack_buckets.
-	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// Sysctl setting net.netfilter.nf_conntrack_max.
-	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
-	// Sysctl setting vm.max_map_count.
-	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
-	// Sysctl setting vm.swappiness.
-	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
-	// Sysctl setting vm.vfs_cache_pressure.
-	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+	FsAioMaxNr                     pulumi.IntPtrInput    `pulumi:"fsAioMaxNr"`
+	FsFileMax                      pulumi.IntPtrInput    `pulumi:"fsFileMax"`
+	FsInotifyMaxUserWatches        pulumi.IntPtrInput    `pulumi:"fsInotifyMaxUserWatches"`
+	FsNrOpen                       pulumi.IntPtrInput    `pulumi:"fsNrOpen"`
+	KernelThreadsMax               pulumi.IntPtrInput    `pulumi:"kernelThreadsMax"`
+	NetCoreNetdevMaxBacklog        pulumi.IntPtrInput    `pulumi:"netCoreNetdevMaxBacklog"`
+	NetCoreOptmemMax               pulumi.IntPtrInput    `pulumi:"netCoreOptmemMax"`
+	NetCoreRmemDefault             pulumi.IntPtrInput    `pulumi:"netCoreRmemDefault"`
+	NetCoreRmemMax                 pulumi.IntPtrInput    `pulumi:"netCoreRmemMax"`
+	NetCoreSomaxconn               pulumi.IntPtrInput    `pulumi:"netCoreSomaxconn"`
+	NetCoreWmemDefault             pulumi.IntPtrInput    `pulumi:"netCoreWmemDefault"`
+	NetCoreWmemMax                 pulumi.IntPtrInput    `pulumi:"netCoreWmemMax"`
+	NetIpv4IpLocalPortRange        pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
+	NetIpv4NeighDefaultGcThresh1   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	NetIpv4NeighDefaultGcThresh2   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	NetIpv4NeighDefaultGcThresh3   pulumi.IntPtrInput    `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	NetIpv4TcpFinTimeout           pulumi.IntPtrInput    `pulumi:"netIpv4TcpFinTimeout"`
+	NetIpv4TcpKeepaliveProbes      pulumi.IntPtrInput    `pulumi:"netIpv4TcpKeepaliveProbes"`
+	NetIpv4TcpKeepaliveTime        pulumi.IntPtrInput    `pulumi:"netIpv4TcpKeepaliveTime"`
+	NetIpv4TcpMaxSynBacklog        pulumi.IntPtrInput    `pulumi:"netIpv4TcpMaxSynBacklog"`
+	NetIpv4TcpMaxTwBuckets         pulumi.IntPtrInput    `pulumi:"netIpv4TcpMaxTwBuckets"`
+	NetIpv4TcpTwReuse              pulumi.BoolPtrInput   `pulumi:"netIpv4TcpTwReuse"`
+	NetIpv4TcpkeepaliveIntvl       pulumi.IntPtrInput    `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput    `pulumi:"netNetfilterNfConntrackBuckets"`
+	NetNetfilterNfConntrackMax     pulumi.IntPtrInput    `pulumi:"netNetfilterNfConntrackMax"`
+	VmMaxMapCount                  pulumi.IntPtrInput    `pulumi:"vmMaxMapCount"`
+	VmSwappiness                   pulumi.IntPtrInput    `pulumi:"vmSwappiness"`
+	VmVfsCachePressure             pulumi.IntPtrInput    `pulumi:"vmVfsCachePressure"`
 }
 
 func (SysctlConfigResponseArgs) ElementType() reflect.Type {
@@ -15733,142 +14383,114 @@ func (o SysctlConfigResponseOutput) ToSysctlConfigResponsePtrOutputWithContext(c
 	}).(SysctlConfigResponsePtrOutput)
 }
 
-// Sysctl setting fs.aio-max-nr.
 func (o SysctlConfigResponseOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.file-max.
 func (o SysctlConfigResponseOutput) FsFileMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.inotify.max_user_watches.
 func (o SysctlConfigResponseOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsInotifyMaxUserWatches }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.nr_open.
 func (o SysctlConfigResponseOutput) FsNrOpen() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting kernel.threads-max.
 func (o SysctlConfigResponseOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.netdev_max_backlog.
 func (o SysctlConfigResponseOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreNetdevMaxBacklog }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.optmem_max.
 func (o SysctlConfigResponseOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_default.
 func (o SysctlConfigResponseOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_max.
 func (o SysctlConfigResponseOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.somaxconn.
 func (o SysctlConfigResponseOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_default.
 func (o SysctlConfigResponseOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_max.
 func (o SysctlConfigResponseOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.ip_local_port_range.
 func (o SysctlConfigResponseOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *string { return v.NetIpv4IpLocalPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
 func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh1 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
 func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh2 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
 func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh3 }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_fin_timeout.
 func (o SysctlConfigResponseOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_probes.
 func (o SysctlConfigResponseOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpKeepaliveProbes }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_time.
 func (o SysctlConfigResponseOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpKeepaliveTime }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_syn_backlog.
 func (o SysctlConfigResponseOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpMaxSynBacklog }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 func (o SysctlConfigResponseOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigResponseOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 func (o SysctlConfigResponseOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpkeepaliveIntvl }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_buckets.
 func (o SysctlConfigResponseOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetNetfilterNfConntrackBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_max.
 func (o SysctlConfigResponseOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.max_map_count.
 func (o SysctlConfigResponseOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.swappiness.
 func (o SysctlConfigResponseOutput) VmSwappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.vfs_cache_pressure.
 func (o SysctlConfigResponseOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
 }
@@ -15897,7 +14519,6 @@ func (o SysctlConfigResponsePtrOutput) Elem() SysctlConfigResponseOutput {
 	}).(SysctlConfigResponseOutput)
 }
 
-// Sysctl setting fs.aio-max-nr.
 func (o SysctlConfigResponsePtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15907,7 +14528,6 @@ func (o SysctlConfigResponsePtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.file-max.
 func (o SysctlConfigResponsePtrOutput) FsFileMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15917,7 +14537,6 @@ func (o SysctlConfigResponsePtrOutput) FsFileMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.inotify.max_user_watches.
 func (o SysctlConfigResponsePtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15927,7 +14546,6 @@ func (o SysctlConfigResponsePtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting fs.nr_open.
 func (o SysctlConfigResponsePtrOutput) FsNrOpen() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15937,7 +14555,6 @@ func (o SysctlConfigResponsePtrOutput) FsNrOpen() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting kernel.threads-max.
 func (o SysctlConfigResponsePtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15947,7 +14564,6 @@ func (o SysctlConfigResponsePtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.netdev_max_backlog.
 func (o SysctlConfigResponsePtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15957,7 +14573,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.optmem_max.
 func (o SysctlConfigResponsePtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15967,7 +14582,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_default.
 func (o SysctlConfigResponsePtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15977,7 +14591,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.rmem_max.
 func (o SysctlConfigResponsePtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15987,7 +14600,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.somaxconn.
 func (o SysctlConfigResponsePtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -15997,7 +14609,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_default.
 func (o SysctlConfigResponsePtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16007,7 +14618,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.core.wmem_max.
 func (o SysctlConfigResponsePtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16017,7 +14627,6 @@ func (o SysctlConfigResponsePtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.ip_local_port_range.
 func (o SysctlConfigResponsePtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *string {
 		if v == nil {
@@ -16027,7 +14636,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
 func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16037,7 +14645,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
 func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16047,7 +14654,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
 func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16057,7 +14663,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_fin_timeout.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16067,7 +14672,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_probes.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16077,7 +14681,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_time.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16087,7 +14690,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_syn_backlog.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16097,7 +14699,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16107,7 +14708,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *bool {
 		if v == nil {
@@ -16117,7 +14717,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16127,7 +14726,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_buckets.
 func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16137,7 +14735,6 @@ func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackBuckets() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.netfilter.nf_conntrack_max.
 func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16147,7 +14744,6 @@ func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.max_map_count.
 func (o SysctlConfigResponsePtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16157,7 +14753,6 @@ func (o SysctlConfigResponsePtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.swappiness.
 func (o SysctlConfigResponsePtrOutput) VmSwappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16167,7 +14762,6 @@ func (o SysctlConfigResponsePtrOutput) VmSwappiness() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting vm.vfs_cache_pressure.
 func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
 		if v == nil {
@@ -16178,17 +14772,11 @@ func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput 
 }
 
 type SystemDataResponse struct {
-	// The UTC timestamp of resource creation.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -16204,17 +14792,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The UTC timestamp of resource creation.
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -16295,32 +14877,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The UTC timestamp of resource creation.
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -16349,7 +14925,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The UTC timestamp of resource creation.
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16359,7 +14934,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16369,7 +14943,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16379,7 +14952,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16389,7 +14961,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16399,7 +14970,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16410,10 +14980,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TimeInWeek struct {
-	// A day in a week.
-	Day *string `pulumi:"day"`
-	// hour slots in a day.
-	HourSlots []int `pulumi:"hourSlots"`
+	Day       *string `pulumi:"day"`
+	HourSlots []int   `pulumi:"hourSlots"`
 }
 
 // TimeInWeekInput is an input type that accepts TimeInWeekArgs and TimeInWeekOutput values.
@@ -16428,10 +14996,8 @@ type TimeInWeekInput interface {
 }
 
 type TimeInWeekArgs struct {
-	// A day in a week.
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// hour slots in a day.
-	HourSlots pulumi.IntArrayInput `pulumi:"hourSlots"`
+	Day       pulumi.StringPtrInput `pulumi:"day"`
+	HourSlots pulumi.IntArrayInput  `pulumi:"hourSlots"`
 }
 
 func (TimeInWeekArgs) ElementType() reflect.Type {
@@ -16485,12 +15051,10 @@ func (o TimeInWeekOutput) ToTimeInWeekOutputWithContext(ctx context.Context) Tim
 	return o
 }
 
-// A day in a week.
 func (o TimeInWeekOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeInWeek) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// hour slots in a day.
 func (o TimeInWeekOutput) HourSlots() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TimeInWeek) []int { return v.HourSlots }).(pulumi.IntArrayOutput)
 }
@@ -16516,10 +15080,8 @@ func (o TimeInWeekArrayOutput) Index(i pulumi.IntInput) TimeInWeekOutput {
 }
 
 type TimeInWeekResponse struct {
-	// A day in a week.
-	Day *string `pulumi:"day"`
-	// hour slots in a day.
-	HourSlots []int `pulumi:"hourSlots"`
+	Day       *string `pulumi:"day"`
+	HourSlots []int   `pulumi:"hourSlots"`
 }
 
 // TimeInWeekResponseInput is an input type that accepts TimeInWeekResponseArgs and TimeInWeekResponseOutput values.
@@ -16534,10 +15096,8 @@ type TimeInWeekResponseInput interface {
 }
 
 type TimeInWeekResponseArgs struct {
-	// A day in a week.
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// hour slots in a day.
-	HourSlots pulumi.IntArrayInput `pulumi:"hourSlots"`
+	Day       pulumi.StringPtrInput `pulumi:"day"`
+	HourSlots pulumi.IntArrayInput  `pulumi:"hourSlots"`
 }
 
 func (TimeInWeekResponseArgs) ElementType() reflect.Type {
@@ -16591,12 +15151,10 @@ func (o TimeInWeekResponseOutput) ToTimeInWeekResponseOutputWithContext(ctx cont
 	return o
 }
 
-// A day in a week.
 func (o TimeInWeekResponseOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeInWeekResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// hour slots in a day.
 func (o TimeInWeekResponseOutput) HourSlots() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TimeInWeekResponse) []int { return v.HourSlots }).(pulumi.IntArrayOutput)
 }
@@ -16622,9 +15180,7 @@ func (o TimeInWeekResponseArrayOutput) Index(i pulumi.IntInput) TimeInWeekRespon
 }
 
 type TimeSpan struct {
-	// The end of a time span
-	End *string `pulumi:"end"`
-	// The start of a time span
+	End   *string `pulumi:"end"`
 	Start *string `pulumi:"start"`
 }
 
@@ -16640,9 +15196,7 @@ type TimeSpanInput interface {
 }
 
 type TimeSpanArgs struct {
-	// The end of a time span
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The start of a time span
+	End   pulumi.StringPtrInput `pulumi:"end"`
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -16697,12 +15251,10 @@ func (o TimeSpanOutput) ToTimeSpanOutputWithContext(ctx context.Context) TimeSpa
 	return o
 }
 
-// The end of a time span
 func (o TimeSpanOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSpan) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The start of a time span
 func (o TimeSpanOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSpan) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -16728,9 +15280,7 @@ func (o TimeSpanArrayOutput) Index(i pulumi.IntInput) TimeSpanOutput {
 }
 
 type TimeSpanResponse struct {
-	// The end of a time span
-	End *string `pulumi:"end"`
-	// The start of a time span
+	End   *string `pulumi:"end"`
 	Start *string `pulumi:"start"`
 }
 
@@ -16746,9 +15296,7 @@ type TimeSpanResponseInput interface {
 }
 
 type TimeSpanResponseArgs struct {
-	// The end of a time span
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The start of a time span
+	End   pulumi.StringPtrInput `pulumi:"end"`
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -16803,12 +15351,10 @@ func (o TimeSpanResponseOutput) ToTimeSpanResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The end of a time span
 func (o TimeSpanResponseOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSpanResponse) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The start of a time span
 func (o TimeSpanResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeSpanResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -16834,11 +15380,8 @@ func (o TimeSpanResponseArrayOutput) Index(i pulumi.IntInput) TimeSpanResponseOu
 }
 
 type UserAssignedIdentity struct {
-	// The client id of the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId *string `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   *string `pulumi:"clientId"`
+	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -16854,11 +15397,8 @@ type UserAssignedIdentityInput interface {
 }
 
 type UserAssignedIdentityArgs struct {
-	// The client id of the user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
+	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -16888,27 +15428,21 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 	return o
 }
 
-// The client id of the user assigned identity.
 func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user assigned identity.
 func (o UserAssignedIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the user assigned identity.
 func (o UserAssignedIdentityOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type UserAssignedIdentityResponse struct {
-	// The client id of the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId *string `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   *string `pulumi:"clientId"`
+	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -16924,11 +15458,8 @@ type UserAssignedIdentityResponseInput interface {
 }
 
 type UserAssignedIdentityResponseArgs struct {
-	// The client id of the user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object id of the user assigned identity.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The resource id of the user assigned identity.
+	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
+	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -16958,17 +15489,14 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// The client id of the user assigned identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user assigned identity.
 func (o UserAssignedIdentityResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the user assigned identity.
 func (o UserAssignedIdentityResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }

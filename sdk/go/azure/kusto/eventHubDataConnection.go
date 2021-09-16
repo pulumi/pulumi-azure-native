@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an event hub data connection.
-// API Version: 2021-01-01.
 type EventHubDataConnection struct {
 	pulumi.CustomResourceState
 

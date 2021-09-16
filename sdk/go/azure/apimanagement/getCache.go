@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cache details.
-// API Version: 2020-12-01.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:apimanagement:getCache", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 }
 
 type LookupCacheArgs struct {
-	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	CacheId string `pulumi:"cacheId"`
-	// The name of the resource group.
+	CacheId           string `pulumi:"cacheId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Cache details.
 type LookupCacheResult struct {
-	// Runtime connection string to cache
-	ConnectionString string `pulumi:"connectionString"`
-	// Cache description
-	Description *string `pulumi:"description"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Original uri of entity in external system cache points to
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation string `pulumi:"useFromLocation"`
+	ConnectionString string  `pulumi:"connectionString"`
+	Description      *string `pulumi:"description"`
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
+	ResourceId       *string `pulumi:"resourceId"`
+	Type             string  `pulumi:"type"`
+	UseFromLocation  string  `pulumi:"useFromLocation"`
 }

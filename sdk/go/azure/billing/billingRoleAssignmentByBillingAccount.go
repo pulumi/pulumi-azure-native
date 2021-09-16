@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The role assignment
-// API Version: 2019-10-01-preview.
 type BillingRoleAssignmentByBillingAccount struct {
 	pulumi.CustomResourceState
 

@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The task run that has the ARM resource and properties.
-// The task run will have the information of request and result of a run.
-// API Version: 2019-06-01-preview.
 type TaskRun struct {
 	pulumi.CustomResourceState
 

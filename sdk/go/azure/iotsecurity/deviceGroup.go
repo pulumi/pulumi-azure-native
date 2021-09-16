@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Device group
-// API Version: 2021-02-01-preview.
 type DeviceGroup struct {
 	pulumi.CustomResourceState
 

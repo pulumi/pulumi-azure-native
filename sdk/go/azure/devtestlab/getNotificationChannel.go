@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A notification.
-// API Version: 2018-09-15.
 func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChannelArgs, opts ...pulumi.InvokeOption) (*LookupNotificationChannelResult, error) {
 	var rv LookupNotificationChannelResult
 	err := ctx.Invoke("azure-native:devtestlab:getNotificationChannel", args, &rv, opts...)
@@ -19,42 +17,25 @@ func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChan
 }
 
 type LookupNotificationChannelArgs struct {
-	// Specify the $expand query. Example: 'properties($select=webHookUrl)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the notification channel.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand            *string `pulumi:"expand"`
+	LabName           string  `pulumi:"labName"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // A notification.
 type LookupNotificationChannelResult struct {
-	// The creation date of the notification channel.
-	CreatedDate string `pulumi:"createdDate"`
-	// Description of notification.
-	Description *string `pulumi:"description"`
-	// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-	EmailRecipient *string `pulumi:"emailRecipient"`
-	// The list of event for which this notification is enabled.
-	Events []EventResponse `pulumi:"events"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The locale to use when sending a notification (fallback for unsupported languages is EN).
-	NotificationLocale *string `pulumi:"notificationLocale"`
-	// The provisioning status of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
-	// The webhook URL to send notifications to.
-	WebHookUrl *string `pulumi:"webHookUrl"`
+	CreatedDate        string            `pulumi:"createdDate"`
+	Description        *string           `pulumi:"description"`
+	EmailRecipient     *string           `pulumi:"emailRecipient"`
+	Events             []EventResponse   `pulumi:"events"`
+	Id                 string            `pulumi:"id"`
+	Location           *string           `pulumi:"location"`
+	Name               string            `pulumi:"name"`
+	NotificationLocale *string           `pulumi:"notificationLocale"`
+	ProvisioningState  string            `pulumi:"provisioningState"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
+	UniqueIdentifier   string            `pulumi:"uniqueIdentifier"`
+	WebHookUrl         *string           `pulumi:"webHookUrl"`
 }

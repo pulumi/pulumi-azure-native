@@ -11,38 +11,22 @@ import (
 )
 
 type AssessmentProperties struct {
-	// Storage type selected for this disk.
-	AzureDiskType string `pulumi:"azureDiskType"`
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation string `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode string `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier string `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy string `pulumi:"azureStorageRedundancy"`
-	// List of azure VM families.
-	AzureVmFamilies []string `pulumi:"azureVmFamilies"`
-	// Currency to report prices in.
-	Currency string `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage float64 `pulumi:"discountPercentage"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile string `pulumi:"percentile"`
-	// Azure reserved instance.
-	ReservedInstance string `pulumi:"reservedInstance"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor float64 `pulumi:"scalingFactor"`
-	// Assessment sizing criterion.
-	SizingCriterion string `pulumi:"sizingCriterion"`
-	// User configurable setting that describes the status of the assessment.
-	Stage string `pulumi:"stage"`
-	// Time range of performance data used to recommend a size.
-	TimeRange string `pulumi:"timeRange"`
-	// Specify the duration for which the VMs are up in the on-premises environment.
-	VmUptime VmUptime `pulumi:"vmUptime"`
+	AzureDiskType          string   `pulumi:"azureDiskType"`
+	AzureHybridUseBenefit  string   `pulumi:"azureHybridUseBenefit"`
+	AzureLocation          string   `pulumi:"azureLocation"`
+	AzureOfferCode         string   `pulumi:"azureOfferCode"`
+	AzurePricingTier       string   `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy string   `pulumi:"azureStorageRedundancy"`
+	AzureVmFamilies        []string `pulumi:"azureVmFamilies"`
+	Currency               string   `pulumi:"currency"`
+	DiscountPercentage     float64  `pulumi:"discountPercentage"`
+	Percentile             string   `pulumi:"percentile"`
+	ReservedInstance       string   `pulumi:"reservedInstance"`
+	ScalingFactor          float64  `pulumi:"scalingFactor"`
+	SizingCriterion        string   `pulumi:"sizingCriterion"`
+	Stage                  string   `pulumi:"stage"`
+	TimeRange              string   `pulumi:"timeRange"`
+	VmUptime               VmUptime `pulumi:"vmUptime"`
 }
 
 // AssessmentPropertiesInput is an input type that accepts AssessmentPropertiesArgs and AssessmentPropertiesOutput values.
@@ -57,38 +41,22 @@ type AssessmentPropertiesInput interface {
 }
 
 type AssessmentPropertiesArgs struct {
-	// Storage type selected for this disk.
-	AzureDiskType pulumi.StringInput `pulumi:"azureDiskType"`
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit pulumi.StringInput `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode pulumi.StringInput `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier pulumi.StringInput `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy pulumi.StringInput `pulumi:"azureStorageRedundancy"`
-	// List of azure VM families.
-	AzureVmFamilies pulumi.StringArrayInput `pulumi:"azureVmFamilies"`
-	// Currency to report prices in.
-	Currency pulumi.StringInput `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage pulumi.Float64Input `pulumi:"discountPercentage"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile pulumi.StringInput `pulumi:"percentile"`
-	// Azure reserved instance.
-	ReservedInstance pulumi.StringInput `pulumi:"reservedInstance"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor pulumi.Float64Input `pulumi:"scalingFactor"`
-	// Assessment sizing criterion.
-	SizingCriterion pulumi.StringInput `pulumi:"sizingCriterion"`
-	// User configurable setting that describes the status of the assessment.
-	Stage pulumi.StringInput `pulumi:"stage"`
-	// Time range of performance data used to recommend a size.
-	TimeRange pulumi.StringInput `pulumi:"timeRange"`
-	// Specify the duration for which the VMs are up in the on-premises environment.
-	VmUptime VmUptimeInput `pulumi:"vmUptime"`
+	AzureDiskType          pulumi.StringInput      `pulumi:"azureDiskType"`
+	AzureHybridUseBenefit  pulumi.StringInput      `pulumi:"azureHybridUseBenefit"`
+	AzureLocation          pulumi.StringInput      `pulumi:"azureLocation"`
+	AzureOfferCode         pulumi.StringInput      `pulumi:"azureOfferCode"`
+	AzurePricingTier       pulumi.StringInput      `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy pulumi.StringInput      `pulumi:"azureStorageRedundancy"`
+	AzureVmFamilies        pulumi.StringArrayInput `pulumi:"azureVmFamilies"`
+	Currency               pulumi.StringInput      `pulumi:"currency"`
+	DiscountPercentage     pulumi.Float64Input     `pulumi:"discountPercentage"`
+	Percentile             pulumi.StringInput      `pulumi:"percentile"`
+	ReservedInstance       pulumi.StringInput      `pulumi:"reservedInstance"`
+	ScalingFactor          pulumi.Float64Input     `pulumi:"scalingFactor"`
+	SizingCriterion        pulumi.StringInput      `pulumi:"sizingCriterion"`
+	Stage                  pulumi.StringInput      `pulumi:"stage"`
+	TimeRange              pulumi.StringInput      `pulumi:"timeRange"`
+	VmUptime               VmUptimeInput           `pulumi:"vmUptime"`
 }
 
 func (AssessmentPropertiesArgs) ElementType() reflect.Type {
@@ -168,82 +136,66 @@ func (o AssessmentPropertiesOutput) ToAssessmentPropertiesPtrOutputWithContext(c
 	}).(AssessmentPropertiesPtrOutput)
 }
 
-// Storage type selected for this disk.
 func (o AssessmentPropertiesOutput) AzureDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzureDiskType }).(pulumi.StringOutput)
 }
 
-// AHUB discount on windows virtual machines.
 func (o AssessmentPropertiesOutput) AzureHybridUseBenefit() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzureHybridUseBenefit }).(pulumi.StringOutput)
 }
 
-// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
 func (o AssessmentPropertiesOutput) AzureLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzureLocation }).(pulumi.StringOutput)
 }
 
-// Offer code according to which cost estimation is done.
 func (o AssessmentPropertiesOutput) AzureOfferCode() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzureOfferCode }).(pulumi.StringOutput)
 }
 
-// Pricing tier for Size evaluation.
 func (o AssessmentPropertiesOutput) AzurePricingTier() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzurePricingTier }).(pulumi.StringOutput)
 }
 
-// Storage Redundancy type offered by Azure.
 func (o AssessmentPropertiesOutput) AzureStorageRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.AzureStorageRedundancy }).(pulumi.StringOutput)
 }
 
-// List of azure VM families.
 func (o AssessmentPropertiesOutput) AzureVmFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssessmentProperties) []string { return v.AzureVmFamilies }).(pulumi.StringArrayOutput)
 }
 
-// Currency to report prices in.
 func (o AssessmentPropertiesOutput) Currency() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.Currency }).(pulumi.StringOutput)
 }
 
-// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
 func (o AssessmentPropertiesOutput) DiscountPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentProperties) float64 { return v.DiscountPercentage }).(pulumi.Float64Output)
 }
 
-// Percentile of performance data used to recommend Azure size.
 func (o AssessmentPropertiesOutput) Percentile() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.Percentile }).(pulumi.StringOutput)
 }
 
-// Azure reserved instance.
 func (o AssessmentPropertiesOutput) ReservedInstance() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.ReservedInstance }).(pulumi.StringOutput)
 }
 
-// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
 func (o AssessmentPropertiesOutput) ScalingFactor() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentProperties) float64 { return v.ScalingFactor }).(pulumi.Float64Output)
 }
 
-// Assessment sizing criterion.
 func (o AssessmentPropertiesOutput) SizingCriterion() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.SizingCriterion }).(pulumi.StringOutput)
 }
 
-// User configurable setting that describes the status of the assessment.
 func (o AssessmentPropertiesOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// Time range of performance data used to recommend a size.
 func (o AssessmentPropertiesOutput) TimeRange() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentProperties) string { return v.TimeRange }).(pulumi.StringOutput)
 }
 
-// Specify the duration for which the VMs are up in the on-premises environment.
 func (o AssessmentPropertiesOutput) VmUptime() VmUptimeOutput {
 	return o.ApplyT(func(v AssessmentProperties) VmUptime { return v.VmUptime }).(VmUptimeOutput)
 }
@@ -272,7 +224,6 @@ func (o AssessmentPropertiesPtrOutput) Elem() AssessmentPropertiesOutput {
 	}).(AssessmentPropertiesOutput)
 }
 
-// Storage type selected for this disk.
 func (o AssessmentPropertiesPtrOutput) AzureDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -282,7 +233,6 @@ func (o AssessmentPropertiesPtrOutput) AzureDiskType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// AHUB discount on windows virtual machines.
 func (o AssessmentPropertiesPtrOutput) AzureHybridUseBenefit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -292,7 +242,6 @@ func (o AssessmentPropertiesPtrOutput) AzureHybridUseBenefit() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
 func (o AssessmentPropertiesPtrOutput) AzureLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -302,7 +251,6 @@ func (o AssessmentPropertiesPtrOutput) AzureLocation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer code according to which cost estimation is done.
 func (o AssessmentPropertiesPtrOutput) AzureOfferCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -312,7 +260,6 @@ func (o AssessmentPropertiesPtrOutput) AzureOfferCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier for Size evaluation.
 func (o AssessmentPropertiesPtrOutput) AzurePricingTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -322,7 +269,6 @@ func (o AssessmentPropertiesPtrOutput) AzurePricingTier() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage Redundancy type offered by Azure.
 func (o AssessmentPropertiesPtrOutput) AzureStorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -332,7 +278,6 @@ func (o AssessmentPropertiesPtrOutput) AzureStorageRedundancy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of azure VM families.
 func (o AssessmentPropertiesPtrOutput) AzureVmFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssessmentProperties) []string {
 		if v == nil {
@@ -342,7 +287,6 @@ func (o AssessmentPropertiesPtrOutput) AzureVmFamilies() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Currency to report prices in.
 func (o AssessmentPropertiesPtrOutput) Currency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -352,7 +296,6 @@ func (o AssessmentPropertiesPtrOutput) Currency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
 func (o AssessmentPropertiesPtrOutput) DiscountPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *float64 {
 		if v == nil {
@@ -362,7 +305,6 @@ func (o AssessmentPropertiesPtrOutput) DiscountPercentage() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Percentile of performance data used to recommend Azure size.
 func (o AssessmentPropertiesPtrOutput) Percentile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -372,7 +314,6 @@ func (o AssessmentPropertiesPtrOutput) Percentile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure reserved instance.
 func (o AssessmentPropertiesPtrOutput) ReservedInstance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -382,7 +323,6 @@ func (o AssessmentPropertiesPtrOutput) ReservedInstance() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
 func (o AssessmentPropertiesPtrOutput) ScalingFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *float64 {
 		if v == nil {
@@ -392,7 +332,6 @@ func (o AssessmentPropertiesPtrOutput) ScalingFactor() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Assessment sizing criterion.
 func (o AssessmentPropertiesPtrOutput) SizingCriterion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -402,7 +341,6 @@ func (o AssessmentPropertiesPtrOutput) SizingCriterion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// User configurable setting that describes the status of the assessment.
 func (o AssessmentPropertiesPtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -412,7 +350,6 @@ func (o AssessmentPropertiesPtrOutput) Stage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time range of performance data used to recommend a size.
 func (o AssessmentPropertiesPtrOutput) TimeRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *string {
 		if v == nil {
@@ -422,7 +359,6 @@ func (o AssessmentPropertiesPtrOutput) TimeRange() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the duration for which the VMs are up in the on-premises environment.
 func (o AssessmentPropertiesPtrOutput) VmUptime() VmUptimePtrOutput {
 	return o.ApplyT(func(v *AssessmentProperties) *VmUptime {
 		if v == nil {
@@ -433,66 +369,36 @@ func (o AssessmentPropertiesPtrOutput) VmUptime() VmUptimePtrOutput {
 }
 
 type AssessmentPropertiesResponse struct {
-	// Storage type selected for this disk.
-	AzureDiskType string `pulumi:"azureDiskType"`
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation string `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode string `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier string `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy string `pulumi:"azureStorageRedundancy"`
-	// List of azure VM families.
-	AzureVmFamilies []string `pulumi:"azureVmFamilies"`
-	// Confidence rating percentage for assessment. Can be in the range [0, 100].
-	ConfidenceRatingInPercentage float64 `pulumi:"confidenceRatingInPercentage"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp string `pulumi:"createdTimestamp"`
-	// Currency to report prices in.
-	Currency string `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage float64 `pulumi:"discountPercentage"`
-	// Enterprise agreement subscription arm id.
-	EaSubscriptionId string `pulumi:"eaSubscriptionId"`
-	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyBandwidthCost float64 `pulumi:"monthlyBandwidthCost"`
-	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyComputeCost float64 `pulumi:"monthlyComputeCost"`
-	// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyPremiumStorageCost float64 `pulumi:"monthlyPremiumStorageCost"`
-	// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyStandardSSDStorageCost float64 `pulumi:"monthlyStandardSSDStorageCost"`
-	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyStorageCost float64 `pulumi:"monthlyStorageCost"`
-	// Number of assessed machines part of this assessment.
-	NumberOfMachines int `pulumi:"numberOfMachines"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile string `pulumi:"percentile"`
-	// End time to consider performance data for assessment
-	PerfDataEndTime string `pulumi:"perfDataEndTime"`
-	// Start time to consider performance data for assessment
-	PerfDataStartTime string `pulumi:"perfDataStartTime"`
-	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-	PricesTimestamp string `pulumi:"pricesTimestamp"`
-	// Azure reserved instance.
-	ReservedInstance string `pulumi:"reservedInstance"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor float64 `pulumi:"scalingFactor"`
-	// Assessment sizing criterion.
-	SizingCriterion string `pulumi:"sizingCriterion"`
-	// User configurable setting that describes the status of the assessment.
-	Stage string `pulumi:"stage"`
-	// Whether the assessment has been created and is valid.
-	Status string `pulumi:"status"`
-	// Time range of performance data used to recommend a size.
-	TimeRange string `pulumi:"timeRange"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
-	// Specify the duration for which the VMs are up in the on-premises environment.
-	VmUptime VmUptimeResponse `pulumi:"vmUptime"`
+	AzureDiskType                 string           `pulumi:"azureDiskType"`
+	AzureHybridUseBenefit         string           `pulumi:"azureHybridUseBenefit"`
+	AzureLocation                 string           `pulumi:"azureLocation"`
+	AzureOfferCode                string           `pulumi:"azureOfferCode"`
+	AzurePricingTier              string           `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy        string           `pulumi:"azureStorageRedundancy"`
+	AzureVmFamilies               []string         `pulumi:"azureVmFamilies"`
+	ConfidenceRatingInPercentage  float64          `pulumi:"confidenceRatingInPercentage"`
+	CreatedTimestamp              string           `pulumi:"createdTimestamp"`
+	Currency                      string           `pulumi:"currency"`
+	DiscountPercentage            float64          `pulumi:"discountPercentage"`
+	EaSubscriptionId              string           `pulumi:"eaSubscriptionId"`
+	MonthlyBandwidthCost          float64          `pulumi:"monthlyBandwidthCost"`
+	MonthlyComputeCost            float64          `pulumi:"monthlyComputeCost"`
+	MonthlyPremiumStorageCost     float64          `pulumi:"monthlyPremiumStorageCost"`
+	MonthlyStandardSSDStorageCost float64          `pulumi:"monthlyStandardSSDStorageCost"`
+	MonthlyStorageCost            float64          `pulumi:"monthlyStorageCost"`
+	NumberOfMachines              int              `pulumi:"numberOfMachines"`
+	Percentile                    string           `pulumi:"percentile"`
+	PerfDataEndTime               string           `pulumi:"perfDataEndTime"`
+	PerfDataStartTime             string           `pulumi:"perfDataStartTime"`
+	PricesTimestamp               string           `pulumi:"pricesTimestamp"`
+	ReservedInstance              string           `pulumi:"reservedInstance"`
+	ScalingFactor                 float64          `pulumi:"scalingFactor"`
+	SizingCriterion               string           `pulumi:"sizingCriterion"`
+	Stage                         string           `pulumi:"stage"`
+	Status                        string           `pulumi:"status"`
+	TimeRange                     string           `pulumi:"timeRange"`
+	UpdatedTimestamp              string           `pulumi:"updatedTimestamp"`
+	VmUptime                      VmUptimeResponse `pulumi:"vmUptime"`
 }
 
 // AssessmentPropertiesResponseInput is an input type that accepts AssessmentPropertiesResponseArgs and AssessmentPropertiesResponseOutput values.
@@ -507,66 +413,36 @@ type AssessmentPropertiesResponseInput interface {
 }
 
 type AssessmentPropertiesResponseArgs struct {
-	// Storage type selected for this disk.
-	AzureDiskType pulumi.StringInput `pulumi:"azureDiskType"`
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit pulumi.StringInput `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode pulumi.StringInput `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier pulumi.StringInput `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy pulumi.StringInput `pulumi:"azureStorageRedundancy"`
-	// List of azure VM families.
-	AzureVmFamilies pulumi.StringArrayInput `pulumi:"azureVmFamilies"`
-	// Confidence rating percentage for assessment. Can be in the range [0, 100].
-	ConfidenceRatingInPercentage pulumi.Float64Input `pulumi:"confidenceRatingInPercentage"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
-	// Currency to report prices in.
-	Currency pulumi.StringInput `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage pulumi.Float64Input `pulumi:"discountPercentage"`
-	// Enterprise agreement subscription arm id.
-	EaSubscriptionId pulumi.StringInput `pulumi:"eaSubscriptionId"`
-	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyBandwidthCost pulumi.Float64Input `pulumi:"monthlyBandwidthCost"`
-	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyComputeCost pulumi.Float64Input `pulumi:"monthlyComputeCost"`
-	// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyPremiumStorageCost pulumi.Float64Input `pulumi:"monthlyPremiumStorageCost"`
-	// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyStandardSSDStorageCost pulumi.Float64Input `pulumi:"monthlyStandardSSDStorageCost"`
-	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyStorageCost pulumi.Float64Input `pulumi:"monthlyStorageCost"`
-	// Number of assessed machines part of this assessment.
-	NumberOfMachines pulumi.IntInput `pulumi:"numberOfMachines"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile pulumi.StringInput `pulumi:"percentile"`
-	// End time to consider performance data for assessment
-	PerfDataEndTime pulumi.StringInput `pulumi:"perfDataEndTime"`
-	// Start time to consider performance data for assessment
-	PerfDataStartTime pulumi.StringInput `pulumi:"perfDataStartTime"`
-	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-	PricesTimestamp pulumi.StringInput `pulumi:"pricesTimestamp"`
-	// Azure reserved instance.
-	ReservedInstance pulumi.StringInput `pulumi:"reservedInstance"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor pulumi.Float64Input `pulumi:"scalingFactor"`
-	// Assessment sizing criterion.
-	SizingCriterion pulumi.StringInput `pulumi:"sizingCriterion"`
-	// User configurable setting that describes the status of the assessment.
-	Stage pulumi.StringInput `pulumi:"stage"`
-	// Whether the assessment has been created and is valid.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Time range of performance data used to recommend a size.
-	TimeRange pulumi.StringInput `pulumi:"timeRange"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
-	// Specify the duration for which the VMs are up in the on-premises environment.
-	VmUptime VmUptimeResponseInput `pulumi:"vmUptime"`
+	AzureDiskType                 pulumi.StringInput      `pulumi:"azureDiskType"`
+	AzureHybridUseBenefit         pulumi.StringInput      `pulumi:"azureHybridUseBenefit"`
+	AzureLocation                 pulumi.StringInput      `pulumi:"azureLocation"`
+	AzureOfferCode                pulumi.StringInput      `pulumi:"azureOfferCode"`
+	AzurePricingTier              pulumi.StringInput      `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy        pulumi.StringInput      `pulumi:"azureStorageRedundancy"`
+	AzureVmFamilies               pulumi.StringArrayInput `pulumi:"azureVmFamilies"`
+	ConfidenceRatingInPercentage  pulumi.Float64Input     `pulumi:"confidenceRatingInPercentage"`
+	CreatedTimestamp              pulumi.StringInput      `pulumi:"createdTimestamp"`
+	Currency                      pulumi.StringInput      `pulumi:"currency"`
+	DiscountPercentage            pulumi.Float64Input     `pulumi:"discountPercentage"`
+	EaSubscriptionId              pulumi.StringInput      `pulumi:"eaSubscriptionId"`
+	MonthlyBandwidthCost          pulumi.Float64Input     `pulumi:"monthlyBandwidthCost"`
+	MonthlyComputeCost            pulumi.Float64Input     `pulumi:"monthlyComputeCost"`
+	MonthlyPremiumStorageCost     pulumi.Float64Input     `pulumi:"monthlyPremiumStorageCost"`
+	MonthlyStandardSSDStorageCost pulumi.Float64Input     `pulumi:"monthlyStandardSSDStorageCost"`
+	MonthlyStorageCost            pulumi.Float64Input     `pulumi:"monthlyStorageCost"`
+	NumberOfMachines              pulumi.IntInput         `pulumi:"numberOfMachines"`
+	Percentile                    pulumi.StringInput      `pulumi:"percentile"`
+	PerfDataEndTime               pulumi.StringInput      `pulumi:"perfDataEndTime"`
+	PerfDataStartTime             pulumi.StringInput      `pulumi:"perfDataStartTime"`
+	PricesTimestamp               pulumi.StringInput      `pulumi:"pricesTimestamp"`
+	ReservedInstance              pulumi.StringInput      `pulumi:"reservedInstance"`
+	ScalingFactor                 pulumi.Float64Input     `pulumi:"scalingFactor"`
+	SizingCriterion               pulumi.StringInput      `pulumi:"sizingCriterion"`
+	Stage                         pulumi.StringInput      `pulumi:"stage"`
+	Status                        pulumi.StringInput      `pulumi:"status"`
+	TimeRange                     pulumi.StringInput      `pulumi:"timeRange"`
+	UpdatedTimestamp              pulumi.StringInput      `pulumi:"updatedTimestamp"`
+	VmUptime                      VmUptimeResponseInput   `pulumi:"vmUptime"`
 }
 
 func (AssessmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -646,152 +522,122 @@ func (o AssessmentPropertiesResponseOutput) ToAssessmentPropertiesResponsePtrOut
 	}).(AssessmentPropertiesResponsePtrOutput)
 }
 
-// Storage type selected for this disk.
 func (o AssessmentPropertiesResponseOutput) AzureDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzureDiskType }).(pulumi.StringOutput)
 }
 
-// AHUB discount on windows virtual machines.
 func (o AssessmentPropertiesResponseOutput) AzureHybridUseBenefit() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzureHybridUseBenefit }).(pulumi.StringOutput)
 }
 
-// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
 func (o AssessmentPropertiesResponseOutput) AzureLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzureLocation }).(pulumi.StringOutput)
 }
 
-// Offer code according to which cost estimation is done.
 func (o AssessmentPropertiesResponseOutput) AzureOfferCode() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzureOfferCode }).(pulumi.StringOutput)
 }
 
-// Pricing tier for Size evaluation.
 func (o AssessmentPropertiesResponseOutput) AzurePricingTier() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzurePricingTier }).(pulumi.StringOutput)
 }
 
-// Storage Redundancy type offered by Azure.
 func (o AssessmentPropertiesResponseOutput) AzureStorageRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.AzureStorageRedundancy }).(pulumi.StringOutput)
 }
 
-// List of azure VM families.
 func (o AssessmentPropertiesResponseOutput) AzureVmFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) []string { return v.AzureVmFamilies }).(pulumi.StringArrayOutput)
 }
 
-// Confidence rating percentage for assessment. Can be in the range [0, 100].
 func (o AssessmentPropertiesResponseOutput) ConfidenceRatingInPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.ConfidenceRatingInPercentage }).(pulumi.Float64Output)
 }
 
-// Time when this project was created. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Currency to report prices in.
 func (o AssessmentPropertiesResponseOutput) Currency() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.Currency }).(pulumi.StringOutput)
 }
 
-// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
 func (o AssessmentPropertiesResponseOutput) DiscountPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.DiscountPercentage }).(pulumi.Float64Output)
 }
 
-// Enterprise agreement subscription arm id.
 func (o AssessmentPropertiesResponseOutput) EaSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.EaSubscriptionId }).(pulumi.StringOutput)
 }
 
-// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponseOutput) MonthlyBandwidthCost() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.MonthlyBandwidthCost }).(pulumi.Float64Output)
 }
 
-// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponseOutput) MonthlyComputeCost() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.MonthlyComputeCost }).(pulumi.Float64Output)
 }
 
-// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponseOutput) MonthlyPremiumStorageCost() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.MonthlyPremiumStorageCost }).(pulumi.Float64Output)
 }
 
-// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponseOutput) MonthlyStandardSSDStorageCost() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.MonthlyStandardSSDStorageCost }).(pulumi.Float64Output)
 }
 
-// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponseOutput) MonthlyStorageCost() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.MonthlyStorageCost }).(pulumi.Float64Output)
 }
 
-// Number of assessed machines part of this assessment.
 func (o AssessmentPropertiesResponseOutput) NumberOfMachines() pulumi.IntOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) int { return v.NumberOfMachines }).(pulumi.IntOutput)
 }
 
-// Percentile of performance data used to recommend Azure size.
 func (o AssessmentPropertiesResponseOutput) Percentile() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.Percentile }).(pulumi.StringOutput)
 }
 
-// End time to consider performance data for assessment
 func (o AssessmentPropertiesResponseOutput) PerfDataEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.PerfDataEndTime }).(pulumi.StringOutput)
 }
 
-// Start time to consider performance data for assessment
 func (o AssessmentPropertiesResponseOutput) PerfDataStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.PerfDataStartTime }).(pulumi.StringOutput)
 }
 
-// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponseOutput) PricesTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.PricesTimestamp }).(pulumi.StringOutput)
 }
 
-// Azure reserved instance.
 func (o AssessmentPropertiesResponseOutput) ReservedInstance() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.ReservedInstance }).(pulumi.StringOutput)
 }
 
-// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
 func (o AssessmentPropertiesResponseOutput) ScalingFactor() pulumi.Float64Output {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) float64 { return v.ScalingFactor }).(pulumi.Float64Output)
 }
 
-// Assessment sizing criterion.
 func (o AssessmentPropertiesResponseOutput) SizingCriterion() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.SizingCriterion }).(pulumi.StringOutput)
 }
 
-// User configurable setting that describes the status of the assessment.
 func (o AssessmentPropertiesResponseOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// Whether the assessment has been created and is valid.
 func (o AssessmentPropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Time range of performance data used to recommend a size.
 func (o AssessmentPropertiesResponseOutput) TimeRange() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.TimeRange }).(pulumi.StringOutput)
 }
 
-// Time when this project was last updated. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Specify the duration for which the VMs are up in the on-premises environment.
 func (o AssessmentPropertiesResponseOutput) VmUptime() VmUptimeResponseOutput {
 	return o.ApplyT(func(v AssessmentPropertiesResponse) VmUptimeResponse { return v.VmUptime }).(VmUptimeResponseOutput)
 }
@@ -820,7 +666,6 @@ func (o AssessmentPropertiesResponsePtrOutput) Elem() AssessmentPropertiesRespon
 	}).(AssessmentPropertiesResponseOutput)
 }
 
-// Storage type selected for this disk.
 func (o AssessmentPropertiesResponsePtrOutput) AzureDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -830,7 +675,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureDiskType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AHUB discount on windows virtual machines.
 func (o AssessmentPropertiesResponsePtrOutput) AzureHybridUseBenefit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -840,7 +684,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureHybridUseBenefit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
 func (o AssessmentPropertiesResponsePtrOutput) AzureLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -850,7 +693,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureLocation() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer code according to which cost estimation is done.
 func (o AssessmentPropertiesResponsePtrOutput) AzureOfferCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -860,7 +702,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureOfferCode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier for Size evaluation.
 func (o AssessmentPropertiesResponsePtrOutput) AzurePricingTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -870,7 +711,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzurePricingTier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage Redundancy type offered by Azure.
 func (o AssessmentPropertiesResponsePtrOutput) AzureStorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -880,7 +720,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureStorageRedundancy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of azure VM families.
 func (o AssessmentPropertiesResponsePtrOutput) AzureVmFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) []string {
 		if v == nil {
@@ -890,7 +729,6 @@ func (o AssessmentPropertiesResponsePtrOutput) AzureVmFamilies() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Confidence rating percentage for assessment. Can be in the range [0, 100].
 func (o AssessmentPropertiesResponsePtrOutput) ConfidenceRatingInPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -900,7 +738,6 @@ func (o AssessmentPropertiesResponsePtrOutput) ConfidenceRatingInPercentage() pu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Time when this project was created. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -910,7 +747,6 @@ func (o AssessmentPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Currency to report prices in.
 func (o AssessmentPropertiesResponsePtrOutput) Currency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -920,7 +756,6 @@ func (o AssessmentPropertiesResponsePtrOutput) Currency() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
 func (o AssessmentPropertiesResponsePtrOutput) DiscountPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -930,7 +765,6 @@ func (o AssessmentPropertiesResponsePtrOutput) DiscountPercentage() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Enterprise agreement subscription arm id.
 func (o AssessmentPropertiesResponsePtrOutput) EaSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -940,7 +774,6 @@ func (o AssessmentPropertiesResponsePtrOutput) EaSubscriptionId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponsePtrOutput) MonthlyBandwidthCost() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -950,7 +783,6 @@ func (o AssessmentPropertiesResponsePtrOutput) MonthlyBandwidthCost() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponsePtrOutput) MonthlyComputeCost() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -960,7 +792,6 @@ func (o AssessmentPropertiesResponsePtrOutput) MonthlyComputeCost() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponsePtrOutput) MonthlyPremiumStorageCost() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -970,7 +801,6 @@ func (o AssessmentPropertiesResponsePtrOutput) MonthlyPremiumStorageCost() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponsePtrOutput) MonthlyStandardSSDStorageCost() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -980,7 +810,6 @@ func (o AssessmentPropertiesResponsePtrOutput) MonthlyStandardSSDStorageCost() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 func (o AssessmentPropertiesResponsePtrOutput) MonthlyStorageCost() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -990,7 +819,6 @@ func (o AssessmentPropertiesResponsePtrOutput) MonthlyStorageCost() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of assessed machines part of this assessment.
 func (o AssessmentPropertiesResponsePtrOutput) NumberOfMachines() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *int {
 		if v == nil {
@@ -1000,7 +828,6 @@ func (o AssessmentPropertiesResponsePtrOutput) NumberOfMachines() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentile of performance data used to recommend Azure size.
 func (o AssessmentPropertiesResponsePtrOutput) Percentile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1010,7 +837,6 @@ func (o AssessmentPropertiesResponsePtrOutput) Percentile() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// End time to consider performance data for assessment
 func (o AssessmentPropertiesResponsePtrOutput) PerfDataEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1020,7 +846,6 @@ func (o AssessmentPropertiesResponsePtrOutput) PerfDataEndTime() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start time to consider performance data for assessment
 func (o AssessmentPropertiesResponsePtrOutput) PerfDataStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1030,7 +855,6 @@ func (o AssessmentPropertiesResponsePtrOutput) PerfDataStartTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponsePtrOutput) PricesTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1040,7 +864,6 @@ func (o AssessmentPropertiesResponsePtrOutput) PricesTimestamp() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure reserved instance.
 func (o AssessmentPropertiesResponsePtrOutput) ReservedInstance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1050,7 +873,6 @@ func (o AssessmentPropertiesResponsePtrOutput) ReservedInstance() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
 func (o AssessmentPropertiesResponsePtrOutput) ScalingFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *float64 {
 		if v == nil {
@@ -1060,7 +882,6 @@ func (o AssessmentPropertiesResponsePtrOutput) ScalingFactor() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Assessment sizing criterion.
 func (o AssessmentPropertiesResponsePtrOutput) SizingCriterion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1070,7 +891,6 @@ func (o AssessmentPropertiesResponsePtrOutput) SizingCriterion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// User configurable setting that describes the status of the assessment.
 func (o AssessmentPropertiesResponsePtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1080,7 +900,6 @@ func (o AssessmentPropertiesResponsePtrOutput) Stage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the assessment has been created and is valid.
 func (o AssessmentPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1090,7 +909,6 @@ func (o AssessmentPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time range of performance data used to recommend a size.
 func (o AssessmentPropertiesResponsePtrOutput) TimeRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1100,7 +918,6 @@ func (o AssessmentPropertiesResponsePtrOutput) TimeRange() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when this project was last updated. Date-Time represented in ISO-8601 format.
 func (o AssessmentPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *string {
 		if v == nil {
@@ -1110,7 +927,6 @@ func (o AssessmentPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the duration for which the VMs are up in the on-premises environment.
 func (o AssessmentPropertiesResponsePtrOutput) VmUptime() VmUptimeResponsePtrOutput {
 	return o.ApplyT(func(v *AssessmentPropertiesResponse) *VmUptimeResponse {
 		if v == nil {
@@ -1121,8 +937,6 @@ func (o AssessmentPropertiesResponsePtrOutput) VmUptime() VmUptimeResponsePtrOut
 }
 
 type AutomaticResolutionPropertiesResponse struct {
-	// Gets the MoveResource ARM ID of
-	// the dependent resource if the resolution type is Automatic.
 	MoveResourceId *string `pulumi:"moveResourceId"`
 }
 
@@ -1138,8 +952,6 @@ type AutomaticResolutionPropertiesResponseInput interface {
 }
 
 type AutomaticResolutionPropertiesResponseArgs struct {
-	// Gets the MoveResource ARM ID of
-	// the dependent resource if the resolution type is Automatic.
 	MoveResourceId pulumi.StringPtrInput `pulumi:"moveResourceId"`
 }
 
@@ -1220,8 +1032,6 @@ func (o AutomaticResolutionPropertiesResponseOutput) ToAutomaticResolutionProper
 	}).(AutomaticResolutionPropertiesResponsePtrOutput)
 }
 
-// Gets the MoveResource ARM ID of
-// the dependent resource if the resolution type is Automatic.
 func (o AutomaticResolutionPropertiesResponseOutput) MoveResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomaticResolutionPropertiesResponse) *string { return v.MoveResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1250,8 +1060,6 @@ func (o AutomaticResolutionPropertiesResponsePtrOutput) Elem() AutomaticResoluti
 	}).(AutomaticResolutionPropertiesResponseOutput)
 }
 
-// Gets the MoveResource ARM ID of
-// the dependent resource if the resolution type is Automatic.
 func (o AutomaticResolutionPropertiesResponsePtrOutput) MoveResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomaticResolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1262,15 +1070,10 @@ func (o AutomaticResolutionPropertiesResponsePtrOutput) MoveResourceId() pulumi.
 }
 
 type AvailabilitySetResourceSettings struct {
-	// Gets or sets the target fault domain.
-	FaultDomain *int `pulumi:"faultDomain"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/availabilitySets'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	FaultDomain        *int   `pulumi:"faultDomain"`
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the target update domain.
-	UpdateDomain *int `pulumi:"updateDomain"`
+	UpdateDomain       *int   `pulumi:"updateDomain"`
 }
 
 // AvailabilitySetResourceSettingsInput is an input type that accepts AvailabilitySetResourceSettingsArgs and AvailabilitySetResourceSettingsOutput values.
@@ -1285,15 +1088,10 @@ type AvailabilitySetResourceSettingsInput interface {
 }
 
 type AvailabilitySetResourceSettingsArgs struct {
-	// Gets or sets the target fault domain.
-	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/availabilitySets'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	FaultDomain        pulumi.IntPtrInput `pulumi:"faultDomain"`
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the target update domain.
-	UpdateDomain pulumi.IntPtrInput `pulumi:"updateDomain"`
+	UpdateDomain       pulumi.IntPtrInput `pulumi:"updateDomain"`
 }
 
 func (AvailabilitySetResourceSettingsArgs) ElementType() reflect.Type {
@@ -1322,37 +1120,27 @@ func (o AvailabilitySetResourceSettingsOutput) ToAvailabilitySetResourceSettings
 	return o
 }
 
-// Gets or sets the target fault domain.
 func (o AvailabilitySetResourceSettingsOutput) FaultDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) *int { return v.FaultDomain }).(pulumi.IntPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/availabilitySets'.
 func (o AvailabilitySetResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o AvailabilitySetResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target update domain.
 func (o AvailabilitySetResourceSettingsOutput) UpdateDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) *int { return v.UpdateDomain }).(pulumi.IntPtrOutput)
 }
 
 type AvailabilitySetResourceSettingsResponse struct {
-	// Gets or sets the target fault domain.
-	FaultDomain *int `pulumi:"faultDomain"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/availabilitySets'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	FaultDomain        *int   `pulumi:"faultDomain"`
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the target update domain.
-	UpdateDomain *int `pulumi:"updateDomain"`
+	UpdateDomain       *int   `pulumi:"updateDomain"`
 }
 
 // AvailabilitySetResourceSettingsResponseInput is an input type that accepts AvailabilitySetResourceSettingsResponseArgs and AvailabilitySetResourceSettingsResponseOutput values.
@@ -1367,15 +1155,10 @@ type AvailabilitySetResourceSettingsResponseInput interface {
 }
 
 type AvailabilitySetResourceSettingsResponseArgs struct {
-	// Gets or sets the target fault domain.
-	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/availabilitySets'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	FaultDomain        pulumi.IntPtrInput `pulumi:"faultDomain"`
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the target update domain.
-	UpdateDomain pulumi.IntPtrInput `pulumi:"updateDomain"`
+	UpdateDomain       pulumi.IntPtrInput `pulumi:"updateDomain"`
 }
 
 func (AvailabilitySetResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -1404,23 +1187,18 @@ func (o AvailabilitySetResourceSettingsResponseOutput) ToAvailabilitySetResource
 	return o
 }
 
-// Gets or sets the target fault domain.
 func (o AvailabilitySetResourceSettingsResponseOutput) FaultDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) *int { return v.FaultDomain }).(pulumi.IntPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/availabilitySets'.
 func (o AvailabilitySetResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o AvailabilitySetResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target update domain.
 func (o AvailabilitySetResourceSettingsResponseOutput) UpdateDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) *int { return v.UpdateDomain }).(pulumi.IntPtrOutput)
 }
@@ -1737,16 +1515,11 @@ func (o CollectorAgentPropertiesResponsePtrOutput) Version() pulumi.StringPtrOut
 }
 
 type CollectorBodyAgentSpnProperties struct {
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience *string `pulumi:"audience"`
-	// AAD Authority URL which was used to request the token for the service principal.
-	Authority *string `pulumi:"authority"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId *string `pulumi:"objectId"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId *string `pulumi:"tenantId"`
+	Audience      *string `pulumi:"audience"`
+	Authority     *string `pulumi:"authority"`
+	ObjectId      *string `pulumi:"objectId"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // CollectorBodyAgentSpnPropertiesInput is an input type that accepts CollectorBodyAgentSpnPropertiesArgs and CollectorBodyAgentSpnPropertiesOutput values.
@@ -1761,16 +1534,11 @@ type CollectorBodyAgentSpnPropertiesInput interface {
 }
 
 type CollectorBodyAgentSpnPropertiesArgs struct {
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// AAD Authority URL which was used to request the token for the service principal.
-	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Audience      pulumi.StringPtrInput `pulumi:"audience"`
+	Authority     pulumi.StringPtrInput `pulumi:"authority"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (CollectorBodyAgentSpnPropertiesArgs) ElementType() reflect.Type {
@@ -1850,27 +1618,22 @@ func (o CollectorBodyAgentSpnPropertiesOutput) ToCollectorBodyAgentSpnProperties
 	}).(CollectorBodyAgentSpnPropertiesPtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o CollectorBodyAgentSpnPropertiesOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o CollectorBodyAgentSpnPropertiesOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1899,7 +1662,6 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) Elem() CollectorBodyAgentSpnPr
 	}).(CollectorBodyAgentSpnPropertiesOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) *string {
 		if v == nil {
@@ -1909,7 +1671,6 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) ApplicationId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) *string {
 		if v == nil {
@@ -1919,7 +1680,6 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) Audience() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) *string {
 		if v == nil {
@@ -1929,7 +1689,6 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) Authority() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) *string {
 		if v == nil {
@@ -1939,7 +1698,6 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) ObjectId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) *string {
 		if v == nil {
@@ -1950,16 +1708,11 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOut
 }
 
 type CollectorBodyAgentSpnPropertiesResponse struct {
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience *string `pulumi:"audience"`
-	// AAD Authority URL which was used to request the token for the service principal.
-	Authority *string `pulumi:"authority"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId *string `pulumi:"objectId"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId *string `pulumi:"tenantId"`
+	Audience      *string `pulumi:"audience"`
+	Authority     *string `pulumi:"authority"`
+	ObjectId      *string `pulumi:"objectId"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // CollectorBodyAgentSpnPropertiesResponseInput is an input type that accepts CollectorBodyAgentSpnPropertiesResponseArgs and CollectorBodyAgentSpnPropertiesResponseOutput values.
@@ -1974,16 +1727,11 @@ type CollectorBodyAgentSpnPropertiesResponseInput interface {
 }
 
 type CollectorBodyAgentSpnPropertiesResponseArgs struct {
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// AAD Authority URL which was used to request the token for the service principal.
-	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Audience      pulumi.StringPtrInput `pulumi:"audience"`
+	Authority     pulumi.StringPtrInput `pulumi:"authority"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (CollectorBodyAgentSpnPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2063,27 +1811,22 @@ func (o CollectorBodyAgentSpnPropertiesResponseOutput) ToCollectorBodyAgentSpnPr
 	}).(CollectorBodyAgentSpnPropertiesResponsePtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -2112,7 +1855,6 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Elem() CollectorBodyAg
 	}).(CollectorBodyAgentSpnPropertiesResponseOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) *string {
 		if v == nil {
@@ -2122,7 +1864,6 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) ApplicationId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) *string {
 		if v == nil {
@@ -2132,7 +1873,6 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Audience() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) *string {
 		if v == nil {
@@ -2142,7 +1882,6 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Authority() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) *string {
 		if v == nil {
@@ -2152,7 +1891,6 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) ObjectId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) *string {
 		if v == nil {
@@ -2164,8 +1902,7 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) TenantId() pulumi.Stri
 
 type CollectorProperties struct {
 	AgentProperties *CollectorAgentProperties `pulumi:"agentProperties"`
-	// The ARM id of the discovery service site.
-	DiscoverySiteId *string `pulumi:"discoverySiteId"`
+	DiscoverySiteId *string                   `pulumi:"discoverySiteId"`
 }
 
 // CollectorPropertiesInput is an input type that accepts CollectorPropertiesArgs and CollectorPropertiesOutput values.
@@ -2181,8 +1918,7 @@ type CollectorPropertiesInput interface {
 
 type CollectorPropertiesArgs struct {
 	AgentProperties CollectorAgentPropertiesPtrInput `pulumi:"agentProperties"`
-	// The ARM id of the discovery service site.
-	DiscoverySiteId pulumi.StringPtrInput `pulumi:"discoverySiteId"`
+	DiscoverySiteId pulumi.StringPtrInput            `pulumi:"discoverySiteId"`
 }
 
 func (CollectorPropertiesArgs) ElementType() reflect.Type {
@@ -2266,7 +2002,6 @@ func (o CollectorPropertiesOutput) AgentProperties() CollectorAgentPropertiesPtr
 	return o.ApplyT(func(v CollectorProperties) *CollectorAgentProperties { return v.AgentProperties }).(CollectorAgentPropertiesPtrOutput)
 }
 
-// The ARM id of the discovery service site.
 func (o CollectorPropertiesOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorProperties) *string { return v.DiscoverySiteId }).(pulumi.StringPtrOutput)
 }
@@ -2304,7 +2039,6 @@ func (o CollectorPropertiesPtrOutput) AgentProperties() CollectorAgentProperties
 	}).(CollectorAgentPropertiesPtrOutput)
 }
 
-// The ARM id of the discovery service site.
 func (o CollectorPropertiesPtrOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorProperties) *string {
 		if v == nil {
@@ -2315,13 +2049,10 @@ func (o CollectorPropertiesPtrOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 }
 
 type CollectorPropertiesResponse struct {
-	AgentProperties *CollectorAgentPropertiesResponse `pulumi:"agentProperties"`
-	// Time when this collector was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp string `pulumi:"createdTimestamp"`
-	// The ARM id of the discovery service site.
-	DiscoverySiteId *string `pulumi:"discoverySiteId"`
-	// Time when this collector was updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	AgentProperties  *CollectorAgentPropertiesResponse `pulumi:"agentProperties"`
+	CreatedTimestamp string                            `pulumi:"createdTimestamp"`
+	DiscoverySiteId  *string                           `pulumi:"discoverySiteId"`
+	UpdatedTimestamp string                            `pulumi:"updatedTimestamp"`
 }
 
 // CollectorPropertiesResponseInput is an input type that accepts CollectorPropertiesResponseArgs and CollectorPropertiesResponseOutput values.
@@ -2336,13 +2067,10 @@ type CollectorPropertiesResponseInput interface {
 }
 
 type CollectorPropertiesResponseArgs struct {
-	AgentProperties CollectorAgentPropertiesResponsePtrInput `pulumi:"agentProperties"`
-	// Time when this collector was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
-	// The ARM id of the discovery service site.
-	DiscoverySiteId pulumi.StringPtrInput `pulumi:"discoverySiteId"`
-	// Time when this collector was updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+	AgentProperties  CollectorAgentPropertiesResponsePtrInput `pulumi:"agentProperties"`
+	CreatedTimestamp pulumi.StringInput                       `pulumi:"createdTimestamp"`
+	DiscoverySiteId  pulumi.StringPtrInput                    `pulumi:"discoverySiteId"`
+	UpdatedTimestamp pulumi.StringInput                       `pulumi:"updatedTimestamp"`
 }
 
 func (CollectorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2426,17 +2154,14 @@ func (o CollectorPropertiesResponseOutput) AgentProperties() CollectorAgentPrope
 	return o.ApplyT(func(v CollectorPropertiesResponse) *CollectorAgentPropertiesResponse { return v.AgentProperties }).(CollectorAgentPropertiesResponsePtrOutput)
 }
 
-// Time when this collector was created. Date-Time represented in ISO-8601 format.
 func (o CollectorPropertiesResponseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v CollectorPropertiesResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// The ARM id of the discovery service site.
 func (o CollectorPropertiesResponseOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectorPropertiesResponse) *string { return v.DiscoverySiteId }).(pulumi.StringPtrOutput)
 }
 
-// Time when this collector was updated. Date-Time represented in ISO-8601 format.
 func (o CollectorPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v CollectorPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
@@ -2474,7 +2199,6 @@ func (o CollectorPropertiesResponsePtrOutput) AgentProperties() CollectorAgentPr
 	}).(CollectorAgentPropertiesResponsePtrOutput)
 }
 
-// Time when this collector was created. Date-Time represented in ISO-8601 format.
 func (o CollectorPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorPropertiesResponse) *string {
 		if v == nil {
@@ -2484,7 +2208,6 @@ func (o CollectorPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the discovery service site.
 func (o CollectorPropertiesResponsePtrOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorPropertiesResponse) *string {
 		if v == nil {
@@ -2494,7 +2217,6 @@ func (o CollectorPropertiesResponsePtrOutput) DiscoverySiteId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when this collector was updated. Date-Time represented in ISO-8601 format.
 func (o CollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorPropertiesResponse) *string {
 		if v == nil {
@@ -2505,15 +2227,10 @@ func (o CollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPt
 }
 
 type DatabaseProjectSummaryResponse struct {
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
+	ExtendedSummary          map[string]string `pulumi:"extendedSummary"`
+	InstanceType             string            `pulumi:"instanceType"`
+	LastSummaryRefreshedTime *string           `pulumi:"lastSummaryRefreshedTime"`
+	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
 }
 
 // DatabaseProjectSummaryResponseInput is an input type that accepts DatabaseProjectSummaryResponseArgs and DatabaseProjectSummaryResponseOutput values.
@@ -2528,15 +2245,10 @@ type DatabaseProjectSummaryResponseInput interface {
 }
 
 type DatabaseProjectSummaryResponseArgs struct {
-	// Gets or sets the extended summary.
-	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
+	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
+	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
+	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
 }
 
 func (DatabaseProjectSummaryResponseArgs) ElementType() reflect.Type {
@@ -2565,37 +2277,27 @@ func (o DatabaseProjectSummaryResponseOutput) ToDatabaseProjectSummaryResponseOu
 	return o
 }
 
-// Gets or sets the extended summary.
 func (o DatabaseProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Databases'.
 func (o DatabaseProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the time when summary was last refreshed.
 func (o DatabaseProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the state of refresh summary.
 func (o DatabaseProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
 
 type DatabasesSolutionSummaryResponse struct {
-	// Gets or sets the count of database instances assessed.
-	DatabaseInstancesAssessedCount *int `pulumi:"databaseInstancesAssessedCount"`
-	// Gets or sets the count of databases assessed.
-	DatabasesAssessedCount *int `pulumi:"databasesAssessedCount"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of databases ready for migration.
-	MigrationReadyCount *int `pulumi:"migrationReadyCount"`
+	DatabaseInstancesAssessedCount *int   `pulumi:"databaseInstancesAssessedCount"`
+	DatabasesAssessedCount         *int   `pulumi:"databasesAssessedCount"`
+	InstanceType                   string `pulumi:"instanceType"`
+	MigrationReadyCount            *int   `pulumi:"migrationReadyCount"`
 }
 
 // DatabasesSolutionSummaryResponseInput is an input type that accepts DatabasesSolutionSummaryResponseArgs and DatabasesSolutionSummaryResponseOutput values.
@@ -2610,15 +2312,10 @@ type DatabasesSolutionSummaryResponseInput interface {
 }
 
 type DatabasesSolutionSummaryResponseArgs struct {
-	// Gets or sets the count of database instances assessed.
 	DatabaseInstancesAssessedCount pulumi.IntPtrInput `pulumi:"databaseInstancesAssessedCount"`
-	// Gets or sets the count of databases assessed.
-	DatabasesAssessedCount pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the count of databases ready for migration.
-	MigrationReadyCount pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
+	DatabasesAssessedCount         pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
+	InstanceType                   pulumi.StringInput `pulumi:"instanceType"`
+	MigrationReadyCount            pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
 }
 
 func (DatabasesSolutionSummaryResponseArgs) ElementType() reflect.Type {
@@ -2647,32 +2344,24 @@ func (o DatabasesSolutionSummaryResponseOutput) ToDatabasesSolutionSummaryRespon
 	return o
 }
 
-// Gets or sets the count of database instances assessed.
 func (o DatabasesSolutionSummaryResponseOutput) DatabaseInstancesAssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabaseInstancesAssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of databases assessed.
 func (o DatabasesSolutionSummaryResponseOutput) DatabasesAssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabasesAssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Databases'.
 func (o DatabasesSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the count of databases ready for migration.
 func (o DatabasesSolutionSummaryResponseOutput) MigrationReadyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.MigrationReadyCount }).(pulumi.IntPtrOutput)
 }
 
 type DiskEncryptionSetResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -2688,10 +2377,7 @@ type DiskEncryptionSetResourceSettingsInput interface {
 }
 
 type DiskEncryptionSetResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -2721,22 +2407,16 @@ func (o DiskEncryptionSetResourceSettingsOutput) ToDiskEncryptionSetResourceSett
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
 func (o DiskEncryptionSetResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o DiskEncryptionSetResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type DiskEncryptionSetResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -2752,10 +2432,7 @@ type DiskEncryptionSetResourceSettingsResponseInput interface {
 }
 
 type DiskEncryptionSetResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -2785,19 +2462,15 @@ func (o DiskEncryptionSetResourceSettingsResponseOutput) ToDiskEncryptionSetReso
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
 func (o DiskEncryptionSetResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o DiskEncryptionSetResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type GroupProperties struct {
-	// The type of group.
 	GroupType *string `pulumi:"groupType"`
 }
 
@@ -2813,7 +2486,6 @@ type GroupPropertiesInput interface {
 }
 
 type GroupPropertiesArgs struct {
-	// The type of group.
 	GroupType pulumi.StringPtrInput `pulumi:"groupType"`
 }
 
@@ -2894,7 +2566,6 @@ func (o GroupPropertiesOutput) ToGroupPropertiesPtrOutputWithContext(ctx context
 	}).(GroupPropertiesPtrOutput)
 }
 
-// The type of group.
 func (o GroupPropertiesOutput) GroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupProperties) *string { return v.GroupType }).(pulumi.StringPtrOutput)
 }
@@ -2923,7 +2594,6 @@ func (o GroupPropertiesPtrOutput) Elem() GroupPropertiesOutput {
 	}).(GroupPropertiesOutput)
 }
 
-// The type of group.
 func (o GroupPropertiesPtrOutput) GroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupProperties) *string {
 		if v == nil {
@@ -2934,20 +2604,13 @@ func (o GroupPropertiesPtrOutput) GroupType() pulumi.StringPtrOutput {
 }
 
 type GroupPropertiesResponse struct {
-	// If the assessments are in running state.
-	AreAssessmentsRunning bool `pulumi:"areAssessmentsRunning"`
-	// List of References to Assessments created on this group.
-	Assessments []string `pulumi:"assessments"`
-	// Time when this group was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp string `pulumi:"createdTimestamp"`
-	// Whether the group has been created and is valid.
-	GroupStatus string `pulumi:"groupStatus"`
-	// The type of group.
-	GroupType *string `pulumi:"groupType"`
-	// Number of machines part of this group.
-	MachineCount int `pulumi:"machineCount"`
-	// Time when this group was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	AreAssessmentsRunning bool     `pulumi:"areAssessmentsRunning"`
+	Assessments           []string `pulumi:"assessments"`
+	CreatedTimestamp      string   `pulumi:"createdTimestamp"`
+	GroupStatus           string   `pulumi:"groupStatus"`
+	GroupType             *string  `pulumi:"groupType"`
+	MachineCount          int      `pulumi:"machineCount"`
+	UpdatedTimestamp      string   `pulumi:"updatedTimestamp"`
 }
 
 // GroupPropertiesResponseInput is an input type that accepts GroupPropertiesResponseArgs and GroupPropertiesResponseOutput values.
@@ -2962,20 +2625,13 @@ type GroupPropertiesResponseInput interface {
 }
 
 type GroupPropertiesResponseArgs struct {
-	// If the assessments are in running state.
-	AreAssessmentsRunning pulumi.BoolInput `pulumi:"areAssessmentsRunning"`
-	// List of References to Assessments created on this group.
-	Assessments pulumi.StringArrayInput `pulumi:"assessments"`
-	// Time when this group was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
-	// Whether the group has been created and is valid.
-	GroupStatus pulumi.StringInput `pulumi:"groupStatus"`
-	// The type of group.
-	GroupType pulumi.StringPtrInput `pulumi:"groupType"`
-	// Number of machines part of this group.
-	MachineCount pulumi.IntInput `pulumi:"machineCount"`
-	// Time when this group was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+	AreAssessmentsRunning pulumi.BoolInput        `pulumi:"areAssessmentsRunning"`
+	Assessments           pulumi.StringArrayInput `pulumi:"assessments"`
+	CreatedTimestamp      pulumi.StringInput      `pulumi:"createdTimestamp"`
+	GroupStatus           pulumi.StringInput      `pulumi:"groupStatus"`
+	GroupType             pulumi.StringPtrInput   `pulumi:"groupType"`
+	MachineCount          pulumi.IntInput         `pulumi:"machineCount"`
+	UpdatedTimestamp      pulumi.StringInput      `pulumi:"updatedTimestamp"`
 }
 
 func (GroupPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3055,37 +2711,30 @@ func (o GroupPropertiesResponseOutput) ToGroupPropertiesResponsePtrOutputWithCon
 	}).(GroupPropertiesResponsePtrOutput)
 }
 
-// If the assessments are in running state.
 func (o GroupPropertiesResponseOutput) AreAssessmentsRunning() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) bool { return v.AreAssessmentsRunning }).(pulumi.BoolOutput)
 }
 
-// List of References to Assessments created on this group.
 func (o GroupPropertiesResponseOutput) Assessments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) []string { return v.Assessments }).(pulumi.StringArrayOutput)
 }
 
-// Time when this group was created. Date-Time represented in ISO-8601 format.
 func (o GroupPropertiesResponseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Whether the group has been created and is valid.
 func (o GroupPropertiesResponseOutput) GroupStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) string { return v.GroupStatus }).(pulumi.StringOutput)
 }
 
-// The type of group.
 func (o GroupPropertiesResponseOutput) GroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) *string { return v.GroupType }).(pulumi.StringPtrOutput)
 }
 
-// Number of machines part of this group.
 func (o GroupPropertiesResponseOutput) MachineCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) int { return v.MachineCount }).(pulumi.IntOutput)
 }
 
-// Time when this group was last updated. Date-Time represented in ISO-8601 format.
 func (o GroupPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
@@ -3114,7 +2763,6 @@ func (o GroupPropertiesResponsePtrOutput) Elem() GroupPropertiesResponseOutput {
 	}).(GroupPropertiesResponseOutput)
 }
 
-// If the assessments are in running state.
 func (o GroupPropertiesResponsePtrOutput) AreAssessmentsRunning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *bool {
 		if v == nil {
@@ -3124,7 +2772,6 @@ func (o GroupPropertiesResponsePtrOutput) AreAssessmentsRunning() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of References to Assessments created on this group.
 func (o GroupPropertiesResponsePtrOutput) Assessments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) []string {
 		if v == nil {
@@ -3134,7 +2781,6 @@ func (o GroupPropertiesResponsePtrOutput) Assessments() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Time when this group was created. Date-Time represented in ISO-8601 format.
 func (o GroupPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *string {
 		if v == nil {
@@ -3144,7 +2790,6 @@ func (o GroupPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the group has been created and is valid.
 func (o GroupPropertiesResponsePtrOutput) GroupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *string {
 		if v == nil {
@@ -3154,7 +2799,6 @@ func (o GroupPropertiesResponsePtrOutput) GroupStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of group.
 func (o GroupPropertiesResponsePtrOutput) GroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *string {
 		if v == nil {
@@ -3164,7 +2808,6 @@ func (o GroupPropertiesResponsePtrOutput) GroupType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of machines part of this group.
 func (o GroupPropertiesResponsePtrOutput) MachineCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *int {
 		if v == nil {
@@ -3174,7 +2817,6 @@ func (o GroupPropertiesResponsePtrOutput) MachineCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time when this group was last updated. Date-Time represented in ISO-8601 format.
 func (o GroupPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPropertiesResponse) *string {
 		if v == nil {
@@ -3185,12 +2827,9 @@ func (o GroupPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOut
 }
 
 type Identity struct {
-	// Gets or sets the principal id.
 	PrincipalId *string `pulumi:"principalId"`
-	// Gets or sets the tenant id.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the resource mover service.
-	Type *string `pulumi:"type"`
+	TenantId    *string `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -3205,12 +2844,9 @@ type IdentityInput interface {
 }
 
 type IdentityArgs struct {
-	// Gets or sets the principal id.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Gets or sets the tenant id.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the resource mover service.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -3290,17 +2926,14 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// Gets or sets the principal id.
 func (o IdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tenant id.
 func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource mover service.
 func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3329,7 +2962,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// Gets or sets the principal id.
 func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -3339,7 +2971,6 @@ func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tenant id.
 func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -3349,7 +2980,6 @@ func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource mover service.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -3360,12 +2990,9 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type IdentityResponse struct {
-	// Gets or sets the principal id.
 	PrincipalId *string `pulumi:"principalId"`
-	// Gets or sets the tenant id.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the resource mover service.
-	Type *string `pulumi:"type"`
+	TenantId    *string `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -3380,12 +3007,9 @@ type IdentityResponseInput interface {
 }
 
 type IdentityResponseArgs struct {
-	// Gets or sets the principal id.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Gets or sets the tenant id.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the resource mover service.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -3465,17 +3089,14 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// Gets or sets the principal id.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tenant id.
 func (o IdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource mover service.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3504,7 +3125,6 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// Gets or sets the principal id.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3514,7 +3134,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tenant id.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3524,7 +3143,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource mover service.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3831,9 +3449,7 @@ func (o ImportCollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.St
 }
 
 type JobStatusResponse struct {
-	// Defines the job name.
-	JobName string `pulumi:"jobName"`
-	// Gets or sets the monitoring job percentage.
+	JobName     string `pulumi:"jobName"`
 	JobProgress string `pulumi:"jobProgress"`
 }
 
@@ -3849,9 +3465,7 @@ type JobStatusResponseInput interface {
 }
 
 type JobStatusResponseArgs struct {
-	// Defines the job name.
-	JobName pulumi.StringInput `pulumi:"jobName"`
-	// Gets or sets the monitoring job percentage.
+	JobName     pulumi.StringInput `pulumi:"jobName"`
 	JobProgress pulumi.StringInput `pulumi:"jobProgress"`
 }
 
@@ -3932,12 +3546,10 @@ func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutputWithContext(ctx con
 	}).(JobStatusResponsePtrOutput)
 }
 
-// Defines the job name.
 func (o JobStatusResponseOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStatusResponse) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the monitoring job percentage.
 func (o JobStatusResponseOutput) JobProgress() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStatusResponse) string { return v.JobProgress }).(pulumi.StringOutput)
 }
@@ -3966,7 +3578,6 @@ func (o JobStatusResponsePtrOutput) Elem() JobStatusResponseOutput {
 	}).(JobStatusResponseOutput)
 }
 
-// Defines the job name.
 func (o JobStatusResponsePtrOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStatusResponse) *string {
 		if v == nil {
@@ -3976,7 +3587,6 @@ func (o JobStatusResponsePtrOutput) JobName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the monitoring job percentage.
 func (o JobStatusResponsePtrOutput) JobProgress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStatusResponse) *string {
 		if v == nil {
@@ -3987,10 +3597,7 @@ func (o JobStatusResponsePtrOutput) JobProgress() pulumi.StringPtrOutput {
 }
 
 type KeyVaultResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.KeyVault/vaults'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -4006,10 +3613,7 @@ type KeyVaultResourceSettingsInput interface {
 }
 
 type KeyVaultResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.KeyVault/vaults'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -4039,22 +3643,16 @@ func (o KeyVaultResourceSettingsOutput) ToKeyVaultResourceSettingsOutputWithCont
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.KeyVault/vaults'.
 func (o KeyVaultResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o KeyVaultResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type KeyVaultResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.KeyVault/vaults'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -4070,10 +3668,7 @@ type KeyVaultResourceSettingsResponseInput interface {
 }
 
 type KeyVaultResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.KeyVault/vaults'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -4103,19 +3698,15 @@ func (o KeyVaultResourceSettingsResponseOutput) ToKeyVaultResourceSettingsRespon
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.KeyVault/vaults'.
 func (o KeyVaultResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o KeyVaultResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type LBBackendAddressPoolResourceSettings struct {
-	// Gets or sets the backend address pool name.
 	Name *string `pulumi:"name"`
 }
 
@@ -4131,7 +3722,6 @@ type LBBackendAddressPoolResourceSettingsInput interface {
 }
 
 type LBBackendAddressPoolResourceSettingsArgs struct {
-	// Gets or sets the backend address pool name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4186,7 +3776,6 @@ func (o LBBackendAddressPoolResourceSettingsOutput) ToLBBackendAddressPoolResour
 	return o
 }
 
-// Gets or sets the backend address pool name.
 func (o LBBackendAddressPoolResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBBackendAddressPoolResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4212,7 +3801,6 @@ func (o LBBackendAddressPoolResourceSettingsArrayOutput) Index(i pulumi.IntInput
 }
 
 type LBBackendAddressPoolResourceSettingsResponse struct {
-	// Gets or sets the backend address pool name.
 	Name *string `pulumi:"name"`
 }
 
@@ -4228,7 +3816,6 @@ type LBBackendAddressPoolResourceSettingsResponseInput interface {
 }
 
 type LBBackendAddressPoolResourceSettingsResponseArgs struct {
-	// Gets or sets the backend address pool name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4283,7 +3870,6 @@ func (o LBBackendAddressPoolResourceSettingsResponseOutput) ToLBBackendAddressPo
 	return o
 }
 
-// Gets or sets the backend address pool name.
 func (o LBBackendAddressPoolResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBBackendAddressPoolResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4309,17 +3895,11 @@ func (o LBBackendAddressPoolResourceSettingsResponseArrayOutput) Index(i pulumi.
 }
 
 type LBFrontendIPConfigurationResourceSettings struct {
-	// Gets or sets the frontend IP configuration name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-	// private IP address shall be allocated from the subnet specified in subnetRef.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic).
-	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to subnet.
-	Subnet *SubnetReference `pulumi:"subnet"`
-	// Gets or sets the csv list of zones.
-	Zones *string `pulumi:"zones"`
+	Name                      *string          `pulumi:"name"`
+	PrivateIpAddress          *string          `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod *string          `pulumi:"privateIpAllocationMethod"`
+	Subnet                    *SubnetReference `pulumi:"subnet"`
+	Zones                     *string          `pulumi:"zones"`
 }
 
 // LBFrontendIPConfigurationResourceSettingsInput is an input type that accepts LBFrontendIPConfigurationResourceSettingsArgs and LBFrontendIPConfigurationResourceSettingsOutput values.
@@ -4334,17 +3914,11 @@ type LBFrontendIPConfigurationResourceSettingsInput interface {
 }
 
 type LBFrontendIPConfigurationResourceSettingsArgs struct {
-	// Gets or sets the frontend IP configuration name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-	// private IP address shall be allocated from the subnet specified in subnetRef.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic).
-	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to subnet.
-	Subnet SubnetReferencePtrInput `pulumi:"subnet"`
-	// Gets or sets the csv list of zones.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	Name                      pulumi.StringPtrInput   `pulumi:"name"`
+	PrivateIpAddress          pulumi.StringPtrInput   `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod pulumi.StringPtrInput   `pulumi:"privateIpAllocationMethod"`
+	Subnet                    SubnetReferencePtrInput `pulumi:"subnet"`
+	Zones                     pulumi.StringPtrInput   `pulumi:"zones"`
 }
 
 func (LBFrontendIPConfigurationResourceSettingsArgs) ElementType() reflect.Type {
@@ -4398,28 +3972,22 @@ func (o LBFrontendIPConfigurationResourceSettingsOutput) ToLBFrontendIPConfigura
 	return o
 }
 
-// Gets or sets the frontend IP configuration name.
 func (o LBFrontendIPConfigurationResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-// private IP address shall be allocated from the subnet specified in subnetRef.
 func (o LBFrontendIPConfigurationResourceSettingsOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettings) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic).
 func (o LBFrontendIPConfigurationResourceSettingsOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettings) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to subnet.
 func (o LBFrontendIPConfigurationResourceSettingsOutput) Subnet() SubnetReferencePtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettings) *SubnetReference { return v.Subnet }).(SubnetReferencePtrOutput)
 }
 
-// Gets or sets the csv list of zones.
 func (o LBFrontendIPConfigurationResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettings) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
@@ -4445,17 +4013,11 @@ func (o LBFrontendIPConfigurationResourceSettingsArrayOutput) Index(i pulumi.Int
 }
 
 type LBFrontendIPConfigurationResourceSettingsResponse struct {
-	// Gets or sets the frontend IP configuration name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-	// private IP address shall be allocated from the subnet specified in subnetRef.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic).
-	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to subnet.
-	Subnet *SubnetReferenceResponse `pulumi:"subnet"`
-	// Gets or sets the csv list of zones.
-	Zones *string `pulumi:"zones"`
+	Name                      *string                  `pulumi:"name"`
+	PrivateIpAddress          *string                  `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod *string                  `pulumi:"privateIpAllocationMethod"`
+	Subnet                    *SubnetReferenceResponse `pulumi:"subnet"`
+	Zones                     *string                  `pulumi:"zones"`
 }
 
 // LBFrontendIPConfigurationResourceSettingsResponseInput is an input type that accepts LBFrontendIPConfigurationResourceSettingsResponseArgs and LBFrontendIPConfigurationResourceSettingsResponseOutput values.
@@ -4470,17 +4032,11 @@ type LBFrontendIPConfigurationResourceSettingsResponseInput interface {
 }
 
 type LBFrontendIPConfigurationResourceSettingsResponseArgs struct {
-	// Gets or sets the frontend IP configuration name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-	// private IP address shall be allocated from the subnet specified in subnetRef.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic).
-	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to subnet.
-	Subnet SubnetReferenceResponsePtrInput `pulumi:"subnet"`
-	// Gets or sets the csv list of zones.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	Name                      pulumi.StringPtrInput           `pulumi:"name"`
+	PrivateIpAddress          pulumi.StringPtrInput           `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod pulumi.StringPtrInput           `pulumi:"privateIpAllocationMethod"`
+	Subnet                    SubnetReferenceResponsePtrInput `pulumi:"subnet"`
+	Zones                     pulumi.StringPtrInput           `pulumi:"zones"`
 }
 
 func (LBFrontendIPConfigurationResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -4534,28 +4090,22 @@ func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) ToLBFrontendIPC
 	return o
 }
 
-// Gets or sets the frontend IP configuration name.
 func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the IP address of the Load Balancer.This is only specified if a specific
-// private IP address shall be allocated from the subnet specified in subnetRef.
 func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettingsResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic).
 func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettingsResponse) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to subnet.
 func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) Subnet() SubnetReferenceResponsePtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettingsResponse) *SubnetReferenceResponse { return v.Subnet }).(SubnetReferenceResponsePtrOutput)
 }
 
-// Gets or sets the csv list of zones.
 func (o LBFrontendIPConfigurationResourceSettingsResponseOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LBFrontendIPConfigurationResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
@@ -4581,10 +4131,8 @@ func (o LBFrontendIPConfigurationResourceSettingsResponseArrayOutput) Index(i pu
 }
 
 type LoadBalancerBackendAddressPoolReference struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // LoadBalancerBackendAddressPoolReferenceInput is an input type that accepts LoadBalancerBackendAddressPoolReferenceArgs and LoadBalancerBackendAddressPoolReferenceOutput values.
@@ -4599,10 +4147,8 @@ type LoadBalancerBackendAddressPoolReferenceInput interface {
 }
 
 type LoadBalancerBackendAddressPoolReferenceArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (LoadBalancerBackendAddressPoolReferenceArgs) ElementType() reflect.Type {
@@ -4656,12 +4202,10 @@ func (o LoadBalancerBackendAddressPoolReferenceOutput) ToLoadBalancerBackendAddr
 	return o
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o LoadBalancerBackendAddressPoolReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerBackendAddressPoolReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o LoadBalancerBackendAddressPoolReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerBackendAddressPoolReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -4687,10 +4231,8 @@ func (o LoadBalancerBackendAddressPoolReferenceArrayOutput) Index(i pulumi.IntIn
 }
 
 type LoadBalancerBackendAddressPoolReferenceResponse struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // LoadBalancerBackendAddressPoolReferenceResponseInput is an input type that accepts LoadBalancerBackendAddressPoolReferenceResponseArgs and LoadBalancerBackendAddressPoolReferenceResponseOutput values.
@@ -4705,10 +4247,8 @@ type LoadBalancerBackendAddressPoolReferenceResponseInput interface {
 }
 
 type LoadBalancerBackendAddressPoolReferenceResponseArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (LoadBalancerBackendAddressPoolReferenceResponseArgs) ElementType() reflect.Type {
@@ -4762,12 +4302,10 @@ func (o LoadBalancerBackendAddressPoolReferenceResponseOutput) ToLoadBalancerBac
 	return o
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o LoadBalancerBackendAddressPoolReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerBackendAddressPoolReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o LoadBalancerBackendAddressPoolReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerBackendAddressPoolReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -4793,10 +4331,8 @@ func (o LoadBalancerBackendAddressPoolReferenceResponseArrayOutput) Index(i pulu
 }
 
 type LoadBalancerNatRuleReference struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // LoadBalancerNatRuleReferenceInput is an input type that accepts LoadBalancerNatRuleReferenceArgs and LoadBalancerNatRuleReferenceOutput values.
@@ -4811,10 +4347,8 @@ type LoadBalancerNatRuleReferenceInput interface {
 }
 
 type LoadBalancerNatRuleReferenceArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (LoadBalancerNatRuleReferenceArgs) ElementType() reflect.Type {
@@ -4868,12 +4402,10 @@ func (o LoadBalancerNatRuleReferenceOutput) ToLoadBalancerNatRuleReferenceOutput
 	return o
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o LoadBalancerNatRuleReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerNatRuleReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o LoadBalancerNatRuleReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerNatRuleReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -4899,10 +4431,8 @@ func (o LoadBalancerNatRuleReferenceArrayOutput) Index(i pulumi.IntInput) LoadBa
 }
 
 type LoadBalancerNatRuleReferenceResponse struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // LoadBalancerNatRuleReferenceResponseInput is an input type that accepts LoadBalancerNatRuleReferenceResponseArgs and LoadBalancerNatRuleReferenceResponseOutput values.
@@ -4917,10 +4447,8 @@ type LoadBalancerNatRuleReferenceResponseInput interface {
 }
 
 type LoadBalancerNatRuleReferenceResponseArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (LoadBalancerNatRuleReferenceResponseArgs) ElementType() reflect.Type {
@@ -4974,12 +4502,10 @@ func (o LoadBalancerNatRuleReferenceResponseOutput) ToLoadBalancerNatRuleReferen
 	return o
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o LoadBalancerNatRuleReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerNatRuleReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o LoadBalancerNatRuleReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerNatRuleReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -5005,20 +4531,12 @@ func (o LoadBalancerNatRuleReferenceResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 type LoadBalancerResourceSettings struct {
-	// Gets or sets the backend address pools of the load balancer.
-	BackendAddressPools []LBBackendAddressPoolResourceSettings `pulumi:"backendAddressPools"`
-	// Gets or sets the frontend IP configurations of the load balancer.
+	BackendAddressPools      []LBBackendAddressPoolResourceSettings      `pulumi:"backendAddressPools"`
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettings `pulumi:"frontendIPConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/loadBalancers'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets load balancer sku (Basic/Standard).
-	Sku *string `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-	//  precedence only if frontend IP configurations settings are not present.
-	Zones *string `pulumi:"zones"`
+	ResourceType             string                                      `pulumi:"resourceType"`
+	Sku                      *string                                     `pulumi:"sku"`
+	TargetResourceName       string                                      `pulumi:"targetResourceName"`
+	Zones                    *string                                     `pulumi:"zones"`
 }
 
 // LoadBalancerResourceSettingsInput is an input type that accepts LoadBalancerResourceSettingsArgs and LoadBalancerResourceSettingsOutput values.
@@ -5033,20 +4551,12 @@ type LoadBalancerResourceSettingsInput interface {
 }
 
 type LoadBalancerResourceSettingsArgs struct {
-	// Gets or sets the backend address pools of the load balancer.
-	BackendAddressPools LBBackendAddressPoolResourceSettingsArrayInput `pulumi:"backendAddressPools"`
-	// Gets or sets the frontend IP configurations of the load balancer.
+	BackendAddressPools      LBBackendAddressPoolResourceSettingsArrayInput      `pulumi:"backendAddressPools"`
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsArrayInput `pulumi:"frontendIPConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/loadBalancers'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets load balancer sku (Basic/Standard).
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-	//  precedence only if frontend IP configurations settings are not present.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	ResourceType             pulumi.StringInput                                  `pulumi:"resourceType"`
+	Sku                      pulumi.StringPtrInput                               `pulumi:"sku"`
+	TargetResourceName       pulumi.StringInput                                  `pulumi:"targetResourceName"`
+	Zones                    pulumi.StringPtrInput                               `pulumi:"zones"`
 }
 
 func (LoadBalancerResourceSettingsArgs) ElementType() reflect.Type {
@@ -5075,57 +4585,41 @@ func (o LoadBalancerResourceSettingsOutput) ToLoadBalancerResourceSettingsOutput
 	return o
 }
 
-// Gets or sets the backend address pools of the load balancer.
 func (o LoadBalancerResourceSettingsOutput) BackendAddressPools() LBBackendAddressPoolResourceSettingsArrayOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) []LBBackendAddressPoolResourceSettings {
 		return v.BackendAddressPools
 	}).(LBBackendAddressPoolResourceSettingsArrayOutput)
 }
 
-// Gets or sets the frontend IP configurations of the load balancer.
 func (o LoadBalancerResourceSettingsOutput) FrontendIPConfigurations() LBFrontendIPConfigurationResourceSettingsArrayOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) []LBFrontendIPConfigurationResourceSettings {
 		return v.FrontendIPConfigurations
 	}).(LBFrontendIPConfigurationResourceSettingsArrayOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/loadBalancers'.
 func (o LoadBalancerResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets load balancer sku (Basic/Standard).
 func (o LoadBalancerResourceSettingsOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o LoadBalancerResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-//  precedence only if frontend IP configurations settings are not present.
 func (o LoadBalancerResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
 type LoadBalancerResourceSettingsResponse struct {
-	// Gets or sets the backend address pools of the load balancer.
-	BackendAddressPools []LBBackendAddressPoolResourceSettingsResponse `pulumi:"backendAddressPools"`
-	// Gets or sets the frontend IP configurations of the load balancer.
+	BackendAddressPools      []LBBackendAddressPoolResourceSettingsResponse      `pulumi:"backendAddressPools"`
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettingsResponse `pulumi:"frontendIPConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/loadBalancers'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets load balancer sku (Basic/Standard).
-	Sku *string `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-	//  precedence only if frontend IP configurations settings are not present.
-	Zones *string `pulumi:"zones"`
+	ResourceType             string                                              `pulumi:"resourceType"`
+	Sku                      *string                                             `pulumi:"sku"`
+	TargetResourceName       string                                              `pulumi:"targetResourceName"`
+	Zones                    *string                                             `pulumi:"zones"`
 }
 
 // LoadBalancerResourceSettingsResponseInput is an input type that accepts LoadBalancerResourceSettingsResponseArgs and LoadBalancerResourceSettingsResponseOutput values.
@@ -5140,20 +4634,12 @@ type LoadBalancerResourceSettingsResponseInput interface {
 }
 
 type LoadBalancerResourceSettingsResponseArgs struct {
-	// Gets or sets the backend address pools of the load balancer.
-	BackendAddressPools LBBackendAddressPoolResourceSettingsResponseArrayInput `pulumi:"backendAddressPools"`
-	// Gets or sets the frontend IP configurations of the load balancer.
+	BackendAddressPools      LBBackendAddressPoolResourceSettingsResponseArrayInput      `pulumi:"backendAddressPools"`
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsResponseArrayInput `pulumi:"frontendIPConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/loadBalancers'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets load balancer sku (Basic/Standard).
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-	//  precedence only if frontend IP configurations settings are not present.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	ResourceType             pulumi.StringInput                                          `pulumi:"resourceType"`
+	Sku                      pulumi.StringPtrInput                                       `pulumi:"sku"`
+	TargetResourceName       pulumi.StringInput                                          `pulumi:"targetResourceName"`
+	Zones                    pulumi.StringPtrInput                                       `pulumi:"zones"`
 }
 
 func (LoadBalancerResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -5182,44 +4668,35 @@ func (o LoadBalancerResourceSettingsResponseOutput) ToLoadBalancerResourceSettin
 	return o
 }
 
-// Gets or sets the backend address pools of the load balancer.
 func (o LoadBalancerResourceSettingsResponseOutput) BackendAddressPools() LBBackendAddressPoolResourceSettingsResponseArrayOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) []LBBackendAddressPoolResourceSettingsResponse {
 		return v.BackendAddressPools
 	}).(LBBackendAddressPoolResourceSettingsResponseArrayOutput)
 }
 
-// Gets or sets the frontend IP configurations of the load balancer.
 func (o LoadBalancerResourceSettingsResponseOutput) FrontendIPConfigurations() LBFrontendIPConfigurationResourceSettingsResponseArrayOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) []LBFrontendIPConfigurationResourceSettingsResponse {
 		return v.FrontendIPConfigurations
 	}).(LBFrontendIPConfigurationResourceSettingsResponseArrayOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/loadBalancers'.
 func (o LoadBalancerResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets load balancer sku (Basic/Standard).
 func (o LoadBalancerResourceSettingsResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o LoadBalancerResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
-//  precedence only if frontend IP configurations settings are not present.
 func (o LoadBalancerResourceSettingsResponseOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
 type ManualResolutionPropertiesResponse struct {
-	// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -5235,7 +4712,6 @@ type ManualResolutionPropertiesResponseInput interface {
 }
 
 type ManualResolutionPropertiesResponseArgs struct {
-	// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
@@ -5316,7 +4792,6 @@ func (o ManualResolutionPropertiesResponseOutput) ToManualResolutionPropertiesRe
 	}).(ManualResolutionPropertiesResponsePtrOutput)
 }
 
-// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 func (o ManualResolutionPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManualResolutionPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
@@ -5345,7 +4820,6 @@ func (o ManualResolutionPropertiesResponsePtrOutput) Elem() ManualResolutionProp
 	}).(ManualResolutionPropertiesResponseOutput)
 }
 
-// Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
 func (o ManualResolutionPropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManualResolutionPropertiesResponse) *string {
 		if v == nil {
@@ -5356,10 +4830,8 @@ func (o ManualResolutionPropertiesResponsePtrOutput) TargetId() pulumi.StringPtr
 }
 
 type MigrateProjectProperties struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools []string `pulumi:"registeredTools"`
+	ProvisioningState *string  `pulumi:"provisioningState"`
+	RegisteredTools   []string `pulumi:"registeredTools"`
 }
 
 // MigrateProjectPropertiesInput is an input type that accepts MigrateProjectPropertiesArgs and MigrateProjectPropertiesOutput values.
@@ -5374,10 +4846,8 @@ type MigrateProjectPropertiesInput interface {
 }
 
 type MigrateProjectPropertiesArgs struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
+	ProvisioningState pulumi.StringPtrInput   `pulumi:"provisioningState"`
+	RegisteredTools   pulumi.StringArrayInput `pulumi:"registeredTools"`
 }
 
 func (MigrateProjectPropertiesArgs) ElementType() reflect.Type {
@@ -5457,12 +4927,10 @@ func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutputWithC
 	}).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
@@ -5491,7 +4959,6 @@ func (o MigrateProjectPropertiesPtrOutput) Elem() MigrateProjectPropertiesOutput
 	}).(MigrateProjectPropertiesOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
@@ -5501,7 +4968,6 @@ func (o MigrateProjectPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) []string {
 		if v == nil {
@@ -5512,16 +4978,11 @@ func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayO
 }
 
 type MigrateProjectPropertiesResponse struct {
-	// Gets the last time the project summary was refreshed.
-	LastSummaryRefreshedTime string `pulumi:"lastSummaryRefreshedTime"`
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets the refresh summary state.
-	RefreshSummaryState string `pulumi:"refreshSummaryState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools []string `pulumi:"registeredTools"`
-	// Gets the summary of the migrate project.
-	Summary map[string]interface{} `pulumi:"summary"`
+	LastSummaryRefreshedTime string                 `pulumi:"lastSummaryRefreshedTime"`
+	ProvisioningState        *string                `pulumi:"provisioningState"`
+	RefreshSummaryState      string                 `pulumi:"refreshSummaryState"`
+	RegisteredTools          []string               `pulumi:"registeredTools"`
+	Summary                  map[string]interface{} `pulumi:"summary"`
 }
 
 // MigrateProjectPropertiesResponseInput is an input type that accepts MigrateProjectPropertiesResponseArgs and MigrateProjectPropertiesResponseOutput values.
@@ -5536,16 +4997,11 @@ type MigrateProjectPropertiesResponseInput interface {
 }
 
 type MigrateProjectPropertiesResponseArgs struct {
-	// Gets the last time the project summary was refreshed.
-	LastSummaryRefreshedTime pulumi.StringInput `pulumi:"lastSummaryRefreshedTime"`
-	// Provisioning state of the migrate project.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets the refresh summary state.
-	RefreshSummaryState pulumi.StringInput `pulumi:"refreshSummaryState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
-	// Gets the summary of the migrate project.
-	Summary pulumi.MapInput `pulumi:"summary"`
+	LastSummaryRefreshedTime pulumi.StringInput      `pulumi:"lastSummaryRefreshedTime"`
+	ProvisioningState        pulumi.StringPtrInput   `pulumi:"provisioningState"`
+	RefreshSummaryState      pulumi.StringInput      `pulumi:"refreshSummaryState"`
+	RegisteredTools          pulumi.StringArrayInput `pulumi:"registeredTools"`
+	Summary                  pulumi.MapInput         `pulumi:"summary"`
 }
 
 func (MigrateProjectPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5625,27 +5081,22 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 	}).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Gets the last time the project summary was refreshed.
 func (o MigrateProjectPropertiesResponseOutput) LastSummaryRefreshedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.LastSummaryRefreshedTime }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets the refresh summary state.
 func (o MigrateProjectPropertiesResponseOutput) RefreshSummaryState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.RefreshSummaryState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
 
-// Gets the summary of the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) Summary() pulumi.MapOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]interface{} { return v.Summary }).(pulumi.MapOutput)
 }
@@ -5674,7 +5125,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) Elem() MigrateProjectProperti
 	}).(MigrateProjectPropertiesResponseOutput)
 }
 
-// Gets the last time the project summary was refreshed.
 func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -5684,7 +5134,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -5694,7 +5143,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the refresh summary state.
 func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -5704,7 +5152,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) []string {
 		if v == nil {
@@ -5714,7 +5161,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets the summary of the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) Summary() pulumi.MapOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) map[string]interface{} {
 		if v == nil {
@@ -5991,9 +5437,7 @@ func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutp
 }
 
 type MoveCollectionProperties struct {
-	// Gets or sets the source region.
 	SourceRegion string `pulumi:"sourceRegion"`
-	// Gets or sets the target region.
 	TargetRegion string `pulumi:"targetRegion"`
 }
 
@@ -6009,9 +5453,7 @@ type MoveCollectionPropertiesInput interface {
 }
 
 type MoveCollectionPropertiesArgs struct {
-	// Gets or sets the source region.
 	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
-	// Gets or sets the target region.
 	TargetRegion pulumi.StringInput `pulumi:"targetRegion"`
 }
 
@@ -6092,12 +5534,10 @@ func (o MoveCollectionPropertiesOutput) ToMoveCollectionPropertiesPtrOutputWithC
 	}).(MoveCollectionPropertiesPtrOutput)
 }
 
-// Gets or sets the source region.
 func (o MoveCollectionPropertiesOutput) SourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionProperties) string { return v.SourceRegion }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target region.
 func (o MoveCollectionPropertiesOutput) TargetRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionProperties) string { return v.TargetRegion }).(pulumi.StringOutput)
 }
@@ -6126,7 +5566,6 @@ func (o MoveCollectionPropertiesPtrOutput) Elem() MoveCollectionPropertiesOutput
 	}).(MoveCollectionPropertiesOutput)
 }
 
-// Gets or sets the source region.
 func (o MoveCollectionPropertiesPtrOutput) SourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionProperties) *string {
 		if v == nil {
@@ -6136,7 +5575,6 @@ func (o MoveCollectionPropertiesPtrOutput) SourceRegion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target region.
 func (o MoveCollectionPropertiesPtrOutput) TargetRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionProperties) *string {
 		if v == nil {
@@ -6147,14 +5585,10 @@ func (o MoveCollectionPropertiesPtrOutput) TargetRegion() pulumi.StringPtrOutput
 }
 
 type MoveCollectionPropertiesResponse struct {
-	// Defines the move collection errors.
-	Errors MoveCollectionPropertiesResponseErrors `pulumi:"errors"`
-	// Defines the provisioning states.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets or sets the source region.
-	SourceRegion string `pulumi:"sourceRegion"`
-	// Gets or sets the target region.
-	TargetRegion string `pulumi:"targetRegion"`
+	Errors            MoveCollectionPropertiesResponseErrors `pulumi:"errors"`
+	ProvisioningState string                                 `pulumi:"provisioningState"`
+	SourceRegion      string                                 `pulumi:"sourceRegion"`
+	TargetRegion      string                                 `pulumi:"targetRegion"`
 }
 
 // MoveCollectionPropertiesResponseInput is an input type that accepts MoveCollectionPropertiesResponseArgs and MoveCollectionPropertiesResponseOutput values.
@@ -6169,14 +5603,10 @@ type MoveCollectionPropertiesResponseInput interface {
 }
 
 type MoveCollectionPropertiesResponseArgs struct {
-	// Defines the move collection errors.
-	Errors MoveCollectionPropertiesResponseErrorsInput `pulumi:"errors"`
-	// Defines the provisioning states.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Gets or sets the source region.
-	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
-	// Gets or sets the target region.
-	TargetRegion pulumi.StringInput `pulumi:"targetRegion"`
+	Errors            MoveCollectionPropertiesResponseErrorsInput `pulumi:"errors"`
+	ProvisioningState pulumi.StringInput                          `pulumi:"provisioningState"`
+	SourceRegion      pulumi.StringInput                          `pulumi:"sourceRegion"`
+	TargetRegion      pulumi.StringInput                          `pulumi:"targetRegion"`
 }
 
 func (MoveCollectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -6256,22 +5686,18 @@ func (o MoveCollectionPropertiesResponseOutput) ToMoveCollectionPropertiesRespon
 	}).(MoveCollectionPropertiesResponsePtrOutput)
 }
 
-// Defines the move collection errors.
 func (o MoveCollectionPropertiesResponseOutput) Errors() MoveCollectionPropertiesResponseErrorsOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponse) MoveCollectionPropertiesResponseErrors { return v.Errors }).(MoveCollectionPropertiesResponseErrorsOutput)
 }
 
-// Defines the provisioning states.
 func (o MoveCollectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the source region.
 func (o MoveCollectionPropertiesResponseOutput) SourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponse) string { return v.SourceRegion }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target region.
 func (o MoveCollectionPropertiesResponseOutput) TargetRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponse) string { return v.TargetRegion }).(pulumi.StringOutput)
 }
@@ -6300,7 +5726,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) Elem() MoveCollectionProperti
 	}).(MoveCollectionPropertiesResponseOutput)
 }
 
-// Defines the move collection errors.
 func (o MoveCollectionPropertiesResponsePtrOutput) Errors() MoveCollectionPropertiesResponseErrorsPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *MoveCollectionPropertiesResponseErrors {
 		if v == nil {
@@ -6310,7 +5735,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) Errors() MoveCollectionProper
 	}).(MoveCollectionPropertiesResponseErrorsPtrOutput)
 }
 
-// Defines the provisioning states.
 func (o MoveCollectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *string {
 		if v == nil {
@@ -6320,7 +5744,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the source region.
 func (o MoveCollectionPropertiesResponsePtrOutput) SourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *string {
 		if v == nil {
@@ -6330,7 +5753,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) SourceRegion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target region.
 func (o MoveCollectionPropertiesResponsePtrOutput) TargetRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *string {
 		if v == nil {
@@ -6341,7 +5763,6 @@ func (o MoveCollectionPropertiesResponsePtrOutput) TargetRegion() pulumi.StringP
 }
 
 type MoveCollectionPropertiesResponseErrors struct {
-	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
 }
 
@@ -6357,7 +5778,6 @@ type MoveCollectionPropertiesResponseErrorsInput interface {
 }
 
 type MoveCollectionPropertiesResponseErrorsArgs struct {
-	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
 }
 
@@ -6438,7 +5858,6 @@ func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionProperties
 	}).(MoveCollectionPropertiesResponseErrorsPtrOutput)
 }
 
-// The move resource error body.
 func (o MoveCollectionPropertiesResponseErrorsOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponseErrors) *MoveResourceErrorBodyResponse { return v.Properties }).(MoveResourceErrorBodyResponsePtrOutput)
 }
@@ -6467,7 +5886,6 @@ func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Elem() MoveCollectionPr
 	}).(MoveCollectionPropertiesResponseErrorsOutput)
 }
 
-// The move resource error body.
 func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponseErrors) *MoveResourceErrorBodyResponse {
 		if v == nil {
@@ -6478,10 +5896,7 @@ func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Properties() MoveResour
 }
 
 type MoveResourceDependencyOverride struct {
-	// Gets or sets the ARM ID of the dependent resource.
-	Id *string `pulumi:"id"`
-	// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-	// the dependent resource.
+	Id       *string `pulumi:"id"`
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -6497,10 +5912,7 @@ type MoveResourceDependencyOverrideInput interface {
 }
 
 type MoveResourceDependencyOverrideArgs struct {
-	// Gets or sets the ARM ID of the dependent resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-	// the dependent resource.
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
@@ -6555,13 +5967,10 @@ func (o MoveResourceDependencyOverrideOutput) ToMoveResourceDependencyOverrideOu
 	return o
 }
 
-// Gets or sets the ARM ID of the dependent resource.
 func (o MoveResourceDependencyOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-// the dependent resource.
 func (o MoveResourceDependencyOverrideOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyOverride) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
@@ -6587,10 +5996,7 @@ func (o MoveResourceDependencyOverrideArrayOutput) Index(i pulumi.IntInput) Move
 }
 
 type MoveResourceDependencyOverrideResponse struct {
-	// Gets or sets the ARM ID of the dependent resource.
-	Id *string `pulumi:"id"`
-	// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-	// the dependent resource.
+	Id       *string `pulumi:"id"`
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -6606,10 +6012,7 @@ type MoveResourceDependencyOverrideResponseInput interface {
 }
 
 type MoveResourceDependencyOverrideResponseArgs struct {
-	// Gets or sets the ARM ID of the dependent resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-	// the dependent resource.
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
@@ -6664,13 +6067,10 @@ func (o MoveResourceDependencyOverrideResponseOutput) ToMoveResourceDependencyOv
 	return o
 }
 
-// Gets or sets the ARM ID of the dependent resource.
 func (o MoveResourceDependencyOverrideResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyOverrideResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
-// the dependent resource.
 func (o MoveResourceDependencyOverrideResponseOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyOverrideResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
@@ -6696,20 +6096,13 @@ func (o MoveResourceDependencyOverrideResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 type MoveResourceDependencyResponse struct {
-	// Defines the properties for automatic resolution.
 	AutomaticResolution *AutomaticResolutionPropertiesResponse `pulumi:"automaticResolution"`
-	// Defines the dependency type.
-	DependencyType *string `pulumi:"dependencyType"`
-	// Gets the source ARM ID of the dependent resource.
-	Id *string `pulumi:"id"`
-	// Gets or sets a value indicating whether the dependency is optional.
-	IsOptional *string `pulumi:"isOptional"`
-	// Defines the properties for manual resolution.
-	ManualResolution *ManualResolutionPropertiesResponse `pulumi:"manualResolution"`
-	// Gets the dependency resolution status.
-	ResolutionStatus *string `pulumi:"resolutionStatus"`
-	// Defines the resolution type.
-	ResolutionType *string `pulumi:"resolutionType"`
+	DependencyType      *string                                `pulumi:"dependencyType"`
+	Id                  *string                                `pulumi:"id"`
+	IsOptional          *string                                `pulumi:"isOptional"`
+	ManualResolution    *ManualResolutionPropertiesResponse    `pulumi:"manualResolution"`
+	ResolutionStatus    *string                                `pulumi:"resolutionStatus"`
+	ResolutionType      *string                                `pulumi:"resolutionType"`
 }
 
 // MoveResourceDependencyResponseInput is an input type that accepts MoveResourceDependencyResponseArgs and MoveResourceDependencyResponseOutput values.
@@ -6724,20 +6117,13 @@ type MoveResourceDependencyResponseInput interface {
 }
 
 type MoveResourceDependencyResponseArgs struct {
-	// Defines the properties for automatic resolution.
 	AutomaticResolution AutomaticResolutionPropertiesResponsePtrInput `pulumi:"automaticResolution"`
-	// Defines the dependency type.
-	DependencyType pulumi.StringPtrInput `pulumi:"dependencyType"`
-	// Gets the source ARM ID of the dependent resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets a value indicating whether the dependency is optional.
-	IsOptional pulumi.StringPtrInput `pulumi:"isOptional"`
-	// Defines the properties for manual resolution.
-	ManualResolution ManualResolutionPropertiesResponsePtrInput `pulumi:"manualResolution"`
-	// Gets the dependency resolution status.
-	ResolutionStatus pulumi.StringPtrInput `pulumi:"resolutionStatus"`
-	// Defines the resolution type.
-	ResolutionType pulumi.StringPtrInput `pulumi:"resolutionType"`
+	DependencyType      pulumi.StringPtrInput                         `pulumi:"dependencyType"`
+	Id                  pulumi.StringPtrInput                         `pulumi:"id"`
+	IsOptional          pulumi.StringPtrInput                         `pulumi:"isOptional"`
+	ManualResolution    ManualResolutionPropertiesResponsePtrInput    `pulumi:"manualResolution"`
+	ResolutionStatus    pulumi.StringPtrInput                         `pulumi:"resolutionStatus"`
+	ResolutionType      pulumi.StringPtrInput                         `pulumi:"resolutionType"`
 }
 
 func (MoveResourceDependencyResponseArgs) ElementType() reflect.Type {
@@ -6791,39 +6177,32 @@ func (o MoveResourceDependencyResponseOutput) ToMoveResourceDependencyResponseOu
 	return o
 }
 
-// Defines the properties for automatic resolution.
 func (o MoveResourceDependencyResponseOutput) AutomaticResolution() AutomaticResolutionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *AutomaticResolutionPropertiesResponse {
 		return v.AutomaticResolution
 	}).(AutomaticResolutionPropertiesResponsePtrOutput)
 }
 
-// Defines the dependency type.
 func (o MoveResourceDependencyResponseOutput) DependencyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *string { return v.DependencyType }).(pulumi.StringPtrOutput)
 }
 
-// Gets the source ARM ID of the dependent resource.
 func (o MoveResourceDependencyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a value indicating whether the dependency is optional.
 func (o MoveResourceDependencyResponseOutput) IsOptional() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *string { return v.IsOptional }).(pulumi.StringPtrOutput)
 }
 
-// Defines the properties for manual resolution.
 func (o MoveResourceDependencyResponseOutput) ManualResolution() ManualResolutionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *ManualResolutionPropertiesResponse { return v.ManualResolution }).(ManualResolutionPropertiesResponsePtrOutput)
 }
 
-// Gets the dependency resolution status.
 func (o MoveResourceDependencyResponseOutput) ResolutionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *string { return v.ResolutionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Defines the resolution type.
 func (o MoveResourceDependencyResponseOutput) ResolutionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceDependencyResponse) *string { return v.ResolutionType }).(pulumi.StringPtrOutput)
 }
@@ -6849,14 +6228,10 @@ func (o MoveResourceDependencyResponseArrayOutput) Index(i pulumi.IntInput) Move
 }
 
 type MoveResourceErrorBodyResponse struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code string `pulumi:"code"`
-	// A list of additional details about the error.
+	Code    string                          `pulumi:"code"`
 	Details []MoveResourceErrorBodyResponse `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message string `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target string `pulumi:"target"`
+	Message string                          `pulumi:"message"`
+	Target  string                          `pulumi:"target"`
 }
 
 // MoveResourceErrorBodyResponseInput is an input type that accepts MoveResourceErrorBodyResponseArgs and MoveResourceErrorBodyResponseOutput values.
@@ -6871,14 +6246,10 @@ type MoveResourceErrorBodyResponseInput interface {
 }
 
 type MoveResourceErrorBodyResponseArgs struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code pulumi.StringInput `pulumi:"code"`
-	// A list of additional details about the error.
+	Code    pulumi.StringInput                      `pulumi:"code"`
 	Details MoveResourceErrorBodyResponseArrayInput `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target pulumi.StringInput `pulumi:"target"`
+	Message pulumi.StringInput                      `pulumi:"message"`
+	Target  pulumi.StringInput                      `pulumi:"target"`
 }
 
 func (MoveResourceErrorBodyResponseArgs) ElementType() reflect.Type {
@@ -6983,22 +6354,18 @@ func (o MoveResourceErrorBodyResponseOutput) ToMoveResourceErrorBodyResponsePtrO
 	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
 
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 func (o MoveResourceErrorBodyResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourceErrorBodyResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// A list of additional details about the error.
 func (o MoveResourceErrorBodyResponseOutput) Details() MoveResourceErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v MoveResourceErrorBodyResponse) []MoveResourceErrorBodyResponse { return v.Details }).(MoveResourceErrorBodyResponseArrayOutput)
 }
 
-// A message describing the error, intended to be suitable for display in a user interface.
 func (o MoveResourceErrorBodyResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourceErrorBodyResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The target of the particular error. For example, the name of the property in error.
 func (o MoveResourceErrorBodyResponseOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourceErrorBodyResponse) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -7027,7 +6394,6 @@ func (o MoveResourceErrorBodyResponsePtrOutput) Elem() MoveResourceErrorBodyResp
 	}).(MoveResourceErrorBodyResponseOutput)
 }
 
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
 func (o MoveResourceErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) *string {
 		if v == nil {
@@ -7037,7 +6403,6 @@ func (o MoveResourceErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of additional details about the error.
 func (o MoveResourceErrorBodyResponsePtrOutput) Details() MoveResourceErrorBodyResponseArrayOutput {
 	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) []MoveResourceErrorBodyResponse {
 		if v == nil {
@@ -7047,7 +6412,6 @@ func (o MoveResourceErrorBodyResponsePtrOutput) Details() MoveResourceErrorBodyR
 	}).(MoveResourceErrorBodyResponseArrayOutput)
 }
 
-// A message describing the error, intended to be suitable for display in a user interface.
 func (o MoveResourceErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) *string {
 		if v == nil {
@@ -7057,7 +6421,6 @@ func (o MoveResourceErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target of the particular error. For example, the name of the property in error.
 func (o MoveResourceErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) *string {
 		if v == nil {
@@ -7088,7 +6451,6 @@ func (o MoveResourceErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) MoveR
 }
 
 type MoveResourceErrorResponse struct {
-	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
 }
 
@@ -7104,7 +6466,6 @@ type MoveResourceErrorResponseInput interface {
 }
 
 type MoveResourceErrorResponseArgs struct {
-	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
 }
 
@@ -7185,7 +6546,6 @@ func (o MoveResourceErrorResponseOutput) ToMoveResourceErrorResponsePtrOutputWit
 	}).(MoveResourceErrorResponsePtrOutput)
 }
 
-// The move resource error body.
 func (o MoveResourceErrorResponseOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourceErrorResponse) *MoveResourceErrorBodyResponse { return v.Properties }).(MoveResourceErrorBodyResponsePtrOutput)
 }
@@ -7214,7 +6574,6 @@ func (o MoveResourceErrorResponsePtrOutput) Elem() MoveResourceErrorResponseOutp
 	}).(MoveResourceErrorResponseOutput)
 }
 
-// The move resource error body.
 func (o MoveResourceErrorResponsePtrOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v *MoveResourceErrorResponse) *MoveResourceErrorBodyResponse {
 		if v == nil {
@@ -7225,14 +6584,10 @@ func (o MoveResourceErrorResponsePtrOutput) Properties() MoveResourceErrorBodyRe
 }
 
 type MoveResourceProperties struct {
-	// Gets or sets the move resource dependencies overrides.
 	DependsOnOverrides []MoveResourceDependencyOverride `pulumi:"dependsOnOverrides"`
-	// Gets or sets the existing target ARM Id of the resource.
-	ExistingTargetId *string `pulumi:"existingTargetId"`
-	// Gets or sets the resource settings.
-	ResourceSettings interface{} `pulumi:"resourceSettings"`
-	// Gets or sets the Source ARM Id of the resource.
-	SourceId string `pulumi:"sourceId"`
+	ExistingTargetId   *string                          `pulumi:"existingTargetId"`
+	ResourceSettings   interface{}                      `pulumi:"resourceSettings"`
+	SourceId           string                           `pulumi:"sourceId"`
 }
 
 // MoveResourcePropertiesInput is an input type that accepts MoveResourcePropertiesArgs and MoveResourcePropertiesOutput values.
@@ -7247,14 +6602,10 @@ type MoveResourcePropertiesInput interface {
 }
 
 type MoveResourcePropertiesArgs struct {
-	// Gets or sets the move resource dependencies overrides.
 	DependsOnOverrides MoveResourceDependencyOverrideArrayInput `pulumi:"dependsOnOverrides"`
-	// Gets or sets the existing target ARM Id of the resource.
-	ExistingTargetId pulumi.StringPtrInput `pulumi:"existingTargetId"`
-	// Gets or sets the resource settings.
-	ResourceSettings pulumi.Input `pulumi:"resourceSettings"`
-	// Gets or sets the Source ARM Id of the resource.
-	SourceId pulumi.StringInput `pulumi:"sourceId"`
+	ExistingTargetId   pulumi.StringPtrInput                    `pulumi:"existingTargetId"`
+	ResourceSettings   pulumi.Input                             `pulumi:"resourceSettings"`
+	SourceId           pulumi.StringInput                       `pulumi:"sourceId"`
 }
 
 func (MoveResourcePropertiesArgs) ElementType() reflect.Type {
@@ -7334,22 +6685,18 @@ func (o MoveResourcePropertiesOutput) ToMoveResourcePropertiesPtrOutputWithConte
 	}).(MoveResourcePropertiesPtrOutput)
 }
 
-// Gets or sets the move resource dependencies overrides.
 func (o MoveResourcePropertiesOutput) DependsOnOverrides() MoveResourceDependencyOverrideArrayOutput {
 	return o.ApplyT(func(v MoveResourceProperties) []MoveResourceDependencyOverride { return v.DependsOnOverrides }).(MoveResourceDependencyOverrideArrayOutput)
 }
 
-// Gets or sets the existing target ARM Id of the resource.
 func (o MoveResourcePropertiesOutput) ExistingTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourceProperties) *string { return v.ExistingTargetId }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the resource settings.
 func (o MoveResourcePropertiesOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v MoveResourceProperties) interface{} { return v.ResourceSettings }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Source ARM Id of the resource.
 func (o MoveResourcePropertiesOutput) SourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourceProperties) string { return v.SourceId }).(pulumi.StringOutput)
 }
@@ -7378,7 +6725,6 @@ func (o MoveResourcePropertiesPtrOutput) Elem() MoveResourcePropertiesOutput {
 	}).(MoveResourcePropertiesOutput)
 }
 
-// Gets or sets the move resource dependencies overrides.
 func (o MoveResourcePropertiesPtrOutput) DependsOnOverrides() MoveResourceDependencyOverrideArrayOutput {
 	return o.ApplyT(func(v *MoveResourceProperties) []MoveResourceDependencyOverride {
 		if v == nil {
@@ -7388,7 +6734,6 @@ func (o MoveResourcePropertiesPtrOutput) DependsOnOverrides() MoveResourceDepend
 	}).(MoveResourceDependencyOverrideArrayOutput)
 }
 
-// Gets or sets the existing target ARM Id of the resource.
 func (o MoveResourcePropertiesPtrOutput) ExistingTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourceProperties) *string {
 		if v == nil {
@@ -7398,7 +6743,6 @@ func (o MoveResourcePropertiesPtrOutput) ExistingTargetId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the resource settings.
 func (o MoveResourcePropertiesPtrOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MoveResourceProperties) interface{} {
 		if v == nil {
@@ -7408,7 +6752,6 @@ func (o MoveResourcePropertiesPtrOutput) ResourceSettings() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Source ARM Id of the resource.
 func (o MoveResourcePropertiesPtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourceProperties) *string {
 		if v == nil {
@@ -7419,28 +6762,17 @@ func (o MoveResourcePropertiesPtrOutput) SourceId() pulumi.StringPtrOutput {
 }
 
 type MoveResourcePropertiesResponse struct {
-	// Gets or sets the move resource dependencies.
-	DependsOn []MoveResourceDependencyResponse `pulumi:"dependsOn"`
-	// Gets or sets the move resource dependencies overrides.
-	DependsOnOverrides []MoveResourceDependencyOverrideResponse `pulumi:"dependsOnOverrides"`
-	// Defines the move resource errors.
-	Errors MoveResourcePropertiesResponseErrors `pulumi:"errors"`
-	// Gets or sets the existing target ARM Id of the resource.
-	ExistingTargetId *string `pulumi:"existingTargetId"`
-	// Gets a value indicating whether the resolve action is required over the move collection.
-	IsResolveRequired bool `pulumi:"isResolveRequired"`
-	// Defines the move resource status.
-	MoveStatus MoveResourcePropertiesResponseMoveStatus `pulumi:"moveStatus"`
-	// Defines the provisioning states.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets or sets the resource settings.
-	ResourceSettings interface{} `pulumi:"resourceSettings"`
-	// Gets or sets the Source ARM Id of the resource.
-	SourceId string `pulumi:"sourceId"`
-	// Gets or sets the source resource settings.
-	SourceResourceSettings interface{} `pulumi:"sourceResourceSettings"`
-	// Gets or sets the Target ARM Id of the resource.
-	TargetId string `pulumi:"targetId"`
+	DependsOn              []MoveResourceDependencyResponse         `pulumi:"dependsOn"`
+	DependsOnOverrides     []MoveResourceDependencyOverrideResponse `pulumi:"dependsOnOverrides"`
+	Errors                 MoveResourcePropertiesResponseErrors     `pulumi:"errors"`
+	ExistingTargetId       *string                                  `pulumi:"existingTargetId"`
+	IsResolveRequired      bool                                     `pulumi:"isResolveRequired"`
+	MoveStatus             MoveResourcePropertiesResponseMoveStatus `pulumi:"moveStatus"`
+	ProvisioningState      string                                   `pulumi:"provisioningState"`
+	ResourceSettings       interface{}                              `pulumi:"resourceSettings"`
+	SourceId               string                                   `pulumi:"sourceId"`
+	SourceResourceSettings interface{}                              `pulumi:"sourceResourceSettings"`
+	TargetId               string                                   `pulumi:"targetId"`
 }
 
 // MoveResourcePropertiesResponseInput is an input type that accepts MoveResourcePropertiesResponseArgs and MoveResourcePropertiesResponseOutput values.
@@ -7455,28 +6787,17 @@ type MoveResourcePropertiesResponseInput interface {
 }
 
 type MoveResourcePropertiesResponseArgs struct {
-	// Gets or sets the move resource dependencies.
-	DependsOn MoveResourceDependencyResponseArrayInput `pulumi:"dependsOn"`
-	// Gets or sets the move resource dependencies overrides.
-	DependsOnOverrides MoveResourceDependencyOverrideResponseArrayInput `pulumi:"dependsOnOverrides"`
-	// Defines the move resource errors.
-	Errors MoveResourcePropertiesResponseErrorsInput `pulumi:"errors"`
-	// Gets or sets the existing target ARM Id of the resource.
-	ExistingTargetId pulumi.StringPtrInput `pulumi:"existingTargetId"`
-	// Gets a value indicating whether the resolve action is required over the move collection.
-	IsResolveRequired pulumi.BoolInput `pulumi:"isResolveRequired"`
-	// Defines the move resource status.
-	MoveStatus MoveResourcePropertiesResponseMoveStatusInput `pulumi:"moveStatus"`
-	// Defines the provisioning states.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Gets or sets the resource settings.
-	ResourceSettings pulumi.Input `pulumi:"resourceSettings"`
-	// Gets or sets the Source ARM Id of the resource.
-	SourceId pulumi.StringInput `pulumi:"sourceId"`
-	// Gets or sets the source resource settings.
-	SourceResourceSettings pulumi.Input `pulumi:"sourceResourceSettings"`
-	// Gets or sets the Target ARM Id of the resource.
-	TargetId pulumi.StringInput `pulumi:"targetId"`
+	DependsOn              MoveResourceDependencyResponseArrayInput         `pulumi:"dependsOn"`
+	DependsOnOverrides     MoveResourceDependencyOverrideResponseArrayInput `pulumi:"dependsOnOverrides"`
+	Errors                 MoveResourcePropertiesResponseErrorsInput        `pulumi:"errors"`
+	ExistingTargetId       pulumi.StringPtrInput                            `pulumi:"existingTargetId"`
+	IsResolveRequired      pulumi.BoolInput                                 `pulumi:"isResolveRequired"`
+	MoveStatus             MoveResourcePropertiesResponseMoveStatusInput    `pulumi:"moveStatus"`
+	ProvisioningState      pulumi.StringInput                               `pulumi:"provisioningState"`
+	ResourceSettings       pulumi.Input                                     `pulumi:"resourceSettings"`
+	SourceId               pulumi.StringInput                               `pulumi:"sourceId"`
+	SourceResourceSettings pulumi.Input                                     `pulumi:"sourceResourceSettings"`
+	TargetId               pulumi.StringInput                               `pulumi:"targetId"`
 }
 
 func (MoveResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -7556,59 +6877,48 @@ func (o MoveResourcePropertiesResponseOutput) ToMoveResourcePropertiesResponsePt
 	}).(MoveResourcePropertiesResponsePtrOutput)
 }
 
-// Gets or sets the move resource dependencies.
 func (o MoveResourcePropertiesResponseOutput) DependsOn() MoveResourceDependencyResponseArrayOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) []MoveResourceDependencyResponse { return v.DependsOn }).(MoveResourceDependencyResponseArrayOutput)
 }
 
-// Gets or sets the move resource dependencies overrides.
 func (o MoveResourcePropertiesResponseOutput) DependsOnOverrides() MoveResourceDependencyOverrideResponseArrayOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) []MoveResourceDependencyOverrideResponse {
 		return v.DependsOnOverrides
 	}).(MoveResourceDependencyOverrideResponseArrayOutput)
 }
 
-// Defines the move resource errors.
 func (o MoveResourcePropertiesResponseOutput) Errors() MoveResourcePropertiesResponseErrorsOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) MoveResourcePropertiesResponseErrors { return v.Errors }).(MoveResourcePropertiesResponseErrorsOutput)
 }
 
-// Gets or sets the existing target ARM Id of the resource.
 func (o MoveResourcePropertiesResponseOutput) ExistingTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) *string { return v.ExistingTargetId }).(pulumi.StringPtrOutput)
 }
 
-// Gets a value indicating whether the resolve action is required over the move collection.
 func (o MoveResourcePropertiesResponseOutput) IsResolveRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) bool { return v.IsResolveRequired }).(pulumi.BoolOutput)
 }
 
-// Defines the move resource status.
 func (o MoveResourcePropertiesResponseOutput) MoveStatus() MoveResourcePropertiesResponseMoveStatusOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) MoveResourcePropertiesResponseMoveStatus { return v.MoveStatus }).(MoveResourcePropertiesResponseMoveStatusOutput)
 }
 
-// Defines the provisioning states.
 func (o MoveResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the resource settings.
 func (o MoveResourcePropertiesResponseOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) interface{} { return v.ResourceSettings }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Source ARM Id of the resource.
 func (o MoveResourcePropertiesResponseOutput) SourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) string { return v.SourceId }).(pulumi.StringOutput)
 }
 
-// Gets or sets the source resource settings.
 func (o MoveResourcePropertiesResponseOutput) SourceResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) interface{} { return v.SourceResourceSettings }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Target ARM Id of the resource.
 func (o MoveResourcePropertiesResponseOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) string { return v.TargetId }).(pulumi.StringOutput)
 }
@@ -7637,7 +6947,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) Elem() MoveResourcePropertiesRe
 	}).(MoveResourcePropertiesResponseOutput)
 }
 
-// Gets or sets the move resource dependencies.
 func (o MoveResourcePropertiesResponsePtrOutput) DependsOn() MoveResourceDependencyResponseArrayOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) []MoveResourceDependencyResponse {
 		if v == nil {
@@ -7647,7 +6956,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) DependsOn() MoveResourceDepende
 	}).(MoveResourceDependencyResponseArrayOutput)
 }
 
-// Gets or sets the move resource dependencies overrides.
 func (o MoveResourcePropertiesResponsePtrOutput) DependsOnOverrides() MoveResourceDependencyOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) []MoveResourceDependencyOverrideResponse {
 		if v == nil {
@@ -7657,7 +6965,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) DependsOnOverrides() MoveResour
 	}).(MoveResourceDependencyOverrideResponseArrayOutput)
 }
 
-// Defines the move resource errors.
 func (o MoveResourcePropertiesResponsePtrOutput) Errors() MoveResourcePropertiesResponseErrorsPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *MoveResourcePropertiesResponseErrors {
 		if v == nil {
@@ -7667,7 +6974,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) Errors() MoveResourceProperties
 	}).(MoveResourcePropertiesResponseErrorsPtrOutput)
 }
 
-// Gets or sets the existing target ARM Id of the resource.
 func (o MoveResourcePropertiesResponsePtrOutput) ExistingTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7677,7 +6983,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) ExistingTargetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets a value indicating whether the resolve action is required over the move collection.
 func (o MoveResourcePropertiesResponsePtrOutput) IsResolveRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *bool {
 		if v == nil {
@@ -7687,7 +6992,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) IsResolveRequired() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Defines the move resource status.
 func (o MoveResourcePropertiesResponsePtrOutput) MoveStatus() MoveResourcePropertiesResponseMoveStatusPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *MoveResourcePropertiesResponseMoveStatus {
 		if v == nil {
@@ -7697,7 +7001,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) MoveStatus() MoveResourceProper
 	}).(MoveResourcePropertiesResponseMoveStatusPtrOutput)
 }
 
-// Defines the provisioning states.
 func (o MoveResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7707,7 +7010,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the resource settings.
 func (o MoveResourcePropertiesResponsePtrOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) interface{} {
 		if v == nil {
@@ -7717,7 +7019,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) ResourceSettings() pulumi.AnyOu
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Source ARM Id of the resource.
 func (o MoveResourcePropertiesResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7727,7 +7028,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) SourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the source resource settings.
 func (o MoveResourcePropertiesResponsePtrOutput) SourceResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) interface{} {
 		if v == nil {
@@ -7737,7 +7037,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) SourceResourceSettings() pulumi
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the Target ARM Id of the resource.
 func (o MoveResourcePropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7748,7 +7047,6 @@ func (o MoveResourcePropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutp
 }
 
 type MoveResourcePropertiesResponseErrors struct {
-	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
 }
 
@@ -7764,7 +7062,6 @@ type MoveResourcePropertiesResponseErrorsInput interface {
 }
 
 type MoveResourcePropertiesResponseErrorsArgs struct {
-	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
 }
 
@@ -7845,7 +7142,6 @@ func (o MoveResourcePropertiesResponseErrorsOutput) ToMoveResourcePropertiesResp
 	}).(MoveResourcePropertiesResponseErrorsPtrOutput)
 }
 
-// The move resource error body.
 func (o MoveResourcePropertiesResponseErrorsOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponseErrors) *MoveResourceErrorBodyResponse { return v.Properties }).(MoveResourceErrorBodyResponsePtrOutput)
 }
@@ -7874,7 +7170,6 @@ func (o MoveResourcePropertiesResponseErrorsPtrOutput) Elem() MoveResourceProper
 	}).(MoveResourcePropertiesResponseErrorsOutput)
 }
 
-// The move resource error body.
 func (o MoveResourcePropertiesResponseErrorsPtrOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseErrors) *MoveResourceErrorBodyResponse {
 		if v == nil {
@@ -7885,12 +7180,9 @@ func (o MoveResourcePropertiesResponseErrorsPtrOutput) Properties() MoveResource
 }
 
 type MoveResourcePropertiesResponseMoveStatus struct {
-	// An error response from the azure resource mover service.
-	Errors *MoveResourceErrorResponse `pulumi:"errors"`
-	// Defines the job status.
-	JobStatus *JobStatusResponse `pulumi:"jobStatus"`
-	// Defines the MoveResource states.
-	MoveState string `pulumi:"moveState"`
+	Errors    *MoveResourceErrorResponse `pulumi:"errors"`
+	JobStatus *JobStatusResponse         `pulumi:"jobStatus"`
+	MoveState string                     `pulumi:"moveState"`
 }
 
 // MoveResourcePropertiesResponseMoveStatusInput is an input type that accepts MoveResourcePropertiesResponseMoveStatusArgs and MoveResourcePropertiesResponseMoveStatusOutput values.
@@ -7905,12 +7197,9 @@ type MoveResourcePropertiesResponseMoveStatusInput interface {
 }
 
 type MoveResourcePropertiesResponseMoveStatusArgs struct {
-	// An error response from the azure resource mover service.
-	Errors MoveResourceErrorResponsePtrInput `pulumi:"errors"`
-	// Defines the job status.
-	JobStatus JobStatusResponsePtrInput `pulumi:"jobStatus"`
-	// Defines the MoveResource states.
-	MoveState pulumi.StringInput `pulumi:"moveState"`
+	Errors    MoveResourceErrorResponsePtrInput `pulumi:"errors"`
+	JobStatus JobStatusResponsePtrInput         `pulumi:"jobStatus"`
+	MoveState pulumi.StringInput                `pulumi:"moveState"`
 }
 
 func (MoveResourcePropertiesResponseMoveStatusArgs) ElementType() reflect.Type {
@@ -7990,17 +7279,14 @@ func (o MoveResourcePropertiesResponseMoveStatusOutput) ToMoveResourceProperties
 	}).(MoveResourcePropertiesResponseMoveStatusPtrOutput)
 }
 
-// An error response from the azure resource mover service.
 func (o MoveResourcePropertiesResponseMoveStatusOutput) Errors() MoveResourceErrorResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) *MoveResourceErrorResponse { return v.Errors }).(MoveResourceErrorResponsePtrOutput)
 }
 
-// Defines the job status.
 func (o MoveResourcePropertiesResponseMoveStatusOutput) JobStatus() JobStatusResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) *JobStatusResponse { return v.JobStatus }).(JobStatusResponsePtrOutput)
 }
 
-// Defines the MoveResource states.
 func (o MoveResourcePropertiesResponseMoveStatusOutput) MoveState() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) string { return v.MoveState }).(pulumi.StringOutput)
 }
@@ -8029,7 +7315,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Elem() MoveResourcePr
 	}).(MoveResourcePropertiesResponseMoveStatusOutput)
 }
 
-// An error response from the azure resource mover service.
 func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Errors() MoveResourceErrorResponsePtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) *MoveResourceErrorResponse {
 		if v == nil {
@@ -8039,7 +7324,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Errors() MoveResource
 	}).(MoveResourceErrorResponsePtrOutput)
 }
 
-// Defines the job status.
 func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) JobStatus() JobStatusResponsePtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) *JobStatusResponse {
 		if v == nil {
@@ -8049,7 +7333,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) JobStatus() JobStatus
 	}).(JobStatusResponsePtrOutput)
 }
 
-// Defines the MoveResource states.
 func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) MoveState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) *string {
 		if v == nil {
@@ -8060,15 +7343,10 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) MoveState() pulumi.St
 }
 
 type NetworkInterfaceResourceSettings struct {
-	// Gets or sets a value indicating whether accelerated networking is enabled.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Gets or sets the IP configurations of the NIC.
-	IpConfigurations []NicIpConfigurationResourceSettings `pulumi:"ipConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkInterfaces'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	EnableAcceleratedNetworking *bool                                `pulumi:"enableAcceleratedNetworking"`
+	IpConfigurations            []NicIpConfigurationResourceSettings `pulumi:"ipConfigurations"`
+	ResourceType                string                               `pulumi:"resourceType"`
+	TargetResourceName          string                               `pulumi:"targetResourceName"`
 }
 
 // NetworkInterfaceResourceSettingsInput is an input type that accepts NetworkInterfaceResourceSettingsArgs and NetworkInterfaceResourceSettingsOutput values.
@@ -8083,15 +7361,10 @@ type NetworkInterfaceResourceSettingsInput interface {
 }
 
 type NetworkInterfaceResourceSettingsArgs struct {
-	// Gets or sets a value indicating whether accelerated networking is enabled.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Gets or sets the IP configurations of the NIC.
-	IpConfigurations NicIpConfigurationResourceSettingsArrayInput `pulumi:"ipConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkInterfaces'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	EnableAcceleratedNetworking pulumi.BoolPtrInput                          `pulumi:"enableAcceleratedNetworking"`
+	IpConfigurations            NicIpConfigurationResourceSettingsArrayInput `pulumi:"ipConfigurations"`
+	ResourceType                pulumi.StringInput                           `pulumi:"resourceType"`
+	TargetResourceName          pulumi.StringInput                           `pulumi:"targetResourceName"`
 }
 
 func (NetworkInterfaceResourceSettingsArgs) ElementType() reflect.Type {
@@ -8120,39 +7393,29 @@ func (o NetworkInterfaceResourceSettingsOutput) ToNetworkInterfaceResourceSettin
 	return o
 }
 
-// Gets or sets a value indicating whether accelerated networking is enabled.
 func (o NetworkInterfaceResourceSettingsOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the IP configurations of the NIC.
 func (o NetworkInterfaceResourceSettingsOutput) IpConfigurations() NicIpConfigurationResourceSettingsArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) []NicIpConfigurationResourceSettings {
 		return v.IpConfigurations
 	}).(NicIpConfigurationResourceSettingsArrayOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/networkInterfaces'.
 func (o NetworkInterfaceResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o NetworkInterfaceResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type NetworkInterfaceResourceSettingsResponse struct {
-	// Gets or sets a value indicating whether accelerated networking is enabled.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Gets or sets the IP configurations of the NIC.
-	IpConfigurations []NicIpConfigurationResourceSettingsResponse `pulumi:"ipConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkInterfaces'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	EnableAcceleratedNetworking *bool                                        `pulumi:"enableAcceleratedNetworking"`
+	IpConfigurations            []NicIpConfigurationResourceSettingsResponse `pulumi:"ipConfigurations"`
+	ResourceType                string                                       `pulumi:"resourceType"`
+	TargetResourceName          string                                       `pulumi:"targetResourceName"`
 }
 
 // NetworkInterfaceResourceSettingsResponseInput is an input type that accepts NetworkInterfaceResourceSettingsResponseArgs and NetworkInterfaceResourceSettingsResponseOutput values.
@@ -8167,15 +7430,10 @@ type NetworkInterfaceResourceSettingsResponseInput interface {
 }
 
 type NetworkInterfaceResourceSettingsResponseArgs struct {
-	// Gets or sets a value indicating whether accelerated networking is enabled.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Gets or sets the IP configurations of the NIC.
-	IpConfigurations NicIpConfigurationResourceSettingsResponseArrayInput `pulumi:"ipConfigurations"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkInterfaces'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	EnableAcceleratedNetworking pulumi.BoolPtrInput                                  `pulumi:"enableAcceleratedNetworking"`
+	IpConfigurations            NicIpConfigurationResourceSettingsResponseArrayInput `pulumi:"ipConfigurations"`
+	ResourceType                pulumi.StringInput                                   `pulumi:"resourceType"`
+	TargetResourceName          pulumi.StringInput                                   `pulumi:"targetResourceName"`
 }
 
 func (NetworkInterfaceResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -8204,37 +7462,28 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) ToNetworkInterfaceResour
 	return o
 }
 
-// Gets or sets a value indicating whether accelerated networking is enabled.
 func (o NetworkInterfaceResourceSettingsResponseOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the IP configurations of the NIC.
 func (o NetworkInterfaceResourceSettingsResponseOutput) IpConfigurations() NicIpConfigurationResourceSettingsResponseArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) []NicIpConfigurationResourceSettingsResponse {
 		return v.IpConfigurations
 	}).(NicIpConfigurationResourceSettingsResponseArrayOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/networkInterfaces'.
 func (o NetworkInterfaceResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o NetworkInterfaceResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type NetworkSecurityGroupResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets Security rules of network security group.
-	SecurityRules []NsgSecurityRule `pulumi:"securityRules"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	ResourceType       string            `pulumi:"resourceType"`
+	SecurityRules      []NsgSecurityRule `pulumi:"securityRules"`
+	TargetResourceName string            `pulumi:"targetResourceName"`
 }
 
 // NetworkSecurityGroupResourceSettingsInput is an input type that accepts NetworkSecurityGroupResourceSettingsArgs and NetworkSecurityGroupResourceSettingsOutput values.
@@ -8249,13 +7498,9 @@ type NetworkSecurityGroupResourceSettingsInput interface {
 }
 
 type NetworkSecurityGroupResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets Security rules of network security group.
-	SecurityRules NsgSecurityRuleArrayInput `pulumi:"securityRules"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	ResourceType       pulumi.StringInput        `pulumi:"resourceType"`
+	SecurityRules      NsgSecurityRuleArrayInput `pulumi:"securityRules"`
+	TargetResourceName pulumi.StringInput        `pulumi:"targetResourceName"`
 }
 
 func (NetworkSecurityGroupResourceSettingsArgs) ElementType() reflect.Type {
@@ -8284,30 +7529,22 @@ func (o NetworkSecurityGroupResourceSettingsOutput) ToNetworkSecurityGroupResour
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 func (o NetworkSecurityGroupResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets Security rules of network security group.
 func (o NetworkSecurityGroupResourceSettingsOutput) SecurityRules() NsgSecurityRuleArrayOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) []NsgSecurityRule { return v.SecurityRules }).(NsgSecurityRuleArrayOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o NetworkSecurityGroupResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type NetworkSecurityGroupResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets Security rules of network security group.
-	SecurityRules []NsgSecurityRuleResponse `pulumi:"securityRules"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	ResourceType       string                    `pulumi:"resourceType"`
+	SecurityRules      []NsgSecurityRuleResponse `pulumi:"securityRules"`
+	TargetResourceName string                    `pulumi:"targetResourceName"`
 }
 
 // NetworkSecurityGroupResourceSettingsResponseInput is an input type that accepts NetworkSecurityGroupResourceSettingsResponseArgs and NetworkSecurityGroupResourceSettingsResponseOutput values.
@@ -8322,13 +7559,9 @@ type NetworkSecurityGroupResourceSettingsResponseInput interface {
 }
 
 type NetworkSecurityGroupResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets Security rules of network security group.
-	SecurityRules NsgSecurityRuleResponseArrayInput `pulumi:"securityRules"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	ResourceType       pulumi.StringInput                `pulumi:"resourceType"`
+	SecurityRules      NsgSecurityRuleResponseArrayInput `pulumi:"securityRules"`
+	TargetResourceName pulumi.StringInput                `pulumi:"targetResourceName"`
 }
 
 func (NetworkSecurityGroupResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -8357,39 +7590,27 @@ func (o NetworkSecurityGroupResourceSettingsResponseOutput) ToNetworkSecurityGro
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets Security rules of network security group.
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) SecurityRules() NsgSecurityRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) []NsgSecurityRuleResponse { return v.SecurityRules }).(NsgSecurityRuleResponseArrayOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type NicIpConfigurationResourceSettings struct {
-	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReference `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets the references of the load balancer NAT rules.
-	LoadBalancerNatRules []LoadBalancerNatRuleReference `pulumi:"loadBalancerNatRules"`
-	// Gets or sets the IP configuration name.
-	Name *string `pulumi:"name"`
-	// Gets or sets a value indicating whether this IP configuration is the primary.
-	Primary *bool `pulumi:"primary"`
-	// Gets or sets the private IP address of the network interface IP Configuration.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Gets or sets the private IP address allocation method.
-	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to a public IP.
-	PublicIp *PublicIpReference `pulumi:"publicIp"`
-	// Defines reference to subnet.
-	Subnet *SubnetReference `pulumi:"subnet"`
+	LoadBalancerNatRules            []LoadBalancerNatRuleReference            `pulumi:"loadBalancerNatRules"`
+	Name                            *string                                   `pulumi:"name"`
+	Primary                         *bool                                     `pulumi:"primary"`
+	PrivateIpAddress                *string                                   `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod       *string                                   `pulumi:"privateIpAllocationMethod"`
+	PublicIp                        *PublicIpReference                        `pulumi:"publicIp"`
+	Subnet                          *SubnetReference                          `pulumi:"subnet"`
 }
 
 // NicIpConfigurationResourceSettingsInput is an input type that accepts NicIpConfigurationResourceSettingsArgs and NicIpConfigurationResourceSettingsOutput values.
@@ -8404,22 +7625,14 @@ type NicIpConfigurationResourceSettingsInput interface {
 }
 
 type NicIpConfigurationResourceSettingsArgs struct {
-	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets the references of the load balancer NAT rules.
-	LoadBalancerNatRules LoadBalancerNatRuleReferenceArrayInput `pulumi:"loadBalancerNatRules"`
-	// Gets or sets the IP configuration name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets a value indicating whether this IP configuration is the primary.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// Gets or sets the private IP address of the network interface IP Configuration.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Gets or sets the private IP address allocation method.
-	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to a public IP.
-	PublicIp PublicIpReferencePtrInput `pulumi:"publicIp"`
-	// Defines reference to subnet.
-	Subnet SubnetReferencePtrInput `pulumi:"subnet"`
+	LoadBalancerNatRules            LoadBalancerNatRuleReferenceArrayInput            `pulumi:"loadBalancerNatRules"`
+	Name                            pulumi.StringPtrInput                             `pulumi:"name"`
+	Primary                         pulumi.BoolPtrInput                               `pulumi:"primary"`
+	PrivateIpAddress                pulumi.StringPtrInput                             `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod       pulumi.StringPtrInput                             `pulumi:"privateIpAllocationMethod"`
+	PublicIp                        PublicIpReferencePtrInput                         `pulumi:"publicIp"`
+	Subnet                          SubnetReferencePtrInput                           `pulumi:"subnet"`
 }
 
 func (NicIpConfigurationResourceSettingsArgs) ElementType() reflect.Type {
@@ -8473,46 +7686,38 @@ func (o NicIpConfigurationResourceSettingsOutput) ToNicIpConfigurationResourceSe
 	return o
 }
 
-// Gets or sets the references of the load balancer backend address pools.
 func (o NicIpConfigurationResourceSettingsOutput) LoadBalancerBackendAddressPools() LoadBalancerBackendAddressPoolReferenceArrayOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) []LoadBalancerBackendAddressPoolReference {
 		return v.LoadBalancerBackendAddressPools
 	}).(LoadBalancerBackendAddressPoolReferenceArrayOutput)
 }
 
-// Gets or sets the references of the load balancer NAT rules.
 func (o NicIpConfigurationResourceSettingsOutput) LoadBalancerNatRules() LoadBalancerNatRuleReferenceArrayOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) []LoadBalancerNatRuleReference {
 		return v.LoadBalancerNatRules
 	}).(LoadBalancerNatRuleReferenceArrayOutput)
 }
 
-// Gets or sets the IP configuration name.
 func (o NicIpConfigurationResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a value indicating whether this IP configuration is the primary.
 func (o NicIpConfigurationResourceSettingsOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the private IP address of the network interface IP Configuration.
 func (o NicIpConfigurationResourceSettingsOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the private IP address allocation method.
 func (o NicIpConfigurationResourceSettingsOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to a public IP.
 func (o NicIpConfigurationResourceSettingsOutput) PublicIp() PublicIpReferencePtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *PublicIpReference { return v.PublicIp }).(PublicIpReferencePtrOutput)
 }
 
-// Defines reference to subnet.
 func (o NicIpConfigurationResourceSettingsOutput) Subnet() SubnetReferencePtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *SubnetReference { return v.Subnet }).(SubnetReferencePtrOutput)
 }
@@ -8538,22 +7743,14 @@ func (o NicIpConfigurationResourceSettingsArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type NicIpConfigurationResourceSettingsResponse struct {
-	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReferenceResponse `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets the references of the load balancer NAT rules.
-	LoadBalancerNatRules []LoadBalancerNatRuleReferenceResponse `pulumi:"loadBalancerNatRules"`
-	// Gets or sets the IP configuration name.
-	Name *string `pulumi:"name"`
-	// Gets or sets a value indicating whether this IP configuration is the primary.
-	Primary *bool `pulumi:"primary"`
-	// Gets or sets the private IP address of the network interface IP Configuration.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Gets or sets the private IP address allocation method.
-	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to a public IP.
-	PublicIp *PublicIpReferenceResponse `pulumi:"publicIp"`
-	// Defines reference to subnet.
-	Subnet *SubnetReferenceResponse `pulumi:"subnet"`
+	LoadBalancerNatRules            []LoadBalancerNatRuleReferenceResponse            `pulumi:"loadBalancerNatRules"`
+	Name                            *string                                           `pulumi:"name"`
+	Primary                         *bool                                             `pulumi:"primary"`
+	PrivateIpAddress                *string                                           `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod       *string                                           `pulumi:"privateIpAllocationMethod"`
+	PublicIp                        *PublicIpReferenceResponse                        `pulumi:"publicIp"`
+	Subnet                          *SubnetReferenceResponse                          `pulumi:"subnet"`
 }
 
 // NicIpConfigurationResourceSettingsResponseInput is an input type that accepts NicIpConfigurationResourceSettingsResponseArgs and NicIpConfigurationResourceSettingsResponseOutput values.
@@ -8568,22 +7765,14 @@ type NicIpConfigurationResourceSettingsResponseInput interface {
 }
 
 type NicIpConfigurationResourceSettingsResponseArgs struct {
-	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets the references of the load balancer NAT rules.
-	LoadBalancerNatRules LoadBalancerNatRuleReferenceResponseArrayInput `pulumi:"loadBalancerNatRules"`
-	// Gets or sets the IP configuration name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets a value indicating whether this IP configuration is the primary.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// Gets or sets the private IP address of the network interface IP Configuration.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Gets or sets the private IP address allocation method.
-	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	// Defines reference to a public IP.
-	PublicIp PublicIpReferenceResponsePtrInput `pulumi:"publicIp"`
-	// Defines reference to subnet.
-	Subnet SubnetReferenceResponsePtrInput `pulumi:"subnet"`
+	LoadBalancerNatRules            LoadBalancerNatRuleReferenceResponseArrayInput            `pulumi:"loadBalancerNatRules"`
+	Name                            pulumi.StringPtrInput                                     `pulumi:"name"`
+	Primary                         pulumi.BoolPtrInput                                       `pulumi:"primary"`
+	PrivateIpAddress                pulumi.StringPtrInput                                     `pulumi:"privateIpAddress"`
+	PrivateIpAllocationMethod       pulumi.StringPtrInput                                     `pulumi:"privateIpAllocationMethod"`
+	PublicIp                        PublicIpReferenceResponsePtrInput                         `pulumi:"publicIp"`
+	Subnet                          SubnetReferenceResponsePtrInput                           `pulumi:"subnet"`
 }
 
 func (NicIpConfigurationResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -8637,46 +7826,38 @@ func (o NicIpConfigurationResourceSettingsResponseOutput) ToNicIpConfigurationRe
 	return o
 }
 
-// Gets or sets the references of the load balancer backend address pools.
 func (o NicIpConfigurationResourceSettingsResponseOutput) LoadBalancerBackendAddressPools() LoadBalancerBackendAddressPoolReferenceResponseArrayOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) []LoadBalancerBackendAddressPoolReferenceResponse {
 		return v.LoadBalancerBackendAddressPools
 	}).(LoadBalancerBackendAddressPoolReferenceResponseArrayOutput)
 }
 
-// Gets or sets the references of the load balancer NAT rules.
 func (o NicIpConfigurationResourceSettingsResponseOutput) LoadBalancerNatRules() LoadBalancerNatRuleReferenceResponseArrayOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) []LoadBalancerNatRuleReferenceResponse {
 		return v.LoadBalancerNatRules
 	}).(LoadBalancerNatRuleReferenceResponseArrayOutput)
 }
 
-// Gets or sets the IP configuration name.
 func (o NicIpConfigurationResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a value indicating whether this IP configuration is the primary.
 func (o NicIpConfigurationResourceSettingsResponseOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the private IP address of the network interface IP Configuration.
 func (o NicIpConfigurationResourceSettingsResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the private IP address allocation method.
 func (o NicIpConfigurationResourceSettingsResponseOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to a public IP.
 func (o NicIpConfigurationResourceSettingsResponseOutput) PublicIp() PublicIpReferenceResponsePtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *PublicIpReferenceResponse { return v.PublicIp }).(PublicIpReferenceResponsePtrOutput)
 }
 
-// Defines reference to subnet.
 func (o NicIpConfigurationResourceSettingsResponseOutput) Subnet() SubnetReferenceResponsePtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *SubnetReferenceResponse { return v.Subnet }).(SubnetReferenceResponsePtrOutput)
 }
@@ -8702,7 +7883,6 @@ func (o NicIpConfigurationResourceSettingsResponseArrayOutput) Index(i pulumi.In
 }
 
 type NsgReference struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
 }
 
@@ -8718,7 +7898,6 @@ type NsgReferenceInput interface {
 }
 
 type NsgReferenceArgs struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
 }
 
@@ -8799,7 +7978,6 @@ func (o NsgReferenceOutput) ToNsgReferencePtrOutputWithContext(ctx context.Conte
 	}).(NsgReferencePtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o NsgReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NsgReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -8828,7 +8006,6 @@ func (o NsgReferencePtrOutput) Elem() NsgReferenceOutput {
 	}).(NsgReferenceOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o NsgReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NsgReference) *string {
 		if v == nil {
@@ -8839,7 +8016,6 @@ func (o NsgReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 }
 
 type NsgReferenceResponse struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
 }
 
@@ -8855,7 +8031,6 @@ type NsgReferenceResponseInput interface {
 }
 
 type NsgReferenceResponseArgs struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
 }
 
@@ -8936,7 +8111,6 @@ func (o NsgReferenceResponseOutput) ToNsgReferenceResponsePtrOutputWithContext(c
 	}).(NsgReferenceResponsePtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o NsgReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NsgReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -8965,7 +8139,6 @@ func (o NsgReferenceResponsePtrOutput) Elem() NsgReferenceResponseOutput {
 	}).(NsgReferenceResponseOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o NsgReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NsgReferenceResponse) *string {
 		if v == nil {
@@ -8976,37 +8149,16 @@ func (o NsgReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOut
 }
 
 type NsgSecurityRule struct {
-	// Gets or sets whether network traffic is allowed or denied.
-	// Possible values are “Allow” and “Deny”.
-	Access *string `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range.
-	//  A “*” can also be used to match all source IPs. Default tags such
-	// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+	Access                   *string `pulumi:"access"`
+	Description              *string `pulumi:"description"`
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between
-	// 0 and 65535. A “*” can also be used to match all ports.
-	DestinationPortRange *string `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The
-	// direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction *string `pulumi:"direction"`
-	// Gets or sets the Security rule name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between
-	// 100 and 4096. The priority number must be unique for each rule in the collection.
-	// The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets source address prefix. CIDR or source IP range. A
-	// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-	// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-	// rule, specifies where network traffic originates from.
-	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and
-	// 65535. A “*” can also be used to match all ports.
-	SourcePortRange *string `pulumi:"sourcePortRange"`
+	DestinationPortRange     *string `pulumi:"destinationPortRange"`
+	Direction                *string `pulumi:"direction"`
+	Name                     *string `pulumi:"name"`
+	Priority                 *int    `pulumi:"priority"`
+	Protocol                 *string `pulumi:"protocol"`
+	SourceAddressPrefix      *string `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          *string `pulumi:"sourcePortRange"`
 }
 
 // NsgSecurityRuleInput is an input type that accepts NsgSecurityRuleArgs and NsgSecurityRuleOutput values.
@@ -9021,37 +8173,16 @@ type NsgSecurityRuleInput interface {
 }
 
 type NsgSecurityRuleArgs struct {
-	// Gets or sets whether network traffic is allowed or denied.
-	// Possible values are “Allow” and “Deny”.
-	Access pulumi.StringPtrInput `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range.
-	//  A “*” can also be used to match all source IPs. Default tags such
-	// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+	Access                   pulumi.StringPtrInput `pulumi:"access"`
+	Description              pulumi.StringPtrInput `pulumi:"description"`
 	DestinationAddressPrefix pulumi.StringPtrInput `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between
-	// 0 and 65535. A “*” can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The
-	// direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringPtrInput `pulumi:"direction"`
-	// Gets or sets the Security rule name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between
-	// 100 and 4096. The priority number must be unique for each rule in the collection.
-	// The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets source address prefix. CIDR or source IP range. A
-	// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-	// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-	// rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and
-	// 65535. A “*” can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+	DestinationPortRange     pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	Direction                pulumi.StringPtrInput `pulumi:"direction"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	Priority                 pulumi.IntPtrInput    `pulumi:"priority"`
+	Protocol                 pulumi.StringPtrInput `pulumi:"protocol"`
+	SourceAddressPrefix      pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          pulumi.StringPtrInput `pulumi:"sourcePortRange"`
 }
 
 func (NsgSecurityRuleArgs) ElementType() reflect.Type {
@@ -9105,63 +8236,42 @@ func (o NsgSecurityRuleOutput) ToNsgSecurityRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Gets or sets whether network traffic is allowed or denied.
-// Possible values are “Allow” and “Deny”.
 func (o NsgSecurityRuleOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.Access }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a description for this rule. Restricted to 140 chars.
 func (o NsgSecurityRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets destination address prefix. CIDR or source IP range.
-//  A “*” can also be used to match all source IPs. Default tags such
-// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
 func (o NsgSecurityRuleOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Destination Port or Range. Integer or range between
-// 0 and 65535. A “*” can also be used to match all ports.
 func (o NsgSecurityRuleOutput) DestinationPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the direction of the rule.InBound or Outbound. The
-// direction specifies if rule will be evaluated on incoming or outgoing traffic.
 func (o NsgSecurityRuleOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Security rule name.
 func (o NsgSecurityRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the priority of the rule. The value can be between
-// 100 and 4096. The priority number must be unique for each rule in the collection.
-// The lower the priority number, the higher the priority of the rule.
 func (o NsgSecurityRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
 func (o NsgSecurityRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets source address prefix. CIDR or source IP range. A
-// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-// rule, specifies where network traffic originates from.
 func (o NsgSecurityRuleOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Source Port or Range. Integer or range between 0 and
-// 65535. A “*” can also be used to match all ports.
 func (o NsgSecurityRuleOutput) SourcePortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRule) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
 }
@@ -9187,37 +8297,16 @@ func (o NsgSecurityRuleArrayOutput) Index(i pulumi.IntInput) NsgSecurityRuleOutp
 }
 
 type NsgSecurityRuleResponse struct {
-	// Gets or sets whether network traffic is allowed or denied.
-	// Possible values are “Allow” and “Deny”.
-	Access *string `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range.
-	//  A “*” can also be used to match all source IPs. Default tags such
-	// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+	Access                   *string `pulumi:"access"`
+	Description              *string `pulumi:"description"`
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between
-	// 0 and 65535. A “*” can also be used to match all ports.
-	DestinationPortRange *string `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The
-	// direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction *string `pulumi:"direction"`
-	// Gets or sets the Security rule name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between
-	// 100 and 4096. The priority number must be unique for each rule in the collection.
-	// The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets source address prefix. CIDR or source IP range. A
-	// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-	// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-	// rule, specifies where network traffic originates from.
-	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and
-	// 65535. A “*” can also be used to match all ports.
-	SourcePortRange *string `pulumi:"sourcePortRange"`
+	DestinationPortRange     *string `pulumi:"destinationPortRange"`
+	Direction                *string `pulumi:"direction"`
+	Name                     *string `pulumi:"name"`
+	Priority                 *int    `pulumi:"priority"`
+	Protocol                 *string `pulumi:"protocol"`
+	SourceAddressPrefix      *string `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          *string `pulumi:"sourcePortRange"`
 }
 
 // NsgSecurityRuleResponseInput is an input type that accepts NsgSecurityRuleResponseArgs and NsgSecurityRuleResponseOutput values.
@@ -9232,37 +8321,16 @@ type NsgSecurityRuleResponseInput interface {
 }
 
 type NsgSecurityRuleResponseArgs struct {
-	// Gets or sets whether network traffic is allowed or denied.
-	// Possible values are “Allow” and “Deny”.
-	Access pulumi.StringPtrInput `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range.
-	//  A “*” can also be used to match all source IPs. Default tags such
-	// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+	Access                   pulumi.StringPtrInput `pulumi:"access"`
+	Description              pulumi.StringPtrInput `pulumi:"description"`
 	DestinationAddressPrefix pulumi.StringPtrInput `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between
-	// 0 and 65535. A “*” can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The
-	// direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringPtrInput `pulumi:"direction"`
-	// Gets or sets the Security rule name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between
-	// 100 and 4096. The priority number must be unique for each rule in the collection.
-	// The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets source address prefix. CIDR or source IP range. A
-	// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-	// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-	// rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and
-	// 65535. A “*” can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+	DestinationPortRange     pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	Direction                pulumi.StringPtrInput `pulumi:"direction"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	Priority                 pulumi.IntPtrInput    `pulumi:"priority"`
+	Protocol                 pulumi.StringPtrInput `pulumi:"protocol"`
+	SourceAddressPrefix      pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          pulumi.StringPtrInput `pulumi:"sourcePortRange"`
 }
 
 func (NsgSecurityRuleResponseArgs) ElementType() reflect.Type {
@@ -9316,63 +8384,42 @@ func (o NsgSecurityRuleResponseOutput) ToNsgSecurityRuleResponseOutputWithContex
 	return o
 }
 
-// Gets or sets whether network traffic is allowed or denied.
-// Possible values are “Allow” and “Deny”.
 func (o NsgSecurityRuleResponseOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.Access }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a description for this rule. Restricted to 140 chars.
 func (o NsgSecurityRuleResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets destination address prefix. CIDR or source IP range.
-//  A “*” can also be used to match all source IPs. Default tags such
-// as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
 func (o NsgSecurityRuleResponseOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Destination Port or Range. Integer or range between
-// 0 and 65535. A “*” can also be used to match all ports.
 func (o NsgSecurityRuleResponseOutput) DestinationPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the direction of the rule.InBound or Outbound. The
-// direction specifies if rule will be evaluated on incoming or outgoing traffic.
 func (o NsgSecurityRuleResponseOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Security rule name.
 func (o NsgSecurityRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the priority of the rule. The value can be between
-// 100 and 4096. The priority number must be unique for each rule in the collection.
-// The lower the priority number, the higher the priority of the rule.
 func (o NsgSecurityRuleResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
 func (o NsgSecurityRuleResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets source address prefix. CIDR or source IP range. A
-// “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
-// ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
-// rule, specifies where network traffic originates from.
 func (o NsgSecurityRuleResponseOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Source Port or Range. Integer or range between 0 and
-// 65535. A “*” can also be used to match all ports.
 func (o NsgSecurityRuleResponseOutput) SourcePortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsgSecurityRuleResponse) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
 }
@@ -9398,7 +8445,6 @@ func (o NsgSecurityRuleResponseArrayOutput) Index(i pulumi.IntInput) NsgSecurity
 }
 
 type PrivateEndpointConnectionProperties struct {
-	// State of the private endpoint connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -9414,7 +8460,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// State of the private endpoint connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -9495,7 +8540,6 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -9526,7 +8570,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
 		if v == nil {
@@ -9537,12 +8580,9 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 }
 
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// ARM id for the private endpoint resource corresponding to the connection.
-	PrivateEndpoint ResourceIdResponse `pulumi:"privateEndpoint"`
-	// State of the private endpoint connection.
+	PrivateEndpoint                   ResourceIdResponse                         `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Indicates whether there is an ongoing operation on the private endpoint.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
@@ -9557,12 +8597,9 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 }
 
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// ARM id for the private endpoint resource corresponding to the connection.
-	PrivateEndpoint ResourceIdResponseInput `pulumi:"privateEndpoint"`
-	// State of the private endpoint connection.
+	PrivateEndpoint                   ResourceIdResponseInput                           `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Indicates whether there is an ongoing operation on the private endpoint.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9642,19 +8679,16 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// ARM id for the private endpoint resource corresponding to the connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() ResourceIdResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) ResourceIdResponse { return v.PrivateEndpoint }).(ResourceIdResponseOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Indicates whether there is an ongoing operation on the private endpoint.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -9683,7 +8717,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndp
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// ARM id for the private endpoint resource corresponding to the connection.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() ResourceIdResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *ResourceIdResponse {
 		if v == nil {
@@ -9693,7 +8726,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(ResourceIdResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
@@ -9703,7 +8735,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Indicates whether there is an ongoing operation on the private endpoint.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *string {
 		if v == nil {
@@ -9714,16 +8745,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState(
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
-	Id string `pulumi:"id"`
-	// Name of the private endpoint endpoint connection.
-	Name string `pulumi:"name"`
-	// Properties of the private endpoint endpoint connection.
+	ETag       *string                                     `pulumi:"eTag"`
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -9738,16 +8764,11 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the private endpoint endpoint connection.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the private endpoint endpoint connection.
+	ETag       pulumi.StringPtrInput                            `pulumi:"eTag"`
+	Id         pulumi.StringInput                               `pulumi:"id"`
+	Name       pulumi.StringInput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -9801,29 +8822,24 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// For optimistic concurrency control.
 func (o PrivateEndpointConnectionResponseOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the private endpoint endpoint connection.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the private endpoint endpoint connection.
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9849,12 +8865,9 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// Actions required on the private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
-	Description *string `pulumi:"description"`
-	// Connection status of the private endpoint connection.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -9869,12 +8882,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// Actions required on the private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Connection status of the private endpoint connection.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -9954,17 +8964,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required on the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -9993,7 +9000,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required on the private endpoint connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -10003,7 +9009,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -10013,7 +9018,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -10024,12 +9028,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Actions required on the private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
-	Description *string `pulumi:"description"`
-	// Connection status of the private endpoint connection.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -10044,12 +9045,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Actions required on the private endpoint connection.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Connection status of the private endpoint connection.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -10129,17 +9127,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Actions required on the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -10168,7 +9163,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Actions required on the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -10178,7 +9172,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -10188,7 +9181,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -10199,18 +9191,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type ProjectProperties struct {
-	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-	AssessmentSolutionId *string `pulumi:"assessmentSolutionId"`
-	// The ARM id of the storage account used for interactions when public access is disabled.
+	AssessmentSolutionId        *string `pulumi:"assessmentSolutionId"`
 	CustomerStorageAccountArmId *string `pulumi:"customerStorageAccountArmId"`
-	// The ARM id of service map workspace created by customer.
-	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
-	// Location of service map workspace created by customer.
-	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
-	// Assessment project status.
-	ProjectStatus *string `pulumi:"projectStatus"`
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	CustomerWorkspaceId         *string `pulumi:"customerWorkspaceId"`
+	CustomerWorkspaceLocation   *string `pulumi:"customerWorkspaceLocation"`
+	ProjectStatus               *string `pulumi:"projectStatus"`
+	PublicNetworkAccess         *string `pulumi:"publicNetworkAccess"`
 }
 
 // ProjectPropertiesInput is an input type that accepts ProjectPropertiesArgs and ProjectPropertiesOutput values.
@@ -10225,18 +9211,12 @@ type ProjectPropertiesInput interface {
 }
 
 type ProjectPropertiesArgs struct {
-	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-	AssessmentSolutionId pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
-	// The ARM id of the storage account used for interactions when public access is disabled.
+	AssessmentSolutionId        pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
 	CustomerStorageAccountArmId pulumi.StringPtrInput `pulumi:"customerStorageAccountArmId"`
-	// The ARM id of service map workspace created by customer.
-	CustomerWorkspaceId pulumi.StringPtrInput `pulumi:"customerWorkspaceId"`
-	// Location of service map workspace created by customer.
-	CustomerWorkspaceLocation pulumi.StringPtrInput `pulumi:"customerWorkspaceLocation"`
-	// Assessment project status.
-	ProjectStatus pulumi.StringPtrInput `pulumi:"projectStatus"`
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	CustomerWorkspaceId         pulumi.StringPtrInput `pulumi:"customerWorkspaceId"`
+	CustomerWorkspaceLocation   pulumi.StringPtrInput `pulumi:"customerWorkspaceLocation"`
+	ProjectStatus               pulumi.StringPtrInput `pulumi:"projectStatus"`
+	PublicNetworkAccess         pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 }
 
 func (ProjectPropertiesArgs) ElementType() reflect.Type {
@@ -10316,32 +9296,26 @@ func (o ProjectPropertiesOutput) ToProjectPropertiesPtrOutputWithContext(ctx con
 	}).(ProjectPropertiesPtrOutput)
 }
 
-// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 func (o ProjectPropertiesOutput) AssessmentSolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.AssessmentSolutionId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the storage account used for interactions when public access is disabled.
 func (o ProjectPropertiesOutput) CustomerStorageAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.CustomerStorageAccountArmId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of service map workspace created by customer.
 func (o ProjectPropertiesOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.CustomerWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// Location of service map workspace created by customer.
 func (o ProjectPropertiesOutput) CustomerWorkspaceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.CustomerWorkspaceLocation }).(pulumi.StringPtrOutput)
 }
 
-// Assessment project status.
 func (o ProjectPropertiesOutput) ProjectStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.ProjectStatus }).(pulumi.StringPtrOutput)
 }
 
-// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
 func (o ProjectPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -10370,7 +9344,6 @@ func (o ProjectPropertiesPtrOutput) Elem() ProjectPropertiesOutput {
 	}).(ProjectPropertiesOutput)
 }
 
-// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 func (o ProjectPropertiesPtrOutput) AssessmentSolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10380,7 +9353,6 @@ func (o ProjectPropertiesPtrOutput) AssessmentSolutionId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the storage account used for interactions when public access is disabled.
 func (o ProjectPropertiesPtrOutput) CustomerStorageAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10390,7 +9362,6 @@ func (o ProjectPropertiesPtrOutput) CustomerStorageAccountArmId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of service map workspace created by customer.
 func (o ProjectPropertiesPtrOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10400,7 +9371,6 @@ func (o ProjectPropertiesPtrOutput) CustomerWorkspaceId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of service map workspace created by customer.
 func (o ProjectPropertiesPtrOutput) CustomerWorkspaceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10410,7 +9380,6 @@ func (o ProjectPropertiesPtrOutput) CustomerWorkspaceLocation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Assessment project status.
 func (o ProjectPropertiesPtrOutput) ProjectStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10420,7 +9389,6 @@ func (o ProjectPropertiesPtrOutput) ProjectStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
 func (o ProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProperties) *string {
 		if v == nil {
@@ -10431,36 +9399,21 @@ func (o ProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput
 }
 
 type ProjectPropertiesResponse struct {
-	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-	AssessmentSolutionId *string `pulumi:"assessmentSolutionId"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp string `pulumi:"createdTimestamp"`
-	// The ARM id of the storage account used for interactions when public access is disabled.
-	CustomerStorageAccountArmId *string `pulumi:"customerStorageAccountArmId"`
-	// The ARM id of service map workspace created by customer.
-	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
-	// Location of service map workspace created by customer.
-	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
-	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-	LastAssessmentTimestamp string `pulumi:"lastAssessmentTimestamp"`
-	// Number of assessments created in the project.
-	NumberOfAssessments int `pulumi:"numberOfAssessments"`
-	// Number of groups created in the project.
-	NumberOfGroups int `pulumi:"numberOfGroups"`
-	// Number of machines in the project.
-	NumberOfMachines int `pulumi:"numberOfMachines"`
-	// The list of private endpoint connections to the project.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Assessment project status.
-	ProjectStatus *string `pulumi:"projectStatus"`
-	// Provisioning state of the project.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Endpoint at which the collector agent can call agent REST API.
-	ServiceEndpoint string `pulumi:"serviceEndpoint"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	AssessmentSolutionId        *string                             `pulumi:"assessmentSolutionId"`
+	CreatedTimestamp            string                              `pulumi:"createdTimestamp"`
+	CustomerStorageAccountArmId *string                             `pulumi:"customerStorageAccountArmId"`
+	CustomerWorkspaceId         *string                             `pulumi:"customerWorkspaceId"`
+	CustomerWorkspaceLocation   *string                             `pulumi:"customerWorkspaceLocation"`
+	LastAssessmentTimestamp     string                              `pulumi:"lastAssessmentTimestamp"`
+	NumberOfAssessments         int                                 `pulumi:"numberOfAssessments"`
+	NumberOfGroups              int                                 `pulumi:"numberOfGroups"`
+	NumberOfMachines            int                                 `pulumi:"numberOfMachines"`
+	PrivateEndpointConnections  []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	ProjectStatus               *string                             `pulumi:"projectStatus"`
+	ProvisioningState           string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess         *string                             `pulumi:"publicNetworkAccess"`
+	ServiceEndpoint             string                              `pulumi:"serviceEndpoint"`
+	UpdatedTimestamp            string                              `pulumi:"updatedTimestamp"`
 }
 
 // ProjectPropertiesResponseInput is an input type that accepts ProjectPropertiesResponseArgs and ProjectPropertiesResponseOutput values.
@@ -10475,36 +9428,21 @@ type ProjectPropertiesResponseInput interface {
 }
 
 type ProjectPropertiesResponseArgs struct {
-	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-	AssessmentSolutionId pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
-	// The ARM id of the storage account used for interactions when public access is disabled.
-	CustomerStorageAccountArmId pulumi.StringPtrInput `pulumi:"customerStorageAccountArmId"`
-	// The ARM id of service map workspace created by customer.
-	CustomerWorkspaceId pulumi.StringPtrInput `pulumi:"customerWorkspaceId"`
-	// Location of service map workspace created by customer.
-	CustomerWorkspaceLocation pulumi.StringPtrInput `pulumi:"customerWorkspaceLocation"`
-	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-	LastAssessmentTimestamp pulumi.StringInput `pulumi:"lastAssessmentTimestamp"`
-	// Number of assessments created in the project.
-	NumberOfAssessments pulumi.IntInput `pulumi:"numberOfAssessments"`
-	// Number of groups created in the project.
-	NumberOfGroups pulumi.IntInput `pulumi:"numberOfGroups"`
-	// Number of machines in the project.
-	NumberOfMachines pulumi.IntInput `pulumi:"numberOfMachines"`
-	// The list of private endpoint connections to the project.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// Assessment project status.
-	ProjectStatus pulumi.StringPtrInput `pulumi:"projectStatus"`
-	// Provisioning state of the project.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Endpoint at which the collector agent can call agent REST API.
-	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+	AssessmentSolutionId        pulumi.StringPtrInput                       `pulumi:"assessmentSolutionId"`
+	CreatedTimestamp            pulumi.StringInput                          `pulumi:"createdTimestamp"`
+	CustomerStorageAccountArmId pulumi.StringPtrInput                       `pulumi:"customerStorageAccountArmId"`
+	CustomerWorkspaceId         pulumi.StringPtrInput                       `pulumi:"customerWorkspaceId"`
+	CustomerWorkspaceLocation   pulumi.StringPtrInput                       `pulumi:"customerWorkspaceLocation"`
+	LastAssessmentTimestamp     pulumi.StringInput                          `pulumi:"lastAssessmentTimestamp"`
+	NumberOfAssessments         pulumi.IntInput                             `pulumi:"numberOfAssessments"`
+	NumberOfGroups              pulumi.IntInput                             `pulumi:"numberOfGroups"`
+	NumberOfMachines            pulumi.IntInput                             `pulumi:"numberOfMachines"`
+	PrivateEndpointConnections  PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
+	ProjectStatus               pulumi.StringPtrInput                       `pulumi:"projectStatus"`
+	ProvisioningState           pulumi.StringInput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess         pulumi.StringPtrInput                       `pulumi:"publicNetworkAccess"`
+	ServiceEndpoint             pulumi.StringInput                          `pulumi:"serviceEndpoint"`
+	UpdatedTimestamp            pulumi.StringInput                          `pulumi:"updatedTimestamp"`
 }
 
 func (ProjectPropertiesResponseArgs) ElementType() reflect.Type {
@@ -10584,79 +9522,64 @@ func (o ProjectPropertiesResponseOutput) ToProjectPropertiesResponsePtrOutputWit
 	}).(ProjectPropertiesResponsePtrOutput)
 }
 
-// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 func (o ProjectPropertiesResponseOutput) AssessmentSolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.AssessmentSolutionId }).(pulumi.StringPtrOutput)
 }
 
-// Time when this project was created. Date-Time represented in ISO-8601 format.
 func (o ProjectPropertiesResponseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// The ARM id of the storage account used for interactions when public access is disabled.
 func (o ProjectPropertiesResponseOutput) CustomerStorageAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.CustomerStorageAccountArmId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of service map workspace created by customer.
 func (o ProjectPropertiesResponseOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.CustomerWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// Location of service map workspace created by customer.
 func (o ProjectPropertiesResponseOutput) CustomerWorkspaceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.CustomerWorkspaceLocation }).(pulumi.StringPtrOutput)
 }
 
-// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
 func (o ProjectPropertiesResponseOutput) LastAssessmentTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.LastAssessmentTimestamp }).(pulumi.StringOutput)
 }
 
-// Number of assessments created in the project.
 func (o ProjectPropertiesResponseOutput) NumberOfAssessments() pulumi.IntOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) int { return v.NumberOfAssessments }).(pulumi.IntOutput)
 }
 
-// Number of groups created in the project.
 func (o ProjectPropertiesResponseOutput) NumberOfGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) int { return v.NumberOfGroups }).(pulumi.IntOutput)
 }
 
-// Number of machines in the project.
 func (o ProjectPropertiesResponseOutput) NumberOfMachines() pulumi.IntOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) int { return v.NumberOfMachines }).(pulumi.IntOutput)
 }
 
-// The list of private endpoint connections to the project.
 func (o ProjectPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Assessment project status.
 func (o ProjectPropertiesResponseOutput) ProjectStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.ProjectStatus }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the project.
 func (o ProjectPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
 func (o ProjectPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Endpoint at which the collector agent can call agent REST API.
 func (o ProjectPropertiesResponseOutput) ServiceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
 }
 
-// Time when this project was last updated. Date-Time represented in ISO-8601 format.
 func (o ProjectPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
@@ -10685,7 +9608,6 @@ func (o ProjectPropertiesResponsePtrOutput) Elem() ProjectPropertiesResponseOutp
 	}).(ProjectPropertiesResponseOutput)
 }
 
-// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
 func (o ProjectPropertiesResponsePtrOutput) AssessmentSolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10695,7 +9617,6 @@ func (o ProjectPropertiesResponsePtrOutput) AssessmentSolutionId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when this project was created. Date-Time represented in ISO-8601 format.
 func (o ProjectPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10705,7 +9626,6 @@ func (o ProjectPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the storage account used for interactions when public access is disabled.
 func (o ProjectPropertiesResponsePtrOutput) CustomerStorageAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10715,7 +9635,6 @@ func (o ProjectPropertiesResponsePtrOutput) CustomerStorageAccountArmId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of service map workspace created by customer.
 func (o ProjectPropertiesResponsePtrOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10725,7 +9644,6 @@ func (o ProjectPropertiesResponsePtrOutput) CustomerWorkspaceId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of service map workspace created by customer.
 func (o ProjectPropertiesResponsePtrOutput) CustomerWorkspaceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10735,7 +9653,6 @@ func (o ProjectPropertiesResponsePtrOutput) CustomerWorkspaceLocation() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
 func (o ProjectPropertiesResponsePtrOutput) LastAssessmentTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10745,7 +9662,6 @@ func (o ProjectPropertiesResponsePtrOutput) LastAssessmentTimestamp() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of assessments created in the project.
 func (o ProjectPropertiesResponsePtrOutput) NumberOfAssessments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *int {
 		if v == nil {
@@ -10755,7 +9671,6 @@ func (o ProjectPropertiesResponsePtrOutput) NumberOfAssessments() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of groups created in the project.
 func (o ProjectPropertiesResponsePtrOutput) NumberOfGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *int {
 		if v == nil {
@@ -10765,7 +9680,6 @@ func (o ProjectPropertiesResponsePtrOutput) NumberOfGroups() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of machines in the project.
 func (o ProjectPropertiesResponsePtrOutput) NumberOfMachines() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *int {
 		if v == nil {
@@ -10775,7 +9689,6 @@ func (o ProjectPropertiesResponsePtrOutput) NumberOfMachines() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The list of private endpoint connections to the project.
 func (o ProjectPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -10785,7 +9698,6 @@ func (o ProjectPropertiesResponsePtrOutput) PrivateEndpointConnections() Private
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Assessment project status.
 func (o ProjectPropertiesResponsePtrOutput) ProjectStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10795,7 +9707,6 @@ func (o ProjectPropertiesResponsePtrOutput) ProjectStatus() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the project.
 func (o ProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10805,7 +9716,6 @@ func (o ProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
 func (o ProjectPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10815,7 +9725,6 @@ func (o ProjectPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint at which the collector agent can call agent REST API.
 func (o ProjectPropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10825,7 +9734,6 @@ func (o ProjectPropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time when this project was last updated. Date-Time represented in ISO-8601 format.
 func (o ProjectPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectPropertiesResponse) *string {
 		if v == nil {
@@ -10836,21 +9744,13 @@ func (o ProjectPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrO
 }
 
 type PublicIPAddressResourceSettings struct {
-	// Gets or sets the domain name label.
-	DomainNameLabel *string `pulumi:"domainNameLabel"`
-	// Gets or sets the fully qualified domain name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or sets public IP allocation method.
+	DomainNameLabel          *string `pulumi:"domainNameLabel"`
+	Fqdn                     *string `pulumi:"fqdn"`
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/publicIPAddresses'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets public IP sku.
-	Sku *string `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets public IP zones.
-	Zones *string `pulumi:"zones"`
+	ResourceType             string  `pulumi:"resourceType"`
+	Sku                      *string `pulumi:"sku"`
+	TargetResourceName       string  `pulumi:"targetResourceName"`
+	Zones                    *string `pulumi:"zones"`
 }
 
 // PublicIPAddressResourceSettingsInput is an input type that accepts PublicIPAddressResourceSettingsArgs and PublicIPAddressResourceSettingsOutput values.
@@ -10865,21 +9765,13 @@ type PublicIPAddressResourceSettingsInput interface {
 }
 
 type PublicIPAddressResourceSettingsArgs struct {
-	// Gets or sets the domain name label.
-	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
-	// Gets or sets the fully qualified domain name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or sets public IP allocation method.
+	DomainNameLabel          pulumi.StringPtrInput `pulumi:"domainNameLabel"`
+	Fqdn                     pulumi.StringPtrInput `pulumi:"fqdn"`
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/publicIPAddresses'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets public IP sku.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets public IP zones.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	ResourceType             pulumi.StringInput    `pulumi:"resourceType"`
+	Sku                      pulumi.StringPtrInput `pulumi:"sku"`
+	TargetResourceName       pulumi.StringInput    `pulumi:"targetResourceName"`
+	Zones                    pulumi.StringPtrInput `pulumi:"zones"`
 }
 
 func (PublicIPAddressResourceSettingsArgs) ElementType() reflect.Type {
@@ -10908,58 +9800,42 @@ func (o PublicIPAddressResourceSettingsOutput) ToPublicIPAddressResourceSettings
 	return o
 }
 
-// Gets or sets the domain name label.
 func (o PublicIPAddressResourceSettingsOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the fully qualified domain name.
 func (o PublicIPAddressResourceSettingsOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets public IP allocation method.
 func (o PublicIPAddressResourceSettingsOutput) PublicIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.PublicIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/publicIPAddresses'.
 func (o PublicIPAddressResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets public IP sku.
 func (o PublicIPAddressResourceSettingsOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o PublicIPAddressResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets public IP zones.
 func (o PublicIPAddressResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
 type PublicIPAddressResourceSettingsResponse struct {
-	// Gets or sets the domain name label.
-	DomainNameLabel *string `pulumi:"domainNameLabel"`
-	// Gets or sets the fully qualified domain name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or sets public IP allocation method.
+	DomainNameLabel          *string `pulumi:"domainNameLabel"`
+	Fqdn                     *string `pulumi:"fqdn"`
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/publicIPAddresses'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets public IP sku.
-	Sku *string `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets public IP zones.
-	Zones *string `pulumi:"zones"`
+	ResourceType             string  `pulumi:"resourceType"`
+	Sku                      *string `pulumi:"sku"`
+	TargetResourceName       string  `pulumi:"targetResourceName"`
+	Zones                    *string `pulumi:"zones"`
 }
 
 // PublicIPAddressResourceSettingsResponseInput is an input type that accepts PublicIPAddressResourceSettingsResponseArgs and PublicIPAddressResourceSettingsResponseOutput values.
@@ -10974,21 +9850,13 @@ type PublicIPAddressResourceSettingsResponseInput interface {
 }
 
 type PublicIPAddressResourceSettingsResponseArgs struct {
-	// Gets or sets the domain name label.
-	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
-	// Gets or sets the fully qualified domain name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or sets public IP allocation method.
+	DomainNameLabel          pulumi.StringPtrInput `pulumi:"domainNameLabel"`
+	Fqdn                     pulumi.StringPtrInput `pulumi:"fqdn"`
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/publicIPAddresses'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets public IP sku.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets public IP zones.
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	ResourceType             pulumi.StringInput    `pulumi:"resourceType"`
+	Sku                      pulumi.StringPtrInput `pulumi:"sku"`
+	TargetResourceName       pulumi.StringInput    `pulumi:"targetResourceName"`
+	Zones                    pulumi.StringPtrInput `pulumi:"zones"`
 }
 
 func (PublicIPAddressResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -11017,44 +9885,35 @@ func (o PublicIPAddressResourceSettingsResponseOutput) ToPublicIPAddressResource
 	return o
 }
 
-// Gets or sets the domain name label.
 func (o PublicIPAddressResourceSettingsResponseOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the fully qualified domain name.
 func (o PublicIPAddressResourceSettingsResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets public IP allocation method.
 func (o PublicIPAddressResourceSettingsResponseOutput) PublicIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.PublicIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/publicIPAddresses'.
 func (o PublicIPAddressResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets public IP sku.
 func (o PublicIPAddressResourceSettingsResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o PublicIPAddressResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets public IP zones.
 func (o PublicIPAddressResourceSettingsResponseOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
 type PublicIpReference struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
 }
 
@@ -11070,7 +9929,6 @@ type PublicIpReferenceInput interface {
 }
 
 type PublicIpReferenceArgs struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
 }
 
@@ -11151,7 +10009,6 @@ func (o PublicIpReferenceOutput) ToPublicIpReferencePtrOutputWithContext(ctx con
 	}).(PublicIpReferencePtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o PublicIpReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIpReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -11180,7 +10037,6 @@ func (o PublicIpReferencePtrOutput) Elem() PublicIpReferenceOutput {
 	}).(PublicIpReferenceOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o PublicIpReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpReference) *string {
 		if v == nil {
@@ -11191,7 +10047,6 @@ func (o PublicIpReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput
 }
 
 type PublicIpReferenceResponse struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
 }
 
@@ -11207,7 +10062,6 @@ type PublicIpReferenceResponseInput interface {
 }
 
 type PublicIpReferenceResponseArgs struct {
-	// Gets the ARM resource ID of the tracked resource being referenced.
 	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
 }
 
@@ -11288,7 +10142,6 @@ func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponsePtrOutputWit
 	}).(PublicIpReferenceResponsePtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o PublicIpReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIpReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -11317,7 +10170,6 @@ func (o PublicIpReferenceResponsePtrOutput) Elem() PublicIpReferenceResponseOutp
 	}).(PublicIpReferenceResponseOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o PublicIpReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpReferenceResponse) *string {
 		if v == nil {
@@ -11328,10 +10180,7 @@ func (o PublicIpReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringP
 }
 
 type ResourceGroupResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'resourceGroups'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -11347,10 +10196,7 @@ type ResourceGroupResourceSettingsInput interface {
 }
 
 type ResourceGroupResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'resourceGroups'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -11380,22 +10226,16 @@ func (o ResourceGroupResourceSettingsOutput) ToResourceGroupResourceSettingsOutp
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'resourceGroups'.
 func (o ResourceGroupResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o ResourceGroupResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type ResourceGroupResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'resourceGroups'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -11411,10 +10251,7 @@ type ResourceGroupResourceSettingsResponseInput interface {
 }
 
 type ResourceGroupResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'resourceGroups'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -11444,13 +10281,10 @@ func (o ResourceGroupResourceSettingsResponseOutput) ToResourceGroupResourceSett
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'resourceGroups'.
 func (o ResourceGroupResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o ResourceGroupResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -11589,25 +10423,15 @@ func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ServersProjectSummaryResponse struct {
-	// Gets or sets the count of entities assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of entities discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the count of entities migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
-	// Gets or sets the count of entities being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of entities test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
+	AssessedCount            *int              `pulumi:"assessedCount"`
+	DiscoveredCount          *int              `pulumi:"discoveredCount"`
+	ExtendedSummary          map[string]string `pulumi:"extendedSummary"`
+	InstanceType             string            `pulumi:"instanceType"`
+	LastSummaryRefreshedTime *string           `pulumi:"lastSummaryRefreshedTime"`
+	MigratedCount            *int              `pulumi:"migratedCount"`
+	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
+	ReplicatingCount         *int              `pulumi:"replicatingCount"`
+	TestMigratedCount        *int              `pulumi:"testMigratedCount"`
 }
 
 // ServersProjectSummaryResponseInput is an input type that accepts ServersProjectSummaryResponseArgs and ServersProjectSummaryResponseOutput values.
@@ -11622,25 +10446,15 @@ type ServersProjectSummaryResponseInput interface {
 }
 
 type ServersProjectSummaryResponseArgs struct {
-	// Gets or sets the count of entities assessed.
-	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
-	// Gets or sets the count of entities discovered.
-	DiscoveredCount pulumi.IntPtrInput `pulumi:"discoveredCount"`
-	// Gets or sets the extended summary.
-	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
+	AssessedCount            pulumi.IntPtrInput    `pulumi:"assessedCount"`
+	DiscoveredCount          pulumi.IntPtrInput    `pulumi:"discoveredCount"`
+	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
+	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the count of entities migrated.
-	MigratedCount pulumi.IntPtrInput `pulumi:"migratedCount"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
-	// Gets or sets the count of entities being replicated.
-	ReplicatingCount pulumi.IntPtrInput `pulumi:"replicatingCount"`
-	// Gets or sets the count of entities test migrated.
-	TestMigratedCount pulumi.IntPtrInput `pulumi:"testMigratedCount"`
+	MigratedCount            pulumi.IntPtrInput    `pulumi:"migratedCount"`
+	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
+	ReplicatingCount         pulumi.IntPtrInput    `pulumi:"replicatingCount"`
+	TestMigratedCount        pulumi.IntPtrInput    `pulumi:"testMigratedCount"`
 }
 
 func (ServersProjectSummaryResponseArgs) ElementType() reflect.Type {
@@ -11669,66 +10483,49 @@ func (o ServersProjectSummaryResponseOutput) ToServersProjectSummaryResponseOutp
 	return o
 }
 
-// Gets or sets the count of entities assessed.
 func (o ServersProjectSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of entities discovered.
 func (o ServersProjectSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended summary.
 func (o ServersProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Servers'.
 func (o ServersProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the time when summary was last refreshed.
 func (o ServersProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the count of entities migrated.
 func (o ServersProjectSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the state of refresh summary.
 func (o ServersProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the count of entities being replicated.
 func (o ServersProjectSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of entities test migrated.
 func (o ServersProjectSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
 type ServersSolutionSummaryResponse struct {
-	// Gets or sets the count of servers assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of servers discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of servers migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the count of servers being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of servers test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
+	AssessedCount     *int   `pulumi:"assessedCount"`
+	DiscoveredCount   *int   `pulumi:"discoveredCount"`
+	InstanceType      string `pulumi:"instanceType"`
+	MigratedCount     *int   `pulumi:"migratedCount"`
+	ReplicatingCount  *int   `pulumi:"replicatingCount"`
+	TestMigratedCount *int   `pulumi:"testMigratedCount"`
 }
 
 // ServersSolutionSummaryResponseInput is an input type that accepts ServersSolutionSummaryResponseArgs and ServersSolutionSummaryResponseOutput values.
@@ -11743,18 +10540,11 @@ type ServersSolutionSummaryResponseInput interface {
 }
 
 type ServersSolutionSummaryResponseArgs struct {
-	// Gets or sets the count of servers assessed.
-	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
-	// Gets or sets the count of servers discovered.
-	DiscoveredCount pulumi.IntPtrInput `pulumi:"discoveredCount"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the count of servers migrated.
-	MigratedCount pulumi.IntPtrInput `pulumi:"migratedCount"`
-	// Gets or sets the count of servers being replicated.
-	ReplicatingCount pulumi.IntPtrInput `pulumi:"replicatingCount"`
-	// Gets or sets the count of servers test migrated.
+	AssessedCount     pulumi.IntPtrInput `pulumi:"assessedCount"`
+	DiscoveredCount   pulumi.IntPtrInput `pulumi:"discoveredCount"`
+	InstanceType      pulumi.StringInput `pulumi:"instanceType"`
+	MigratedCount     pulumi.IntPtrInput `pulumi:"migratedCount"`
+	ReplicatingCount  pulumi.IntPtrInput `pulumi:"replicatingCount"`
 	TestMigratedCount pulumi.IntPtrInput `pulumi:"testMigratedCount"`
 }
 
@@ -11784,44 +10574,34 @@ func (o ServersSolutionSummaryResponseOutput) ToServersSolutionSummaryResponseOu
 	return o
 }
 
-// Gets or sets the count of servers assessed.
 func (o ServersSolutionSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers discovered.
 func (o ServersSolutionSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Servers'.
 func (o ServersSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the count of servers migrated.
 func (o ServersSolutionSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers being replicated.
 func (o ServersSolutionSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers test migrated.
 func (o ServersSolutionSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
 type SolutionDetails struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount *int              `pulumi:"assessmentCount"`
 	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
+	GroupCount      *int              `pulumi:"groupCount"`
 }
 
 // SolutionDetailsInput is an input type that accepts SolutionDetailsArgs and SolutionDetailsOutput values.
@@ -11836,12 +10616,9 @@ type SolutionDetailsInput interface {
 }
 
 type SolutionDetailsArgs struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount pulumi.IntPtrInput    `pulumi:"assessmentCount"`
 	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount pulumi.IntPtrInput `pulumi:"groupCount"`
+	GroupCount      pulumi.IntPtrInput    `pulumi:"groupCount"`
 }
 
 func (SolutionDetailsArgs) ElementType() reflect.Type {
@@ -11921,17 +10698,14 @@ func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutputWithContext(ctx context
 	}).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetails) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SolutionDetails) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetails) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
 }
@@ -11960,7 +10734,6 @@ func (o SolutionDetailsPtrOutput) Elem() SolutionDetailsOutput {
 	}).(SolutionDetailsOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsPtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetails) *int {
 		if v == nil {
@@ -11970,7 +10743,6 @@ func (o SolutionDetailsPtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsPtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SolutionDetails) map[string]string {
 		if v == nil {
@@ -11980,7 +10752,6 @@ func (o SolutionDetailsPtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetails) *int {
 		if v == nil {
@@ -11991,12 +10762,9 @@ func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
 }
 
 type SolutionDetailsResponse struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount *int              `pulumi:"assessmentCount"`
 	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
+	GroupCount      *int              `pulumi:"groupCount"`
 }
 
 // SolutionDetailsResponseInput is an input type that accepts SolutionDetailsResponseArgs and SolutionDetailsResponseOutput values.
@@ -12011,12 +10779,9 @@ type SolutionDetailsResponseInput interface {
 }
 
 type SolutionDetailsResponseArgs struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount pulumi.IntPtrInput    `pulumi:"assessmentCount"`
 	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount pulumi.IntPtrInput `pulumi:"groupCount"`
+	GroupCount      pulumi.IntPtrInput    `pulumi:"groupCount"`
 }
 
 func (SolutionDetailsResponseArgs) ElementType() reflect.Type {
@@ -12096,17 +10861,14 @@ func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutputWithCon
 	}).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsResponseOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsResponseOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsResponseOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
 }
@@ -12135,7 +10897,6 @@ func (o SolutionDetailsResponsePtrOutput) Elem() SolutionDetailsResponseOutput {
 	}).(SolutionDetailsResponseOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
 		if v == nil {
@@ -12145,7 +10906,6 @@ func (o SolutionDetailsResponsePtrOutput) AssessmentCount() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) map[string]string {
 		if v == nil {
@@ -12155,7 +10915,6 @@ func (o SolutionDetailsResponsePtrOutput) ExtendedDetails() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
 		if v == nil {
@@ -12166,18 +10925,12 @@ func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
 }
 
 type SolutionProperties struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetails `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
+	CleanupState *string          `pulumi:"cleanupState"`
+	Details      *SolutionDetails `pulumi:"details"`
+	Goal         *string          `pulumi:"goal"`
+	Purpose      *string          `pulumi:"purpose"`
+	Status       *string          `pulumi:"status"`
+	Tool         *string          `pulumi:"tool"`
 }
 
 // SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
@@ -12192,18 +10945,12 @@ type SolutionPropertiesInput interface {
 }
 
 type SolutionPropertiesArgs struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details SolutionDetailsPtrInput `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal pulumi.StringPtrInput `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose pulumi.StringPtrInput `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
+	CleanupState pulumi.StringPtrInput   `pulumi:"cleanupState"`
+	Details      SolutionDetailsPtrInput `pulumi:"details"`
+	Goal         pulumi.StringPtrInput   `pulumi:"goal"`
+	Purpose      pulumi.StringPtrInput   `pulumi:"purpose"`
+	Status       pulumi.StringPtrInput   `pulumi:"status"`
+	Tool         pulumi.StringPtrInput   `pulumi:"tool"`
 }
 
 func (SolutionPropertiesArgs) ElementType() reflect.Type {
@@ -12283,32 +11030,26 @@ func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx c
 	}).(SolutionPropertiesPtrOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesOutput) Details() SolutionDetailsPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *SolutionDetails { return v.Details }).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Goal }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Purpose }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
@@ -12337,7 +11078,6 @@ func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
 	}).(SolutionPropertiesOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesPtrOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -12347,7 +11087,6 @@ func (o SolutionPropertiesPtrOutput) CleanupState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesPtrOutput) Details() SolutionDetailsPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *SolutionDetails {
 		if v == nil {
@@ -12357,7 +11096,6 @@ func (o SolutionPropertiesPtrOutput) Details() SolutionDetailsPtrOutput {
 	}).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesPtrOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -12367,7 +11105,6 @@ func (o SolutionPropertiesPtrOutput) Goal() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesPtrOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -12377,7 +11114,6 @@ func (o SolutionPropertiesPtrOutput) Purpose() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -12387,7 +11123,6 @@ func (o SolutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -12398,20 +11133,13 @@ func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
 }
 
 type SolutionPropertiesResponse struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetailsResponse `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the summary of the solution.
-	Summary interface{} `pulumi:"summary"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
+	CleanupState *string                  `pulumi:"cleanupState"`
+	Details      *SolutionDetailsResponse `pulumi:"details"`
+	Goal         *string                  `pulumi:"goal"`
+	Purpose      *string                  `pulumi:"purpose"`
+	Status       *string                  `pulumi:"status"`
+	Summary      interface{}              `pulumi:"summary"`
+	Tool         *string                  `pulumi:"tool"`
 }
 
 // SolutionPropertiesResponseInput is an input type that accepts SolutionPropertiesResponseArgs and SolutionPropertiesResponseOutput values.
@@ -12426,20 +11154,13 @@ type SolutionPropertiesResponseInput interface {
 }
 
 type SolutionPropertiesResponseArgs struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details SolutionDetailsResponsePtrInput `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal pulumi.StringPtrInput `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose pulumi.StringPtrInput `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Gets or sets the summary of the solution.
-	Summary pulumi.Input `pulumi:"summary"`
-	// Gets or sets the tool being used in the solution.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
+	CleanupState pulumi.StringPtrInput           `pulumi:"cleanupState"`
+	Details      SolutionDetailsResponsePtrInput `pulumi:"details"`
+	Goal         pulumi.StringPtrInput           `pulumi:"goal"`
+	Purpose      pulumi.StringPtrInput           `pulumi:"purpose"`
+	Status       pulumi.StringPtrInput           `pulumi:"status"`
+	Summary      pulumi.Input                    `pulumi:"summary"`
+	Tool         pulumi.StringPtrInput           `pulumi:"tool"`
 }
 
 func (SolutionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -12519,37 +11240,30 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputW
 	}).(SolutionPropertiesResponsePtrOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesResponseOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesResponseOutput) Details() SolutionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionDetailsResponse { return v.Details }).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesResponseOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Goal }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesResponseOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Purpose }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the summary of the solution.
 func (o SolutionPropertiesResponseOutput) Summary() pulumi.AnyOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) interface{} { return v.Summary }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesResponseOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
@@ -12578,7 +11292,6 @@ func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOu
 	}).(SolutionPropertiesResponseOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesResponsePtrOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -12588,7 +11301,6 @@ func (o SolutionPropertiesResponsePtrOutput) CleanupState() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Details() SolutionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *SolutionDetailsResponse {
 		if v == nil {
@@ -12598,7 +11310,6 @@ func (o SolutionPropertiesResponsePtrOutput) Details() SolutionDetailsResponsePt
 	}).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -12608,7 +11319,6 @@ func (o SolutionPropertiesResponsePtrOutput) Goal() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -12618,7 +11328,6 @@ func (o SolutionPropertiesResponsePtrOutput) Purpose() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -12628,7 +11337,6 @@ func (o SolutionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the summary of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Summary() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) interface{} {
 		if v == nil {
@@ -12638,7 +11346,6 @@ func (o SolutionPropertiesResponsePtrOutput) Summary() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -12649,13 +11356,9 @@ func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 }
 
 type SqlDatabaseResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant *string `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 // SqlDatabaseResourceSettingsInput is an input type that accepts SqlDatabaseResourceSettingsArgs and SqlDatabaseResourceSettingsOutput values.
@@ -12670,13 +11373,9 @@ type SqlDatabaseResourceSettingsInput interface {
 }
 
 type SqlDatabaseResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant pulumi.StringPtrInput `pulumi:"zoneRedundant"`
+	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
+	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
 
 func (SqlDatabaseResourceSettingsArgs) ElementType() reflect.Type {
@@ -12705,30 +11404,22 @@ func (o SqlDatabaseResourceSettingsOutput) ToSqlDatabaseResourceSettingsOutputWi
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o SqlDatabaseResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlDatabaseResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the zone redundant resource setting.
 func (o SqlDatabaseResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
 type SqlDatabaseResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant *string `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 // SqlDatabaseResourceSettingsResponseInput is an input type that accepts SqlDatabaseResourceSettingsResponseArgs and SqlDatabaseResourceSettingsResponseOutput values.
@@ -12743,13 +11434,9 @@ type SqlDatabaseResourceSettingsResponseInput interface {
 }
 
 type SqlDatabaseResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant pulumi.StringPtrInput `pulumi:"zoneRedundant"`
+	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
+	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
 
 func (SqlDatabaseResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -12778,30 +11465,22 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ToSqlDatabaseResourceSettings
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o SqlDatabaseResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlDatabaseResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the zone redundant resource setting.
 func (o SqlDatabaseResourceSettingsResponseOutput) ZoneRedundant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
 type SqlElasticPoolResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant *string `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 // SqlElasticPoolResourceSettingsInput is an input type that accepts SqlElasticPoolResourceSettingsArgs and SqlElasticPoolResourceSettingsOutput values.
@@ -12816,13 +11495,9 @@ type SqlElasticPoolResourceSettingsInput interface {
 }
 
 type SqlElasticPoolResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant pulumi.StringPtrInput `pulumi:"zoneRedundant"`
+	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
+	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
 
 func (SqlElasticPoolResourceSettingsArgs) ElementType() reflect.Type {
@@ -12851,30 +11526,22 @@ func (o SqlElasticPoolResourceSettingsOutput) ToSqlElasticPoolResourceSettingsOu
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 func (o SqlElasticPoolResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlElasticPoolResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the zone redundant resource setting.
 func (o SqlElasticPoolResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
 type SqlElasticPoolResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant *string `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 // SqlElasticPoolResourceSettingsResponseInput is an input type that accepts SqlElasticPoolResourceSettingsResponseArgs and SqlElasticPoolResourceSettingsResponseOutput values.
@@ -12889,13 +11556,9 @@ type SqlElasticPoolResourceSettingsResponseInput interface {
 }
 
 type SqlElasticPoolResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Defines the zone redundant resource setting.
-	ZoneRedundant pulumi.StringPtrInput `pulumi:"zoneRedundant"`
+	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
+	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
 
 func (SqlElasticPoolResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -12924,27 +11587,20 @@ func (o SqlElasticPoolResourceSettingsResponseOutput) ToSqlElasticPoolResourceSe
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 func (o SqlElasticPoolResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlElasticPoolResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Defines the zone redundant resource setting.
 func (o SqlElasticPoolResourceSettingsResponseOutput) ZoneRedundant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) *string { return v.ZoneRedundant }).(pulumi.StringPtrOutput)
 }
 
 type SqlServerResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -12960,10 +11616,7 @@ type SqlServerResourceSettingsInput interface {
 }
 
 type SqlServerResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -12993,22 +11646,16 @@ func (o SqlServerResourceSettingsOutput) ToSqlServerResourceSettingsOutputWithCo
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers'.
 func (o SqlServerResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlServerResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type SqlServerResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       string `pulumi:"resourceType"`
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
 
@@ -13024,10 +11671,7 @@ type SqlServerResourceSettingsResponseInput interface {
 }
 
 type SqlServerResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Sql/servers'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
 }
 
@@ -13057,22 +11701,17 @@ func (o SqlServerResourceSettingsResponseOutput) ToSqlServerResourceSettingsResp
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Sql/servers'.
 func (o SqlServerResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o SqlServerResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type SubnetReference struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // SubnetReferenceInput is an input type that accepts SubnetReferenceArgs and SubnetReferenceOutput values.
@@ -13087,10 +11726,8 @@ type SubnetReferenceInput interface {
 }
 
 type SubnetReferenceArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (SubnetReferenceArgs) ElementType() reflect.Type {
@@ -13170,12 +11807,10 @@ func (o SubnetReferenceOutput) ToSubnetReferencePtrOutputWithContext(ctx context
 	}).(SubnetReferencePtrOutput)
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o SubnetReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o SubnetReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -13204,7 +11839,6 @@ func (o SubnetReferencePtrOutput) Elem() SubnetReferenceOutput {
 	}).(SubnetReferenceOutput)
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o SubnetReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetReference) *string {
 		if v == nil {
@@ -13214,7 +11848,6 @@ func (o SubnetReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o SubnetReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetReference) *string {
 		if v == nil {
@@ -13225,10 +11858,8 @@ func (o SubnetReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 }
 
 type SubnetReferenceResponse struct {
-	// Gets the name of the proxy resource on the target side.
-	Name *string `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	Name                *string `pulumi:"name"`
+	SourceArmResourceId string  `pulumi:"sourceArmResourceId"`
 }
 
 // SubnetReferenceResponseInput is an input type that accepts SubnetReferenceResponseArgs and SubnetReferenceResponseOutput values.
@@ -13243,10 +11874,8 @@ type SubnetReferenceResponseInput interface {
 }
 
 type SubnetReferenceResponseArgs struct {
-	// Gets the name of the proxy resource on the target side.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets the ARM resource ID of the tracked resource being referenced.
-	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	SourceArmResourceId pulumi.StringInput    `pulumi:"sourceArmResourceId"`
 }
 
 func (SubnetReferenceResponseArgs) ElementType() reflect.Type {
@@ -13326,12 +11955,10 @@ func (o SubnetReferenceResponseOutput) ToSubnetReferenceResponsePtrOutputWithCon
 	}).(SubnetReferenceResponsePtrOutput)
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o SubnetReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o SubnetReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
@@ -13360,7 +11987,6 @@ func (o SubnetReferenceResponsePtrOutput) Elem() SubnetReferenceResponseOutput {
 	}).(SubnetReferenceResponseOutput)
 }
 
-// Gets the name of the proxy resource on the target side.
 func (o SubnetReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetReferenceResponse) *string {
 		if v == nil {
@@ -13370,7 +11996,6 @@ func (o SubnetReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the ARM resource ID of the tracked resource being referenced.
 func (o SubnetReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetReferenceResponse) *string {
 		if v == nil {
@@ -13381,11 +12006,8 @@ func (o SubnetReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtr
 }
 
 type SubnetResourceSettings struct {
-	// Gets or sets address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// Gets or sets the Subnet name.
-	Name *string `pulumi:"name"`
-	// Defines reference to NSG.
+	AddressPrefix        *string       `pulumi:"addressPrefix"`
+	Name                 *string       `pulumi:"name"`
 	NetworkSecurityGroup *NsgReference `pulumi:"networkSecurityGroup"`
 }
 
@@ -13401,12 +12023,9 @@ type SubnetResourceSettingsInput interface {
 }
 
 type SubnetResourceSettingsArgs struct {
-	// Gets or sets address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
-	// Gets or sets the Subnet name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Defines reference to NSG.
-	NetworkSecurityGroup NsgReferencePtrInput `pulumi:"networkSecurityGroup"`
+	AddressPrefix        pulumi.StringPtrInput `pulumi:"addressPrefix"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	NetworkSecurityGroup NsgReferencePtrInput  `pulumi:"networkSecurityGroup"`
 }
 
 func (SubnetResourceSettingsArgs) ElementType() reflect.Type {
@@ -13460,17 +12079,14 @@ func (o SubnetResourceSettingsOutput) ToSubnetResourceSettingsOutputWithContext(
 	return o
 }
 
-// Gets or sets address prefix for the subnet.
 func (o SubnetResourceSettingsOutput) AddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettings) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Subnet name.
 func (o SubnetResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to NSG.
 func (o SubnetResourceSettingsOutput) NetworkSecurityGroup() NsgReferencePtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettings) *NsgReference { return v.NetworkSecurityGroup }).(NsgReferencePtrOutput)
 }
@@ -13496,11 +12112,8 @@ func (o SubnetResourceSettingsArrayOutput) Index(i pulumi.IntInput) SubnetResour
 }
 
 type SubnetResourceSettingsResponse struct {
-	// Gets or sets address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// Gets or sets the Subnet name.
-	Name *string `pulumi:"name"`
-	// Defines reference to NSG.
+	AddressPrefix        *string               `pulumi:"addressPrefix"`
+	Name                 *string               `pulumi:"name"`
 	NetworkSecurityGroup *NsgReferenceResponse `pulumi:"networkSecurityGroup"`
 }
 
@@ -13516,11 +12129,8 @@ type SubnetResourceSettingsResponseInput interface {
 }
 
 type SubnetResourceSettingsResponseArgs struct {
-	// Gets or sets address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
-	// Gets or sets the Subnet name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Defines reference to NSG.
+	AddressPrefix        pulumi.StringPtrInput        `pulumi:"addressPrefix"`
+	Name                 pulumi.StringPtrInput        `pulumi:"name"`
 	NetworkSecurityGroup NsgReferenceResponsePtrInput `pulumi:"networkSecurityGroup"`
 }
 
@@ -13575,17 +12185,14 @@ func (o SubnetResourceSettingsResponseOutput) ToSubnetResourceSettingsResponseOu
 	return o
 }
 
-// Gets or sets address prefix for the subnet.
 func (o SubnetResourceSettingsResponseOutput) AddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettingsResponse) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Subnet name.
 func (o SubnetResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Defines reference to NSG.
 func (o SubnetResourceSettingsResponseOutput) NetworkSecurityGroup() NsgReferenceResponsePtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettingsResponse) *NsgReferenceResponse { return v.NetworkSecurityGroup }).(NsgReferenceResponsePtrOutput)
 }
@@ -13611,17 +12218,11 @@ func (o SubnetResourceSettingsResponseArrayOutput) Index(i pulumi.IntInput) Subn
 }
 
 type VirtualMachineResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
+	ResourceType            string  `pulumi:"resourceType"`
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
-	// Gets or sets the target availability zone.
-	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the target virtual machine size.
-	TargetVmSize *string `pulumi:"targetVmSize"`
+	TargetAvailabilityZone  *string `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      string  `pulumi:"targetResourceName"`
+	TargetVmSize            *string `pulumi:"targetVmSize"`
 }
 
 // VirtualMachineResourceSettingsInput is an input type that accepts VirtualMachineResourceSettingsArgs and VirtualMachineResourceSettingsOutput values.
@@ -13636,17 +12237,11 @@ type VirtualMachineResourceSettingsInput interface {
 }
 
 type VirtualMachineResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
+	ResourceType            pulumi.StringInput    `pulumi:"resourceType"`
 	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
-	// Gets or sets the target availability zone.
-	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the target virtual machine size.
-	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
+	TargetAvailabilityZone  pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      pulumi.StringInput    `pulumi:"targetResourceName"`
+	TargetVmSize            pulumi.StringPtrInput `pulumi:"targetVmSize"`
 }
 
 func (VirtualMachineResourceSettingsArgs) ElementType() reflect.Type {
@@ -13675,44 +12270,32 @@ func (o VirtualMachineResourceSettingsOutput) ToVirtualMachineResourceSettingsOu
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o VirtualMachineResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 func (o VirtualMachineResourceSettingsOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target availability zone.
 func (o VirtualMachineResourceSettingsOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o VirtualMachineResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target virtual machine size.
 func (o VirtualMachineResourceSettingsOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineResourceSettingsResponse struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
+	ResourceType            string  `pulumi:"resourceType"`
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
-	// Gets or sets the target availability zone.
-	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-	// Gets or sets the target virtual machine size.
-	TargetVmSize *string `pulumi:"targetVmSize"`
+	TargetAvailabilityZone  *string `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      string  `pulumi:"targetResourceName"`
+	TargetVmSize            *string `pulumi:"targetVmSize"`
 }
 
 // VirtualMachineResourceSettingsResponseInput is an input type that accepts VirtualMachineResourceSettingsResponseArgs and VirtualMachineResourceSettingsResponseOutput values.
@@ -13727,17 +12310,11 @@ type VirtualMachineResourceSettingsResponseInput interface {
 }
 
 type VirtualMachineResourceSettingsResponseArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
+	ResourceType            pulumi.StringInput    `pulumi:"resourceType"`
 	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
-	// Gets or sets the target availability zone.
-	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-	// Gets or sets the target virtual machine size.
-	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
+	TargetAvailabilityZone  pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      pulumi.StringInput    `pulumi:"targetResourceName"`
+	TargetVmSize            pulumi.StringPtrInput `pulumi:"targetVmSize"`
 }
 
 func (VirtualMachineResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -13766,48 +12343,33 @@ func (o VirtualMachineResourceSettingsResponseOutput) ToVirtualMachineResourceSe
 	return o
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o VirtualMachineResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 func (o VirtualMachineResourceSettingsResponseOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target availability zone.
 func (o VirtualMachineResourceSettingsResponseOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o VirtualMachineResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the target virtual machine size.
 func (o VirtualMachineResourceSettingsResponseOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkResourceSettings struct {
-	// Gets or sets the address prefixes for the virtual network.
-	AddressSpace []string `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-	// deployed in the virtual network.
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gets or sets a value indicating whether gets or sets whether the
-	// DDOS protection should be switched on.
-	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/virtualNetworks'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets List of subnets in a VirtualNetwork.
-	Subnets []SubnetResourceSettings `pulumi:"subnets"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	AddressSpace         []string                 `pulumi:"addressSpace"`
+	DnsServers           []string                 `pulumi:"dnsServers"`
+	EnableDdosProtection *bool                    `pulumi:"enableDdosProtection"`
+	ResourceType         string                   `pulumi:"resourceType"`
+	Subnets              []SubnetResourceSettings `pulumi:"subnets"`
+	TargetResourceName   string                   `pulumi:"targetResourceName"`
 }
 
 // VirtualNetworkResourceSettingsInput is an input type that accepts VirtualNetworkResourceSettingsArgs and VirtualNetworkResourceSettingsOutput values.
@@ -13822,21 +12384,12 @@ type VirtualNetworkResourceSettingsInput interface {
 }
 
 type VirtualNetworkResourceSettingsArgs struct {
-	// Gets or sets the address prefixes for the virtual network.
-	AddressSpace pulumi.StringArrayInput `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-	// deployed in the virtual network.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gets or sets a value indicating whether gets or sets whether the
-	// DDOS protection should be switched on.
-	EnableDdosProtection pulumi.BoolPtrInput `pulumi:"enableDdosProtection"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/virtualNetworks'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets List of subnets in a VirtualNetwork.
-	Subnets SubnetResourceSettingsArrayInput `pulumi:"subnets"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	AddressSpace         pulumi.StringArrayInput          `pulumi:"addressSpace"`
+	DnsServers           pulumi.StringArrayInput          `pulumi:"dnsServers"`
+	EnableDdosProtection pulumi.BoolPtrInput              `pulumi:"enableDdosProtection"`
+	ResourceType         pulumi.StringInput               `pulumi:"resourceType"`
+	Subnets              SubnetResourceSettingsArrayInput `pulumi:"subnets"`
+	TargetResourceName   pulumi.StringInput               `pulumi:"targetResourceName"`
 }
 
 func (VirtualNetworkResourceSettingsArgs) ElementType() reflect.Type {
@@ -13865,55 +12418,37 @@ func (o VirtualNetworkResourceSettingsOutput) ToVirtualNetworkResourceSettingsOu
 	return o
 }
 
-// Gets or sets the address prefixes for the virtual network.
 func (o VirtualNetworkResourceSettingsOutput) AddressSpace() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) []string { return v.AddressSpace }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-// deployed in the virtual network.
 func (o VirtualNetworkResourceSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets a value indicating whether gets or sets whether the
-// DDOS protection should be switched on.
 func (o VirtualNetworkResourceSettingsOutput) EnableDdosProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) *bool { return v.EnableDdosProtection }).(pulumi.BoolPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/virtualNetworks'.
 func (o VirtualNetworkResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets List of subnets in a VirtualNetwork.
 func (o VirtualNetworkResourceSettingsOutput) Subnets() SubnetResourceSettingsArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) []SubnetResourceSettings { return v.Subnets }).(SubnetResourceSettingsArrayOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o VirtualNetworkResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkResourceSettingsResponse struct {
-	// Gets or sets the address prefixes for the virtual network.
-	AddressSpace []string `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-	// deployed in the virtual network.
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gets or sets a value indicating whether gets or sets whether the
-	// DDOS protection should be switched on.
-	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/virtualNetworks'.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets List of subnets in a VirtualNetwork.
-	Subnets []SubnetResourceSettingsResponse `pulumi:"subnets"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
+	AddressSpace         []string                         `pulumi:"addressSpace"`
+	DnsServers           []string                         `pulumi:"dnsServers"`
+	EnableDdosProtection *bool                            `pulumi:"enableDdosProtection"`
+	ResourceType         string                           `pulumi:"resourceType"`
+	Subnets              []SubnetResourceSettingsResponse `pulumi:"subnets"`
+	TargetResourceName   string                           `pulumi:"targetResourceName"`
 }
 
 // VirtualNetworkResourceSettingsResponseInput is an input type that accepts VirtualNetworkResourceSettingsResponseArgs and VirtualNetworkResourceSettingsResponseOutput values.
@@ -13928,21 +12463,12 @@ type VirtualNetworkResourceSettingsResponseInput interface {
 }
 
 type VirtualNetworkResourceSettingsResponseArgs struct {
-	// Gets or sets the address prefixes for the virtual network.
-	AddressSpace pulumi.StringArrayInput `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-	// deployed in the virtual network.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gets or sets a value indicating whether gets or sets whether the
-	// DDOS protection should be switched on.
-	EnableDdosProtection pulumi.BoolPtrInput `pulumi:"enableDdosProtection"`
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	// Expected value is 'Microsoft.Network/virtualNetworks'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets List of subnets in a VirtualNetwork.
-	Subnets SubnetResourceSettingsResponseArrayInput `pulumi:"subnets"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	AddressSpace         pulumi.StringArrayInput                  `pulumi:"addressSpace"`
+	DnsServers           pulumi.StringArrayInput                  `pulumi:"dnsServers"`
+	EnableDdosProtection pulumi.BoolPtrInput                      `pulumi:"enableDdosProtection"`
+	ResourceType         pulumi.StringInput                       `pulumi:"resourceType"`
+	Subnets              SubnetResourceSettingsResponseArrayInput `pulumi:"subnets"`
+	TargetResourceName   pulumi.StringInput                       `pulumi:"targetResourceName"`
 }
 
 func (VirtualNetworkResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -13971,44 +12497,33 @@ func (o VirtualNetworkResourceSettingsResponseOutput) ToVirtualNetworkResourceSe
 	return o
 }
 
-// Gets or sets the address prefixes for the virtual network.
 func (o VirtualNetworkResourceSettingsResponseOutput) AddressSpace() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) []string { return v.AddressSpace }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
-// deployed in the virtual network.
 func (o VirtualNetworkResourceSettingsResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets a value indicating whether gets or sets whether the
-// DDOS protection should be switched on.
 func (o VirtualNetworkResourceSettingsResponseOutput) EnableDdosProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) *bool { return v.EnableDdosProtection }).(pulumi.BoolPtrOutput)
 }
 
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-// Expected value is 'Microsoft.Network/virtualNetworks'.
 func (o VirtualNetworkResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets List of subnets in a VirtualNetwork.
 func (o VirtualNetworkResourceSettingsResponseOutput) Subnets() SubnetResourceSettingsResponseArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) []SubnetResourceSettingsResponse { return v.Subnets }).(SubnetResourceSettingsResponseArrayOutput)
 }
 
-// Gets or sets the target Resource name.
 func (o VirtualNetworkResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 type VmUptime struct {
-	// Number of days in a month for VM uptime.
 	DaysPerMonth *float64 `pulumi:"daysPerMonth"`
-	// Number of hours per day for VM uptime.
-	HoursPerDay *float64 `pulumi:"hoursPerDay"`
+	HoursPerDay  *float64 `pulumi:"hoursPerDay"`
 }
 
 // VmUptimeInput is an input type that accepts VmUptimeArgs and VmUptimeOutput values.
@@ -14023,10 +12538,8 @@ type VmUptimeInput interface {
 }
 
 type VmUptimeArgs struct {
-	// Number of days in a month for VM uptime.
 	DaysPerMonth pulumi.Float64PtrInput `pulumi:"daysPerMonth"`
-	// Number of hours per day for VM uptime.
-	HoursPerDay pulumi.Float64PtrInput `pulumi:"hoursPerDay"`
+	HoursPerDay  pulumi.Float64PtrInput `pulumi:"hoursPerDay"`
 }
 
 func (VmUptimeArgs) ElementType() reflect.Type {
@@ -14106,12 +12619,10 @@ func (o VmUptimeOutput) ToVmUptimePtrOutputWithContext(ctx context.Context) VmUp
 	}).(VmUptimePtrOutput)
 }
 
-// Number of days in a month for VM uptime.
 func (o VmUptimeOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VmUptime) *float64 { return v.DaysPerMonth }).(pulumi.Float64PtrOutput)
 }
 
-// Number of hours per day for VM uptime.
 func (o VmUptimeOutput) HoursPerDay() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VmUptime) *float64 { return v.HoursPerDay }).(pulumi.Float64PtrOutput)
 }
@@ -14140,7 +12651,6 @@ func (o VmUptimePtrOutput) Elem() VmUptimeOutput {
 	}).(VmUptimeOutput)
 }
 
-// Number of days in a month for VM uptime.
 func (o VmUptimePtrOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *VmUptime) *float64 {
 		if v == nil {
@@ -14150,7 +12660,6 @@ func (o VmUptimePtrOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of hours per day for VM uptime.
 func (o VmUptimePtrOutput) HoursPerDay() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *VmUptime) *float64 {
 		if v == nil {
@@ -14161,10 +12670,8 @@ func (o VmUptimePtrOutput) HoursPerDay() pulumi.Float64PtrOutput {
 }
 
 type VmUptimeResponse struct {
-	// Number of days in a month for VM uptime.
 	DaysPerMonth *float64 `pulumi:"daysPerMonth"`
-	// Number of hours per day for VM uptime.
-	HoursPerDay *float64 `pulumi:"hoursPerDay"`
+	HoursPerDay  *float64 `pulumi:"hoursPerDay"`
 }
 
 // VmUptimeResponseInput is an input type that accepts VmUptimeResponseArgs and VmUptimeResponseOutput values.
@@ -14179,10 +12686,8 @@ type VmUptimeResponseInput interface {
 }
 
 type VmUptimeResponseArgs struct {
-	// Number of days in a month for VM uptime.
 	DaysPerMonth pulumi.Float64PtrInput `pulumi:"daysPerMonth"`
-	// Number of hours per day for VM uptime.
-	HoursPerDay pulumi.Float64PtrInput `pulumi:"hoursPerDay"`
+	HoursPerDay  pulumi.Float64PtrInput `pulumi:"hoursPerDay"`
 }
 
 func (VmUptimeResponseArgs) ElementType() reflect.Type {
@@ -14262,12 +12767,10 @@ func (o VmUptimeResponseOutput) ToVmUptimeResponsePtrOutputWithContext(ctx conte
 	}).(VmUptimeResponsePtrOutput)
 }
 
-// Number of days in a month for VM uptime.
 func (o VmUptimeResponseOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VmUptimeResponse) *float64 { return v.DaysPerMonth }).(pulumi.Float64PtrOutput)
 }
 
-// Number of hours per day for VM uptime.
 func (o VmUptimeResponseOutput) HoursPerDay() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VmUptimeResponse) *float64 { return v.HoursPerDay }).(pulumi.Float64PtrOutput)
 }
@@ -14296,7 +12799,6 @@ func (o VmUptimeResponsePtrOutput) Elem() VmUptimeResponseOutput {
 	}).(VmUptimeResponseOutput)
 }
 
-// Number of days in a month for VM uptime.
 func (o VmUptimeResponsePtrOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *VmUptimeResponse) *float64 {
 		if v == nil {
@@ -14306,7 +12808,6 @@ func (o VmUptimeResponsePtrOutput) DaysPerMonth() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of hours per day for VM uptime.
 func (o VmUptimeResponsePtrOutput) HoursPerDay() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *VmUptimeResponse) *float64 {
 		if v == nil {

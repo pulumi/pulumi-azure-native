@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The remediation definition.
-// API Version: 2019-07-01.
 type RemediationAtResourceGroup struct {
 	pulumi.CustomResourceState
 

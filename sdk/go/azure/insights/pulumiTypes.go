@@ -11,9 +11,7 @@ import (
 )
 
 type ActionGroupType struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -29,9 +27,7 @@ type ActionGroupTypeInput interface {
 }
 
 type ActionGroupTypeArgs struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -86,12 +82,10 @@ func (o ActionGroupTypeOutput) ToActionGroupTypeOutputWithContext(ctx context.Co
 	return o
 }
 
-// The resource ID of the Action Group. This cannot be null or empty.
 func (o ActionGroupTypeOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupType) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActionGroupTypeOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionGroupType) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -117,9 +111,7 @@ func (o ActionGroupTypeArrayOutput) Index(i pulumi.IntInput) ActionGroupTypeOutp
 }
 
 type ActionGroupResponse struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -135,9 +127,7 @@ type ActionGroupResponseInput interface {
 }
 
 type ActionGroupResponseArgs struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -192,12 +182,10 @@ func (o ActionGroupResponseOutput) ToActionGroupResponseOutputWithContext(ctx co
 	return o
 }
 
-// The resource ID of the Action Group. This cannot be null or empty.
 func (o ActionGroupResponseOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupResponse) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActionGroupResponseOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionGroupResponse) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -223,7 +211,6 @@ func (o ActionGroupResponseArrayOutput) Index(i pulumi.IntInput) ActionGroupResp
 }
 
 type ActionList struct {
-	// The list of the Action Groups.
 	ActionGroups []ActionGroupType `pulumi:"actionGroups"`
 }
 
@@ -239,7 +226,6 @@ type ActionListInput interface {
 }
 
 type ActionListArgs struct {
-	// The list of the Action Groups.
 	ActionGroups ActionGroupTypeArrayInput `pulumi:"actionGroups"`
 }
 
@@ -320,7 +306,6 @@ func (o ActionListOutput) ToActionListPtrOutputWithContext(ctx context.Context) 
 	}).(ActionListPtrOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListOutput) ActionGroups() ActionGroupTypeArrayOutput {
 	return o.ApplyT(func(v ActionList) []ActionGroupType { return v.ActionGroups }).(ActionGroupTypeArrayOutput)
 }
@@ -349,7 +334,6 @@ func (o ActionListPtrOutput) Elem() ActionListOutput {
 	}).(ActionListOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListPtrOutput) ActionGroups() ActionGroupTypeArrayOutput {
 	return o.ApplyT(func(v *ActionList) []ActionGroupType {
 		if v == nil {
@@ -360,7 +344,6 @@ func (o ActionListPtrOutput) ActionGroups() ActionGroupTypeArrayOutput {
 }
 
 type ActionListResponse struct {
-	// The list of the Action Groups.
 	ActionGroups []ActionGroupResponse `pulumi:"actionGroups"`
 }
 
@@ -376,7 +359,6 @@ type ActionListResponseInput interface {
 }
 
 type ActionListResponseArgs struct {
-	// The list of the Action Groups.
 	ActionGroups ActionGroupResponseArrayInput `pulumi:"actionGroups"`
 }
 
@@ -457,7 +439,6 @@ func (o ActionListResponseOutput) ToActionListResponsePtrOutputWithContext(ctx c
 	}).(ActionListResponsePtrOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListResponseOutput) ActionGroups() ActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v ActionListResponse) []ActionGroupResponse { return v.ActionGroups }).(ActionGroupResponseArrayOutput)
 }
@@ -486,7 +467,6 @@ func (o ActionListResponsePtrOutput) Elem() ActionListResponseOutput {
 	}).(ActionListResponseOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v *ActionListResponse) []ActionGroupResponse {
 		if v == nil {
@@ -497,7 +477,6 @@ func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutp
 }
 
 type AlertRuleAllOfCondition struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf []AlertRuleAnyOfOrLeafCondition `pulumi:"allOf"`
 }
 
@@ -513,7 +492,6 @@ type AlertRuleAllOfConditionInput interface {
 }
 
 type AlertRuleAllOfConditionArgs struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf AlertRuleAnyOfOrLeafConditionArrayInput `pulumi:"allOf"`
 }
 
@@ -594,7 +572,6 @@ func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutputWithCon
 	}).(AlertRuleAllOfConditionPtrOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
@@ -623,7 +600,6 @@ func (o AlertRuleAllOfConditionPtrOutput) Elem() AlertRuleAllOfConditionOutput {
 	}).(AlertRuleAllOfConditionOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition {
 		if v == nil {
@@ -634,7 +610,6 @@ func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionA
 }
 
 type AlertRuleAllOfConditionResponse struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf []AlertRuleAnyOfOrLeafConditionResponse `pulumi:"allOf"`
 }
 
@@ -650,7 +625,6 @@ type AlertRuleAllOfConditionResponseInput interface {
 }
 
 type AlertRuleAllOfConditionResponseArgs struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf AlertRuleAnyOfOrLeafConditionResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -731,7 +705,6 @@ func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponse
 	}).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
@@ -760,7 +733,6 @@ func (o AlertRuleAllOfConditionResponsePtrOutput) Elem() AlertRuleAllOfCondition
 	}).(AlertRuleAllOfConditionResponseOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse {
 		if v == nil {
@@ -771,15 +743,10 @@ func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafCo
 }
 
 type AlertRuleAnyOfOrLeafCondition struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf []AlertRuleLeafCondition `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	AnyOf       []AlertRuleLeafCondition `pulumi:"anyOf"`
+	ContainsAny []string                 `pulumi:"containsAny"`
+	Equals      *string                  `pulumi:"equals"`
+	Field       *string                  `pulumi:"field"`
 }
 
 // AlertRuleAnyOfOrLeafConditionInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArgs and AlertRuleAnyOfOrLeafConditionOutput values.
@@ -794,15 +761,10 @@ type AlertRuleAnyOfOrLeafConditionInput interface {
 }
 
 type AlertRuleAnyOfOrLeafConditionArgs struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	AnyOf       AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
+	ContainsAny pulumi.StringArrayInput          `pulumi:"containsAny"`
+	Equals      pulumi.StringPtrInput            `pulumi:"equals"`
+	Field       pulumi.StringPtrInput            `pulumi:"field"`
 }
 
 func (AlertRuleAnyOfOrLeafConditionArgs) ElementType() reflect.Type {
@@ -856,23 +818,18 @@ func (o AlertRuleAnyOfOrLeafConditionOutput) ToAlertRuleAnyOfOrLeafConditionOutp
 	return o
 }
 
-// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) AnyOf() AlertRuleLeafConditionArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []AlertRuleLeafCondition { return v.AnyOf }).(AlertRuleLeafConditionArrayOutput)
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleAnyOfOrLeafConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -898,15 +855,10 @@ func (o AlertRuleAnyOfOrLeafConditionArrayOutput) Index(i pulumi.IntInput) Alert
 }
 
 type AlertRuleAnyOfOrLeafConditionResponse struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	AnyOf       []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
+	ContainsAny []string                         `pulumi:"containsAny"`
+	Equals      *string                          `pulumi:"equals"`
+	Field       *string                          `pulumi:"field"`
 }
 
 // AlertRuleAnyOfOrLeafConditionResponseInput is an input type that accepts AlertRuleAnyOfOrLeafConditionResponseArgs and AlertRuleAnyOfOrLeafConditionResponseOutput values.
@@ -921,15 +873,10 @@ type AlertRuleAnyOfOrLeafConditionResponseInput interface {
 }
 
 type AlertRuleAnyOfOrLeafConditionResponseArgs struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	AnyOf       AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
+	ContainsAny pulumi.StringArrayInput                  `pulumi:"containsAny"`
+	Equals      pulumi.StringPtrInput                    `pulumi:"equals"`
+	Field       pulumi.StringPtrInput                    `pulumi:"field"`
 }
 
 func (AlertRuleAnyOfOrLeafConditionResponseArgs) ElementType() reflect.Type {
@@ -983,23 +930,18 @@ func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ToAlertRuleAnyOfOrLeafCondi
 	return o
 }
 
-// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) AnyOf() AlertRuleLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []AlertRuleLeafConditionResponse { return v.AnyOf }).(AlertRuleLeafConditionResponseArrayOutput)
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -1025,13 +967,9 @@ func (o AlertRuleAnyOfOrLeafConditionResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type AlertRuleLeafCondition struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	Equals      *string  `pulumi:"equals"`
+	Field       *string  `pulumi:"field"`
 }
 
 // AlertRuleLeafConditionInput is an input type that accepts AlertRuleLeafConditionArgs and AlertRuleLeafConditionOutput values.
@@ -1046,13 +984,9 @@ type AlertRuleLeafConditionInput interface {
 }
 
 type AlertRuleLeafConditionArgs struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	Equals      pulumi.StringPtrInput   `pulumi:"equals"`
+	Field       pulumi.StringPtrInput   `pulumi:"field"`
 }
 
 func (AlertRuleLeafConditionArgs) ElementType() reflect.Type {
@@ -1106,18 +1040,14 @@ func (o AlertRuleLeafConditionOutput) ToAlertRuleLeafConditionOutputWithContext(
 	return o
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleLeafConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -1143,13 +1073,9 @@ func (o AlertRuleLeafConditionArrayOutput) Index(i pulumi.IntInput) AlertRuleLea
 }
 
 type AlertRuleLeafConditionResponse struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	Equals      *string  `pulumi:"equals"`
+	Field       *string  `pulumi:"field"`
 }
 
 // AlertRuleLeafConditionResponseInput is an input type that accepts AlertRuleLeafConditionResponseArgs and AlertRuleLeafConditionResponseOutput values.
@@ -1164,13 +1090,9 @@ type AlertRuleLeafConditionResponseInput interface {
 }
 
 type AlertRuleLeafConditionResponseArgs struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	Equals      pulumi.StringPtrInput   `pulumi:"equals"`
+	Field       pulumi.StringPtrInput   `pulumi:"field"`
 }
 
 func (AlertRuleLeafConditionResponseArgs) ElementType() reflect.Type {
@@ -1224,18 +1146,14 @@ func (o AlertRuleLeafConditionResponseOutput) ToAlertRuleLeafConditionResponseOu
 	return o
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -1261,17 +1179,11 @@ func (o AlertRuleLeafConditionResponseArrayOutput) Index(i pulumi.IntInput) Aler
 }
 
 type AlertingAction struct {
-	// Azure action group reference.
-	AznsAction *AzNsActionGroup `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType string `pulumi:"odataType"`
-	// Severity of the alert
-	Severity string `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin *int `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerCondition `pulumi:"trigger"`
+	AznsAction      *AzNsActionGroup `pulumi:"aznsAction"`
+	OdataType       string           `pulumi:"odataType"`
+	Severity        string           `pulumi:"severity"`
+	ThrottlingInMin *int             `pulumi:"throttlingInMin"`
+	Trigger         TriggerCondition `pulumi:"trigger"`
 }
 
 // AlertingActionInput is an input type that accepts AlertingActionArgs and AlertingActionOutput values.
@@ -1286,17 +1198,11 @@ type AlertingActionInput interface {
 }
 
 type AlertingActionArgs struct {
-	// Azure action group reference.
-	AznsAction AzNsActionGroupPtrInput `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Severity of the alert
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionInput `pulumi:"trigger"`
+	AznsAction      AzNsActionGroupPtrInput `pulumi:"aznsAction"`
+	OdataType       pulumi.StringInput      `pulumi:"odataType"`
+	Severity        pulumi.StringInput      `pulumi:"severity"`
+	ThrottlingInMin pulumi.IntPtrInput      `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionInput   `pulumi:"trigger"`
 }
 
 func (AlertingActionArgs) ElementType() reflect.Type {
@@ -1325,44 +1231,32 @@ func (o AlertingActionOutput) ToAlertingActionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Azure action group reference.
 func (o AlertingActionOutput) AznsAction() AzNsActionGroupPtrOutput {
 	return o.ApplyT(func(v AlertingAction) *AzNsActionGroup { return v.AznsAction }).(AzNsActionGroupPtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Severity of the alert
 func (o AlertingActionOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingAction) string { return v.Severity }).(pulumi.StringOutput)
 }
 
-// time (in minutes) for which Alerts should be throttled or suppressed.
 func (o AlertingActionOutput) ThrottlingInMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertingAction) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
 }
 
-// The trigger condition that results in the alert rule being.
 func (o AlertingActionOutput) Trigger() TriggerConditionOutput {
 	return o.ApplyT(func(v AlertingAction) TriggerCondition { return v.Trigger }).(TriggerConditionOutput)
 }
 
 type AlertingActionResponse struct {
-	// Azure action group reference.
-	AznsAction *AzNsActionGroupResponse `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType string `pulumi:"odataType"`
-	// Severity of the alert
-	Severity string `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin *int `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionResponse `pulumi:"trigger"`
+	AznsAction      *AzNsActionGroupResponse `pulumi:"aznsAction"`
+	OdataType       string                   `pulumi:"odataType"`
+	Severity        string                   `pulumi:"severity"`
+	ThrottlingInMin *int                     `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionResponse `pulumi:"trigger"`
 }
 
 // AlertingActionResponseInput is an input type that accepts AlertingActionResponseArgs and AlertingActionResponseOutput values.
@@ -1377,17 +1271,11 @@ type AlertingActionResponseInput interface {
 }
 
 type AlertingActionResponseArgs struct {
-	// Azure action group reference.
-	AznsAction AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Severity of the alert
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionResponseInput `pulumi:"trigger"`
+	AznsAction      AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
+	OdataType       pulumi.StringInput              `pulumi:"odataType"`
+	Severity        pulumi.StringInput              `pulumi:"severity"`
+	ThrottlingInMin pulumi.IntPtrInput              `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionResponseInput   `pulumi:"trigger"`
 }
 
 func (AlertingActionResponseArgs) ElementType() reflect.Type {
@@ -1416,34 +1304,27 @@ func (o AlertingActionResponseOutput) ToAlertingActionResponseOutputWithContext(
 	return o
 }
 
-// Azure action group reference.
 func (o AlertingActionResponseOutput) AznsAction() AzNsActionGroupResponsePtrOutput {
 	return o.ApplyT(func(v AlertingActionResponse) *AzNsActionGroupResponse { return v.AznsAction }).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Severity of the alert
 func (o AlertingActionResponseOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingActionResponse) string { return v.Severity }).(pulumi.StringOutput)
 }
 
-// time (in minutes) for which Alerts should be throttled or suppressed.
 func (o AlertingActionResponseOutput) ThrottlingInMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertingActionResponse) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
 }
 
-// The trigger condition that results in the alert rule being.
 func (o AlertingActionResponseOutput) Trigger() TriggerConditionResponseOutput {
 	return o.ApplyT(func(v AlertingActionResponse) TriggerConditionResponse { return v.Trigger }).(TriggerConditionResponseOutput)
 }
 
 type ApplicationInsightsComponentAnalyticsItemProperties struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
 }
 
@@ -1459,7 +1340,6 @@ type ApplicationInsightsComponentAnalyticsItemPropertiesInput interface {
 }
 
 type ApplicationInsightsComponentAnalyticsItemPropertiesArgs struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
 }
 
@@ -1540,7 +1420,6 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplication
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
@@ -1569,7 +1448,6 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) Elem() App
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) *string {
 		if v == nil {
@@ -1580,7 +1458,6 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAl
 }
 
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponse struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
 }
 
@@ -1596,7 +1473,6 @@ type ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput interface 
 }
 
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
 }
 
@@ -1677,7 +1553,6 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApp
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
@@ -1706,7 +1581,6 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) El
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string {
 		if v == nil {
@@ -1717,14 +1591,10 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Fu
 }
 
 type ApplicationInsightsComponentDataVolumeCap struct {
-	// Daily data volume cap in GB.
-	Cap *float64 `pulumi:"cap"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold *int `pulumi:"warningThreshold"`
+	Cap                                  *float64 `pulumi:"cap"`
+	StopSendNotificationWhenHitCap       *bool    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold *bool    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     *int     `pulumi:"warningThreshold"`
 }
 
 // ApplicationInsightsComponentDataVolumeCapInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs and ApplicationInsightsComponentDataVolumeCapOutput values.
@@ -1739,14 +1609,10 @@ type ApplicationInsightsComponentDataVolumeCapInput interface {
 }
 
 type ApplicationInsightsComponentDataVolumeCapArgs struct {
-	// Daily data volume cap in GB.
-	Cap pulumi.Float64PtrInput `pulumi:"cap"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+	Cap                                  pulumi.Float64PtrInput `pulumi:"cap"`
+	StopSendNotificationWhenHitCap       pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     pulumi.IntPtrInput     `pulumi:"warningThreshold"`
 }
 
 func (ApplicationInsightsComponentDataVolumeCapArgs) ElementType() reflect.Type {
@@ -1826,22 +1692,18 @@ func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsCo
 	}).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitCap }).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitThreshold }).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -1870,7 +1732,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Elem() ApplicationIn
 	}).(ApplicationInsightsComponentDataVolumeCapOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *float64 {
 		if v == nil {
@@ -1880,7 +1741,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Cap() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
 		if v == nil {
@@ -1890,7 +1750,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotification
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
 		if v == nil {
@@ -1900,7 +1759,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotification
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *int {
 		if v == nil {
@@ -1911,18 +1769,12 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() p
 }
 
 type ApplicationInsightsComponentDataVolumeCapResponse struct {
-	// Daily data volume cap in GB.
-	Cap *float64 `pulumi:"cap"`
-	// Maximum daily data volume cap that the user can set for this component.
-	MaxHistoryCap float64 `pulumi:"maxHistoryCap"`
-	// Daily data volume cap UTC reset hour.
-	ResetTime int `pulumi:"resetTime"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold *int `pulumi:"warningThreshold"`
+	Cap                                  *float64 `pulumi:"cap"`
+	MaxHistoryCap                        float64  `pulumi:"maxHistoryCap"`
+	ResetTime                            int      `pulumi:"resetTime"`
+	StopSendNotificationWhenHitCap       *bool    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold *bool    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     *int     `pulumi:"warningThreshold"`
 }
 
 // ApplicationInsightsComponentDataVolumeCapResponseInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapResponseArgs and ApplicationInsightsComponentDataVolumeCapResponseOutput values.
@@ -1937,18 +1789,12 @@ type ApplicationInsightsComponentDataVolumeCapResponseInput interface {
 }
 
 type ApplicationInsightsComponentDataVolumeCapResponseArgs struct {
-	// Daily data volume cap in GB.
-	Cap pulumi.Float64PtrInput `pulumi:"cap"`
-	// Maximum daily data volume cap that the user can set for this component.
-	MaxHistoryCap pulumi.Float64Input `pulumi:"maxHistoryCap"`
-	// Daily data volume cap UTC reset hour.
-	ResetTime pulumi.IntInput `pulumi:"resetTime"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+	Cap                                  pulumi.Float64PtrInput `pulumi:"cap"`
+	MaxHistoryCap                        pulumi.Float64Input    `pulumi:"maxHistoryCap"`
+	ResetTime                            pulumi.IntInput        `pulumi:"resetTime"`
+	StopSendNotificationWhenHitCap       pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     pulumi.IntPtrInput     `pulumi:"warningThreshold"`
 }
 
 func (ApplicationInsightsComponentDataVolumeCapResponseArgs) ElementType() reflect.Type {
@@ -2028,36 +1874,30 @@ func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationIn
 	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum daily data volume cap that the user can set for this component.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) MaxHistoryCap() pulumi.Float64Output {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) float64 { return v.MaxHistoryCap }).(pulumi.Float64Output)
 }
 
-// Daily data volume cap UTC reset hour.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ResetTime() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) int { return v.ResetTime }).(pulumi.IntOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		return v.StopSendNotificationWhenHitCap
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		return v.StopSendNotificationWhenHitThreshold
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -2086,7 +1926,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Elem() Appli
 	}).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
 		if v == nil {
@@ -2096,7 +1935,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Cap() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum daily data volume cap that the user can set for this component.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) MaxHistoryCap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
 		if v == nil {
@@ -2106,7 +1944,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) MaxHistoryCa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Daily data volume cap UTC reset hour.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ResetTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
 		if v == nil {
@@ -2116,7 +1953,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ResetTime() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		if v == nil {
@@ -2126,7 +1962,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNoti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		if v == nil {
@@ -2136,7 +1971,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNoti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
 		if v == nil {
@@ -2147,22 +1981,14 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThres
 }
 
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions struct {
-	// The rule description
-	Description *string `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName *string `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl *string `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden *bool `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview *bool `pulumi:"isInPreview"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+	Description                *string `pulumi:"description"`
+	DisplayName                *string `pulumi:"displayName"`
+	HelpUrl                    *string `pulumi:"helpUrl"`
+	IsEnabledByDefault         *bool   `pulumi:"isEnabledByDefault"`
+	IsHidden                   *bool   `pulumi:"isHidden"`
+	IsInPreview                *bool   `pulumi:"isInPreview"`
+	Name                       *string `pulumi:"name"`
+	SupportsEmailNotifications *bool   `pulumi:"supportsEmailNotifications"`
 }
 
 // ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput values.
@@ -2177,22 +2003,14 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefi
 }
 
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs struct {
-	// The rule description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
-	// The rule name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	HelpUrl                    pulumi.StringPtrInput `pulumi:"helpUrl"`
+	IsEnabledByDefault         pulumi.BoolPtrInput   `pulumi:"isEnabledByDefault"`
+	IsHidden                   pulumi.BoolPtrInput   `pulumi:"isHidden"`
+	IsInPreview                pulumi.BoolPtrInput   `pulumi:"isInPreview"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	SupportsEmailNotifications pulumi.BoolPtrInput   `pulumi:"supportsEmailNotifications"`
 }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ElementType() reflect.Type {
@@ -2272,56 +2090,48 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.DisplayName
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.HelpUrl
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsEnabledByDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsHidden
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsInPreview
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.SupportsEmailNotifications
@@ -2352,7 +2162,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -2362,7 +2171,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -2372,7 +2180,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -2382,7 +2189,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -2392,7 +2198,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -2402,7 +2207,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -2412,7 +2216,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -2422,7 +2225,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -2433,22 +2235,14 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 }
 
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions struct {
-	// The rule description
-	Description *string `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName *string `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl *string `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden *bool `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview *bool `pulumi:"isInPreview"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+	Description                *string `pulumi:"description"`
+	DisplayName                *string `pulumi:"displayName"`
+	HelpUrl                    *string `pulumi:"helpUrl"`
+	IsEnabledByDefault         *bool   `pulumi:"isEnabledByDefault"`
+	IsHidden                   *bool   `pulumi:"isHidden"`
+	IsInPreview                *bool   `pulumi:"isInPreview"`
+	Name                       *string `pulumi:"name"`
+	SupportsEmailNotifications *bool   `pulumi:"supportsEmailNotifications"`
 }
 
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput values.
@@ -2463,22 +2257,14 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsI
 }
 
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs struct {
-	// The rule description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
-	// The rule name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	HelpUrl                    pulumi.StringPtrInput `pulumi:"helpUrl"`
+	IsEnabledByDefault         pulumi.BoolPtrInput   `pulumi:"isEnabledByDefault"`
+	IsHidden                   pulumi.BoolPtrInput   `pulumi:"isHidden"`
+	IsInPreview                pulumi.BoolPtrInput   `pulumi:"isInPreview"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	SupportsEmailNotifications pulumi.BoolPtrInput   `pulumi:"supportsEmailNotifications"`
 }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ElementType() reflect.Type {
@@ -2558,56 +2344,48 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.DisplayName
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.HelpUrl
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsEnabledByDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsHidden
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsInPreview
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.SupportsEmailNotifications
@@ -2638,7 +2416,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -2648,7 +2425,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -2658,7 +2434,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -2668,7 +2443,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -2678,7 +2452,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -2688,7 +2461,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -2698,7 +2470,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -2708,7 +2479,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -2719,12 +2489,9 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 }
 
 type ArmRoleReceiver struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The arm role id.
-	RoleId string `pulumi:"roleId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	Name                 string `pulumi:"name"`
+	RoleId               string `pulumi:"roleId"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // ArmRoleReceiverInput is an input type that accepts ArmRoleReceiverArgs and ArmRoleReceiverOutput values.
@@ -2739,11 +2506,8 @@ type ArmRoleReceiverInput interface {
 }
 
 type ArmRoleReceiverArgs struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The arm role id.
-	RoleId pulumi.StringInput `pulumi:"roleId"`
-	// Indicates whether to use common alert schema.
+	Name                 pulumi.StringInput  `pulumi:"name"`
+	RoleId               pulumi.StringInput  `pulumi:"roleId"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -2798,17 +2562,14 @@ func (o ArmRoleReceiverOutput) ToArmRoleReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the arm role receiver. Names must be unique across all receivers within an action group.
 func (o ArmRoleReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The arm role id.
 func (o ArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o ArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ArmRoleReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -2834,12 +2595,9 @@ func (o ArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) ArmRoleReceiverOutp
 }
 
 type ArmRoleReceiverResponse struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The arm role id.
-	RoleId string `pulumi:"roleId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	Name                 string `pulumi:"name"`
+	RoleId               string `pulumi:"roleId"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // ArmRoleReceiverResponseInput is an input type that accepts ArmRoleReceiverResponseArgs and ArmRoleReceiverResponseOutput values.
@@ -2854,11 +2612,8 @@ type ArmRoleReceiverResponseInput interface {
 }
 
 type ArmRoleReceiverResponseArgs struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The arm role id.
-	RoleId pulumi.StringInput `pulumi:"roleId"`
-	// Indicates whether to use common alert schema.
+	Name                 pulumi.StringInput  `pulumi:"name"`
+	RoleId               pulumi.StringInput  `pulumi:"roleId"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -2913,17 +2668,14 @@ func (o ArmRoleReceiverResponseOutput) ToArmRoleReceiverResponseOutputWithContex
 	return o
 }
 
-// The name of the arm role receiver. Names must be unique across all receivers within an action group.
 func (o ArmRoleReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The arm role id.
 func (o ArmRoleReceiverResponseOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiverResponse) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o ArmRoleReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ArmRoleReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -2949,20 +2701,13 @@ func (o ArmRoleReceiverResponseArrayOutput) Index(i pulumi.IntInput) ArmRoleRece
 }
 
 type AutomationRunbookReceiver struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId  string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook      bool    `pulumi:"isGlobalRunbook"`
+	Name                 *string `pulumi:"name"`
+	RunbookName          string  `pulumi:"runbookName"`
+	ServiceUri           *string `pulumi:"serviceUri"`
+	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
+	WebhookResourceId    string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
@@ -2977,20 +2722,13 @@ type AutomationRunbookReceiverInput interface {
 }
 
 type AutomationRunbookReceiverArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId  pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook      pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName          pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri           pulumi.StringPtrInput `pulumi:"serviceUri"`
+	UseCommonAlertSchema pulumi.BoolPtrInput   `pulumi:"useCommonAlertSchema"`
+	WebhookResourceId    pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverArgs) ElementType() reflect.Type {
@@ -3044,37 +2782,30 @@ func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutputWithCo
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o AutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -3100,20 +2831,13 @@ func (o AutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) Automatio
 }
 
 type AutomationRunbookReceiverResponse struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId  string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook      bool    `pulumi:"isGlobalRunbook"`
+	Name                 *string `pulumi:"name"`
+	RunbookName          string  `pulumi:"runbookName"`
+	ServiceUri           *string `pulumi:"serviceUri"`
+	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
+	WebhookResourceId    string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverResponseInput is an input type that accepts AutomationRunbookReceiverResponseArgs and AutomationRunbookReceiverResponseOutput values.
@@ -3128,20 +2852,13 @@ type AutomationRunbookReceiverResponseInput interface {
 }
 
 type AutomationRunbookReceiverResponseArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId  pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook      pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName          pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri           pulumi.StringPtrInput `pulumi:"serviceUri"`
+	UseCommonAlertSchema pulumi.BoolPtrInput   `pulumi:"useCommonAlertSchema"`
+	WebhookResourceId    pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
@@ -3195,37 +2912,30 @@ func (o AutomationRunbookReceiverResponseOutput) ToAutomationRunbookReceiverResp
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverResponseOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverResponseOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverResponseOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o AutomationRunbookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverResponseOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -3251,12 +2961,9 @@ func (o AutomationRunbookReceiverResponseArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type AutoscaleNotification struct {
-	// the email notification.
-	Email *EmailNotification `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation OperationType `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks []WebhookNotification `pulumi:"webhooks"`
+	Email     *EmailNotification    `pulumi:"email"`
+	Operation OperationType         `pulumi:"operation"`
+	Webhooks  []WebhookNotification `pulumi:"webhooks"`
 }
 
 // AutoscaleNotificationInput is an input type that accepts AutoscaleNotificationArgs and AutoscaleNotificationOutput values.
@@ -3271,12 +2978,9 @@ type AutoscaleNotificationInput interface {
 }
 
 type AutoscaleNotificationArgs struct {
-	// the email notification.
-	Email EmailNotificationPtrInput `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation OperationTypeInput `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
+	Email     EmailNotificationPtrInput     `pulumi:"email"`
+	Operation OperationTypeInput            `pulumi:"operation"`
+	Webhooks  WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
 
 func (AutoscaleNotificationArgs) ElementType() reflect.Type {
@@ -3330,17 +3034,14 @@ func (o AutoscaleNotificationOutput) ToAutoscaleNotificationOutputWithContext(ct
 	return o
 }
 
-// the email notification.
 func (o AutoscaleNotificationOutput) Email() EmailNotificationPtrOutput {
 	return o.ApplyT(func(v AutoscaleNotification) *EmailNotification { return v.Email }).(EmailNotificationPtrOutput)
 }
 
-// the operation associated with the notification and its value must be "scale"
 func (o AutoscaleNotificationOutput) Operation() OperationTypeOutput {
 	return o.ApplyT(func(v AutoscaleNotification) OperationType { return v.Operation }).(OperationTypeOutput)
 }
 
-// the collection of webhook notifications.
 func (o AutoscaleNotificationOutput) Webhooks() WebhookNotificationArrayOutput {
 	return o.ApplyT(func(v AutoscaleNotification) []WebhookNotification { return v.Webhooks }).(WebhookNotificationArrayOutput)
 }
@@ -3366,12 +3067,9 @@ func (o AutoscaleNotificationArrayOutput) Index(i pulumi.IntInput) AutoscaleNoti
 }
 
 type AutoscaleNotificationResponse struct {
-	// the email notification.
-	Email *EmailNotificationResponse `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation string `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks []WebhookNotificationResponse `pulumi:"webhooks"`
+	Email     *EmailNotificationResponse    `pulumi:"email"`
+	Operation string                        `pulumi:"operation"`
+	Webhooks  []WebhookNotificationResponse `pulumi:"webhooks"`
 }
 
 // AutoscaleNotificationResponseInput is an input type that accepts AutoscaleNotificationResponseArgs and AutoscaleNotificationResponseOutput values.
@@ -3386,12 +3084,9 @@ type AutoscaleNotificationResponseInput interface {
 }
 
 type AutoscaleNotificationResponseArgs struct {
-	// the email notification.
-	Email EmailNotificationResponsePtrInput `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks WebhookNotificationResponseArrayInput `pulumi:"webhooks"`
+	Email     EmailNotificationResponsePtrInput     `pulumi:"email"`
+	Operation pulumi.StringInput                    `pulumi:"operation"`
+	Webhooks  WebhookNotificationResponseArrayInput `pulumi:"webhooks"`
 }
 
 func (AutoscaleNotificationResponseArgs) ElementType() reflect.Type {
@@ -3445,17 +3140,14 @@ func (o AutoscaleNotificationResponseOutput) ToAutoscaleNotificationResponseOutp
 	return o
 }
 
-// the email notification.
 func (o AutoscaleNotificationResponseOutput) Email() EmailNotificationResponsePtrOutput {
 	return o.ApplyT(func(v AutoscaleNotificationResponse) *EmailNotificationResponse { return v.Email }).(EmailNotificationResponsePtrOutput)
 }
 
-// the operation associated with the notification and its value must be "scale"
 func (o AutoscaleNotificationResponseOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleNotificationResponse) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// the collection of webhook notifications.
 func (o AutoscaleNotificationResponseOutput) Webhooks() WebhookNotificationResponseArrayOutput {
 	return o.ApplyT(func(v AutoscaleNotificationResponse) []WebhookNotificationResponse { return v.Webhooks }).(WebhookNotificationResponseArrayOutput)
 }
@@ -3481,16 +3173,11 @@ func (o AutoscaleNotificationResponseArrayOutput) Index(i pulumi.IntInput) Autos
 }
 
 type AutoscaleProfile struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacity `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate *TimeWindow `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name string `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence *Recurrence `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules []ScaleRule `pulumi:"rules"`
+	Capacity   ScaleCapacity `pulumi:"capacity"`
+	FixedDate  *TimeWindow   `pulumi:"fixedDate"`
+	Name       string        `pulumi:"name"`
+	Recurrence *Recurrence   `pulumi:"recurrence"`
+	Rules      []ScaleRule   `pulumi:"rules"`
 }
 
 // AutoscaleProfileInput is an input type that accepts AutoscaleProfileArgs and AutoscaleProfileOutput values.
@@ -3505,16 +3192,11 @@ type AutoscaleProfileInput interface {
 }
 
 type AutoscaleProfileArgs struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacityInput `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate TimeWindowPtrInput `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence RecurrencePtrInput `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules ScaleRuleArrayInput `pulumi:"rules"`
+	Capacity   ScaleCapacityInput  `pulumi:"capacity"`
+	FixedDate  TimeWindowPtrInput  `pulumi:"fixedDate"`
+	Name       pulumi.StringInput  `pulumi:"name"`
+	Recurrence RecurrencePtrInput  `pulumi:"recurrence"`
+	Rules      ScaleRuleArrayInput `pulumi:"rules"`
 }
 
 func (AutoscaleProfileArgs) ElementType() reflect.Type {
@@ -3568,27 +3250,22 @@ func (o AutoscaleProfileOutput) ToAutoscaleProfileOutputWithContext(ctx context.
 	return o
 }
 
-// the number of instances that can be used during this profile.
 func (o AutoscaleProfileOutput) Capacity() ScaleCapacityOutput {
 	return o.ApplyT(func(v AutoscaleProfile) ScaleCapacity { return v.Capacity }).(ScaleCapacityOutput)
 }
 
-// the specific date-time for the profile. This element is not used if the Recurrence element is used.
 func (o AutoscaleProfileOutput) FixedDate() TimeWindowPtrOutput {
 	return o.ApplyT(func(v AutoscaleProfile) *TimeWindow { return v.FixedDate }).(TimeWindowPtrOutput)
 }
 
-// the name of the profile.
 func (o AutoscaleProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 func (o AutoscaleProfileOutput) Recurrence() RecurrencePtrOutput {
 	return o.ApplyT(func(v AutoscaleProfile) *Recurrence { return v.Recurrence }).(RecurrencePtrOutput)
 }
 
-// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
 func (o AutoscaleProfileOutput) Rules() ScaleRuleArrayOutput {
 	return o.ApplyT(func(v AutoscaleProfile) []ScaleRule { return v.Rules }).(ScaleRuleArrayOutput)
 }
@@ -3614,16 +3291,11 @@ func (o AutoscaleProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleProfileOu
 }
 
 type AutoscaleProfileResponse struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacityResponse `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate *TimeWindowResponse `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name string `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence *RecurrenceResponse `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules []ScaleRuleResponse `pulumi:"rules"`
+	Capacity   ScaleCapacityResponse `pulumi:"capacity"`
+	FixedDate  *TimeWindowResponse   `pulumi:"fixedDate"`
+	Name       string                `pulumi:"name"`
+	Recurrence *RecurrenceResponse   `pulumi:"recurrence"`
+	Rules      []ScaleRuleResponse   `pulumi:"rules"`
 }
 
 // AutoscaleProfileResponseInput is an input type that accepts AutoscaleProfileResponseArgs and AutoscaleProfileResponseOutput values.
@@ -3638,16 +3310,11 @@ type AutoscaleProfileResponseInput interface {
 }
 
 type AutoscaleProfileResponseArgs struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacityResponseInput `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate TimeWindowResponsePtrInput `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence RecurrenceResponsePtrInput `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules ScaleRuleResponseArrayInput `pulumi:"rules"`
+	Capacity   ScaleCapacityResponseInput  `pulumi:"capacity"`
+	FixedDate  TimeWindowResponsePtrInput  `pulumi:"fixedDate"`
+	Name       pulumi.StringInput          `pulumi:"name"`
+	Recurrence RecurrenceResponsePtrInput  `pulumi:"recurrence"`
+	Rules      ScaleRuleResponseArrayInput `pulumi:"rules"`
 }
 
 func (AutoscaleProfileResponseArgs) ElementType() reflect.Type {
@@ -3701,27 +3368,22 @@ func (o AutoscaleProfileResponseOutput) ToAutoscaleProfileResponseOutputWithCont
 	return o
 }
 
-// the number of instances that can be used during this profile.
 func (o AutoscaleProfileResponseOutput) Capacity() ScaleCapacityResponseOutput {
 	return o.ApplyT(func(v AutoscaleProfileResponse) ScaleCapacityResponse { return v.Capacity }).(ScaleCapacityResponseOutput)
 }
 
-// the specific date-time for the profile. This element is not used if the Recurrence element is used.
 func (o AutoscaleProfileResponseOutput) FixedDate() TimeWindowResponsePtrOutput {
 	return o.ApplyT(func(v AutoscaleProfileResponse) *TimeWindowResponse { return v.FixedDate }).(TimeWindowResponsePtrOutput)
 }
 
-// the name of the profile.
 func (o AutoscaleProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 func (o AutoscaleProfileResponseOutput) Recurrence() RecurrenceResponsePtrOutput {
 	return o.ApplyT(func(v AutoscaleProfileResponse) *RecurrenceResponse { return v.Recurrence }).(RecurrenceResponsePtrOutput)
 }
 
-// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
 func (o AutoscaleProfileResponseOutput) Rules() ScaleRuleResponseArrayOutput {
 	return o.ApplyT(func(v AutoscaleProfileResponse) []ScaleRuleResponse { return v.Rules }).(ScaleRuleResponseArrayOutput)
 }
@@ -3747,12 +3409,9 @@ func (o AutoscaleProfileResponseArrayOutput) Index(i pulumi.IntInput) AutoscaleP
 }
 
 type AzNsActionGroup struct {
-	// Azure Action Group reference.
-	ActionGroup []string `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject *string `pulumi:"emailSubject"`
+	ActionGroup          []string `pulumi:"actionGroup"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	EmailSubject         *string  `pulumi:"emailSubject"`
 }
 
 // AzNsActionGroupInput is an input type that accepts AzNsActionGroupArgs and AzNsActionGroupOutput values.
@@ -3767,12 +3426,9 @@ type AzNsActionGroupInput interface {
 }
 
 type AzNsActionGroupArgs struct {
-	// Azure Action Group reference.
-	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	ActionGroup          pulumi.StringArrayInput `pulumi:"actionGroup"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	EmailSubject         pulumi.StringPtrInput   `pulumi:"emailSubject"`
 }
 
 func (AzNsActionGroupArgs) ElementType() reflect.Type {
@@ -3852,17 +3508,14 @@ func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context
 	}).(AzNsActionGroupPtrOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzNsActionGroup) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroup) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroup) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
@@ -3891,7 +3544,6 @@ func (o AzNsActionGroupPtrOutput) Elem() AzNsActionGroupOutput {
 	}).(AzNsActionGroupOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) []string {
 		if v == nil {
@@ -3901,7 +3553,6 @@ func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) *string {
 		if v == nil {
@@ -3911,7 +3562,6 @@ func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) *string {
 		if v == nil {
@@ -3922,12 +3572,9 @@ func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
 }
 
 type AzNsActionGroupResponse struct {
-	// Azure Action Group reference.
-	ActionGroup []string `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject *string `pulumi:"emailSubject"`
+	ActionGroup          []string `pulumi:"actionGroup"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	EmailSubject         *string  `pulumi:"emailSubject"`
 }
 
 // AzNsActionGroupResponseInput is an input type that accepts AzNsActionGroupResponseArgs and AzNsActionGroupResponseOutput values.
@@ -3942,12 +3589,9 @@ type AzNsActionGroupResponseInput interface {
 }
 
 type AzNsActionGroupResponseArgs struct {
-	// Azure Action Group reference.
-	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	ActionGroup          pulumi.StringArrayInput `pulumi:"actionGroup"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	EmailSubject         pulumi.StringPtrInput   `pulumi:"emailSubject"`
 }
 
 func (AzNsActionGroupResponseArgs) ElementType() reflect.Type {
@@ -4027,17 +3671,14 @@ func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutputWithCon
 	}).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupResponseOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupResponseOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupResponseOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
@@ -4066,7 +3707,6 @@ func (o AzNsActionGroupResponsePtrOutput) Elem() AzNsActionGroupResponseOutput {
 	}).(AzNsActionGroupResponseOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupResponsePtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) []string {
 		if v == nil {
@@ -4076,7 +3716,6 @@ func (o AzNsActionGroupResponsePtrOutput) ActionGroup() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupResponsePtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
 		if v == nil {
@@ -4086,7 +3725,6 @@ func (o AzNsActionGroupResponsePtrOutput) CustomWebhookPayload() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupResponsePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
 		if v == nil {
@@ -4097,10 +3735,8 @@ func (o AzNsActionGroupResponsePtrOutput) EmailSubject() pulumi.StringPtrOutput 
 }
 
 type AzureAppPushReceiver struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
@@ -4115,10 +3751,8 @@ type AzureAppPushReceiverInput interface {
 }
 
 type AzureAppPushReceiverArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverArgs) ElementType() reflect.Type {
@@ -4172,12 +3806,10 @@ func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutputWithContext(ctx 
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4203,10 +3835,8 @@ func (o AzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) AzureAppPushRe
 }
 
 type AzureAppPushReceiverResponse struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverResponseInput is an input type that accepts AzureAppPushReceiverResponseArgs and AzureAppPushReceiverResponseOutput values.
@@ -4221,10 +3851,8 @@ type AzureAppPushReceiverResponseInput interface {
 }
 
 type AzureAppPushReceiverResponseArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
@@ -4278,12 +3906,10 @@ func (o AzureAppPushReceiverResponseOutput) ToAzureAppPushReceiverResponseOutput
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4309,16 +3935,11 @@ func (o AzureAppPushReceiverResponseArrayOutput) Index(i pulumi.IntInput) AzureA
 }
 
 type AzureFunctionReceiver struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
+	UseCommonAlertSchema  *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // AzureFunctionReceiverInput is an input type that accepts AzureFunctionReceiverArgs and AzureFunctionReceiverOutput values.
@@ -4333,16 +3954,11 @@ type AzureFunctionReceiverInput interface {
 }
 
 type AzureFunctionReceiverArgs struct {
-	// The azure resource id of the function app.
-	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	FunctionAppResourceId pulumi.StringInput  `pulumi:"functionAppResourceId"`
+	FunctionName          pulumi.StringInput  `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput  `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput  `pulumi:"name"`
+	UseCommonAlertSchema  pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (AzureFunctionReceiverArgs) ElementType() reflect.Type {
@@ -4396,27 +4012,22 @@ func (o AzureFunctionReceiverOutput) ToAzureFunctionReceiverOutputWithContext(ct
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o AzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -4442,16 +4053,11 @@ func (o AzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) AzureFunction
 }
 
 type AzureFunctionReceiverResponse struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
+	UseCommonAlertSchema  *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // AzureFunctionReceiverResponseInput is an input type that accepts AzureFunctionReceiverResponseArgs and AzureFunctionReceiverResponseOutput values.
@@ -4466,16 +4072,11 @@ type AzureFunctionReceiverResponseInput interface {
 }
 
 type AzureFunctionReceiverResponseArgs struct {
-	// The azure resource id of the function app.
-	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	FunctionAppResourceId pulumi.StringInput  `pulumi:"functionAppResourceId"`
+	FunctionName          pulumi.StringInput  `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput  `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput  `pulumi:"name"`
+	UseCommonAlertSchema  pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
@@ -4529,27 +4130,22 @@ func (o AzureFunctionReceiverResponseOutput) ToAzureFunctionReceiverResponseOutp
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverResponseOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o AzureFunctionReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -4575,10 +4171,8 @@ func (o AzureFunctionReceiverResponseArrayOutput) Index(i pulumi.IntInput) Azure
 }
 
 type Criteria struct {
-	// List of Dimensions for creating metric
 	Dimensions []Dimension `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName string `pulumi:"metricName"`
+	MetricName string      `pulumi:"metricName"`
 }
 
 // CriteriaInput is an input type that accepts CriteriaArgs and CriteriaOutput values.
@@ -4593,10 +4187,8 @@ type CriteriaInput interface {
 }
 
 type CriteriaArgs struct {
-	// List of Dimensions for creating metric
 	Dimensions DimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput  `pulumi:"metricName"`
 }
 
 func (CriteriaArgs) ElementType() reflect.Type {
@@ -4650,12 +4242,10 @@ func (o CriteriaOutput) ToCriteriaOutputWithContext(ctx context.Context) Criteri
 	return o
 }
 
-// List of Dimensions for creating metric
 func (o CriteriaOutput) Dimensions() DimensionArrayOutput {
 	return o.ApplyT(func(v Criteria) []Dimension { return v.Dimensions }).(DimensionArrayOutput)
 }
 
-// Name of the metric
 func (o CriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v Criteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -4681,10 +4271,8 @@ func (o CriteriaArrayOutput) Index(i pulumi.IntInput) CriteriaOutput {
 }
 
 type CriteriaResponse struct {
-	// List of Dimensions for creating metric
 	Dimensions []DimensionResponse `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName string `pulumi:"metricName"`
+	MetricName string              `pulumi:"metricName"`
 }
 
 // CriteriaResponseInput is an input type that accepts CriteriaResponseArgs and CriteriaResponseOutput values.
@@ -4699,10 +4287,8 @@ type CriteriaResponseInput interface {
 }
 
 type CriteriaResponseArgs struct {
-	// List of Dimensions for creating metric
 	Dimensions DimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput          `pulumi:"metricName"`
 }
 
 func (CriteriaResponseArgs) ElementType() reflect.Type {
@@ -4756,12 +4342,10 @@ func (o CriteriaResponseOutput) ToCriteriaResponseOutputWithContext(ctx context.
 	return o
 }
 
-// List of Dimensions for creating metric
 func (o CriteriaResponseOutput) Dimensions() DimensionResponseArrayOutput {
 	return o.ApplyT(func(v CriteriaResponse) []DimensionResponse { return v.Dimensions }).(DimensionResponseArrayOutput)
 }
 
-// Name of the metric
 func (o CriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v CriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -4787,7 +4371,6 @@ func (o CriteriaResponseArrayOutput) Index(i pulumi.IntInput) CriteriaResponseOu
 }
 
 type DataCollectionEndpointNetworkAcls struct {
-	// The configuration to set whether network access from public internet to the endpoints are allowed.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 }
 
@@ -4803,7 +4386,6 @@ type DataCollectionEndpointNetworkAclsInput interface {
 }
 
 type DataCollectionEndpointNetworkAclsArgs struct {
-	// The configuration to set whether network access from public internet to the endpoints are allowed.
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 }
 
@@ -4884,7 +4466,6 @@ func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetwork
 	}).(DataCollectionEndpointNetworkAclsPtrOutput)
 }
 
-// The configuration to set whether network access from public internet to the endpoints are allowed.
 func (o DataCollectionEndpointNetworkAclsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointNetworkAcls) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -4913,7 +4494,6 @@ func (o DataCollectionEndpointNetworkAclsPtrOutput) Elem() DataCollectionEndpoin
 	}).(DataCollectionEndpointNetworkAclsOutput)
 }
 
-// The configuration to set whether network access from public internet to the endpoints are allowed.
 func (o DataCollectionEndpointNetworkAclsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointNetworkAcls) *string {
 		if v == nil {
@@ -4924,17 +4504,11 @@ func (o DataCollectionEndpointNetworkAclsPtrOutput) PublicNetworkAccess() pulumi
 }
 
 type DataCollectionEndpointResourceResponseSystemData struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -4950,17 +4524,11 @@ type DataCollectionEndpointResourceResponseSystemDataInput interface {
 }
 
 type DataCollectionEndpointResourceResponseSystemDataArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -5041,32 +4609,26 @@ func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollection
 	}).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -5095,7 +4657,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) Elem() DataCo
 	}).(DataCollectionEndpointResourceResponseSystemDataOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5105,7 +4666,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedAt() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5115,7 +4675,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedBy() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5125,7 +4684,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedByType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5135,7 +4693,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5145,7 +4702,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedB
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
 		if v == nil {
@@ -5156,7 +4712,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedB
 }
 
 type DataCollectionEndpointResponseConfigurationAccess struct {
-	// The endpoint. This property is READ-ONLY.
 	Endpoint string `pulumi:"endpoint"`
 }
 
@@ -5172,7 +4727,6 @@ type DataCollectionEndpointResponseConfigurationAccessInput interface {
 }
 
 type DataCollectionEndpointResponseConfigurationAccessArgs struct {
-	// The endpoint. This property is READ-ONLY.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 }
 
@@ -5253,7 +4807,6 @@ func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectio
 	}).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
 }
 
-// The endpoint. This property is READ-ONLY.
 func (o DataCollectionEndpointResponseConfigurationAccessOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResponseConfigurationAccess) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -5282,7 +4835,6 @@ func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Elem() DataC
 	}).(DataCollectionEndpointResponseConfigurationAccessOutput)
 }
 
-// The endpoint. This property is READ-ONLY.
 func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseConfigurationAccess) *string {
 		if v == nil {
@@ -5293,7 +4845,6 @@ func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Endpoint() p
 }
 
 type DataCollectionEndpointResponseLogsIngestion struct {
-	// The endpoint. This property is READ-ONLY.
 	Endpoint string `pulumi:"endpoint"`
 }
 
@@ -5309,7 +4860,6 @@ type DataCollectionEndpointResponseLogsIngestionInput interface {
 }
 
 type DataCollectionEndpointResponseLogsIngestionArgs struct {
-	// The endpoint. This property is READ-ONLY.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 }
 
@@ -5390,7 +4940,6 @@ func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpo
 	}).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
 }
 
-// The endpoint. This property is READ-ONLY.
 func (o DataCollectionEndpointResponseLogsIngestionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResponseLogsIngestion) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -5419,7 +4968,6 @@ func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Elem() DataCollect
 	}).(DataCollectionEndpointResponseLogsIngestionOutput)
 }
 
-// The endpoint. This property is READ-ONLY.
 func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseLogsIngestion) *string {
 		if v == nil {
@@ -5430,7 +4978,6 @@ func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Endpoint() pulumi.
 }
 
 type DataCollectionEndpointResponseNetworkAcls struct {
-	// The configuration to set whether network access from public internet to the endpoints are allowed.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 }
 
@@ -5446,7 +4993,6 @@ type DataCollectionEndpointResponseNetworkAclsInput interface {
 }
 
 type DataCollectionEndpointResponseNetworkAclsArgs struct {
-	// The configuration to set whether network access from public internet to the endpoints are allowed.
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 }
 
@@ -5527,7 +5073,6 @@ func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpoin
 	}).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
 }
 
-// The configuration to set whether network access from public internet to the endpoints are allowed.
 func (o DataCollectionEndpointResponseNetworkAclsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionEndpointResponseNetworkAcls) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -5556,7 +5101,6 @@ func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) Elem() DataCollectio
 	}).(DataCollectionEndpointResponseNetworkAclsOutput)
 }
 
-// The configuration to set whether network access from public internet to the endpoints are allowed.
 func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseNetworkAcls) *string {
 		if v == nil {
@@ -5567,14 +5111,10 @@ func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) PublicNetworkAccess(
 }
 
 type DataCollectionRuleDataSources struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions []ExtensionDataSource `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters []PerfCounterDataSource `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog []SyslogDataSource `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs []WindowsEventLogDataSource `pulumi:"windowsEventLogs"`
+	Extensions          []ExtensionDataSource       `pulumi:"extensions"`
+	PerformanceCounters []PerfCounterDataSource     `pulumi:"performanceCounters"`
+	Syslog              []SyslogDataSource          `pulumi:"syslog"`
+	WindowsEventLogs    []WindowsEventLogDataSource `pulumi:"windowsEventLogs"`
 }
 
 // DataCollectionRuleDataSourcesInput is an input type that accepts DataCollectionRuleDataSourcesArgs and DataCollectionRuleDataSourcesOutput values.
@@ -5589,14 +5129,10 @@ type DataCollectionRuleDataSourcesInput interface {
 }
 
 type DataCollectionRuleDataSourcesArgs struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions ExtensionDataSourceArrayInput `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters PerfCounterDataSourceArrayInput `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog SyslogDataSourceArrayInput `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs WindowsEventLogDataSourceArrayInput `pulumi:"windowsEventLogs"`
+	Extensions          ExtensionDataSourceArrayInput       `pulumi:"extensions"`
+	PerformanceCounters PerfCounterDataSourceArrayInput     `pulumi:"performanceCounters"`
+	Syslog              SyslogDataSourceArrayInput          `pulumi:"syslog"`
+	WindowsEventLogs    WindowsEventLogDataSourceArrayInput `pulumi:"windowsEventLogs"`
 }
 
 func (DataCollectionRuleDataSourcesArgs) ElementType() reflect.Type {
@@ -5676,22 +5212,18 @@ func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrO
 	}).(DataCollectionRuleDataSourcesPtrOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) Extensions() ExtensionDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []ExtensionDataSource { return v.Extensions }).(ExtensionDataSourceArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) PerformanceCounters() PerfCounterDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []PerfCounterDataSource { return v.PerformanceCounters }).(PerfCounterDataSourceArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) Syslog() SyslogDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []SyslogDataSource { return v.Syslog }).(SyslogDataSourceArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) WindowsEventLogs() WindowsEventLogDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []WindowsEventLogDataSource { return v.WindowsEventLogs }).(WindowsEventLogDataSourceArrayOutput)
 }
@@ -5720,7 +5252,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSou
 	}).(DataCollectionRuleDataSourcesOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) Extensions() ExtensionDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []ExtensionDataSource {
 		if v == nil {
@@ -5730,7 +5261,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) Extensions() ExtensionDataSource
 	}).(ExtensionDataSourceArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) PerformanceCounters() PerfCounterDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []PerfCounterDataSource {
 		if v == nil {
@@ -5740,7 +5270,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) PerformanceCounters() PerfCounte
 	}).(PerfCounterDataSourceArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) Syslog() SyslogDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []SyslogDataSource {
 		if v == nil {
@@ -5750,7 +5279,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) Syslog() SyslogDataSourceArrayOu
 	}).(SyslogDataSourceArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) WindowsEventLogs() WindowsEventLogDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []WindowsEventLogDataSource {
 		if v == nil {
@@ -5761,10 +5289,8 @@ func (o DataCollectionRuleDataSourcesPtrOutput) WindowsEventLogs() WindowsEventL
 }
 
 type DataCollectionRuleDestinations struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics *DestinationsSpecAzureMonitorMetrics `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics []LogAnalyticsDestination `pulumi:"logAnalytics"`
+	LogAnalytics        []LogAnalyticsDestination            `pulumi:"logAnalytics"`
 }
 
 // DataCollectionRuleDestinationsInput is an input type that accepts DataCollectionRuleDestinationsArgs and DataCollectionRuleDestinationsOutput values.
@@ -5779,10 +5305,8 @@ type DataCollectionRuleDestinationsInput interface {
 }
 
 type DataCollectionRuleDestinationsArgs struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics DestinationsSpecAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics LogAnalyticsDestinationArrayInput `pulumi:"logAnalytics"`
+	LogAnalytics        LogAnalyticsDestinationArrayInput           `pulumi:"logAnalytics"`
 }
 
 func (DataCollectionRuleDestinationsArgs) ElementType() reflect.Type {
@@ -5862,14 +5386,12 @@ func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPt
 	}).(DataCollectionRuleDestinationsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleDestinationsOutput) AzureMonitorMetrics() DestinationsSpecAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) *DestinationsSpecAzureMonitorMetrics {
 		return v.AzureMonitorMetrics
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleDestinationsOutput) LogAnalytics() LogAnalyticsDestinationArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) []LogAnalyticsDestination { return v.LogAnalytics }).(LogAnalyticsDestinationArrayOutput)
 }
@@ -5898,7 +5420,6 @@ func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestin
 	}).(DataCollectionRuleDestinationsOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleDestinationsPtrOutput) AzureMonitorMetrics() DestinationsSpecAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) *DestinationsSpecAzureMonitorMetrics {
 		if v == nil {
@@ -5908,7 +5429,6 @@ func (o DataCollectionRuleDestinationsPtrOutput) AzureMonitorMetrics() Destinati
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleDestinationsPtrOutput) LogAnalytics() LogAnalyticsDestinationArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) []LogAnalyticsDestination {
 		if v == nil {
@@ -5919,14 +5439,10 @@ func (o DataCollectionRuleDestinationsPtrOutput) LogAnalytics() LogAnalyticsDest
 }
 
 type DataCollectionRuleResponseDataSources struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions []ExtensionDataSourceResponse `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters []PerfCounterDataSourceResponse `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog []SyslogDataSourceResponse `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs []WindowsEventLogDataSourceResponse `pulumi:"windowsEventLogs"`
+	Extensions          []ExtensionDataSourceResponse       `pulumi:"extensions"`
+	PerformanceCounters []PerfCounterDataSourceResponse     `pulumi:"performanceCounters"`
+	Syslog              []SyslogDataSourceResponse          `pulumi:"syslog"`
+	WindowsEventLogs    []WindowsEventLogDataSourceResponse `pulumi:"windowsEventLogs"`
 }
 
 // DataCollectionRuleResponseDataSourcesInput is an input type that accepts DataCollectionRuleResponseDataSourcesArgs and DataCollectionRuleResponseDataSourcesOutput values.
@@ -5941,14 +5457,10 @@ type DataCollectionRuleResponseDataSourcesInput interface {
 }
 
 type DataCollectionRuleResponseDataSourcesArgs struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions ExtensionDataSourceResponseArrayInput `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters PerfCounterDataSourceResponseArrayInput `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog SyslogDataSourceResponseArrayInput `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs WindowsEventLogDataSourceResponseArrayInput `pulumi:"windowsEventLogs"`
+	Extensions          ExtensionDataSourceResponseArrayInput       `pulumi:"extensions"`
+	PerformanceCounters PerfCounterDataSourceResponseArrayInput     `pulumi:"performanceCounters"`
+	Syslog              SyslogDataSourceResponseArrayInput          `pulumi:"syslog"`
+	WindowsEventLogs    WindowsEventLogDataSourceResponseArrayInput `pulumi:"windowsEventLogs"`
 }
 
 func (DataCollectionRuleResponseDataSourcesArgs) ElementType() reflect.Type {
@@ -6028,24 +5540,20 @@ func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleRespons
 	}).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) Extensions() ExtensionDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []ExtensionDataSourceResponse { return v.Extensions }).(ExtensionDataSourceResponseArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) PerformanceCounters() PerfCounterDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []PerfCounterDataSourceResponse {
 		return v.PerformanceCounters
 	}).(PerfCounterDataSourceResponseArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) Syslog() SyslogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []SyslogDataSourceResponse { return v.Syslog }).(SyslogDataSourceResponseArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) WindowsEventLogs() WindowsEventLogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []WindowsEventLogDataSourceResponse {
 		return v.WindowsEventLogs
@@ -6076,7 +5584,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) Elem() DataCollectionRul
 	}).(DataCollectionRuleResponseDataSourcesOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Extensions() ExtensionDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []ExtensionDataSourceResponse {
 		if v == nil {
@@ -6086,7 +5593,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) Extensions() ExtensionDa
 	}).(ExtensionDataSourceResponseArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) PerformanceCounters() PerfCounterDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []PerfCounterDataSourceResponse {
 		if v == nil {
@@ -6096,7 +5602,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) PerformanceCounters() Pe
 	}).(PerfCounterDataSourceResponseArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Syslog() SyslogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []SyslogDataSourceResponse {
 		if v == nil {
@@ -6106,7 +5611,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) Syslog() SyslogDataSourc
 	}).(SyslogDataSourceResponseArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) WindowsEventLogs() WindowsEventLogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []WindowsEventLogDataSourceResponse {
 		if v == nil {
@@ -6117,10 +5621,8 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) WindowsEventLogs() Windo
 }
 
 type DataCollectionRuleResponseDestinations struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics *DestinationsSpecResponseAzureMonitorMetrics `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics []LogAnalyticsDestinationResponse `pulumi:"logAnalytics"`
+	LogAnalytics        []LogAnalyticsDestinationResponse            `pulumi:"logAnalytics"`
 }
 
 // DataCollectionRuleResponseDestinationsInput is an input type that accepts DataCollectionRuleResponseDestinationsArgs and DataCollectionRuleResponseDestinationsOutput values.
@@ -6135,10 +5637,8 @@ type DataCollectionRuleResponseDestinationsInput interface {
 }
 
 type DataCollectionRuleResponseDestinationsArgs struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics DestinationsSpecResponseAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics LogAnalyticsDestinationResponseArrayInput `pulumi:"logAnalytics"`
+	LogAnalytics        LogAnalyticsDestinationResponseArrayInput           `pulumi:"logAnalytics"`
 }
 
 func (DataCollectionRuleResponseDestinationsArgs) ElementType() reflect.Type {
@@ -6218,14 +5718,12 @@ func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleRespon
 	}).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleResponseDestinationsOutput) AzureMonitorMetrics() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) *DestinationsSpecResponseAzureMonitorMetrics {
 		return v.AzureMonitorMetrics
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleResponseDestinationsOutput) LogAnalytics() LogAnalyticsDestinationResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) []LogAnalyticsDestinationResponse {
 		return v.LogAnalytics
@@ -6256,7 +5754,6 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) Elem() DataCollectionRu
 	}).(DataCollectionRuleResponseDestinationsOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleResponseDestinationsPtrOutput) AzureMonitorMetrics() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) *DestinationsSpecResponseAzureMonitorMetrics {
 		if v == nil {
@@ -6266,7 +5763,6 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) AzureMonitorMetrics() D
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleResponseDestinationsPtrOutput) LogAnalytics() LogAnalyticsDestinationResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) []LogAnalyticsDestinationResponse {
 		if v == nil {
@@ -6277,10 +5773,8 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) LogAnalytics() LogAnaly
 }
 
 type DataFlow struct {
-	// List of destinations for this data flow.
 	Destinations []string `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams []string `pulumi:"streams"`
+	Streams      []string `pulumi:"streams"`
 }
 
 // DataFlowInput is an input type that accepts DataFlowArgs and DataFlowOutput values.
@@ -6295,10 +5789,8 @@ type DataFlowInput interface {
 }
 
 type DataFlowArgs struct {
-	// List of destinations for this data flow.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (DataFlowArgs) ElementType() reflect.Type {
@@ -6352,12 +5844,10 @@ func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlo
 	return o
 }
 
-// List of destinations for this data flow.
 func (o DataFlowOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlow) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// List of streams for this data flow.
 func (o DataFlowOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -6383,10 +5873,8 @@ func (o DataFlowArrayOutput) Index(i pulumi.IntInput) DataFlowOutput {
 }
 
 type DataFlowResponse struct {
-	// List of destinations for this data flow.
 	Destinations []string `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams []string `pulumi:"streams"`
+	Streams      []string `pulumi:"streams"`
 }
 
 // DataFlowResponseInput is an input type that accepts DataFlowResponseArgs and DataFlowResponseOutput values.
@@ -6401,10 +5889,8 @@ type DataFlowResponseInput interface {
 }
 
 type DataFlowResponseArgs struct {
-	// List of destinations for this data flow.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (DataFlowResponseArgs) ElementType() reflect.Type {
@@ -6458,12 +5944,10 @@ func (o DataFlowResponseOutput) ToDataFlowResponseOutputWithContext(ctx context.
 	return o
 }
 
-// List of destinations for this data flow.
 func (o DataFlowResponseOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlowResponse) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// List of streams for this data flow.
 func (o DataFlowResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlowResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -6490,9 +5974,8 @@ func (o DataFlowResponseArrayOutput) Index(i pulumi.IntInput) DataFlowResponseOu
 
 type DataSource struct {
 	Configuration DataSourceConfiguration `pulumi:"configuration"`
-	// Datasource kind
-	Kind  string              `pulumi:"kind"`
-	Sinks []SinkConfiguration `pulumi:"sinks"`
+	Kind          string                  `pulumi:"kind"`
+	Sinks         []SinkConfiguration     `pulumi:"sinks"`
 }
 
 // DataSourceInput is an input type that accepts DataSourceArgs and DataSourceOutput values.
@@ -6508,9 +5991,8 @@ type DataSourceInput interface {
 
 type DataSourceArgs struct {
 	Configuration DataSourceConfigurationInput `pulumi:"configuration"`
-	// Datasource kind
-	Kind  pulumi.StringInput          `pulumi:"kind"`
-	Sinks SinkConfigurationArrayInput `pulumi:"sinks"`
+	Kind          pulumi.StringInput           `pulumi:"kind"`
+	Sinks         SinkConfigurationArrayInput  `pulumi:"sinks"`
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -6568,7 +6050,6 @@ func (o DataSourceOutput) Configuration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSource) DataSourceConfiguration { return v.Configuration }).(DataSourceConfigurationOutput)
 }
 
-// Datasource kind
 func (o DataSourceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSource) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -6598,12 +6079,9 @@ func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
 }
 
 type DataSourceConfiguration struct {
-	// Windows event logs configuration.
-	EventLogs []EventLogConfiguration `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    []EventLogConfiguration           `pulumi:"eventLogs"`
 	PerfCounters []PerformanceCounterConfiguration `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers []EtwProviderConfiguration `pulumi:"providers"`
+	Providers    []EtwProviderConfiguration        `pulumi:"providers"`
 }
 
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
@@ -6618,12 +6096,9 @@ type DataSourceConfigurationInput interface {
 }
 
 type DataSourceConfigurationArgs struct {
-	// Windows event logs configuration.
-	EventLogs EventLogConfigurationArrayInput `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    EventLogConfigurationArrayInput           `pulumi:"eventLogs"`
 	PerfCounters PerformanceCounterConfigurationArrayInput `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers EtwProviderConfigurationArrayInput `pulumi:"providers"`
+	Providers    EtwProviderConfigurationArrayInput        `pulumi:"providers"`
 }
 
 func (DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -6652,28 +6127,22 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContex
 	return o
 }
 
-// Windows event logs configuration.
 func (o DataSourceConfigurationOutput) EventLogs() EventLogConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []EventLogConfiguration { return v.EventLogs }).(EventLogConfigurationArrayOutput)
 }
 
-// Performance counter configuration
 func (o DataSourceConfigurationOutput) PerfCounters() PerformanceCounterConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []PerformanceCounterConfiguration { return v.PerfCounters }).(PerformanceCounterConfigurationArrayOutput)
 }
 
-// ETW providers configuration
 func (o DataSourceConfigurationOutput) Providers() EtwProviderConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []EtwProviderConfiguration { return v.Providers }).(EtwProviderConfigurationArrayOutput)
 }
 
 type DataSourceConfigurationResponse struct {
-	// Windows event logs configuration.
-	EventLogs []EventLogConfigurationResponse `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    []EventLogConfigurationResponse           `pulumi:"eventLogs"`
 	PerfCounters []PerformanceCounterConfigurationResponse `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers []EtwProviderConfigurationResponse `pulumi:"providers"`
+	Providers    []EtwProviderConfigurationResponse        `pulumi:"providers"`
 }
 
 // DataSourceConfigurationResponseInput is an input type that accepts DataSourceConfigurationResponseArgs and DataSourceConfigurationResponseOutput values.
@@ -6688,12 +6157,9 @@ type DataSourceConfigurationResponseInput interface {
 }
 
 type DataSourceConfigurationResponseArgs struct {
-	// Windows event logs configuration.
-	EventLogs EventLogConfigurationResponseArrayInput `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    EventLogConfigurationResponseArrayInput           `pulumi:"eventLogs"`
 	PerfCounters PerformanceCounterConfigurationResponseArrayInput `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers EtwProviderConfigurationResponseArrayInput `pulumi:"providers"`
+	Providers    EtwProviderConfigurationResponseArrayInput        `pulumi:"providers"`
 }
 
 func (DataSourceConfigurationResponseArgs) ElementType() reflect.Type {
@@ -6722,28 +6188,24 @@ func (o DataSourceConfigurationResponseOutput) ToDataSourceConfigurationResponse
 	return o
 }
 
-// Windows event logs configuration.
 func (o DataSourceConfigurationResponseOutput) EventLogs() EventLogConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []EventLogConfigurationResponse { return v.EventLogs }).(EventLogConfigurationResponseArrayOutput)
 }
 
-// Performance counter configuration
 func (o DataSourceConfigurationResponseOutput) PerfCounters() PerformanceCounterConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []PerformanceCounterConfigurationResponse {
 		return v.PerfCounters
 	}).(PerformanceCounterConfigurationResponseArrayOutput)
 }
 
-// ETW providers configuration
 func (o DataSourceConfigurationResponseOutput) Providers() EtwProviderConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []EtwProviderConfigurationResponse { return v.Providers }).(EtwProviderConfigurationResponseArrayOutput)
 }
 
 type DataSourceResponse struct {
 	Configuration DataSourceConfigurationResponse `pulumi:"configuration"`
-	// Datasource kind
-	Kind  string                      `pulumi:"kind"`
-	Sinks []SinkConfigurationResponse `pulumi:"sinks"`
+	Kind          string                          `pulumi:"kind"`
+	Sinks         []SinkConfigurationResponse     `pulumi:"sinks"`
 }
 
 // DataSourceResponseInput is an input type that accepts DataSourceResponseArgs and DataSourceResponseOutput values.
@@ -6759,9 +6221,8 @@ type DataSourceResponseInput interface {
 
 type DataSourceResponseArgs struct {
 	Configuration DataSourceConfigurationResponseInput `pulumi:"configuration"`
-	// Datasource kind
-	Kind  pulumi.StringInput                  `pulumi:"kind"`
-	Sinks SinkConfigurationResponseArrayInput `pulumi:"sinks"`
+	Kind          pulumi.StringInput                   `pulumi:"kind"`
+	Sinks         SinkConfigurationResponseArrayInput  `pulumi:"sinks"`
 }
 
 func (DataSourceResponseArgs) ElementType() reflect.Type {
@@ -6819,7 +6280,6 @@ func (o DataSourceResponseOutput) Configuration() DataSourceConfigurationRespons
 	return o.ApplyT(func(v DataSourceResponse) DataSourceConfigurationResponse { return v.Configuration }).(DataSourceConfigurationResponseOutput)
 }
 
-// Datasource kind
 func (o DataSourceResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -6849,8 +6309,6 @@ func (o DataSourceResponseArrayOutput) Index(i pulumi.IntInput) DataSourceRespon
 }
 
 type DestinationsSpecAzureMonitorMetrics struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name *string `pulumi:"name"`
 }
 
@@ -6866,8 +6324,6 @@ type DestinationsSpecAzureMonitorMetricsInput interface {
 }
 
 type DestinationsSpecAzureMonitorMetricsArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6948,8 +6404,6 @@ func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonito
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6978,8 +6432,6 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecAzu
 	}).(DestinationsSpecAzureMonitorMetricsOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) *string {
 		if v == nil {
@@ -6990,8 +6442,6 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOut
 }
 
 type DestinationsSpecResponseAzureMonitorMetrics struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name *string `pulumi:"name"`
 }
 
@@ -7007,8 +6457,6 @@ type DestinationsSpecResponseAzureMonitorMetricsInput interface {
 }
 
 type DestinationsSpecResponseAzureMonitorMetricsArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -7089,8 +6537,6 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -7119,8 +6565,6 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Elem() Destination
 	}).(DestinationsSpecResponseAzureMonitorMetricsOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationsSpecResponseAzureMonitorMetrics) *string {
 		if v == nil {
@@ -7131,12 +6575,9 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Name() pulumi.Stri
 }
 
 type Dimension struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionInput is an input type that accepts DimensionArgs and DimensionOutput values.
@@ -7151,12 +6592,9 @@ type DimensionInput interface {
 }
 
 type DimensionArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionArgs) ElementType() reflect.Type {
@@ -7210,17 +6648,14 @@ func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) Dimen
 	return o
 }
 
-// Name of the dimension
 func (o DimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Dimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7246,12 +6681,9 @@ func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
 }
 
 type DimensionResponse struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionResponseInput is an input type that accepts DimensionResponseArgs and DimensionResponseOutput values.
@@ -7266,12 +6698,9 @@ type DimensionResponseInput interface {
 }
 
 type DimensionResponseArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionResponseArgs) ElementType() reflect.Type {
@@ -7325,17 +6754,14 @@ func (o DimensionResponseOutput) ToDimensionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the dimension
 func (o DimensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7361,29 +6787,17 @@ func (o DimensionResponseArrayOutput) Index(i pulumi.IntInput) DimensionResponse
 }
 
 type DynamicMetricCriteria struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity string `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimension `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriods `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	AlertSensitivity     string                         `pulumi:"alertSensitivity"`
+	CriterionType        string                         `pulumi:"criterionType"`
+	Dimensions           []MetricDimension              `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriods `pulumi:"failingPeriods"`
+	IgnoreDataBefore     *string                        `pulumi:"ignoreDataBefore"`
+	MetricName           string                         `pulumi:"metricName"`
+	MetricNamespace      *string                        `pulumi:"metricNamespace"`
+	Name                 string                         `pulumi:"name"`
+	Operator             string                         `pulumi:"operator"`
+	SkipMetricValidation *bool                          `pulumi:"skipMetricValidation"`
+	TimeAggregation      string                         `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaInput is an input type that accepts DynamicMetricCriteriaArgs and DynamicMetricCriteriaOutput values.
@@ -7398,29 +6812,17 @@ type DynamicMetricCriteriaInput interface {
 }
 
 type DynamicMetricCriteriaArgs struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsInput `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	AlertSensitivity     pulumi.StringInput                  `pulumi:"alertSensitivity"`
+	CriterionType        pulumi.StringInput                  `pulumi:"criterionType"`
+	Dimensions           MetricDimensionArrayInput           `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsInput `pulumi:"failingPeriods"`
+	IgnoreDataBefore     pulumi.StringPtrInput               `pulumi:"ignoreDataBefore"`
+	MetricName           pulumi.StringInput                  `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput               `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                  `pulumi:"name"`
+	Operator             pulumi.StringInput                  `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput                 `pulumi:"skipMetricValidation"`
+	TimeAggregation      pulumi.StringInput                  `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaArgs) ElementType() reflect.Type {
@@ -7449,86 +6851,62 @@ func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutputWithContext(ct
 	return o
 }
 
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 func (o DynamicMetricCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.AlertSensitivity }).(pulumi.StringOutput)
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o DynamicMetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 func (o DynamicMetricCriteriaOutput) FailingPeriods() DynamicThresholdFailingPeriodsOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) DynamicThresholdFailingPeriods { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsOutput)
 }
 
-// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
 func (o DynamicMetricCriteriaOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
 }
 
-// Name of the metric.
 func (o DynamicMetricCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o DynamicMetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o DynamicMetricCriteriaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator used to compare the metric value against the threshold.
 func (o DynamicMetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o DynamicMetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria time aggregation types.
 func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 type DynamicMetricCriteriaResponse struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity string `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsResponse `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	AlertSensitivity     string                                 `pulumi:"alertSensitivity"`
+	CriterionType        string                                 `pulumi:"criterionType"`
+	Dimensions           []MetricDimensionResponse              `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsResponse `pulumi:"failingPeriods"`
+	IgnoreDataBefore     *string                                `pulumi:"ignoreDataBefore"`
+	MetricName           string                                 `pulumi:"metricName"`
+	MetricNamespace      *string                                `pulumi:"metricNamespace"`
+	Name                 string                                 `pulumi:"name"`
+	Operator             string                                 `pulumi:"operator"`
+	SkipMetricValidation *bool                                  `pulumi:"skipMetricValidation"`
+	TimeAggregation      string                                 `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaResponseInput is an input type that accepts DynamicMetricCriteriaResponseArgs and DynamicMetricCriteriaResponseOutput values.
@@ -7543,29 +6921,17 @@ type DynamicMetricCriteriaResponseInput interface {
 }
 
 type DynamicMetricCriteriaResponseArgs struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	AlertSensitivity     pulumi.StringInput                          `pulumi:"alertSensitivity"`
+	CriterionType        pulumi.StringInput                          `pulumi:"criterionType"`
+	Dimensions           MetricDimensionResponseArrayInput           `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
+	IgnoreDataBefore     pulumi.StringPtrInput                       `pulumi:"ignoreDataBefore"`
+	MetricName           pulumi.StringInput                          `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput                       `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                          `pulumi:"name"`
+	Operator             pulumi.StringInput                          `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput                         `pulumi:"skipMetricValidation"`
+	TimeAggregation      pulumi.StringInput                          `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -7594,66 +6960,52 @@ func (o DynamicMetricCriteriaResponseOutput) ToDynamicMetricCriteriaResponseOutp
 	return o
 }
 
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 func (o DynamicMetricCriteriaResponseOutput) AlertSensitivity() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.AlertSensitivity }).(pulumi.StringOutput)
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o DynamicMetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 func (o DynamicMetricCriteriaResponseOutput) FailingPeriods() DynamicThresholdFailingPeriodsResponseOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) DynamicThresholdFailingPeriodsResponse { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsResponseOutput)
 }
 
-// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
 func (o DynamicMetricCriteriaResponseOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
 }
 
-// Name of the metric.
 func (o DynamicMetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o DynamicMetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o DynamicMetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator used to compare the metric value against the threshold.
 func (o DynamicMetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o DynamicMetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria time aggregation types.
 func (o DynamicMetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 type DynamicThresholdFailingPeriods struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -7669,9 +7021,7 @@ type DynamicThresholdFailingPeriodsInput interface {
 }
 
 type DynamicThresholdFailingPeriodsArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -7701,20 +7051,16 @@ func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOu
 	return o
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
 func (o DynamicThresholdFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
 func (o DynamicThresholdFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
 }
 
 type DynamicThresholdFailingPeriodsResponse struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -7730,9 +7076,7 @@ type DynamicThresholdFailingPeriodsResponseInput interface {
 }
 
 type DynamicThresholdFailingPeriodsResponseArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -7762,23 +7106,18 @@ func (o DynamicThresholdFailingPeriodsResponseOutput) ToDynamicThresholdFailingP
 	return o
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
 func (o DynamicThresholdFailingPeriodsResponseOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
 func (o DynamicThresholdFailingPeriodsResponseOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
 }
 
 type EmailNotification struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails []string `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators *bool `pulumi:"sendToSubscriptionCoAdministrators"`
+	CustomEmails                       []string `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator    *bool    `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrators *bool    `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
 // EmailNotificationInput is an input type that accepts EmailNotificationArgs and EmailNotificationOutput values.
@@ -7793,12 +7132,9 @@ type EmailNotificationInput interface {
 }
 
 type EmailNotificationArgs struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
+	CustomEmails                       pulumi.StringArrayInput `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator    pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
 func (EmailNotificationArgs) ElementType() reflect.Type {
@@ -7878,17 +7214,14 @@ func (o EmailNotificationOutput) ToEmailNotificationPtrOutputWithContext(ctx con
 	}).(EmailNotificationPtrOutput)
 }
 
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 func (o EmailNotificationOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EmailNotification) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
-// a value indicating whether to send email to subscription administrator.
 func (o EmailNotificationOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
-// a value indicating whether to send email to subscription co-administrators.
 func (o EmailNotificationOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionCoAdministrators }).(pulumi.BoolPtrOutput)
 }
@@ -7917,7 +7250,6 @@ func (o EmailNotificationPtrOutput) Elem() EmailNotificationOutput {
 	}).(EmailNotificationOutput)
 }
 
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 func (o EmailNotificationPtrOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EmailNotification) []string {
 		if v == nil {
@@ -7927,7 +7259,6 @@ func (o EmailNotificationPtrOutput) CustomEmails() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// a value indicating whether to send email to subscription administrator.
 func (o EmailNotificationPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailNotification) *bool {
 		if v == nil {
@@ -7937,7 +7268,6 @@ func (o EmailNotificationPtrOutput) SendToSubscriptionAdministrator() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// a value indicating whether to send email to subscription co-administrators.
 func (o EmailNotificationPtrOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailNotification) *bool {
 		if v == nil {
@@ -7948,12 +7278,9 @@ func (o EmailNotificationPtrOutput) SendToSubscriptionCoAdministrators() pulumi.
 }
 
 type EmailNotificationResponse struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails []string `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators *bool `pulumi:"sendToSubscriptionCoAdministrators"`
+	CustomEmails                       []string `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator    *bool    `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrators *bool    `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
 // EmailNotificationResponseInput is an input type that accepts EmailNotificationResponseArgs and EmailNotificationResponseOutput values.
@@ -7968,12 +7295,9 @@ type EmailNotificationResponseInput interface {
 }
 
 type EmailNotificationResponseArgs struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
+	CustomEmails                       pulumi.StringArrayInput `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator    pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
 func (EmailNotificationResponseArgs) ElementType() reflect.Type {
@@ -8053,17 +7377,14 @@ func (o EmailNotificationResponseOutput) ToEmailNotificationResponsePtrOutputWit
 	}).(EmailNotificationResponsePtrOutput)
 }
 
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 func (o EmailNotificationResponseOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EmailNotificationResponse) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
-// a value indicating whether to send email to subscription administrator.
 func (o EmailNotificationResponseOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailNotificationResponse) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
-// a value indicating whether to send email to subscription co-administrators.
 func (o EmailNotificationResponseOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailNotificationResponse) *bool { return v.SendToSubscriptionCoAdministrators }).(pulumi.BoolPtrOutput)
 }
@@ -8092,7 +7413,6 @@ func (o EmailNotificationResponsePtrOutput) Elem() EmailNotificationResponseOutp
 	}).(EmailNotificationResponseOutput)
 }
 
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 func (o EmailNotificationResponsePtrOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EmailNotificationResponse) []string {
 		if v == nil {
@@ -8102,7 +7422,6 @@ func (o EmailNotificationResponsePtrOutput) CustomEmails() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// a value indicating whether to send email to subscription administrator.
 func (o EmailNotificationResponsePtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailNotificationResponse) *bool {
 		if v == nil {
@@ -8112,7 +7431,6 @@ func (o EmailNotificationResponsePtrOutput) SendToSubscriptionAdministrator() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// a value indicating whether to send email to subscription co-administrators.
 func (o EmailNotificationResponsePtrOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailNotificationResponse) *bool {
 		if v == nil {
@@ -8123,12 +7441,9 @@ func (o EmailNotificationResponsePtrOutput) SendToSubscriptionCoAdministrators()
 }
 
 type EmailReceiver struct {
-	// The email address of this receiver.
-	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	EmailAddress         string `pulumi:"emailAddress"`
+	Name                 string `pulumi:"name"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
@@ -8143,11 +7458,8 @@ type EmailReceiverInput interface {
 }
 
 type EmailReceiverArgs struct {
-	// The email address of this receiver.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether to use common alert schema.
+	EmailAddress         pulumi.StringInput  `pulumi:"emailAddress"`
+	Name                 pulumi.StringInput  `pulumi:"name"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -8202,17 +7514,14 @@ func (o EmailReceiverOutput) ToEmailReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o EmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -8238,14 +7547,10 @@ func (o EmailReceiverArrayOutput) Index(i pulumi.IntInput) EmailReceiverOutput {
 }
 
 type EmailReceiverResponse struct {
-	// The email address of this receiver.
-	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status string `pulumi:"status"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	EmailAddress         string `pulumi:"emailAddress"`
+	Name                 string `pulumi:"name"`
+	Status               string `pulumi:"status"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
@@ -8260,13 +7565,9 @@ type EmailReceiverResponseInput interface {
 }
 
 type EmailReceiverResponseArgs struct {
-	// The email address of this receiver.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Indicates whether to use common alert schema.
+	EmailAddress         pulumi.StringInput  `pulumi:"emailAddress"`
+	Name                 pulumi.StringInput  `pulumi:"name"`
+	Status               pulumi.StringInput  `pulumi:"status"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -8321,22 +7622,18 @@ func (o EmailReceiverResponseOutput) ToEmailReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The receiver status of the e-mail.
 func (o EmailReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o EmailReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -8974,18 +8271,11 @@ func (o EventLogConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Event
 }
 
 type ExtensionDataSource struct {
-	// The name of the VM extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
+	ExtensionName     string      `pulumi:"extensionName"`
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources []string `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	InputDataSources  []string    `pulumi:"inputDataSources"`
+	Name              *string     `pulumi:"name"`
+	Streams           []string    `pulumi:"streams"`
 }
 
 // ExtensionDataSourceInput is an input type that accepts ExtensionDataSourceArgs and ExtensionDataSourceOutput values.
@@ -9000,18 +8290,11 @@ type ExtensionDataSourceInput interface {
 }
 
 type ExtensionDataSourceArgs struct {
-	// The name of the VM extension.
-	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	ExtensionName     pulumi.StringInput      `pulumi:"extensionName"`
+	ExtensionSettings pulumi.Input            `pulumi:"extensionSettings"`
+	InputDataSources  pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	Streams           pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (ExtensionDataSourceArgs) ElementType() reflect.Type {
@@ -9065,29 +8348,22 @@ func (o ExtensionDataSourceOutput) ToExtensionDataSourceOutputWithContext(ctx co
 	return o
 }
 
-// The name of the VM extension.
 func (o ExtensionDataSourceOutput) ExtensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionDataSource) string { return v.ExtensionName }).(pulumi.StringOutput)
 }
 
-// The extension settings. The format is specific for particular extension.
 func (o ExtensionDataSourceOutput) ExtensionSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ExtensionDataSource) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
-// The list of data sources this extension needs data from.
 func (o ExtensionDataSourceOutput) InputDataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSource) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o ExtensionDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o ExtensionDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -9113,18 +8389,11 @@ func (o ExtensionDataSourceArrayOutput) Index(i pulumi.IntInput) ExtensionDataSo
 }
 
 type ExtensionDataSourceResponse struct {
-	// The name of the VM extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
+	ExtensionName     string      `pulumi:"extensionName"`
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources []string `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	InputDataSources  []string    `pulumi:"inputDataSources"`
+	Name              *string     `pulumi:"name"`
+	Streams           []string    `pulumi:"streams"`
 }
 
 // ExtensionDataSourceResponseInput is an input type that accepts ExtensionDataSourceResponseArgs and ExtensionDataSourceResponseOutput values.
@@ -9139,18 +8408,11 @@ type ExtensionDataSourceResponseInput interface {
 }
 
 type ExtensionDataSourceResponseArgs struct {
-	// The name of the VM extension.
-	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	ExtensionName     pulumi.StringInput      `pulumi:"extensionName"`
+	ExtensionSettings pulumi.Input            `pulumi:"extensionSettings"`
+	InputDataSources  pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	Streams           pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (ExtensionDataSourceResponseArgs) ElementType() reflect.Type {
@@ -9204,29 +8466,22 @@ func (o ExtensionDataSourceResponseOutput) ToExtensionDataSourceResponseOutputWi
 	return o
 }
 
-// The name of the VM extension.
 func (o ExtensionDataSourceResponseOutput) ExtensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) string { return v.ExtensionName }).(pulumi.StringOutput)
 }
 
-// The extension settings. The format is specific for particular extension.
 func (o ExtensionDataSourceResponseOutput) ExtensionSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
-// The list of data sources this extension needs data from.
 func (o ExtensionDataSourceResponseOutput) InputDataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o ExtensionDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o ExtensionDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -9252,16 +8507,11 @@ func (o ExtensionDataSourceResponseArrayOutput) Index(i pulumi.IntInput) Extensi
 }
 
 type ItsmReceiver struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
@@ -9276,16 +8526,11 @@ type ItsmReceiverInput interface {
 }
 
 type ItsmReceiverArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverArgs) ElementType() reflect.Type {
@@ -9339,27 +8584,22 @@ func (o ItsmReceiverOutput) ToItsmReceiverOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -9385,16 +8625,11 @@ func (o ItsmReceiverArrayOutput) Index(i pulumi.IntInput) ItsmReceiverOutput {
 }
 
 type ItsmReceiverResponse struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverResponseInput is an input type that accepts ItsmReceiverResponseArgs and ItsmReceiverResponseOutput values.
@@ -9409,16 +8644,11 @@ type ItsmReceiverResponseInput interface {
 }
 
 type ItsmReceiverResponseArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
@@ -9472,27 +8702,22 @@ func (o ItsmReceiverResponseOutput) ToItsmReceiverResponseOutputWithContext(ctx 
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverResponseOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverResponseOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -9518,15 +8743,10 @@ func (o ItsmReceiverResponseArrayOutput) Index(i pulumi.IntInput) ItsmReceiverRe
 }
 
 type LocationThresholdRuleCondition struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// the number of locations that must fail to activate the alert.
-	FailedLocationCount int `pulumi:"failedLocationCount"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-	OdataType string `pulumi:"odataType"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	DataSource          interface{} `pulumi:"dataSource"`
+	FailedLocationCount int         `pulumi:"failedLocationCount"`
+	OdataType           string      `pulumi:"odataType"`
+	WindowSize          *string     `pulumi:"windowSize"`
 }
 
 // LocationThresholdRuleConditionInput is an input type that accepts LocationThresholdRuleConditionArgs and LocationThresholdRuleConditionOutput values.
@@ -9541,15 +8761,10 @@ type LocationThresholdRuleConditionInput interface {
 }
 
 type LocationThresholdRuleConditionArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// the number of locations that must fail to activate the alert.
-	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	DataSource          pulumi.Input          `pulumi:"dataSource"`
+	FailedLocationCount pulumi.IntInput       `pulumi:"failedLocationCount"`
+	OdataType           pulumi.StringInput    `pulumi:"odataType"`
+	WindowSize          pulumi.StringPtrInput `pulumi:"windowSize"`
 }
 
 func (LocationThresholdRuleConditionArgs) ElementType() reflect.Type {
@@ -9578,37 +8793,27 @@ func (o LocationThresholdRuleConditionOutput) ToLocationThresholdRuleConditionOu
 	return o
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o LocationThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v LocationThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// the number of locations that must fail to activate the alert.
 func (o LocationThresholdRuleConditionOutput) FailedLocationCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LocationThresholdRuleCondition) int { return v.FailedLocationCount }).(pulumi.IntOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 func (o LocationThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o LocationThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
 
 type LocationThresholdRuleConditionResponse struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// the number of locations that must fail to activate the alert.
-	FailedLocationCount int `pulumi:"failedLocationCount"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-	OdataType string `pulumi:"odataType"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	DataSource          interface{} `pulumi:"dataSource"`
+	FailedLocationCount int         `pulumi:"failedLocationCount"`
+	OdataType           string      `pulumi:"odataType"`
+	WindowSize          *string     `pulumi:"windowSize"`
 }
 
 // LocationThresholdRuleConditionResponseInput is an input type that accepts LocationThresholdRuleConditionResponseArgs and LocationThresholdRuleConditionResponseOutput values.
@@ -9623,15 +8828,10 @@ type LocationThresholdRuleConditionResponseInput interface {
 }
 
 type LocationThresholdRuleConditionResponseArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// the number of locations that must fail to activate the alert.
-	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	DataSource          pulumi.Input          `pulumi:"dataSource"`
+	FailedLocationCount pulumi.IntInput       `pulumi:"failedLocationCount"`
+	OdataType           pulumi.StringInput    `pulumi:"odataType"`
+	WindowSize          pulumi.StringPtrInput `pulumi:"windowSize"`
 }
 
 func (LocationThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
@@ -9660,32 +8860,24 @@ func (o LocationThresholdRuleConditionResponseOutput) ToLocationThresholdRuleCon
 	return o
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o LocationThresholdRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// the number of locations that must fail to activate the alert.
 func (o LocationThresholdRuleConditionResponseOutput) FailedLocationCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) int { return v.FailedLocationCount }).(pulumi.IntOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 func (o LocationThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
 
 type LogAnalyticsDestination struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The resource ID of the Log Analytics workspace.
+	Name                *string `pulumi:"name"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -9701,10 +8893,7 @@ type LogAnalyticsDestinationInput interface {
 }
 
 type LogAnalyticsDestinationArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The resource ID of the Log Analytics workspace.
+	Name                pulumi.StringPtrInput `pulumi:"name"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -9759,13 +8948,10 @@ func (o LogAnalyticsDestinationOutput) ToLogAnalyticsDestinationOutputWithContex
 	return o
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o LogAnalyticsDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -9791,12 +8977,8 @@ func (o LogAnalyticsDestinationArrayOutput) Index(i pulumi.IntInput) LogAnalytic
 }
 
 type LogAnalyticsDestinationResponse struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The Customer ID of the Log Analytics workspace.
-	WorkspaceId string `pulumi:"workspaceId"`
-	// The resource ID of the Log Analytics workspace.
+	Name                *string `pulumi:"name"`
+	WorkspaceId         string  `pulumi:"workspaceId"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -9812,12 +8994,8 @@ type LogAnalyticsDestinationResponseInput interface {
 }
 
 type LogAnalyticsDestinationResponseArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Customer ID of the Log Analytics workspace.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-	// The resource ID of the Log Analytics workspace.
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	WorkspaceId         pulumi.StringInput    `pulumi:"workspaceId"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -9872,18 +9050,14 @@ func (o LogAnalyticsDestinationResponseOutput) ToLogAnalyticsDestinationResponse
 	return o
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o LogAnalyticsDestinationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Customer ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// The resource ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -9909,14 +9083,10 @@ func (o LogAnalyticsDestinationResponseArrayOutput) Index(i pulumi.IntInput) Log
 }
 
 type LogMetricTrigger struct {
-	// Evaluation of metric on a particular column
-	MetricColumn *string `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType *string `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold *float64 `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator *string `pulumi:"thresholdOperator"`
+	MetricColumn      *string  `pulumi:"metricColumn"`
+	MetricTriggerType *string  `pulumi:"metricTriggerType"`
+	Threshold         *float64 `pulumi:"threshold"`
+	ThresholdOperator *string  `pulumi:"thresholdOperator"`
 }
 
 // LogMetricTriggerInput is an input type that accepts LogMetricTriggerArgs and LogMetricTriggerOutput values.
@@ -9931,14 +9101,10 @@ type LogMetricTriggerInput interface {
 }
 
 type LogMetricTriggerArgs struct {
-	// Evaluation of metric on a particular column
-	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+	MetricColumn      pulumi.StringPtrInput  `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringPtrInput  `pulumi:"metricTriggerType"`
+	Threshold         pulumi.Float64PtrInput `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringPtrInput  `pulumi:"thresholdOperator"`
 }
 
 func (LogMetricTriggerArgs) ElementType() reflect.Type {
@@ -10018,22 +9184,18 @@ func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutputWithContext(ctx conte
 	}).(LogMetricTriggerPtrOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
 }
@@ -10062,7 +9224,6 @@ func (o LogMetricTriggerPtrOutput) Elem() LogMetricTriggerOutput {
 	}).(LogMetricTriggerOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -10072,7 +9233,6 @@ func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -10082,7 +9242,6 @@ func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *float64 {
 		if v == nil {
@@ -10092,7 +9251,6 @@ func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -10103,14 +9261,10 @@ func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 }
 
 type LogMetricTriggerResponse struct {
-	// Evaluation of metric on a particular column
-	MetricColumn *string `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType *string `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold *float64 `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator *string `pulumi:"thresholdOperator"`
+	MetricColumn      *string  `pulumi:"metricColumn"`
+	MetricTriggerType *string  `pulumi:"metricTriggerType"`
+	Threshold         *float64 `pulumi:"threshold"`
+	ThresholdOperator *string  `pulumi:"thresholdOperator"`
 }
 
 // LogMetricTriggerResponseInput is an input type that accepts LogMetricTriggerResponseArgs and LogMetricTriggerResponseOutput values.
@@ -10125,14 +9279,10 @@ type LogMetricTriggerResponseInput interface {
 }
 
 type LogMetricTriggerResponseArgs struct {
-	// Evaluation of metric on a particular column
-	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+	MetricColumn      pulumi.StringPtrInput  `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringPtrInput  `pulumi:"metricTriggerType"`
+	Threshold         pulumi.Float64PtrInput `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringPtrInput  `pulumi:"thresholdOperator"`
 }
 
 func (LogMetricTriggerResponseArgs) ElementType() reflect.Type {
@@ -10212,22 +9362,18 @@ func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutputWithC
 	}).(LogMetricTriggerResponsePtrOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerResponseOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerResponseOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerResponseOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerResponseOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
 }
@@ -10256,7 +9402,6 @@ func (o LogMetricTriggerResponsePtrOutput) Elem() LogMetricTriggerResponseOutput
 	}).(LogMetricTriggerResponseOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerResponsePtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -10266,7 +9411,6 @@ func (o LogMetricTriggerResponsePtrOutput) MetricColumn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerResponsePtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -10276,7 +9420,6 @@ func (o LogMetricTriggerResponsePtrOutput) MetricTriggerType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *float64 {
 		if v == nil {
@@ -10286,7 +9429,6 @@ func (o LogMetricTriggerResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerResponsePtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -10297,11 +9439,8 @@ func (o LogMetricTriggerResponsePtrOutput) ThresholdOperator() pulumi.StringPtrO
 }
 
 type LogSettings struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        *string          `pulumi:"category"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -10317,11 +9456,8 @@ type LogSettingsInput interface {
 }
 
 type LogSettingsArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -10376,17 +9512,14 @@ func (o LogSettingsOutput) ToLogSettingsOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o LogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this log.
 func (o LogSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v LogSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
@@ -10412,11 +9545,8 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 }
 
 type LogSettingsResponse struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        *string                  `pulumi:"category"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
 }
 
@@ -10432,11 +9562,8 @@ type LogSettingsResponseInput interface {
 }
 
 type LogSettingsResponseArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -10491,17 +9618,14 @@ func (o LogSettingsResponseOutput) ToLogSettingsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o LogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this log.
 func (o LogSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
@@ -10527,11 +9651,8 @@ func (o LogSettingsResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsResp
 }
 
 type LogToMetricAction struct {
-	// Criteria of Metric
-	Criteria []Criteria `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType string `pulumi:"odataType"`
+	Criteria  []Criteria `pulumi:"criteria"`
+	OdataType string     `pulumi:"odataType"`
 }
 
 // LogToMetricActionInput is an input type that accepts LogToMetricActionArgs and LogToMetricActionOutput values.
@@ -10546,10 +9667,7 @@ type LogToMetricActionInput interface {
 }
 
 type LogToMetricActionArgs struct {
-	// Criteria of Metric
-	Criteria CriteriaArrayInput `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
+	Criteria  CriteriaArrayInput `pulumi:"criteria"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -10579,23 +9697,17 @@ func (o LogToMetricActionOutput) ToLogToMetricActionOutputWithContext(ctx contex
 	return o
 }
 
-// Criteria of Metric
 func (o LogToMetricActionOutput) Criteria() CriteriaArrayOutput {
 	return o.ApplyT(func(v LogToMetricAction) []Criteria { return v.Criteria }).(CriteriaArrayOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type LogToMetricActionResponse struct {
-	// Criteria of Metric
-	Criteria []CriteriaResponse `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType string `pulumi:"odataType"`
+	Criteria  []CriteriaResponse `pulumi:"criteria"`
+	OdataType string             `pulumi:"odataType"`
 }
 
 // LogToMetricActionResponseInput is an input type that accepts LogToMetricActionResponseArgs and LogToMetricActionResponseOutput values.
@@ -10610,11 +9722,8 @@ type LogToMetricActionResponseInput interface {
 }
 
 type LogToMetricActionResponseArgs struct {
-	// Criteria of Metric
-	Criteria CriteriaResponseArrayInput `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Criteria  CriteriaResponseArrayInput `pulumi:"criteria"`
+	OdataType pulumi.StringInput         `pulumi:"odataType"`
 }
 
 func (LogToMetricActionResponseArgs) ElementType() reflect.Type {
@@ -10643,26 +9752,19 @@ func (o LogToMetricActionResponseOutput) ToLogToMetricActionResponseOutputWithCo
 	return o
 }
 
-// Criteria of Metric
 func (o LogToMetricActionResponseOutput) Criteria() CriteriaResponseArrayOutput {
 	return o.ApplyT(func(v LogToMetricActionResponse) []CriteriaResponse { return v.Criteria }).(CriteriaResponseArrayOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type LogicAppReceiver struct {
-	// The callback url where http request sent to.
-	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	CallbackUrl          string `pulumi:"callbackUrl"`
+	Name                 string `pulumi:"name"`
+	ResourceId           string `pulumi:"resourceId"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // LogicAppReceiverInput is an input type that accepts LogicAppReceiverArgs and LogicAppReceiverOutput values.
@@ -10677,13 +9779,9 @@ type LogicAppReceiverInput interface {
 }
 
 type LogicAppReceiverArgs struct {
-	// The callback url where http request sent to.
-	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// Indicates whether to use common alert schema.
+	CallbackUrl          pulumi.StringInput  `pulumi:"callbackUrl"`
+	Name                 pulumi.StringInput  `pulumi:"name"`
+	ResourceId           pulumi.StringInput  `pulumi:"resourceId"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -10738,22 +9836,18 @@ func (o LogicAppReceiverOutput) ToLogicAppReceiverOutputWithContext(ctx context.
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o LogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogicAppReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -10779,14 +9873,10 @@ func (o LogicAppReceiverArrayOutput) Index(i pulumi.IntInput) LogicAppReceiverOu
 }
 
 type LogicAppReceiverResponse struct {
-	// The callback url where http request sent to.
-	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	CallbackUrl          string `pulumi:"callbackUrl"`
+	Name                 string `pulumi:"name"`
+	ResourceId           string `pulumi:"resourceId"`
+	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
 }
 
 // LogicAppReceiverResponseInput is an input type that accepts LogicAppReceiverResponseArgs and LogicAppReceiverResponseOutput values.
@@ -10801,13 +9891,9 @@ type LogicAppReceiverResponseInput interface {
 }
 
 type LogicAppReceiverResponseArgs struct {
-	// The callback url where http request sent to.
-	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// Indicates whether to use common alert schema.
+	CallbackUrl          pulumi.StringInput  `pulumi:"callbackUrl"`
+	Name                 pulumi.StringInput  `pulumi:"name"`
+	ResourceId           pulumi.StringInput  `pulumi:"resourceId"`
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
@@ -10862,22 +9948,18 @@ func (o LogicAppReceiverResponseOutput) ToLogicAppReceiverResponseOutputWithCont
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverResponseOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o LogicAppReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -10903,12 +9985,9 @@ func (o LogicAppReceiverResponseArrayOutput) Index(i pulumi.IntInput) LogicAppRe
 }
 
 type ManagementEventAggregationCondition struct {
-	// the condition operator.
-	Operator *ConditionOperator `pulumi:"operator"`
-	// The threshold value that activates the alert.
-	Threshold *float64 `pulumi:"threshold"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	Operator   *ConditionOperator `pulumi:"operator"`
+	Threshold  *float64           `pulumi:"threshold"`
+	WindowSize *string            `pulumi:"windowSize"`
 }
 
 // ManagementEventAggregationConditionInput is an input type that accepts ManagementEventAggregationConditionArgs and ManagementEventAggregationConditionOutput values.
@@ -10923,12 +10002,9 @@ type ManagementEventAggregationConditionInput interface {
 }
 
 type ManagementEventAggregationConditionArgs struct {
-	// the condition operator.
-	Operator ConditionOperatorPtrInput `pulumi:"operator"`
-	// The threshold value that activates the alert.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	Operator   ConditionOperatorPtrInput `pulumi:"operator"`
+	Threshold  pulumi.Float64PtrInput    `pulumi:"threshold"`
+	WindowSize pulumi.StringPtrInput     `pulumi:"windowSize"`
 }
 
 func (ManagementEventAggregationConditionArgs) ElementType() reflect.Type {
@@ -11008,17 +10084,14 @@ func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationC
 	}).(ManagementEventAggregationConditionPtrOutput)
 }
 
-// the condition operator.
 func (o ManagementEventAggregationConditionOutput) Operator() ConditionOperatorPtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationCondition) *ConditionOperator { return v.Operator }).(ConditionOperatorPtrOutput)
 }
 
-// The threshold value that activates the alert.
 func (o ManagementEventAggregationConditionOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationCondition) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ManagementEventAggregationConditionOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
@@ -11047,7 +10120,6 @@ func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggr
 	}).(ManagementEventAggregationConditionOutput)
 }
 
-// the condition operator.
 func (o ManagementEventAggregationConditionPtrOutput) Operator() ConditionOperatorPtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationCondition) *ConditionOperator {
 		if v == nil {
@@ -11057,7 +10129,6 @@ func (o ManagementEventAggregationConditionPtrOutput) Operator() ConditionOperat
 	}).(ConditionOperatorPtrOutput)
 }
 
-// The threshold value that activates the alert.
 func (o ManagementEventAggregationConditionPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationCondition) *float64 {
 		if v == nil {
@@ -11067,7 +10138,6 @@ func (o ManagementEventAggregationConditionPtrOutput) Threshold() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ManagementEventAggregationConditionPtrOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
 		if v == nil {
@@ -11078,12 +10148,9 @@ func (o ManagementEventAggregationConditionPtrOutput) WindowSize() pulumi.String
 }
 
 type ManagementEventAggregationConditionResponse struct {
-	// the condition operator.
-	Operator *string `pulumi:"operator"`
-	// The threshold value that activates the alert.
-	Threshold *float64 `pulumi:"threshold"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	Operator   *string  `pulumi:"operator"`
+	Threshold  *float64 `pulumi:"threshold"`
+	WindowSize *string  `pulumi:"windowSize"`
 }
 
 // ManagementEventAggregationConditionResponseInput is an input type that accepts ManagementEventAggregationConditionResponseArgs and ManagementEventAggregationConditionResponseOutput values.
@@ -11098,12 +10165,9 @@ type ManagementEventAggregationConditionResponseInput interface {
 }
 
 type ManagementEventAggregationConditionResponseArgs struct {
-	// the condition operator.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The threshold value that activates the alert.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	Operator   pulumi.StringPtrInput  `pulumi:"operator"`
+	Threshold  pulumi.Float64PtrInput `pulumi:"threshold"`
+	WindowSize pulumi.StringPtrInput  `pulumi:"windowSize"`
 }
 
 func (ManagementEventAggregationConditionResponseArgs) ElementType() reflect.Type {
@@ -11183,17 +10247,14 @@ func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggr
 	}).(ManagementEventAggregationConditionResponsePtrOutput)
 }
 
-// the condition operator.
 func (o ManagementEventAggregationConditionResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The threshold value that activates the alert.
 func (o ManagementEventAggregationConditionResponseOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ManagementEventAggregationConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
@@ -11222,7 +10283,6 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) Elem() ManagementE
 	}).(ManagementEventAggregationConditionResponseOutput)
 }
 
-// the condition operator.
 func (o ManagementEventAggregationConditionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *string {
 		if v == nil {
@@ -11232,7 +10292,6 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) Operator() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold value that activates the alert.
 func (o ManagementEventAggregationConditionResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *float64 {
 		if v == nil {
@@ -11242,7 +10301,6 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) Threshold() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ManagementEventAggregationConditionResponsePtrOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *string {
 		if v == nil {
@@ -11253,13 +10311,9 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) WindowSize() pulum
 }
 
 type ManagementEventRuleCondition struct {
-	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 	Aggregation *ManagementEventAggregationCondition `pulumi:"aggregation"`
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-	OdataType string `pulumi:"odataType"`
+	DataSource  interface{}                          `pulumi:"dataSource"`
+	OdataType   string                               `pulumi:"odataType"`
 }
 
 // ManagementEventRuleConditionInput is an input type that accepts ManagementEventRuleConditionArgs and ManagementEventRuleConditionOutput values.
@@ -11274,13 +10328,9 @@ type ManagementEventRuleConditionInput interface {
 }
 
 type ManagementEventRuleConditionArgs struct {
-	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 	Aggregation ManagementEventAggregationConditionPtrInput `pulumi:"aggregation"`
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	DataSource  pulumi.Input                                `pulumi:"dataSource"`
+	OdataType   pulumi.StringInput                          `pulumi:"odataType"`
 }
 
 func (ManagementEventRuleConditionArgs) ElementType() reflect.Type {
@@ -11309,30 +10359,22 @@ func (o ManagementEventRuleConditionOutput) ToManagementEventRuleConditionOutput
 	return o
 }
 
-// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 func (o ManagementEventRuleConditionOutput) Aggregation() ManagementEventAggregationConditionPtrOutput {
 	return o.ApplyT(func(v ManagementEventRuleCondition) *ManagementEventAggregationCondition { return v.Aggregation }).(ManagementEventAggregationConditionPtrOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o ManagementEventRuleConditionOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagementEventRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 func (o ManagementEventRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementEventRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type ManagementEventRuleConditionResponse struct {
-	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 	Aggregation *ManagementEventAggregationConditionResponse `pulumi:"aggregation"`
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-	OdataType string `pulumi:"odataType"`
+	DataSource  interface{}                                  `pulumi:"dataSource"`
+	OdataType   string                                       `pulumi:"odataType"`
 }
 
 // ManagementEventRuleConditionResponseInput is an input type that accepts ManagementEventRuleConditionResponseArgs and ManagementEventRuleConditionResponseOutput values.
@@ -11347,13 +10389,9 @@ type ManagementEventRuleConditionResponseInput interface {
 }
 
 type ManagementEventRuleConditionResponseArgs struct {
-	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 	Aggregation ManagementEventAggregationConditionResponsePtrInput `pulumi:"aggregation"`
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	DataSource  pulumi.Input                                        `pulumi:"dataSource"`
+	OdataType   pulumi.StringInput                                  `pulumi:"odataType"`
 }
 
 func (ManagementEventRuleConditionResponseArgs) ElementType() reflect.Type {
@@ -11382,29 +10420,23 @@ func (o ManagementEventRuleConditionResponseOutput) ToManagementEventRuleConditi
 	return o
 }
 
-// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 func (o ManagementEventRuleConditionResponseOutput) Aggregation() ManagementEventAggregationConditionResponsePtrOutput {
 	return o.ApplyT(func(v ManagementEventRuleConditionResponse) *ManagementEventAggregationConditionResponse {
 		return v.Aggregation
 	}).(ManagementEventAggregationConditionResponsePtrOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o ManagementEventRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagementEventRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 func (o ManagementEventRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementEventRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type ManagementGroupLogSettings struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsInput is an input type that accepts ManagementGroupLogSettingsArgs and ManagementGroupLogSettingsOutput values.
@@ -11419,10 +10451,8 @@ type ManagementGroupLogSettingsInput interface {
 }
 
 type ManagementGroupLogSettingsArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsArgs) ElementType() reflect.Type {
@@ -11476,12 +10506,10 @@ func (o ManagementGroupLogSettingsOutput) ToManagementGroupLogSettingsOutputWith
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -11507,10 +10535,8 @@ func (o ManagementGroupLogSettingsArrayOutput) Index(i pulumi.IntInput) Manageme
 }
 
 type ManagementGroupLogSettingsResponse struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsResponseInput is an input type that accepts ManagementGroupLogSettingsResponseArgs and ManagementGroupLogSettingsResponseOutput values.
@@ -11525,10 +10551,8 @@ type ManagementGroupLogSettingsResponseInput interface {
 }
 
 type ManagementGroupLogSettingsResponseArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsResponseArgs) ElementType() reflect.Type {
@@ -11582,12 +10606,10 @@ func (o ManagementGroupLogSettingsResponseOutput) ToManagementGroupLogSettingsRe
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsResponseOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -11613,9 +10635,7 @@ func (o ManagementGroupLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type MetricAlertAction struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -11631,9 +10651,7 @@ type MetricAlertActionInput interface {
 }
 
 type MetricAlertActionArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -11688,12 +10706,10 @@ func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx contex
 	return o
 }
 
-// the id of the action group to use.
 func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlertAction) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -11719,9 +10735,7 @@ func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertAction
 }
 
 type MetricAlertActionResponse struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -11737,9 +10751,7 @@ type MetricAlertActionResponseInput interface {
 }
 
 type MetricAlertActionResponseArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -11794,12 +10806,10 @@ func (o MetricAlertActionResponseOutput) ToMetricAlertActionResponseOutputWithCo
 	return o
 }
 
-// the id of the action group to use.
 func (o MetricAlertActionResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlertActionResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionResponseOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertActionResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -11825,11 +10835,8 @@ func (o MetricAlertActionResponseArrayOutput) Index(i pulumi.IntInput) MetricAle
 }
 
 type MetricAlertMultipleResourceMultipleMetricCriteria struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf []interface{} `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []interface{} `pulumi:"allOf"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // MetricAlertMultipleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaArgs and MetricAlertMultipleResourceMultipleMetricCriteriaOutput values.
@@ -11844,10 +10851,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaInput interface {
 }
 
 type MetricAlertMultipleResourceMultipleMetricCriteriaArgs struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf pulumi.ArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+	AllOf     pulumi.ArrayInput  `pulumi:"allOf"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11877,23 +10881,17 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMu
 	return o
 }
 
-// the list of multiple metric criteria for this 'all of' operation.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) AllOf() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponse struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf []interface{} `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []interface{} `pulumi:"allOf"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs and MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput values.
@@ -11908,10 +10906,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput interface {
 }
 
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf pulumi.ArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+	AllOf     pulumi.ArrayInput  `pulumi:"allOf"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11941,23 +10936,17 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ToMetri
 	return o
 }
 
-// the list of multiple metric criteria for this 'all of' operation.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) AllOf() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type MetricAlertSingleResourceMultipleMetricCriteria struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf []MetricCriteria `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []MetricCriteria `pulumi:"allOf"`
+	OdataType string           `pulumi:"odataType"`
 }
 
 // MetricAlertSingleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaArgs and MetricAlertSingleResourceMultipleMetricCriteriaOutput values.
@@ -11972,11 +10961,8 @@ type MetricAlertSingleResourceMultipleMetricCriteriaInput interface {
 }
 
 type MetricAlertSingleResourceMultipleMetricCriteriaArgs struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf MetricCriteriaArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AllOf     MetricCriteriaArrayInput `pulumi:"allOf"`
+	OdataType pulumi.StringInput       `pulumi:"odataType"`
 }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaArgs) ElementType() reflect.Type {
@@ -12005,23 +10991,17 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSing
 	return o
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) AllOf() MetricCriteriaArrayOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) []MetricCriteria { return v.AllOf }).(MetricCriteriaArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type MetricAlertSingleResourceMultipleMetricCriteriaResponse struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf []MetricCriteriaResponse `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []MetricCriteriaResponse `pulumi:"allOf"`
+	OdataType string                   `pulumi:"odataType"`
 }
 
 // MetricAlertSingleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs and MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput values.
@@ -12036,11 +11016,8 @@ type MetricAlertSingleResourceMultipleMetricCriteriaResponseInput interface {
 }
 
 type MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf MetricCriteriaResponseArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AllOf     MetricCriteriaResponseArrayInput `pulumi:"allOf"`
+	OdataType pulumi.StringInput               `pulumi:"odataType"`
 }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -12069,39 +11046,26 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ToMetricA
 	return o
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) AllOf() MetricCriteriaResponseArrayOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) []MetricCriteriaResponse {
 		return v.AllOf
 	}).(MetricCriteriaResponseArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type MetricCriteria struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// the criteria operator.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	CriterionType        string            `pulumi:"criterionType"`
+	Dimensions           []MetricDimension `pulumi:"dimensions"`
+	MetricName           string            `pulumi:"metricName"`
+	MetricNamespace      *string           `pulumi:"metricNamespace"`
+	Name                 string            `pulumi:"name"`
+	Operator             string            `pulumi:"operator"`
+	SkipMetricValidation *bool             `pulumi:"skipMetricValidation"`
+	Threshold            float64           `pulumi:"threshold"`
+	TimeAggregation      string            `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaInput is an input type that accepts MetricCriteriaArgs and MetricCriteriaOutput values.
@@ -12116,25 +11080,15 @@ type MetricCriteriaInput interface {
 }
 
 type MetricCriteriaArgs struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the criteria operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	CriterionType        pulumi.StringInput        `pulumi:"criterionType"`
+	Dimensions           MetricDimensionArrayInput `pulumi:"dimensions"`
+	MetricName           pulumi.StringInput        `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput     `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput        `pulumi:"name"`
+	Operator             pulumi.StringInput        `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput       `pulumi:"skipMetricValidation"`
+	Threshold            pulumi.Float64Input       `pulumi:"threshold"`
+	TimeAggregation      pulumi.StringInput        `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaArgs) ElementType() reflect.Type {
@@ -12188,48 +11142,38 @@ func (o MetricCriteriaOutput) ToMetricCriteriaOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o MetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
 	return o.ApplyT(func(v MetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o MetricCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o MetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o MetricCriteriaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the criteria operator.
 func (o MetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o MetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria threshold value that activates the alert.
 func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the criteria time aggregation types.
 func (o MetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
@@ -12255,25 +11199,15 @@ func (o MetricCriteriaArrayOutput) Index(i pulumi.IntInput) MetricCriteriaOutput
 }
 
 type MetricCriteriaResponse struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// the criteria operator.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	CriterionType        string                    `pulumi:"criterionType"`
+	Dimensions           []MetricDimensionResponse `pulumi:"dimensions"`
+	MetricName           string                    `pulumi:"metricName"`
+	MetricNamespace      *string                   `pulumi:"metricNamespace"`
+	Name                 string                    `pulumi:"name"`
+	Operator             string                    `pulumi:"operator"`
+	SkipMetricValidation *bool                     `pulumi:"skipMetricValidation"`
+	Threshold            float64                   `pulumi:"threshold"`
+	TimeAggregation      string                    `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaResponseInput is an input type that accepts MetricCriteriaResponseArgs and MetricCriteriaResponseOutput values.
@@ -12288,25 +11222,15 @@ type MetricCriteriaResponseInput interface {
 }
 
 type MetricCriteriaResponseArgs struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the criteria operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	CriterionType        pulumi.StringInput                `pulumi:"criterionType"`
+	Dimensions           MetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	MetricName           pulumi.StringInput                `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput             `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                `pulumi:"name"`
+	Operator             pulumi.StringInput                `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput               `pulumi:"skipMetricValidation"`
+	Threshold            pulumi.Float64Input               `pulumi:"threshold"`
+	TimeAggregation      pulumi.StringInput                `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -12360,48 +11284,38 @@ func (o MetricCriteriaResponseOutput) ToMetricCriteriaResponseOutputWithContext(
 	return o
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o MetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
 }
 
-// Name of the metric.
 func (o MetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o MetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o MetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the criteria operator.
 func (o MetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o MetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria threshold value that activates the alert.
 func (o MetricCriteriaResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricCriteriaResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the criteria time aggregation types.
 func (o MetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
@@ -12427,12 +11341,9 @@ func (o MetricCriteriaResponseArrayOutput) Index(i pulumi.IntInput) MetricCriter
 }
 
 type MetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator string `pulumi:"operator"`
-	// list of dimension values.
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // MetricDimensionInput is an input type that accepts MetricDimensionArgs and MetricDimensionOutput values.
@@ -12447,12 +11358,9 @@ type MetricDimensionInput interface {
 }
 
 type MetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricDimensionArgs) ElementType() reflect.Type {
@@ -12506,17 +11414,14 @@ func (o MetricDimensionOutput) ToMetricDimensionOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the dimension.
 func (o MetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Include' and 'Exclude' are supported
 func (o MetricDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values.
 func (o MetricDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -12542,12 +11447,9 @@ func (o MetricDimensionArrayOutput) Index(i pulumi.IntInput) MetricDimensionOutp
 }
 
 type MetricDimensionResponse struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator string `pulumi:"operator"`
-	// list of dimension values.
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // MetricDimensionResponseInput is an input type that accepts MetricDimensionResponseArgs and MetricDimensionResponseOutput values.
@@ -12562,12 +11464,9 @@ type MetricDimensionResponseInput interface {
 }
 
 type MetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricDimensionResponseArgs) ElementType() reflect.Type {
@@ -12621,17 +11520,14 @@ func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutputWithContex
 	return o
 }
 
-// Name of the dimension.
 func (o MetricDimensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Include' and 'Exclude' are supported
 func (o MetricDimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values.
 func (o MetricDimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -12657,14 +11553,10 @@ func (o MetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) MetricDimen
 }
 
 type MetricSettings struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        *string          `pulumi:"category"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain *string `pulumi:"timeGrain"`
+	TimeGrain       *string          `pulumi:"timeGrain"`
 }
 
 // MetricSettingsInput is an input type that accepts MetricSettingsArgs and MetricSettingsOutput values.
@@ -12679,14 +11571,10 @@ type MetricSettingsInput interface {
 }
 
 type MetricSettingsArgs struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain pulumi.StringPtrInput `pulumi:"timeGrain"`
+	TimeGrain       pulumi.StringPtrInput   `pulumi:"timeGrain"`
 }
 
 func (MetricSettingsArgs) ElementType() reflect.Type {
@@ -12740,22 +11628,18 @@ func (o MetricSettingsOutput) ToMetricSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
 func (o MetricSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this category is enabled.
 func (o MetricSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v MetricSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this category.
 func (o MetricSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
 
-// the timegrain of the metric in ISO8601 format.
 func (o MetricSettingsOutput) TimeGrain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *string { return v.TimeGrain }).(pulumi.StringPtrOutput)
 }
@@ -12781,14 +11665,10 @@ func (o MetricSettingsArrayOutput) Index(i pulumi.IntInput) MetricSettingsOutput
 }
 
 type MetricSettingsResponse struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        *string                  `pulumi:"category"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain *string `pulumi:"timeGrain"`
+	TimeGrain       *string                  `pulumi:"timeGrain"`
 }
 
 // MetricSettingsResponseInput is an input type that accepts MetricSettingsResponseArgs and MetricSettingsResponseOutput values.
@@ -12803,14 +11683,10 @@ type MetricSettingsResponseInput interface {
 }
 
 type MetricSettingsResponseArgs struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain pulumi.StringPtrInput `pulumi:"timeGrain"`
+	TimeGrain       pulumi.StringPtrInput           `pulumi:"timeGrain"`
 }
 
 func (MetricSettingsResponseArgs) ElementType() reflect.Type {
@@ -12864,22 +11740,18 @@ func (o MetricSettingsResponseOutput) ToMetricSettingsResponseOutputWithContext(
 	return o
 }
 
-// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
 func (o MetricSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this category is enabled.
 func (o MetricSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this category.
 func (o MetricSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
 
-// the timegrain of the metric in ISO8601 format.
 func (o MetricSettingsResponseOutput) TimeGrain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *string { return v.TimeGrain }).(pulumi.StringPtrOutput)
 }
@@ -12905,30 +11777,18 @@ func (o MetricSettingsResponseArrayOutput) Index(i pulumi.IntInput) MetricSettin
 }
 
 type MetricTrigger struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions []ScaleRuleMetricDimension `pulumi:"dimensions"`
-	// a value indicating whether metric should divide per instance.
-	DividePerInstance *bool `pulumi:"dividePerInstance"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName string `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// the location of the resource the rule monitors.
-	MetricResourceLocation *string `pulumi:"metricResourceLocation"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri string `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator ComparisonOperationType `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic MetricStatisticType `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold float64 `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain string `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow string `pulumi:"timeWindow"`
+	Dimensions             []ScaleRuleMetricDimension `pulumi:"dimensions"`
+	DividePerInstance      *bool                      `pulumi:"dividePerInstance"`
+	MetricName             string                     `pulumi:"metricName"`
+	MetricNamespace        *string                    `pulumi:"metricNamespace"`
+	MetricResourceLocation *string                    `pulumi:"metricResourceLocation"`
+	MetricResourceUri      string                     `pulumi:"metricResourceUri"`
+	Operator               ComparisonOperationType    `pulumi:"operator"`
+	Statistic              MetricStatisticType        `pulumi:"statistic"`
+	Threshold              float64                    `pulumi:"threshold"`
+	TimeAggregation        TimeAggregationType        `pulumi:"timeAggregation"`
+	TimeGrain              string                     `pulumi:"timeGrain"`
+	TimeWindow             string                     `pulumi:"timeWindow"`
 }
 
 // MetricTriggerInput is an input type that accepts MetricTriggerArgs and MetricTriggerOutput values.
@@ -12943,30 +11803,18 @@ type MetricTriggerInput interface {
 }
 
 type MetricTriggerArgs struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions ScaleRuleMetricDimensionArrayInput `pulumi:"dimensions"`
-	// a value indicating whether metric should divide per instance.
-	DividePerInstance pulumi.BoolPtrInput `pulumi:"dividePerInstance"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// the location of the resource the rule monitors.
-	MetricResourceLocation pulumi.StringPtrInput `pulumi:"metricResourceLocation"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator ComparisonOperationTypeInput `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic MetricStatisticTypeInput `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation TimeAggregationTypeInput `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
+	Dimensions             ScaleRuleMetricDimensionArrayInput `pulumi:"dimensions"`
+	DividePerInstance      pulumi.BoolPtrInput                `pulumi:"dividePerInstance"`
+	MetricName             pulumi.StringInput                 `pulumi:"metricName"`
+	MetricNamespace        pulumi.StringPtrInput              `pulumi:"metricNamespace"`
+	MetricResourceLocation pulumi.StringPtrInput              `pulumi:"metricResourceLocation"`
+	MetricResourceUri      pulumi.StringInput                 `pulumi:"metricResourceUri"`
+	Operator               ComparisonOperationTypeInput       `pulumi:"operator"`
+	Statistic              MetricStatisticTypeInput           `pulumi:"statistic"`
+	Threshold              pulumi.Float64Input                `pulumi:"threshold"`
+	TimeAggregation        TimeAggregationTypeInput           `pulumi:"timeAggregation"`
+	TimeGrain              pulumi.StringInput                 `pulumi:"timeGrain"`
+	TimeWindow             pulumi.StringInput                 `pulumi:"timeWindow"`
 }
 
 func (MetricTriggerArgs) ElementType() reflect.Type {
@@ -12995,91 +11843,67 @@ func (o MetricTriggerOutput) ToMetricTriggerOutputWithContext(ctx context.Contex
 	return o
 }
 
-// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 func (o MetricTriggerOutput) Dimensions() ScaleRuleMetricDimensionArrayOutput {
 	return o.ApplyT(func(v MetricTrigger) []ScaleRuleMetricDimension { return v.Dimensions }).(ScaleRuleMetricDimensionArrayOutput)
 }
 
-// a value indicating whether metric should divide per instance.
 func (o MetricTriggerOutput) DividePerInstance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricTrigger) *bool { return v.DividePerInstance }).(pulumi.BoolPtrOutput)
 }
 
-// the name of the metric that defines what the rule monitors.
 func (o MetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// the namespace of the metric that defines what the rule monitors.
 func (o MetricTriggerOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// the location of the resource the rule monitors.
 func (o MetricTriggerOutput) MetricResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors.
 func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.MetricResourceUri }).(pulumi.StringOutput)
 }
 
-// the operator that is used to compare the metric data and the threshold.
 func (o MetricTriggerOutput) Operator() ComparisonOperationTypeOutput {
 	return o.ApplyT(func(v MetricTrigger) ComparisonOperationType { return v.Operator }).(ComparisonOperationTypeOutput)
 }
 
-// the metric statistic type. How the metrics from multiple instances are combined.
 func (o MetricTriggerOutput) Statistic() MetricStatisticTypeOutput {
 	return o.ApplyT(func(v MetricTrigger) MetricStatisticType { return v.Statistic }).(MetricStatisticTypeOutput)
 }
 
-// the threshold of the metric that triggers the scale action.
 func (o MetricTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
 func (o MetricTriggerOutput) TimeAggregation() TimeAggregationTypeOutput {
 	return o.ApplyT(func(v MetricTrigger) TimeAggregationType { return v.TimeAggregation }).(TimeAggregationTypeOutput)
 }
 
-// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 func (o MetricTriggerOutput) TimeGrain() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
 }
 
-// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
 func (o MetricTriggerOutput) TimeWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
 }
 
 type MetricTriggerResponse struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions []ScaleRuleMetricDimensionResponse `pulumi:"dimensions"`
-	// a value indicating whether metric should divide per instance.
-	DividePerInstance *bool `pulumi:"dividePerInstance"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName string `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// the location of the resource the rule monitors.
-	MetricResourceLocation *string `pulumi:"metricResourceLocation"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri string `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator string `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic string `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold float64 `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation string `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain string `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow string `pulumi:"timeWindow"`
+	Dimensions             []ScaleRuleMetricDimensionResponse `pulumi:"dimensions"`
+	DividePerInstance      *bool                              `pulumi:"dividePerInstance"`
+	MetricName             string                             `pulumi:"metricName"`
+	MetricNamespace        *string                            `pulumi:"metricNamespace"`
+	MetricResourceLocation *string                            `pulumi:"metricResourceLocation"`
+	MetricResourceUri      string                             `pulumi:"metricResourceUri"`
+	Operator               string                             `pulumi:"operator"`
+	Statistic              string                             `pulumi:"statistic"`
+	Threshold              float64                            `pulumi:"threshold"`
+	TimeAggregation        string                             `pulumi:"timeAggregation"`
+	TimeGrain              string                             `pulumi:"timeGrain"`
+	TimeWindow             string                             `pulumi:"timeWindow"`
 }
 
 // MetricTriggerResponseInput is an input type that accepts MetricTriggerResponseArgs and MetricTriggerResponseOutput values.
@@ -13094,30 +11918,18 @@ type MetricTriggerResponseInput interface {
 }
 
 type MetricTriggerResponseArgs struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions ScaleRuleMetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// a value indicating whether metric should divide per instance.
-	DividePerInstance pulumi.BoolPtrInput `pulumi:"dividePerInstance"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// the location of the resource the rule monitors.
-	MetricResourceLocation pulumi.StringPtrInput `pulumi:"metricResourceLocation"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic pulumi.StringInput `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
+	Dimensions             ScaleRuleMetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	DividePerInstance      pulumi.BoolPtrInput                        `pulumi:"dividePerInstance"`
+	MetricName             pulumi.StringInput                         `pulumi:"metricName"`
+	MetricNamespace        pulumi.StringPtrInput                      `pulumi:"metricNamespace"`
+	MetricResourceLocation pulumi.StringPtrInput                      `pulumi:"metricResourceLocation"`
+	MetricResourceUri      pulumi.StringInput                         `pulumi:"metricResourceUri"`
+	Operator               pulumi.StringInput                         `pulumi:"operator"`
+	Statistic              pulumi.StringInput                         `pulumi:"statistic"`
+	Threshold              pulumi.Float64Input                        `pulumi:"threshold"`
+	TimeAggregation        pulumi.StringInput                         `pulumi:"timeAggregation"`
+	TimeGrain              pulumi.StringInput                         `pulumi:"timeGrain"`
+	TimeWindow             pulumi.StringInput                         `pulumi:"timeWindow"`
 }
 
 func (MetricTriggerResponseArgs) ElementType() reflect.Type {
@@ -13146,68 +11958,55 @@ func (o MetricTriggerResponseOutput) ToMetricTriggerResponseOutputWithContext(ct
 	return o
 }
 
-// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 func (o MetricTriggerResponseOutput) Dimensions() ScaleRuleMetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) []ScaleRuleMetricDimensionResponse { return v.Dimensions }).(ScaleRuleMetricDimensionResponseArrayOutput)
 }
 
-// a value indicating whether metric should divide per instance.
 func (o MetricTriggerResponseOutput) DividePerInstance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) *bool { return v.DividePerInstance }).(pulumi.BoolPtrOutput)
 }
 
-// the name of the metric that defines what the rule monitors.
 func (o MetricTriggerResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// the namespace of the metric that defines what the rule monitors.
 func (o MetricTriggerResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// the location of the resource the rule monitors.
 func (o MetricTriggerResponseOutput) MetricResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) *string { return v.MetricResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors.
 func (o MetricTriggerResponseOutput) MetricResourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.MetricResourceUri }).(pulumi.StringOutput)
 }
 
-// the operator that is used to compare the metric data and the threshold.
 func (o MetricTriggerResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// the metric statistic type. How the metrics from multiple instances are combined.
 func (o MetricTriggerResponseOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.Statistic }).(pulumi.StringOutput)
 }
 
-// the threshold of the metric that triggers the scale action.
 func (o MetricTriggerResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricTriggerResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
 func (o MetricTriggerResponseOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
-// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 func (o MetricTriggerResponseOutput) TimeGrain() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.TimeGrain }).(pulumi.StringOutput)
 }
 
-// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
 func (o MetricTriggerResponseOutput) TimeWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) string { return v.TimeWindow }).(pulumi.StringOutput)
 }
 
 type MyWorkbookManagedIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -13223,7 +12022,6 @@ type MyWorkbookManagedIdentityInput interface {
 }
 
 type MyWorkbookManagedIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -13304,7 +12102,6 @@ func (o MyWorkbookManagedIdentityOutput) ToMyWorkbookManagedIdentityPtrOutputWit
 	}).(MyWorkbookManagedIdentityPtrOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -13333,7 +12130,6 @@ func (o MyWorkbookManagedIdentityPtrOutput) Elem() MyWorkbookManagedIdentityOutp
 	}).(MyWorkbookManagedIdentityOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentity) *string {
 		if v == nil {
@@ -13344,9 +12140,7 @@ func (o MyWorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MyWorkbookManagedIdentityResponse struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   *string                                   `pulumi:"type"`
 	UserAssignedIdentities *MyWorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -13362,9 +12156,7 @@ type MyWorkbookManagedIdentityResponseInput interface {
 }
 
 type MyWorkbookManagedIdentityResponseArgs struct {
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   pulumi.StringPtrInput                            `pulumi:"type"`
 	UserAssignedIdentities MyWorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -13445,12 +12237,10 @@ func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResp
 	}).(MyWorkbookManagedIdentityResponsePtrOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o MyWorkbookManagedIdentityResponseOutput) UserAssignedIdentities() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
@@ -13481,7 +12271,6 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) Elem() MyWorkbookManagedIden
 	}).(MyWorkbookManagedIdentityResponseOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) *string {
 		if v == nil {
@@ -13491,7 +12280,6 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o MyWorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		if v == nil {
@@ -13502,10 +12290,8 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() MyW
 }
 
 type MyWorkbookUserAssignedIdentitiesResponse struct {
-	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // MyWorkbookUserAssignedIdentitiesResponseInput is an input type that accepts MyWorkbookUserAssignedIdentitiesResponseArgs and MyWorkbookUserAssignedIdentitiesResponseOutput values.
@@ -13520,10 +12306,8 @@ type MyWorkbookUserAssignedIdentitiesResponseInput interface {
 }
 
 type MyWorkbookUserAssignedIdentitiesResponseArgs struct {
-	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (MyWorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
@@ -13603,12 +12387,10 @@ func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssigned
 	}).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -13637,7 +12419,6 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() MyWorkbookUser
 	}).(MyWorkbookUserAssignedIdentitiesResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -13647,7 +12428,6 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -13658,18 +12438,10 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.Str
 }
 
 type PerfCounterDataSource struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	CounterSpecifiers          []string `pulumi:"counterSpecifiers"`
+	Name                       *string  `pulumi:"name"`
+	SamplingFrequencyInSeconds *int     `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    []string `pulumi:"streams"`
 }
 
 // PerfCounterDataSourceInput is an input type that accepts PerfCounterDataSourceArgs and PerfCounterDataSourceOutput values.
@@ -13684,18 +12456,10 @@ type PerfCounterDataSourceInput interface {
 }
 
 type PerfCounterDataSourceArgs struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	CounterSpecifiers          pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (PerfCounterDataSourceArgs) ElementType() reflect.Type {
@@ -13749,26 +12513,18 @@ func (o PerfCounterDataSourceOutput) ToPerfCounterDataSourceOutputWithContext(ct
 	return o
 }
 
-// A list of specifier names of the performance counters you want to collect.
-// Use a wildcard (*) to collect a counter for all instances.
-// To get a list of performance counters on Windows, run the command 'typeperf'.
 func (o PerfCounterDataSourceOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o PerfCounterDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples).
 func (o PerfCounterDataSourceOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o PerfCounterDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -13794,18 +12550,10 @@ func (o PerfCounterDataSourceArrayOutput) Index(i pulumi.IntInput) PerfCounterDa
 }
 
 type PerfCounterDataSourceResponse struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	CounterSpecifiers          []string `pulumi:"counterSpecifiers"`
+	Name                       *string  `pulumi:"name"`
+	SamplingFrequencyInSeconds *int     `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    []string `pulumi:"streams"`
 }
 
 // PerfCounterDataSourceResponseInput is an input type that accepts PerfCounterDataSourceResponseArgs and PerfCounterDataSourceResponseOutput values.
@@ -13820,18 +12568,10 @@ type PerfCounterDataSourceResponseInput interface {
 }
 
 type PerfCounterDataSourceResponseArgs struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	CounterSpecifiers          pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (PerfCounterDataSourceResponseArgs) ElementType() reflect.Type {
@@ -13885,26 +12625,18 @@ func (o PerfCounterDataSourceResponseOutput) ToPerfCounterDataSourceResponseOutp
 	return o
 }
 
-// A list of specifier names of the performance counters you want to collect.
-// Use a wildcard (*) to collect a counter for all instances.
-// To get a list of performance counters on Windows, run the command 'typeperf'.
 func (o PerfCounterDataSourceResponseOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o PerfCounterDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples).
 func (o PerfCounterDataSourceResponseOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o PerfCounterDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -14142,18 +12874,12 @@ func (o PerformanceCounterConfigurationResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
+	Type                              string                                             `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -14168,18 +12894,12 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Azure resource Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	Id                                pulumi.StringInput                                        `pulumi:"id"`
+	Name                              pulumi.StringInput                                        `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                                        `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -14233,34 +12953,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Azure resource Id
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure resource name
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointPropertyResponse { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Azure resource type
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14286,7 +13000,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointProperty struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -14302,7 +13015,6 @@ type PrivateEndpointPropertyInput interface {
 }
 
 type PrivateEndpointPropertyArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -14383,7 +13095,6 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithCon
 	}).(PrivateEndpointPropertyPtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -14412,7 +13123,6 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 	}).(PrivateEndpointPropertyOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
 		if v == nil {
@@ -14423,7 +13133,6 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -14439,7 +13148,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -14520,7 +13228,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -14549,7 +13256,6 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointProperty
 	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -14560,10 +13266,8 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkScopedResourceResponse struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"scopeId"`
+	ScopeId    *string `pulumi:"scopeId"`
 }
 
 // PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
@@ -14578,10 +13282,8 @@ type PrivateLinkScopedResourceResponseInput interface {
 }
 
 type PrivateLinkScopedResourceResponseArgs struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
 }
 
 func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
@@ -14635,12 +13337,10 @@ func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResp
 	return o
 }
 
-// The full resource Id of the private link scope resource.
 func (o PrivateLinkScopedResourceResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The private link scope unique Identifier.
 func (o PrivateLinkScopedResourceResponseOutput) ScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
 }
@@ -14666,10 +13366,8 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateLinkServiceConnectionStateProperty struct {
-	// The private link service connection description.
 	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
@@ -14684,10 +13382,8 @@ type PrivateLinkServiceConnectionStatePropertyInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyArgs struct {
-	// The private link service connection description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
@@ -14767,12 +13463,10 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -14801,7 +13495,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -14811,7 +13504,6 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
 		if v == nil {
@@ -14822,12 +13514,9 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -14842,12 +13531,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -14927,17 +13613,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -14966,7 +13649,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() Priva
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -14976,7 +13658,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -14986,7 +13667,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -14997,10 +13677,8 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 type Recurrence struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 	Frequency RecurrenceFrequency `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentSchedule `pulumi:"schedule"`
+	Schedule  RecurrentSchedule   `pulumi:"schedule"`
 }
 
 // RecurrenceInput is an input type that accepts RecurrenceArgs and RecurrenceOutput values.
@@ -15015,10 +13693,8 @@ type RecurrenceInput interface {
 }
 
 type RecurrenceArgs struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 	Frequency RecurrenceFrequencyInput `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentScheduleInput `pulumi:"schedule"`
+	Schedule  RecurrentScheduleInput   `pulumi:"schedule"`
 }
 
 func (RecurrenceArgs) ElementType() reflect.Type {
@@ -15098,12 +13774,10 @@ func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) 
 	}).(RecurrencePtrOutput)
 }
 
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 func (o RecurrenceOutput) Frequency() RecurrenceFrequencyOutput {
 	return o.ApplyT(func(v Recurrence) RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyOutput)
 }
 
-// the scheduling constraints for when the profile begins.
 func (o RecurrenceOutput) Schedule() RecurrentScheduleOutput {
 	return o.ApplyT(func(v Recurrence) RecurrentSchedule { return v.Schedule }).(RecurrentScheduleOutput)
 }
@@ -15132,7 +13806,6 @@ func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
 	}).(RecurrenceOutput)
 }
 
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 func (o RecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
 	return o.ApplyT(func(v *Recurrence) *RecurrenceFrequency {
 		if v == nil {
@@ -15142,7 +13815,6 @@ func (o RecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
 	}).(RecurrenceFrequencyPtrOutput)
 }
 
-// the scheduling constraints for when the profile begins.
 func (o RecurrencePtrOutput) Schedule() RecurrentSchedulePtrOutput {
 	return o.ApplyT(func(v *Recurrence) *RecurrentSchedule {
 		if v == nil {
@@ -15153,10 +13825,8 @@ func (o RecurrencePtrOutput) Schedule() RecurrentSchedulePtrOutput {
 }
 
 type RecurrenceResponse struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency string `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentScheduleResponse `pulumi:"schedule"`
+	Frequency string                    `pulumi:"frequency"`
+	Schedule  RecurrentScheduleResponse `pulumi:"schedule"`
 }
 
 // RecurrenceResponseInput is an input type that accepts RecurrenceResponseArgs and RecurrenceResponseOutput values.
@@ -15171,10 +13841,8 @@ type RecurrenceResponseInput interface {
 }
 
 type RecurrenceResponseArgs struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency pulumi.StringInput `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentScheduleResponseInput `pulumi:"schedule"`
+	Frequency pulumi.StringInput             `pulumi:"frequency"`
+	Schedule  RecurrentScheduleResponseInput `pulumi:"schedule"`
 }
 
 func (RecurrenceResponseArgs) ElementType() reflect.Type {
@@ -15254,12 +13922,10 @@ func (o RecurrenceResponseOutput) ToRecurrenceResponsePtrOutputWithContext(ctx c
 	}).(RecurrenceResponsePtrOutput)
 }
 
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 func (o RecurrenceResponseOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v RecurrenceResponse) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
-// the scheduling constraints for when the profile begins.
 func (o RecurrenceResponseOutput) Schedule() RecurrentScheduleResponseOutput {
 	return o.ApplyT(func(v RecurrenceResponse) RecurrentScheduleResponse { return v.Schedule }).(RecurrentScheduleResponseOutput)
 }
@@ -15288,7 +13954,6 @@ func (o RecurrenceResponsePtrOutput) Elem() RecurrenceResponseOutput {
 	}).(RecurrenceResponseOutput)
 }
 
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 func (o RecurrenceResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecurrenceResponse) *string {
 		if v == nil {
@@ -15298,7 +13963,6 @@ func (o RecurrenceResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the scheduling constraints for when the profile begins.
 func (o RecurrenceResponsePtrOutput) Schedule() RecurrentScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *RecurrenceResponse) *RecurrentScheduleResponse {
 		if v == nil {
@@ -15309,14 +13973,10 @@ func (o RecurrenceResponsePtrOutput) Schedule() RecurrentScheduleResponsePtrOutp
 }
 
 type RecurrentSchedule struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days []string `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours []int `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes []int `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone string `pulumi:"timeZone"`
+	Days     []string `pulumi:"days"`
+	Hours    []int    `pulumi:"hours"`
+	Minutes  []int    `pulumi:"minutes"`
+	TimeZone string   `pulumi:"timeZone"`
 }
 
 // RecurrentScheduleInput is an input type that accepts RecurrentScheduleArgs and RecurrentScheduleOutput values.
@@ -15331,14 +13991,10 @@ type RecurrentScheduleInput interface {
 }
 
 type RecurrentScheduleArgs struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	Days     pulumi.StringArrayInput `pulumi:"days"`
+	Hours    pulumi.IntArrayInput    `pulumi:"hours"`
+	Minutes  pulumi.IntArrayInput    `pulumi:"minutes"`
+	TimeZone pulumi.StringInput      `pulumi:"timeZone"`
 }
 
 func (RecurrentScheduleArgs) ElementType() reflect.Type {
@@ -15418,22 +14074,18 @@ func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutputWithContext(ctx con
 	}).(RecurrentSchedulePtrOutput)
 }
 
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 func (o RecurrentScheduleOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecurrentSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
 func (o RecurrentScheduleOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }
 
-// A collection of minutes at which the profile takes effect at.
 func (o RecurrentScheduleOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o RecurrentScheduleOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v RecurrentSchedule) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -15462,7 +14114,6 @@ func (o RecurrentSchedulePtrOutput) Elem() RecurrentScheduleOutput {
 	}).(RecurrentScheduleOutput)
 }
 
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 func (o RecurrentSchedulePtrOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecurrentSchedule) []string {
 		if v == nil {
@@ -15472,7 +14123,6 @@ func (o RecurrentSchedulePtrOutput) Days() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
 func (o RecurrentSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrentSchedule) []int {
 		if v == nil {
@@ -15482,7 +14132,6 @@ func (o RecurrentSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// A collection of minutes at which the profile takes effect at.
 func (o RecurrentSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrentSchedule) []int {
 		if v == nil {
@@ -15492,7 +14141,6 @@ func (o RecurrentSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o RecurrentSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecurrentSchedule) *string {
 		if v == nil {
@@ -15503,14 +14151,10 @@ func (o RecurrentSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type RecurrentScheduleResponse struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days []string `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours []int `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes []int `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone string `pulumi:"timeZone"`
+	Days     []string `pulumi:"days"`
+	Hours    []int    `pulumi:"hours"`
+	Minutes  []int    `pulumi:"minutes"`
+	TimeZone string   `pulumi:"timeZone"`
 }
 
 // RecurrentScheduleResponseInput is an input type that accepts RecurrentScheduleResponseArgs and RecurrentScheduleResponseOutput values.
@@ -15525,14 +14169,10 @@ type RecurrentScheduleResponseInput interface {
 }
 
 type RecurrentScheduleResponseArgs struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	Days     pulumi.StringArrayInput `pulumi:"days"`
+	Hours    pulumi.IntArrayInput    `pulumi:"hours"`
+	Minutes  pulumi.IntArrayInput    `pulumi:"minutes"`
+	TimeZone pulumi.StringInput      `pulumi:"timeZone"`
 }
 
 func (RecurrentScheduleResponseArgs) ElementType() reflect.Type {
@@ -15612,22 +14252,18 @@ func (o RecurrentScheduleResponseOutput) ToRecurrentScheduleResponsePtrOutputWit
 	}).(RecurrentScheduleResponsePtrOutput)
 }
 
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 func (o RecurrentScheduleResponseOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecurrentScheduleResponse) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
 func (o RecurrentScheduleResponseOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrentScheduleResponse) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }
 
-// A collection of minutes at which the profile takes effect at.
 func (o RecurrentScheduleResponseOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrentScheduleResponse) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o RecurrentScheduleResponseOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v RecurrentScheduleResponse) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -15656,7 +14292,6 @@ func (o RecurrentScheduleResponsePtrOutput) Elem() RecurrentScheduleResponseOutp
 	}).(RecurrentScheduleResponseOutput)
 }
 
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 func (o RecurrentScheduleResponsePtrOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecurrentScheduleResponse) []string {
 		if v == nil {
@@ -15666,7 +14301,6 @@ func (o RecurrentScheduleResponsePtrOutput) Days() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
 func (o RecurrentScheduleResponsePtrOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrentScheduleResponse) []int {
 		if v == nil {
@@ -15676,7 +14310,6 @@ func (o RecurrentScheduleResponsePtrOutput) Hours() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// A collection of minutes at which the profile takes effect at.
 func (o RecurrentScheduleResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrentScheduleResponse) []int {
 		if v == nil {
@@ -15686,7 +14319,6 @@ func (o RecurrentScheduleResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o RecurrentScheduleResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecurrentScheduleResponse) *string {
 		if v == nil {
@@ -15697,9 +14329,7 @@ func (o RecurrentScheduleResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type RetentionPolicy struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -15715,9 +14345,7 @@ type RetentionPolicyInput interface {
 }
 
 type RetentionPolicyArgs struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -15798,12 +14426,10 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context
 	}).(RetentionPolicyPtrOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -15832,7 +14458,6 @@ func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
 	}).(RetentionPolicyOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *int {
 		if v == nil {
@@ -15842,7 +14467,6 @@ func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *bool {
 		if v == nil {
@@ -15853,9 +14477,7 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type RetentionPolicyResponse struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -15871,9 +14493,7 @@ type RetentionPolicyResponseInput interface {
 }
 
 type RetentionPolicyResponseArgs struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -15954,12 +14574,10 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithCon
 	}).(RetentionPolicyResponsePtrOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -15988,7 +14606,6 @@ func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
 	}).(RetentionPolicyResponseOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *int {
 		if v == nil {
@@ -15998,7 +14615,6 @@ func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *bool {
 		if v == nil {
@@ -16009,13 +14625,9 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type RuleEmailAction struct {
-	// the list of administrator's custom email addresses to notify of the activation of the alert.
-	CustomEmails []string `pulumi:"customEmails"`
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
-	OdataType string `pulumi:"odataType"`
-	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
+	CustomEmails        []string `pulumi:"customEmails"`
+	OdataType           string   `pulumi:"odataType"`
+	SendToServiceOwners *bool    `pulumi:"sendToServiceOwners"`
 }
 
 // RuleEmailActionInput is an input type that accepts RuleEmailActionArgs and RuleEmailActionOutput values.
@@ -16030,13 +14642,9 @@ type RuleEmailActionInput interface {
 }
 
 type RuleEmailActionArgs struct {
-	// the list of administrator's custom email addresses to notify of the activation of the alert.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
+	CustomEmails        pulumi.StringArrayInput `pulumi:"customEmails"`
+	OdataType           pulumi.StringInput      `pulumi:"odataType"`
+	SendToServiceOwners pulumi.BoolPtrInput     `pulumi:"sendToServiceOwners"`
 }
 
 func (RuleEmailActionArgs) ElementType() reflect.Type {
@@ -16065,30 +14673,22 @@ func (o RuleEmailActionOutput) ToRuleEmailActionOutputWithContext(ctx context.Co
 	return o
 }
 
-// the list of administrator's custom email addresses to notify of the activation of the alert.
 func (o RuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 func (o RuleEmailActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleEmailAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 func (o RuleEmailActionOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
 }
 
 type RuleEmailActionResponse struct {
-	// the list of administrator's custom email addresses to notify of the activation of the alert.
-	CustomEmails []string `pulumi:"customEmails"`
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
-	OdataType string `pulumi:"odataType"`
-	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
+	CustomEmails        []string `pulumi:"customEmails"`
+	OdataType           string   `pulumi:"odataType"`
+	SendToServiceOwners *bool    `pulumi:"sendToServiceOwners"`
 }
 
 // RuleEmailActionResponseInput is an input type that accepts RuleEmailActionResponseArgs and RuleEmailActionResponseOutput values.
@@ -16103,13 +14703,9 @@ type RuleEmailActionResponseInput interface {
 }
 
 type RuleEmailActionResponseArgs struct {
-	// the list of administrator's custom email addresses to notify of the activation of the alert.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
+	CustomEmails        pulumi.StringArrayInput `pulumi:"customEmails"`
+	OdataType           pulumi.StringInput      `pulumi:"odataType"`
+	SendToServiceOwners pulumi.BoolPtrInput     `pulumi:"sendToServiceOwners"`
 }
 
 func (RuleEmailActionResponseArgs) ElementType() reflect.Type {
@@ -16138,24 +14734,19 @@ func (o RuleEmailActionResponseOutput) ToRuleEmailActionResponseOutputWithContex
 	return o
 }
 
-// the list of administrator's custom email addresses to notify of the activation of the alert.
 func (o RuleEmailActionResponseOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleEmailActionResponse) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 func (o RuleEmailActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleEmailActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 func (o RuleEmailActionResponseOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleEmailActionResponse) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
 }
 
 type RuleManagementEventClaimsDataSource struct {
-	// the email address.
 	EmailAddress *string `pulumi:"emailAddress"`
 }
 
@@ -16171,7 +14762,6 @@ type RuleManagementEventClaimsDataSourceInput interface {
 }
 
 type RuleManagementEventClaimsDataSourceArgs struct {
-	// the email address.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
 }
 
@@ -16252,7 +14842,6 @@ func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDa
 	}).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
 
-// the email address.
 func (o RuleManagementEventClaimsDataSourceOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
@@ -16281,7 +14870,6 @@ func (o RuleManagementEventClaimsDataSourcePtrOutput) Elem() RuleManagementEvent
 	}).(RuleManagementEventClaimsDataSourceOutput)
 }
 
-// the email address.
 func (o RuleManagementEventClaimsDataSourcePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) *string {
 		if v == nil {
@@ -16292,7 +14880,6 @@ func (o RuleManagementEventClaimsDataSourcePtrOutput) EmailAddress() pulumi.Stri
 }
 
 type RuleManagementEventClaimsDataSourceResponse struct {
-	// the email address.
 	EmailAddress *string `pulumi:"emailAddress"`
 }
 
@@ -16308,7 +14895,6 @@ type RuleManagementEventClaimsDataSourceResponseInput interface {
 }
 
 type RuleManagementEventClaimsDataSourceResponseArgs struct {
-	// the email address.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
 }
 
@@ -16389,7 +14975,6 @@ func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEvent
 	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
 
-// the email address.
 func (o RuleManagementEventClaimsDataSourceResponseOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventClaimsDataSourceResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
@@ -16418,7 +15003,6 @@ func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) Elem() RuleManagem
 	}).(RuleManagementEventClaimsDataSourceResponseOutput)
 }
 
-// the email address.
 func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleManagementEventClaimsDataSourceResponse) *string {
 		if v == nil {
@@ -16429,35 +15013,20 @@ func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) EmailAddress() pul
 }
 
 type RuleManagementEventDataSource struct {
-	// the claims.
-	Claims *RuleManagementEventClaimsDataSource `pulumi:"claims"`
-	// the event name.
-	EventName *string `pulumi:"eventName"`
-	// the event source.
-	EventSource *string `pulumi:"eventSource"`
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	LegacyResourceId *string `pulumi:"legacyResourceId"`
-	// the level.
-	Level *string `pulumi:"level"`
-	// the namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-	OdataType string `pulumi:"odataType"`
-	// The name of the operation that should be checked for. If no name is provided, any operation will match.
-	OperationName *string `pulumi:"operationName"`
-	// the resource group name.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// the location of the resource.
-	ResourceLocation *string `pulumi:"resourceLocation"`
-	// the resource provider name.
-	ResourceProviderName *string `pulumi:"resourceProviderName"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// The status of the operation that should be checked for. If no status is provided, any status will match.
-	Status *string `pulumi:"status"`
-	// the substatus.
-	SubStatus *string `pulumi:"subStatus"`
+	Claims               *RuleManagementEventClaimsDataSource `pulumi:"claims"`
+	EventName            *string                              `pulumi:"eventName"`
+	EventSource          *string                              `pulumi:"eventSource"`
+	LegacyResourceId     *string                              `pulumi:"legacyResourceId"`
+	Level                *string                              `pulumi:"level"`
+	MetricNamespace      *string                              `pulumi:"metricNamespace"`
+	OdataType            string                               `pulumi:"odataType"`
+	OperationName        *string                              `pulumi:"operationName"`
+	ResourceGroupName    *string                              `pulumi:"resourceGroupName"`
+	ResourceLocation     *string                              `pulumi:"resourceLocation"`
+	ResourceProviderName *string                              `pulumi:"resourceProviderName"`
+	ResourceUri          *string                              `pulumi:"resourceUri"`
+	Status               *string                              `pulumi:"status"`
+	SubStatus            *string                              `pulumi:"subStatus"`
 }
 
 // RuleManagementEventDataSourceInput is an input type that accepts RuleManagementEventDataSourceArgs and RuleManagementEventDataSourceOutput values.
@@ -16472,35 +15041,20 @@ type RuleManagementEventDataSourceInput interface {
 }
 
 type RuleManagementEventDataSourceArgs struct {
-	// the claims.
-	Claims RuleManagementEventClaimsDataSourcePtrInput `pulumi:"claims"`
-	// the event name.
-	EventName pulumi.StringPtrInput `pulumi:"eventName"`
-	// the event source.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
-	// the level.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// the namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The name of the operation that should be checked for. If no name is provided, any operation will match.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// the resource group name.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// the location of the resource.
-	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
-	// the resource provider name.
-	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
-	// The status of the operation that should be checked for. If no status is provided, any status will match.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// the substatus.
-	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+	Claims               RuleManagementEventClaimsDataSourcePtrInput `pulumi:"claims"`
+	EventName            pulumi.StringPtrInput                       `pulumi:"eventName"`
+	EventSource          pulumi.StringPtrInput                       `pulumi:"eventSource"`
+	LegacyResourceId     pulumi.StringPtrInput                       `pulumi:"legacyResourceId"`
+	Level                pulumi.StringPtrInput                       `pulumi:"level"`
+	MetricNamespace      pulumi.StringPtrInput                       `pulumi:"metricNamespace"`
+	OdataType            pulumi.StringInput                          `pulumi:"odataType"`
+	OperationName        pulumi.StringPtrInput                       `pulumi:"operationName"`
+	ResourceGroupName    pulumi.StringPtrInput                       `pulumi:"resourceGroupName"`
+	ResourceLocation     pulumi.StringPtrInput                       `pulumi:"resourceLocation"`
+	ResourceProviderName pulumi.StringPtrInput                       `pulumi:"resourceProviderName"`
+	ResourceUri          pulumi.StringPtrInput                       `pulumi:"resourceUri"`
+	Status               pulumi.StringPtrInput                       `pulumi:"status"`
+	SubStatus            pulumi.StringPtrInput                       `pulumi:"subStatus"`
 }
 
 func (RuleManagementEventDataSourceArgs) ElementType() reflect.Type {
@@ -16529,107 +15083,77 @@ func (o RuleManagementEventDataSourceOutput) ToRuleManagementEventDataSourceOutp
 	return o
 }
 
-// the claims.
 func (o RuleManagementEventDataSourceOutput) Claims() RuleManagementEventClaimsDataSourcePtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *RuleManagementEventClaimsDataSource { return v.Claims }).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
 
-// the event name.
 func (o RuleManagementEventDataSourceOutput) EventName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventName }).(pulumi.StringPtrOutput)
 }
 
-// the event source.
 func (o RuleManagementEventDataSourceOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleManagementEventDataSourceOutput) LegacyResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
 }
 
-// the level.
 func (o RuleManagementEventDataSourceOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// the namespace of the metric.
 func (o RuleManagementEventDataSourceOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 func (o RuleManagementEventDataSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The name of the operation that should be checked for. If no name is provided, any operation will match.
 func (o RuleManagementEventDataSourceOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
-// the resource group name.
 func (o RuleManagementEventDataSourceOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// the location of the resource.
 func (o RuleManagementEventDataSourceOutput) ResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource provider name.
 func (o RuleManagementEventDataSourceOutput) ResourceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceProviderName }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleManagementEventDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
 }
 
-// The status of the operation that should be checked for. If no status is provided, any status will match.
 func (o RuleManagementEventDataSourceOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// the substatus.
 func (o RuleManagementEventDataSourceOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
 
 type RuleManagementEventDataSourceResponse struct {
-	// the claims.
-	Claims *RuleManagementEventClaimsDataSourceResponse `pulumi:"claims"`
-	// the event name.
-	EventName *string `pulumi:"eventName"`
-	// the event source.
-	EventSource *string `pulumi:"eventSource"`
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	LegacyResourceId *string `pulumi:"legacyResourceId"`
-	// the level.
-	Level *string `pulumi:"level"`
-	// the namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-	OdataType string `pulumi:"odataType"`
-	// The name of the operation that should be checked for. If no name is provided, any operation will match.
-	OperationName *string `pulumi:"operationName"`
-	// the resource group name.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// the location of the resource.
-	ResourceLocation *string `pulumi:"resourceLocation"`
-	// the resource provider name.
-	ResourceProviderName *string `pulumi:"resourceProviderName"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// The status of the operation that should be checked for. If no status is provided, any status will match.
-	Status *string `pulumi:"status"`
-	// the substatus.
-	SubStatus *string `pulumi:"subStatus"`
+	Claims               *RuleManagementEventClaimsDataSourceResponse `pulumi:"claims"`
+	EventName            *string                                      `pulumi:"eventName"`
+	EventSource          *string                                      `pulumi:"eventSource"`
+	LegacyResourceId     *string                                      `pulumi:"legacyResourceId"`
+	Level                *string                                      `pulumi:"level"`
+	MetricNamespace      *string                                      `pulumi:"metricNamespace"`
+	OdataType            string                                       `pulumi:"odataType"`
+	OperationName        *string                                      `pulumi:"operationName"`
+	ResourceGroupName    *string                                      `pulumi:"resourceGroupName"`
+	ResourceLocation     *string                                      `pulumi:"resourceLocation"`
+	ResourceProviderName *string                                      `pulumi:"resourceProviderName"`
+	ResourceUri          *string                                      `pulumi:"resourceUri"`
+	Status               *string                                      `pulumi:"status"`
+	SubStatus            *string                                      `pulumi:"subStatus"`
 }
 
 // RuleManagementEventDataSourceResponseInput is an input type that accepts RuleManagementEventDataSourceResponseArgs and RuleManagementEventDataSourceResponseOutput values.
@@ -16644,35 +15168,20 @@ type RuleManagementEventDataSourceResponseInput interface {
 }
 
 type RuleManagementEventDataSourceResponseArgs struct {
-	// the claims.
-	Claims RuleManagementEventClaimsDataSourceResponsePtrInput `pulumi:"claims"`
-	// the event name.
-	EventName pulumi.StringPtrInput `pulumi:"eventName"`
-	// the event source.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
-	// the level.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// the namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The name of the operation that should be checked for. If no name is provided, any operation will match.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// the resource group name.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// the location of the resource.
-	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
-	// the resource provider name.
-	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
-	// The status of the operation that should be checked for. If no status is provided, any status will match.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// the substatus.
-	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+	Claims               RuleManagementEventClaimsDataSourceResponsePtrInput `pulumi:"claims"`
+	EventName            pulumi.StringPtrInput                               `pulumi:"eventName"`
+	EventSource          pulumi.StringPtrInput                               `pulumi:"eventSource"`
+	LegacyResourceId     pulumi.StringPtrInput                               `pulumi:"legacyResourceId"`
+	Level                pulumi.StringPtrInput                               `pulumi:"level"`
+	MetricNamespace      pulumi.StringPtrInput                               `pulumi:"metricNamespace"`
+	OdataType            pulumi.StringInput                                  `pulumi:"odataType"`
+	OperationName        pulumi.StringPtrInput                               `pulumi:"operationName"`
+	ResourceGroupName    pulumi.StringPtrInput                               `pulumi:"resourceGroupName"`
+	ResourceLocation     pulumi.StringPtrInput                               `pulumi:"resourceLocation"`
+	ResourceProviderName pulumi.StringPtrInput                               `pulumi:"resourceProviderName"`
+	ResourceUri          pulumi.StringPtrInput                               `pulumi:"resourceUri"`
+	Status               pulumi.StringPtrInput                               `pulumi:"status"`
+	SubStatus            pulumi.StringPtrInput                               `pulumi:"subStatus"`
 }
 
 func (RuleManagementEventDataSourceResponseArgs) ElementType() reflect.Type {
@@ -16701,93 +15210,71 @@ func (o RuleManagementEventDataSourceResponseOutput) ToRuleManagementEventDataSo
 	return o
 }
 
-// the claims.
 func (o RuleManagementEventDataSourceResponseOutput) Claims() RuleManagementEventClaimsDataSourceResponsePtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
 		return v.Claims
 	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
 
-// the event name.
 func (o RuleManagementEventDataSourceResponseOutput) EventName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.EventName }).(pulumi.StringPtrOutput)
 }
 
-// the event source.
 func (o RuleManagementEventDataSourceResponseOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleManagementEventDataSourceResponseOutput) LegacyResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
 }
 
-// the level.
 func (o RuleManagementEventDataSourceResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// the namespace of the metric.
 func (o RuleManagementEventDataSourceResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 func (o RuleManagementEventDataSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The name of the operation that should be checked for. If no name is provided, any operation will match.
 func (o RuleManagementEventDataSourceResponseOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
-// the resource group name.
 func (o RuleManagementEventDataSourceResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// the location of the resource.
 func (o RuleManagementEventDataSourceResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource provider name.
 func (o RuleManagementEventDataSourceResponseOutput) ResourceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceProviderName }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleManagementEventDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
 }
 
-// The status of the operation that should be checked for. If no status is provided, any status will match.
 func (o RuleManagementEventDataSourceResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// the substatus.
 func (o RuleManagementEventDataSourceResponseOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
 
 type RuleMetricDataSource struct {
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	LegacyResourceId *string `pulumi:"legacyResourceId"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName *string `pulumi:"metricName"`
-	// the namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
-	OdataType string `pulumi:"odataType"`
-	// the location of the resource.
+	MetricName       *string `pulumi:"metricName"`
+	MetricNamespace  *string `pulumi:"metricNamespace"`
+	OdataType        string  `pulumi:"odataType"`
 	ResourceLocation *string `pulumi:"resourceLocation"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri *string `pulumi:"resourceUri"`
+	ResourceUri      *string `pulumi:"resourceUri"`
 }
 
 // RuleMetricDataSourceInput is an input type that accepts RuleMetricDataSourceArgs and RuleMetricDataSourceOutput values.
@@ -16802,19 +15289,12 @@ type RuleMetricDataSourceInput interface {
 }
 
 type RuleMetricDataSourceArgs struct {
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// the namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the location of the resource.
+	MetricName       pulumi.StringPtrInput `pulumi:"metricName"`
+	MetricNamespace  pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
 	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
 
 func (RuleMetricDataSourceArgs) ElementType() reflect.Type {
@@ -16843,51 +15323,37 @@ func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutputWithContext(ctx 
 	return o
 }
 
-// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleMetricDataSourceOutput) LegacyResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
 }
 
-// the name of the metric that defines what the rule monitors.
 func (o RuleMetricDataSourceOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// the namespace of the metric.
 func (o RuleMetricDataSourceOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the location of the resource.
 func (o RuleMetricDataSourceOutput) ResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleMetricDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
 }
 
 type RuleMetricDataSourceResponse struct {
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	LegacyResourceId *string `pulumi:"legacyResourceId"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName *string `pulumi:"metricName"`
-	// the namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
-	OdataType string `pulumi:"odataType"`
-	// the location of the resource.
+	MetricName       *string `pulumi:"metricName"`
+	MetricNamespace  *string `pulumi:"metricNamespace"`
+	OdataType        string  `pulumi:"odataType"`
 	ResourceLocation *string `pulumi:"resourceLocation"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri *string `pulumi:"resourceUri"`
+	ResourceUri      *string `pulumi:"resourceUri"`
 }
 
 // RuleMetricDataSourceResponseInput is an input type that accepts RuleMetricDataSourceResponseArgs and RuleMetricDataSourceResponseOutput values.
@@ -16902,19 +15368,12 @@ type RuleMetricDataSourceResponseInput interface {
 }
 
 type RuleMetricDataSourceResponseArgs struct {
-	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// the namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the location of the resource.
+	MetricName       pulumi.StringPtrInput `pulumi:"metricName"`
+	MetricNamespace  pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
 	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
 
 func (RuleMetricDataSourceResponseArgs) ElementType() reflect.Type {
@@ -16943,45 +15402,34 @@ func (o RuleMetricDataSourceResponseOutput) ToRuleMetricDataSourceResponseOutput
 	return o
 }
 
-// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleMetricDataSourceResponseOutput) LegacyResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
 }
 
-// the name of the metric that defines what the rule monitors.
 func (o RuleMetricDataSourceResponseOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// the namespace of the metric.
 func (o RuleMetricDataSourceResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the location of the resource.
 func (o RuleMetricDataSourceResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleMetricDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
 }
 
 type RuleWebhookAction struct {
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
-	OdataType string `pulumi:"odataType"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	OdataType  string            `pulumi:"odataType"`
 	Properties map[string]string `pulumi:"properties"`
-	// the service uri to Post the notification when the alert activates or resolves.
-	ServiceUri *string `pulumi:"serviceUri"`
+	ServiceUri *string           `pulumi:"serviceUri"`
 }
 
 // RuleWebhookActionInput is an input type that accepts RuleWebhookActionArgs and RuleWebhookActionOutput values.
@@ -16996,12 +15444,8 @@ type RuleWebhookActionInput interface {
 }
 
 type RuleWebhookActionArgs struct {
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	OdataType  pulumi.StringInput    `pulumi:"odataType"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service uri to Post the notification when the alert activates or resolves.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 }
 
@@ -17031,30 +15475,22 @@ func (o RuleWebhookActionOutput) ToRuleWebhookActionOutputWithContext(ctx contex
 	return o
 }
 
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 func (o RuleWebhookActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleWebhookAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o RuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// the service uri to Post the notification when the alert activates or resolves.
 func (o RuleWebhookActionOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleWebhookAction) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
 type RuleWebhookActionResponse struct {
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
-	OdataType string `pulumi:"odataType"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	OdataType  string            `pulumi:"odataType"`
 	Properties map[string]string `pulumi:"properties"`
-	// the service uri to Post the notification when the alert activates or resolves.
-	ServiceUri *string `pulumi:"serviceUri"`
+	ServiceUri *string           `pulumi:"serviceUri"`
 }
 
 // RuleWebhookActionResponseInput is an input type that accepts RuleWebhookActionResponseArgs and RuleWebhookActionResponseOutput values.
@@ -17069,12 +15505,8 @@ type RuleWebhookActionResponseInput interface {
 }
 
 type RuleWebhookActionResponseArgs struct {
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	OdataType  pulumi.StringInput    `pulumi:"odataType"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service uri to Post the notification when the alert activates or resolves.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 }
 
@@ -17104,31 +15536,23 @@ func (o RuleWebhookActionResponseOutput) ToRuleWebhookActionResponseOutputWithCo
 	return o
 }
 
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 func (o RuleWebhookActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleWebhookActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o RuleWebhookActionResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RuleWebhookActionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// the service uri to Post the notification when the alert activates or resolves.
 func (o RuleWebhookActionResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleWebhookActionResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
 type ScaleAction struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown string `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
+	Cooldown  string         `pulumi:"cooldown"`
 	Direction ScaleDirection `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type ScaleType `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value *string `pulumi:"value"`
+	Type      ScaleType      `pulumi:"type"`
+	Value     *string        `pulumi:"value"`
 }
 
 // ScaleActionInput is an input type that accepts ScaleActionArgs and ScaleActionOutput values.
@@ -17143,14 +15567,10 @@ type ScaleActionInput interface {
 }
 
 type ScaleActionArgs struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown pulumi.StringInput `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction ScaleDirectionInput `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type ScaleTypeInput `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Cooldown  pulumi.StringInput    `pulumi:"cooldown"`
+	Direction ScaleDirectionInput   `pulumi:"direction"`
+	Type      ScaleTypeInput        `pulumi:"type"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ScaleActionArgs) ElementType() reflect.Type {
@@ -17179,35 +15599,27 @@ func (o ScaleActionOutput) ToScaleActionOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 func (o ScaleActionOutput) Cooldown() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
 }
 
-// the scale direction. Whether the scaling action increases or decreases the number of instances.
 func (o ScaleActionOutput) Direction() ScaleDirectionOutput {
 	return o.ApplyT(func(v ScaleAction) ScaleDirection { return v.Direction }).(ScaleDirectionOutput)
 }
 
-// the type of action that should occur when the scale rule fires.
 func (o ScaleActionOutput) Type() ScaleTypeOutput {
 	return o.ApplyT(func(v ScaleAction) ScaleType { return v.Type }).(ScaleTypeOutput)
 }
 
-// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 func (o ScaleActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type ScaleActionResponse struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown string `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction string `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type string `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value *string `pulumi:"value"`
+	Cooldown  string  `pulumi:"cooldown"`
+	Direction string  `pulumi:"direction"`
+	Type      string  `pulumi:"type"`
+	Value     *string `pulumi:"value"`
 }
 
 // ScaleActionResponseInput is an input type that accepts ScaleActionResponseArgs and ScaleActionResponseOutput values.
@@ -17222,14 +15634,10 @@ type ScaleActionResponseInput interface {
 }
 
 type ScaleActionResponseArgs struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown pulumi.StringInput `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type pulumi.StringInput `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Cooldown  pulumi.StringInput    `pulumi:"cooldown"`
+	Direction pulumi.StringInput    `pulumi:"direction"`
+	Type      pulumi.StringInput    `pulumi:"type"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ScaleActionResponseArgs) ElementType() reflect.Type {
@@ -17258,32 +15666,25 @@ func (o ScaleActionResponseOutput) ToScaleActionResponseOutputWithContext(ctx co
 	return o
 }
 
-// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 func (o ScaleActionResponseOutput) Cooldown() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleActionResponse) string { return v.Cooldown }).(pulumi.StringOutput)
 }
 
-// the scale direction. Whether the scaling action increases or decreases the number of instances.
 func (o ScaleActionResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleActionResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// the type of action that should occur when the scale rule fires.
 func (o ScaleActionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleActionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 func (o ScaleActionResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleActionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type ScaleCapacity struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default string `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 	Maximum string `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
 	Minimum string `pulumi:"minimum"`
 }
 
@@ -17299,11 +15700,8 @@ type ScaleCapacityInput interface {
 }
 
 type ScaleCapacityArgs struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default pulumi.StringInput `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 	Maximum pulumi.StringInput `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
 	Minimum pulumi.StringInput `pulumi:"minimum"`
 }
 
@@ -17333,27 +15731,21 @@ func (o ScaleCapacityOutput) ToScaleCapacityOutputWithContext(ctx context.Contex
 	return o
 }
 
-// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 func (o ScaleCapacityOutput) Default() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacity) string { return v.Default }).(pulumi.StringOutput)
 }
 
-// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 func (o ScaleCapacityOutput) Maximum() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacity) string { return v.Maximum }).(pulumi.StringOutput)
 }
 
-// the minimum number of instances for the resource.
 func (o ScaleCapacityOutput) Minimum() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacity) string { return v.Minimum }).(pulumi.StringOutput)
 }
 
 type ScaleCapacityResponse struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default string `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 	Maximum string `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
 	Minimum string `pulumi:"minimum"`
 }
 
@@ -17369,11 +15761,8 @@ type ScaleCapacityResponseInput interface {
 }
 
 type ScaleCapacityResponseArgs struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default pulumi.StringInput `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 	Maximum pulumi.StringInput `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
 	Minimum pulumi.StringInput `pulumi:"minimum"`
 }
 
@@ -17403,26 +15792,21 @@ func (o ScaleCapacityResponseOutput) ToScaleCapacityResponseOutputWithContext(ct
 	return o
 }
 
-// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 func (o ScaleCapacityResponseOutput) Default() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacityResponse) string { return v.Default }).(pulumi.StringOutput)
 }
 
-// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
 func (o ScaleCapacityResponseOutput) Maximum() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacityResponse) string { return v.Maximum }).(pulumi.StringOutput)
 }
 
-// the minimum number of instances for the resource.
 func (o ScaleCapacityResponseOutput) Minimum() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleCapacityResponse) string { return v.Minimum }).(pulumi.StringOutput)
 }
 
 type ScaleRule struct {
-	// the trigger that results in a scaling action.
 	MetricTrigger MetricTrigger `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleAction `pulumi:"scaleAction"`
+	ScaleAction   ScaleAction   `pulumi:"scaleAction"`
 }
 
 // ScaleRuleInput is an input type that accepts ScaleRuleArgs and ScaleRuleOutput values.
@@ -17437,10 +15821,8 @@ type ScaleRuleInput interface {
 }
 
 type ScaleRuleArgs struct {
-	// the trigger that results in a scaling action.
 	MetricTrigger MetricTriggerInput `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleActionInput `pulumi:"scaleAction"`
+	ScaleAction   ScaleActionInput   `pulumi:"scaleAction"`
 }
 
 func (ScaleRuleArgs) ElementType() reflect.Type {
@@ -17494,12 +15876,10 @@ func (o ScaleRuleOutput) ToScaleRuleOutputWithContext(ctx context.Context) Scale
 	return o
 }
 
-// the trigger that results in a scaling action.
 func (o ScaleRuleOutput) MetricTrigger() MetricTriggerOutput {
 	return o.ApplyT(func(v ScaleRule) MetricTrigger { return v.MetricTrigger }).(MetricTriggerOutput)
 }
 
-// the parameters for the scaling action.
 func (o ScaleRuleOutput) ScaleAction() ScaleActionOutput {
 	return o.ApplyT(func(v ScaleRule) ScaleAction { return v.ScaleAction }).(ScaleActionOutput)
 }
@@ -17525,12 +15905,9 @@ func (o ScaleRuleArrayOutput) Index(i pulumi.IntInput) ScaleRuleOutput {
 }
 
 type ScaleRuleMetricDimension struct {
-	// Name of the dimension.
-	DimensionName string `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator string `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values []string `pulumi:"values"`
+	DimensionName string   `pulumi:"dimensionName"`
+	Operator      string   `pulumi:"operator"`
+	Values        []string `pulumi:"values"`
 }
 
 // ScaleRuleMetricDimensionInput is an input type that accepts ScaleRuleMetricDimensionArgs and ScaleRuleMetricDimensionOutput values.
@@ -17545,12 +15922,9 @@ type ScaleRuleMetricDimensionInput interface {
 }
 
 type ScaleRuleMetricDimensionArgs struct {
-	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	DimensionName pulumi.StringInput      `pulumi:"dimensionName"`
+	Operator      pulumi.StringInput      `pulumi:"operator"`
+	Values        pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ScaleRuleMetricDimensionArgs) ElementType() reflect.Type {
@@ -17604,17 +15978,14 @@ func (o ScaleRuleMetricDimensionOutput) ToScaleRuleMetricDimensionOutputWithCont
 	return o
 }
 
-// Name of the dimension.
 func (o ScaleRuleMetricDimensionOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
 func (o ScaleRuleMetricDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values. For example: ["App1","App2"].
 func (o ScaleRuleMetricDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -17640,12 +16011,9 @@ func (o ScaleRuleMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScaleRuleM
 }
 
 type ScaleRuleMetricDimensionResponse struct {
-	// Name of the dimension.
-	DimensionName string `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator string `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values []string `pulumi:"values"`
+	DimensionName string   `pulumi:"dimensionName"`
+	Operator      string   `pulumi:"operator"`
+	Values        []string `pulumi:"values"`
 }
 
 // ScaleRuleMetricDimensionResponseInput is an input type that accepts ScaleRuleMetricDimensionResponseArgs and ScaleRuleMetricDimensionResponseOutput values.
@@ -17660,12 +16028,9 @@ type ScaleRuleMetricDimensionResponseInput interface {
 }
 
 type ScaleRuleMetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	DimensionName pulumi.StringInput      `pulumi:"dimensionName"`
+	Operator      pulumi.StringInput      `pulumi:"operator"`
+	Values        pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ScaleRuleMetricDimensionResponseArgs) ElementType() reflect.Type {
@@ -17719,17 +16084,14 @@ func (o ScaleRuleMetricDimensionResponseOutput) ToScaleRuleMetricDimensionRespon
 	return o
 }
 
-// Name of the dimension.
 func (o ScaleRuleMetricDimensionResponseOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimensionResponse) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
 func (o ScaleRuleMetricDimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values. For example: ["App1","App2"].
 func (o ScaleRuleMetricDimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleRuleMetricDimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -17755,10 +16117,8 @@ func (o ScaleRuleMetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) Sc
 }
 
 type ScaleRuleResponse struct {
-	// the trigger that results in a scaling action.
 	MetricTrigger MetricTriggerResponse `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleActionResponse `pulumi:"scaleAction"`
+	ScaleAction   ScaleActionResponse   `pulumi:"scaleAction"`
 }
 
 // ScaleRuleResponseInput is an input type that accepts ScaleRuleResponseArgs and ScaleRuleResponseOutput values.
@@ -17773,10 +16133,8 @@ type ScaleRuleResponseInput interface {
 }
 
 type ScaleRuleResponseArgs struct {
-	// the trigger that results in a scaling action.
 	MetricTrigger MetricTriggerResponseInput `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleActionResponseInput `pulumi:"scaleAction"`
+	ScaleAction   ScaleActionResponseInput   `pulumi:"scaleAction"`
 }
 
 func (ScaleRuleResponseArgs) ElementType() reflect.Type {
@@ -17830,12 +16188,10 @@ func (o ScaleRuleResponseOutput) ToScaleRuleResponseOutputWithContext(ctx contex
 	return o
 }
 
-// the trigger that results in a scaling action.
 func (o ScaleRuleResponseOutput) MetricTrigger() MetricTriggerResponseOutput {
 	return o.ApplyT(func(v ScaleRuleResponse) MetricTriggerResponse { return v.MetricTrigger }).(MetricTriggerResponseOutput)
 }
 
-// the parameters for the scaling action.
 func (o ScaleRuleResponseOutput) ScaleAction() ScaleActionResponseOutput {
 	return o.ApplyT(func(v ScaleRuleResponse) ScaleActionResponse { return v.ScaleAction }).(ScaleActionResponseOutput)
 }
@@ -17861,9 +16217,7 @@ func (o ScaleRuleResponseArrayOutput) Index(i pulumi.IntInput) ScaleRuleResponse
 }
 
 type Schedule struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes int `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  int `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes int `pulumi:"timeWindowInMinutes"`
 }
 
@@ -17879,9 +16233,7 @@ type ScheduleInput interface {
 }
 
 type ScheduleArgs struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes pulumi.IntInput `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  pulumi.IntInput `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes pulumi.IntInput `pulumi:"timeWindowInMinutes"`
 }
 
@@ -17962,12 +16314,10 @@ func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) Sche
 	}).(SchedulePtrOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleOutput) FrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v Schedule) int { return v.FrequencyInMinutes }).(pulumi.IntOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleOutput) TimeWindowInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v Schedule) int { return v.TimeWindowInMinutes }).(pulumi.IntOutput)
 }
@@ -17996,7 +16346,6 @@ func (o SchedulePtrOutput) Elem() ScheduleOutput {
 	}).(ScheduleOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o SchedulePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Schedule) *int {
 		if v == nil {
@@ -18006,7 +16355,6 @@ func (o SchedulePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o SchedulePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Schedule) *int {
 		if v == nil {
@@ -18017,9 +16365,7 @@ func (o SchedulePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 }
 
 type ScheduleResponse struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes int `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  int `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes int `pulumi:"timeWindowInMinutes"`
 }
 
@@ -18035,9 +16381,7 @@ type ScheduleResponseInput interface {
 }
 
 type ScheduleResponseArgs struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes pulumi.IntInput `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  pulumi.IntInput `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes pulumi.IntInput `pulumi:"timeWindowInMinutes"`
 }
 
@@ -18118,12 +16462,10 @@ func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx conte
 	}).(ScheduleResponsePtrOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleResponseOutput) FrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleResponse) int { return v.FrequencyInMinutes }).(pulumi.IntOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleResponseOutput) TimeWindowInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleResponse) int { return v.TimeWindowInMinutes }).(pulumi.IntOutput)
 }
@@ -18152,7 +16494,6 @@ func (o ScheduleResponsePtrOutput) Elem() ScheduleResponseOutput {
 	}).(ScheduleResponseOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleResponsePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *int {
 		if v == nil {
@@ -18162,7 +16503,6 @@ func (o ScheduleResponsePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleResponsePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *int {
 		if v == nil {
@@ -18361,11 +16701,8 @@ func (o SinkConfigurationResponseArrayOutput) Index(i pulumi.IntInput) SinkConfi
 }
 
 type SmsReceiver struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -18381,11 +16718,8 @@ type SmsReceiverInput interface {
 }
 
 type SmsReceiverArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -18440,17 +16774,14 @@ func (o SmsReceiverOutput) ToSmsReceiverOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -18476,14 +16807,10 @@ func (o SmsReceiverArrayOutput) Index(i pulumi.IntInput) SmsReceiverOutput {
 }
 
 type SmsReceiverResponse struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // SmsReceiverResponseInput is an input type that accepts SmsReceiverResponseArgs and SmsReceiverResponseOutput values.
@@ -18498,14 +16825,10 @@ type SmsReceiverResponseInput interface {
 }
 
 type SmsReceiverResponseArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (SmsReceiverResponseArgs) ElementType() reflect.Type {
@@ -18559,22 +16882,18 @@ func (o SmsReceiverResponseOutput) ToSmsReceiverResponseOutputWithContext(ctx co
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The status of the receiver.
 func (o SmsReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -18600,14 +16919,10 @@ func (o SmsReceiverResponseArrayOutput) Index(i pulumi.IntInput) SmsReceiverResp
 }
 
 type Source struct {
-	// List of  Resource referred into query
 	AuthorizedResources []string `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query *string `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType *string `pulumi:"queryType"`
+	DataSourceId        string   `pulumi:"dataSourceId"`
+	Query               *string  `pulumi:"query"`
+	QueryType           *string  `pulumi:"queryType"`
 }
 
 // SourceInput is an input type that accepts SourceArgs and SourceOutput values.
@@ -18622,14 +16937,10 @@ type SourceInput interface {
 }
 
 type SourceArgs struct {
-	// List of  Resource referred into query
 	AuthorizedResources pulumi.StringArrayInput `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType pulumi.StringPtrInput `pulumi:"queryType"`
+	DataSourceId        pulumi.StringInput      `pulumi:"dataSourceId"`
+	Query               pulumi.StringPtrInput   `pulumi:"query"`
+	QueryType           pulumi.StringPtrInput   `pulumi:"queryType"`
 }
 
 func (SourceArgs) ElementType() reflect.Type {
@@ -18709,22 +17020,18 @@ func (o SourceOutput) ToSourcePtrOutputWithContext(ctx context.Context) SourcePt
 	}).(SourcePtrOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Source) []string { return v.AuthorizedResources }).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v Source) string { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Source) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Source) *string { return v.QueryType }).(pulumi.StringPtrOutput)
 }
@@ -18753,7 +17060,6 @@ func (o SourcePtrOutput) Elem() SourceOutput {
 	}).(SourceOutput)
 }
 
-// List of  Resource referred into query
 func (o SourcePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Source) []string {
 		if v == nil {
@@ -18763,7 +17069,6 @@ func (o SourcePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourcePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -18773,7 +17078,6 @@ func (o SourcePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourcePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -18783,7 +17087,6 @@ func (o SourcePtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourcePtrOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -18794,14 +17097,10 @@ func (o SourcePtrOutput) QueryType() pulumi.StringPtrOutput {
 }
 
 type SourceResponse struct {
-	// List of  Resource referred into query
 	AuthorizedResources []string `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query *string `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType *string `pulumi:"queryType"`
+	DataSourceId        string   `pulumi:"dataSourceId"`
+	Query               *string  `pulumi:"query"`
+	QueryType           *string  `pulumi:"queryType"`
 }
 
 // SourceResponseInput is an input type that accepts SourceResponseArgs and SourceResponseOutput values.
@@ -18816,14 +17115,10 @@ type SourceResponseInput interface {
 }
 
 type SourceResponseArgs struct {
-	// List of  Resource referred into query
 	AuthorizedResources pulumi.StringArrayInput `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType pulumi.StringPtrInput `pulumi:"queryType"`
+	DataSourceId        pulumi.StringInput      `pulumi:"dataSourceId"`
+	Query               pulumi.StringPtrInput   `pulumi:"query"`
+	QueryType           pulumi.StringPtrInput   `pulumi:"queryType"`
 }
 
 func (SourceResponseArgs) ElementType() reflect.Type {
@@ -18903,22 +17198,18 @@ func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.C
 	}).(SourceResponsePtrOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceResponseOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceResponse) []string { return v.AuthorizedResources }).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceResponseOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceResponse) string { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceResponseOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceResponseOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceResponse) *string { return v.QueryType }).(pulumi.StringPtrOutput)
 }
@@ -18947,7 +17238,6 @@ func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
 	}).(SourceResponseOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceResponsePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SourceResponse) []string {
 		if v == nil {
@@ -18957,7 +17247,6 @@ func (o SourceResponsePtrOutput) AuthorizedResources() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceResponsePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -18967,7 +17256,6 @@ func (o SourceResponsePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -18977,7 +17265,6 @@ func (o SourceResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -18988,10 +17275,8 @@ func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 }
 
 type SubscriptionLogSettings struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 	Category *string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool    `pulumi:"enabled"`
 }
 
 // SubscriptionLogSettingsInput is an input type that accepts SubscriptionLogSettingsArgs and SubscriptionLogSettingsOutput values.
@@ -19006,10 +17291,8 @@ type SubscriptionLogSettingsInput interface {
 }
 
 type SubscriptionLogSettingsArgs struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (SubscriptionLogSettingsArgs) ElementType() reflect.Type {
@@ -19063,12 +17346,10 @@ func (o SubscriptionLogSettingsOutput) ToSubscriptionLogSettingsOutputWithContex
 	return o
 }
 
-// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o SubscriptionLogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SubscriptionLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -19094,10 +17375,8 @@ func (o SubscriptionLogSettingsArrayOutput) Index(i pulumi.IntInput) Subscriptio
 }
 
 type SubscriptionLogSettingsResponse struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 	Category *string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool    `pulumi:"enabled"`
 }
 
 // SubscriptionLogSettingsResponseInput is an input type that accepts SubscriptionLogSettingsResponseArgs and SubscriptionLogSettingsResponseOutput values.
@@ -19112,10 +17391,8 @@ type SubscriptionLogSettingsResponseInput interface {
 }
 
 type SubscriptionLogSettingsResponseArgs struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (SubscriptionLogSettingsResponseArgs) ElementType() reflect.Type {
@@ -19169,12 +17446,10 @@ func (o SubscriptionLogSettingsResponseOutput) ToSubscriptionLogSettingsResponse
 	return o
 }
 
-// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o SubscriptionLogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SubscriptionLogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -19200,16 +17475,10 @@ func (o SubscriptionLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) Sub
 }
 
 type SyslogDataSource struct {
-	// The list of facility names.
 	FacilityNames []string `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels []string `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	LogLevels     []string `pulumi:"logLevels"`
+	Name          *string  `pulumi:"name"`
+	Streams       []string `pulumi:"streams"`
 }
 
 // SyslogDataSourceInput is an input type that accepts SyslogDataSourceArgs and SyslogDataSourceOutput values.
@@ -19224,16 +17493,10 @@ type SyslogDataSourceInput interface {
 }
 
 type SyslogDataSourceArgs struct {
-	// The list of facility names.
 	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	LogLevels     pulumi.StringArrayInput `pulumi:"logLevels"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Streams       pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (SyslogDataSourceArgs) ElementType() reflect.Type {
@@ -19287,24 +17550,18 @@ func (o SyslogDataSourceOutput) ToSyslogDataSourceOutputWithContext(ctx context.
 	return o
 }
 
-// The list of facility names.
 func (o SyslogDataSourceOutput) FacilityNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
 }
 
-// The log levels to collect.
 func (o SyslogDataSourceOutput) LogLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o SyslogDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyslogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o SyslogDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -19330,16 +17587,10 @@ func (o SyslogDataSourceArrayOutput) Index(i pulumi.IntInput) SyslogDataSourceOu
 }
 
 type SyslogDataSourceResponse struct {
-	// The list of facility names.
 	FacilityNames []string `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels []string `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	LogLevels     []string `pulumi:"logLevels"`
+	Name          *string  `pulumi:"name"`
+	Streams       []string `pulumi:"streams"`
 }
 
 // SyslogDataSourceResponseInput is an input type that accepts SyslogDataSourceResponseArgs and SyslogDataSourceResponseOutput values.
@@ -19354,16 +17605,10 @@ type SyslogDataSourceResponseInput interface {
 }
 
 type SyslogDataSourceResponseArgs struct {
-	// The list of facility names.
 	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	LogLevels     pulumi.StringArrayInput `pulumi:"logLevels"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Streams       pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (SyslogDataSourceResponseArgs) ElementType() reflect.Type {
@@ -19417,24 +17662,18 @@ func (o SyslogDataSourceResponseOutput) ToSyslogDataSourceResponseOutputWithCont
 	return o
 }
 
-// The list of facility names.
 func (o SyslogDataSourceResponseOutput) FacilityNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
 }
 
-// The log levels to collect.
 func (o SyslogDataSourceResponseOutput) LogLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o SyslogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o SyslogDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -19460,19 +17699,12 @@ func (o SyslogDataSourceResponseArrayOutput) Index(i pulumi.IntInput) SyslogData
 }
 
 type ThresholdRuleCondition struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
-	OdataType string `pulumi:"odataType"`
-	// the operator used to compare the data and the threshold.
-	Operator ConditionOperator `pulumi:"operator"`
-	// the threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	DataSource      interface{}              `pulumi:"dataSource"`
+	OdataType       string                   `pulumi:"odataType"`
+	Operator        ConditionOperator        `pulumi:"operator"`
+	Threshold       float64                  `pulumi:"threshold"`
 	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	WindowSize      *string                  `pulumi:"windowSize"`
 }
 
 // ThresholdRuleConditionInput is an input type that accepts ThresholdRuleConditionArgs and ThresholdRuleConditionOutput values.
@@ -19487,19 +17719,12 @@ type ThresholdRuleConditionInput interface {
 }
 
 type ThresholdRuleConditionArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the operator used to compare the data and the threshold.
-	Operator ConditionOperatorInput `pulumi:"operator"`
-	// the threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	DataSource      pulumi.Input                    `pulumi:"dataSource"`
+	OdataType       pulumi.StringInput              `pulumi:"odataType"`
+	Operator        ConditionOperatorInput          `pulumi:"operator"`
+	Threshold       pulumi.Float64Input             `pulumi:"threshold"`
 	TimeAggregation TimeAggregationOperatorPtrInput `pulumi:"timeAggregation"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	WindowSize      pulumi.StringPtrInput           `pulumi:"windowSize"`
 }
 
 func (ThresholdRuleConditionArgs) ElementType() reflect.Type {
@@ -19528,51 +17753,37 @@ func (o ThresholdRuleConditionOutput) ToThresholdRuleConditionOutputWithContext(
 	return o
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o ThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the operator used to compare the data and the threshold.
 func (o ThresholdRuleConditionOutput) Operator() ConditionOperatorOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) ConditionOperator { return v.Operator }).(ConditionOperatorOutput)
 }
 
-// the threshold value that activates the alert.
 func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ThresholdRuleCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
 func (o ThresholdRuleConditionOutput) TimeAggregation() TimeAggregationOperatorPtrOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) *TimeAggregationOperator { return v.TimeAggregation }).(TimeAggregationOperatorPtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
 
 type ThresholdRuleConditionResponse struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource interface{} `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
-	OdataType string `pulumi:"odataType"`
-	// the operator used to compare the data and the threshold.
-	Operator string `pulumi:"operator"`
-	// the threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation *string `pulumi:"timeAggregation"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize *string `pulumi:"windowSize"`
+	DataSource      interface{} `pulumi:"dataSource"`
+	OdataType       string      `pulumi:"odataType"`
+	Operator        string      `pulumi:"operator"`
+	Threshold       float64     `pulumi:"threshold"`
+	TimeAggregation *string     `pulumi:"timeAggregation"`
+	WindowSize      *string     `pulumi:"windowSize"`
 }
 
 // ThresholdRuleConditionResponseInput is an input type that accepts ThresholdRuleConditionResponseArgs and ThresholdRuleConditionResponseOutput values.
@@ -19587,19 +17798,12 @@ type ThresholdRuleConditionResponseInput interface {
 }
 
 type ThresholdRuleConditionResponseArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the operator used to compare the data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// the threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	DataSource      pulumi.Input          `pulumi:"dataSource"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	Operator        pulumi.StringInput    `pulumi:"operator"`
+	Threshold       pulumi.Float64Input   `pulumi:"threshold"`
 	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+	WindowSize      pulumi.StringPtrInput `pulumi:"windowSize"`
 }
 
 func (ThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
@@ -19628,43 +17832,33 @@ func (o ThresholdRuleConditionResponseOutput) ToThresholdRuleConditionResponseOu
 	return o
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 func (o ThresholdRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 func (o ThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// the operator used to compare the data and the threshold.
 func (o ThresholdRuleConditionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// the threshold value that activates the alert.
 func (o ThresholdRuleConditionResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
 func (o ThresholdRuleConditionResponseOutput) TimeAggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
 
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 func (o ThresholdRuleConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
 
 type TimeWindow struct {
-	// the end time for the profile in ISO 8601 format.
-	End string `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start string `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+	End      string  `pulumi:"end"`
+	Start    string  `pulumi:"start"`
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -19680,11 +17874,8 @@ type TimeWindowInput interface {
 }
 
 type TimeWindowArgs struct {
-	// the end time for the profile in ISO 8601 format.
-	End pulumi.StringInput `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start pulumi.StringInput `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+	End      pulumi.StringInput    `pulumi:"end"`
+	Start    pulumi.StringInput    `pulumi:"start"`
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -19765,17 +17956,14 @@ func (o TimeWindowOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) 
 	}).(TimeWindowPtrOutput)
 }
 
-// the end time for the profile in ISO 8601 format.
 func (o TimeWindowOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindow) string { return v.End }).(pulumi.StringOutput)
 }
 
-// the start time for the profile in ISO 8601 format.
 func (o TimeWindowOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindow) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o TimeWindowOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeWindow) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -19804,7 +17992,6 @@ func (o TimeWindowPtrOutput) Elem() TimeWindowOutput {
 	}).(TimeWindowOutput)
 }
 
-// the end time for the profile in ISO 8601 format.
 func (o TimeWindowPtrOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindow) *string {
 		if v == nil {
@@ -19814,7 +18001,6 @@ func (o TimeWindowPtrOutput) End() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the start time for the profile in ISO 8601 format.
 func (o TimeWindowPtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindow) *string {
 		if v == nil {
@@ -19824,7 +18010,6 @@ func (o TimeWindowPtrOutput) Start() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o TimeWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindow) *string {
 		if v == nil {
@@ -19835,11 +18020,8 @@ func (o TimeWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type TimeWindowResponse struct {
-	// the end time for the profile in ISO 8601 format.
-	End string `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start string `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+	End      string  `pulumi:"end"`
+	Start    string  `pulumi:"start"`
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -19855,11 +18037,8 @@ type TimeWindowResponseInput interface {
 }
 
 type TimeWindowResponseArgs struct {
-	// the end time for the profile in ISO 8601 format.
-	End pulumi.StringInput `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start pulumi.StringInput `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+	End      pulumi.StringInput    `pulumi:"end"`
+	Start    pulumi.StringInput    `pulumi:"start"`
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -19940,17 +18119,14 @@ func (o TimeWindowResponseOutput) ToTimeWindowResponsePtrOutputWithContext(ctx c
 	}).(TimeWindowResponsePtrOutput)
 }
 
-// the end time for the profile in ISO 8601 format.
 func (o TimeWindowResponseOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowResponse) string { return v.End }).(pulumi.StringOutput)
 }
 
-// the start time for the profile in ISO 8601 format.
 func (o TimeWindowResponseOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowResponse) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o TimeWindowResponseOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimeWindowResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -19979,7 +18155,6 @@ func (o TimeWindowResponsePtrOutput) Elem() TimeWindowResponseOutput {
 	}).(TimeWindowResponseOutput)
 }
 
-// the end time for the profile in ISO 8601 format.
 func (o TimeWindowResponsePtrOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindowResponse) *string {
 		if v == nil {
@@ -19989,7 +18164,6 @@ func (o TimeWindowResponsePtrOutput) End() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the start time for the profile in ISO 8601 format.
 func (o TimeWindowResponsePtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindowResponse) *string {
 		if v == nil {
@@ -19999,7 +18173,6 @@ func (o TimeWindowResponsePtrOutput) Start() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 func (o TimeWindowResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeWindowResponse) *string {
 		if v == nil {
@@ -20010,12 +18183,9 @@ func (o TimeWindowResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type TriggerCondition struct {
-	// Trigger condition for metric query rule
-	MetricTrigger *LogMetricTrigger `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold float64 `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator string `pulumi:"thresholdOperator"`
+	MetricTrigger     *LogMetricTrigger `pulumi:"metricTrigger"`
+	Threshold         float64           `pulumi:"threshold"`
+	ThresholdOperator string            `pulumi:"thresholdOperator"`
 }
 
 // TriggerConditionInput is an input type that accepts TriggerConditionArgs and TriggerConditionOutput values.
@@ -20030,12 +18200,9 @@ type TriggerConditionInput interface {
 }
 
 type TriggerConditionArgs struct {
-	// Trigger condition for metric query rule
-	MetricTrigger LogMetricTriggerPtrInput `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+	MetricTrigger     LogMetricTriggerPtrInput `pulumi:"metricTrigger"`
+	Threshold         pulumi.Float64Input      `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringInput       `pulumi:"thresholdOperator"`
 }
 
 func (TriggerConditionArgs) ElementType() reflect.Type {
@@ -20064,28 +18231,22 @@ func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.
 	return o
 }
 
-// Trigger condition for metric query rule
 func (o TriggerConditionOutput) MetricTrigger() LogMetricTriggerPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *LogMetricTrigger { return v.MetricTrigger }).(LogMetricTriggerPtrOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.
 func (o TriggerConditionOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v TriggerCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 func (o TriggerConditionOutput) ThresholdOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerCondition) string { return v.ThresholdOperator }).(pulumi.StringOutput)
 }
 
 type TriggerConditionResponse struct {
-	// Trigger condition for metric query rule
-	MetricTrigger *LogMetricTriggerResponse `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold float64 `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator string `pulumi:"thresholdOperator"`
+	MetricTrigger     *LogMetricTriggerResponse `pulumi:"metricTrigger"`
+	Threshold         float64                   `pulumi:"threshold"`
+	ThresholdOperator string                    `pulumi:"thresholdOperator"`
 }
 
 // TriggerConditionResponseInput is an input type that accepts TriggerConditionResponseArgs and TriggerConditionResponseOutput values.
@@ -20100,12 +18261,9 @@ type TriggerConditionResponseInput interface {
 }
 
 type TriggerConditionResponseArgs struct {
-	// Trigger condition for metric query rule
-	MetricTrigger LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+	MetricTrigger     LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
+	Threshold         pulumi.Float64Input              `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringInput               `pulumi:"thresholdOperator"`
 }
 
 func (TriggerConditionResponseArgs) ElementType() reflect.Type {
@@ -20134,27 +18292,21 @@ func (o TriggerConditionResponseOutput) ToTriggerConditionResponseOutputWithCont
 	return o
 }
 
-// Trigger condition for metric query rule
 func (o TriggerConditionResponseOutput) MetricTrigger() LogMetricTriggerResponsePtrOutput {
 	return o.ApplyT(func(v TriggerConditionResponse) *LogMetricTriggerResponse { return v.MetricTrigger }).(LogMetricTriggerResponsePtrOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.
 func (o TriggerConditionResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v TriggerConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 func (o TriggerConditionResponseOutput) ThresholdOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerConditionResponse) string { return v.ThresholdOperator }).(pulumi.StringOutput)
 }
 
 type VoiceReceiver struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -20170,11 +18322,8 @@ type VoiceReceiverInput interface {
 }
 
 type VoiceReceiverArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -20229,17 +18378,14 @@ func (o VoiceReceiverOutput) ToVoiceReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -20265,11 +18411,8 @@ func (o VoiceReceiverArrayOutput) Index(i pulumi.IntInput) VoiceReceiverOutput {
 }
 
 type VoiceReceiverResponse struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -20285,11 +18428,8 @@ type VoiceReceiverResponseInput interface {
 }
 
 type VoiceReceiverResponseArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -20344,17 +18484,14 @@ func (o VoiceReceiverResponseOutput) ToVoiceReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -20380,7 +18517,6 @@ func (o VoiceReceiverResponseArrayOutput) Index(i pulumi.IntInput) VoiceReceiver
 }
 
 type WebTestGeolocation struct {
-	// Location ID for the webtest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -20396,7 +18532,6 @@ type WebTestGeolocationInput interface {
 }
 
 type WebTestGeolocationArgs struct {
-	// Location ID for the webtest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -20451,7 +18586,6 @@ func (o WebTestGeolocationOutput) ToWebTestGeolocationOutputWithContext(ctx cont
 	return o
 }
 
-// Location ID for the webtest to run from.
 func (o WebTestGeolocationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -20477,7 +18611,6 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 }
 
 type WebTestGeolocationResponse struct {
-	// Location ID for the webtest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -20493,7 +18626,6 @@ type WebTestGeolocationResponseInput interface {
 }
 
 type WebTestGeolocationResponseArgs struct {
-	// Location ID for the webtest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -20548,7 +18680,6 @@ func (o WebTestGeolocationResponseOutput) ToWebTestGeolocationResponseOutputWith
 	return o
 }
 
-// Location ID for the webtest to run from.
 func (o WebTestGeolocationResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -20574,7 +18705,6 @@ func (o WebTestGeolocationResponseArrayOutput) Index(i pulumi.IntInput) WebTestG
 }
 
 type WebTestPropertiesConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -20590,7 +18720,6 @@ type WebTestPropertiesConfigurationInput interface {
 }
 
 type WebTestPropertiesConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -20671,7 +18800,6 @@ func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPt
 	}).(WebTestPropertiesConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -20700,7 +18828,6 @@ func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigu
 	}).(WebTestPropertiesConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesConfiguration) *string {
 		if v == nil {
@@ -20711,7 +18838,6 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 }
 
 type WebTestPropertiesResponseConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -20727,7 +18853,6 @@ type WebTestPropertiesResponseConfigurationInput interface {
 }
 
 type WebTestPropertiesResponseConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -20808,7 +18933,6 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -20837,7 +18961,6 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertie
 	}).(WebTestPropertiesResponseConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) *string {
 		if v == nil {
@@ -20848,10 +18971,8 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.String
 }
 
 type WebhookNotification struct {
-	// a property bag of settings. This value can be empty.
 	Properties map[string]string `pulumi:"properties"`
-	// the service address to receive the notification.
-	ServiceUri *string `pulumi:"serviceUri"`
+	ServiceUri *string           `pulumi:"serviceUri"`
 }
 
 // WebhookNotificationInput is an input type that accepts WebhookNotificationArgs and WebhookNotificationOutput values.
@@ -20866,9 +18987,7 @@ type WebhookNotificationInput interface {
 }
 
 type WebhookNotificationArgs struct {
-	// a property bag of settings. This value can be empty.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service address to receive the notification.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 }
 
@@ -20923,12 +19042,10 @@ func (o WebhookNotificationOutput) ToWebhookNotificationOutputWithContext(ctx co
 	return o
 }
 
-// a property bag of settings. This value can be empty.
 func (o WebhookNotificationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v WebhookNotification) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// the service address to receive the notification.
 func (o WebhookNotificationOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookNotification) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
@@ -20954,10 +19071,8 @@ func (o WebhookNotificationArrayOutput) Index(i pulumi.IntInput) WebhookNotifica
 }
 
 type WebhookNotificationResponse struct {
-	// a property bag of settings. This value can be empty.
 	Properties map[string]string `pulumi:"properties"`
-	// the service address to receive the notification.
-	ServiceUri *string `pulumi:"serviceUri"`
+	ServiceUri *string           `pulumi:"serviceUri"`
 }
 
 // WebhookNotificationResponseInput is an input type that accepts WebhookNotificationResponseArgs and WebhookNotificationResponseOutput values.
@@ -20972,9 +19087,7 @@ type WebhookNotificationResponseInput interface {
 }
 
 type WebhookNotificationResponseArgs struct {
-	// a property bag of settings. This value can be empty.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service address to receive the notification.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 }
 
@@ -21029,12 +19142,10 @@ func (o WebhookNotificationResponseOutput) ToWebhookNotificationResponseOutputWi
 	return o
 }
 
-// a property bag of settings. This value can be empty.
 func (o WebhookNotificationResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v WebhookNotificationResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// the service address to receive the notification.
 func (o WebhookNotificationResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookNotificationResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
@@ -21060,20 +19171,13 @@ func (o WebhookNotificationResponseArrayOutput) Index(i pulumi.IntInput) Webhook
 }
 
 type WebhookReceiver struct {
-	// Indicates the identifier uri for aad auth.
-	IdentifierUri *string `pulumi:"identifierUri"`
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Indicates the webhook app object Id for aad auth.
-	ObjectId *string `pulumi:"objectId"`
-	// The URI where webhooks should be sent.
-	ServiceUri string `pulumi:"serviceUri"`
-	// Indicates the tenant id for aad auth.
-	TenantId *string `pulumi:"tenantId"`
-	// Indicates whether or not use AAD authentication.
-	UseAadAuth *bool `pulumi:"useAadAuth"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	IdentifierUri        *string `pulumi:"identifierUri"`
+	Name                 string  `pulumi:"name"`
+	ObjectId             *string `pulumi:"objectId"`
+	ServiceUri           string  `pulumi:"serviceUri"`
+	TenantId             *string `pulumi:"tenantId"`
+	UseAadAuth           *bool   `pulumi:"useAadAuth"`
+	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
 }
 
 // WebhookReceiverInput is an input type that accepts WebhookReceiverArgs and WebhookReceiverOutput values.
@@ -21088,20 +19192,13 @@ type WebhookReceiverInput interface {
 }
 
 type WebhookReceiverArgs struct {
-	// Indicates the identifier uri for aad auth.
-	IdentifierUri pulumi.StringPtrInput `pulumi:"identifierUri"`
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates the webhook app object Id for aad auth.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
-	// Indicates the tenant id for aad auth.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Indicates whether or not use AAD authentication.
-	UseAadAuth pulumi.BoolPtrInput `pulumi:"useAadAuth"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	IdentifierUri        pulumi.StringPtrInput `pulumi:"identifierUri"`
+	Name                 pulumi.StringInput    `pulumi:"name"`
+	ObjectId             pulumi.StringPtrInput `pulumi:"objectId"`
+	ServiceUri           pulumi.StringInput    `pulumi:"serviceUri"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
+	UseAadAuth           pulumi.BoolPtrInput   `pulumi:"useAadAuth"`
+	UseCommonAlertSchema pulumi.BoolPtrInput   `pulumi:"useCommonAlertSchema"`
 }
 
 func (WebhookReceiverArgs) ElementType() reflect.Type {
@@ -21155,37 +19252,30 @@ func (o WebhookReceiverOutput) ToWebhookReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// Indicates the identifier uri for aad auth.
 func (o WebhookReceiverOutput) IdentifierUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiver) *string { return v.IdentifierUri }).(pulumi.StringPtrOutput)
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates the webhook app object Id for aad auth.
 func (o WebhookReceiverOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiver) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
-// Indicates the tenant id for aad auth.
 func (o WebhookReceiverOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiver) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not use AAD authentication.
 func (o WebhookReceiverOutput) UseAadAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebhookReceiver) *bool { return v.UseAadAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o WebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -21211,20 +19301,13 @@ func (o WebhookReceiverArrayOutput) Index(i pulumi.IntInput) WebhookReceiverOutp
 }
 
 type WebhookReceiverResponse struct {
-	// Indicates the identifier uri for aad auth.
-	IdentifierUri *string `pulumi:"identifierUri"`
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Indicates the webhook app object Id for aad auth.
-	ObjectId *string `pulumi:"objectId"`
-	// The URI where webhooks should be sent.
-	ServiceUri string `pulumi:"serviceUri"`
-	// Indicates the tenant id for aad auth.
-	TenantId *string `pulumi:"tenantId"`
-	// Indicates whether or not use AAD authentication.
-	UseAadAuth *bool `pulumi:"useAadAuth"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	IdentifierUri        *string `pulumi:"identifierUri"`
+	Name                 string  `pulumi:"name"`
+	ObjectId             *string `pulumi:"objectId"`
+	ServiceUri           string  `pulumi:"serviceUri"`
+	TenantId             *string `pulumi:"tenantId"`
+	UseAadAuth           *bool   `pulumi:"useAadAuth"`
+	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
 }
 
 // WebhookReceiverResponseInput is an input type that accepts WebhookReceiverResponseArgs and WebhookReceiverResponseOutput values.
@@ -21239,20 +19322,13 @@ type WebhookReceiverResponseInput interface {
 }
 
 type WebhookReceiverResponseArgs struct {
-	// Indicates the identifier uri for aad auth.
-	IdentifierUri pulumi.StringPtrInput `pulumi:"identifierUri"`
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates the webhook app object Id for aad auth.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
-	// Indicates the tenant id for aad auth.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Indicates whether or not use AAD authentication.
-	UseAadAuth pulumi.BoolPtrInput `pulumi:"useAadAuth"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	IdentifierUri        pulumi.StringPtrInput `pulumi:"identifierUri"`
+	Name                 pulumi.StringInput    `pulumi:"name"`
+	ObjectId             pulumi.StringPtrInput `pulumi:"objectId"`
+	ServiceUri           pulumi.StringInput    `pulumi:"serviceUri"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
+	UseAadAuth           pulumi.BoolPtrInput   `pulumi:"useAadAuth"`
+	UseCommonAlertSchema pulumi.BoolPtrInput   `pulumi:"useCommonAlertSchema"`
 }
 
 func (WebhookReceiverResponseArgs) ElementType() reflect.Type {
@@ -21306,37 +19382,30 @@ func (o WebhookReceiverResponseOutput) ToWebhookReceiverResponseOutputWithContex
 	return o
 }
 
-// Indicates the identifier uri for aad auth.
 func (o WebhookReceiverResponseOutput) IdentifierUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) *string { return v.IdentifierUri }).(pulumi.StringPtrOutput)
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates the webhook app object Id for aad auth.
 func (o WebhookReceiverResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverResponseOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
-// Indicates the tenant id for aad auth.
 func (o WebhookReceiverResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not use AAD authentication.
 func (o WebhookReceiverResponseOutput) UseAadAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) *bool { return v.UseAadAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether to use common alert schema.
 func (o WebhookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
@@ -21362,15 +19431,10 @@ func (o WebhookReceiverResponseArrayOutput) Index(i pulumi.IntInput) WebhookRece
 }
 
 type WebtestLocationAvailabilityCriteria struct {
-	// The Application Insights resource Id.
-	ComponentId string `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         string  `pulumi:"componentId"`
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType string `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId string `pulumi:"webTestId"`
+	OdataType           string  `pulumi:"odataType"`
+	WebTestId           string  `pulumi:"webTestId"`
 }
 
 // WebtestLocationAvailabilityCriteriaInput is an input type that accepts WebtestLocationAvailabilityCriteriaArgs and WebtestLocationAvailabilityCriteriaOutput values.
@@ -21385,15 +19449,10 @@ type WebtestLocationAvailabilityCriteriaInput interface {
 }
 
 type WebtestLocationAvailabilityCriteriaArgs struct {
-	// The Application Insights resource Id.
-	ComponentId pulumi.StringInput `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         pulumi.StringInput  `pulumi:"componentId"`
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+	OdataType           pulumi.StringInput  `pulumi:"odataType"`
+	WebTestId           pulumi.StringInput  `pulumi:"webTestId"`
 }
 
 func (WebtestLocationAvailabilityCriteriaArgs) ElementType() reflect.Type {
@@ -21422,37 +19481,27 @@ func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailability
 	return o
 }
 
-// The Application Insights resource Id.
 func (o WebtestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
 }
 
-// The number of failed locations.
 func (o WebtestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.Float64Output {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Application Insights web test Id.
 func (o WebtestLocationAvailabilityCriteriaOutput) WebTestId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.WebTestId }).(pulumi.StringOutput)
 }
 
 type WebtestLocationAvailabilityCriteriaResponse struct {
-	// The Application Insights resource Id.
-	ComponentId string `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         string  `pulumi:"componentId"`
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType string `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId string `pulumi:"webTestId"`
+	OdataType           string  `pulumi:"odataType"`
+	WebTestId           string  `pulumi:"webTestId"`
 }
 
 // WebtestLocationAvailabilityCriteriaResponseInput is an input type that accepts WebtestLocationAvailabilityCriteriaResponseArgs and WebtestLocationAvailabilityCriteriaResponseOutput values.
@@ -21467,15 +19516,10 @@ type WebtestLocationAvailabilityCriteriaResponseInput interface {
 }
 
 type WebtestLocationAvailabilityCriteriaResponseArgs struct {
-	// The Application Insights resource Id.
-	ComponentId pulumi.StringInput `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         pulumi.StringInput  `pulumi:"componentId"`
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+	OdataType           pulumi.StringInput  `pulumi:"odataType"`
+	WebTestId           pulumi.StringInput  `pulumi:"webTestId"`
 }
 
 func (WebtestLocationAvailabilityCriteriaResponseArgs) ElementType() reflect.Type {
@@ -21504,35 +19548,25 @@ func (o WebtestLocationAvailabilityCriteriaResponseOutput) ToWebtestLocationAvai
 	return o
 }
 
-// The Application Insights resource Id.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) ComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.ComponentId }).(pulumi.StringOutput)
 }
 
-// The number of failed locations.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) FailedLocationCount() pulumi.Float64Output {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Application Insights web test Id.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) WebTestId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.WebTestId }).(pulumi.StringOutput)
 }
 
 type WindowsEventLogDataSource struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         *string  `pulumi:"name"`
+	Streams      []string `pulumi:"streams"`
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -21548,13 +19582,8 @@ type WindowsEventLogDataSourceInput interface {
 }
 
 type WindowsEventLogDataSourceArgs struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         pulumi.StringPtrInput   `pulumi:"name"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -21609,19 +19638,14 @@ func (o WindowsEventLogDataSourceOutput) ToWindowsEventLogDataSourceOutputWithCo
 	return o
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o WindowsEventLogDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o WindowsEventLogDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// A list of Windows Event Log queries in XPATH format.
 func (o WindowsEventLogDataSourceOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }
@@ -21647,13 +19671,8 @@ func (o WindowsEventLogDataSourceArrayOutput) Index(i pulumi.IntInput) WindowsEv
 }
 
 type WindowsEventLogDataSourceResponse struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         *string  `pulumi:"name"`
+	Streams      []string `pulumi:"streams"`
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -21669,13 +19688,8 @@ type WindowsEventLogDataSourceResponseInput interface {
 }
 
 type WindowsEventLogDataSourceResponseArgs struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         pulumi.StringPtrInput   `pulumi:"name"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -21730,19 +19744,14 @@ func (o WindowsEventLogDataSourceResponseOutput) ToWindowsEventLogDataSourceResp
 	return o
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o WindowsEventLogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o WindowsEventLogDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// A list of Windows Event Log queries in XPATH format.
 func (o WindowsEventLogDataSourceResponseOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }
@@ -21768,7 +19777,6 @@ func (o WindowsEventLogDataSourceResponseArrayOutput) Index(i pulumi.IntInput) W
 }
 
 type WorkbookManagedIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -21784,7 +19792,6 @@ type WorkbookManagedIdentityInput interface {
 }
 
 type WorkbookManagedIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -21865,7 +19872,6 @@ func (o WorkbookManagedIdentityOutput) ToWorkbookManagedIdentityPtrOutputWithCon
 	}).(WorkbookManagedIdentityPtrOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -21894,7 +19900,6 @@ func (o WorkbookManagedIdentityPtrOutput) Elem() WorkbookManagedIdentityOutput {
 	}).(WorkbookManagedIdentityOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentity) *string {
 		if v == nil {
@@ -21905,9 +19910,7 @@ func (o WorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WorkbookManagedIdentityResponse struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities *WorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -21923,9 +19926,7 @@ type WorkbookManagedIdentityResponseInput interface {
 }
 
 type WorkbookManagedIdentityResponseArgs struct {
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   pulumi.StringPtrInput                          `pulumi:"type"`
 	UserAssignedIdentities WorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -22006,12 +20007,10 @@ func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponse
 	}).(WorkbookManagedIdentityResponsePtrOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o WorkbookManagedIdentityResponseOutput) UserAssignedIdentities() WorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *WorkbookUserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
@@ -22042,7 +20041,6 @@ func (o WorkbookManagedIdentityResponsePtrOutput) Elem() WorkbookManagedIdentity
 	}).(WorkbookManagedIdentityResponseOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) *string {
 		if v == nil {
@@ -22052,7 +20050,6 @@ func (o WorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o WorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() WorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) *WorkbookUserAssignedIdentitiesResponse {
 		if v == nil {
@@ -22063,16 +20060,11 @@ func (o WorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() Workb
 }
 
 type WorkbookTemplateGallery struct {
-	// Category for the gallery.
-	Category *string `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name *string `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order *int `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     *string `pulumi:"category"`
+	Name         *string `pulumi:"name"`
+	Order        *int    `pulumi:"order"`
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type *string `pulumi:"type"`
+	Type         *string `pulumi:"type"`
 }
 
 // WorkbookTemplateGalleryInput is an input type that accepts WorkbookTemplateGalleryArgs and WorkbookTemplateGalleryOutput values.
@@ -22087,16 +20079,11 @@ type WorkbookTemplateGalleryInput interface {
 }
 
 type WorkbookTemplateGalleryArgs struct {
-	// Category for the gallery.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     pulumi.StringPtrInput `pulumi:"category"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Order        pulumi.IntPtrInput    `pulumi:"order"`
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (WorkbookTemplateGalleryArgs) ElementType() reflect.Type {
@@ -22150,27 +20137,22 @@ func (o WorkbookTemplateGalleryOutput) ToWorkbookTemplateGalleryOutputWithContex
 	return o
 }
 
-// Category for the gallery.
 func (o WorkbookTemplateGalleryOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of the workbook template in the gallery.
 func (o WorkbookTemplateGalleryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the template within the gallery.
 func (o WorkbookTemplateGalleryOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Azure resource type supported by the gallery.
 func (o WorkbookTemplateGalleryOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of workbook supported by the workbook template.
 func (o WorkbookTemplateGalleryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -22196,16 +20178,11 @@ func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTem
 }
 
 type WorkbookTemplateGalleryResponse struct {
-	// Category for the gallery.
-	Category *string `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name *string `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order *int `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     *string `pulumi:"category"`
+	Name         *string `pulumi:"name"`
+	Order        *int    `pulumi:"order"`
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type *string `pulumi:"type"`
+	Type         *string `pulumi:"type"`
 }
 
 // WorkbookTemplateGalleryResponseInput is an input type that accepts WorkbookTemplateGalleryResponseArgs and WorkbookTemplateGalleryResponseOutput values.
@@ -22220,16 +20197,11 @@ type WorkbookTemplateGalleryResponseInput interface {
 }
 
 type WorkbookTemplateGalleryResponseArgs struct {
-	// Category for the gallery.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     pulumi.StringPtrInput `pulumi:"category"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Order        pulumi.IntPtrInput    `pulumi:"order"`
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (WorkbookTemplateGalleryResponseArgs) ElementType() reflect.Type {
@@ -22283,27 +20255,22 @@ func (o WorkbookTemplateGalleryResponseOutput) ToWorkbookTemplateGalleryResponse
 	return o
 }
 
-// Category for the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of the workbook template in the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the template within the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Azure resource type supported by the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of workbook supported by the workbook template.
 func (o WorkbookTemplateGalleryResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -22329,10 +20296,8 @@ func (o WorkbookTemplateGalleryResponseArrayOutput) Index(i pulumi.IntInput) Wor
 }
 
 type WorkbookTemplateLocalizedGallery struct {
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGallery `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
+	Galleries    []WorkbookTemplateGallery `pulumi:"galleries"`
+	TemplateData interface{}               `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgs and WorkbookTemplateLocalizedGalleryOutput values.
@@ -22347,10 +20312,8 @@ type WorkbookTemplateLocalizedGalleryInput interface {
 }
 
 type WorkbookTemplateLocalizedGalleryArgs struct {
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryArrayInput `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input `pulumi:"templateData"`
+	Galleries    WorkbookTemplateGalleryArrayInput `pulumi:"galleries"`
+	TemplateData pulumi.Input                      `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryArgs) ElementType() reflect.Type {
@@ -22404,12 +20367,10 @@ func (o WorkbookTemplateLocalizedGalleryOutput) ToWorkbookTemplateLocalizedGalle
 	return o
 }
 
-// Workbook galleries supported by the template.
 func (o WorkbookTemplateLocalizedGalleryOutput) Galleries() WorkbookTemplateGalleryArrayOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) []WorkbookTemplateGallery { return v.Galleries }).(WorkbookTemplateGalleryArrayOutput)
 }
 
-// Valid JSON object containing workbook template payload.
 func (o WorkbookTemplateLocalizedGalleryOutput) TemplateData() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
@@ -22435,10 +20396,8 @@ func (o WorkbookTemplateLocalizedGalleryArrayOutput) Index(i pulumi.IntInput) Wo
 }
 
 type WorkbookTemplateLocalizedGalleryResponse struct {
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
+	Galleries    []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
+	TemplateData interface{}                       `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryResponseInput is an input type that accepts WorkbookTemplateLocalizedGalleryResponseArgs and WorkbookTemplateLocalizedGalleryResponseOutput values.
@@ -22453,10 +20412,8 @@ type WorkbookTemplateLocalizedGalleryResponseInput interface {
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArgs struct {
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input `pulumi:"templateData"`
+	Galleries    WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
+	TemplateData pulumi.Input                              `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryResponseArgs) ElementType() reflect.Type {
@@ -22510,12 +20467,10 @@ func (o WorkbookTemplateLocalizedGalleryResponseOutput) ToWorkbookTemplateLocali
 	return o
 }
 
-// Workbook galleries supported by the template.
 func (o WorkbookTemplateLocalizedGalleryResponseOutput) Galleries() WorkbookTemplateGalleryResponseArrayOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) []WorkbookTemplateGalleryResponse { return v.Galleries }).(WorkbookTemplateGalleryResponseArrayOutput)
 }
 
-// Valid JSON object containing workbook template payload.
 func (o WorkbookTemplateLocalizedGalleryResponseOutput) TemplateData() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
@@ -22541,12 +20496,9 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 }
 
 type WorkbookUserAssignedIdentitiesResponse struct {
-	// The client ID of resource.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of resource identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // WorkbookUserAssignedIdentitiesResponseInput is an input type that accepts WorkbookUserAssignedIdentitiesResponseArgs and WorkbookUserAssignedIdentitiesResponseOutput values.
@@ -22561,12 +20513,9 @@ type WorkbookUserAssignedIdentitiesResponseInput interface {
 }
 
 type WorkbookUserAssignedIdentitiesResponseArgs struct {
-	// The client ID of resource.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of resource identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (WorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
@@ -22646,17 +20595,14 @@ func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIden
 	}).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// The client ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of resource identity.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -22685,7 +20631,6 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() WorkbookUserAssi
 	}).(WorkbookUserAssignedIdentitiesResponseOutput)
 }
 
-// The client ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -22695,7 +20640,6 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ClientId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -22705,7 +20649,6 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {

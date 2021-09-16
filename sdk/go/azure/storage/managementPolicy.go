@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Get Storage Account ManagementPolicies operation response.
-// API Version: 2021-02-01.
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
 

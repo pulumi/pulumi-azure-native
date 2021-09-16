@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Value object for saved search results.
-// API Version: 2020-08-01.
 type SavedSearch struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload classifier operations for a data warehouse
-// API Version: 2021-03-01.
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 

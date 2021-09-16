@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-01-01.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listStorageAccountKeys", args, &rv, opts...)
@@ -18,10 +17,8 @@ func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArg
 }
 
 type ListStorageAccountKeysArgs struct {
-	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type ListStorageAccountKeysResult struct {

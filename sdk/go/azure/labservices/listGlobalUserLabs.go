@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Lists the labs owned by a user
-// API Version: 2018-10-15.
 func ListGlobalUserLabs(ctx *pulumi.Context, args *ListGlobalUserLabsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserLabsResult, error) {
 	var rv ListGlobalUserLabsResult
 	err := ctx.Invoke("azure-native:labservices:listGlobalUserLabs", args, &rv, opts...)
@@ -19,12 +17,10 @@ func ListGlobalUserLabs(ctx *pulumi.Context, args *ListGlobalUserLabsArgs, opts 
 }
 
 type ListGlobalUserLabsArgs struct {
-	// The name of the user.
 	UserName string `pulumi:"userName"`
 }
 
 // Lists the labs owned by a user
 type ListGlobalUserLabsResult struct {
-	// List of all the labs
 	Labs []LabDetailsResponse `pulumi:"labs"`
 }

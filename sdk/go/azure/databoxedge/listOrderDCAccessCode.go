@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// DC Access code in the case of Self Managed Shipping.
-// API Version: 2020-12-01.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
 	err := ctx.Invoke("azure-native:databoxedge:listOrderDCAccessCode", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs,
 }
 
 type ListOrderDCAccessCodeArgs struct {
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // DC Access code in the case of Self Managed Shipping.
 type ListOrderDCAccessCodeResult struct {
-	// DCAccess Code for the Self Managed shipment.
 	AuthCode *string `pulumi:"authCode"`
 }

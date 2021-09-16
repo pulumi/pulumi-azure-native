@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represents the access keys of SignalR service.
-// API Version: 2020-05-01.
 func ListSignalRKeys(ctx *pulumi.Context, args *ListSignalRKeysArgs, opts ...pulumi.InvokeOption) (*ListSignalRKeysResult, error) {
 	var rv ListSignalRKeysResult
 	err := ctx.Invoke("azure-native:signalrservice:listSignalRKeys", args, &rv, opts...)
@@ -19,20 +17,14 @@ func ListSignalRKeys(ctx *pulumi.Context, args *ListSignalRKeysArgs, opts ...pul
 }
 
 type ListSignalRKeysArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SignalR resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // A class represents the access keys of SignalR service.
 type ListSignalRKeysResult struct {
-	// SignalR connection string constructed via the primaryKey
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// The primary access key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// SignalR connection string constructed via the secondaryKey
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// The secondary access key.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Test Base Account resource.
-// API Version: 2020-12-16-preview.
 type TestBaseAccount struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connector resource format.
-// API Version: 2017-04-26.
 type Connector struct {
 	pulumi.CustomResourceState
 

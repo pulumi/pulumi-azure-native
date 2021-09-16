@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of hybrid runbook worker group.
-// API Version: 2021-06-22.
 type HybridRunbookWorkerGroup struct {
 	pulumi.CustomResourceState
 

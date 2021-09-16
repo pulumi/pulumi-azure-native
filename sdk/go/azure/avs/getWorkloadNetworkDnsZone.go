@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DNS Zone
-// API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkDnsZone(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsZoneArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsZoneResult, error) {
 	var rv LookupWorkloadNetworkDnsZoneResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkDnsZone", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupWorkloadNetworkDnsZone(ctx *pulumi.Context, args *LookupWorkloadNetwo
 }
 
 type LookupWorkloadNetworkDnsZoneArgs struct {
-	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
-	DnsZoneId string `pulumi:"dnsZoneId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	DnsZoneId         string `pulumi:"dnsZoneId"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NSX DNS Zone
 type LookupWorkloadNetworkDnsZoneResult struct {
-	// Display name of the DNS Zone.
-	DisplayName *string `pulumi:"displayName"`
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps []string `pulumi:"dnsServerIps"`
-	// Number of DNS Services using the DNS zone.
-	DnsServices *float64 `pulumi:"dnsServices"`
-	// Domain names of the DNS Zone.
-	Domain []string `pulumi:"domain"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Source IP of the DNS Zone.
-	SourceIp *string `pulumi:"sourceIp"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DisplayName       *string  `pulumi:"displayName"`
+	DnsServerIps      []string `pulumi:"dnsServerIps"`
+	DnsServices       *float64 `pulumi:"dnsServices"`
+	Domain            []string `pulumi:"domain"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	Revision          *float64 `pulumi:"revision"`
+	SourceIp          *string  `pulumi:"sourceIp"`
+	Type              string   `pulumi:"type"`
 }

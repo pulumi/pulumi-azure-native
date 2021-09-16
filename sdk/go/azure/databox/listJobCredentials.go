@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of unencrypted credentials for accessing device.
-// API Version: 2020-11-01.
 func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts ...pulumi.InvokeOption) (*ListJobCredentialsResult, error) {
 	var rv ListJobCredentialsResult
 	err := ctx.Invoke("azure-native:databox:listJobCredentials", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts 
 }
 
 type ListJobCredentialsArgs struct {
-	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	JobName string `pulumi:"jobName"`
-	// The Resource Group Name
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // List of unencrypted credentials for accessing device.
 type ListJobCredentialsResult struct {
-	// Link for the next set of unencrypted credentials.
-	NextLink *string `pulumi:"nextLink"`
-	// List of unencrypted credentials.
-	Value []UnencryptedCredentialsResponse `pulumi:"value"`
+	NextLink *string                          `pulumi:"nextLink"`
+	Value    []UnencryptedCredentialsResponse `pulumi:"value"`
 }

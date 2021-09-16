@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The EngagementFabric account
-// API Version: 2018-09-01-preview.
 type Account struct {
 	pulumi.CustomResourceState
 

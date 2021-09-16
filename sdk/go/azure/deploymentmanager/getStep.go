@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource representation of a rollout step.
-// API Version: 2019-11-01-preview.
 func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.InvokeOption) (*LookupStepResult, error) {
 	var rv LookupStepResult
 	err := ctx.Invoke("azure-native:deploymentmanager:getStep", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.Invoke
 }
 
 type LookupStepArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the deployment step.
-	StepName string `pulumi:"stepName"`
+	StepName          string `pulumi:"stepName"`
 }
 
 // The resource representation of a rollout step.
 type LookupStepResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties that define the step.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

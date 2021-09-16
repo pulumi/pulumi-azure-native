@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway certificate authority details.
-// API Version: 2020-12-01.
 type GatewayCertificateAuthority struct {
 	pulumi.CustomResourceState
 

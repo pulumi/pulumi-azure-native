@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure ML commitment plan resource.
-// API Version: 2016-05-01-preview.
 type CommitmentPlan struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly Secret name mapping to the any Secret or secret related information.
-// API Version: 2020-09-01.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:cdn:getSecret", args, &rv, opts...)
@@ -19,27 +17,18 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Secret under the profile.
-	SecretName string `pulumi:"secretName"`
+	SecretName        string `pulumi:"secretName"`
 }
 
 // Friendly Secret name mapping to the any Secret or secret related information.
 type LookupSecretResult struct {
-	DeploymentStatus string `pulumi:"deploymentStatus"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// object which contains secret parameters
-	Parameters interface{} `pulumi:"parameters"`
-	// Provisioning status
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DeploymentStatus  string             `pulumi:"deploymentStatus"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	Parameters        interface{}        `pulumi:"parameters"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Type              string             `pulumi:"type"`
 }

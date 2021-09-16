@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Static Site Custom Domain Overview ARM resource.
-// API Version: 2020-12-01.
 func LookupStaticSiteCustomDomain(ctx *pulumi.Context, args *LookupStaticSiteCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteCustomDomainResult, error) {
 	var rv LookupStaticSiteCustomDomainResult
 	err := ctx.Invoke("azure-native:web:getStaticSiteCustomDomain", args, &rv, opts...)
@@ -19,31 +17,20 @@ func LookupStaticSiteCustomDomain(ctx *pulumi.Context, args *LookupStaticSiteCus
 }
 
 type LookupStaticSiteCustomDomainArgs struct {
-	// The custom domain name.
-	DomainName string `pulumi:"domainName"`
-	// Name of the static site resource to search in.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	DomainName        string `pulumi:"domainName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Static Site Custom Domain Overview ARM resource.
 type LookupStaticSiteCustomDomainResult struct {
-	// The date and time on which the custom domain was created for the static site.
-	CreatedOn string `pulumi:"createdOn"`
-	// The domain name for the static site custom domain.
-	DomainName   string `pulumi:"domainName"`
-	ErrorMessage string `pulumi:"errorMessage"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The status of the custom domain
-	Status string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The TXT record validation token
-	ValidationToken string `pulumi:"validationToken"`
+	CreatedOn       string  `pulumi:"createdOn"`
+	DomainName      string  `pulumi:"domainName"`
+	ErrorMessage    string  `pulumi:"errorMessage"`
+	Id              string  `pulumi:"id"`
+	Kind            *string `pulumi:"kind"`
+	Name            string  `pulumi:"name"`
+	Status          string  `pulumi:"status"`
+	Type            string  `pulumi:"type"`
+	ValidationToken string  `pulumi:"validationToken"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a SourceControl in Azure Security Insights.
-// API Version: 2021-03-01-preview.
 type SourceControl struct {
 	pulumi.CustomResourceState
 

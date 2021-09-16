@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MEC role.
-// API Version: 2020-12-01.
 func LookupMECRole(ctx *pulumi.Context, args *LookupMECRoleArgs, opts ...pulumi.InvokeOption) (*LookupMECRoleResult, error) {
 	var rv LookupMECRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getMECRole", args, &rv, opts...)
@@ -19,29 +17,18 @@ func LookupMECRole(ctx *pulumi.Context, args *LookupMECRoleArgs, opts ...pulumi.
 }
 
 type LookupMECRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The role name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // MEC role.
 type LookupMECRoleResult struct {
-	// Activation key of the MEC.
 	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Id               string                             `pulumi:"id"`
+	Kind             string                             `pulumi:"kind"`
+	Name             string                             `pulumi:"name"`
+	RoleStatus       string                             `pulumi:"roleStatus"`
+	SystemData       SystemDataResponse                 `pulumi:"systemData"`
+	Type             string                             `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migrate Project REST Resource.
-// API Version: 2018-09-01-preview.
 func LookupMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectArgs, opts ...pulumi.InvokeOption) (*LookupMigrateProjectResult, error) {
 	var rv LookupMigrateProjectResult
 	err := ctx.Invoke("azure-native:migrate:getMigrateProject", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectArgs, o
 }
 
 type LookupMigrateProjectArgs struct {
-	// Name of the Azure Migrate project.
 	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Migrate Project REST Resource.
 type LookupMigrateProjectResult struct {
-	// Gets or sets the eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Gets the relative URL to get this migrate project.
-	Id string `pulumi:"id"`
-	// Gets or sets the Azure location in which migrate project is created.
-	Location *string `pulumi:"location"`
-	// Gets the name of the migrate project.
-	Name string `pulumi:"name"`
-	// Gets or sets the nested properties.
+	ETag       *string                          `pulumi:"eTag"`
+	Id         string                           `pulumi:"id"`
+	Location   *string                          `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties MigrateProjectPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags *MigrateProjectResponseTags `pulumi:"tags"`
-	// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
-	Type string `pulumi:"type"`
+	Tags       *MigrateProjectResponseTags      `pulumi:"tags"`
+	Type       string                           `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/Relay Connection String
-// API Version: 2017-04-01.
 func ListWCFRelayKeys(ctx *pulumi.Context, args *ListWCFRelayKeysArgs, opts ...pulumi.InvokeOption) (*ListWCFRelayKeysResult, error) {
 	var rv ListWCFRelayKeysResult
 	err := ctx.Invoke("azure-native:relay:listWCFRelayKeys", args, &rv, opts...)
@@ -19,26 +17,17 @@ func ListWCFRelayKeys(ctx *pulumi.Context, args *ListWCFRelayKeysArgs, opts ...p
 }
 
 type ListWCFRelayKeysArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The relay name.
-	RelayName string `pulumi:"relayName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	RelayName             string `pulumi:"relayName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/Relay Connection String
 type ListWCFRelayKeysResult struct {
-	// A string that describes the authorization rule.
-	KeyName *string `pulumi:"keyName"`
-	// Primary connection string of the created namespace authorization rule.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Secondary connection string of the created namespace authorization rule.
+	KeyName                   *string `pulumi:"keyName"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit secondary key for signing and validating the SAS token.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

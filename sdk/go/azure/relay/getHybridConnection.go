@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of hybrid connection resource.
-// API Version: 2017-04-01.
 func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionResult, error) {
 	var rv LookupHybridConnectionResult
 	err := ctx.Invoke("azure-native:relay:getHybridConnection", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArg
 }
 
 type LookupHybridConnectionArgs struct {
-	// The hybrid connection name.
 	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName        string `pulumi:"namespaceName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // Description of hybrid connection resource.
 type LookupHybridConnectionResult struct {
-	// The time the hybrid connection was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
-	ListenerCount int `pulumi:"listenerCount"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
-	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
-	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
+	CreatedAt                   string  `pulumi:"createdAt"`
+	Id                          string  `pulumi:"id"`
+	ListenerCount               int     `pulumi:"listenerCount"`
+	Name                        string  `pulumi:"name"`
+	RequiresClientAuthorization *bool   `pulumi:"requiresClientAuthorization"`
+	Type                        string  `pulumi:"type"`
+	UpdatedAt                   string  `pulumi:"updatedAt"`
+	UserMetadata                *string `pulumi:"userMetadata"`
 }

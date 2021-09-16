@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription feature registration details
-// API Version: 2021-07-01.
 func LookupSubscriptionFeatureRegistration(ctx *pulumi.Context, args *LookupSubscriptionFeatureRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionFeatureRegistrationResult, error) {
 	var rv LookupSubscriptionFeatureRegistrationResult
 	err := ctx.Invoke("azure-native:features:getSubscriptionFeatureRegistration", args, &rv, opts...)
@@ -19,19 +17,14 @@ func LookupSubscriptionFeatureRegistration(ctx *pulumi.Context, args *LookupSubs
 }
 
 type LookupSubscriptionFeatureRegistrationArgs struct {
-	// The feature name.
-	FeatureName string `pulumi:"featureName"`
-	// The provider namespace.
+	FeatureName       string `pulumi:"featureName"`
 	ProviderNamespace string `pulumi:"providerNamespace"`
 }
 
 // Subscription feature registration details
 type LookupSubscriptionFeatureRegistrationResult struct {
-	// Azure resource Id.
-	Id string `pulumi:"id"`
-	// Azure resource name.
+	Id         string                                            `pulumi:"id"`
 	Name       string                                            `pulumi:"name"`
 	Properties SubscriptionFeatureRegistrationResponseProperties `pulumi:"properties"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
+	Type       string                                            `pulumi:"type"`
 }

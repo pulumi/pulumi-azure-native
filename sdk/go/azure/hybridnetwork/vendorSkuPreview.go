@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription which can use a sku.
-// API Version: 2020-01-01-preview.
 type VendorSkuPreview struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the DigitalTwins service.
-// API Version: 2020-12-01.
 func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinResult, error) {
 	var rv LookupDigitalTwinResult
 	err := ctx.Invoke("azure-native:digitaltwins:getDigitalTwin", args, &rv, opts...)
@@ -19,35 +17,22 @@ func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ..
 }
 
 type LookupDigitalTwinArgs struct {
-	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DigitalTwinsInstance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The description of the DigitalTwins service.
 type LookupDigitalTwinResult struct {
-	// Time when DigitalTwinsInstance was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Api endpoint to work with DigitalTwinsInstance.
-	HostName string `pulumi:"hostName"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The managed identity for the DigitalTwinsInstance.
-	Identity *DigitalTwinsIdentityResponse `pulumi:"identity"`
-	// Time when DigitalTwinsInstance was updated.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
+	CreatedTime                string                              `pulumi:"createdTime"`
+	HostName                   string                              `pulumi:"hostName"`
+	Id                         string                              `pulumi:"id"`
+	Identity                   *DigitalTwinsIdentityResponse       `pulumi:"identity"`
+	LastUpdatedTime            string                              `pulumi:"lastUpdatedTime"`
+	Location                   string                              `pulumi:"location"`
 	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Public network access for the DigitalTwinsInstance.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
 }

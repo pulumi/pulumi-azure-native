@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Migrate Project.
-// API Version: 2019-10-01.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azure-native:migrate:getProject", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
+	ProjectName       string `pulumi:"projectName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Azure Migrate Project.
 type LookupProjectResult struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
-	Id string `pulumi:"id"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the project.
-	Name string `pulumi:"name"`
-	// Properties of the project.
+	ETag       *string                   `pulumi:"eTag"`
+	Id         string                    `pulumi:"id"`
+	Location   *string                   `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
 	Properties ProjectPropertiesResponse `pulumi:"properties"`
-	// Tags provided by Azure Tagging service.
-	Tags interface{} `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects].
-	Type string `pulumi:"type"`
+	Tags       interface{}               `pulumi:"tags"`
+	Type       string                    `pulumi:"type"`
 }

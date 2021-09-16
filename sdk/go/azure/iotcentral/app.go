@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The IoT Central application.
-// API Version: 2018-09-01.
 type App struct {
 	pulumi.CustomResourceState
 

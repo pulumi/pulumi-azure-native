@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get VirtualNetworkRules operation
-// API Version: 2018-01-01-preview.
 type NamespaceVirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

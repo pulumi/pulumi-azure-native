@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synapse Workspace Sql Pool Table data set mapping
-// API Version: 2020-09-01.
 type SynapseWorkspaceSqlPoolTableDataSetMapping struct {
 	pulumi.CustomResourceState
 

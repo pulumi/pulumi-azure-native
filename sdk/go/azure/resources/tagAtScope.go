@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Wrapper resource for tags API requests and responses.
-// API Version: 2019-10-01.
 type TagAtScope struct {
 	pulumi.CustomResourceState
 

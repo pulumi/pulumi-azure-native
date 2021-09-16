@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A virtual network rule.
-// API Version: 2017-12-01.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

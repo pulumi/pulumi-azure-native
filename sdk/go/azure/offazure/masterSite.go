@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site REST Resource.
-// API Version: 2020-07-07.
 type MasterSite struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Database, Server or Elastic Pool Advisor.
-// API Version: 2020-11-01-preview.
 func LookupServerAdvisor(ctx *pulumi.Context, args *LookupServerAdvisorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdvisorResult, error) {
 	var rv LookupServerAdvisorResult
 	err := ctx.Invoke("azure-native:sql:getServerAdvisor", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupServerAdvisor(ctx *pulumi.Context, args *LookupServerAdvisorArgs, opt
 }
 
 type LookupServerAdvisorArgs struct {
-	// The name of the Server Advisor.
-	AdvisorName string `pulumi:"advisorName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AdvisorName       string `pulumi:"advisorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Database, Server or Elastic Pool Advisor.
 type LookupServerAdvisorResult struct {
-	// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
-	AdvisorStatus string `pulumi:"advisorStatus"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus string `pulumi:"autoExecuteStatus"`
-	// Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
-	AutoExecuteStatusInheritedFrom string `pulumi:"autoExecuteStatusInheritedFrom"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource kind.
-	Kind string `pulumi:"kind"`
-	// Gets the time when the current resource was analyzed for recommendations by this advisor.
-	LastChecked string `pulumi:"lastChecked"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available),LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
-	RecommendationsStatus string `pulumi:"recommendationsStatus"`
-	// Gets the recommended actions for this advisor.
-	RecommendedActions []RecommendedActionResponse `pulumi:"recommendedActions"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AdvisorStatus                  string                      `pulumi:"advisorStatus"`
+	AutoExecuteStatus              string                      `pulumi:"autoExecuteStatus"`
+	AutoExecuteStatusInheritedFrom string                      `pulumi:"autoExecuteStatusInheritedFrom"`
+	Id                             string                      `pulumi:"id"`
+	Kind                           string                      `pulumi:"kind"`
+	LastChecked                    string                      `pulumi:"lastChecked"`
+	Location                       string                      `pulumi:"location"`
+	Name                           string                      `pulumi:"name"`
+	RecommendationsStatus          string                      `pulumi:"recommendationsStatus"`
+	RecommendedActions             []RecommendedActionResponse `pulumi:"recommendedActions"`
+	Type                           string                      `pulumi:"type"`
 }

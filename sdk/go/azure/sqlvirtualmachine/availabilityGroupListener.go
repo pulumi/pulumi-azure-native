@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL Server availability group listener.
-// API Version: 2017-03-01-preview.
 type AvailabilityGroupListener struct {
 	pulumi.CustomResourceState
 

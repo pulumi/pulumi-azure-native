@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoutePort resource definition.
-// API Version: 2020-11-01.
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
 

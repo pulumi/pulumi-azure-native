@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Administrative credentials for accessing vCenter and NSX-T
-// API Version: 2020-03-20.
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
 	err := ctx.Invoke("azure-native:avs:listPrivateCloudAdminCredentials", args, &rv, opts...)
@@ -19,20 +17,14 @@ func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateClou
 }
 
 type ListPrivateCloudAdminCredentialsArgs struct {
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Administrative credentials for accessing vCenter and NSX-T
 type ListPrivateCloudAdminCredentialsResult struct {
-	// NSX-T Manager password
-	NsxtPassword string `pulumi:"nsxtPassword"`
-	// NSX-T Manager username
-	NsxtUsername string `pulumi:"nsxtUsername"`
-	// vCenter admin password
+	NsxtPassword    string `pulumi:"nsxtPassword"`
+	NsxtUsername    string `pulumi:"nsxtUsername"`
 	VcenterPassword string `pulumi:"vcenterPassword"`
-	// vCenter admin username
 	VcenterUsername string `pulumi:"vcenterUsername"`
 }

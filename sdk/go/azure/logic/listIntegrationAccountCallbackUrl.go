@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The callback url.
-// API Version: 2019-05-01.
 func ListIntegrationAccountCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountCallbackUrlResult, error) {
 	var rv ListIntegrationAccountCallbackUrlResult
 	err := ctx.Invoke("azure-native:logic:listIntegrationAccountCallbackUrl", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListIntegrationAccountCallbackUrl(ctx *pulumi.Context, args *ListIntegratio
 }
 
 type ListIntegrationAccountCallbackUrlArgs struct {
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The key type.
-	KeyType *string `pulumi:"keyType"`
-	// The expiry time.
-	NotAfter *string `pulumi:"notAfter"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	IntegrationAccountName string  `pulumi:"integrationAccountName"`
+	KeyType                *string `pulumi:"keyType"`
+	NotAfter               *string `pulumi:"notAfter"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 }
 
 // The callback url.
 type ListIntegrationAccountCallbackUrlResult struct {
-	// The URL value.
 	Value *string `pulumi:"value"`
 }

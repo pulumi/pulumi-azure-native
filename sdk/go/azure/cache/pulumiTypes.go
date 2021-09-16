@@ -11,10 +11,8 @@ import (
 )
 
 type EnterpriseSku struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // EnterpriseSkuInput is an input type that accepts EnterpriseSkuArgs and EnterpriseSkuOutput values.
@@ -29,10 +27,8 @@ type EnterpriseSkuInput interface {
 }
 
 type EnterpriseSkuArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (EnterpriseSkuArgs) ElementType() reflect.Type {
@@ -112,12 +108,10 @@ func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.Con
 	}).(EnterpriseSkuPtrOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EnterpriseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -146,7 +140,6 @@ func (o EnterpriseSkuPtrOutput) Elem() EnterpriseSkuOutput {
 	}).(EnterpriseSkuOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSku) *int {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o EnterpriseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSku) *string {
 		if v == nil {
@@ -167,10 +159,8 @@ func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type EnterpriseSkuResponse struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // EnterpriseSkuResponseInput is an input type that accepts EnterpriseSkuResponseArgs and EnterpriseSkuResponseOutput values.
@@ -185,10 +175,8 @@ type EnterpriseSkuResponseInput interface {
 }
 
 type EnterpriseSkuResponseArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (EnterpriseSkuResponseArgs) ElementType() reflect.Type {
@@ -268,12 +256,10 @@ func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutputWithContext
 	}).(EnterpriseSkuResponsePtrOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EnterpriseSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -302,7 +288,6 @@ func (o EnterpriseSkuResponsePtrOutput) Elem() EnterpriseSkuResponseOutput {
 	}).(EnterpriseSkuResponseOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSkuResponse) *int {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o EnterpriseSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSkuResponse) *string {
 		if v == nil {
@@ -323,10 +307,8 @@ func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type Module struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
 }
 
 // ModuleInput is an input type that accepts ModuleArgs and ModuleOutput values.
@@ -341,10 +323,8 @@ type ModuleInput interface {
 }
 
 type ModuleArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ModuleArgs) ElementType() reflect.Type {
@@ -398,12 +378,10 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 func (o ModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Module) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 func (o ModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Module) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -429,12 +407,9 @@ func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 }
 
 type ModuleResponse struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
-	Args *string `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name string `pulumi:"name"`
-	// The version of the module, e.g. '1.0'.
-	Version string `pulumi:"version"`
+	Args    *string `pulumi:"args"`
+	Name    string  `pulumi:"name"`
+	Version string  `pulumi:"version"`
 }
 
 // ModuleResponseInput is an input type that accepts ModuleResponseArgs and ModuleResponseOutput values.
@@ -449,12 +424,9 @@ type ModuleResponseInput interface {
 }
 
 type ModuleResponseArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
-	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the module, e.g. '1.0'.
-	Version pulumi.StringInput `pulumi:"version"`
+	Args    pulumi.StringPtrInput `pulumi:"args"`
+	Name    pulumi.StringInput    `pulumi:"name"`
+	Version pulumi.StringInput    `pulumi:"version"`
 }
 
 func (ModuleResponseArgs) ElementType() reflect.Type {
@@ -508,17 +480,14 @@ func (o ModuleResponseOutput) ToModuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 func (o ModuleResponseOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleResponse) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 func (o ModuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the module, e.g. '1.0'.
 func (o ModuleResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -544,13 +513,9 @@ func (o ModuleResponseArrayOutput) Index(i pulumi.IntInput) ModuleResponseOutput
 }
 
 type Persistence struct {
-	// Sets whether AOF is enabled.
-	AofEnabled *bool `pulumi:"aofEnabled"`
-	// Sets the frequency at which data is written to disk.
+	AofEnabled   *bool   `pulumi:"aofEnabled"`
 	AofFrequency *string `pulumi:"aofFrequency"`
-	// Sets whether RDB is enabled.
-	RdbEnabled *bool `pulumi:"rdbEnabled"`
-	// Sets the frequency at which a snapshot of the database is created.
+	RdbEnabled   *bool   `pulumi:"rdbEnabled"`
 	RdbFrequency *string `pulumi:"rdbFrequency"`
 }
 
@@ -566,13 +531,9 @@ type PersistenceInput interface {
 }
 
 type PersistenceArgs struct {
-	// Sets whether AOF is enabled.
-	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
-	// Sets the frequency at which data is written to disk.
+	AofEnabled   pulumi.BoolPtrInput   `pulumi:"aofEnabled"`
 	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
-	// Sets whether RDB is enabled.
-	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
-	// Sets the frequency at which a snapshot of the database is created.
+	RdbEnabled   pulumi.BoolPtrInput   `pulumi:"rdbEnabled"`
 	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
 }
 
@@ -653,22 +614,18 @@ func (o PersistenceOutput) ToPersistencePtrOutputWithContext(ctx context.Context
 	}).(PersistencePtrOutput)
 }
 
-// Sets whether AOF is enabled.
 func (o PersistenceOutput) AofEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Persistence) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which data is written to disk.
 func (o PersistenceOutput) AofFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Persistence) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Sets whether RDB is enabled.
 func (o PersistenceOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Persistence) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which a snapshot of the database is created.
 func (o PersistenceOutput) RdbFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Persistence) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
 }
@@ -697,7 +654,6 @@ func (o PersistencePtrOutput) Elem() PersistenceOutput {
 	}).(PersistenceOutput)
 }
 
-// Sets whether AOF is enabled.
 func (o PersistencePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Persistence) *bool {
 		if v == nil {
@@ -707,7 +663,6 @@ func (o PersistencePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which data is written to disk.
 func (o PersistencePtrOutput) AofFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Persistence) *string {
 		if v == nil {
@@ -717,7 +672,6 @@ func (o PersistencePtrOutput) AofFrequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets whether RDB is enabled.
 func (o PersistencePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Persistence) *bool {
 		if v == nil {
@@ -727,7 +681,6 @@ func (o PersistencePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which a snapshot of the database is created.
 func (o PersistencePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Persistence) *string {
 		if v == nil {
@@ -738,13 +691,9 @@ func (o PersistencePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 }
 
 type PersistenceResponse struct {
-	// Sets whether AOF is enabled.
-	AofEnabled *bool `pulumi:"aofEnabled"`
-	// Sets the frequency at which data is written to disk.
+	AofEnabled   *bool   `pulumi:"aofEnabled"`
 	AofFrequency *string `pulumi:"aofFrequency"`
-	// Sets whether RDB is enabled.
-	RdbEnabled *bool `pulumi:"rdbEnabled"`
-	// Sets the frequency at which a snapshot of the database is created.
+	RdbEnabled   *bool   `pulumi:"rdbEnabled"`
 	RdbFrequency *string `pulumi:"rdbFrequency"`
 }
 
@@ -760,13 +709,9 @@ type PersistenceResponseInput interface {
 }
 
 type PersistenceResponseArgs struct {
-	// Sets whether AOF is enabled.
-	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
-	// Sets the frequency at which data is written to disk.
+	AofEnabled   pulumi.BoolPtrInput   `pulumi:"aofEnabled"`
 	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
-	// Sets whether RDB is enabled.
-	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
-	// Sets the frequency at which a snapshot of the database is created.
+	RdbEnabled   pulumi.BoolPtrInput   `pulumi:"rdbEnabled"`
 	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
 }
 
@@ -847,22 +792,18 @@ func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutputWithContext(ctx
 	}).(PersistenceResponsePtrOutput)
 }
 
-// Sets whether AOF is enabled.
 func (o PersistenceResponseOutput) AofEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PersistenceResponse) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which data is written to disk.
 func (o PersistenceResponseOutput) AofFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PersistenceResponse) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Sets whether RDB is enabled.
 func (o PersistenceResponseOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PersistenceResponse) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which a snapshot of the database is created.
 func (o PersistenceResponseOutput) RdbFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PersistenceResponse) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
 }
@@ -891,7 +832,6 @@ func (o PersistenceResponsePtrOutput) Elem() PersistenceResponseOutput {
 	}).(PersistenceResponseOutput)
 }
 
-// Sets whether AOF is enabled.
 func (o PersistenceResponsePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PersistenceResponse) *bool {
 		if v == nil {
@@ -901,7 +841,6 @@ func (o PersistenceResponsePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which data is written to disk.
 func (o PersistenceResponsePtrOutput) AofFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PersistenceResponse) *string {
 		if v == nil {
@@ -911,7 +850,6 @@ func (o PersistenceResponsePtrOutput) AofFrequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets whether RDB is enabled.
 func (o PersistenceResponsePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PersistenceResponse) *bool {
 		if v == nil {
@@ -921,7 +859,6 @@ func (o PersistenceResponsePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the frequency at which a snapshot of the database is created.
 func (o PersistenceResponsePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PersistenceResponse) *string {
 		if v == nil {
@@ -932,18 +869,12 @@ func (o PersistenceResponsePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -958,18 +889,12 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -1023,34 +948,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1076,7 +995,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -1092,7 +1010,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1173,7 +1090,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1202,7 +1118,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -1213,12 +1128,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -1233,12 +1145,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1318,17 +1227,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1357,7 +1263,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1367,7 +1272,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1377,7 +1281,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1388,12 +1291,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1408,12 +1308,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1493,17 +1390,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1532,7 +1426,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1542,7 +1435,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1552,7 +1444,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1563,9 +1454,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type RedisAccessKeysResponse struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
 
@@ -1581,9 +1470,7 @@ type RedisAccessKeysResponseInput interface {
 }
 
 type RedisAccessKeysResponseArgs struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   pulumi.StringInput `pulumi:"primaryKey"`
 	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 }
 
@@ -1664,12 +1551,10 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithCon
 	}).(RedisAccessKeysResponsePtrOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
@@ -1698,7 +1583,6 @@ func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
 	}).(RedisAccessKeysResponseOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -1708,7 +1592,6 @@ func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -1719,26 +1602,16 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 }
 
 type RedisCommonPropertiesRedisConfiguration struct {
-	// First storage account connection string
-	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
-	// Second storage account connection string
-	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
-	// Value in megabytes reserved for fragmentation per shard
+	AofStorageConnectionString0    *string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    *string `pulumi:"aofStorageConnectionString1"`
 	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryDelta *string `pulumi:"maxmemoryDelta"`
-	// The eviction strategy used when your data won't fit within its memory limit.
-	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryReserved *string `pulumi:"maxmemoryReserved"`
-	// Specifies whether the rdb backup is enabled
-	RdbBackupEnabled *string `pulumi:"rdbBackupEnabled"`
-	// Specifies the frequency for creating rdb backup
-	RdbBackupFrequency *string `pulumi:"rdbBackupFrequency"`
-	// Specifies the maximum number of snapshots for rdb backup
-	RdbBackupMaxSnapshotCount *string `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The storage account connection string for storing rdb file
-	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+	MaxmemoryDelta                 *string `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                *string `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              *string `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               *string `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             *string `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      *string `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     *string `pulumi:"rdbStorageConnectionString"`
 }
 
 // RedisCommonPropertiesRedisConfigurationInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs and RedisCommonPropertiesRedisConfigurationOutput values.
@@ -1753,26 +1626,16 @@ type RedisCommonPropertiesRedisConfigurationInput interface {
 }
 
 type RedisCommonPropertiesRedisConfigurationArgs struct {
-	// First storage account connection string
-	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
-	// Second storage account connection string
-	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
-	// Value in megabytes reserved for fragmentation per shard
+	AofStorageConnectionString0    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
 	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryDelta pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
-	// The eviction strategy used when your data won't fit within its memory limit.
-	MaxmemoryPolicy pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryReserved pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
-	// Specifies whether the rdb backup is enabled
-	RdbBackupEnabled pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
-	// Specifies the frequency for creating rdb backup
-	RdbBackupFrequency pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
-	// Specifies the maximum number of snapshots for rdb backup
-	RdbBackupMaxSnapshotCount pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The storage account connection string for storing rdb file
-	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+	MaxmemoryDelta                 pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 }
 
 func (RedisCommonPropertiesRedisConfigurationArgs) ElementType() reflect.Type {
@@ -1852,52 +1715,42 @@ func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRe
 	}).(RedisCommonPropertiesRedisConfigurationPtrOutput)
 }
 
-// First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
 }
 
-// Second storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for fragmentation per shard
 func (o RedisCommonPropertiesRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxfragmentationmemoryReserved }).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryDelta }).(pulumi.StringPtrOutput)
 }
 
-// The eviction strategy used when your data won't fit within its memory limit.
 func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesRedisConfigurationOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.MaxmemoryReserved }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupEnabled }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the frequency for creating rdb backup
 func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum number of snapshots for rdb backup
 func (o RedisCommonPropertiesRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbBackupMaxSnapshotCount }).(pulumi.StringPtrOutput)
 }
 
-// The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -1926,7 +1779,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Elem() RedisCommonProp
 	}).(RedisCommonPropertiesRedisConfigurationOutput)
 }
 
-// First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1936,7 +1788,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Second storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1946,7 +1797,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for fragmentation per shard
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1956,7 +1806,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Maxfragmentationmemory
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1966,7 +1815,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryDelta() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The eviction strategy used when your data won't fit within its memory limit.
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1976,7 +1824,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryPolicy() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1986,7 +1833,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) MaxmemoryReserved() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -1996,7 +1842,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupEnabled() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the frequency for creating rdb backup
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -2006,7 +1851,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupFrequency() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum number of snapshots for rdb backup
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -2016,7 +1860,6 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
 		if v == nil {
@@ -2027,28 +1870,17 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbStorageConnectionSt
 }
 
 type RedisCommonPropertiesResponseRedisConfiguration struct {
-	// First storage account connection string
-	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
-	// Second storage account connection string
-	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
-	// The max clients config
-	Maxclients string `pulumi:"maxclients"`
-	// Value in megabytes reserved for fragmentation per shard
+	AofStorageConnectionString0    *string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    *string `pulumi:"aofStorageConnectionString1"`
+	Maxclients                     string  `pulumi:"maxclients"`
 	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryDelta *string `pulumi:"maxmemoryDelta"`
-	// The eviction strategy used when your data won't fit within its memory limit.
-	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryReserved *string `pulumi:"maxmemoryReserved"`
-	// Specifies whether the rdb backup is enabled
-	RdbBackupEnabled *string `pulumi:"rdbBackupEnabled"`
-	// Specifies the frequency for creating rdb backup
-	RdbBackupFrequency *string `pulumi:"rdbBackupFrequency"`
-	// Specifies the maximum number of snapshots for rdb backup
-	RdbBackupMaxSnapshotCount *string `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The storage account connection string for storing rdb file
-	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+	MaxmemoryDelta                 *string `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                *string `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              *string `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               *string `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             *string `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      *string `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     *string `pulumi:"rdbStorageConnectionString"`
 }
 
 // RedisCommonPropertiesResponseRedisConfigurationInput is an input type that accepts RedisCommonPropertiesResponseRedisConfigurationArgs and RedisCommonPropertiesResponseRedisConfigurationOutput values.
@@ -2063,28 +1895,17 @@ type RedisCommonPropertiesResponseRedisConfigurationInput interface {
 }
 
 type RedisCommonPropertiesResponseRedisConfigurationArgs struct {
-	// First storage account connection string
-	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
-	// Second storage account connection string
-	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
-	// The max clients config
-	Maxclients pulumi.StringInput `pulumi:"maxclients"`
-	// Value in megabytes reserved for fragmentation per shard
+	AofStorageConnectionString0    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1    pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	Maxclients                     pulumi.StringInput    `pulumi:"maxclients"`
 	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryDelta pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
-	// The eviction strategy used when your data won't fit within its memory limit.
-	MaxmemoryPolicy pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
-	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
-	MaxmemoryReserved pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
-	// Specifies whether the rdb backup is enabled
-	RdbBackupEnabled pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
-	// Specifies the frequency for creating rdb backup
-	RdbBackupFrequency pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
-	// Specifies the maximum number of snapshots for rdb backup
-	RdbBackupMaxSnapshotCount pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The storage account connection string for storing rdb file
-	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+	MaxmemoryDelta                 pulumi.StringPtrInput `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy                pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved              pulumi.StringPtrInput `pulumi:"maxmemoryReserved"`
+	RdbBackupEnabled               pulumi.StringPtrInput `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency             pulumi.StringPtrInput `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount      pulumi.StringPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString     pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 }
 
 func (RedisCommonPropertiesResponseRedisConfigurationArgs) ElementType() reflect.Type {
@@ -2164,59 +1985,48 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonProp
 	}).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
 }
 
-// First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
 }
 
-// Second storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
-// The max clients config
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) Maxclients() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string { return v.Maxclients }).(pulumi.StringOutput)
 }
 
-// Value in megabytes reserved for fragmentation per shard
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string {
 		return v.MaxfragmentationmemoryReserved
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryDelta }).(pulumi.StringPtrOutput)
 }
 
-// The eviction strategy used when your data won't fit within its memory limit.
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryReserved }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupEnabled }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the frequency for creating rdb backup
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum number of snapshots for rdb backup
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupMaxSnapshotCount }).(pulumi.StringPtrOutput)
 }
 
-// The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -2245,7 +2055,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Elem() RedisCo
 	}).(RedisCommonPropertiesResponseRedisConfigurationOutput)
 }
 
-// First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2255,7 +2064,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Second storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2265,7 +2073,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The max clients config
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Maxclients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2275,7 +2082,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Maxclients() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for fragmentation per shard
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2285,7 +2091,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Maxfragmentati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2295,7 +2100,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryDelta
 	}).(pulumi.StringPtrOutput)
 }
 
-// The eviction strategy used when your data won't fit within its memory limit.
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2305,7 +2109,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryPolic
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2315,7 +2118,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryReser
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2325,7 +2127,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupEnabl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the frequency for creating rdb backup
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2335,7 +2136,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupFrequ
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum number of snapshots for rdb backup
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2345,7 +2145,6 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupMaxSn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
 		if v == nil {
@@ -2356,16 +2155,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbStorageConn
 }
 
 type RedisInstanceDetailsResponse struct {
-	// Specifies whether the instance is a master node.
-	IsMaster bool `pulumi:"isMaster"`
-	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
-	NonSslPort int `pulumi:"nonSslPort"`
-	// If clustering is enabled, the Shard ID of Redis Instance
-	ShardId int `pulumi:"shardId"`
-	// Redis instance SSL port.
-	SslPort int `pulumi:"sslPort"`
-	// If the Cache uses availability zones, specifies availability zone where this instance is located.
-	Zone string `pulumi:"zone"`
+	IsMaster   bool   `pulumi:"isMaster"`
+	NonSslPort int    `pulumi:"nonSslPort"`
+	ShardId    int    `pulumi:"shardId"`
+	SslPort    int    `pulumi:"sslPort"`
+	Zone       string `pulumi:"zone"`
 }
 
 // RedisInstanceDetailsResponseInput is an input type that accepts RedisInstanceDetailsResponseArgs and RedisInstanceDetailsResponseOutput values.
@@ -2380,16 +2174,11 @@ type RedisInstanceDetailsResponseInput interface {
 }
 
 type RedisInstanceDetailsResponseArgs struct {
-	// Specifies whether the instance is a master node.
-	IsMaster pulumi.BoolInput `pulumi:"isMaster"`
-	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
-	NonSslPort pulumi.IntInput `pulumi:"nonSslPort"`
-	// If clustering is enabled, the Shard ID of Redis Instance
-	ShardId pulumi.IntInput `pulumi:"shardId"`
-	// Redis instance SSL port.
-	SslPort pulumi.IntInput `pulumi:"sslPort"`
-	// If the Cache uses availability zones, specifies availability zone where this instance is located.
-	Zone pulumi.StringInput `pulumi:"zone"`
+	IsMaster   pulumi.BoolInput   `pulumi:"isMaster"`
+	NonSslPort pulumi.IntInput    `pulumi:"nonSslPort"`
+	ShardId    pulumi.IntInput    `pulumi:"shardId"`
+	SslPort    pulumi.IntInput    `pulumi:"sslPort"`
+	Zone       pulumi.StringInput `pulumi:"zone"`
 }
 
 func (RedisInstanceDetailsResponseArgs) ElementType() reflect.Type {
@@ -2443,27 +2232,22 @@ func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutput
 	return o
 }
 
-// Specifies whether the instance is a master node.
 func (o RedisInstanceDetailsResponseOutput) IsMaster() pulumi.BoolOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsMaster }).(pulumi.BoolOutput)
 }
 
-// If enableNonSslPort is true, provides Redis instance Non-SSL port.
 func (o RedisInstanceDetailsResponseOutput) NonSslPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.NonSslPort }).(pulumi.IntOutput)
 }
 
-// If clustering is enabled, the Shard ID of Redis Instance
 func (o RedisInstanceDetailsResponseOutput) ShardId() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.ShardId }).(pulumi.IntOutput)
 }
 
-// Redis instance SSL port.
 func (o RedisInstanceDetailsResponseOutput) SslPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.SslPort }).(pulumi.IntOutput)
 }
 
-// If the Cache uses availability zones, specifies availability zone where this instance is located.
 func (o RedisInstanceDetailsResponseOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -2489,7 +2273,6 @@ func (o RedisInstanceDetailsResponseArrayOutput) Index(i pulumi.IntInput) RedisI
 }
 
 type RedisLinkedServerResponse struct {
-	// Linked server Id.
 	Id string `pulumi:"id"`
 }
 
@@ -2505,7 +2288,6 @@ type RedisLinkedServerResponseInput interface {
 }
 
 type RedisLinkedServerResponseArgs struct {
-	// Linked server Id.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2560,7 +2342,6 @@ func (o RedisLinkedServerResponseOutput) ToRedisLinkedServerResponseOutputWithCo
 	return o
 }
 
-// Linked server Id.
 func (o RedisLinkedServerResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisLinkedServerResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2586,12 +2367,9 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 }
 
 type ScheduleEntry struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
-	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc int `pulumi:"startHourUtc"`
+	DayOfWeek         DayOfWeek `pulumi:"dayOfWeek"`
+	MaintenanceWindow *string   `pulumi:"maintenanceWindow"`
+	StartHourUtc      int       `pulumi:"startHourUtc"`
 }
 
 // ScheduleEntryInput is an input type that accepts ScheduleEntryArgs and ScheduleEntryOutput values.
@@ -2606,12 +2384,9 @@ type ScheduleEntryInput interface {
 }
 
 type ScheduleEntryArgs struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeekInput `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         DayOfWeekInput        `pulumi:"dayOfWeek"`
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
+	StartHourUtc      pulumi.IntInput       `pulumi:"startHourUtc"`
 }
 
 func (ScheduleEntryArgs) ElementType() reflect.Type {
@@ -2665,17 +2440,14 @@ func (o ScheduleEntryOutput) ToScheduleEntryOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Day of the week when a cache can be patched.
 func (o ScheduleEntryOutput) DayOfWeek() DayOfWeekOutput {
 	return o.ApplyT(func(v ScheduleEntry) DayOfWeek { return v.DayOfWeek }).(DayOfWeekOutput)
 }
 
-// ISO8601 timespan specifying how much time cache patching can take.
 func (o ScheduleEntryOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleEntry) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Start hour after which cache patching can start.
 func (o ScheduleEntryOutput) StartHourUtc() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleEntry) int { return v.StartHourUtc }).(pulumi.IntOutput)
 }
@@ -2701,12 +2473,9 @@ func (o ScheduleEntryArrayOutput) Index(i pulumi.IntInput) ScheduleEntryOutput {
 }
 
 type ScheduleEntryResponse struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek string `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         string  `pulumi:"dayOfWeek"`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc int `pulumi:"startHourUtc"`
+	StartHourUtc      int     `pulumi:"startHourUtc"`
 }
 
 // ScheduleEntryResponseInput is an input type that accepts ScheduleEntryResponseArgs and ScheduleEntryResponseOutput values.
@@ -2721,12 +2490,9 @@ type ScheduleEntryResponseInput interface {
 }
 
 type ScheduleEntryResponseArgs struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         pulumi.StringInput    `pulumi:"dayOfWeek"`
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
+	StartHourUtc      pulumi.IntInput       `pulumi:"startHourUtc"`
 }
 
 func (ScheduleEntryResponseArgs) ElementType() reflect.Type {
@@ -2780,17 +2546,14 @@ func (o ScheduleEntryResponseOutput) ToScheduleEntryResponseOutputWithContext(ct
 	return o
 }
 
-// Day of the week when a cache can be patched.
 func (o ScheduleEntryResponseOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
-// ISO8601 timespan specifying how much time cache patching can take.
 func (o ScheduleEntryResponseOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Start hour after which cache patching can start.
 func (o ScheduleEntryResponseOutput) StartHourUtc() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) int { return v.StartHourUtc }).(pulumi.IntOutput)
 }
@@ -2816,12 +2579,9 @@ func (o ScheduleEntryResponseArrayOutput) Index(i pulumi.IntInput) ScheduleEntry
 }
 
 type Sku struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2836,12 +2596,9 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2921,17 +2678,14 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2960,7 +2714,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -2970,7 +2723,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2980,7 +2732,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2991,12 +2742,9 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -3011,12 +2759,9 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -3096,17 +2841,14 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3135,7 +2877,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -3145,7 +2886,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3155,7 +2895,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

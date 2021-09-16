@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoute gateway resource.
-// API Version: 2020-11-01.
 func LookupExpressRouteGateway(ctx *pulumi.Context, args *LookupExpressRouteGatewayArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteGatewayResult, error) {
 	var rv LookupExpressRouteGatewayResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteGateway", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupExpressRouteGateway(ctx *pulumi.Context, args *LookupExpressRouteGate
 }
 
 type LookupExpressRouteGatewayArgs struct {
-	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // ExpressRoute gateway resource.
 type LookupExpressRouteGatewayResult struct {
-	// Configuration for auto scaling.
-	AutoScaleConfiguration *ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// List of ExpressRoute connections to the ExpressRoute gateway.
-	ExpressRouteConnections []ExpressRouteConnectionResponse `pulumi:"expressRouteConnections"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the express route gateway resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-	VirtualHub VirtualHubIdResponse `pulumi:"virtualHub"`
+	AutoScaleConfiguration  *ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	Etag                    string                                                       `pulumi:"etag"`
+	ExpressRouteConnections []ExpressRouteConnectionResponse                             `pulumi:"expressRouteConnections"`
+	Id                      *string                                                      `pulumi:"id"`
+	Location                *string                                                      `pulumi:"location"`
+	Name                    string                                                       `pulumi:"name"`
+	ProvisioningState       string                                                       `pulumi:"provisioningState"`
+	Tags                    map[string]string                                            `pulumi:"tags"`
+	Type                    string                                                       `pulumi:"type"`
+	VirtualHub              VirtualHubIdResponse                                         `pulumi:"virtualHub"`
 }

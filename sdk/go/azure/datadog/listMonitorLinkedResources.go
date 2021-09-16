@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list operation.
-// API Version: 2021-03-01.
 func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorLinkedResourcesResult, error) {
 	var rv ListMonitorLinkedResourcesResult
 	err := ctx.Invoke("azure-native:datadog:listMonitorLinkedResources", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedReso
 }
 
 type ListMonitorLinkedResourcesArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response of a list operation.
 type ListMonitorLinkedResourcesResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of a list operation.
-	Value []LinkedResourceResponse `pulumi:"value"`
+	NextLink *string                  `pulumi:"nextLink"`
+	Value    []LinkedResourceResponse `pulumi:"value"`
 }

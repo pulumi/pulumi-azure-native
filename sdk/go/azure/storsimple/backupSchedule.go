@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The backup schedule.
-// API Version: 2017-06-01.
 type BackupSchedule struct {
 	pulumi.CustomResourceState
 

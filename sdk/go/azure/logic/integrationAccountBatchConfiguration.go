@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The batch configuration resource definition.
-// API Version: 2019-05-01.
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState
 

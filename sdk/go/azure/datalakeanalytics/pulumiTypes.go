@@ -11,9 +11,7 @@ import (
 )
 
 type AddDataLakeStoreWithAccountParameters struct {
-	// The unique name of the Data Lake Store account to add.
-	Name string `pulumi:"name"`
-	// The optional suffix for the Data Lake Store account.
+	Name   string  `pulumi:"name"`
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -29,9 +27,7 @@ type AddDataLakeStoreWithAccountParametersInput interface {
 }
 
 type AddDataLakeStoreWithAccountParametersArgs struct {
-	// The unique name of the Data Lake Store account to add.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the Data Lake Store account.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -86,12 +82,10 @@ func (o AddDataLakeStoreWithAccountParametersOutput) ToAddDataLakeStoreWithAccou
 	return o
 }
 
-// The unique name of the Data Lake Store account to add.
 func (o AddDataLakeStoreWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The optional suffix for the Data Lake Store account.
 func (o AddDataLakeStoreWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -117,12 +111,9 @@ func (o AddDataLakeStoreWithAccountParametersArrayOutput) Index(i pulumi.IntInpu
 }
 
 type AddStorageAccountWithAccountParameters struct {
-	// The access key associated with this Azure Storage account that will be used to connect to it.
-	AccessKey string `pulumi:"accessKey"`
-	// The unique name of the Azure Storage account to add.
-	Name string `pulumi:"name"`
-	// The optional suffix for the storage account.
-	Suffix *string `pulumi:"suffix"`
+	AccessKey string  `pulumi:"accessKey"`
+	Name      string  `pulumi:"name"`
+	Suffix    *string `pulumi:"suffix"`
 }
 
 // AddStorageAccountWithAccountParametersInput is an input type that accepts AddStorageAccountWithAccountParametersArgs and AddStorageAccountWithAccountParametersOutput values.
@@ -137,12 +128,9 @@ type AddStorageAccountWithAccountParametersInput interface {
 }
 
 type AddStorageAccountWithAccountParametersArgs struct {
-	// The access key associated with this Azure Storage account that will be used to connect to it.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The unique name of the Azure Storage account to add.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the storage account.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+	AccessKey pulumi.StringInput    `pulumi:"accessKey"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Suffix    pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
 func (AddStorageAccountWithAccountParametersArgs) ElementType() reflect.Type {
@@ -196,17 +184,14 @@ func (o AddStorageAccountWithAccountParametersOutput) ToAddStorageAccountWithAcc
 	return o
 }
 
-// The access key associated with this Azure Storage account that will be used to connect to it.
 func (o AddStorageAccountWithAccountParametersOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The unique name of the Azure Storage account to add.
 func (o AddStorageAccountWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The optional suffix for the storage account.
 func (o AddStorageAccountWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -232,20 +217,13 @@ func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInp
 }
 
 type ComputePolicyResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Id                           string `pulumi:"id"`
+	MaxDegreeOfParallelismPerJob int    `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            int    `pulumi:"minPriorityPerJob"`
+	Name                         string `pulumi:"name"`
+	ObjectId                     string `pulumi:"objectId"`
+	ObjectType                   string `pulumi:"objectType"`
+	Type                         string `pulumi:"type"`
 }
 
 // ComputePolicyResponseInput is an input type that accepts ComputePolicyResponseArgs and ComputePolicyResponseOutput values.
@@ -260,20 +238,13 @@ type ComputePolicyResponseInput interface {
 }
 
 type ComputePolicyResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id                           pulumi.StringInput `pulumi:"id"`
+	MaxDegreeOfParallelismPerJob pulumi.IntInput    `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            pulumi.IntInput    `pulumi:"minPriorityPerJob"`
+	Name                         pulumi.StringInput `pulumi:"name"`
+	ObjectId                     pulumi.StringInput `pulumi:"objectId"`
+	ObjectType                   pulumi.StringInput `pulumi:"objectType"`
+	Type                         pulumi.StringInput `pulumi:"type"`
 }
 
 func (ComputePolicyResponseArgs) ElementType() reflect.Type {
@@ -327,37 +298,30 @@ func (o ComputePolicyResponseOutput) ToComputePolicyResponseOutputWithContext(ct
 	return o
 }
 
-// The resource identifier.
 func (o ComputePolicyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The maximum degree of parallelism per job this user can use to submit jobs.
 func (o ComputePolicyResponseOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
 }
 
-// The minimum priority per job this user can use to submit jobs.
 func (o ComputePolicyResponseOutput) MinPriorityPerJob() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
 }
 
-// The resource name.
 func (o ComputePolicyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AAD object identifier for the entity to create a policy for.
 func (o ComputePolicyResponseOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The type of AAD object the object identifier refers to.
 func (o ComputePolicyResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o ComputePolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -383,16 +347,11 @@ func (o ComputePolicyResponseArrayOutput) Index(i pulumi.IntInput) ComputePolicy
 }
 
 type CreateComputePolicyWithAccountParameters struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The unique name of the compute policy to create.
-	Name string `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
+	MaxDegreeOfParallelismPerJob *int   `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            *int   `pulumi:"minPriorityPerJob"`
+	Name                         string `pulumi:"name"`
+	ObjectId                     string `pulumi:"objectId"`
+	ObjectType                   string `pulumi:"objectType"`
 }
 
 // CreateComputePolicyWithAccountParametersInput is an input type that accepts CreateComputePolicyWithAccountParametersArgs and CreateComputePolicyWithAccountParametersOutput values.
@@ -407,16 +366,11 @@ type CreateComputePolicyWithAccountParametersInput interface {
 }
 
 type CreateComputePolicyWithAccountParametersArgs struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob pulumi.IntPtrInput `pulumi:"minPriorityPerJob"`
-	// The unique name of the compute policy to create.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
+	MinPriorityPerJob            pulumi.IntPtrInput `pulumi:"minPriorityPerJob"`
+	Name                         pulumi.StringInput `pulumi:"name"`
+	ObjectId                     pulumi.StringInput `pulumi:"objectId"`
+	ObjectType                   pulumi.StringInput `pulumi:"objectType"`
 }
 
 func (CreateComputePolicyWithAccountParametersArgs) ElementType() reflect.Type {
@@ -470,27 +424,22 @@ func (o CreateComputePolicyWithAccountParametersOutput) ToCreateComputePolicyWit
 	return o
 }
 
-// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 func (o CreateComputePolicyWithAccountParametersOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
 }
 
-// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
 func (o CreateComputePolicyWithAccountParametersOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MinPriorityPerJob }).(pulumi.IntPtrOutput)
 }
 
-// The unique name of the compute policy to create.
 func (o CreateComputePolicyWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AAD object identifier for the entity to create a policy for.
 func (o CreateComputePolicyWithAccountParametersOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The type of AAD object the object identifier refers to.
 func (o CreateComputePolicyWithAccountParametersOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectType }).(pulumi.StringOutput)
 }
@@ -516,11 +465,8 @@ func (o CreateComputePolicyWithAccountParametersArrayOutput) Index(i pulumi.IntI
 }
 
 type CreateFirewallRuleWithAccountParameters struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The unique name of the firewall rule to create.
-	Name string `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   string `pulumi:"endIpAddress"`
+	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
@@ -536,11 +482,8 @@ type CreateFirewallRuleWithAccountParametersInput interface {
 }
 
 type CreateFirewallRuleWithAccountParametersArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The unique name of the firewall rule to create.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   pulumi.StringInput `pulumi:"endIpAddress"`
+	Name           pulumi.StringInput `pulumi:"name"`
 	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
@@ -595,17 +538,14 @@ func (o CreateFirewallRuleWithAccountParametersOutput) ToCreateFirewallRuleWithA
 	return o
 }
 
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 func (o CreateFirewallRuleWithAccountParametersOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.EndIpAddress }).(pulumi.StringOutput)
 }
 
-// The unique name of the firewall rule to create.
 func (o CreateFirewallRuleWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 func (o CreateFirewallRuleWithAccountParametersOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
@@ -631,14 +571,10 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 }
 
 type DataLakeStoreAccountInformationResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The optional suffix for the Data Lake Store account.
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
 	Suffix string `pulumi:"suffix"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 // DataLakeStoreAccountInformationResponseInput is an input type that accepts DataLakeStoreAccountInformationResponseArgs and DataLakeStoreAccountInformationResponseOutput values.
@@ -653,14 +589,10 @@ type DataLakeStoreAccountInformationResponseInput interface {
 }
 
 type DataLakeStoreAccountInformationResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the Data Lake Store account.
+	Id     pulumi.StringInput `pulumi:"id"`
+	Name   pulumi.StringInput `pulumi:"name"`
 	Suffix pulumi.StringInput `pulumi:"suffix"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput `pulumi:"type"`
 }
 
 func (DataLakeStoreAccountInformationResponseArgs) ElementType() reflect.Type {
@@ -714,22 +646,18 @@ func (o DataLakeStoreAccountInformationResponseOutput) ToDataLakeStoreAccountInf
 	return o
 }
 
-// The resource identifier.
 func (o DataLakeStoreAccountInformationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o DataLakeStoreAccountInformationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The optional suffix for the Data Lake Store account.
 func (o DataLakeStoreAccountInformationResponseOutput) Suffix() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Suffix }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o DataLakeStoreAccountInformationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -755,16 +683,11 @@ func (o DataLakeStoreAccountInformationResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type FirewallRuleResponse struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   string `pulumi:"endIpAddress"`
+	Id             string `pulumi:"id"`
+	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }
 
 // FirewallRuleResponseInput is an input type that accepts FirewallRuleResponseArgs and FirewallRuleResponseOutput values.
@@ -779,16 +702,11 @@ type FirewallRuleResponseInput interface {
 }
 
 type FirewallRuleResponseArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   pulumi.StringInput `pulumi:"endIpAddress"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	Name           pulumi.StringInput `pulumi:"name"`
 	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput `pulumi:"type"`
 }
 
 func (FirewallRuleResponseArgs) ElementType() reflect.Type {
@@ -842,27 +760,22 @@ func (o FirewallRuleResponseOutput) ToFirewallRuleResponseOutputWithContext(ctx 
 	return o
 }
 
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 func (o FirewallRuleResponseOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
 }
 
-// The resource identifier.
 func (o FirewallRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o FirewallRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 func (o FirewallRuleResponseOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o FirewallRuleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -888,24 +801,15 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 }
 
 type HiveMetastoreResponse struct {
-	// The databaseName for the Hive MetaStore
-	DatabaseName string `pulumi:"databaseName"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The current state of the NestedResource
+	DatabaseName                    string `pulumi:"databaseName"`
+	Id                              string `pulumi:"id"`
+	Name                            string `pulumi:"name"`
 	NestedResourceProvisioningState string `pulumi:"nestedResourceProvisioningState"`
-	// The password for the Hive MetaStore
-	Password string `pulumi:"password"`
-	// The runtimeVersion for the Hive MetaStore
-	RuntimeVersion string `pulumi:"runtimeVersion"`
-	// The serverUri for the Hive MetaStore
-	ServerUri string `pulumi:"serverUri"`
-	// The resource type.
-	Type string `pulumi:"type"`
-	// The userName for the Hive MetaStore
-	UserName string `pulumi:"userName"`
+	Password                        string `pulumi:"password"`
+	RuntimeVersion                  string `pulumi:"runtimeVersion"`
+	ServerUri                       string `pulumi:"serverUri"`
+	Type                            string `pulumi:"type"`
+	UserName                        string `pulumi:"userName"`
 }
 
 // HiveMetastoreResponseInput is an input type that accepts HiveMetastoreResponseArgs and HiveMetastoreResponseOutput values.
@@ -920,24 +824,15 @@ type HiveMetastoreResponseInput interface {
 }
 
 type HiveMetastoreResponseArgs struct {
-	// The databaseName for the Hive MetaStore
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The current state of the NestedResource
+	DatabaseName                    pulumi.StringInput `pulumi:"databaseName"`
+	Id                              pulumi.StringInput `pulumi:"id"`
+	Name                            pulumi.StringInput `pulumi:"name"`
 	NestedResourceProvisioningState pulumi.StringInput `pulumi:"nestedResourceProvisioningState"`
-	// The password for the Hive MetaStore
-	Password pulumi.StringInput `pulumi:"password"`
-	// The runtimeVersion for the Hive MetaStore
-	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
-	// The serverUri for the Hive MetaStore
-	ServerUri pulumi.StringInput `pulumi:"serverUri"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The userName for the Hive MetaStore
-	UserName pulumi.StringInput `pulumi:"userName"`
+	Password                        pulumi.StringInput `pulumi:"password"`
+	RuntimeVersion                  pulumi.StringInput `pulumi:"runtimeVersion"`
+	ServerUri                       pulumi.StringInput `pulumi:"serverUri"`
+	Type                            pulumi.StringInput `pulumi:"type"`
+	UserName                        pulumi.StringInput `pulumi:"userName"`
 }
 
 func (HiveMetastoreResponseArgs) ElementType() reflect.Type {
@@ -991,47 +886,38 @@ func (o HiveMetastoreResponseOutput) ToHiveMetastoreResponseOutputWithContext(ct
 	return o
 }
 
-// The databaseName for the Hive MetaStore
 func (o HiveMetastoreResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The resource identifier.
 func (o HiveMetastoreResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o HiveMetastoreResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The current state of the NestedResource
 func (o HiveMetastoreResponseOutput) NestedResourceProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.NestedResourceProvisioningState }).(pulumi.StringOutput)
 }
 
-// The password for the Hive MetaStore
 func (o HiveMetastoreResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The runtimeVersion for the Hive MetaStore
 func (o HiveMetastoreResponseOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
 
-// The serverUri for the Hive MetaStore
 func (o HiveMetastoreResponseOutput) ServerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.ServerUri }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o HiveMetastoreResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The userName for the Hive MetaStore
 func (o HiveMetastoreResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -1057,7 +943,6 @@ func (o HiveMetastoreResponseArrayOutput) Index(i pulumi.IntInput) HiveMetastore
 }
 
 type SasTokenInformationResponse struct {
-	// The access token for the associated Azure Storage Container.
 	AccessToken string `pulumi:"accessToken"`
 }
 
@@ -1073,7 +958,6 @@ type SasTokenInformationResponseInput interface {
 }
 
 type SasTokenInformationResponseArgs struct {
-	// The access token for the associated Azure Storage Container.
 	AccessToken pulumi.StringInput `pulumi:"accessToken"`
 }
 
@@ -1128,7 +1012,6 @@ func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWi
 	return o
 }
 
-// The access token for the associated Azure Storage Container.
 func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
 }
@@ -1154,14 +1037,10 @@ func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasToke
 }
 
 type StorageAccountInformationResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The optional suffix for the storage account.
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
 	Suffix string `pulumi:"suffix"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 // StorageAccountInformationResponseInput is an input type that accepts StorageAccountInformationResponseArgs and StorageAccountInformationResponseOutput values.
@@ -1176,14 +1055,10 @@ type StorageAccountInformationResponseInput interface {
 }
 
 type StorageAccountInformationResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the storage account.
+	Id     pulumi.StringInput `pulumi:"id"`
+	Name   pulumi.StringInput `pulumi:"name"`
 	Suffix pulumi.StringInput `pulumi:"suffix"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput `pulumi:"type"`
 }
 
 func (StorageAccountInformationResponseArgs) ElementType() reflect.Type {
@@ -1237,22 +1112,18 @@ func (o StorageAccountInformationResponseOutput) ToStorageAccountInformationResp
 	return o
 }
 
-// The resource identifier.
 func (o StorageAccountInformationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o StorageAccountInformationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The optional suffix for the storage account.
 func (o StorageAccountInformationResponseOutput) Suffix() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Suffix }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o StorageAccountInformationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1278,15 +1149,10 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type VirtualNetworkRuleResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource identifier for the subnet
-	SubnetId string `pulumi:"subnetId"`
-	// The resource type.
-	Type string `pulumi:"type"`
-	// The current state of the VirtualNetwork Rule
+	Id                      string `pulumi:"id"`
+	Name                    string `pulumi:"name"`
+	SubnetId                string `pulumi:"subnetId"`
+	Type                    string `pulumi:"type"`
 	VirtualNetworkRuleState string `pulumi:"virtualNetworkRuleState"`
 }
 
@@ -1302,15 +1168,10 @@ type VirtualNetworkRuleResponseInput interface {
 }
 
 type VirtualNetworkRuleResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource identifier for the subnet
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The current state of the VirtualNetwork Rule
+	Id                      pulumi.StringInput `pulumi:"id"`
+	Name                    pulumi.StringInput `pulumi:"name"`
+	SubnetId                pulumi.StringInput `pulumi:"subnetId"`
+	Type                    pulumi.StringInput `pulumi:"type"`
 	VirtualNetworkRuleState pulumi.StringInput `pulumi:"virtualNetworkRuleState"`
 }
 
@@ -1365,27 +1226,22 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// The resource identifier.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o VirtualNetworkRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource identifier for the subnet
 func (o VirtualNetworkRuleResponseOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o VirtualNetworkRuleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The current state of the VirtualNetwork Rule
 func (o VirtualNetworkRuleResponseOutput) VirtualNetworkRuleState() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkRuleState }).(pulumi.StringOutput)
 }

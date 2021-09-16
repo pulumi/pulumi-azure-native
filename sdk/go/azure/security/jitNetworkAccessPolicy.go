@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-01-01.
 type JitNetworkAccessPolicy struct {
 	pulumi.CustomResourceState
 

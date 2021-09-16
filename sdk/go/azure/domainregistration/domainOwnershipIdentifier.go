@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain ownership Identifier.
-// API Version: 2020-10-01.
 type DomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 

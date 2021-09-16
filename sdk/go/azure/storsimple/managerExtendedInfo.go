@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The extended info of the manager.
-// API Version: 2017-06-01.
 type ManagerExtendedInfo struct {
 	pulumi.CustomResourceState
 

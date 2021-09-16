@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines an Network Experiment Profile and lists of Experiments
-// API Version: 2019-11-01.
 type NetworkExperimentProfile struct {
 	pulumi.CustomResourceState
 

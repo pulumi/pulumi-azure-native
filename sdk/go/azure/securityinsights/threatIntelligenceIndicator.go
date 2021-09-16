@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Threat intelligence information object.
-// API Version: 2019-01-01-preview.
 type ThreatIntelligenceIndicator struct {
 	pulumi.CustomResourceState
 

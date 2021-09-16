@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ApiRelease details.
-// API Version: 2020-12-01.
 func LookupApiRelease(ctx *pulumi.Context, args *LookupApiReleaseArgs, opts ...pulumi.InvokeOption) (*LookupApiReleaseResult, error) {
 	var rv LookupApiReleaseResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiRelease", args, &rv, opts...)
@@ -19,30 +17,19 @@ func LookupApiRelease(ctx *pulumi.Context, args *LookupApiReleaseArgs, opts ...p
 }
 
 type LookupApiReleaseArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Release identifier within an API. Must be unique in the current API Management service instance.
-	ReleaseId string `pulumi:"releaseId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
+	ReleaseId         string `pulumi:"releaseId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // ApiRelease details.
 type LookupApiReleaseResult struct {
-	// Identifier of the API the release belongs to.
-	ApiId *string `pulumi:"apiId"`
-	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
-	CreatedDateTime string `pulumi:"createdDateTime"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Release Notes
-	Notes *string `pulumi:"notes"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// The time the API release was updated.
-	UpdatedDateTime string `pulumi:"updatedDateTime"`
+	ApiId           *string `pulumi:"apiId"`
+	CreatedDateTime string  `pulumi:"createdDateTime"`
+	Id              string  `pulumi:"id"`
+	Name            string  `pulumi:"name"`
+	Notes           *string `pulumi:"notes"`
+	Type            string  `pulumi:"type"`
+	UpdatedDateTime string  `pulumi:"updatedDateTime"`
 }

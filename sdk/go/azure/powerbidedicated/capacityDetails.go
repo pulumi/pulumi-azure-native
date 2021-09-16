@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a Dedicated Capacity resource.
-// API Version: 2021-01-01.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The KPI resource format.
-// API Version: 2017-04-26.
 type Kpi struct {
 	pulumi.CustomResourceState
 

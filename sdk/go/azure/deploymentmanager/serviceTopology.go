@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource representation of a service topology.
-// API Version: 2019-11-01-preview.
 type ServiceTopology struct {
 	pulumi.CustomResourceState
 

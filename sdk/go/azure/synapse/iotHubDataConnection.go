@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an iot hub data connection.
-// API Version: 2021-04-01-preview.
 type IotHubDataConnection struct {
 	pulumi.CustomResourceState
 

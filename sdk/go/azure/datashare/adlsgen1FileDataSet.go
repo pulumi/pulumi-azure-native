@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen 1 file data set.
-// API Version: 2020-09-01.
 type ADLSGen1FileDataSet struct {
 	pulumi.CustomResourceState
 

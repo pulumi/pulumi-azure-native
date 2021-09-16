@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the provisioning service.
-// API Version: 2020-03-01.
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 

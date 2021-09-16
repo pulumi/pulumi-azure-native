@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Topic
-// API Version: 2020-06-01.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getTopic", args, &rv, opts...)
@@ -19,40 +17,24 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the topic.
-	TopicName string `pulumi:"topicName"`
+	TopicName         string `pulumi:"topicName"`
 }
 
 // EventGrid Topic
 type LookupTopicResult struct {
-	// Endpoint for the topic.
-	Endpoint string `pulumi:"endpoint"`
-	// Fully qualified identifier of the resource.
-	Id string `pulumi:"id"`
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
-	// This determines the format that Event Grid should expect for incoming events published to the topic.
-	InputSchema *string `pulumi:"inputSchema"`
-	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Metric resource id for the topic.
-	MetricResourceId string `pulumi:"metricResourceId"`
-	// Name of the resource.
+	Endpoint                   string                              `pulumi:"endpoint"`
+	Id                         string                              `pulumi:"id"`
+	InboundIpRules             []InboundIpRuleResponse             `pulumi:"inboundIpRules"`
+	InputSchema                *string                             `pulumi:"inputSchema"`
+	InputSchemaMapping         *JsonInputSchemaMappingResponse     `pulumi:"inputSchemaMapping"`
+	Location                   string                              `pulumi:"location"`
+	MetricResourceId           string                              `pulumi:"metricResourceId"`
 	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the topic.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The system metadata relating to Topic resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
+	SystemData                 SystemDataResponse                  `pulumi:"systemData"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
 }

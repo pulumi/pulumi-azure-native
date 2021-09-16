@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An export resource.
-// API Version: 2020-06-01.
 type Export struct {
 	pulumi.CustomResourceState
 

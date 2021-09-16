@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto kusto pool.
-// API Version: 2021-04-01-preview.
 type KustoPool struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information.
-// API Version: 2020-11-01.
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 

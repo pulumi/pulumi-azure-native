@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tag Contract details.
-// API Version: 2020-12-01.
 func LookupTagByProduct(ctx *pulumi.Context, args *LookupTagByProductArgs, opts ...pulumi.InvokeOption) (*LookupTagByProductResult, error) {
 	var rv LookupTagByProductResult
 	err := ctx.Invoke("azure-native:apimanagement:getTagByProduct", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupTagByProduct(ctx *pulumi.Context, args *LookupTagByProductArgs, opts 
 }
 
 type LookupTagByProductArgs struct {
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
+	ProductId         string `pulumi:"productId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId string `pulumi:"tagId"`
+	ServiceName       string `pulumi:"serviceName"`
+	TagId             string `pulumi:"tagId"`
 }
 
 // Tag Contract details.
 type LookupTagByProductResult struct {
-	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Type        string `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Template Spec Version object.
-// API Version: 2021-05-01.
 type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 

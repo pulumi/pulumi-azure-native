@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configures where to store the OMS agent data for workspaces under a scope
-// API Version: 2017-08-01-preview.
 type WorkspaceSetting struct {
 	pulumi.CustomResourceState
 

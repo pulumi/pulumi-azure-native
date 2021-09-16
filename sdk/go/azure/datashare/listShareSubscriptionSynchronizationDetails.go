@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// details of synchronization
-// API Version: 2020-09-01.
 func ListShareSubscriptionSynchronizationDetails(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationDetailsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationDetailsResult, error) {
 	var rv ListShareSubscriptionSynchronizationDetailsResult
 	err := ctx.Invoke("azure-native:datashare:listShareSubscriptionSynchronizationDetails", args, &rv, opts...)
@@ -19,26 +17,17 @@ func ListShareSubscriptionSynchronizationDetails(ctx *pulumi.Context, args *List
 }
 
 type ListShareSubscriptionSynchronizationDetailsArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Filters the results using OData syntax.
-	Filter *string `pulumi:"filter"`
-	// Sorts the results using OData syntax.
-	Orderby *string `pulumi:"orderby"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Continuation token
-	SkipToken *string `pulumi:"skipToken"`
-	// Synchronization id
-	SynchronizationId string `pulumi:"synchronizationId"`
+	AccountName           string  `pulumi:"accountName"`
+	Filter                *string `pulumi:"filter"`
+	Orderby               *string `pulumi:"orderby"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SkipToken             *string `pulumi:"skipToken"`
+	SynchronizationId     string  `pulumi:"synchronizationId"`
 }
 
 // details of synchronization
 type ListShareSubscriptionSynchronizationDetailsResult struct {
-	// The Url of next result page.
-	NextLink *string `pulumi:"nextLink"`
-	// Collection of items of type DataTransferObjects.
-	Value []SynchronizationDetailsResponse `pulumi:"value"`
+	NextLink *string                          `pulumi:"nextLink"`
+	Value    []SynchronizationDetailsResponse `pulumi:"value"`
 }

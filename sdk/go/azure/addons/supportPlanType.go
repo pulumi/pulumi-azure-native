@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The status of the Canonical support plan.
-// API Version: 2018-03-01.
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 

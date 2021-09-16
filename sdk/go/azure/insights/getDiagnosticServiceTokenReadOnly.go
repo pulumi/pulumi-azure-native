@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to a diagnostic services token query.
-// API Version: 2021-03-03-preview.
 func GetDiagnosticServiceTokenReadOnly(ctx *pulumi.Context, args *GetDiagnosticServiceTokenReadOnlyArgs, opts ...pulumi.InvokeOption) (*GetDiagnosticServiceTokenReadOnlyResult, error) {
 	var rv GetDiagnosticServiceTokenReadOnlyResult
 	err := ctx.Invoke("azure-native:insights:getDiagnosticServiceTokenReadOnly", args, &rv, opts...)
@@ -19,12 +17,10 @@ func GetDiagnosticServiceTokenReadOnly(ctx *pulumi.Context, args *GetDiagnosticS
 }
 
 type GetDiagnosticServiceTokenReadOnlyArgs struct {
-	// The identifier of the resource.
 	ResourceUri string `pulumi:"resourceUri"`
 }
 
 // The response to a diagnostic services token query.
 type GetDiagnosticServiceTokenReadOnlyResult struct {
-	// JWT token for accessing application insights diagnostic service data.
 	Token *string `pulumi:"token"`
 }

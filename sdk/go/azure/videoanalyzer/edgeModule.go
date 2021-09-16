@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of an edge module.
-// API Version: 2021-05-01-preview.
 type EdgeModule struct {
 	pulumi.CustomResourceState
 

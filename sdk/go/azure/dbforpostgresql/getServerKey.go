@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A PostgreSQL Server key.
-// API Version: 2020-01-01.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
 	err := ctx.Invoke("azure-native:dbforpostgresql:getServerKey", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pul
 }
 
 type LookupServerKeyArgs struct {
-	// The name of the PostgreSQL Server key to be retrieved.
-	KeyName string `pulumi:"keyName"`
-	// The name of the resource group. The name is case insensitive.
+	KeyName           string `pulumi:"keyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // A PostgreSQL Server key.
 type LookupServerKeyResult struct {
-	// The key creation date.
-	CreationDate string `pulumi:"creationDate"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Kind of encryption protector used to protect the key.
-	Kind string `pulumi:"kind"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The URI of the key.
-	Uri *string `pulumi:"uri"`
+	CreationDate  string  `pulumi:"creationDate"`
+	Id            string  `pulumi:"id"`
+	Kind          string  `pulumi:"kind"`
+	Name          string  `pulumi:"name"`
+	ServerKeyType string  `pulumi:"serverKeyType"`
+	Type          string  `pulumi:"type"`
+	Uri           *string `pulumi:"uri"`
 }

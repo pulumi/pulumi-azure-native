@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// maintenance configuration.
-// API Version: 2021-03-01.
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
 	err := ctx.Invoke("azure-native:containerservice:getMaintenanceConfiguration", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenance
 }
 
 type LookupMaintenanceConfigurationArgs struct {
-	// The name of the maintenance configuration.
-	ConfigName string `pulumi:"configName"`
-	// The name of the resource group.
+	ConfigName        string `pulumi:"configName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // maintenance configuration.
 type LookupMaintenanceConfigurationResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name string `pulumi:"name"`
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime []TimeSpanResponse `pulumi:"notAllowedTime"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Weekday time slots allowed to upgrade.
-	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id             string               `pulumi:"id"`
+	Name           string               `pulumi:"name"`
+	NotAllowedTime []TimeSpanResponse   `pulumi:"notAllowedTime"`
+	SystemData     SystemDataResponse   `pulumi:"systemData"`
+	TimeInWeek     []TimeInWeekResponse `pulumi:"timeInWeek"`
+	Type           string               `pulumi:"type"`
 }

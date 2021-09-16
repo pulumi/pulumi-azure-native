@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-// API Version: 2020-12-01.
 type WebAppHybridConnectionSlot struct {
 	pulumi.CustomResourceState
 

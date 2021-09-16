@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an image from the Azure Marketplace
-// API Version: 2018-10-15.
 type GalleryImage struct {
 	pulumi.CustomResourceState
 

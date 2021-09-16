@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Virtual Machine run command.
-// API Version: 2021-03-01.
 type VirtualMachineScaleSetVMRunCommand struct {
 	pulumi.CustomResourceState
 

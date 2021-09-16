@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Function secrets.
-// API Version: 2020-12-01.
 func ListWebAppSyncFunctionTriggers(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersResult, error) {
 	var rv ListWebAppSyncFunctionTriggersResult
 	err := ctx.Invoke("azure-native:web:listWebAppSyncFunctionTriggers", args, &rv, opts...)
@@ -19,16 +17,12 @@ func ListWebAppSyncFunctionTriggers(ctx *pulumi.Context, args *ListWebAppSyncFun
 }
 
 type ListWebAppSyncFunctionTriggersArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Function secrets.
 type ListWebAppSyncFunctionTriggersResult struct {
-	// Secret key.
-	Key *string `pulumi:"key"`
-	// Trigger URL.
+	Key        *string `pulumi:"key"`
 	TriggerUrl *string `pulumi:"triggerUrl"`
 }

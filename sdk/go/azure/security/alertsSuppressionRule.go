@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the suppression rule
-// API Version: 2019-01-01-preview.
 type AlertsSuppressionRule struct {
 	pulumi.CustomResourceState
 

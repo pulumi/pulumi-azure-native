@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL virtual machine group.
-// API Version: 2017-03-01-preview.
 func LookupSqlVirtualMachineGroup(ctx *pulumi.Context, args *LookupSqlVirtualMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineGroupResult, error) {
 	var rv LookupSqlVirtualMachineGroupResult
 	err := ctx.Invoke("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args, &rv, opts...)
@@ -19,36 +17,22 @@ func LookupSqlVirtualMachineGroup(ctx *pulumi.Context, args *LookupSqlVirtualMac
 }
 
 type LookupSqlVirtualMachineGroupArgs struct {
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL virtual machine group.
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	SqlVirtualMachineGroupName string `pulumi:"sqlVirtualMachineGroupName"`
 }
 
 // A SQL virtual machine group.
 type LookupSqlVirtualMachineGroupResult struct {
-	// Cluster type.
-	ClusterConfiguration string `pulumi:"clusterConfiguration"`
-	// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
-	ClusterManagerType string `pulumi:"clusterManagerType"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Scale type.
-	ScaleType string `pulumi:"scaleType"`
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer *string `pulumi:"sqlImageOffer"`
-	// SQL image sku.
-	SqlImageSku *string `pulumi:"sqlImageSku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile *WsfcDomainProfileResponse `pulumi:"wsfcDomainProfile"`
+	ClusterConfiguration string                     `pulumi:"clusterConfiguration"`
+	ClusterManagerType   string                     `pulumi:"clusterManagerType"`
+	Id                   string                     `pulumi:"id"`
+	Location             string                     `pulumi:"location"`
+	Name                 string                     `pulumi:"name"`
+	ProvisioningState    string                     `pulumi:"provisioningState"`
+	ScaleType            string                     `pulumi:"scaleType"`
+	SqlImageOffer        *string                    `pulumi:"sqlImageOffer"`
+	SqlImageSku          *string                    `pulumi:"sqlImageSku"`
+	Tags                 map[string]string          `pulumi:"tags"`
+	Type                 string                     `pulumi:"type"`
+	WsfcDomainProfile    *WsfcDomainProfileResponse `pulumi:"wsfcDomainProfile"`
 }

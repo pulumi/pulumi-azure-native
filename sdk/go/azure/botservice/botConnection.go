@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bot channel resource definition
-// API Version: 2021-03-01.
 type BotConnection struct {
 	pulumi.CustomResourceState
 

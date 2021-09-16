@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning project.
-// API Version: 2017-05-01-preview.
 type Project struct {
 	pulumi.CustomResourceState
 

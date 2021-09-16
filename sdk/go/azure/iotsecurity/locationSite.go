@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT site model
-// API Version: 2021-09-01-preview.
 type LocationSite struct {
 	pulumi.CustomResourceState
 

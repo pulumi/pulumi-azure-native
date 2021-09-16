@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group diagnostic setting resource.
-// API Version: 2020-01-01-preview.
 type ManagementGroupDiagnosticSetting struct {
 	pulumi.CustomResourceState
 

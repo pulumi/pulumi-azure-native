@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peering Service
-// API Version: 2021-01-01.
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
 	err := ctx.Invoke("azure-native:peering:getPeeringService", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, o
 }
 
 type LookupPeeringServiceArgs struct {
-	// The name of the peering.
 	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Peering Service
 type LookupPeeringServiceResult struct {
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The location (state/province) of the customer.
-	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The name of the service provider.
-	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU that defines the type of the peering service.
-	Sku *PeeringServiceSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Id                             string                     `pulumi:"id"`
+	Location                       string                     `pulumi:"location"`
+	Name                           string                     `pulumi:"name"`
+	PeeringServiceLocation         *string                    `pulumi:"peeringServiceLocation"`
+	PeeringServiceProvider         *string                    `pulumi:"peeringServiceProvider"`
+	ProviderBackupPeeringLocation  *string                    `pulumi:"providerBackupPeeringLocation"`
+	ProviderPrimaryPeeringLocation *string                    `pulumi:"providerPrimaryPeeringLocation"`
+	ProvisioningState              string                     `pulumi:"provisioningState"`
+	Sku                            *PeeringServiceSkuResponse `pulumi:"sku"`
+	Tags                           map[string]string          `pulumi:"tags"`
+	Type                           string                     `pulumi:"type"`
 }

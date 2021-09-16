@@ -11,16 +11,11 @@ import (
 )
 
 type ExtensionResourcePlan struct {
-	// Name of the plan.
-	Name *string `pulumi:"name"`
-	// Product name.
-	Product *string `pulumi:"product"`
-	// Optional: the promotion code associated with the plan.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Name of the extension publisher.
-	Publisher *string `pulumi:"publisher"`
-	// A string that uniquely identifies the plan version.
-	Version *string `pulumi:"version"`
+	Publisher     *string `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ExtensionResourcePlanInput is an input type that accepts ExtensionResourcePlanArgs and ExtensionResourcePlanOutput values.
@@ -35,16 +30,11 @@ type ExtensionResourcePlanInput interface {
 }
 
 type ExtensionResourcePlanArgs struct {
-	// Name of the plan.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Product name.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// Optional: the promotion code associated with the plan.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Name of the extension publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// A string that uniquely identifies the plan version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ExtensionResourcePlanArgs) ElementType() reflect.Type {
@@ -124,27 +114,22 @@ func (o ExtensionResourcePlanOutput) ToExtensionResourcePlanPtrOutputWithContext
 	}).(ExtensionResourcePlanPtrOutput)
 }
 
-// Name of the plan.
 func (o ExtensionResourcePlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Product name.
 func (o ExtensionResourcePlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// Optional: the promotion code associated with the plan.
 func (o ExtensionResourcePlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Name of the extension publisher.
 func (o ExtensionResourcePlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// A string that uniquely identifies the plan version.
 func (o ExtensionResourcePlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -173,7 +158,6 @@ func (o ExtensionResourcePlanPtrOutput) Elem() ExtensionResourcePlanOutput {
 	}).(ExtensionResourcePlanOutput)
 }
 
-// Name of the plan.
 func (o ExtensionResourcePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlan) *string {
 		if v == nil {
@@ -183,7 +167,6 @@ func (o ExtensionResourcePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Product name.
 func (o ExtensionResourcePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlan) *string {
 		if v == nil {
@@ -193,7 +176,6 @@ func (o ExtensionResourcePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional: the promotion code associated with the plan.
 func (o ExtensionResourcePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlan) *string {
 		if v == nil {
@@ -203,7 +185,6 @@ func (o ExtensionResourcePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the extension publisher.
 func (o ExtensionResourcePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlan) *string {
 		if v == nil {
@@ -213,7 +194,6 @@ func (o ExtensionResourcePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that uniquely identifies the plan version.
 func (o ExtensionResourcePlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlan) *string {
 		if v == nil {
@@ -224,16 +204,11 @@ func (o ExtensionResourcePlanPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type ExtensionResourcePlanResponse struct {
-	// Name of the plan.
-	Name *string `pulumi:"name"`
-	// Product name.
-	Product *string `pulumi:"product"`
-	// Optional: the promotion code associated with the plan.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Name of the extension publisher.
-	Publisher *string `pulumi:"publisher"`
-	// A string that uniquely identifies the plan version.
-	Version *string `pulumi:"version"`
+	Publisher     *string `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ExtensionResourcePlanResponseInput is an input type that accepts ExtensionResourcePlanResponseArgs and ExtensionResourcePlanResponseOutput values.
@@ -248,16 +223,11 @@ type ExtensionResourcePlanResponseInput interface {
 }
 
 type ExtensionResourcePlanResponseArgs struct {
-	// Name of the plan.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Product name.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// Optional: the promotion code associated with the plan.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Name of the extension publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// A string that uniquely identifies the plan version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ExtensionResourcePlanResponseArgs) ElementType() reflect.Type {
@@ -337,27 +307,22 @@ func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponsePtrO
 	}).(ExtensionResourcePlanResponsePtrOutput)
 }
 
-// Name of the plan.
 func (o ExtensionResourcePlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Product name.
 func (o ExtensionResourcePlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// Optional: the promotion code associated with the plan.
 func (o ExtensionResourcePlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Name of the extension publisher.
 func (o ExtensionResourcePlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// A string that uniquely identifies the plan version.
 func (o ExtensionResourcePlanResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResourcePlanResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -386,7 +351,6 @@ func (o ExtensionResourcePlanResponsePtrOutput) Elem() ExtensionResourcePlanResp
 	}).(ExtensionResourcePlanResponseOutput)
 }
 
-// Name of the plan.
 func (o ExtensionResourcePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlanResponse) *string {
 		if v == nil {
@@ -396,7 +360,6 @@ func (o ExtensionResourcePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Product name.
 func (o ExtensionResourcePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlanResponse) *string {
 		if v == nil {
@@ -406,7 +369,6 @@ func (o ExtensionResourcePlanResponsePtrOutput) Product() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional: the promotion code associated with the plan.
 func (o ExtensionResourcePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlanResponse) *string {
 		if v == nil {
@@ -416,7 +378,6 @@ func (o ExtensionResourcePlanResponsePtrOutput) PromotionCode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the extension publisher.
 func (o ExtensionResourcePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlanResponse) *string {
 		if v == nil {
@@ -426,7 +387,6 @@ func (o ExtensionResourcePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that uniquely identifies the plan version.
 func (o ExtensionResourcePlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionResourcePlanResponse) *string {
 		if v == nil {

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Monitor PrivateLinkScope definition.
-// API Version: 2019-10-17-preview.
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 

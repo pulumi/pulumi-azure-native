@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server security alert policy.
-// API Version: 2020-11-01-preview.
 func LookupServerSecurityAlertPolicy(ctx *pulumi.Context, args *LookupServerSecurityAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerSecurityAlertPolicyResult, error) {
 	var rv LookupServerSecurityAlertPolicyResult
 	err := ctx.Invoke("azure-native:sql:getServerSecurityAlertPolicy", args, &rv, opts...)
@@ -19,38 +17,23 @@ func LookupServerSecurityAlertPolicy(ctx *pulumi.Context, args *LookupServerSecu
 }
 
 type LookupServerSecurityAlertPolicyArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the security alert policy.
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	SecurityAlertPolicyName string `pulumi:"securityAlertPolicyName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName              string `pulumi:"serverName"`
 }
 
 // A server security alert policy.
 type LookupServerSecurityAlertPolicyResult struct {
-	// Specifies the UTC creation time of the policy.
-	CreationTime string `pulumi:"creationTime"`
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
-	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Specifies that the alert is sent to the account administrators.
-	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
-	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
-	State string `pulumi:"state"`
-	// Specifies the identifier key of the Threat Detection audit storage account.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// SystemData of SecurityAlertPolicyResource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	CreationTime            string             `pulumi:"creationTime"`
+	DisabledAlerts          []string           `pulumi:"disabledAlerts"`
+	EmailAccountAdmins      *bool              `pulumi:"emailAccountAdmins"`
+	EmailAddresses          []string           `pulumi:"emailAddresses"`
+	Id                      string             `pulumi:"id"`
+	Name                    string             `pulumi:"name"`
+	RetentionDays           *int               `pulumi:"retentionDays"`
+	State                   string             `pulumi:"state"`
+	StorageAccountAccessKey *string            `pulumi:"storageAccountAccessKey"`
+	StorageEndpoint         *string            `pulumi:"storageEndpoint"`
+	SystemData              SystemDataResponse `pulumi:"systemData"`
+	Type                    string             `pulumi:"type"`
 }

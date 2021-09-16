@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Cassandra view.
-// API Version: 2021-07-01-preview.
 type CassandraResourceCassandraView struct {
 	pulumi.CustomResourceState
 

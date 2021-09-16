@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Content type contract details.
-// API Version: 2020-12-01.
 func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentItemResult, error) {
 	var rv LookupContentItemResult
 	err := ctx.Invoke("azure-native:apimanagement:getContentItem", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ..
 }
 
 type LookupContentItemArgs struct {
-	// Content item identifier.
-	ContentItemId string `pulumi:"contentItemId"`
-	// Content type identifier.
-	ContentTypeId string `pulumi:"contentTypeId"`
-	// The name of the resource group.
+	ContentItemId     string `pulumi:"contentItemId"`
+	ContentTypeId     string `pulumi:"contentTypeId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Content type contract details.
 type LookupContentItemResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the content item.
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

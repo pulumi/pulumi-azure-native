@@ -11,10 +11,8 @@ import (
 )
 
 type NetworkACL struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny []string `pulumi:"deny"`
+	Deny  []string `pulumi:"deny"`
 }
 
 // NetworkACLInput is an input type that accepts NetworkACLArgs and NetworkACLOutput values.
@@ -29,10 +27,8 @@ type NetworkACLInput interface {
 }
 
 type NetworkACLArgs struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny pulumi.StringArrayInput `pulumi:"deny"`
+	Deny  pulumi.StringArrayInput `pulumi:"deny"`
 }
 
 func (NetworkACLArgs) ElementType() reflect.Type {
@@ -112,12 +108,10 @@ func (o NetworkACLOutput) ToNetworkACLPtrOutputWithContext(ctx context.Context) 
 	}).(NetworkACLPtrOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkACL) []string { return v.Allow }).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkACL) []string { return v.Deny }).(pulumi.StringArrayOutput)
 }
@@ -146,7 +140,6 @@ func (o NetworkACLPtrOutput) Elem() NetworkACLOutput {
 	}).(NetworkACLOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLPtrOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkACL) []string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o NetworkACLPtrOutput) Allow() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLPtrOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkACL) []string {
 		if v == nil {
@@ -167,10 +159,8 @@ func (o NetworkACLPtrOutput) Deny() pulumi.StringArrayOutput {
 }
 
 type NetworkACLResponse struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny []string `pulumi:"deny"`
+	Deny  []string `pulumi:"deny"`
 }
 
 // NetworkACLResponseInput is an input type that accepts NetworkACLResponseArgs and NetworkACLResponseOutput values.
@@ -185,10 +175,8 @@ type NetworkACLResponseInput interface {
 }
 
 type NetworkACLResponseArgs struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny pulumi.StringArrayInput `pulumi:"deny"`
+	Deny  pulumi.StringArrayInput `pulumi:"deny"`
 }
 
 func (NetworkACLResponseArgs) ElementType() reflect.Type {
@@ -268,12 +256,10 @@ func (o NetworkACLResponseOutput) ToNetworkACLResponsePtrOutputWithContext(ctx c
 	}).(NetworkACLResponsePtrOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLResponseOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkACLResponse) []string { return v.Allow }).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLResponseOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkACLResponse) []string { return v.Deny }).(pulumi.StringArrayOutput)
 }
@@ -302,7 +288,6 @@ func (o NetworkACLResponsePtrOutput) Elem() NetworkACLResponseOutput {
 	}).(NetworkACLResponseOutput)
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLResponsePtrOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkACLResponse) []string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o NetworkACLResponsePtrOutput) Allow() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o NetworkACLResponsePtrOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkACLResponse) []string {
 		if v == nil {
@@ -323,7 +307,6 @@ func (o NetworkACLResponsePtrOutput) Deny() pulumi.StringArrayOutput {
 }
 
 type PrivateEndpoint struct {
-	// Full qualified Id of the private endpoint
 	Id *string `pulumi:"id"`
 }
 
@@ -339,7 +322,6 @@ type PrivateEndpointInput interface {
 }
 
 type PrivateEndpointArgs struct {
-	// Full qualified Id of the private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -420,7 +402,6 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context
 	}).(PrivateEndpointPtrOutput)
 }
 
-// Full qualified Id of the private endpoint
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -449,7 +430,6 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	}).(PrivateEndpointOutput)
 }
 
-// Full qualified Id of the private endpoint
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -460,12 +440,9 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointACL struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny []string `pulumi:"deny"`
-	// Name of the private endpoint connection
-	Name string `pulumi:"name"`
+	Deny  []string `pulumi:"deny"`
+	Name  string   `pulumi:"name"`
 }
 
 // PrivateEndpointACLInput is an input type that accepts PrivateEndpointACLArgs and PrivateEndpointACLOutput values.
@@ -480,12 +457,9 @@ type PrivateEndpointACLInput interface {
 }
 
 type PrivateEndpointACLArgs struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny pulumi.StringArrayInput `pulumi:"deny"`
-	// Name of the private endpoint connection
-	Name pulumi.StringInput `pulumi:"name"`
+	Deny  pulumi.StringArrayInput `pulumi:"deny"`
+	Name  pulumi.StringInput      `pulumi:"name"`
 }
 
 func (PrivateEndpointACLArgs) ElementType() reflect.Type {
@@ -539,17 +513,14 @@ func (o PrivateEndpointACLOutput) ToPrivateEndpointACLOutputWithContext(ctx cont
 	return o
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o PrivateEndpointACLOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointACL) []string { return v.Allow }).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o PrivateEndpointACLOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointACL) []string { return v.Deny }).(pulumi.StringArrayOutput)
 }
 
-// Name of the private endpoint connection
 func (o PrivateEndpointACLOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointACL) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -575,12 +546,9 @@ func (o PrivateEndpointACLArrayOutput) Index(i pulumi.IntInput) PrivateEndpointA
 }
 
 type PrivateEndpointACLResponse struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny []string `pulumi:"deny"`
-	// Name of the private endpoint connection
-	Name string `pulumi:"name"`
+	Deny  []string `pulumi:"deny"`
+	Name  string   `pulumi:"name"`
 }
 
 // PrivateEndpointACLResponseInput is an input type that accepts PrivateEndpointACLResponseArgs and PrivateEndpointACLResponseOutput values.
@@ -595,12 +563,9 @@ type PrivateEndpointACLResponseInput interface {
 }
 
 type PrivateEndpointACLResponseArgs struct {
-	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow pulumi.StringArrayInput `pulumi:"allow"`
-	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-	Deny pulumi.StringArrayInput `pulumi:"deny"`
-	// Name of the private endpoint connection
-	Name pulumi.StringInput `pulumi:"name"`
+	Deny  pulumi.StringArrayInput `pulumi:"deny"`
+	Name  pulumi.StringInput      `pulumi:"name"`
 }
 
 func (PrivateEndpointACLResponseArgs) ElementType() reflect.Type {
@@ -654,17 +619,14 @@ func (o PrivateEndpointACLResponseOutput) ToPrivateEndpointACLResponseOutputWith
 	return o
 }
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o PrivateEndpointACLResponseOutput) Allow() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointACLResponse) []string { return v.Allow }).(pulumi.StringArrayOutput)
 }
 
-// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 func (o PrivateEndpointACLResponseOutput) Deny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateEndpointACLResponse) []string { return v.Deny }).(pulumi.StringArrayOutput)
 }
 
-// Name of the private endpoint connection
 func (o PrivateEndpointACLResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointACLResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -690,18 +652,12 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 }
 
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
+	Id                                string                                     `pulumi:"id"`
+	Name                              string                                     `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
+	Type                              string                                     `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -716,18 +672,12 @@ type PrivateEndpointConnectionResponseInput interface {
 }
 
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource Id for the resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state
+	Id                                pulumi.StringInput                                `pulumi:"id"`
+	Name                              pulumi.StringInput                                `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                                `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -781,34 +731,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource Id for the resource.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint associated with the private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Connection state
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -834,7 +778,6 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PrivateEndpointResponse struct {
-	// Full qualified Id of the private endpoint
 	Id *string `pulumi:"id"`
 }
 
@@ -850,7 +793,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// Full qualified Id of the private endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -931,7 +873,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Full qualified Id of the private endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -960,7 +901,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// Full qualified Id of the private endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -971,12 +911,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -991,12 +928,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1076,17 +1010,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1115,7 +1046,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1125,7 +1055,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1135,7 +1064,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1146,12 +1074,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1166,12 +1091,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1251,17 +1173,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1290,7 +1209,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1300,7 +1218,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1310,7 +1227,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1321,20 +1237,9 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type ResourceSku struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity *int `pulumi:"capacity"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name string `pulumi:"name"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
@@ -1349,20 +1254,9 @@ type ResourceSkuInput interface {
 }
 
 type ResourceSkuArgs struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name pulumi.StringInput `pulumi:"name"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuArgs) ElementType() reflect.Type {
@@ -1442,25 +1336,14 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 	}).(ResourceSkuPtrOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1489,11 +1372,6 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 	}).(ResourceSkuOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -1503,9 +1381,6 @@ func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -1515,9 +1390,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -1528,24 +1400,11 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ResourceSkuResponse struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity *int `pulumi:"capacity"`
-	// Not used. Retained for future use.
-	Family string `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name string `pulumi:"name"`
-	// Not used. Retained for future use.
-	Size string `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   string  `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     string  `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuResponseInput is an input type that accepts ResourceSkuResponseArgs and ResourceSkuResponseOutput values.
@@ -1560,24 +1419,11 @@ type ResourceSkuResponseInput interface {
 }
 
 type ResourceSkuResponseArgs struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Not used. Retained for future use.
-	Family pulumi.StringInput `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name pulumi.StringInput `pulumi:"name"`
-	// Not used. Retained for future use.
-	Size pulumi.StringInput `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput    `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringInput    `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuResponseArgs) ElementType() reflect.Type {
@@ -1657,35 +1503,22 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Not used. Retained for future use.
 func (o ResourceSkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Not used. Retained for future use.
 func (o ResourceSkuResponseOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Size }).(pulumi.StringOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1714,11 +1547,6 @@ func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 	}).(ResourceSkuResponseOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -1728,7 +1556,6 @@ func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Not used. Retained for future use.
 func (o ResourceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1738,9 +1565,6 @@ func (o ResourceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1750,7 +1574,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Not used. Retained for future use.
 func (o ResourceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1760,9 +1583,6 @@ func (o ResourceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -1773,7 +1593,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ServerlessUpstreamSettings struct {
-	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates []UpstreamTemplate `pulumi:"templates"`
 }
 
@@ -1789,7 +1608,6 @@ type ServerlessUpstreamSettingsInput interface {
 }
 
 type ServerlessUpstreamSettingsArgs struct {
-	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates UpstreamTemplateArrayInput `pulumi:"templates"`
 }
 
@@ -1870,7 +1688,6 @@ func (o ServerlessUpstreamSettingsOutput) ToServerlessUpstreamSettingsPtrOutputW
 	}).(ServerlessUpstreamSettingsPtrOutput)
 }
 
-// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 func (o ServerlessUpstreamSettingsOutput) Templates() UpstreamTemplateArrayOutput {
 	return o.ApplyT(func(v ServerlessUpstreamSettings) []UpstreamTemplate { return v.Templates }).(UpstreamTemplateArrayOutput)
 }
@@ -1899,7 +1716,6 @@ func (o ServerlessUpstreamSettingsPtrOutput) Elem() ServerlessUpstreamSettingsOu
 	}).(ServerlessUpstreamSettingsOutput)
 }
 
-// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 func (o ServerlessUpstreamSettingsPtrOutput) Templates() UpstreamTemplateArrayOutput {
 	return o.ApplyT(func(v *ServerlessUpstreamSettings) []UpstreamTemplate {
 		if v == nil {
@@ -1910,7 +1726,6 @@ func (o ServerlessUpstreamSettingsPtrOutput) Templates() UpstreamTemplateArrayOu
 }
 
 type ServerlessUpstreamSettingsResponse struct {
-	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates []UpstreamTemplateResponse `pulumi:"templates"`
 }
 
@@ -1926,7 +1741,6 @@ type ServerlessUpstreamSettingsResponseInput interface {
 }
 
 type ServerlessUpstreamSettingsResponseArgs struct {
-	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates UpstreamTemplateResponseArrayInput `pulumi:"templates"`
 }
 
@@ -2007,7 +1821,6 @@ func (o ServerlessUpstreamSettingsResponseOutput) ToServerlessUpstreamSettingsRe
 	}).(ServerlessUpstreamSettingsResponsePtrOutput)
 }
 
-// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 func (o ServerlessUpstreamSettingsResponseOutput) Templates() UpstreamTemplateResponseArrayOutput {
 	return o.ApplyT(func(v ServerlessUpstreamSettingsResponse) []UpstreamTemplateResponse { return v.Templates }).(UpstreamTemplateResponseArrayOutput)
 }
@@ -2036,7 +1849,6 @@ func (o ServerlessUpstreamSettingsResponsePtrOutput) Elem() ServerlessUpstreamSe
 	}).(ServerlessUpstreamSettingsResponseOutput)
 }
 
-// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 func (o ServerlessUpstreamSettingsResponsePtrOutput) Templates() UpstreamTemplateResponseArrayOutput {
 	return o.ApplyT(func(v *ServerlessUpstreamSettingsResponse) []UpstreamTemplateResponse {
 		if v == nil {
@@ -2047,7 +1859,6 @@ func (o ServerlessUpstreamSettingsResponsePtrOutput) Templates() UpstreamTemplat
 }
 
 type SignalRCorsSettings struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
@@ -2063,7 +1874,6 @@ type SignalRCorsSettingsInput interface {
 }
 
 type SignalRCorsSettingsArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 }
 
@@ -2144,7 +1954,6 @@ func (o SignalRCorsSettingsOutput) ToSignalRCorsSettingsPtrOutputWithContext(ctx
 	}).(SignalRCorsSettingsPtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SignalRCorsSettings) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -2173,7 +1982,6 @@ func (o SignalRCorsSettingsPtrOutput) Elem() SignalRCorsSettingsOutput {
 	}).(SignalRCorsSettingsOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalRCorsSettings) []string {
 		if v == nil {
@@ -2184,7 +1992,6 @@ func (o SignalRCorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput 
 }
 
 type SignalRCorsSettingsResponse struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
@@ -2200,7 +2007,6 @@ type SignalRCorsSettingsResponseInput interface {
 }
 
 type SignalRCorsSettingsResponseArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 }
 
@@ -2281,7 +2087,6 @@ func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutpu
 	}).(SignalRCorsSettingsResponsePtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SignalRCorsSettingsResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -2310,7 +2115,6 @@ func (o SignalRCorsSettingsResponsePtrOutput) Elem() SignalRCorsSettingsResponse
 	}).(SignalRCorsSettingsResponseOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalRCorsSettingsResponse) []string {
 		if v == nil {
@@ -2321,14 +2125,9 @@ func (o SignalRCorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArra
 }
 
 type SignalRFeature struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       string            `pulumi:"flag"`
 	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
+	Value      string            `pulumi:"value"`
 }
 
 // SignalRFeatureInput is an input type that accepts SignalRFeatureArgs and SignalRFeatureOutput values.
@@ -2343,14 +2142,9 @@ type SignalRFeatureInput interface {
 }
 
 type SignalRFeatureArgs struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       pulumi.StringInput    `pulumi:"flag"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput    `pulumi:"value"`
 }
 
 func (SignalRFeatureArgs) ElementType() reflect.Type {
@@ -2404,19 +2198,14 @@ func (o SignalRFeatureOutput) ToSignalRFeatureOutputWithContext(ctx context.Cont
 	return o
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
 func (o SignalRFeatureOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeature) string { return v.Flag }).(pulumi.StringOutput)
 }
 
-// Optional properties related to this feature.
 func (o SignalRFeatureOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SignalRFeature) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
 func (o SignalRFeatureOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeature) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2442,14 +2231,9 @@ func (o SignalRFeatureArrayOutput) Index(i pulumi.IntInput) SignalRFeatureOutput
 }
 
 type SignalRFeatureResponse struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       string            `pulumi:"flag"`
 	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
+	Value      string            `pulumi:"value"`
 }
 
 // SignalRFeatureResponseInput is an input type that accepts SignalRFeatureResponseArgs and SignalRFeatureResponseOutput values.
@@ -2464,14 +2248,9 @@ type SignalRFeatureResponseInput interface {
 }
 
 type SignalRFeatureResponseArgs struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       pulumi.StringInput    `pulumi:"flag"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput    `pulumi:"value"`
 }
 
 func (SignalRFeatureResponseArgs) ElementType() reflect.Type {
@@ -2525,19 +2304,14 @@ func (o SignalRFeatureResponseOutput) ToSignalRFeatureResponseOutputWithContext(
 	return o
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
 func (o SignalRFeatureResponseOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) string { return v.Flag }).(pulumi.StringOutput)
 }
 
-// Optional properties related to this feature.
 func (o SignalRFeatureResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
 func (o SignalRFeatureResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2563,12 +2337,9 @@ func (o SignalRFeatureResponseArrayOutput) Index(i pulumi.IntInput) SignalRFeatu
 }
 
 type SignalRNetworkACLs struct {
-	// Default action when no other rule matches
-	DefaultAction *string `pulumi:"defaultAction"`
-	// ACLs for requests from private endpoints
+	DefaultAction    *string              `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACL `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
-	PublicNetwork *NetworkACL `pulumi:"publicNetwork"`
+	PublicNetwork    *NetworkACL          `pulumi:"publicNetwork"`
 }
 
 // SignalRNetworkACLsInput is an input type that accepts SignalRNetworkACLsArgs and SignalRNetworkACLsOutput values.
@@ -2583,12 +2354,9 @@ type SignalRNetworkACLsInput interface {
 }
 
 type SignalRNetworkACLsArgs struct {
-	// Default action when no other rule matches
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// ACLs for requests from private endpoints
+	DefaultAction    pulumi.StringPtrInput        `pulumi:"defaultAction"`
 	PrivateEndpoints PrivateEndpointACLArrayInput `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
-	PublicNetwork NetworkACLPtrInput `pulumi:"publicNetwork"`
+	PublicNetwork    NetworkACLPtrInput           `pulumi:"publicNetwork"`
 }
 
 func (SignalRNetworkACLsArgs) ElementType() reflect.Type {
@@ -2668,17 +2436,14 @@ func (o SignalRNetworkACLsOutput) ToSignalRNetworkACLsPtrOutputWithContext(ctx c
 	}).(SignalRNetworkACLsPtrOutput)
 }
 
-// Default action when no other rule matches
 func (o SignalRNetworkACLsOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignalRNetworkACLs) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// ACLs for requests from private endpoints
 func (o SignalRNetworkACLsOutput) PrivateEndpoints() PrivateEndpointACLArrayOutput {
 	return o.ApplyT(func(v SignalRNetworkACLs) []PrivateEndpointACL { return v.PrivateEndpoints }).(PrivateEndpointACLArrayOutput)
 }
 
-// ACL for requests from public network
 func (o SignalRNetworkACLsOutput) PublicNetwork() NetworkACLPtrOutput {
 	return o.ApplyT(func(v SignalRNetworkACLs) *NetworkACL { return v.PublicNetwork }).(NetworkACLPtrOutput)
 }
@@ -2707,7 +2472,6 @@ func (o SignalRNetworkACLsPtrOutput) Elem() SignalRNetworkACLsOutput {
 	}).(SignalRNetworkACLsOutput)
 }
 
-// Default action when no other rule matches
 func (o SignalRNetworkACLsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLs) *string {
 		if v == nil {
@@ -2717,7 +2481,6 @@ func (o SignalRNetworkACLsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ACLs for requests from private endpoints
 func (o SignalRNetworkACLsPtrOutput) PrivateEndpoints() PrivateEndpointACLArrayOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLs) []PrivateEndpointACL {
 		if v == nil {
@@ -2727,7 +2490,6 @@ func (o SignalRNetworkACLsPtrOutput) PrivateEndpoints() PrivateEndpointACLArrayO
 	}).(PrivateEndpointACLArrayOutput)
 }
 
-// ACL for requests from public network
 func (o SignalRNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLs) *NetworkACL {
 		if v == nil {
@@ -2738,12 +2500,9 @@ func (o SignalRNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 }
 
 type SignalRNetworkACLsResponse struct {
-	// Default action when no other rule matches
-	DefaultAction *string `pulumi:"defaultAction"`
-	// ACLs for requests from private endpoints
+	DefaultAction    *string                      `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACLResponse `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
-	PublicNetwork *NetworkACLResponse `pulumi:"publicNetwork"`
+	PublicNetwork    *NetworkACLResponse          `pulumi:"publicNetwork"`
 }
 
 // SignalRNetworkACLsResponseInput is an input type that accepts SignalRNetworkACLsResponseArgs and SignalRNetworkACLsResponseOutput values.
@@ -2758,12 +2517,9 @@ type SignalRNetworkACLsResponseInput interface {
 }
 
 type SignalRNetworkACLsResponseArgs struct {
-	// Default action when no other rule matches
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// ACLs for requests from private endpoints
+	DefaultAction    pulumi.StringPtrInput                `pulumi:"defaultAction"`
 	PrivateEndpoints PrivateEndpointACLResponseArrayInput `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
-	PublicNetwork NetworkACLResponsePtrInput `pulumi:"publicNetwork"`
+	PublicNetwork    NetworkACLResponsePtrInput           `pulumi:"publicNetwork"`
 }
 
 func (SignalRNetworkACLsResponseArgs) ElementType() reflect.Type {
@@ -2843,17 +2599,14 @@ func (o SignalRNetworkACLsResponseOutput) ToSignalRNetworkACLsResponsePtrOutputW
 	}).(SignalRNetworkACLsResponsePtrOutput)
 }
 
-// Default action when no other rule matches
 func (o SignalRNetworkACLsResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignalRNetworkACLsResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// ACLs for requests from private endpoints
 func (o SignalRNetworkACLsResponseOutput) PrivateEndpoints() PrivateEndpointACLResponseArrayOutput {
 	return o.ApplyT(func(v SignalRNetworkACLsResponse) []PrivateEndpointACLResponse { return v.PrivateEndpoints }).(PrivateEndpointACLResponseArrayOutput)
 }
 
-// ACL for requests from public network
 func (o SignalRNetworkACLsResponseOutput) PublicNetwork() NetworkACLResponsePtrOutput {
 	return o.ApplyT(func(v SignalRNetworkACLsResponse) *NetworkACLResponse { return v.PublicNetwork }).(NetworkACLResponsePtrOutput)
 }
@@ -2882,7 +2635,6 @@ func (o SignalRNetworkACLsResponsePtrOutput) Elem() SignalRNetworkACLsResponseOu
 	}).(SignalRNetworkACLsResponseOutput)
 }
 
-// Default action when no other rule matches
 func (o SignalRNetworkACLsResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLsResponse) *string {
 		if v == nil {
@@ -2892,7 +2644,6 @@ func (o SignalRNetworkACLsResponsePtrOutput) DefaultAction() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ACLs for requests from private endpoints
 func (o SignalRNetworkACLsResponsePtrOutput) PrivateEndpoints() PrivateEndpointACLResponseArrayOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLsResponse) []PrivateEndpointACLResponse {
 		if v == nil {
@@ -2902,7 +2653,6 @@ func (o SignalRNetworkACLsResponsePtrOutput) PrivateEndpoints() PrivateEndpointA
 	}).(PrivateEndpointACLResponseArrayOutput)
 }
 
-// ACL for requests from public network
 func (o SignalRNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponsePtrOutput {
 	return o.ApplyT(func(v *SignalRNetworkACLsResponse) *NetworkACLResponse {
 		if v == nil {
@@ -2913,17 +2663,11 @@ func (o SignalRNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponseP
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2939,17 +2683,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3030,32 +2768,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -3084,7 +2816,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3094,7 +2825,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3104,7 +2834,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3114,7 +2843,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3124,7 +2852,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3134,7 +2861,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3145,27 +2871,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type UpstreamTemplate struct {
-	// Gets or sets the matching pattern for category names. If not set, it matches any category.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any category name
-	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-	//     3. The single category name, for example, "connections", it matches the category "connections"
 	CategoryPattern *string `pulumi:"categoryPattern"`
-	// Gets or sets the matching pattern for event names. If not set, it matches any event.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-	//     3. The single event name, for example, "connect", it matches "connect"
-	EventPattern *string `pulumi:"eventPattern"`
-	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any hub name
-	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-	//     3. The single hub name, for example, "hub1", it matches "hub1"
-	HubPattern *string `pulumi:"hubPattern"`
-	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-	UrlTemplate string `pulumi:"urlTemplate"`
+	EventPattern    *string `pulumi:"eventPattern"`
+	HubPattern      *string `pulumi:"hubPattern"`
+	UrlTemplate     string  `pulumi:"urlTemplate"`
 }
 
 // UpstreamTemplateInput is an input type that accepts UpstreamTemplateArgs and UpstreamTemplateOutput values.
@@ -3180,27 +2889,10 @@ type UpstreamTemplateInput interface {
 }
 
 type UpstreamTemplateArgs struct {
-	// Gets or sets the matching pattern for category names. If not set, it matches any category.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any category name
-	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-	//     3. The single category name, for example, "connections", it matches the category "connections"
 	CategoryPattern pulumi.StringPtrInput `pulumi:"categoryPattern"`
-	// Gets or sets the matching pattern for event names. If not set, it matches any event.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-	//     3. The single event name, for example, "connect", it matches "connect"
-	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
-	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any hub name
-	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-	//     3. The single hub name, for example, "hub1", it matches "hub1"
-	HubPattern pulumi.StringPtrInput `pulumi:"hubPattern"`
-	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
+	EventPattern    pulumi.StringPtrInput `pulumi:"eventPattern"`
+	HubPattern      pulumi.StringPtrInput `pulumi:"hubPattern"`
+	UrlTemplate     pulumi.StringInput    `pulumi:"urlTemplate"`
 }
 
 func (UpstreamTemplateArgs) ElementType() reflect.Type {
@@ -3254,35 +2946,18 @@ func (o UpstreamTemplateOutput) ToUpstreamTemplateOutputWithContext(ctx context.
 	return o
 }
 
-// Gets or sets the matching pattern for category names. If not set, it matches any category.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any category name
-//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-//     3. The single category name, for example, "connections", it matches the category "connections"
 func (o UpstreamTemplateOutput) CategoryPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.CategoryPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the matching pattern for event names. If not set, it matches any event.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-//     3. The single event name, for example, "connect", it matches "connect"
 func (o UpstreamTemplateOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any hub name
-//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-//     3. The single hub name, for example, "hub1", it matches "hub1"
 func (o UpstreamTemplateOutput) HubPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.HubPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
 func (o UpstreamTemplateOutput) UrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v UpstreamTemplate) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
@@ -3308,27 +2983,10 @@ func (o UpstreamTemplateArrayOutput) Index(i pulumi.IntInput) UpstreamTemplateOu
 }
 
 type UpstreamTemplateResponse struct {
-	// Gets or sets the matching pattern for category names. If not set, it matches any category.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any category name
-	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-	//     3. The single category name, for example, "connections", it matches the category "connections"
 	CategoryPattern *string `pulumi:"categoryPattern"`
-	// Gets or sets the matching pattern for event names. If not set, it matches any event.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-	//     3. The single event name, for example, "connect", it matches "connect"
-	EventPattern *string `pulumi:"eventPattern"`
-	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any hub name
-	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-	//     3. The single hub name, for example, "hub1", it matches "hub1"
-	HubPattern *string `pulumi:"hubPattern"`
-	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-	UrlTemplate string `pulumi:"urlTemplate"`
+	EventPattern    *string `pulumi:"eventPattern"`
+	HubPattern      *string `pulumi:"hubPattern"`
+	UrlTemplate     string  `pulumi:"urlTemplate"`
 }
 
 // UpstreamTemplateResponseInput is an input type that accepts UpstreamTemplateResponseArgs and UpstreamTemplateResponseOutput values.
@@ -3343,27 +3001,10 @@ type UpstreamTemplateResponseInput interface {
 }
 
 type UpstreamTemplateResponseArgs struct {
-	// Gets or sets the matching pattern for category names. If not set, it matches any category.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any category name
-	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-	//     3. The single category name, for example, "connections", it matches the category "connections"
 	CategoryPattern pulumi.StringPtrInput `pulumi:"categoryPattern"`
-	// Gets or sets the matching pattern for event names. If not set, it matches any event.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-	//     3. The single event name, for example, "connect", it matches "connect"
-	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
-	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any hub name
-	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-	//     3. The single hub name, for example, "hub1", it matches "hub1"
-	HubPattern pulumi.StringPtrInput `pulumi:"hubPattern"`
-	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
+	EventPattern    pulumi.StringPtrInput `pulumi:"eventPattern"`
+	HubPattern      pulumi.StringPtrInput `pulumi:"hubPattern"`
+	UrlTemplate     pulumi.StringInput    `pulumi:"urlTemplate"`
 }
 
 func (UpstreamTemplateResponseArgs) ElementType() reflect.Type {
@@ -3417,35 +3058,18 @@ func (o UpstreamTemplateResponseOutput) ToUpstreamTemplateResponseOutputWithCont
 	return o
 }
 
-// Gets or sets the matching pattern for category names. If not set, it matches any category.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any category name
-//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-//     3. The single category name, for example, "connections", it matches the category "connections"
 func (o UpstreamTemplateResponseOutput) CategoryPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.CategoryPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the matching pattern for event names. If not set, it matches any event.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-//     3. The single event name, for example, "connect", it matches "connect"
 func (o UpstreamTemplateResponseOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any hub name
-//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-//     3. The single hub name, for example, "hub1", it matches "hub1"
 func (o UpstreamTemplateResponseOutput) HubPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.HubPattern }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
 func (o UpstreamTemplateResponseOutput) UrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }

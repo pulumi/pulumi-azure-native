@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents AATP (Azure Advanced Threat Protection) data connector.
-// API Version: 2020-01-01.
 type AATPDataConnector struct {
 	pulumi.CustomResourceState
 

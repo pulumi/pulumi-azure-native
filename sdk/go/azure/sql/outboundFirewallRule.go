@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL DB Server Outbound Firewall Rule.
-// API Version: 2021-02-01-preview.
 type OutboundFirewallRule struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Analytics firewall rule information.
-// API Version: 2016-11-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

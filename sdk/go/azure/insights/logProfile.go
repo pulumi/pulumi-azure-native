@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The log profile resource.
-// API Version: 2016-03-01.
 type LogProfile struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Database.
-// API Version: 2018-06-01.
 type Database struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The device security group resource
-// API Version: 2019-08-01.
 func LookupDeviceSecurityGroup(ctx *pulumi.Context, args *LookupDeviceSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupDeviceSecurityGroupResult, error) {
 	var rv LookupDeviceSecurityGroupResult
 	err := ctx.Invoke("azure-native:security:getDeviceSecurityGroup", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupDeviceSecurityGroup(ctx *pulumi.Context, args *LookupDeviceSecurityGr
 }
 
 type LookupDeviceSecurityGroupArgs struct {
-	// The name of the device security group. Note that the name of the device security group is case insensitive.
 	DeviceSecurityGroupName string `pulumi:"deviceSecurityGroupName"`
-	// The identifier of the resource.
-	ResourceId string `pulumi:"resourceId"`
+	ResourceId              string `pulumi:"resourceId"`
 }
 
 // The device security group resource
 type LookupDeviceSecurityGroupResult struct {
-	// The allow-list custom alert rules.
-	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
-	// The deny-list custom alert rules.
-	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The list of custom alert threshold rules.
-	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
-	// The list of custom alert time-window rules.
+	AllowlistRules  []AllowlistCustomAlertRuleResponse  `pulumi:"allowlistRules"`
+	DenylistRules   []DenylistCustomAlertRuleResponse   `pulumi:"denylistRules"`
+	Id              string                              `pulumi:"id"`
+	Name            string                              `pulumi:"name"`
+	ThresholdRules  []ThresholdCustomAlertRuleResponse  `pulumi:"thresholdRules"`
 	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type            string                              `pulumi:"type"`
 }

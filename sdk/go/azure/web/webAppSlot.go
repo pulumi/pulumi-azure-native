@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A web app, a mobile app backend, or an API app.
-// API Version: 2020-12-01.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 

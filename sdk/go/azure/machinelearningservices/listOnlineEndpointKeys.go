@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Keys for endpoint authentication.
-// API Version: 2021-03-01-preview.
 func ListOnlineEndpointKeys(ctx *pulumi.Context, args *ListOnlineEndpointKeysArgs, opts ...pulumi.InvokeOption) (*ListOnlineEndpointKeysResult, error) {
 	var rv ListOnlineEndpointKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listOnlineEndpointKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListOnlineEndpointKeys(ctx *pulumi.Context, args *ListOnlineEndpointKeysArg
 }
 
 type ListOnlineEndpointKeysArgs struct {
-	// Online Endpoint name.
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group. The name is case insensitive.
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Keys for endpoint authentication.
 type ListOnlineEndpointKeysResult struct {
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The secondary key.
+	PrimaryKey   *string `pulumi:"primaryKey"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

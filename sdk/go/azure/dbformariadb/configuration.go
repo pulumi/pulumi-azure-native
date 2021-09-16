@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Configuration.
-// API Version: 2018-06-01.
 type Configuration struct {
 	pulumi.CustomResourceState
 

@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Addon
-// API Version: 2020-12-01.
-//
 // Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
@@ -21,26 +18,17 @@ func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.Invo
 }
 
 type LookupAddonArgs struct {
-	// The addon name.
-	AddonName string `pulumi:"addonName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	AddonName         string `pulumi:"addonName"`
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	RoleName          string `pulumi:"roleName"`
 }
 
 // Role Addon
 type LookupAddonResult struct {
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Addon type.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Addon type
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

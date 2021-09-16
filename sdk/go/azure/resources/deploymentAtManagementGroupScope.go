@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
-// API Version: 2021-01-01.
 type DeploymentAtManagementGroupScope struct {
 	pulumi.CustomResourceState
 

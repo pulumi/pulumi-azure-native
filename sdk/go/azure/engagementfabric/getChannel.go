@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The EngagementFabric channel
-// API Version: 2018-09-01-preview.
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
 	var rv LookupChannelResult
 	err := ctx.Invoke("azure-native:engagementfabric:getChannel", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
-	// Account Name
-	AccountName string `pulumi:"accountName"`
-	// Channel Name
-	ChannelName string `pulumi:"channelName"`
-	// Resource Group Name
+	AccountName       string `pulumi:"accountName"`
+	ChannelName       string `pulumi:"channelName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The EngagementFabric channel
 type LookupChannelResult struct {
-	// The functions to be enabled for the channel
-	ChannelFunctions []string `pulumi:"channelFunctions"`
-	// The channel type
-	ChannelType string `pulumi:"channelType"`
-	// The channel credentials
-	Credentials map[string]string `pulumi:"credentials"`
-	// The ID of the resource
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The fully qualified type of the resource
-	Type string `pulumi:"type"`
+	ChannelFunctions []string          `pulumi:"channelFunctions"`
+	ChannelType      string            `pulumi:"channelType"`
+	Credentials      map[string]string `pulumi:"credentials"`
+	Id               string            `pulumi:"id"`
+	Name             string            `pulumi:"name"`
+	Type             string            `pulumi:"type"`
 }

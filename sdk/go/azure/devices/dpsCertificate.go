@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The X509 Certificate.
-// API Version: 2020-03-01.
 type DpsCertificate struct {
 	pulumi.CustomResourceState
 

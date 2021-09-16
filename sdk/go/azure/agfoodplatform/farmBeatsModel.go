@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// FarmBeats ARM Resource.
-// API Version: 2020-05-12-preview.
 type FarmBeatsModel struct {
 	pulumi.CustomResourceState
 

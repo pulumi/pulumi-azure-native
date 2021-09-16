@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The key.
-// API Version: 2017-06-01.
 func ListManagerActivationKey(ctx *pulumi.Context, args *ListManagerActivationKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerActivationKeyResult, error) {
 	var rv ListManagerActivationKeyResult
 	err := ctx.Invoke("azure-native:storsimple:listManagerActivationKey", args, &rv, opts...)
@@ -19,14 +17,11 @@ func ListManagerActivationKey(ctx *pulumi.Context, args *ListManagerActivationKe
 }
 
 type ListManagerActivationKeyArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The key.
 type ListManagerActivationKeyResult struct {
-	// The activation key for the device.
 	ActivationKey string `pulumi:"activationKey"`
 }

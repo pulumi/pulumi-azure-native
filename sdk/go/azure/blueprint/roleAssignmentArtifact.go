@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact that applies a Role assignment.
-// API Version: 2018-11-01-preview.
 type RoleAssignmentArtifact struct {
 	pulumi.CustomResourceState
 

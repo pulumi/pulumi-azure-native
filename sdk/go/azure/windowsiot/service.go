@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the Windows IoT Device Service.
-// API Version: 2019-06-01.
 type Service struct {
 	pulumi.CustomResourceState
 

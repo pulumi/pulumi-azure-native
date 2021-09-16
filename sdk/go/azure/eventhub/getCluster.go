@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Event Hubs Cluster resource in List or Get operations.
-// API Version: 2018-01-01-preview.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:eventhub:getCluster", args, &rv, opts...)
@@ -19,32 +17,20 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the Event Hubs Cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Name of the resource group within the azure subscription.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single Event Hubs Cluster resource in List or Get operations.
 type LookupClusterResult struct {
-	// The UTC time when the Event Hubs Cluster was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
-	MetricId string `pulumi:"metricId"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the cluster SKU.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
-	// Status of the Cluster resource
-	Status string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The UTC time when the Event Hubs Cluster was last updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	CreatedAt string              `pulumi:"createdAt"`
+	Id        string              `pulumi:"id"`
+	Location  *string             `pulumi:"location"`
+	MetricId  string              `pulumi:"metricId"`
+	Name      string              `pulumi:"name"`
+	Sku       *ClusterSkuResponse `pulumi:"sku"`
+	Status    string              `pulumi:"status"`
+	Tags      map[string]string   `pulumi:"tags"`
+	Type      string              `pulumi:"type"`
+	UpdatedAt string              `pulumi:"updatedAt"`
 }

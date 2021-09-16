@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The device security group resource
-// API Version: 2019-08-01.
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Connection information for encrypting the on-premises data source credentials.
-// API Version: 2018-06-01.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
 	err := ctx.Invoke("azure-native:datafactory:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
@@ -19,26 +17,17 @@ func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrati
 }
 
 type GetIntegrationRuntimeConnectionInfoArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
+	FactoryName            string `pulumi:"factoryName"`
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Connection information for encrypting the on-premises data source credentials.
 type GetIntegrationRuntimeConnectionInfoResult struct {
-	// The on-premises integration runtime host URL.
-	HostServiceUri string `pulumi:"hostServiceUri"`
-	// The integration runtime SSL certificate thumbprint. Click-Once application uses it to do server validation.
+	HostServiceUri         string `pulumi:"hostServiceUri"`
 	IdentityCertThumbprint string `pulumi:"identityCertThumbprint"`
-	// Whether the identity certificate is expired.
-	IsIdentityCertExprired bool `pulumi:"isIdentityCertExprired"`
-	// The public key for encrypting a credential when transferring the credential to the integration runtime.
-	PublicKey string `pulumi:"publicKey"`
-	// The token generated in service. Callers use this token to authenticate to integration runtime.
-	ServiceToken string `pulumi:"serviceToken"`
-	// The integration runtime version.
-	Version string `pulumi:"version"`
+	IsIdentityCertExprired bool   `pulumi:"isIdentityCertExprired"`
+	PublicKey              string `pulumi:"publicKey"`
+	ServiceToken           string `pulumi:"serviceToken"`
+	Version                string `pulumi:"version"`
 }

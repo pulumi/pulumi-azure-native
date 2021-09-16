@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
-// API Version: 2017-04-01.
 type HybridConnectionAuthorizationRule struct {
 	pulumi.CustomResourceState
 

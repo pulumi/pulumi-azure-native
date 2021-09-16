@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A user-defined logical grouping of machines.
-// API Version: 2015-11-01-preview.
 type MachineGroup struct {
 	pulumi.CustomResourceState
 

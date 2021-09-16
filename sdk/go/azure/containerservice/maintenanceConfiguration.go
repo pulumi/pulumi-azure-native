@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// maintenance configuration.
-// API Version: 2021-03-01.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 

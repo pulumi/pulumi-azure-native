@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of the List Namespace operation.
-// API Version: 2017-04-01.
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
 	err := ctx.Invoke("azure-native:notificationhubs:listNamespaceKeys", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ..
 }
 
 type ListNamespaceKeysArgs struct {
-	// The connection string of the namespace for the specified authorizationRule.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // The response of the List Namespace operation.
 type ListNamespaceKeysResult struct {
-	// Link to the next set of results. Not empty if Value contains incomplete list of AuthorizationRules
-	NextLink *string `pulumi:"nextLink"`
-	// Result of the List AuthorizationRules operation.
-	Value []SharedAccessAuthorizationRuleResourceResponse `pulumi:"value"`
+	NextLink *string                                         `pulumi:"nextLink"`
+	Value    []SharedAccessAuthorizationRuleResourceResponse `pulumi:"value"`
 }

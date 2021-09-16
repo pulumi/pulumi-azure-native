@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Workspace resource container.
-// API Version: 2020-10-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 

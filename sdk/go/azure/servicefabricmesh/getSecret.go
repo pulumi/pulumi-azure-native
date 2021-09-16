@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a secret resource.
-// API Version: 2018-09-01-preview.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:servicefabricmesh:getSecret", args, &rv, opts...)
@@ -19,24 +17,16 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the secret resource.
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	SecretResourceName string `pulumi:"secretResourceName"`
 }
 
 // This type describes a secret resource.
 type LookupSecretResult struct {
-	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes the properties of a secret resource.
+	Id         string                           `pulumi:"id"`
+	Location   string                           `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties SecretResourcePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Tags       map[string]string                `pulumi:"tags"`
+	Type       string                           `pulumi:"type"`
 }

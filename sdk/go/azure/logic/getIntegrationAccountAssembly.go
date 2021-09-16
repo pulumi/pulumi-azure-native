@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The assembly definition.
-// API Version: 2019-05-01.
 func LookupIntegrationAccountAssembly(ctx *pulumi.Context, args *LookupIntegrationAccountAssemblyArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountAssemblyResult, error) {
 	var rv LookupIntegrationAccountAssemblyResult
 	err := ctx.Invoke("azure-native:logic:getIntegrationAccountAssembly", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupIntegrationAccountAssembly(ctx *pulumi.Context, args *LookupIntegrati
 }
 
 type LookupIntegrationAccountAssemblyArgs struct {
-	// The assembly artifact name.
-	AssemblyArtifactName string `pulumi:"assemblyArtifactName"`
-	// The integration account name.
+	AssemblyArtifactName   string `pulumi:"assemblyArtifactName"`
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The assembly definition.
 type LookupIntegrationAccountAssemblyResult struct {
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The assembly properties.
+	Id         string                     `pulumi:"id"`
+	Location   *string                    `pulumi:"location"`
+	Name       string                     `pulumi:"name"`
 	Properties AssemblyPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string          `pulumi:"tags"`
+	Type       string                     `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment resource payload
-// API Version: 2020-07-01.
 type Deployment struct {
 	pulumi.CustomResourceState
 

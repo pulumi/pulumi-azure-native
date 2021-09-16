@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the automation account type.
-// API Version: 2021-06-22.
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tenant access information contract of the API Management service.
-// API Version: 2019-12-01.
 func ListTenantAccessGitSecrets(ctx *pulumi.Context, args *ListTenantAccessGitSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessGitSecretsResult, error) {
 	var rv ListTenantAccessGitSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listTenantAccessGitSecrets", args, &rv, opts...)
@@ -19,22 +17,15 @@ func ListTenantAccessGitSecrets(ctx *pulumi.Context, args *ListTenantAccessGitSe
 }
 
 type ListTenantAccessGitSecretsArgs struct {
-	// The identifier of the Access configuration.
-	AccessName string `pulumi:"accessName"`
-	// The name of the resource group.
+	AccessName        string `pulumi:"accessName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Tenant access information contract of the API Management service.
 type ListTenantAccessGitSecretsResult struct {
-	// Determines whether direct access is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Identifier.
-	Id *string `pulumi:"id"`
-	// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Enabled      *bool   `pulumi:"enabled"`
+	Id           *string `pulumi:"id"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

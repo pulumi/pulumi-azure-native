@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the Automanage account.
-// API Version: 2020-06-30-preview.
 type Account struct {
 	pulumi.CustomResourceState
 

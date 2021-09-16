@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Inbound NAT rule of the load balancer.
-// API Version: 2020-11-01.
 type InboundNatRule struct {
 	pulumi.CustomResourceState
 

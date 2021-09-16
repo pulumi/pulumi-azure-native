@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Capture logs and metrics of Azure resources based on ARM tags.
-// API Version: 2020-10-01.
 type TagRule struct {
 	pulumi.CustomResourceState
 

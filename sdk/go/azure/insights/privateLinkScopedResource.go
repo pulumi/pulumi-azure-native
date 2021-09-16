@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private link scoped resource
-// API Version: 2019-10-17-preview.
 type PrivateLinkScopedResource struct {
 	pulumi.CustomResourceState
 

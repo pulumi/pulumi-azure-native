@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A consumer side list of share subscription synchronizations
-// API Version: 2020-09-01.
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
 	err := ctx.Invoke("azure-native:datashare:listShareSubscriptionSynchronizations", args, &rv, opts...)
@@ -19,24 +17,16 @@ func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareS
 }
 
 type ListShareSubscriptionSynchronizationsArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Filters the results using OData syntax.
-	Filter *string `pulumi:"filter"`
-	// Sorts the results using OData syntax.
-	Orderby *string `pulumi:"orderby"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Continuation token
-	SkipToken *string `pulumi:"skipToken"`
+	AccountName           string  `pulumi:"accountName"`
+	Filter                *string `pulumi:"filter"`
+	Orderby               *string `pulumi:"orderby"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SkipToken             *string `pulumi:"skipToken"`
 }
 
 // A consumer side list of share subscription synchronizations
 type ListShareSubscriptionSynchronizationsResult struct {
-	// The Url of next result page.
-	NextLink *string `pulumi:"nextLink"`
-	// Collection of items of type DataTransferObjects.
-	Value []ShareSubscriptionSynchronizationResponse `pulumi:"value"`
+	NextLink *string                                    `pulumi:"nextLink"`
+	Value    []ShareSubscriptionSynchronizationResponse `pulumi:"value"`
 }

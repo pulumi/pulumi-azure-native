@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The peering service prefix class.
-// API Version: 2021-01-01.
 type Prefix struct {
 	pulumi.CustomResourceState
 

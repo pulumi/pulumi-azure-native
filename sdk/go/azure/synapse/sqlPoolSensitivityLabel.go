@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sensitivity label.
-// API Version: 2021-03-01.
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 

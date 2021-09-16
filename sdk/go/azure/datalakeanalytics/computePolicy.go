@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Analytics compute policy information.
-// API Version: 2016-11-01.
 type ComputePolicy struct {
 	pulumi.CustomResourceState
 

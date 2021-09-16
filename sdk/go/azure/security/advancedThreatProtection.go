@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Advanced Threat Protection resource.
-// API Version: 2019-01-01.
 type AdvancedThreatProtection struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migrate Project REST Resource.
-// API Version: 2018-09-01-preview.
 type MigrateProject struct {
 	pulumi.CustomResourceState
 

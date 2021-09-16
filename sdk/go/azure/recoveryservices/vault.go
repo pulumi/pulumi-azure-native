@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information, as returned by the resource provider.
-// API Version: 2021-01-01.
 type Vault struct {
 	pulumi.CustomResourceState
 

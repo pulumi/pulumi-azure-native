@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-10-01.
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("azure-native:logz:getMonitor", args, &rv, opts...)
@@ -18,24 +17,17 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 }
 
 type LookupMonitorArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupMonitorResult struct {
-	// ARM id of the monitor resource.
-	Id       string                      `pulumi:"id"`
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	Location string                      `pulumi:"location"`
-	// Name of the monitor resource.
-	Name string `pulumi:"name"`
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesResponse `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Tags       map[string]string  `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type string `pulumi:"type"`
+	Id         string                      `pulumi:"id"`
+	Identity   *IdentityPropertiesResponse `pulumi:"identity"`
+	Location   string                      `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
+	Properties MonitorPropertiesResponse   `pulumi:"properties"`
+	SystemData SystemDataResponse          `pulumi:"systemData"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       string                      `pulumi:"type"`
 }

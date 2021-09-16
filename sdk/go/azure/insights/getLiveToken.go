@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to a live token query.
-// API Version: 2020-06-02-preview.
 func GetLiveToken(ctx *pulumi.Context, args *GetLiveTokenArgs, opts ...pulumi.InvokeOption) (*GetLiveTokenResult, error) {
 	var rv GetLiveTokenResult
 	err := ctx.Invoke("azure-native:insights:getLiveToken", args, &rv, opts...)
@@ -19,12 +17,10 @@ func GetLiveToken(ctx *pulumi.Context, args *GetLiveTokenArgs, opts ...pulumi.In
 }
 
 type GetLiveTokenArgs struct {
-	// The identifier of the resource.
 	ResourceUri string `pulumi:"resourceUri"`
 }
 
 // The response to a live token query.
 type GetLiveTokenResult struct {
-	// JWT token for accessing live metrics stream data.
 	LiveToken string `pulumi:"liveToken"`
 }

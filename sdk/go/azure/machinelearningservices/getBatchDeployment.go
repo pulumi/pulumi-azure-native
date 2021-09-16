@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
 func LookupBatchDeployment(ctx *pulumi.Context, args *LookupBatchDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupBatchDeploymentResult, error) {
 	var rv LookupBatchDeploymentResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getBatchDeployment", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupBatchDeployment(ctx *pulumi.Context, args *LookupBatchDeploymentArgs,
 }
 
 type LookupBatchDeploymentArgs struct {
-	// The identifier for the Batch deployments.
-	DeploymentName string `pulumi:"deploymentName"`
-	// Endpoint name
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group. The name is case insensitive.
+	DeploymentName    string `pulumi:"deploymentName"`
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type LookupBatchDeploymentResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties BatchDeploymentResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id         string                    `pulumi:"id"`
+	Identity   *ResourceIdentityResponse `pulumi:"identity"`
+	Kind       *string                   `pulumi:"kind"`
+	Location   string                    `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
+	Properties BatchDeploymentResponse   `pulumi:"properties"`
+	SystemData SystemDataResponse        `pulumi:"systemData"`
+	Tags       map[string]string         `pulumi:"tags"`
+	Type       string                    `pulumi:"type"`
 }

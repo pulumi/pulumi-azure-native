@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about a certificate.
-// API Version: 2021-01-01.
 type Certificate struct {
 	pulumi.CustomResourceState
 

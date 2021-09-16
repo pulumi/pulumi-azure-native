@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list operation.
-// API Version: 2020-10-01.
 func ListSubAccountMonitoredResources(ctx *pulumi.Context, args *ListSubAccountMonitoredResourcesArgs, opts ...pulumi.InvokeOption) (*ListSubAccountMonitoredResourcesResult, error) {
 	var rv ListSubAccountMonitoredResourcesResult
 	err := ctx.Invoke("azure-native:logz:listSubAccountMonitoredResources", args, &rv, opts...)
@@ -19,18 +17,13 @@ func ListSubAccountMonitoredResources(ctx *pulumi.Context, args *ListSubAccountM
 }
 
 type ListSubAccountMonitoredResourcesArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sub Account resource name
-	SubAccountName string `pulumi:"subAccountName"`
+	SubAccountName    string `pulumi:"subAccountName"`
 }
 
 // Response of a list operation.
 type ListSubAccountMonitoredResourcesResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of a list operation.
-	Value []MonitoredResourceResponse `pulumi:"value"`
+	NextLink *string                     `pulumi:"nextLink"`
+	Value    []MonitoredResourceResponse `pulumi:"value"`
 }

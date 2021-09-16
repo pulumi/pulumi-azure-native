@@ -11,16 +11,11 @@ import (
 )
 
 type GuestOSCustomization struct {
-	// List of dns servers to use
 	DnsServers []string `pulumi:"dnsServers"`
-	// Virtual Machine hostname
-	HostName *string `pulumi:"hostName"`
-	// Password for login
-	Password *string `pulumi:"password"`
-	// id of customization policy
-	PolicyId *string `pulumi:"policyId"`
-	// Username for login
-	Username *string `pulumi:"username"`
+	HostName   *string  `pulumi:"hostName"`
+	Password   *string  `pulumi:"password"`
+	PolicyId   *string  `pulumi:"policyId"`
+	Username   *string  `pulumi:"username"`
 }
 
 // GuestOSCustomizationInput is an input type that accepts GuestOSCustomizationArgs and GuestOSCustomizationOutput values.
@@ -35,16 +30,11 @@ type GuestOSCustomizationInput interface {
 }
 
 type GuestOSCustomizationArgs struct {
-	// List of dns servers to use
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Virtual Machine hostname
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Password for login
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// id of customization policy
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Username for login
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostName   pulumi.StringPtrInput   `pulumi:"hostName"`
+	Password   pulumi.StringPtrInput   `pulumi:"password"`
+	PolicyId   pulumi.StringPtrInput   `pulumi:"policyId"`
+	Username   pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (GuestOSCustomizationArgs) ElementType() reflect.Type {
@@ -124,27 +114,22 @@ func (o GuestOSCustomizationOutput) ToGuestOSCustomizationPtrOutputWithContext(c
 	}).(GuestOSCustomizationPtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSCustomizationOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSCustomization) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Virtual Machine hostname
 func (o GuestOSCustomizationOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomization) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
-// Password for login
 func (o GuestOSCustomizationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomization) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// id of customization policy
 func (o GuestOSCustomizationOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomization) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Username for login
 func (o GuestOSCustomizationOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomization) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -173,7 +158,6 @@ func (o GuestOSCustomizationPtrOutput) Elem() GuestOSCustomizationOutput {
 	}).(GuestOSCustomizationOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSCustomizationPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSCustomization) []string {
 		if v == nil {
@@ -183,7 +167,6 @@ func (o GuestOSCustomizationPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Virtual Machine hostname
 func (o GuestOSCustomizationPtrOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomization) *string {
 		if v == nil {
@@ -193,7 +176,6 @@ func (o GuestOSCustomizationPtrOutput) HostName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for login
 func (o GuestOSCustomizationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomization) *string {
 		if v == nil {
@@ -203,7 +185,6 @@ func (o GuestOSCustomizationPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// id of customization policy
 func (o GuestOSCustomizationPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomization) *string {
 		if v == nil {
@@ -213,7 +194,6 @@ func (o GuestOSCustomizationPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for login
 func (o GuestOSCustomizationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomization) *string {
 		if v == nil {
@@ -224,16 +204,11 @@ func (o GuestOSCustomizationPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type GuestOSCustomizationResponse struct {
-	// List of dns servers to use
 	DnsServers []string `pulumi:"dnsServers"`
-	// Virtual Machine hostname
-	HostName *string `pulumi:"hostName"`
-	// Password for login
-	Password *string `pulumi:"password"`
-	// id of customization policy
-	PolicyId *string `pulumi:"policyId"`
-	// Username for login
-	Username *string `pulumi:"username"`
+	HostName   *string  `pulumi:"hostName"`
+	Password   *string  `pulumi:"password"`
+	PolicyId   *string  `pulumi:"policyId"`
+	Username   *string  `pulumi:"username"`
 }
 
 // GuestOSCustomizationResponseInput is an input type that accepts GuestOSCustomizationResponseArgs and GuestOSCustomizationResponseOutput values.
@@ -248,16 +223,11 @@ type GuestOSCustomizationResponseInput interface {
 }
 
 type GuestOSCustomizationResponseArgs struct {
-	// List of dns servers to use
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Virtual Machine hostname
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Password for login
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// id of customization policy
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Username for login
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostName   pulumi.StringPtrInput   `pulumi:"hostName"`
+	Password   pulumi.StringPtrInput   `pulumi:"password"`
+	PolicyId   pulumi.StringPtrInput   `pulumi:"policyId"`
+	Username   pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (GuestOSCustomizationResponseArgs) ElementType() reflect.Type {
@@ -337,27 +307,22 @@ func (o GuestOSCustomizationResponseOutput) ToGuestOSCustomizationResponsePtrOut
 	}).(GuestOSCustomizationResponsePtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSCustomizationResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSCustomizationResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Virtual Machine hostname
 func (o GuestOSCustomizationResponseOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomizationResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
-// Password for login
 func (o GuestOSCustomizationResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomizationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// id of customization policy
 func (o GuestOSCustomizationResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomizationResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Username for login
 func (o GuestOSCustomizationResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSCustomizationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -386,7 +351,6 @@ func (o GuestOSCustomizationResponsePtrOutput) Elem() GuestOSCustomizationRespon
 	}).(GuestOSCustomizationResponseOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSCustomizationResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSCustomizationResponse) []string {
 		if v == nil {
@@ -396,7 +360,6 @@ func (o GuestOSCustomizationResponsePtrOutput) DnsServers() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Virtual Machine hostname
 func (o GuestOSCustomizationResponsePtrOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomizationResponse) *string {
 		if v == nil {
@@ -406,7 +369,6 @@ func (o GuestOSCustomizationResponsePtrOutput) HostName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for login
 func (o GuestOSCustomizationResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomizationResponse) *string {
 		if v == nil {
@@ -416,7 +378,6 @@ func (o GuestOSCustomizationResponsePtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// id of customization policy
 func (o GuestOSCustomizationResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomizationResponse) *string {
 		if v == nil {
@@ -426,7 +387,6 @@ func (o GuestOSCustomizationResponsePtrOutput) PolicyId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for login
 func (o GuestOSCustomizationResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSCustomizationResponse) *string {
 		if v == nil {
@@ -437,20 +397,13 @@ func (o GuestOSCustomizationResponsePtrOutput) Username() pulumi.StringPtrOutput
 }
 
 type GuestOSNICCustomization struct {
-	// IP address allocation method
-	Allocation *string `pulumi:"allocation"`
-	// List of dns servers to use
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gateway addresses assigned to nic
-	Gateway []string `pulumi:"gateway"`
-	// Static ip address for nic
-	IpAddress *string `pulumi:"ipAddress"`
-	// Network mask for nic
-	Mask *string `pulumi:"mask"`
-	// primary WINS server for Windows
-	PrimaryWinsServer *string `pulumi:"primaryWinsServer"`
-	// secondary WINS server for Windows
-	SecondaryWinsServer *string `pulumi:"secondaryWinsServer"`
+	Allocation          *string  `pulumi:"allocation"`
+	DnsServers          []string `pulumi:"dnsServers"`
+	Gateway             []string `pulumi:"gateway"`
+	IpAddress           *string  `pulumi:"ipAddress"`
+	Mask                *string  `pulumi:"mask"`
+	PrimaryWinsServer   *string  `pulumi:"primaryWinsServer"`
+	SecondaryWinsServer *string  `pulumi:"secondaryWinsServer"`
 }
 
 // GuestOSNICCustomizationInput is an input type that accepts GuestOSNICCustomizationArgs and GuestOSNICCustomizationOutput values.
@@ -465,20 +418,13 @@ type GuestOSNICCustomizationInput interface {
 }
 
 type GuestOSNICCustomizationArgs struct {
-	// IP address allocation method
-	Allocation pulumi.StringPtrInput `pulumi:"allocation"`
-	// List of dns servers to use
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gateway addresses assigned to nic
-	Gateway pulumi.StringArrayInput `pulumi:"gateway"`
-	// Static ip address for nic
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// Network mask for nic
-	Mask pulumi.StringPtrInput `pulumi:"mask"`
-	// primary WINS server for Windows
-	PrimaryWinsServer pulumi.StringPtrInput `pulumi:"primaryWinsServer"`
-	// secondary WINS server for Windows
-	SecondaryWinsServer pulumi.StringPtrInput `pulumi:"secondaryWinsServer"`
+	Allocation          pulumi.StringPtrInput   `pulumi:"allocation"`
+	DnsServers          pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Gateway             pulumi.StringArrayInput `pulumi:"gateway"`
+	IpAddress           pulumi.StringPtrInput   `pulumi:"ipAddress"`
+	Mask                pulumi.StringPtrInput   `pulumi:"mask"`
+	PrimaryWinsServer   pulumi.StringPtrInput   `pulumi:"primaryWinsServer"`
+	SecondaryWinsServer pulumi.StringPtrInput   `pulumi:"secondaryWinsServer"`
 }
 
 func (GuestOSNICCustomizationArgs) ElementType() reflect.Type {
@@ -558,37 +504,30 @@ func (o GuestOSNICCustomizationOutput) ToGuestOSNICCustomizationPtrOutputWithCon
 	}).(GuestOSNICCustomizationPtrOutput)
 }
 
-// IP address allocation method
 func (o GuestOSNICCustomizationOutput) Allocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) *string { return v.Allocation }).(pulumi.StringPtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSNICCustomizationOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gateway addresses assigned to nic
 func (o GuestOSNICCustomizationOutput) Gateway() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) []string { return v.Gateway }).(pulumi.StringArrayOutput)
 }
 
-// Static ip address for nic
 func (o GuestOSNICCustomizationOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Network mask for nic
 func (o GuestOSNICCustomizationOutput) Mask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) *string { return v.Mask }).(pulumi.StringPtrOutput)
 }
 
-// primary WINS server for Windows
 func (o GuestOSNICCustomizationOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) *string { return v.PrimaryWinsServer }).(pulumi.StringPtrOutput)
 }
 
-// secondary WINS server for Windows
 func (o GuestOSNICCustomizationOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomization) *string { return v.SecondaryWinsServer }).(pulumi.StringPtrOutput)
 }
@@ -617,7 +556,6 @@ func (o GuestOSNICCustomizationPtrOutput) Elem() GuestOSNICCustomizationOutput {
 	}).(GuestOSNICCustomizationOutput)
 }
 
-// IP address allocation method
 func (o GuestOSNICCustomizationPtrOutput) Allocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) *string {
 		if v == nil {
@@ -627,7 +565,6 @@ func (o GuestOSNICCustomizationPtrOutput) Allocation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSNICCustomizationPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) []string {
 		if v == nil {
@@ -637,7 +574,6 @@ func (o GuestOSNICCustomizationPtrOutput) DnsServers() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gateway addresses assigned to nic
 func (o GuestOSNICCustomizationPtrOutput) Gateway() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) []string {
 		if v == nil {
@@ -647,7 +583,6 @@ func (o GuestOSNICCustomizationPtrOutput) Gateway() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Static ip address for nic
 func (o GuestOSNICCustomizationPtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) *string {
 		if v == nil {
@@ -657,7 +592,6 @@ func (o GuestOSNICCustomizationPtrOutput) IpAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network mask for nic
 func (o GuestOSNICCustomizationPtrOutput) Mask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) *string {
 		if v == nil {
@@ -667,7 +601,6 @@ func (o GuestOSNICCustomizationPtrOutput) Mask() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// primary WINS server for Windows
 func (o GuestOSNICCustomizationPtrOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) *string {
 		if v == nil {
@@ -677,7 +610,6 @@ func (o GuestOSNICCustomizationPtrOutput) PrimaryWinsServer() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// secondary WINS server for Windows
 func (o GuestOSNICCustomizationPtrOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomization) *string {
 		if v == nil {
@@ -688,20 +620,13 @@ func (o GuestOSNICCustomizationPtrOutput) SecondaryWinsServer() pulumi.StringPtr
 }
 
 type GuestOSNICCustomizationResponse struct {
-	// IP address allocation method
-	Allocation *string `pulumi:"allocation"`
-	// List of dns servers to use
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gateway addresses assigned to nic
-	Gateway []string `pulumi:"gateway"`
-	// Static ip address for nic
-	IpAddress *string `pulumi:"ipAddress"`
-	// Network mask for nic
-	Mask *string `pulumi:"mask"`
-	// primary WINS server for Windows
-	PrimaryWinsServer *string `pulumi:"primaryWinsServer"`
-	// secondary WINS server for Windows
-	SecondaryWinsServer *string `pulumi:"secondaryWinsServer"`
+	Allocation          *string  `pulumi:"allocation"`
+	DnsServers          []string `pulumi:"dnsServers"`
+	Gateway             []string `pulumi:"gateway"`
+	IpAddress           *string  `pulumi:"ipAddress"`
+	Mask                *string  `pulumi:"mask"`
+	PrimaryWinsServer   *string  `pulumi:"primaryWinsServer"`
+	SecondaryWinsServer *string  `pulumi:"secondaryWinsServer"`
 }
 
 // GuestOSNICCustomizationResponseInput is an input type that accepts GuestOSNICCustomizationResponseArgs and GuestOSNICCustomizationResponseOutput values.
@@ -716,20 +641,13 @@ type GuestOSNICCustomizationResponseInput interface {
 }
 
 type GuestOSNICCustomizationResponseArgs struct {
-	// IP address allocation method
-	Allocation pulumi.StringPtrInput `pulumi:"allocation"`
-	// List of dns servers to use
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gateway addresses assigned to nic
-	Gateway pulumi.StringArrayInput `pulumi:"gateway"`
-	// Static ip address for nic
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// Network mask for nic
-	Mask pulumi.StringPtrInput `pulumi:"mask"`
-	// primary WINS server for Windows
-	PrimaryWinsServer pulumi.StringPtrInput `pulumi:"primaryWinsServer"`
-	// secondary WINS server for Windows
-	SecondaryWinsServer pulumi.StringPtrInput `pulumi:"secondaryWinsServer"`
+	Allocation          pulumi.StringPtrInput   `pulumi:"allocation"`
+	DnsServers          pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Gateway             pulumi.StringArrayInput `pulumi:"gateway"`
+	IpAddress           pulumi.StringPtrInput   `pulumi:"ipAddress"`
+	Mask                pulumi.StringPtrInput   `pulumi:"mask"`
+	PrimaryWinsServer   pulumi.StringPtrInput   `pulumi:"primaryWinsServer"`
+	SecondaryWinsServer pulumi.StringPtrInput   `pulumi:"secondaryWinsServer"`
 }
 
 func (GuestOSNICCustomizationResponseArgs) ElementType() reflect.Type {
@@ -809,37 +727,30 @@ func (o GuestOSNICCustomizationResponseOutput) ToGuestOSNICCustomizationResponse
 	}).(GuestOSNICCustomizationResponsePtrOutput)
 }
 
-// IP address allocation method
 func (o GuestOSNICCustomizationResponseOutput) Allocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *string { return v.Allocation }).(pulumi.StringPtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSNICCustomizationResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gateway addresses assigned to nic
 func (o GuestOSNICCustomizationResponseOutput) Gateway() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) []string { return v.Gateway }).(pulumi.StringArrayOutput)
 }
 
-// Static ip address for nic
 func (o GuestOSNICCustomizationResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Network mask for nic
 func (o GuestOSNICCustomizationResponseOutput) Mask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *string { return v.Mask }).(pulumi.StringPtrOutput)
 }
 
-// primary WINS server for Windows
 func (o GuestOSNICCustomizationResponseOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *string { return v.PrimaryWinsServer }).(pulumi.StringPtrOutput)
 }
 
-// secondary WINS server for Windows
 func (o GuestOSNICCustomizationResponseOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *string { return v.SecondaryWinsServer }).(pulumi.StringPtrOutput)
 }
@@ -868,7 +779,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) Elem() GuestOSNICCustomization
 	}).(GuestOSNICCustomizationResponseOutput)
 }
 
-// IP address allocation method
 func (o GuestOSNICCustomizationResponsePtrOutput) Allocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) *string {
 		if v == nil {
@@ -878,7 +788,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) Allocation() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of dns servers to use
 func (o GuestOSNICCustomizationResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) []string {
 		if v == nil {
@@ -888,7 +797,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) DnsServers() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gateway addresses assigned to nic
 func (o GuestOSNICCustomizationResponsePtrOutput) Gateway() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) []string {
 		if v == nil {
@@ -898,7 +806,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) Gateway() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Static ip address for nic
 func (o GuestOSNICCustomizationResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) *string {
 		if v == nil {
@@ -908,7 +815,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) IpAddress() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network mask for nic
 func (o GuestOSNICCustomizationResponsePtrOutput) Mask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) *string {
 		if v == nil {
@@ -918,7 +824,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) Mask() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// primary WINS server for Windows
 func (o GuestOSNICCustomizationResponsePtrOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) *string {
 		if v == nil {
@@ -928,7 +833,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) PrimaryWinsServer() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// secondary WINS server for Windows
 func (o GuestOSNICCustomizationResponsePtrOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) *string {
 		if v == nil {
@@ -939,7 +843,6 @@ func (o GuestOSNICCustomizationResponsePtrOutput) SecondaryWinsServer() pulumi.S
 }
 
 type ResourcePool struct {
-	// resource pool id (privateCloudId:vsphereId)
 	Id string `pulumi:"id"`
 }
 
@@ -955,7 +858,6 @@ type ResourcePoolInput interface {
 }
 
 type ResourcePoolArgs struct {
-	// resource pool id (privateCloudId:vsphereId)
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1036,7 +938,6 @@ func (o ResourcePoolOutput) ToResourcePoolPtrOutputWithContext(ctx context.Conte
 	}).(ResourcePoolPtrOutput)
 }
 
-// resource pool id (privateCloudId:vsphereId)
 func (o ResourcePoolOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePool) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1065,7 +966,6 @@ func (o ResourcePoolPtrOutput) Elem() ResourcePoolOutput {
 	}).(ResourcePoolOutput)
 }
 
-// resource pool id (privateCloudId:vsphereId)
 func (o ResourcePoolPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePool) *string {
 		if v == nil {
@@ -1076,18 +976,12 @@ func (o ResourcePoolPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ResourcePoolResponse struct {
-	// Hierarchical resource pool name
-	FullName string `pulumi:"fullName"`
-	// resource pool id (privateCloudId:vsphereId)
-	Id string `pulumi:"id"`
-	// Azure region
-	Location string `pulumi:"location"`
-	// {ResourcePoolName}
-	Name string `pulumi:"name"`
-	// The Private Cloud Id
+	FullName       string `pulumi:"fullName"`
+	Id             string `pulumi:"id"`
+	Location       string `pulumi:"location"`
+	Name           string `pulumi:"name"`
 	PrivateCloudId string `pulumi:"privateCloudId"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }
 
 // ResourcePoolResponseInput is an input type that accepts ResourcePoolResponseArgs and ResourcePoolResponseOutput values.
@@ -1102,18 +996,12 @@ type ResourcePoolResponseInput interface {
 }
 
 type ResourcePoolResponseArgs struct {
-	// Hierarchical resource pool name
-	FullName pulumi.StringInput `pulumi:"fullName"`
-	// resource pool id (privateCloudId:vsphereId)
-	Id pulumi.StringInput `pulumi:"id"`
-	// Azure region
-	Location pulumi.StringInput `pulumi:"location"`
-	// {ResourcePoolName}
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Private Cloud Id
+	FullName       pulumi.StringInput `pulumi:"fullName"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	Location       pulumi.StringInput `pulumi:"location"`
+	Name           pulumi.StringInput `pulumi:"name"`
 	PrivateCloudId pulumi.StringInput `pulumi:"privateCloudId"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput `pulumi:"type"`
 }
 
 func (ResourcePoolResponseArgs) ElementType() reflect.Type {
@@ -1193,32 +1081,26 @@ func (o ResourcePoolResponseOutput) ToResourcePoolResponsePtrOutputWithContext(c
 	}).(ResourcePoolResponsePtrOutput)
 }
 
-// Hierarchical resource pool name
 func (o ResourcePoolResponseOutput) FullName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.FullName }).(pulumi.StringOutput)
 }
 
-// resource pool id (privateCloudId:vsphereId)
 func (o ResourcePoolResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure region
 func (o ResourcePoolResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// {ResourcePoolName}
 func (o ResourcePoolResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Private Cloud Id
 func (o ResourcePoolResponseOutput) PrivateCloudId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.PrivateCloudId }).(pulumi.StringOutput)
 }
 
-// {resourceProviderNamespace}/{resourceType}
 func (o ResourcePoolResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePoolResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1247,7 +1129,6 @@ func (o ResourcePoolResponsePtrOutput) Elem() ResourcePoolResponseOutput {
 	}).(ResourcePoolResponseOutput)
 }
 
-// Hierarchical resource pool name
 func (o ResourcePoolResponsePtrOutput) FullName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1257,7 +1138,6 @@ func (o ResourcePoolResponsePtrOutput) FullName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// resource pool id (privateCloudId:vsphereId)
 func (o ResourcePoolResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1267,7 +1147,6 @@ func (o ResourcePoolResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure region
 func (o ResourcePoolResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1277,7 +1156,6 @@ func (o ResourcePoolResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// {ResourcePoolName}
 func (o ResourcePoolResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1287,7 +1165,6 @@ func (o ResourcePoolResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Cloud Id
 func (o ResourcePoolResponsePtrOutput) PrivateCloudId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1297,7 +1174,6 @@ func (o ResourcePoolResponsePtrOutput) PrivateCloudId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// {resourceProviderNamespace}/{resourceType}
 func (o ResourcePoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePoolResponse) *string {
 		if v == nil {
@@ -1308,16 +1184,11 @@ func (o ResourcePoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type Sku struct {
-	// The capacity of the SKU
-	Capacity *string `pulumi:"capacity"`
-	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Capacity    *string `pulumi:"capacity"`
 	Description *string `pulumi:"description"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here
-	Family *string `pulumi:"family"`
-	// The name of the SKU for VMWare CloudSimple Node
-	Name string `pulumi:"name"`
-	// The tier of the SKU
-	Tier *string `pulumi:"tier"`
+	Family      *string `pulumi:"family"`
+	Name        string  `pulumi:"name"`
+	Tier        *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1332,16 +1203,11 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The capacity of the SKU
-	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
-	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Capacity    pulumi.StringPtrInput `pulumi:"capacity"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU for VMWare CloudSimple Node
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the SKU
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Family      pulumi.StringPtrInput `pulumi:"family"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Tier        pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1421,27 +1287,22 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the SKU
 func (o SkuOutput) Capacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Capacity }).(pulumi.StringPtrOutput)
 }
 
-// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
 func (o SkuOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU for VMWare CloudSimple Node
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the SKU
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1470,7 +1331,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The capacity of the SKU
 func (o SkuPtrOutput) Capacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1480,7 +1340,6 @@ func (o SkuPtrOutput) Capacity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
 func (o SkuPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1490,7 +1349,6 @@ func (o SkuPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1500,7 +1358,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU for VMWare CloudSimple Node
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1510,7 +1367,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1521,16 +1377,11 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The capacity of the SKU
-	Capacity *string `pulumi:"capacity"`
-	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Capacity    *string `pulumi:"capacity"`
 	Description *string `pulumi:"description"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here
-	Family *string `pulumi:"family"`
-	// The name of the SKU for VMWare CloudSimple Node
-	Name string `pulumi:"name"`
-	// The tier of the SKU
-	Tier *string `pulumi:"tier"`
+	Family      *string `pulumi:"family"`
+	Name        string  `pulumi:"name"`
+	Tier        *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1545,16 +1396,11 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The capacity of the SKU
-	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
-	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Capacity    pulumi.StringPtrInput `pulumi:"capacity"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU for VMWare CloudSimple Node
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the SKU
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Family      pulumi.StringPtrInput `pulumi:"family"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Tier        pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1634,27 +1480,22 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the SKU
 func (o SkuResponseOutput) Capacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Capacity }).(pulumi.StringPtrOutput)
 }
 
-// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
 func (o SkuResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU for VMWare CloudSimple Node
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the SKU
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1683,7 +1524,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The capacity of the SKU
 func (o SkuResponsePtrOutput) Capacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1693,7 +1533,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
 func (o SkuResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1703,7 +1542,6 @@ func (o SkuResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1713,7 +1551,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU for VMWare CloudSimple Node
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1723,7 +1560,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1734,14 +1570,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type VirtualDisk struct {
-	// Disk's Controller id
-	ControllerId string `pulumi:"controllerId"`
-	// Disk's independence mode type
+	ControllerId     string               `pulumi:"controllerId"`
 	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
-	// Disk's total size
-	TotalSize int `pulumi:"totalSize"`
-	// Disk's id
-	VirtualDiskId *string `pulumi:"virtualDiskId"`
+	TotalSize        int                  `pulumi:"totalSize"`
+	VirtualDiskId    *string              `pulumi:"virtualDiskId"`
 }
 
 // VirtualDiskInput is an input type that accepts VirtualDiskArgs and VirtualDiskOutput values.
@@ -1756,14 +1588,10 @@ type VirtualDiskInput interface {
 }
 
 type VirtualDiskArgs struct {
-	// Disk's Controller id
-	ControllerId pulumi.StringInput `pulumi:"controllerId"`
-	// Disk's independence mode type
+	ControllerId     pulumi.StringInput        `pulumi:"controllerId"`
 	IndependenceMode DiskIndependenceModeInput `pulumi:"independenceMode"`
-	// Disk's total size
-	TotalSize pulumi.IntInput `pulumi:"totalSize"`
-	// Disk's id
-	VirtualDiskId pulumi.StringPtrInput `pulumi:"virtualDiskId"`
+	TotalSize        pulumi.IntInput           `pulumi:"totalSize"`
+	VirtualDiskId    pulumi.StringPtrInput     `pulumi:"virtualDiskId"`
 }
 
 func (VirtualDiskArgs) ElementType() reflect.Type {
@@ -1817,22 +1645,18 @@ func (o VirtualDiskOutput) ToVirtualDiskOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// Disk's Controller id
 func (o VirtualDiskOutput) ControllerId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDisk) string { return v.ControllerId }).(pulumi.StringOutput)
 }
 
-// Disk's independence mode type
 func (o VirtualDiskOutput) IndependenceMode() DiskIndependenceModeOutput {
 	return o.ApplyT(func(v VirtualDisk) DiskIndependenceMode { return v.IndependenceMode }).(DiskIndependenceModeOutput)
 }
 
-// Disk's total size
 func (o VirtualDiskOutput) TotalSize() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualDisk) int { return v.TotalSize }).(pulumi.IntOutput)
 }
 
-// Disk's id
 func (o VirtualDiskOutput) VirtualDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDisk) *string { return v.VirtualDiskId }).(pulumi.StringPtrOutput)
 }
@@ -1858,14 +1682,10 @@ func (o VirtualDiskArrayOutput) Index(i pulumi.IntInput) VirtualDiskOutput {
 }
 
 type VirtualDiskControllerResponse struct {
-	// Controller's id
-	Id string `pulumi:"id"`
-	// The display name of Controller
-	Name string `pulumi:"name"`
-	// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
 	SubType string `pulumi:"subType"`
-	// disk controller type (SCSI)
-	Type string `pulumi:"type"`
+	Type    string `pulumi:"type"`
 }
 
 // VirtualDiskControllerResponseInput is an input type that accepts VirtualDiskControllerResponseArgs and VirtualDiskControllerResponseOutput values.
@@ -1880,14 +1700,10 @@ type VirtualDiskControllerResponseInput interface {
 }
 
 type VirtualDiskControllerResponseArgs struct {
-	// Controller's id
-	Id pulumi.StringInput `pulumi:"id"`
-	// The display name of Controller
-	Name pulumi.StringInput `pulumi:"name"`
-	// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+	Id      pulumi.StringInput `pulumi:"id"`
+	Name    pulumi.StringInput `pulumi:"name"`
 	SubType pulumi.StringInput `pulumi:"subType"`
-	// disk controller type (SCSI)
-	Type pulumi.StringInput `pulumi:"type"`
+	Type    pulumi.StringInput `pulumi:"type"`
 }
 
 func (VirtualDiskControllerResponseArgs) ElementType() reflect.Type {
@@ -1941,22 +1757,18 @@ func (o VirtualDiskControllerResponseOutput) ToVirtualDiskControllerResponseOutp
 	return o
 }
 
-// Controller's id
 func (o VirtualDiskControllerResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskControllerResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The display name of Controller
 func (o VirtualDiskControllerResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskControllerResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
 func (o VirtualDiskControllerResponseOutput) SubType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskControllerResponse) string { return v.SubType }).(pulumi.StringOutput)
 }
 
-// disk controller type (SCSI)
 func (o VirtualDiskControllerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskControllerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1982,16 +1794,11 @@ func (o VirtualDiskControllerResponseArrayOutput) Index(i pulumi.IntInput) Virtu
 }
 
 type VirtualDiskResponse struct {
-	// Disk's Controller id
-	ControllerId string `pulumi:"controllerId"`
-	// Disk's independence mode type
-	IndependenceMode string `pulumi:"independenceMode"`
-	// Disk's total size
-	TotalSize int `pulumi:"totalSize"`
-	// Disk's id
-	VirtualDiskId *string `pulumi:"virtualDiskId"`
-	// Disk's display name
-	VirtualDiskName string `pulumi:"virtualDiskName"`
+	ControllerId     string  `pulumi:"controllerId"`
+	IndependenceMode string  `pulumi:"independenceMode"`
+	TotalSize        int     `pulumi:"totalSize"`
+	VirtualDiskId    *string `pulumi:"virtualDiskId"`
+	VirtualDiskName  string  `pulumi:"virtualDiskName"`
 }
 
 // VirtualDiskResponseInput is an input type that accepts VirtualDiskResponseArgs and VirtualDiskResponseOutput values.
@@ -2006,16 +1813,11 @@ type VirtualDiskResponseInput interface {
 }
 
 type VirtualDiskResponseArgs struct {
-	// Disk's Controller id
-	ControllerId pulumi.StringInput `pulumi:"controllerId"`
-	// Disk's independence mode type
-	IndependenceMode pulumi.StringInput `pulumi:"independenceMode"`
-	// Disk's total size
-	TotalSize pulumi.IntInput `pulumi:"totalSize"`
-	// Disk's id
-	VirtualDiskId pulumi.StringPtrInput `pulumi:"virtualDiskId"`
-	// Disk's display name
-	VirtualDiskName pulumi.StringInput `pulumi:"virtualDiskName"`
+	ControllerId     pulumi.StringInput    `pulumi:"controllerId"`
+	IndependenceMode pulumi.StringInput    `pulumi:"independenceMode"`
+	TotalSize        pulumi.IntInput       `pulumi:"totalSize"`
+	VirtualDiskId    pulumi.StringPtrInput `pulumi:"virtualDiskId"`
+	VirtualDiskName  pulumi.StringInput    `pulumi:"virtualDiskName"`
 }
 
 func (VirtualDiskResponseArgs) ElementType() reflect.Type {
@@ -2069,27 +1871,22 @@ func (o VirtualDiskResponseOutput) ToVirtualDiskResponseOutputWithContext(ctx co
 	return o
 }
 
-// Disk's Controller id
 func (o VirtualDiskResponseOutput) ControllerId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskResponse) string { return v.ControllerId }).(pulumi.StringOutput)
 }
 
-// Disk's independence mode type
 func (o VirtualDiskResponseOutput) IndependenceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskResponse) string { return v.IndependenceMode }).(pulumi.StringOutput)
 }
 
-// Disk's total size
 func (o VirtualDiskResponseOutput) TotalSize() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualDiskResponse) int { return v.TotalSize }).(pulumi.IntOutput)
 }
 
-// Disk's id
 func (o VirtualDiskResponseOutput) VirtualDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDiskResponse) *string { return v.VirtualDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Disk's display name
 func (o VirtualDiskResponseOutput) VirtualDiskName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualDiskResponse) string { return v.VirtualDiskName }).(pulumi.StringOutput)
 }
@@ -2115,7 +1912,6 @@ func (o VirtualDiskResponseArrayOutput) Index(i pulumi.IntInput) VirtualDiskResp
 }
 
 type VirtualNetwork struct {
-	// virtual network id (privateCloudId:vsphereId)
 	Id string `pulumi:"id"`
 }
 
@@ -2131,7 +1927,6 @@ type VirtualNetworkInput interface {
 }
 
 type VirtualNetworkArgs struct {
-	// virtual network id (privateCloudId:vsphereId)
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2161,24 +1956,17 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
-// virtual network id (privateCloudId:vsphereId)
 func (o VirtualNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkResponse struct {
-	// can be used in vm creation/deletion
-	Assignable bool `pulumi:"assignable"`
-	// virtual network id (privateCloudId:vsphereId)
-	Id string `pulumi:"id"`
-	// Azure region
-	Location string `pulumi:"location"`
-	// {VirtualNetworkName}
-	Name string `pulumi:"name"`
-	// The Private Cloud id
+	Assignable     bool   `pulumi:"assignable"`
+	Id             string `pulumi:"id"`
+	Location       string `pulumi:"location"`
+	Name           string `pulumi:"name"`
 	PrivateCloudId string `pulumi:"privateCloudId"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }
 
 // VirtualNetworkResponseInput is an input type that accepts VirtualNetworkResponseArgs and VirtualNetworkResponseOutput values.
@@ -2193,18 +1981,12 @@ type VirtualNetworkResponseInput interface {
 }
 
 type VirtualNetworkResponseArgs struct {
-	// can be used in vm creation/deletion
-	Assignable pulumi.BoolInput `pulumi:"assignable"`
-	// virtual network id (privateCloudId:vsphereId)
-	Id pulumi.StringInput `pulumi:"id"`
-	// Azure region
-	Location pulumi.StringInput `pulumi:"location"`
-	// {VirtualNetworkName}
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Private Cloud id
+	Assignable     pulumi.BoolInput   `pulumi:"assignable"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	Location       pulumi.StringInput `pulumi:"location"`
+	Name           pulumi.StringInput `pulumi:"name"`
 	PrivateCloudId pulumi.StringInput `pulumi:"privateCloudId"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput `pulumi:"type"`
 }
 
 func (VirtualNetworkResponseArgs) ElementType() reflect.Type {
@@ -2233,51 +2015,38 @@ func (o VirtualNetworkResponseOutput) ToVirtualNetworkResponseOutputWithContext(
 	return o
 }
 
-// can be used in vm creation/deletion
 func (o VirtualNetworkResponseOutput) Assignable() pulumi.BoolOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) bool { return v.Assignable }).(pulumi.BoolOutput)
 }
 
-// virtual network id (privateCloudId:vsphereId)
 func (o VirtualNetworkResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure region
 func (o VirtualNetworkResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// {VirtualNetworkName}
 func (o VirtualNetworkResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Private Cloud id
 func (o VirtualNetworkResponseOutput) PrivateCloudId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.PrivateCloudId }).(pulumi.StringOutput)
 }
 
-// {resourceProviderNamespace}/{resourceType}
 func (o VirtualNetworkResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type VirtualNic struct {
-	// guest OS customization for nic
 	Customization *GuestOSNICCustomization `pulumi:"customization"`
-	// NIC ip address
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// NIC MAC address
-	MacAddress *string `pulumi:"macAddress"`
-	// Virtual Network
-	Network VirtualNetwork `pulumi:"network"`
-	// NIC type
-	NicType NICType `pulumi:"nicType"`
-	// Is NIC powered on/off on boot
-	PowerOnBoot *bool `pulumi:"powerOnBoot"`
-	// NIC id
-	VirtualNicId *string `pulumi:"virtualNicId"`
+	IpAddresses   []string                 `pulumi:"ipAddresses"`
+	MacAddress    *string                  `pulumi:"macAddress"`
+	Network       VirtualNetwork           `pulumi:"network"`
+	NicType       NICType                  `pulumi:"nicType"`
+	PowerOnBoot   *bool                    `pulumi:"powerOnBoot"`
+	VirtualNicId  *string                  `pulumi:"virtualNicId"`
 }
 
 // VirtualNicInput is an input type that accepts VirtualNicArgs and VirtualNicOutput values.
@@ -2292,20 +2061,13 @@ type VirtualNicInput interface {
 }
 
 type VirtualNicArgs struct {
-	// guest OS customization for nic
 	Customization GuestOSNICCustomizationPtrInput `pulumi:"customization"`
-	// NIC ip address
-	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// NIC MAC address
-	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	// Virtual Network
-	Network VirtualNetworkInput `pulumi:"network"`
-	// NIC type
-	NicType NICTypeInput `pulumi:"nicType"`
-	// Is NIC powered on/off on boot
-	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
-	// NIC id
-	VirtualNicId pulumi.StringPtrInput `pulumi:"virtualNicId"`
+	IpAddresses   pulumi.StringArrayInput         `pulumi:"ipAddresses"`
+	MacAddress    pulumi.StringPtrInput           `pulumi:"macAddress"`
+	Network       VirtualNetworkInput             `pulumi:"network"`
+	NicType       NICTypeInput                    `pulumi:"nicType"`
+	PowerOnBoot   pulumi.BoolPtrInput             `pulumi:"powerOnBoot"`
+	VirtualNicId  pulumi.StringPtrInput           `pulumi:"virtualNicId"`
 }
 
 func (VirtualNicArgs) ElementType() reflect.Type {
@@ -2359,37 +2121,30 @@ func (o VirtualNicOutput) ToVirtualNicOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
-// guest OS customization for nic
 func (o VirtualNicOutput) Customization() GuestOSNICCustomizationPtrOutput {
 	return o.ApplyT(func(v VirtualNic) *GuestOSNICCustomization { return v.Customization }).(GuestOSNICCustomizationPtrOutput)
 }
 
-// NIC ip address
 func (o VirtualNicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// NIC MAC address
 func (o VirtualNicOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNic) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-// Virtual Network
 func (o VirtualNicOutput) Network() VirtualNetworkOutput {
 	return o.ApplyT(func(v VirtualNic) VirtualNetwork { return v.Network }).(VirtualNetworkOutput)
 }
 
-// NIC type
 func (o VirtualNicOutput) NicType() NICTypeOutput {
 	return o.ApplyT(func(v VirtualNic) NICType { return v.NicType }).(NICTypeOutput)
 }
 
-// Is NIC powered on/off on boot
 func (o VirtualNicOutput) PowerOnBoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNic) *bool { return v.PowerOnBoot }).(pulumi.BoolPtrOutput)
 }
 
-// NIC id
 func (o VirtualNicOutput) VirtualNicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNic) *string { return v.VirtualNicId }).(pulumi.StringPtrOutput)
 }
@@ -2415,22 +2170,14 @@ func (o VirtualNicArrayOutput) Index(i pulumi.IntInput) VirtualNicOutput {
 }
 
 type VirtualNicResponse struct {
-	// guest OS customization for nic
-	Customization *GuestOSNICCustomizationResponse `pulumi:"customization"`
-	// NIC ip address
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// NIC MAC address
-	MacAddress *string `pulumi:"macAddress"`
-	// Virtual Network
-	Network VirtualNetworkResponse `pulumi:"network"`
-	// NIC type
-	NicType string `pulumi:"nicType"`
-	// Is NIC powered on/off on boot
-	PowerOnBoot *bool `pulumi:"powerOnBoot"`
-	// NIC id
-	VirtualNicId *string `pulumi:"virtualNicId"`
-	// NIC name
-	VirtualNicName string `pulumi:"virtualNicName"`
+	Customization  *GuestOSNICCustomizationResponse `pulumi:"customization"`
+	IpAddresses    []string                         `pulumi:"ipAddresses"`
+	MacAddress     *string                          `pulumi:"macAddress"`
+	Network        VirtualNetworkResponse           `pulumi:"network"`
+	NicType        string                           `pulumi:"nicType"`
+	PowerOnBoot    *bool                            `pulumi:"powerOnBoot"`
+	VirtualNicId   *string                          `pulumi:"virtualNicId"`
+	VirtualNicName string                           `pulumi:"virtualNicName"`
 }
 
 // VirtualNicResponseInput is an input type that accepts VirtualNicResponseArgs and VirtualNicResponseOutput values.
@@ -2445,22 +2192,14 @@ type VirtualNicResponseInput interface {
 }
 
 type VirtualNicResponseArgs struct {
-	// guest OS customization for nic
-	Customization GuestOSNICCustomizationResponsePtrInput `pulumi:"customization"`
-	// NIC ip address
-	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// NIC MAC address
-	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	// Virtual Network
-	Network VirtualNetworkResponseInput `pulumi:"network"`
-	// NIC type
-	NicType pulumi.StringInput `pulumi:"nicType"`
-	// Is NIC powered on/off on boot
-	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
-	// NIC id
-	VirtualNicId pulumi.StringPtrInput `pulumi:"virtualNicId"`
-	// NIC name
-	VirtualNicName pulumi.StringInput `pulumi:"virtualNicName"`
+	Customization  GuestOSNICCustomizationResponsePtrInput `pulumi:"customization"`
+	IpAddresses    pulumi.StringArrayInput                 `pulumi:"ipAddresses"`
+	MacAddress     pulumi.StringPtrInput                   `pulumi:"macAddress"`
+	Network        VirtualNetworkResponseInput             `pulumi:"network"`
+	NicType        pulumi.StringInput                      `pulumi:"nicType"`
+	PowerOnBoot    pulumi.BoolPtrInput                     `pulumi:"powerOnBoot"`
+	VirtualNicId   pulumi.StringPtrInput                   `pulumi:"virtualNicId"`
+	VirtualNicName pulumi.StringInput                      `pulumi:"virtualNicName"`
 }
 
 func (VirtualNicResponseArgs) ElementType() reflect.Type {
@@ -2514,42 +2253,34 @@ func (o VirtualNicResponseOutput) ToVirtualNicResponseOutputWithContext(ctx cont
 	return o
 }
 
-// guest OS customization for nic
 func (o VirtualNicResponseOutput) Customization() GuestOSNICCustomizationResponsePtrOutput {
 	return o.ApplyT(func(v VirtualNicResponse) *GuestOSNICCustomizationResponse { return v.Customization }).(GuestOSNICCustomizationResponsePtrOutput)
 }
 
-// NIC ip address
 func (o VirtualNicResponseOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNicResponse) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// NIC MAC address
 func (o VirtualNicResponseOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNicResponse) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-// Virtual Network
 func (o VirtualNicResponseOutput) Network() VirtualNetworkResponseOutput {
 	return o.ApplyT(func(v VirtualNicResponse) VirtualNetworkResponse { return v.Network }).(VirtualNetworkResponseOutput)
 }
 
-// NIC type
 func (o VirtualNicResponseOutput) NicType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNicResponse) string { return v.NicType }).(pulumi.StringOutput)
 }
 
-// Is NIC powered on/off on boot
 func (o VirtualNicResponseOutput) PowerOnBoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNicResponse) *bool { return v.PowerOnBoot }).(pulumi.BoolPtrOutput)
 }
 
-// NIC id
 func (o VirtualNicResponseOutput) VirtualNicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNicResponse) *string { return v.VirtualNicId }).(pulumi.StringPtrOutput)
 }
 
-// NIC name
 func (o VirtualNicResponseOutput) VirtualNicName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNicResponse) string { return v.VirtualNicName }).(pulumi.StringOutput)
 }

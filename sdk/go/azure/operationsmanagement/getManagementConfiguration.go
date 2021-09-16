@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The container for solution.
-// API Version: 2015-11-01-preview.
 func LookupManagementConfiguration(ctx *pulumi.Context, args *LookupManagementConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupManagementConfigurationResult, error) {
 	var rv LookupManagementConfigurationResult
 	err := ctx.Invoke("azure-native:operationsmanagement:getManagementConfiguration", args, &rv, opts...)
@@ -19,22 +17,15 @@ func LookupManagementConfiguration(ctx *pulumi.Context, args *LookupManagementCo
 }
 
 type LookupManagementConfigurationArgs struct {
-	// User Management Configuration Name.
 	ManagementConfigurationName string `pulumi:"managementConfigurationName"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
 }
 
 // The container for solution.
 type LookupManagementConfigurationResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
+	Id         string                                    `pulumi:"id"`
+	Location   *string                                   `pulumi:"location"`
+	Name       string                                    `pulumi:"name"`
 	Properties ManagementConfigurationPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string                                    `pulumi:"type"`
 }

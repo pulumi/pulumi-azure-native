@@ -11,12 +11,9 @@ import (
 )
 
 type CustomerSecret struct {
-	// The encryption algorithm used to encrypt data.
-	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
-	// The identifier to the data service input object which this secret corresponds to.
-	KeyIdentifier string `pulumi:"keyIdentifier"`
-	// It contains the encrypted customer secret.
-	KeyValue string `pulumi:"keyValue"`
+	Algorithm     SupportedAlgorithm `pulumi:"algorithm"`
+	KeyIdentifier string             `pulumi:"keyIdentifier"`
+	KeyValue      string             `pulumi:"keyValue"`
 }
 
 // CustomerSecretInput is an input type that accepts CustomerSecretArgs and CustomerSecretOutput values.
@@ -31,12 +28,9 @@ type CustomerSecretInput interface {
 }
 
 type CustomerSecretArgs struct {
-	// The encryption algorithm used to encrypt data.
-	Algorithm SupportedAlgorithmInput `pulumi:"algorithm"`
-	// The identifier to the data service input object which this secret corresponds to.
-	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
-	// It contains the encrypted customer secret.
-	KeyValue pulumi.StringInput `pulumi:"keyValue"`
+	Algorithm     SupportedAlgorithmInput `pulumi:"algorithm"`
+	KeyIdentifier pulumi.StringInput      `pulumi:"keyIdentifier"`
+	KeyValue      pulumi.StringInput      `pulumi:"keyValue"`
 }
 
 func (CustomerSecretArgs) ElementType() reflect.Type {
@@ -90,17 +84,14 @@ func (o CustomerSecretOutput) ToCustomerSecretOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The encryption algorithm used to encrypt data.
 func (o CustomerSecretOutput) Algorithm() SupportedAlgorithmOutput {
 	return o.ApplyT(func(v CustomerSecret) SupportedAlgorithm { return v.Algorithm }).(SupportedAlgorithmOutput)
 }
 
-// The identifier to the data service input object which this secret corresponds to.
 func (o CustomerSecretOutput) KeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerSecret) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
 
-// It contains the encrypted customer secret.
 func (o CustomerSecretOutput) KeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerSecret) string { return v.KeyValue }).(pulumi.StringOutput)
 }
@@ -126,12 +117,9 @@ func (o CustomerSecretArrayOutput) Index(i pulumi.IntInput) CustomerSecretOutput
 }
 
 type CustomerSecretResponse struct {
-	// The encryption algorithm used to encrypt data.
-	Algorithm string `pulumi:"algorithm"`
-	// The identifier to the data service input object which this secret corresponds to.
+	Algorithm     string `pulumi:"algorithm"`
 	KeyIdentifier string `pulumi:"keyIdentifier"`
-	// It contains the encrypted customer secret.
-	KeyValue string `pulumi:"keyValue"`
+	KeyValue      string `pulumi:"keyValue"`
 }
 
 // CustomerSecretResponseInput is an input type that accepts CustomerSecretResponseArgs and CustomerSecretResponseOutput values.
@@ -146,12 +134,9 @@ type CustomerSecretResponseInput interface {
 }
 
 type CustomerSecretResponseArgs struct {
-	// The encryption algorithm used to encrypt data.
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// The identifier to the data service input object which this secret corresponds to.
+	Algorithm     pulumi.StringInput `pulumi:"algorithm"`
 	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
-	// It contains the encrypted customer secret.
-	KeyValue pulumi.StringInput `pulumi:"keyValue"`
+	KeyValue      pulumi.StringInput `pulumi:"keyValue"`
 }
 
 func (CustomerSecretResponseArgs) ElementType() reflect.Type {
@@ -205,17 +190,14 @@ func (o CustomerSecretResponseOutput) ToCustomerSecretResponseOutputWithContext(
 	return o
 }
 
-// The encryption algorithm used to encrypt data.
 func (o CustomerSecretResponseOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerSecretResponse) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// The identifier to the data service input object which this secret corresponds to.
 func (o CustomerSecretResponseOutput) KeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerSecretResponse) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
 
-// It contains the encrypted customer secret.
 func (o CustomerSecretResponseOutput) KeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerSecretResponse) string { return v.KeyValue }).(pulumi.StringOutput)
 }
@@ -241,9 +223,7 @@ func (o CustomerSecretResponseArrayOutput) Index(i pulumi.IntInput) CustomerSecr
 }
 
 type Schedule struct {
-	// Name of the schedule.
-	Name *string `pulumi:"name"`
-	// A list of repetition intervals in ISO 8601 format.
+	Name       *string  `pulumi:"name"`
 	PolicyList []string `pulumi:"policyList"`
 }
 
@@ -259,9 +239,7 @@ type ScheduleInput interface {
 }
 
 type ScheduleArgs struct {
-	// Name of the schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A list of repetition intervals in ISO 8601 format.
+	Name       pulumi.StringPtrInput   `pulumi:"name"`
 	PolicyList pulumi.StringArrayInput `pulumi:"policyList"`
 }
 
@@ -316,12 +294,10 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-// Name of the schedule.
 func (o ScheduleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Schedule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list of repetition intervals in ISO 8601 format.
 func (o ScheduleOutput) PolicyList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Schedule) []string { return v.PolicyList }).(pulumi.StringArrayOutput)
 }
@@ -347,9 +323,7 @@ func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
 }
 
 type ScheduleResponse struct {
-	// Name of the schedule.
-	Name *string `pulumi:"name"`
-	// A list of repetition intervals in ISO 8601 format.
+	Name       *string  `pulumi:"name"`
 	PolicyList []string `pulumi:"policyList"`
 }
 
@@ -365,9 +339,7 @@ type ScheduleResponseInput interface {
 }
 
 type ScheduleResponseArgs struct {
-	// Name of the schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A list of repetition intervals in ISO 8601 format.
+	Name       pulumi.StringPtrInput   `pulumi:"name"`
 	PolicyList pulumi.StringArrayInput `pulumi:"policyList"`
 }
 
@@ -422,12 +394,10 @@ func (o ScheduleResponseOutput) ToScheduleResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the schedule.
 func (o ScheduleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list of repetition intervals in ISO 8601 format.
 func (o ScheduleResponseOutput) PolicyList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduleResponse) []string { return v.PolicyList }).(pulumi.StringArrayOutput)
 }
@@ -453,9 +423,7 @@ func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOu
 }
 
 type Sku struct {
-	// The sku name. Required for data manager creation, optional for update.
 	Name *string `pulumi:"name"`
-	// The sku tier. This is based on the SKU name.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -471,9 +439,7 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// The sku name. Required for data manager creation, optional for update.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier. This is based on the SKU name.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -554,12 +520,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The sku name. Required for data manager creation, optional for update.
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier. This is based on the SKU name.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -588,7 +552,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The sku name. Required for data manager creation, optional for update.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -598,7 +561,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier. This is based on the SKU name.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -609,9 +571,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// The sku name. Required for data manager creation, optional for update.
 	Name *string `pulumi:"name"`
-	// The sku tier. This is based on the SKU name.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -627,9 +587,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// The sku name. Required for data manager creation, optional for update.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier. This is based on the SKU name.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -710,12 +668,10 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The sku name. Required for data manager creation, optional for update.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -744,7 +700,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The sku name. Required for data manager creation, optional for update.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -754,7 +709,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

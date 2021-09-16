@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Network Security Perimeter resource
-// API Version: 2021-02-01-preview.
 type NetworkSecurityPerimeter struct {
 	pulumi.CustomResourceState
 

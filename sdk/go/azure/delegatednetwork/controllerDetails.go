@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a DNC controller.
-// API Version: 2021-03-15.
 type ControllerDetails struct {
 	pulumi.CustomResourceState
 

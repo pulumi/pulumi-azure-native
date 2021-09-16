@@ -2752,13 +2752,10 @@ func (o DefaultRolloutSpecificationResponseMediumTrafficPtrOutput) WaitDuration(
 }
 
 type DefaultRolloutSpecificationResponseProviderRegistration struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
+	Id         string                                  `pulumi:"id"`
 	Name       string                                  `pulumi:"name"`
 	Properties *ProviderRegistrationResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                  `pulumi:"type"`
 }
 
 // DefaultRolloutSpecificationResponseProviderRegistrationInput is an input type that accepts DefaultRolloutSpecificationResponseProviderRegistrationArgs and DefaultRolloutSpecificationResponseProviderRegistrationOutput values.
@@ -2773,13 +2770,10 @@ type DefaultRolloutSpecificationResponseProviderRegistrationInput interface {
 }
 
 type DefaultRolloutSpecificationResponseProviderRegistrationArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
+	Id         pulumi.StringInput                             `pulumi:"id"`
 	Name       pulumi.StringInput                             `pulumi:"name"`
 	Properties ProviderRegistrationResponsePropertiesPtrInput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (DefaultRolloutSpecificationResponseProviderRegistrationArgs) ElementType() reflect.Type {
@@ -2859,12 +2853,10 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) ToDefault
 	}).(DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2875,7 +2867,6 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Propertie
 	}).(ProviderRegistrationResponsePropertiesPtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2904,7 +2895,6 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Elem()
 	}).(DefaultRolloutSpecificationResponseProviderRegistrationOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseProviderRegistration) *string {
 		if v == nil {
@@ -2914,7 +2904,6 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Id() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource
 func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseProviderRegistration) *string {
 		if v == nil {
@@ -2933,7 +2922,6 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Proper
 	}).(ProviderRegistrationResponsePropertiesPtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseProviderRegistration) *string {
 		if v == nil {
@@ -5606,15 +5594,12 @@ func (o NotificationRegistrationResponsePropertiesPtrOutput) ProvisioningState()
 }
 
 type OperationsDefinition struct {
-	ActionType *string `pulumi:"actionType"`
-	// Display information of the operation.
-	Display OperationsDefinitionDisplay `pulumi:"display"`
-	// Indicates whether the operation applies to data-plane.
-	IsDataAction *bool `pulumi:"isDataAction"`
-	// Name of the operation.
-	Name       string      `pulumi:"name"`
-	Origin     *string     `pulumi:"origin"`
-	Properties interface{} `pulumi:"properties"`
+	ActionType   *string                     `pulumi:"actionType"`
+	Display      OperationsDefinitionDisplay `pulumi:"display"`
+	IsDataAction *bool                       `pulumi:"isDataAction"`
+	Name         string                      `pulumi:"name"`
+	Origin       *string                     `pulumi:"origin"`
+	Properties   interface{}                 `pulumi:"properties"`
 }
 
 // OperationsDefinitionInput is an input type that accepts OperationsDefinitionArgs and OperationsDefinitionOutput values.
@@ -5629,15 +5614,12 @@ type OperationsDefinitionInput interface {
 }
 
 type OperationsDefinitionArgs struct {
-	ActionType pulumi.StringPtrInput `pulumi:"actionType"`
-	// Display information of the operation.
-	Display OperationsDefinitionDisplayInput `pulumi:"display"`
-	// Indicates whether the operation applies to data-plane.
-	IsDataAction pulumi.BoolPtrInput `pulumi:"isDataAction"`
-	// Name of the operation.
-	Name       pulumi.StringInput    `pulumi:"name"`
-	Origin     pulumi.StringPtrInput `pulumi:"origin"`
-	Properties pulumi.Input          `pulumi:"properties"`
+	ActionType   pulumi.StringPtrInput            `pulumi:"actionType"`
+	Display      OperationsDefinitionDisplayInput `pulumi:"display"`
+	IsDataAction pulumi.BoolPtrInput              `pulumi:"isDataAction"`
+	Name         pulumi.StringInput               `pulumi:"name"`
+	Origin       pulumi.StringPtrInput            `pulumi:"origin"`
+	Properties   pulumi.Input                     `pulumi:"properties"`
 }
 
 func (OperationsDefinitionArgs) ElementType() reflect.Type {
@@ -5695,17 +5677,14 @@ func (o OperationsDefinitionOutput) ActionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OperationsDefinition) *string { return v.ActionType }).(pulumi.StringPtrOutput)
 }
 
-// Display information of the operation.
 func (o OperationsDefinitionOutput) Display() OperationsDefinitionDisplayOutput {
 	return o.ApplyT(func(v OperationsDefinition) OperationsDefinitionDisplay { return v.Display }).(OperationsDefinitionDisplayOutput)
 }
 
-// Indicates whether the operation applies to data-plane.
 func (o OperationsDefinitionOutput) IsDataAction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OperationsDefinition) *bool { return v.IsDataAction }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the operation.
 func (o OperationsDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OperationsDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13961,13 +13940,10 @@ func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutput) Pr
 }
 
 type ResourceTypeRegistrationResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
+	Id         string                                      `pulumi:"id"`
 	Name       string                                      `pulumi:"name"`
 	Properties *ResourceTypeRegistrationResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // ResourceTypeRegistrationResponseInput is an input type that accepts ResourceTypeRegistrationResponseArgs and ResourceTypeRegistrationResponseOutput values.
@@ -13982,13 +13958,10 @@ type ResourceTypeRegistrationResponseInput interface {
 }
 
 type ResourceTypeRegistrationResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
+	Id         pulumi.StringInput                                 `pulumi:"id"`
 	Name       pulumi.StringInput                                 `pulumi:"name"`
 	Properties ResourceTypeRegistrationResponsePropertiesPtrInput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                 `pulumi:"type"`
 }
 
 func (ResourceTypeRegistrationResponseArgs) ElementType() reflect.Type {
@@ -14042,12 +14015,10 @@ func (o ResourceTypeRegistrationResponseOutput) ToResourceTypeRegistrationRespon
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o ResourceTypeRegistrationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o ResourceTypeRegistrationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14058,7 +14029,6 @@ func (o ResourceTypeRegistrationResponseOutput) Properties() ResourceTypeRegistr
 	}).(ResourceTypeRegistrationResponsePropertiesPtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ResourceTypeRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
 }

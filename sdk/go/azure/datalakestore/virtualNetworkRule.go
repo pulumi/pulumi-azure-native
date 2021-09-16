@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Store virtual network rule information.
-// API Version: 2016-11-01.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

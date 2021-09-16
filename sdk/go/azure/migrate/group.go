@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group created in a Migration project.
-// API Version: 2019-10-01.
 type Group struct {
 	pulumi.CustomResourceState
 

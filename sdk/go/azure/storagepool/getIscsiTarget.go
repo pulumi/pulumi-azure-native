@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for iSCSI target requests.
-// API Version: 2020-03-15-preview.
 func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ...pulumi.InvokeOption) (*LookupIscsiTargetResult, error) {
 	var rv LookupIscsiTargetResult
 	err := ctx.Invoke("azure-native:storagepool:getIscsiTarget", args, &rv, opts...)
@@ -19,28 +17,18 @@ func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ..
 }
 
 type LookupIscsiTargetArgs struct {
-	// The name of the Disk pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the iSCSI target.
-	IscsiTargetName string `pulumi:"iscsiTargetName"`
-	// The name of the resource group. The name is case insensitive.
+	DiskPoolName      string `pulumi:"diskPoolName"`
+	IscsiTargetName   string `pulumi:"iscsiTargetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response for iSCSI target requests.
 type LookupIscsiTargetResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// State of the operation on the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Operational status of the iSCSI target.
-	Status string `pulumi:"status"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn string `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs []TargetPortalGroupResponse `pulumi:"tpgs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Id                string                      `pulumi:"id"`
+	Name              string                      `pulumi:"name"`
+	ProvisioningState string                      `pulumi:"provisioningState"`
+	Status            string                      `pulumi:"status"`
+	TargetIqn         string                      `pulumi:"targetIqn"`
+	Tpgs              []TargetPortalGroupResponse `pulumi:"tpgs"`
+	Type              string                      `pulumi:"type"`
 }

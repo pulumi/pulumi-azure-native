@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-01-01.
 func ListWorkspaceNotebookAccessToken(ctx *pulumi.Context, args *ListWorkspaceNotebookAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceNotebookAccessTokenResult, error) {
 	var rv ListWorkspaceNotebookAccessTokenResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args, &rv, opts...)
@@ -18,10 +17,8 @@ func ListWorkspaceNotebookAccessToken(ctx *pulumi.Context, args *ListWorkspaceNo
 }
 
 type ListWorkspaceNotebookAccessTokenArgs struct {
-	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type ListWorkspaceNotebookAccessTokenResult struct {

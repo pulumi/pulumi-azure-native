@@ -11,9 +11,7 @@ import (
 )
 
 type BasicLoginInformation struct {
-	// Login password.
 	Password *string `pulumi:"password"`
-	// Login username.
 	Username *string `pulumi:"username"`
 }
 
@@ -29,9 +27,7 @@ type BasicLoginInformationInput interface {
 }
 
 type BasicLoginInformationArgs struct {
-	// Login password.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Login username.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -112,12 +108,10 @@ func (o BasicLoginInformationOutput) ToBasicLoginInformationPtrOutputWithContext
 	}).(BasicLoginInformationPtrOutput)
 }
 
-// Login password.
 func (o BasicLoginInformationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicLoginInformation) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Login username.
 func (o BasicLoginInformationOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicLoginInformation) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +140,6 @@ func (o BasicLoginInformationPtrOutput) Elem() BasicLoginInformationOutput {
 	}).(BasicLoginInformationOutput)
 }
 
-// Login password.
 func (o BasicLoginInformationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicLoginInformation) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o BasicLoginInformationPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Login username.
 func (o BasicLoginInformationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicLoginInformation) *string {
 		if v == nil {
@@ -167,7 +159,6 @@ func (o BasicLoginInformationPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type BasicLoginInformationResponse struct {
-	// Login username.
 	Username *string `pulumi:"username"`
 }
 
@@ -183,7 +174,6 @@ type BasicLoginInformationResponseInput interface {
 }
 
 type BasicLoginInformationResponseArgs struct {
-	// Login username.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -264,7 +254,6 @@ func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponsePtrO
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// Login username.
 func (o BasicLoginInformationResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicLoginInformationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -293,7 +282,6 @@ func (o BasicLoginInformationResponsePtrOutput) Elem() BasicLoginInformationResp
 	}).(BasicLoginInformationResponseOutput)
 }
 
-// Login username.
 func (o BasicLoginInformationResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicLoginInformationResponse) *string {
 		if v == nil {
@@ -304,20 +292,13 @@ func (o BasicLoginInformationResponsePtrOutput) Username() pulumi.StringPtrOutpu
 }
 
 type DataControllerProperties struct {
-	// Username and password for basic login authentication.
-	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate *string `pulumi:"lastUploadedDate"`
-	// Log analytics workspace id and primary key
+	BasicLoginInformation       *BasicLoginInformation       `pulumi:"basicLoginInformation"`
+	K8sRaw                      interface{}                  `pulumi:"k8sRaw"`
+	LastUploadedDate            *string                      `pulumi:"lastUploadedDate"`
 	LogAnalyticsWorkspaceConfig *LogAnalyticsWorkspaceConfig `pulumi:"logAnalyticsWorkspaceConfig"`
-	// Properties from the Kubernetes data controller
-	OnPremiseProperty *OnPremiseProperty `pulumi:"onPremiseProperty"`
-	// Service principal for uploading billing, metrics and logs.
-	UploadServicePrincipal *UploadServicePrincipal `pulumi:"uploadServicePrincipal"`
-	// Properties on upload watermark.  Mostly timestamp for each upload data type
-	UploadWatermark *UploadWatermark `pulumi:"uploadWatermark"`
+	OnPremiseProperty           *OnPremiseProperty           `pulumi:"onPremiseProperty"`
+	UploadServicePrincipal      *UploadServicePrincipal      `pulumi:"uploadServicePrincipal"`
+	UploadWatermark             *UploadWatermark             `pulumi:"uploadWatermark"`
 }
 
 // DataControllerPropertiesInput is an input type that accepts DataControllerPropertiesArgs and DataControllerPropertiesOutput values.
@@ -332,20 +313,13 @@ type DataControllerPropertiesInput interface {
 }
 
 type DataControllerPropertiesArgs struct {
-	// Username and password for basic login authentication.
-	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
-	// Log analytics workspace id and primary key
+	BasicLoginInformation       BasicLoginInformationPtrInput       `pulumi:"basicLoginInformation"`
+	K8sRaw                      pulumi.Input                        `pulumi:"k8sRaw"`
+	LastUploadedDate            pulumi.StringPtrInput               `pulumi:"lastUploadedDate"`
 	LogAnalyticsWorkspaceConfig LogAnalyticsWorkspaceConfigPtrInput `pulumi:"logAnalyticsWorkspaceConfig"`
-	// Properties from the Kubernetes data controller
-	OnPremiseProperty OnPremisePropertyPtrInput `pulumi:"onPremiseProperty"`
-	// Service principal for uploading billing, metrics and logs.
-	UploadServicePrincipal UploadServicePrincipalPtrInput `pulumi:"uploadServicePrincipal"`
-	// Properties on upload watermark.  Mostly timestamp for each upload data type
-	UploadWatermark UploadWatermarkPtrInput `pulumi:"uploadWatermark"`
+	OnPremiseProperty           OnPremisePropertyPtrInput           `pulumi:"onPremiseProperty"`
+	UploadServicePrincipal      UploadServicePrincipalPtrInput      `pulumi:"uploadServicePrincipal"`
+	UploadWatermark             UploadWatermarkPtrInput             `pulumi:"uploadWatermark"`
 }
 
 func (DataControllerPropertiesArgs) ElementType() reflect.Type {
@@ -425,37 +399,30 @@ func (o DataControllerPropertiesOutput) ToDataControllerPropertiesPtrOutputWithC
 	}).(DataControllerPropertiesPtrOutput)
 }
 
-// Username and password for basic login authentication.
 func (o DataControllerPropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
 }
 
-// The raw kubernetes information
 func (o DataControllerPropertiesOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataControllerProperties) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o DataControllerPropertiesOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 func (o DataControllerPropertiesOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *LogAnalyticsWorkspaceConfig { return v.LogAnalyticsWorkspaceConfig }).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 func (o DataControllerPropertiesOutput) OnPremiseProperty() OnPremisePropertyPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *OnPremiseProperty { return v.OnPremiseProperty }).(OnPremisePropertyPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 func (o DataControllerPropertiesOutput) UploadServicePrincipal() UploadServicePrincipalPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *UploadServicePrincipal { return v.UploadServicePrincipal }).(UploadServicePrincipalPtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 func (o DataControllerPropertiesOutput) UploadWatermark() UploadWatermarkPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *UploadWatermark { return v.UploadWatermark }).(UploadWatermarkPtrOutput)
 }
@@ -484,7 +451,6 @@ func (o DataControllerPropertiesPtrOutput) Elem() DataControllerPropertiesOutput
 	}).(DataControllerPropertiesOutput)
 }
 
-// Username and password for basic login authentication.
 func (o DataControllerPropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *BasicLoginInformation {
 		if v == nil {
@@ -494,7 +460,6 @@ func (o DataControllerPropertiesPtrOutput) BasicLoginInformation() BasicLoginInf
 	}).(BasicLoginInformationPtrOutput)
 }
 
-// The raw kubernetes information
 func (o DataControllerPropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataControllerProperties) interface{} {
 		if v == nil {
@@ -504,7 +469,6 @@ func (o DataControllerPropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o DataControllerPropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *string {
 		if v == nil {
@@ -514,7 +478,6 @@ func (o DataControllerPropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 func (o DataControllerPropertiesPtrOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *LogAnalyticsWorkspaceConfig {
 		if v == nil {
@@ -524,7 +487,6 @@ func (o DataControllerPropertiesPtrOutput) LogAnalyticsWorkspaceConfig() LogAnal
 	}).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 func (o DataControllerPropertiesPtrOutput) OnPremiseProperty() OnPremisePropertyPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *OnPremiseProperty {
 		if v == nil {
@@ -534,7 +496,6 @@ func (o DataControllerPropertiesPtrOutput) OnPremiseProperty() OnPremiseProperty
 	}).(OnPremisePropertyPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 func (o DataControllerPropertiesPtrOutput) UploadServicePrincipal() UploadServicePrincipalPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *UploadServicePrincipal {
 		if v == nil {
@@ -544,7 +505,6 @@ func (o DataControllerPropertiesPtrOutput) UploadServicePrincipal() UploadServic
 	}).(UploadServicePrincipalPtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 func (o DataControllerPropertiesPtrOutput) UploadWatermark() UploadWatermarkPtrOutput {
 	return o.ApplyT(func(v *DataControllerProperties) *UploadWatermark {
 		if v == nil {
@@ -555,21 +515,14 @@ func (o DataControllerPropertiesPtrOutput) UploadWatermark() UploadWatermarkPtrO
 }
 
 type DataControllerPropertiesResponse struct {
-	// Username and password for basic login authentication.
-	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate *string `pulumi:"lastUploadedDate"`
-	// Log analytics workspace id and primary key
+	BasicLoginInformation       *BasicLoginInformationResponse       `pulumi:"basicLoginInformation"`
+	K8sRaw                      interface{}                          `pulumi:"k8sRaw"`
+	LastUploadedDate            *string                              `pulumi:"lastUploadedDate"`
 	LogAnalyticsWorkspaceConfig *LogAnalyticsWorkspaceConfigResponse `pulumi:"logAnalyticsWorkspaceConfig"`
-	// Properties from the Kubernetes data controller
-	OnPremiseProperty *OnPremisePropertyResponse `pulumi:"onPremiseProperty"`
-	ProvisioningState string                     `pulumi:"provisioningState"`
-	// Service principal for uploading billing, metrics and logs.
-	UploadServicePrincipal *UploadServicePrincipalResponse `pulumi:"uploadServicePrincipal"`
-	// Properties on upload watermark.  Mostly timestamp for each upload data type
-	UploadWatermark *UploadWatermarkResponse `pulumi:"uploadWatermark"`
+	OnPremiseProperty           *OnPremisePropertyResponse           `pulumi:"onPremiseProperty"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
+	UploadServicePrincipal      *UploadServicePrincipalResponse      `pulumi:"uploadServicePrincipal"`
+	UploadWatermark             *UploadWatermarkResponse             `pulumi:"uploadWatermark"`
 }
 
 // DataControllerPropertiesResponseInput is an input type that accepts DataControllerPropertiesResponseArgs and DataControllerPropertiesResponseOutput values.
@@ -584,21 +537,14 @@ type DataControllerPropertiesResponseInput interface {
 }
 
 type DataControllerPropertiesResponseArgs struct {
-	// Username and password for basic login authentication.
-	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
-	// Log analytics workspace id and primary key
+	BasicLoginInformation       BasicLoginInformationResponsePtrInput       `pulumi:"basicLoginInformation"`
+	K8sRaw                      pulumi.Input                                `pulumi:"k8sRaw"`
+	LastUploadedDate            pulumi.StringPtrInput                       `pulumi:"lastUploadedDate"`
 	LogAnalyticsWorkspaceConfig LogAnalyticsWorkspaceConfigResponsePtrInput `pulumi:"logAnalyticsWorkspaceConfig"`
-	// Properties from the Kubernetes data controller
-	OnPremiseProperty OnPremisePropertyResponsePtrInput `pulumi:"onPremiseProperty"`
-	ProvisioningState pulumi.StringInput                `pulumi:"provisioningState"`
-	// Service principal for uploading billing, metrics and logs.
-	UploadServicePrincipal UploadServicePrincipalResponsePtrInput `pulumi:"uploadServicePrincipal"`
-	// Properties on upload watermark.  Mostly timestamp for each upload data type
-	UploadWatermark UploadWatermarkResponsePtrInput `pulumi:"uploadWatermark"`
+	OnPremiseProperty           OnPremisePropertyResponsePtrInput           `pulumi:"onPremiseProperty"`
+	ProvisioningState           pulumi.StringInput                          `pulumi:"provisioningState"`
+	UploadServicePrincipal      UploadServicePrincipalResponsePtrInput      `pulumi:"uploadServicePrincipal"`
+	UploadWatermark             UploadWatermarkResponsePtrInput             `pulumi:"uploadWatermark"`
 }
 
 func (DataControllerPropertiesResponseArgs) ElementType() reflect.Type {
@@ -678,31 +624,26 @@ func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesRespon
 	}).(DataControllerPropertiesResponsePtrOutput)
 }
 
-// Username and password for basic login authentication.
 func (o DataControllerPropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *BasicLoginInformationResponse {
 		return v.BasicLoginInformation
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// The raw kubernetes information
 func (o DataControllerPropertiesResponseOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o DataControllerPropertiesResponseOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 func (o DataControllerPropertiesResponseOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *LogAnalyticsWorkspaceConfigResponse {
 		return v.LogAnalyticsWorkspaceConfig
 	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 func (o DataControllerPropertiesResponseOutput) OnPremiseProperty() OnPremisePropertyResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *OnPremisePropertyResponse { return v.OnPremiseProperty }).(OnPremisePropertyResponsePtrOutput)
 }
@@ -711,14 +652,12 @@ func (o DataControllerPropertiesResponseOutput) ProvisioningState() pulumi.Strin
 	return o.ApplyT(func(v DataControllerPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 func (o DataControllerPropertiesResponseOutput) UploadServicePrincipal() UploadServicePrincipalResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *UploadServicePrincipalResponse {
 		return v.UploadServicePrincipal
 	}).(UploadServicePrincipalResponsePtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 func (o DataControllerPropertiesResponseOutput) UploadWatermark() UploadWatermarkResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *UploadWatermarkResponse { return v.UploadWatermark }).(UploadWatermarkResponsePtrOutput)
 }
@@ -747,7 +686,6 @@ func (o DataControllerPropertiesResponsePtrOutput) Elem() DataControllerProperti
 	}).(DataControllerPropertiesResponseOutput)
 }
 
-// Username and password for basic login authentication.
 func (o DataControllerPropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *BasicLoginInformationResponse {
 		if v == nil {
@@ -757,7 +695,6 @@ func (o DataControllerPropertiesResponsePtrOutput) BasicLoginInformation() Basic
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// The raw kubernetes information
 func (o DataControllerPropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) interface{} {
 		if v == nil {
@@ -767,7 +704,6 @@ func (o DataControllerPropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o DataControllerPropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *string {
 		if v == nil {
@@ -777,7 +713,6 @@ func (o DataControllerPropertiesResponsePtrOutput) LastUploadedDate() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log analytics workspace id and primary key
 func (o DataControllerPropertiesResponsePtrOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigResponsePtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *LogAnalyticsWorkspaceConfigResponse {
 		if v == nil {
@@ -787,7 +722,6 @@ func (o DataControllerPropertiesResponsePtrOutput) LogAnalyticsWorkspaceConfig()
 	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
-// Properties from the Kubernetes data controller
 func (o DataControllerPropertiesResponsePtrOutput) OnPremiseProperty() OnPremisePropertyResponsePtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *OnPremisePropertyResponse {
 		if v == nil {
@@ -806,7 +740,6 @@ func (o DataControllerPropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
 func (o DataControllerPropertiesResponsePtrOutput) UploadServicePrincipal() UploadServicePrincipalResponsePtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *UploadServicePrincipalResponse {
 		if v == nil {
@@ -816,7 +749,6 @@ func (o DataControllerPropertiesResponsePtrOutput) UploadServicePrincipal() Uplo
 	}).(UploadServicePrincipalResponsePtrOutput)
 }
 
-// Properties on upload watermark.  Mostly timestamp for each upload data type
 func (o DataControllerPropertiesResponsePtrOutput) UploadWatermark() UploadWatermarkResponsePtrOutput {
 	return o.ApplyT(func(v *DataControllerPropertiesResponse) *UploadWatermarkResponse {
 		if v == nil {
@@ -827,9 +759,7 @@ func (o DataControllerPropertiesResponsePtrOutput) UploadWatermark() UploadWater
 }
 
 type ExtendedLocation struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -845,9 +775,7 @@ type ExtendedLocationInput interface {
 }
 
 type ExtendedLocationArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -928,12 +856,10 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx conte
 	}).(ExtendedLocationPtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -962,7 +888,6 @@ func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
 	}).(ExtendedLocationOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -972,7 +897,6 @@ func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -983,9 +907,7 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ExtendedLocationResponse struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -1001,9 +923,7 @@ type ExtendedLocationResponseInput interface {
 }
 
 type ExtendedLocationResponseArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1084,12 +1004,10 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithC
 	}).(ExtendedLocationResponsePtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1118,7 +1036,6 @@ func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput
 	}).(ExtendedLocationResponseOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -1128,7 +1045,6 @@ func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -1139,9 +1055,7 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type LogAnalyticsWorkspaceConfig struct {
-	// Primary key of the workspace
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Azure Log Analytics workspace ID
+	PrimaryKey  *string `pulumi:"primaryKey"`
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -1157,9 +1071,7 @@ type LogAnalyticsWorkspaceConfigInput interface {
 }
 
 type LogAnalyticsWorkspaceConfigArgs struct {
-	// Primary key of the workspace
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// Azure Log Analytics workspace ID
+	PrimaryKey  pulumi.StringPtrInput `pulumi:"primaryKey"`
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
@@ -1240,12 +1152,10 @@ func (o LogAnalyticsWorkspaceConfigOutput) ToLogAnalyticsWorkspaceConfigPtrOutpu
 	}).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
 
-// Primary key of the workspace
 func (o LogAnalyticsWorkspaceConfigOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsWorkspaceConfig) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Azure Log Analytics workspace ID
 func (o LogAnalyticsWorkspaceConfigOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsWorkspaceConfig) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -1274,7 +1184,6 @@ func (o LogAnalyticsWorkspaceConfigPtrOutput) Elem() LogAnalyticsWorkspaceConfig
 	}).(LogAnalyticsWorkspaceConfigOutput)
 }
 
-// Primary key of the workspace
 func (o LogAnalyticsWorkspaceConfigPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfig) *string {
 		if v == nil {
@@ -1284,7 +1193,6 @@ func (o LogAnalyticsWorkspaceConfigPtrOutput) PrimaryKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Log Analytics workspace ID
 func (o LogAnalyticsWorkspaceConfigPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfig) *string {
 		if v == nil {
@@ -1295,7 +1203,6 @@ func (o LogAnalyticsWorkspaceConfigPtrOutput) WorkspaceId() pulumi.StringPtrOutp
 }
 
 type LogAnalyticsWorkspaceConfigResponse struct {
-	// Azure Log Analytics workspace ID
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -1311,7 +1218,6 @@ type LogAnalyticsWorkspaceConfigResponseInput interface {
 }
 
 type LogAnalyticsWorkspaceConfigResponseArgs struct {
-	// Azure Log Analytics workspace ID
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
@@ -1392,7 +1298,6 @@ func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfig
 	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
-// Azure Log Analytics workspace ID
 func (o LogAnalyticsWorkspaceConfigResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsWorkspaceConfigResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -1421,7 +1326,6 @@ func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) Elem() LogAnalyticsWorkspa
 	}).(LogAnalyticsWorkspaceConfigResponseOutput)
 }
 
-// Azure Log Analytics workspace ID
 func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfigResponse) *string {
 		if v == nil {
@@ -1432,11 +1336,8 @@ func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) WorkspaceId() pulumi.Strin
 }
 
 type OnPremiseProperty struct {
-	// A globally unique ID identifying the associated Kubernetes cluster
-	Id string `pulumi:"id"`
-	// Certificate that contains the Kubernetes cluster public key used to verify signing
-	PublicSigningKey string `pulumi:"publicSigningKey"`
-	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	Id                           string  `pulumi:"id"`
+	PublicSigningKey             string  `pulumi:"publicSigningKey"`
 	SigningCertificateThumbprint *string `pulumi:"signingCertificateThumbprint"`
 }
 
@@ -1452,11 +1353,8 @@ type OnPremisePropertyInput interface {
 }
 
 type OnPremisePropertyArgs struct {
-	// A globally unique ID identifying the associated Kubernetes cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Certificate that contains the Kubernetes cluster public key used to verify signing
-	PublicSigningKey pulumi.StringInput `pulumi:"publicSigningKey"`
-	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	Id                           pulumi.StringInput    `pulumi:"id"`
+	PublicSigningKey             pulumi.StringInput    `pulumi:"publicSigningKey"`
 	SigningCertificateThumbprint pulumi.StringPtrInput `pulumi:"signingCertificateThumbprint"`
 }
 
@@ -1537,17 +1435,14 @@ func (o OnPremisePropertyOutput) ToOnPremisePropertyPtrOutputWithContext(ctx con
 	}).(OnPremisePropertyPtrOutput)
 }
 
-// A globally unique ID identifying the associated Kubernetes cluster
 func (o OnPremisePropertyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseProperty) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Certificate that contains the Kubernetes cluster public key used to verify signing
 func (o OnPremisePropertyOutput) PublicSigningKey() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseProperty) string { return v.PublicSigningKey }).(pulumi.StringOutput)
 }
 
-// Unique thumbprint returned to customer to verify the certificate being uploaded
 func (o OnPremisePropertyOutput) SigningCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OnPremiseProperty) *string { return v.SigningCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -1576,7 +1471,6 @@ func (o OnPremisePropertyPtrOutput) Elem() OnPremisePropertyOutput {
 	}).(OnPremisePropertyOutput)
 }
 
-// A globally unique ID identifying the associated Kubernetes cluster
 func (o OnPremisePropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremiseProperty) *string {
 		if v == nil {
@@ -1586,7 +1480,6 @@ func (o OnPremisePropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate that contains the Kubernetes cluster public key used to verify signing
 func (o OnPremisePropertyPtrOutput) PublicSigningKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremiseProperty) *string {
 		if v == nil {
@@ -1596,7 +1489,6 @@ func (o OnPremisePropertyPtrOutput) PublicSigningKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unique thumbprint returned to customer to verify the certificate being uploaded
 func (o OnPremisePropertyPtrOutput) SigningCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremiseProperty) *string {
 		if v == nil {
@@ -1607,11 +1499,8 @@ func (o OnPremisePropertyPtrOutput) SigningCertificateThumbprint() pulumi.String
 }
 
 type OnPremisePropertyResponse struct {
-	// A globally unique ID identifying the associated Kubernetes cluster
-	Id string `pulumi:"id"`
-	// Certificate that contains the Kubernetes cluster public key used to verify signing
-	PublicSigningKey string `pulumi:"publicSigningKey"`
-	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	Id                           string  `pulumi:"id"`
+	PublicSigningKey             string  `pulumi:"publicSigningKey"`
 	SigningCertificateThumbprint *string `pulumi:"signingCertificateThumbprint"`
 }
 
@@ -1627,11 +1516,8 @@ type OnPremisePropertyResponseInput interface {
 }
 
 type OnPremisePropertyResponseArgs struct {
-	// A globally unique ID identifying the associated Kubernetes cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Certificate that contains the Kubernetes cluster public key used to verify signing
-	PublicSigningKey pulumi.StringInput `pulumi:"publicSigningKey"`
-	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	Id                           pulumi.StringInput    `pulumi:"id"`
+	PublicSigningKey             pulumi.StringInput    `pulumi:"publicSigningKey"`
 	SigningCertificateThumbprint pulumi.StringPtrInput `pulumi:"signingCertificateThumbprint"`
 }
 
@@ -1712,17 +1598,14 @@ func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponsePtrOutputWit
 	}).(OnPremisePropertyResponsePtrOutput)
 }
 
-// A globally unique ID identifying the associated Kubernetes cluster
 func (o OnPremisePropertyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremisePropertyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Certificate that contains the Kubernetes cluster public key used to verify signing
 func (o OnPremisePropertyResponseOutput) PublicSigningKey() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremisePropertyResponse) string { return v.PublicSigningKey }).(pulumi.StringOutput)
 }
 
-// Unique thumbprint returned to customer to verify the certificate being uploaded
 func (o OnPremisePropertyResponseOutput) SigningCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OnPremisePropertyResponse) *string { return v.SigningCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -1751,7 +1634,6 @@ func (o OnPremisePropertyResponsePtrOutput) Elem() OnPremisePropertyResponseOutp
 	}).(OnPremisePropertyResponseOutput)
 }
 
-// A globally unique ID identifying the associated Kubernetes cluster
 func (o OnPremisePropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremisePropertyResponse) *string {
 		if v == nil {
@@ -1761,7 +1643,6 @@ func (o OnPremisePropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate that contains the Kubernetes cluster public key used to verify signing
 func (o OnPremisePropertyResponsePtrOutput) PublicSigningKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremisePropertyResponse) *string {
 		if v == nil {
@@ -1771,7 +1652,6 @@ func (o OnPremisePropertyResponsePtrOutput) PublicSigningKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unique thumbprint returned to customer to verify the certificate being uploaded
 func (o OnPremisePropertyResponsePtrOutput) SigningCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnPremisePropertyResponse) *string {
 		if v == nil {
@@ -1782,16 +1662,11 @@ func (o OnPremisePropertyResponsePtrOutput) SigningCertificateThumbprint() pulum
 }
 
 type PostgresInstanceProperties struct {
-	// The instance admin
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 *string                `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate *string `pulumi:"lastUploadedDate"`
+	DataControllerId      *string                `pulumi:"dataControllerId"`
+	K8sRaw                interface{}            `pulumi:"k8sRaw"`
+	LastUploadedDate      *string                `pulumi:"lastUploadedDate"`
 }
 
 // PostgresInstancePropertiesInput is an input type that accepts PostgresInstancePropertiesArgs and PostgresInstancePropertiesOutput values.
@@ -1806,16 +1681,11 @@ type PostgresInstancePropertiesInput interface {
 }
 
 type PostgresInstancePropertiesArgs struct {
-	// The instance admin
-	Admin pulumi.StringPtrInput `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 pulumi.StringPtrInput         `pulumi:"admin"`
 	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
+	DataControllerId      pulumi.StringPtrInput         `pulumi:"dataControllerId"`
+	K8sRaw                pulumi.Input                  `pulumi:"k8sRaw"`
+	LastUploadedDate      pulumi.StringPtrInput         `pulumi:"lastUploadedDate"`
 }
 
 func (PostgresInstancePropertiesArgs) ElementType() reflect.Type {
@@ -1895,27 +1765,22 @@ func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesPtrOutputW
 	}).(PostgresInstancePropertiesPtrOutput)
 }
 
-// The instance admin
 func (o PostgresInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.Admin }).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o PostgresInstancePropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
 }
 
-// The data controller id
 func (o PostgresInstancePropertiesOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o PostgresInstancePropertiesOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v PostgresInstanceProperties) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o PostgresInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
@@ -1944,7 +1809,6 @@ func (o PostgresInstancePropertiesPtrOutput) Elem() PostgresInstancePropertiesOu
 	}).(PostgresInstancePropertiesOutput)
 }
 
-// The instance admin
 func (o PostgresInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
 		if v == nil {
@@ -1954,7 +1818,6 @@ func (o PostgresInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o PostgresInstancePropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceProperties) *BasicLoginInformation {
 		if v == nil {
@@ -1964,7 +1827,6 @@ func (o PostgresInstancePropertiesPtrOutput) BasicLoginInformation() BasicLoginI
 	}).(BasicLoginInformationPtrOutput)
 }
 
-// The data controller id
 func (o PostgresInstancePropertiesPtrOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
 		if v == nil {
@@ -1974,7 +1836,6 @@ func (o PostgresInstancePropertiesPtrOutput) DataControllerId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o PostgresInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PostgresInstanceProperties) interface{} {
 		if v == nil {
@@ -1984,7 +1845,6 @@ func (o PostgresInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o PostgresInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
 		if v == nil {
@@ -1995,17 +1855,12 @@ func (o PostgresInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtr
 }
 
 type PostgresInstancePropertiesResponse struct {
-	// The instance admin
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 *string                        `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  *string `pulumi:"lastUploadedDate"`
-	ProvisioningState string  `pulumi:"provisioningState"`
+	DataControllerId      *string                        `pulumi:"dataControllerId"`
+	K8sRaw                interface{}                    `pulumi:"k8sRaw"`
+	LastUploadedDate      *string                        `pulumi:"lastUploadedDate"`
+	ProvisioningState     string                         `pulumi:"provisioningState"`
 }
 
 // PostgresInstancePropertiesResponseInput is an input type that accepts PostgresInstancePropertiesResponseArgs and PostgresInstancePropertiesResponseOutput values.
@@ -2020,17 +1875,12 @@ type PostgresInstancePropertiesResponseInput interface {
 }
 
 type PostgresInstancePropertiesResponseArgs struct {
-	// The instance admin
-	Admin pulumi.StringPtrInput `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 pulumi.StringPtrInput                 `pulumi:"admin"`
 	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	DataControllerId      pulumi.StringPtrInput                 `pulumi:"dataControllerId"`
+	K8sRaw                pulumi.Input                          `pulumi:"k8sRaw"`
+	LastUploadedDate      pulumi.StringPtrInput                 `pulumi:"lastUploadedDate"`
+	ProvisioningState     pulumi.StringInput                    `pulumi:"provisioningState"`
 }
 
 func (PostgresInstancePropertiesResponseArgs) ElementType() reflect.Type {
@@ -2110,29 +1960,24 @@ func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesRe
 	}).(PostgresInstancePropertiesResponsePtrOutput)
 }
 
-// The instance admin
 func (o PostgresInstancePropertiesResponseOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.Admin }).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o PostgresInstancePropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *BasicLoginInformationResponse {
 		return v.BasicLoginInformation
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// The data controller id
 func (o PostgresInstancePropertiesResponseOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o PostgresInstancePropertiesResponseOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o PostgresInstancePropertiesResponseOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
@@ -2165,7 +2010,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) Elem() PostgresInstanceProp
 	}).(PostgresInstancePropertiesResponseOutput)
 }
 
-// The instance admin
 func (o PostgresInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
 		if v == nil {
@@ -2175,7 +2019,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o PostgresInstancePropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *BasicLoginInformationResponse {
 		if v == nil {
@@ -2185,7 +2028,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) BasicLoginInformation() Bas
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// The data controller id
 func (o PostgresInstancePropertiesResponsePtrOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
 		if v == nil {
@@ -2195,7 +2037,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) DataControllerId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o PostgresInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) interface{} {
 		if v == nil {
@@ -2205,7 +2046,6 @@ func (o PostgresInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o PostgresInstancePropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
 		if v == nil {
@@ -2225,18 +2065,12 @@ func (o PostgresInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi.
 }
 
 type PostgresInstanceSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
+	Capacity *int                     `pulumi:"capacity"`
+	Dev      *bool                    `pulumi:"dev"`
+	Family   *string                  `pulumi:"family"`
+	Name     string                   `pulumi:"name"`
+	Size     *string                  `pulumi:"size"`
+	Tier     *PostgresInstanceSkuTier `pulumi:"tier"`
 }
 
 // PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
@@ -2251,18 +2085,12 @@ type PostgresInstanceSkuInput interface {
 }
 
 type PostgresInstanceSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput              `pulumi:"capacity"`
+	Dev      pulumi.BoolPtrInput             `pulumi:"dev"`
+	Family   pulumi.StringPtrInput           `pulumi:"family"`
+	Name     pulumi.StringInput              `pulumi:"name"`
+	Size     pulumi.StringPtrInput           `pulumi:"size"`
+	Tier     PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
@@ -2342,32 +2170,26 @@ func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuPtrOutputWithContext(ctx
 	}).(PostgresInstanceSkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o PostgresInstanceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o PostgresInstanceSkuOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o PostgresInstanceSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o PostgresInstanceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o PostgresInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o PostgresInstanceSkuOutput) Tier() PostgresInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSku) *PostgresInstanceSkuTier { return v.Tier }).(PostgresInstanceSkuTierPtrOutput)
 }
@@ -2396,7 +2218,6 @@ func (o PostgresInstanceSkuPtrOutput) Elem() PostgresInstanceSkuOutput {
 	}).(PostgresInstanceSkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o PostgresInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *int {
 		if v == nil {
@@ -2406,7 +2227,6 @@ func (o PostgresInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o PostgresInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *bool {
 		if v == nil {
@@ -2416,7 +2236,6 @@ func (o PostgresInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o PostgresInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *string {
 		if v == nil {
@@ -2426,7 +2245,6 @@ func (o PostgresInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o PostgresInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *string {
 		if v == nil {
@@ -2436,7 +2254,6 @@ func (o PostgresInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o PostgresInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *string {
 		if v == nil {
@@ -2446,7 +2263,6 @@ func (o PostgresInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSku) *PostgresInstanceSkuTier {
 		if v == nil {
@@ -2457,18 +2273,12 @@ func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
 }
 
 type PostgresInstanceSkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Dev      *bool   `pulumi:"dev"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // PostgresInstanceSkuResponseInput is an input type that accepts PostgresInstanceSkuResponseArgs and PostgresInstanceSkuResponseOutput values.
@@ -2483,18 +2293,12 @@ type PostgresInstanceSkuResponseInput interface {
 }
 
 type PostgresInstanceSkuResponseArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Dev      pulumi.BoolPtrInput   `pulumi:"dev"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PostgresInstanceSkuResponseArgs) ElementType() reflect.Type {
@@ -2574,32 +2378,26 @@ func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponsePtrOutpu
 	}).(PostgresInstanceSkuResponsePtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o PostgresInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o PostgresInstanceSkuResponseOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o PostgresInstanceSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o PostgresInstanceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o PostgresInstanceSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o PostgresInstanceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2628,7 +2426,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Elem() PostgresInstanceSkuResponse
 	}).(PostgresInstanceSkuResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o PostgresInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *int {
 		if v == nil {
@@ -2638,7 +2435,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o PostgresInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *bool {
 		if v == nil {
@@ -2648,7 +2444,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o PostgresInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
 		if v == nil {
@@ -2658,7 +2453,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o PostgresInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
 		if v == nil {
@@ -2668,7 +2462,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o PostgresInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
 		if v == nil {
@@ -2678,7 +2471,6 @@ func (o PostgresInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o PostgresInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
 		if v == nil {
@@ -2689,20 +2481,13 @@ func (o PostgresInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SqlManagedInstanceProperties struct {
-	// The instance admin user
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 *string                `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
-	// null
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The instance end time
-	EndTime *string `pulumi:"endTime"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate *string `pulumi:"lastUploadedDate"`
-	// The instance start time
-	StartTime *string `pulumi:"startTime"`
+	DataControllerId      *string                `pulumi:"dataControllerId"`
+	EndTime               *string                `pulumi:"endTime"`
+	K8sRaw                interface{}            `pulumi:"k8sRaw"`
+	LastUploadedDate      *string                `pulumi:"lastUploadedDate"`
+	StartTime             *string                `pulumi:"startTime"`
 }
 
 // SqlManagedInstancePropertiesInput is an input type that accepts SqlManagedInstancePropertiesArgs and SqlManagedInstancePropertiesOutput values.
@@ -2717,20 +2502,13 @@ type SqlManagedInstancePropertiesInput interface {
 }
 
 type SqlManagedInstancePropertiesArgs struct {
-	// The instance admin user
-	Admin pulumi.StringPtrInput `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 pulumi.StringPtrInput         `pulumi:"admin"`
 	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
-	// null
-	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
-	// The instance end time
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
-	// The instance start time
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	DataControllerId      pulumi.StringPtrInput         `pulumi:"dataControllerId"`
+	EndTime               pulumi.StringPtrInput         `pulumi:"endTime"`
+	K8sRaw                pulumi.Input                  `pulumi:"k8sRaw"`
+	LastUploadedDate      pulumi.StringPtrInput         `pulumi:"lastUploadedDate"`
+	StartTime             pulumi.StringPtrInput         `pulumi:"startTime"`
 }
 
 func (SqlManagedInstancePropertiesArgs) ElementType() reflect.Type {
@@ -2810,37 +2588,30 @@ func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesPtrOut
 	}).(SqlManagedInstancePropertiesPtrOutput)
 }
 
-// The instance admin user
 func (o SqlManagedInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.Admin }).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o SqlManagedInstancePropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
 }
 
-// null
 func (o SqlManagedInstancePropertiesOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
 }
 
-// The instance end time
 func (o SqlManagedInstancePropertiesOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o SqlManagedInstancePropertiesOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
 
-// The instance start time
 func (o SqlManagedInstancePropertiesOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -2869,7 +2640,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) Elem() SqlManagedInstanceProperti
 	}).(SqlManagedInstancePropertiesOutput)
 }
 
-// The instance admin user
 func (o SqlManagedInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
@@ -2879,7 +2649,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o SqlManagedInstancePropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *BasicLoginInformation {
 		if v == nil {
@@ -2889,7 +2658,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) BasicLoginInformation() BasicLogi
 	}).(BasicLoginInformationPtrOutput)
 }
 
-// null
 func (o SqlManagedInstancePropertiesPtrOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
@@ -2899,7 +2667,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) DataControllerId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance end time
 func (o SqlManagedInstancePropertiesPtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
@@ -2909,7 +2676,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) EndTime() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o SqlManagedInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) interface{} {
 		if v == nil {
@@ -2919,7 +2685,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
@@ -2929,7 +2694,6 @@ func (o SqlManagedInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance start time
 func (o SqlManagedInstancePropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
@@ -2940,21 +2704,14 @@ func (o SqlManagedInstancePropertiesPtrOutput) StartTime() pulumi.StringPtrOutpu
 }
 
 type SqlManagedInstancePropertiesResponse struct {
-	// The instance admin user
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 *string                        `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
-	// null
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The instance end time
-	EndTime *string `pulumi:"endTime"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  *string `pulumi:"lastUploadedDate"`
-	ProvisioningState string  `pulumi:"provisioningState"`
-	// The instance start time
-	StartTime *string `pulumi:"startTime"`
+	DataControllerId      *string                        `pulumi:"dataControllerId"`
+	EndTime               *string                        `pulumi:"endTime"`
+	K8sRaw                interface{}                    `pulumi:"k8sRaw"`
+	LastUploadedDate      *string                        `pulumi:"lastUploadedDate"`
+	ProvisioningState     string                         `pulumi:"provisioningState"`
+	StartTime             *string                        `pulumi:"startTime"`
 }
 
 // SqlManagedInstancePropertiesResponseInput is an input type that accepts SqlManagedInstancePropertiesResponseArgs and SqlManagedInstancePropertiesResponseOutput values.
@@ -2969,21 +2726,14 @@ type SqlManagedInstancePropertiesResponseInput interface {
 }
 
 type SqlManagedInstancePropertiesResponseArgs struct {
-	// The instance admin user
-	Admin pulumi.StringPtrInput `pulumi:"admin"`
-	// Username and password for basic authentication.
+	Admin                 pulumi.StringPtrInput                 `pulumi:"admin"`
 	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
-	// null
-	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
-	// The instance end time
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
-	// The instance start time
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	DataControllerId      pulumi.StringPtrInput                 `pulumi:"dataControllerId"`
+	EndTime               pulumi.StringPtrInput                 `pulumi:"endTime"`
+	K8sRaw                pulumi.Input                          `pulumi:"k8sRaw"`
+	LastUploadedDate      pulumi.StringPtrInput                 `pulumi:"lastUploadedDate"`
+	ProvisioningState     pulumi.StringInput                    `pulumi:"provisioningState"`
+	StartTime             pulumi.StringPtrInput                 `pulumi:"startTime"`
 }
 
 func (SqlManagedInstancePropertiesResponseArgs) ElementType() reflect.Type {
@@ -3063,34 +2813,28 @@ func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstanceProperti
 	}).(SqlManagedInstancePropertiesResponsePtrOutput)
 }
 
-// The instance admin user
 func (o SqlManagedInstancePropertiesResponseOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.Admin }).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o SqlManagedInstancePropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *BasicLoginInformationResponse {
 		return v.BasicLoginInformation
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// null
 func (o SqlManagedInstancePropertiesResponseOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
 }
 
-// The instance end time
 func (o SqlManagedInstancePropertiesResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o SqlManagedInstancePropertiesResponseOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesResponseOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
@@ -3099,7 +2843,6 @@ func (o SqlManagedInstancePropertiesResponseOutput) ProvisioningState() pulumi.S
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The instance start time
 func (o SqlManagedInstancePropertiesResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -3128,7 +2871,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) Elem() SqlManagedInstance
 	}).(SqlManagedInstancePropertiesResponseOutput)
 }
 
-// The instance admin user
 func (o SqlManagedInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
 		if v == nil {
@@ -3138,7 +2880,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username and password for basic authentication.
 func (o SqlManagedInstancePropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *BasicLoginInformationResponse {
 		if v == nil {
@@ -3148,7 +2889,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) BasicLoginInformation() B
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
-// null
 func (o SqlManagedInstancePropertiesResponsePtrOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
 		if v == nil {
@@ -3158,7 +2898,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) DataControllerId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance end time
 func (o SqlManagedInstancePropertiesResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
 		if v == nil {
@@ -3168,7 +2907,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) EndTime() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The raw kubernetes information
 func (o SqlManagedInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) interface{} {
 		if v == nil {
@@ -3178,7 +2916,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput
 	}).(pulumi.AnyOutput)
 }
 
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
 		if v == nil {
@@ -3197,7 +2934,6 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance start time
 func (o SqlManagedInstancePropertiesResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
 		if v == nil {
@@ -3208,18 +2944,12 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) StartTime() pulumi.String
 }
 
 type SqlManagedInstanceSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
+	Capacity *int                       `pulumi:"capacity"`
+	Dev      *bool                      `pulumi:"dev"`
+	Family   *string                    `pulumi:"family"`
+	Name     string                     `pulumi:"name"`
+	Size     *string                    `pulumi:"size"`
+	Tier     *SqlManagedInstanceSkuTier `pulumi:"tier"`
 }
 
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
@@ -3234,18 +2964,12 @@ type SqlManagedInstanceSkuInput interface {
 }
 
 type SqlManagedInstanceSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput                `pulumi:"capacity"`
+	Dev      pulumi.BoolPtrInput               `pulumi:"dev"`
+	Family   pulumi.StringPtrInput             `pulumi:"family"`
+	Name     pulumi.StringInput                `pulumi:"name"`
+	Size     pulumi.StringPtrInput             `pulumi:"size"`
+	Tier     SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
@@ -3325,32 +3049,26 @@ func (o SqlManagedInstanceSkuOutput) ToSqlManagedInstanceSkuPtrOutputWithContext
 	}).(SqlManagedInstanceSkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o SqlManagedInstanceSkuOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o SqlManagedInstanceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SqlManagedInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o SqlManagedInstanceSkuOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSkuTier { return v.Tier }).(SqlManagedInstanceSkuTierPtrOutput)
 }
@@ -3379,7 +3097,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Elem() SqlManagedInstanceSkuOutput {
 	}).(SqlManagedInstanceSkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *int {
 		if v == nil {
@@ -3389,7 +3106,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o SqlManagedInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *bool {
 		if v == nil {
@@ -3399,7 +3115,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
@@ -3409,7 +3124,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o SqlManagedInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
@@ -3419,7 +3133,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
@@ -3429,7 +3142,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSkuTier {
 		if v == nil {
@@ -3440,18 +3152,12 @@ func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutpu
 }
 
 type SqlManagedInstanceSkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Dev      *bool   `pulumi:"dev"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SqlManagedInstanceSkuResponseInput is an input type that accepts SqlManagedInstanceSkuResponseArgs and SqlManagedInstanceSkuResponseOutput values.
@@ -3466,18 +3172,12 @@ type SqlManagedInstanceSkuResponseInput interface {
 }
 
 type SqlManagedInstanceSkuResponseArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Dev      pulumi.BoolPtrInput   `pulumi:"dev"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SqlManagedInstanceSkuResponseArgs) ElementType() reflect.Type {
@@ -3557,32 +3257,26 @@ func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponsePtrO
 	}).(SqlManagedInstanceSkuResponsePtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o SqlManagedInstanceSkuResponseOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o SqlManagedInstanceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SqlManagedInstanceSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o SqlManagedInstanceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -3611,7 +3305,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Elem() SqlManagedInstanceSkuResp
 	}).(SqlManagedInstanceSkuResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *int {
 		if v == nil {
@@ -3621,7 +3314,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *bool {
 		if v == nil {
@@ -3631,7 +3323,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3641,7 +3332,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
 func (o SqlManagedInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3651,7 +3341,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3661,7 +3350,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3672,32 +3360,19 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type SqlServerInstanceProperties struct {
-	// SQL Server collation.
-	Collation *string `pulumi:"collation"`
-	// ARM Resource id of the container resource (Azure Arc for Servers).
-	ContainerResourceId string `pulumi:"containerResourceId"`
-	// SQL Server current version.
-	CurrentVersion *string `pulumi:"currentVersion"`
-	// SQL Server edition.
-	Edition *string `pulumi:"edition"`
-	// SQL Server instance name.
-	InstanceName *string `pulumi:"instanceName"`
-	// SQL Server license type.
-	LicenseType *string `pulumi:"licenseType"`
-	// SQL Server update level.
-	PatchLevel *string `pulumi:"patchLevel"`
-	// SQL Server product ID.
-	ProductId *string `pulumi:"productId"`
-	// The cloud connectivity status.
-	Status string `pulumi:"status"`
-	// Dynamic TCP ports used by SQL Server.
-	TcpDynamicPorts *string `pulumi:"tcpDynamicPorts"`
-	// Static TCP ports used by SQL Server.
-	TcpStaticPorts *string `pulumi:"tcpStaticPorts"`
-	// The number of logical processors used by the SQL Server instance.
-	VCore *string `pulumi:"vCore"`
-	// SQL Server version.
-	Version *string `pulumi:"version"`
+	Collation           *string `pulumi:"collation"`
+	ContainerResourceId string  `pulumi:"containerResourceId"`
+	CurrentVersion      *string `pulumi:"currentVersion"`
+	Edition             *string `pulumi:"edition"`
+	InstanceName        *string `pulumi:"instanceName"`
+	LicenseType         *string `pulumi:"licenseType"`
+	PatchLevel          *string `pulumi:"patchLevel"`
+	ProductId           *string `pulumi:"productId"`
+	Status              string  `pulumi:"status"`
+	TcpDynamicPorts     *string `pulumi:"tcpDynamicPorts"`
+	TcpStaticPorts      *string `pulumi:"tcpStaticPorts"`
+	VCore               *string `pulumi:"vCore"`
+	Version             *string `pulumi:"version"`
 }
 
 // SqlServerInstancePropertiesInput is an input type that accepts SqlServerInstancePropertiesArgs and SqlServerInstancePropertiesOutput values.
@@ -3712,32 +3387,19 @@ type SqlServerInstancePropertiesInput interface {
 }
 
 type SqlServerInstancePropertiesArgs struct {
-	// SQL Server collation.
-	Collation pulumi.StringPtrInput `pulumi:"collation"`
-	// ARM Resource id of the container resource (Azure Arc for Servers).
-	ContainerResourceId pulumi.StringInput `pulumi:"containerResourceId"`
-	// SQL Server current version.
-	CurrentVersion pulumi.StringPtrInput `pulumi:"currentVersion"`
-	// SQL Server edition.
-	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// SQL Server instance name.
-	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
-	// SQL Server license type.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// SQL Server update level.
-	PatchLevel pulumi.StringPtrInput `pulumi:"patchLevel"`
-	// SQL Server product ID.
-	ProductId pulumi.StringPtrInput `pulumi:"productId"`
-	// The cloud connectivity status.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Dynamic TCP ports used by SQL Server.
-	TcpDynamicPorts pulumi.StringPtrInput `pulumi:"tcpDynamicPorts"`
-	// Static TCP ports used by SQL Server.
-	TcpStaticPorts pulumi.StringPtrInput `pulumi:"tcpStaticPorts"`
-	// The number of logical processors used by the SQL Server instance.
-	VCore pulumi.StringPtrInput `pulumi:"vCore"`
-	// SQL Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Collation           pulumi.StringPtrInput `pulumi:"collation"`
+	ContainerResourceId pulumi.StringInput    `pulumi:"containerResourceId"`
+	CurrentVersion      pulumi.StringPtrInput `pulumi:"currentVersion"`
+	Edition             pulumi.StringPtrInput `pulumi:"edition"`
+	InstanceName        pulumi.StringPtrInput `pulumi:"instanceName"`
+	LicenseType         pulumi.StringPtrInput `pulumi:"licenseType"`
+	PatchLevel          pulumi.StringPtrInput `pulumi:"patchLevel"`
+	ProductId           pulumi.StringPtrInput `pulumi:"productId"`
+	Status              pulumi.StringInput    `pulumi:"status"`
+	TcpDynamicPorts     pulumi.StringPtrInput `pulumi:"tcpDynamicPorts"`
+	TcpStaticPorts      pulumi.StringPtrInput `pulumi:"tcpStaticPorts"`
+	VCore               pulumi.StringPtrInput `pulumi:"vCore"`
+	Version             pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (SqlServerInstancePropertiesArgs) ElementType() reflect.Type {
@@ -3817,67 +3479,54 @@ func (o SqlServerInstancePropertiesOutput) ToSqlServerInstancePropertiesPtrOutpu
 	}).(SqlServerInstancePropertiesPtrOutput)
 }
 
-// SQL Server collation.
 func (o SqlServerInstancePropertiesOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
-// ARM Resource id of the container resource (Azure Arc for Servers).
 func (o SqlServerInstancePropertiesOutput) ContainerResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) string { return v.ContainerResourceId }).(pulumi.StringOutput)
 }
 
-// SQL Server current version.
 func (o SqlServerInstancePropertiesOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server edition.
 func (o SqlServerInstancePropertiesOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server instance name.
 func (o SqlServerInstancePropertiesOutput) InstanceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server license type.
 func (o SqlServerInstancePropertiesOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server update level.
 func (o SqlServerInstancePropertiesOutput) PatchLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.PatchLevel }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server product ID.
 func (o SqlServerInstancePropertiesOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.ProductId }).(pulumi.StringPtrOutput)
 }
 
-// The cloud connectivity status.
 func (o SqlServerInstancePropertiesOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Dynamic TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesOutput) TcpDynamicPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.TcpDynamicPorts }).(pulumi.StringPtrOutput)
 }
 
-// Static TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesOutput) TcpStaticPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.TcpStaticPorts }).(pulumi.StringPtrOutput)
 }
 
-// The number of logical processors used by the SQL Server instance.
 func (o SqlServerInstancePropertiesOutput) VCore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.VCore }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server version.
 func (o SqlServerInstancePropertiesOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -3906,7 +3555,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Elem() SqlServerInstanceProperties
 	}).(SqlServerInstancePropertiesOutput)
 }
 
-// SQL Server collation.
 func (o SqlServerInstancePropertiesPtrOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3916,7 +3564,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Collation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM Resource id of the container resource (Azure Arc for Servers).
 func (o SqlServerInstancePropertiesPtrOutput) ContainerResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3926,7 +3573,6 @@ func (o SqlServerInstancePropertiesPtrOutput) ContainerResourceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server current version.
 func (o SqlServerInstancePropertiesPtrOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3936,7 +3582,6 @@ func (o SqlServerInstancePropertiesPtrOutput) CurrentVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server edition.
 func (o SqlServerInstancePropertiesPtrOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3946,7 +3591,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Edition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server instance name.
 func (o SqlServerInstancePropertiesPtrOutput) InstanceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3956,7 +3600,6 @@ func (o SqlServerInstancePropertiesPtrOutput) InstanceName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server license type.
 func (o SqlServerInstancePropertiesPtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3966,7 +3609,6 @@ func (o SqlServerInstancePropertiesPtrOutput) LicenseType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server update level.
 func (o SqlServerInstancePropertiesPtrOutput) PatchLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3976,7 +3618,6 @@ func (o SqlServerInstancePropertiesPtrOutput) PatchLevel() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server product ID.
 func (o SqlServerInstancePropertiesPtrOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3986,7 +3627,6 @@ func (o SqlServerInstancePropertiesPtrOutput) ProductId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cloud connectivity status.
 func (o SqlServerInstancePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -3996,7 +3636,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dynamic TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesPtrOutput) TcpDynamicPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -4006,7 +3645,6 @@ func (o SqlServerInstancePropertiesPtrOutput) TcpDynamicPorts() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Static TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesPtrOutput) TcpStaticPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -4016,7 +3654,6 @@ func (o SqlServerInstancePropertiesPtrOutput) TcpStaticPorts() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of logical processors used by the SQL Server instance.
 func (o SqlServerInstancePropertiesPtrOutput) VCore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -4026,7 +3663,6 @@ func (o SqlServerInstancePropertiesPtrOutput) VCore() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server version.
 func (o SqlServerInstancePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
 		if v == nil {
@@ -4037,35 +3673,21 @@ func (o SqlServerInstancePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type SqlServerInstancePropertiesResponse struct {
-	// SQL Server collation.
-	Collation *string `pulumi:"collation"`
-	// ARM Resource id of the container resource (Azure Arc for Servers).
-	ContainerResourceId string `pulumi:"containerResourceId"`
-	// The time when the resource was created.
-	CreateTime string `pulumi:"createTime"`
-	// SQL Server current version.
-	CurrentVersion *string `pulumi:"currentVersion"`
-	// SQL Server edition.
-	Edition *string `pulumi:"edition"`
-	// SQL Server instance name.
-	InstanceName *string `pulumi:"instanceName"`
-	// SQL Server license type.
-	LicenseType *string `pulumi:"licenseType"`
-	// SQL Server update level.
-	PatchLevel *string `pulumi:"patchLevel"`
-	// SQL Server product ID.
-	ProductId         *string `pulumi:"productId"`
-	ProvisioningState string  `pulumi:"provisioningState"`
-	// The cloud connectivity status.
-	Status string `pulumi:"status"`
-	// Dynamic TCP ports used by SQL Server.
-	TcpDynamicPorts *string `pulumi:"tcpDynamicPorts"`
-	// Static TCP ports used by SQL Server.
-	TcpStaticPorts *string `pulumi:"tcpStaticPorts"`
-	// The number of logical processors used by the SQL Server instance.
-	VCore *string `pulumi:"vCore"`
-	// SQL Server version.
-	Version *string `pulumi:"version"`
+	Collation           *string `pulumi:"collation"`
+	ContainerResourceId string  `pulumi:"containerResourceId"`
+	CreateTime          string  `pulumi:"createTime"`
+	CurrentVersion      *string `pulumi:"currentVersion"`
+	Edition             *string `pulumi:"edition"`
+	InstanceName        *string `pulumi:"instanceName"`
+	LicenseType         *string `pulumi:"licenseType"`
+	PatchLevel          *string `pulumi:"patchLevel"`
+	ProductId           *string `pulumi:"productId"`
+	ProvisioningState   string  `pulumi:"provisioningState"`
+	Status              string  `pulumi:"status"`
+	TcpDynamicPorts     *string `pulumi:"tcpDynamicPorts"`
+	TcpStaticPorts      *string `pulumi:"tcpStaticPorts"`
+	VCore               *string `pulumi:"vCore"`
+	Version             *string `pulumi:"version"`
 }
 
 // SqlServerInstancePropertiesResponseInput is an input type that accepts SqlServerInstancePropertiesResponseArgs and SqlServerInstancePropertiesResponseOutput values.
@@ -4080,35 +3702,21 @@ type SqlServerInstancePropertiesResponseInput interface {
 }
 
 type SqlServerInstancePropertiesResponseArgs struct {
-	// SQL Server collation.
-	Collation pulumi.StringPtrInput `pulumi:"collation"`
-	// ARM Resource id of the container resource (Azure Arc for Servers).
-	ContainerResourceId pulumi.StringInput `pulumi:"containerResourceId"`
-	// The time when the resource was created.
-	CreateTime pulumi.StringInput `pulumi:"createTime"`
-	// SQL Server current version.
-	CurrentVersion pulumi.StringPtrInput `pulumi:"currentVersion"`
-	// SQL Server edition.
-	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// SQL Server instance name.
-	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
-	// SQL Server license type.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// SQL Server update level.
-	PatchLevel pulumi.StringPtrInput `pulumi:"patchLevel"`
-	// SQL Server product ID.
-	ProductId         pulumi.StringPtrInput `pulumi:"productId"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
-	// The cloud connectivity status.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Dynamic TCP ports used by SQL Server.
-	TcpDynamicPorts pulumi.StringPtrInput `pulumi:"tcpDynamicPorts"`
-	// Static TCP ports used by SQL Server.
-	TcpStaticPorts pulumi.StringPtrInput `pulumi:"tcpStaticPorts"`
-	// The number of logical processors used by the SQL Server instance.
-	VCore pulumi.StringPtrInput `pulumi:"vCore"`
-	// SQL Server version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Collation           pulumi.StringPtrInput `pulumi:"collation"`
+	ContainerResourceId pulumi.StringInput    `pulumi:"containerResourceId"`
+	CreateTime          pulumi.StringInput    `pulumi:"createTime"`
+	CurrentVersion      pulumi.StringPtrInput `pulumi:"currentVersion"`
+	Edition             pulumi.StringPtrInput `pulumi:"edition"`
+	InstanceName        pulumi.StringPtrInput `pulumi:"instanceName"`
+	LicenseType         pulumi.StringPtrInput `pulumi:"licenseType"`
+	PatchLevel          pulumi.StringPtrInput `pulumi:"patchLevel"`
+	ProductId           pulumi.StringPtrInput `pulumi:"productId"`
+	ProvisioningState   pulumi.StringInput    `pulumi:"provisioningState"`
+	Status              pulumi.StringInput    `pulumi:"status"`
+	TcpDynamicPorts     pulumi.StringPtrInput `pulumi:"tcpDynamicPorts"`
+	TcpStaticPorts      pulumi.StringPtrInput `pulumi:"tcpStaticPorts"`
+	VCore               pulumi.StringPtrInput `pulumi:"vCore"`
+	Version             pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (SqlServerInstancePropertiesResponseArgs) ElementType() reflect.Type {
@@ -4188,47 +3796,38 @@ func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstanceProperties
 	}).(SqlServerInstancePropertiesResponsePtrOutput)
 }
 
-// SQL Server collation.
 func (o SqlServerInstancePropertiesResponseOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
-// ARM Resource id of the container resource (Azure Arc for Servers).
 func (o SqlServerInstancePropertiesResponseOutput) ContainerResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) string { return v.ContainerResourceId }).(pulumi.StringOutput)
 }
 
-// The time when the resource was created.
 func (o SqlServerInstancePropertiesResponseOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// SQL Server current version.
 func (o SqlServerInstancePropertiesResponseOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server edition.
 func (o SqlServerInstancePropertiesResponseOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server instance name.
 func (o SqlServerInstancePropertiesResponseOutput) InstanceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server license type.
 func (o SqlServerInstancePropertiesResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server update level.
 func (o SqlServerInstancePropertiesResponseOutput) PatchLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.PatchLevel }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server product ID.
 func (o SqlServerInstancePropertiesResponseOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.ProductId }).(pulumi.StringPtrOutput)
 }
@@ -4237,27 +3836,22 @@ func (o SqlServerInstancePropertiesResponseOutput) ProvisioningState() pulumi.St
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The cloud connectivity status.
 func (o SqlServerInstancePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Dynamic TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesResponseOutput) TcpDynamicPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.TcpDynamicPorts }).(pulumi.StringPtrOutput)
 }
 
-// Static TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesResponseOutput) TcpStaticPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.TcpStaticPorts }).(pulumi.StringPtrOutput)
 }
 
-// The number of logical processors used by the SQL Server instance.
 func (o SqlServerInstancePropertiesResponseOutput) VCore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.VCore }).(pulumi.StringPtrOutput)
 }
 
-// SQL Server version.
 func (o SqlServerInstancePropertiesResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -4286,7 +3880,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Elem() SqlServerInstancePr
 	}).(SqlServerInstancePropertiesResponseOutput)
 }
 
-// SQL Server collation.
 func (o SqlServerInstancePropertiesResponsePtrOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4296,7 +3889,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Collation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM Resource id of the container resource (Azure Arc for Servers).
 func (o SqlServerInstancePropertiesResponsePtrOutput) ContainerResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4306,7 +3898,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) ContainerResourceId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time when the resource was created.
 func (o SqlServerInstancePropertiesResponsePtrOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4316,7 +3907,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) CreateTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server current version.
 func (o SqlServerInstancePropertiesResponsePtrOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4326,7 +3916,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) CurrentVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server edition.
 func (o SqlServerInstancePropertiesResponsePtrOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4336,7 +3925,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Edition() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server instance name.
 func (o SqlServerInstancePropertiesResponsePtrOutput) InstanceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4346,7 +3934,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) InstanceName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server license type.
 func (o SqlServerInstancePropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4356,7 +3943,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) LicenseType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server update level.
 func (o SqlServerInstancePropertiesResponsePtrOutput) PatchLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4366,7 +3952,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) PatchLevel() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server product ID.
 func (o SqlServerInstancePropertiesResponsePtrOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4385,7 +3970,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cloud connectivity status.
 func (o SqlServerInstancePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4395,7 +3979,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Status() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dynamic TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesResponsePtrOutput) TcpDynamicPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4405,7 +3988,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) TcpDynamicPorts() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Static TCP ports used by SQL Server.
 func (o SqlServerInstancePropertiesResponsePtrOutput) TcpStaticPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4415,7 +3997,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) TcpStaticPorts() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of logical processors used by the SQL Server instance.
 func (o SqlServerInstancePropertiesResponsePtrOutput) VCore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4425,7 +4006,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) VCore() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Server version.
 func (o SqlServerInstancePropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
 		if v == nil {
@@ -4436,17 +4016,11 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) Version() pulumi.StringPtr
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -4462,17 +4036,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -4553,32 +4121,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -4607,7 +4169,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4617,7 +4178,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4627,7 +4187,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4637,7 +4196,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4647,7 +4205,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4657,7 +4214,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4668,14 +4224,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type UploadServicePrincipal struct {
-	// Authority for the service principal. Example: https://login.microsoftonline.com/
-	Authority *string `pulumi:"authority"`
-	// Client ID of the service principal for uploading data.
-	ClientId *string `pulumi:"clientId"`
-	// Secret of the service principal
+	Authority    *string `pulumi:"authority"`
+	ClientId     *string `pulumi:"clientId"`
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Tenant ID of the service principal.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId     *string `pulumi:"tenantId"`
 }
 
 // UploadServicePrincipalInput is an input type that accepts UploadServicePrincipalArgs and UploadServicePrincipalOutput values.
@@ -4690,14 +4242,10 @@ type UploadServicePrincipalInput interface {
 }
 
 type UploadServicePrincipalArgs struct {
-	// Authority for the service principal. Example: https://login.microsoftonline.com/
-	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	// Client ID of the service principal for uploading data.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Secret of the service principal
+	Authority    pulumi.StringPtrInput `pulumi:"authority"`
+	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Tenant ID of the service principal.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId     pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (UploadServicePrincipalArgs) ElementType() reflect.Type {
@@ -4777,22 +4325,18 @@ func (o UploadServicePrincipalOutput) ToUploadServicePrincipalPtrOutputWithConte
 	}).(UploadServicePrincipalPtrOutput)
 }
 
-// Authority for the service principal. Example: https://login.microsoftonline.com/
 func (o UploadServicePrincipalOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipal) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
 
-// Client ID of the service principal for uploading data.
 func (o UploadServicePrincipalOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipal) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Secret of the service principal
 func (o UploadServicePrincipalOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipal) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the service principal.
 func (o UploadServicePrincipalOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -4821,7 +4365,6 @@ func (o UploadServicePrincipalPtrOutput) Elem() UploadServicePrincipalOutput {
 	}).(UploadServicePrincipalOutput)
 }
 
-// Authority for the service principal. Example: https://login.microsoftonline.com/
 func (o UploadServicePrincipalPtrOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipal) *string {
 		if v == nil {
@@ -4831,7 +4374,6 @@ func (o UploadServicePrincipalPtrOutput) Authority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client ID of the service principal for uploading data.
 func (o UploadServicePrincipalPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipal) *string {
 		if v == nil {
@@ -4841,7 +4383,6 @@ func (o UploadServicePrincipalPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secret of the service principal
 func (o UploadServicePrincipalPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipal) *string {
 		if v == nil {
@@ -4851,7 +4392,6 @@ func (o UploadServicePrincipalPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the service principal.
 func (o UploadServicePrincipalPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipal) *string {
 		if v == nil {
@@ -4862,12 +4402,9 @@ func (o UploadServicePrincipalPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type UploadServicePrincipalResponse struct {
-	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority *string `pulumi:"authority"`
-	// Client ID of the service principal for uploading data.
-	ClientId *string `pulumi:"clientId"`
-	// Tenant ID of the service principal.
-	TenantId *string `pulumi:"tenantId"`
+	ClientId  *string `pulumi:"clientId"`
+	TenantId  *string `pulumi:"tenantId"`
 }
 
 // UploadServicePrincipalResponseInput is an input type that accepts UploadServicePrincipalResponseArgs and UploadServicePrincipalResponseOutput values.
@@ -4882,12 +4419,9 @@ type UploadServicePrincipalResponseInput interface {
 }
 
 type UploadServicePrincipalResponseArgs struct {
-	// Authority for the service principal. Example: https://login.microsoftonline.com/
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	// Client ID of the service principal for uploading data.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Tenant ID of the service principal.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	ClientId  pulumi.StringPtrInput `pulumi:"clientId"`
+	TenantId  pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (UploadServicePrincipalResponseArgs) ElementType() reflect.Type {
@@ -4967,17 +4501,14 @@ func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponsePt
 	}).(UploadServicePrincipalResponsePtrOutput)
 }
 
-// Authority for the service principal. Example: https://login.microsoftonline.com/
 func (o UploadServicePrincipalResponseOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipalResponse) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
 
-// Client ID of the service principal for uploading data.
 func (o UploadServicePrincipalResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipalResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the service principal.
 func (o UploadServicePrincipalResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadServicePrincipalResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -5006,7 +4537,6 @@ func (o UploadServicePrincipalResponsePtrOutput) Elem() UploadServicePrincipalRe
 	}).(UploadServicePrincipalResponseOutput)
 }
 
-// Authority for the service principal. Example: https://login.microsoftonline.com/
 func (o UploadServicePrincipalResponsePtrOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipalResponse) *string {
 		if v == nil {
@@ -5016,7 +4546,6 @@ func (o UploadServicePrincipalResponsePtrOutput) Authority() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client ID of the service principal for uploading data.
 func (o UploadServicePrincipalResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipalResponse) *string {
 		if v == nil {
@@ -5026,7 +4555,6 @@ func (o UploadServicePrincipalResponsePtrOutput) ClientId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant ID of the service principal.
 func (o UploadServicePrincipalResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadServicePrincipalResponse) *string {
 		if v == nil {
@@ -5037,12 +4565,9 @@ func (o UploadServicePrincipalResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 }
 
 type UploadWatermark struct {
-	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
-	Logs *string `pulumi:"logs"`
-	// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
+	Logs    *string `pulumi:"logs"`
 	Metrics *string `pulumi:"metrics"`
-	// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
-	Usages *string `pulumi:"usages"`
+	Usages  *string `pulumi:"usages"`
 }
 
 // UploadWatermarkInput is an input type that accepts UploadWatermarkArgs and UploadWatermarkOutput values.
@@ -5057,12 +4582,9 @@ type UploadWatermarkInput interface {
 }
 
 type UploadWatermarkArgs struct {
-	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
-	Logs pulumi.StringPtrInput `pulumi:"logs"`
-	// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
+	Logs    pulumi.StringPtrInput `pulumi:"logs"`
 	Metrics pulumi.StringPtrInput `pulumi:"metrics"`
-	// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
-	Usages pulumi.StringPtrInput `pulumi:"usages"`
+	Usages  pulumi.StringPtrInput `pulumi:"usages"`
 }
 
 func (UploadWatermarkArgs) ElementType() reflect.Type {
@@ -5142,17 +4664,14 @@ func (o UploadWatermarkOutput) ToUploadWatermarkPtrOutputWithContext(ctx context
 	}).(UploadWatermarkPtrOutput)
 }
 
-// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermark) *string { return v.Logs }).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkOutput) Metrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermark) *string { return v.Metrics }).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkOutput) Usages() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermark) *string { return v.Usages }).(pulumi.StringPtrOutput)
 }
@@ -5181,7 +4700,6 @@ func (o UploadWatermarkPtrOutput) Elem() UploadWatermarkOutput {
 	}).(UploadWatermarkOutput)
 }
 
-// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkPtrOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermark) *string {
 		if v == nil {
@@ -5191,7 +4709,6 @@ func (o UploadWatermarkPtrOutput) Logs() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkPtrOutput) Metrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermark) *string {
 		if v == nil {
@@ -5201,7 +4718,6 @@ func (o UploadWatermarkPtrOutput) Metrics() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkPtrOutput) Usages() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermark) *string {
 		if v == nil {
@@ -5212,12 +4728,9 @@ func (o UploadWatermarkPtrOutput) Usages() pulumi.StringPtrOutput {
 }
 
 type UploadWatermarkResponse struct {
-	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
-	Logs *string `pulumi:"logs"`
-	// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
+	Logs    *string `pulumi:"logs"`
 	Metrics *string `pulumi:"metrics"`
-	// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
-	Usages *string `pulumi:"usages"`
+	Usages  *string `pulumi:"usages"`
 }
 
 // UploadWatermarkResponseInput is an input type that accepts UploadWatermarkResponseArgs and UploadWatermarkResponseOutput values.
@@ -5232,12 +4745,9 @@ type UploadWatermarkResponseInput interface {
 }
 
 type UploadWatermarkResponseArgs struct {
-	// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
-	Logs pulumi.StringPtrInput `pulumi:"logs"`
-	// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
+	Logs    pulumi.StringPtrInput `pulumi:"logs"`
 	Metrics pulumi.StringPtrInput `pulumi:"metrics"`
-	// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
-	Usages pulumi.StringPtrInput `pulumi:"usages"`
+	Usages  pulumi.StringPtrInput `pulumi:"usages"`
 }
 
 func (UploadWatermarkResponseArgs) ElementType() reflect.Type {
@@ -5317,17 +4827,14 @@ func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponsePtrOutputWithCon
 	}).(UploadWatermarkResponsePtrOutput)
 }
 
-// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponseOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermarkResponse) *string { return v.Logs }).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponseOutput) Metrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermarkResponse) *string { return v.Metrics }).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponseOutput) Usages() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UploadWatermarkResponse) *string { return v.Usages }).(pulumi.StringPtrOutput)
 }
@@ -5356,7 +4863,6 @@ func (o UploadWatermarkResponsePtrOutput) Elem() UploadWatermarkResponseOutput {
 	}).(UploadWatermarkResponseOutput)
 }
 
-// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponsePtrOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermarkResponse) *string {
 		if v == nil {
@@ -5366,7 +4872,6 @@ func (o UploadWatermarkResponsePtrOutput) Logs() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponsePtrOutput) Metrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermarkResponse) *string {
 		if v == nil {
@@ -5376,7 +4881,6 @@ func (o UploadWatermarkResponsePtrOutput) Metrics() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last uploaded date for usages from kubernetes cluster. Defaults to current date time
 func (o UploadWatermarkResponsePtrOutput) Usages() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UploadWatermarkResponse) *string {
 		if v == nil {

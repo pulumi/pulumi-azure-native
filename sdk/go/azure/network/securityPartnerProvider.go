@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security Partner Provider resource.
-// API Version: 2020-11-01.
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
 

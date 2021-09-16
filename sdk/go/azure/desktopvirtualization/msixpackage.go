@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for MSIX Package properties.
-// API Version: 2021-02-01-preview.
 type MSIXPackage struct {
 	pulumi.CustomResourceState
 

@@ -11,10 +11,8 @@ import (
 )
 
 type MigrationRequestProperties struct {
-	// The path to the legacy object to migrate.
 	MigrationPath *string `pulumi:"migrationPath"`
-	// The type of operation for migration.
-	Operation *string `pulumi:"operation"`
+	Operation     *string `pulumi:"operation"`
 }
 
 // MigrationRequestPropertiesInput is an input type that accepts MigrationRequestPropertiesArgs and MigrationRequestPropertiesOutput values.
@@ -29,10 +27,8 @@ type MigrationRequestPropertiesInput interface {
 }
 
 type MigrationRequestPropertiesArgs struct {
-	// The path to the legacy object to migrate.
 	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
-	// The type of operation for migration.
-	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	Operation     pulumi.StringPtrInput `pulumi:"operation"`
 }
 
 func (MigrationRequestPropertiesArgs) ElementType() reflect.Type {
@@ -112,12 +108,10 @@ func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutputW
 	}).(MigrationRequestPropertiesPtrOutput)
 }
 
-// The path to the legacy object to migrate.
 func (o MigrationRequestPropertiesOutput) MigrationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationRequestProperties) *string { return v.MigrationPath }).(pulumi.StringPtrOutput)
 }
 
-// The type of operation for migration.
 func (o MigrationRequestPropertiesOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationRequestProperties) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +140,6 @@ func (o MigrationRequestPropertiesPtrOutput) Elem() MigrationRequestPropertiesOu
 	}).(MigrationRequestPropertiesOutput)
 }
 
-// The path to the legacy object to migrate.
 func (o MigrationRequestPropertiesPtrOutput) MigrationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationRequestProperties) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o MigrationRequestPropertiesPtrOutput) MigrationPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of operation for migration.
 func (o MigrationRequestPropertiesPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationRequestProperties) *string {
 		if v == nil {
@@ -167,10 +159,8 @@ func (o MigrationRequestPropertiesPtrOutput) Operation() pulumi.StringPtrOutput 
 }
 
 type MigrationRequestPropertiesResponse struct {
-	// The path to the legacy object to migrate.
 	MigrationPath *string `pulumi:"migrationPath"`
-	// The type of operation for migration.
-	Operation *string `pulumi:"operation"`
+	Operation     *string `pulumi:"operation"`
 }
 
 // MigrationRequestPropertiesResponseInput is an input type that accepts MigrationRequestPropertiesResponseArgs and MigrationRequestPropertiesResponseOutput values.
@@ -185,10 +175,8 @@ type MigrationRequestPropertiesResponseInput interface {
 }
 
 type MigrationRequestPropertiesResponseArgs struct {
-	// The path to the legacy object to migrate.
 	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
-	// The type of operation for migration.
-	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	Operation     pulumi.StringPtrInput `pulumi:"operation"`
 }
 
 func (MigrationRequestPropertiesResponseArgs) ElementType() reflect.Type {
@@ -268,12 +256,10 @@ func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesRe
 	}).(MigrationRequestPropertiesResponsePtrOutput)
 }
 
-// The path to the legacy object to migrate.
 func (o MigrationRequestPropertiesResponseOutput) MigrationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *string { return v.MigrationPath }).(pulumi.StringPtrOutput)
 }
 
-// The type of operation for migration.
 func (o MigrationRequestPropertiesResponseOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
@@ -302,7 +288,6 @@ func (o MigrationRequestPropertiesResponsePtrOutput) Elem() MigrationRequestProp
 	}).(MigrationRequestPropertiesResponseOutput)
 }
 
-// The path to the legacy object to migrate.
 func (o MigrationRequestPropertiesResponsePtrOutput) MigrationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) *string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o MigrationRequestPropertiesResponsePtrOutput) MigrationPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of operation for migration.
 func (o MigrationRequestPropertiesResponsePtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) *string {
 		if v == nil {
@@ -323,20 +307,13 @@ func (o MigrationRequestPropertiesResponsePtrOutput) Operation() pulumi.StringPt
 }
 
 type MsixPackageApplications struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsInput is an input type that accepts MsixPackageApplicationsArgs and MsixPackageApplicationsOutput values.
@@ -351,20 +328,13 @@ type MsixPackageApplicationsInput interface {
 }
 
 type MsixPackageApplicationsArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsArgs) ElementType() reflect.Type {
@@ -418,37 +388,30 @@ func (o MsixPackageApplicationsOutput) ToMsixPackageApplicationsOutputWithContex
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -474,20 +437,13 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 }
 
 type MsixPackageApplicationsResponse struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsResponseInput is an input type that accepts MsixPackageApplicationsResponseArgs and MsixPackageApplicationsResponseOutput values.
@@ -502,20 +458,13 @@ type MsixPackageApplicationsResponseInput interface {
 }
 
 type MsixPackageApplicationsResponseArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsResponseArgs) ElementType() reflect.Type {
@@ -569,37 +518,30 @@ func (o MsixPackageApplicationsResponseOutput) ToMsixPackageApplicationsResponse
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -625,12 +567,9 @@ func (o MsixPackageApplicationsResponseArrayOutput) Index(i pulumi.IntInput) Msi
 }
 
 type MsixPackageDependencies struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesInput is an input type that accepts MsixPackageDependenciesArgs and MsixPackageDependenciesOutput values.
@@ -645,12 +584,9 @@ type MsixPackageDependenciesInput interface {
 }
 
 type MsixPackageDependenciesArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesArgs) ElementType() reflect.Type {
@@ -704,17 +640,14 @@ func (o MsixPackageDependenciesOutput) ToMsixPackageDependenciesOutputWithContex
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -740,12 +673,9 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 }
 
 type MsixPackageDependenciesResponse struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesResponseInput is an input type that accepts MsixPackageDependenciesResponseArgs and MsixPackageDependenciesResponseOutput values.
@@ -760,12 +690,9 @@ type MsixPackageDependenciesResponseInput interface {
 }
 
 type MsixPackageDependenciesResponseArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesResponseArgs) ElementType() reflect.Type {
@@ -819,17 +746,14 @@ func (o MsixPackageDependenciesResponseOutput) ToMsixPackageDependenciesResponse
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesResponseOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesResponseOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -855,7 +779,6 @@ func (o MsixPackageDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Msi
 }
 
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -871,7 +794,6 @@ type PrivateEndpointResponseInput interface {
 }
 
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -952,7 +874,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -981,7 +902,6 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -992,12 +912,9 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -1012,12 +929,9 @@ type PrivateLinkServiceConnectionStateInput interface {
 }
 
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1097,17 +1011,14 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1136,7 +1047,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1146,7 +1056,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1156,7 +1065,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1167,12 +1075,9 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1187,12 +1092,9 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1272,17 +1174,14 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1311,7 +1210,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1321,7 +1219,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1331,7 +1228,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1342,12 +1238,9 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type RegistrationInfo struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
@@ -1362,12 +1255,9 @@ type RegistrationInfoInput interface {
 }
 
 type RegistrationInfoArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoArgs) ElementType() reflect.Type {
@@ -1447,17 +1337,14 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx conte
 	}).(RegistrationInfoPtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -1486,7 +1373,6 @@ func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
 	}).(RegistrationInfoOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -1496,7 +1382,6 @@ func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -1506,7 +1391,6 @@ func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -1517,12 +1401,9 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 type RegistrationInfoResponse struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoResponseInput is an input type that accepts RegistrationInfoResponseArgs and RegistrationInfoResponseOutput values.
@@ -1537,12 +1418,9 @@ type RegistrationInfoResponseInput interface {
 }
 
 type RegistrationInfoResponseArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoResponseArgs) ElementType() reflect.Type {
@@ -1622,17 +1500,14 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithC
 	}).(RegistrationInfoResponsePtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -1661,7 +1536,6 @@ func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput
 	}).(RegistrationInfoResponseOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -1671,7 +1545,6 @@ func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -1681,7 +1554,6 @@ func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -1692,7 +1564,6 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 type ResourceModelWithAllowedPropertySetIdentity struct {
-	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
 }
 
@@ -1708,7 +1579,6 @@ type ResourceModelWithAllowedPropertySetIdentityInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetIdentityArgs struct {
-	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
@@ -1789,7 +1659,6 @@ func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAl
 	}).(ResourceModelWithAllowedPropertySetIdentityPtrOutput)
 }
 
-// The identity type.
 func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
@@ -1818,7 +1687,6 @@ func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Elem() ResourceMod
 	}).(ResourceModelWithAllowedPropertySetIdentityOutput)
 }
 
-// The identity type.
 func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType {
 		if v == nil {
@@ -1829,16 +1697,11 @@ func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() ResourceIde
 }
 
 type ResourceModelWithAllowedPropertySetPlan struct {
-	// A user defined name of the 3rd Party Artifact that is being procured.
-	Name string `pulumi:"name"`
-	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
-	Product string `pulumi:"product"`
-	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-	Publisher string `pulumi:"publisher"`
-	// The version of the desired product/artifact.
-	Version *string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ResourceModelWithAllowedPropertySetPlanInput is an input type that accepts ResourceModelWithAllowedPropertySetPlanArgs and ResourceModelWithAllowedPropertySetPlanOutput values.
@@ -1853,16 +1716,11 @@ type ResourceModelWithAllowedPropertySetPlanInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetPlanArgs struct {
-	// A user defined name of the 3rd Party Artifact that is being procured.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
-	Product pulumi.StringInput `pulumi:"product"`
-	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The version of the desired product/artifact.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ResourceModelWithAllowedPropertySetPlanArgs) ElementType() reflect.Type {
@@ -1942,27 +1800,22 @@ func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowe
 	}).(ResourceModelWithAllowedPropertySetPlanPtrOutput)
 }
 
-// A user defined name of the 3rd Party Artifact that is being procured.
 func (o ResourceModelWithAllowedPropertySetPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
 func (o ResourceModelWithAllowedPropertySetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
 func (o ResourceModelWithAllowedPropertySetPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
 func (o ResourceModelWithAllowedPropertySetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The version of the desired product/artifact.
 func (o ResourceModelWithAllowedPropertySetPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1991,7 +1844,6 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Elem() ResourceModelWi
 	}).(ResourceModelWithAllowedPropertySetPlanOutput)
 }
 
-// A user defined name of the 3rd Party Artifact that is being procured.
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
 		if v == nil {
@@ -2001,7 +1853,6 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
 		if v == nil {
@@ -2011,7 +1862,6 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Product() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
 		if v == nil {
@@ -2021,7 +1871,6 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) PromotionCode() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
 		if v == nil {
@@ -2031,7 +1880,6 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Publisher() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the desired product/artifact.
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
 		if v == nil {
@@ -2042,12 +1890,9 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Version() pulumi.Strin
 }
 
 type ResourceModelWithAllowedPropertySetResponseIdentity struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ResourceModelWithAllowedPropertySetResponseIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseIdentityArgs and ResourceModelWithAllowedPropertySetResponseIdentityOutput values.
@@ -2062,12 +1907,9 @@ type ResourceModelWithAllowedPropertySetResponseIdentityInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetResponseIdentityArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ResourceModelWithAllowedPropertySetResponseIdentityArgs) ElementType() reflect.Type {
@@ -2147,17 +1989,14 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceMod
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2186,7 +2025,6 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Elem() Res
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityOutput)
 }
 
-// The principal ID of resource identity.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
 		if v == nil {
@@ -2196,7 +2034,6 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) PrincipalI
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
 		if v == nil {
@@ -2206,7 +2043,6 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) TenantId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
 		if v == nil {
@@ -2217,16 +2053,11 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Type() pul
 }
 
 type ResourceModelWithAllowedPropertySetResponsePlan struct {
-	// A user defined name of the 3rd Party Artifact that is being procured.
-	Name string `pulumi:"name"`
-	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
-	Product string `pulumi:"product"`
-	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-	Publisher string `pulumi:"publisher"`
-	// The version of the desired product/artifact.
-	Version *string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ResourceModelWithAllowedPropertySetResponsePlanInput is an input type that accepts ResourceModelWithAllowedPropertySetResponsePlanArgs and ResourceModelWithAllowedPropertySetResponsePlanOutput values.
@@ -2241,16 +2072,11 @@ type ResourceModelWithAllowedPropertySetResponsePlanInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetResponsePlanArgs struct {
-	// A user defined name of the 3rd Party Artifact that is being procured.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
-	Product pulumi.StringInput `pulumi:"product"`
-	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The version of the desired product/artifact.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ResourceModelWithAllowedPropertySetResponsePlanArgs) ElementType() reflect.Type {
@@ -2330,27 +2156,22 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWi
 	}).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
 }
 
-// A user defined name of the 3rd Party Artifact that is being procured.
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The version of the desired product/artifact.
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2379,7 +2200,6 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Elem() Resourc
 	}).(ResourceModelWithAllowedPropertySetResponsePlanOutput)
 }
 
-// A user defined name of the 3rd Party Artifact that is being procured.
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
 		if v == nil {
@@ -2389,7 +2209,6 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Name() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
 		if v == nil {
@@ -2399,7 +2218,6 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Product() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
 		if v == nil {
@@ -2409,7 +2227,6 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) PromotionCode(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
 		if v == nil {
@@ -2419,7 +2236,6 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Publisher() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the desired product/artifact.
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
 		if v == nil {
@@ -2430,16 +2246,11 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Version() pulu
 }
 
 type ResourceModelWithAllowedPropertySetResponseSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceModelWithAllowedPropertySetResponseSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseSkuArgs and ResourceModelWithAllowedPropertySetResponseSkuOutput values.
@@ -2454,16 +2265,11 @@ type ResourceModelWithAllowedPropertySetResponseSkuInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetResponseSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceModelWithAllowedPropertySetResponseSkuArgs) ElementType() reflect.Type {
@@ -2543,27 +2349,22 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWit
 	}).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2592,7 +2393,6 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Elem() Resource
 	}).(ResourceModelWithAllowedPropertySetResponseSkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *int {
 		if v == nil {
@@ -2602,7 +2402,6 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Capacity() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
 		if v == nil {
@@ -2612,7 +2411,6 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Family() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
 		if v == nil {
@@ -2622,7 +2420,6 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Name() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
 		if v == nil {
@@ -2632,7 +2429,6 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Size() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
 		if v == nil {
@@ -2643,16 +2439,11 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Tier() pulumi.S
 }
 
 type ResourceModelWithAllowedPropertySetSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Capacity *int     `pulumi:"capacity"`
+	Family   *string  `pulumi:"family"`
+	Name     string   `pulumi:"name"`
+	Size     *string  `pulumi:"size"`
+	Tier     *SkuTier `pulumi:"tier"`
 }
 
 // ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
@@ -2667,16 +2458,11 @@ type ResourceModelWithAllowedPropertySetSkuInput interface {
 }
 
 type ResourceModelWithAllowedPropertySetSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     SkuTierPtrInput       `pulumi:"tier"`
 }
 
 func (ResourceModelWithAllowedPropertySetSkuArgs) ElementType() reflect.Type {
@@ -2756,27 +2542,22 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowed
 	}).(ResourceModelWithAllowedPropertySetSkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o ResourceModelWithAllowedPropertySetSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o ResourceModelWithAllowedPropertySetSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o ResourceModelWithAllowedPropertySetSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o ResourceModelWithAllowedPropertySetSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
@@ -2805,7 +2586,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Elem() ResourceModelWit
 	}).(ResourceModelWithAllowedPropertySetSkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *int {
 		if v == nil {
@@ -2815,7 +2595,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Capacity() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
 		if v == nil {
@@ -2825,7 +2604,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Family() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
 		if v == nil {
@@ -2835,7 +2613,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
 		if v == nil {
@@ -2845,7 +2622,6 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *SkuTier {
 		if v == nil {
@@ -2856,10 +2632,8 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput
 }
 
 type ScalingHostPoolReference struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled *bool `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    *string `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled *bool   `pulumi:"scalingPlanEnabled"`
 }
 
 // ScalingHostPoolReferenceInput is an input type that accepts ScalingHostPoolReferenceArgs and ScalingHostPoolReferenceOutput values.
@@ -2874,10 +2648,8 @@ type ScalingHostPoolReferenceInput interface {
 }
 
 type ScalingHostPoolReferenceArgs struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled pulumi.BoolPtrInput `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled pulumi.BoolPtrInput   `pulumi:"scalingPlanEnabled"`
 }
 
 func (ScalingHostPoolReferenceArgs) ElementType() reflect.Type {
@@ -2931,12 +2703,10 @@ func (o ScalingHostPoolReferenceOutput) ToScalingHostPoolReferenceOutputWithCont
 	return o
 }
 
-// Arm path of referenced hostpool.
 func (o ScalingHostPoolReferenceOutput) HostPoolArmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReference) *string { return v.HostPoolArmPath }).(pulumi.StringPtrOutput)
 }
 
-// Is the scaling plan enabled for this hostpool.
 func (o ScalingHostPoolReferenceOutput) ScalingPlanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReference) *bool { return v.ScalingPlanEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2962,10 +2732,8 @@ func (o ScalingHostPoolReferenceArrayOutput) Index(i pulumi.IntInput) ScalingHos
 }
 
 type ScalingHostPoolReferenceResponse struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled *bool `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    *string `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled *bool   `pulumi:"scalingPlanEnabled"`
 }
 
 // ScalingHostPoolReferenceResponseInput is an input type that accepts ScalingHostPoolReferenceResponseArgs and ScalingHostPoolReferenceResponseOutput values.
@@ -2980,10 +2748,8 @@ type ScalingHostPoolReferenceResponseInput interface {
 }
 
 type ScalingHostPoolReferenceResponseArgs struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled pulumi.BoolPtrInput `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled pulumi.BoolPtrInput   `pulumi:"scalingPlanEnabled"`
 }
 
 func (ScalingHostPoolReferenceResponseArgs) ElementType() reflect.Type {
@@ -3037,12 +2803,10 @@ func (o ScalingHostPoolReferenceResponseOutput) ToScalingHostPoolReferenceRespon
 	return o
 }
 
-// Arm path of referenced hostpool.
 func (o ScalingHostPoolReferenceResponseOutput) HostPoolArmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReferenceResponse) *string { return v.HostPoolArmPath }).(pulumi.StringPtrOutput)
 }
 
-// Is the scaling plan enabled for this hostpool.
 func (o ScalingHostPoolReferenceResponseOutput) ScalingPlanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReferenceResponse) *bool { return v.ScalingPlanEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3068,42 +2832,24 @@ func (o ScalingHostPoolReferenceResponseArrayOutput) Index(i pulumi.IntInput) Sc
 }
 
 type ScalingSchedule struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek []string `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name *string `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm *string `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime *string `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm *string `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime *string `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct *int `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers *bool `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm *string `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime *string `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime *string `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     []string `pulumi:"daysOfWeek"`
+	Name                           *string  `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  *string  `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               *string  `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     *string  `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  *string  `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   *int     `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       *bool    `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm *string  `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        *int     `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    *string  `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              *string  `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          *string  `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        *int     `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     *int     `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   *string  `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          *int     `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                *string  `pulumi:"rampUpStartTime"`
 }
 
 // ScalingScheduleInput is an input type that accepts ScalingScheduleArgs and ScalingScheduleOutput values.
@@ -3118,42 +2864,24 @@ type ScalingScheduleInput interface {
 }
 
 type ScalingScheduleArgs struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime pulumi.StringPtrInput `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime pulumi.StringPtrInput `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers pulumi.BoolPtrInput `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
+	Name                           pulumi.StringPtrInput   `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  pulumi.StringPtrInput   `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               pulumi.StringPtrInput   `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     pulumi.StringPtrInput   `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  pulumi.StringPtrInput   `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   pulumi.IntPtrInput      `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       pulumi.BoolPtrInput     `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput   `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        pulumi.IntPtrInput      `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    pulumi.StringPtrInput   `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              pulumi.StringPtrInput   `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          pulumi.StringPtrInput   `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        pulumi.IntPtrInput      `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     pulumi.IntPtrInput      `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   pulumi.StringPtrInput   `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          pulumi.IntPtrInput      `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                pulumi.StringPtrInput   `pulumi:"rampUpStartTime"`
 }
 
 func (ScalingScheduleArgs) ElementType() reflect.Type {
@@ -3207,92 +2935,74 @@ func (o ScalingScheduleOutput) ToScalingScheduleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Set of days of the week on which this schedule is active.
 func (o ScalingScheduleOutput) DaysOfWeek() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingSchedule) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
 }
 
-// Name of the scaling schedule.
 func (o ScalingScheduleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for off-peak period.
 func (o ScalingScheduleOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for off-peak period.
 func (o ScalingScheduleOutput) OffPeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.OffPeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for peak period.
 func (o ScalingScheduleOutput) PeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for peak period.
 func (o ScalingScheduleOutput) PeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.PeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Capacity threshold for ramp down period.
 func (o ScalingScheduleOutput) RampDownCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Should users be logged off forcefully from hosts.
 func (o ScalingScheduleOutput) RampDownForceLogoffUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolPtrOutput)
 }
 
-// Load balancing algorithm for ramp down period.
 func (o ScalingScheduleOutput) RampDownLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp down period.
 func (o ScalingScheduleOutput) RampDownMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Notification message for users during ramp down period.
 func (o ScalingScheduleOutput) RampDownNotificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for ramp down period.
 func (o ScalingScheduleOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when to stop hosts during ramp down period.
 func (o ScalingScheduleOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
 func (o ScalingScheduleOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Capacity threshold for ramp up period.
 func (o ScalingScheduleOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
 func (o ScalingScheduleOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp up period.
 func (o ScalingScheduleOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Starting time for ramp up period.
 func (o ScalingScheduleOutput) RampUpStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpStartTime }).(pulumi.StringPtrOutput)
 }
@@ -3318,42 +3028,24 @@ func (o ScalingScheduleArrayOutput) Index(i pulumi.IntInput) ScalingScheduleOutp
 }
 
 type ScalingScheduleResponse struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek []string `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name *string `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm *string `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime *string `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm *string `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime *string `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct *int `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers *bool `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm *string `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime *string `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime *string `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     []string `pulumi:"daysOfWeek"`
+	Name                           *string  `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  *string  `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               *string  `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     *string  `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  *string  `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   *int     `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       *bool    `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm *string  `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        *int     `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    *string  `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              *string  `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          *string  `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        *int     `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     *int     `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   *string  `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          *int     `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                *string  `pulumi:"rampUpStartTime"`
 }
 
 // ScalingScheduleResponseInput is an input type that accepts ScalingScheduleResponseArgs and ScalingScheduleResponseOutput values.
@@ -3368,42 +3060,24 @@ type ScalingScheduleResponseInput interface {
 }
 
 type ScalingScheduleResponseArgs struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime pulumi.StringPtrInput `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime pulumi.StringPtrInput `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers pulumi.BoolPtrInput `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
+	Name                           pulumi.StringPtrInput   `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  pulumi.StringPtrInput   `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               pulumi.StringPtrInput   `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     pulumi.StringPtrInput   `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  pulumi.StringPtrInput   `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   pulumi.IntPtrInput      `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       pulumi.BoolPtrInput     `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput   `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        pulumi.IntPtrInput      `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    pulumi.StringPtrInput   `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              pulumi.StringPtrInput   `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          pulumi.StringPtrInput   `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        pulumi.IntPtrInput      `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     pulumi.IntPtrInput      `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   pulumi.StringPtrInput   `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          pulumi.IntPtrInput      `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                pulumi.StringPtrInput   `pulumi:"rampUpStartTime"`
 }
 
 func (ScalingScheduleResponseArgs) ElementType() reflect.Type {
@@ -3457,92 +3131,74 @@ func (o ScalingScheduleResponseOutput) ToScalingScheduleResponseOutputWithContex
 	return o
 }
 
-// Set of days of the week on which this schedule is active.
 func (o ScalingScheduleResponseOutput) DaysOfWeek() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
 }
 
-// Name of the scaling schedule.
 func (o ScalingScheduleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for off-peak period.
 func (o ScalingScheduleResponseOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for off-peak period.
 func (o ScalingScheduleResponseOutput) OffPeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.OffPeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for peak period.
 func (o ScalingScheduleResponseOutput) PeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for peak period.
 func (o ScalingScheduleResponseOutput) PeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.PeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Capacity threshold for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Should users be logged off forcefully from hosts.
 func (o ScalingScheduleResponseOutput) RampDownForceLogoffUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolPtrOutput)
 }
 
-// Load balancing algorithm for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Notification message for users during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownNotificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when to stop hosts during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Capacity threshold for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Starting time for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpStartTime }).(pulumi.StringPtrOutput)
 }
@@ -3568,17 +3224,11 @@ func (o ScalingScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScalingSche
 }
 
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -3594,17 +3244,11 @@ type SystemDataResponseInput interface {
 }
 
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3685,32 +3329,26 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -3739,7 +3377,6 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3749,7 +3386,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3759,7 +3395,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3769,7 +3404,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3779,7 +3413,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3789,7 +3422,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

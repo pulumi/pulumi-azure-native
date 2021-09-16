@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Vendor resource.
-// API Version: 2020-01-01-preview.
 type Vendor struct {
 	pulumi.CustomResourceState
 

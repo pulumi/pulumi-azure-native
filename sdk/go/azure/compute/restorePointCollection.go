@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Create or update Restore Point collection parameters.
-// API Version: 2021-03-01.
 type RestorePointCollection struct {
 	pulumi.CustomResourceState
 

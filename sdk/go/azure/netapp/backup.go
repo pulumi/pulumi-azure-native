@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup of a Volume
-// API Version: 2020-12-01.
 type Backup struct {
 	pulumi.CustomResourceState
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Event Hub operation
-// API Version: 2017-04-01.
 type EventHub struct {
 	pulumi.CustomResourceState
 

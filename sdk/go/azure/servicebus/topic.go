@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of topic resource.
-// API Version: 2017-04-01.
 type Topic struct {
 	pulumi.CustomResourceState
 

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked service.
-// API Version: 2020-09-01-preview.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getLinkedService", args, &rv, opts...)
@@ -19,26 +17,17 @@ func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opt
 }
 
 type LookupLinkedServiceArgs struct {
-	// Friendly name of the linked workspace
-	LinkName string `pulumi:"linkName"`
-	// Name of the resource group in which workspace is located.
+	LinkName          string `pulumi:"linkName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Linked service.
 type LookupLinkedServiceResult struct {
-	// ResourceId of the link of the linked service.
-	Id string `pulumi:"id"`
-	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// location of the linked service.
-	Location *string `pulumi:"location"`
-	// Friendly name of the linked service.
-	Name string `pulumi:"name"`
-	// LinkedService specific properties.
+	Id         string                     `pulumi:"id"`
+	Identity   *IdentityResponse          `pulumi:"identity"`
+	Location   *string                    `pulumi:"location"`
+	Name       string                     `pulumi:"name"`
 	Properties LinkedServicePropsResponse `pulumi:"properties"`
-	// Resource type of linked service.
-	Type string `pulumi:"type"`
+	Type       string                     `pulumi:"type"`
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Details of a particular extension in HCI Cluster.
-// API Version: 2021-01-01-preview.
 type Extension struct {
 	pulumi.CustomResourceState
 

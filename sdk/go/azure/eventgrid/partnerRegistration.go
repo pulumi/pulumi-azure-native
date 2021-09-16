@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a partner registration.
-// API Version: 2021-06-01-preview.
 type PartnerRegistration struct {
 	pulumi.CustomResourceState
 

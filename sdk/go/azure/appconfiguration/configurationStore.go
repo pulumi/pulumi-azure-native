@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-// API Version: 2020-06-01.
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 

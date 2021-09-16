@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the rule collection.
-// API Version: 2021-02-01-preview.
 func LookupAdminRuleCollection(ctx *pulumi.Context, args *LookupAdminRuleCollectionArgs, opts ...pulumi.InvokeOption) (*LookupAdminRuleCollectionResult, error) {
 	var rv LookupAdminRuleCollectionResult
 	err := ctx.Invoke("azure-native:network:getAdminRuleCollection", args, &rv, opts...)
@@ -19,34 +17,21 @@ func LookupAdminRuleCollection(ctx *pulumi.Context, args *LookupAdminRuleCollect
 }
 
 type LookupAdminRuleCollectionArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// The name of the network manager.
+	ConfigurationName  string `pulumi:"configurationName"`
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	RuleCollectionName string `pulumi:"ruleCollectionName"`
 }
 
 // Defines the rule collection.
 type LookupAdminRuleCollectionResult struct {
-	// Groups for configuration
-	AppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	Description *string `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AppliesToGroups   []NetworkManagerSecurityGroupItemResponse `pulumi:"appliesToGroups"`
+	Description       *string                                   `pulumi:"description"`
+	DisplayName       *string                                   `pulumi:"displayName"`
+	Etag              string                                    `pulumi:"etag"`
+	Id                string                                    `pulumi:"id"`
+	Name              string                                    `pulumi:"name"`
+	ProvisioningState string                                    `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse                        `pulumi:"systemData"`
+	Type              string                                    `pulumi:"type"`
 }

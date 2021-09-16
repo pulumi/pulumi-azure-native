@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network security default user rule.
-// API Version: 2021-02-01-preview.
 func LookupDefaultUserRule(ctx *pulumi.Context, args *LookupDefaultUserRuleArgs, opts ...pulumi.InvokeOption) (*LookupDefaultUserRuleResult, error) {
 	var rv LookupDefaultUserRuleResult
 	err := ctx.Invoke("azure-native:network:getDefaultUserRule", args, &rv, opts...)
@@ -19,51 +17,29 @@ func LookupDefaultUserRule(ctx *pulumi.Context, args *LookupDefaultUserRuleArgs,
 }
 
 type LookupDefaultUserRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// The name of the network manager.
+	ConfigurationName  string `pulumi:"configurationName"`
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	RuleCollectionName string `pulumi:"ruleCollectionName"`
-	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName           string `pulumi:"ruleName"`
 }
 
 // Network security default user rule.
 type LookupDefaultUserRuleResult struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description string `pulumi:"description"`
-	// The destination port ranges.
-	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction string `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Default rule flag.
-	Flag *string `pulumi:"flag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Network protocol this rule applies to.
-	Protocol string `pulumi:"protocol"`
-	// The provisioning state of the security configuration user rule resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The source port ranges.
-	SourcePortRanges []string `pulumi:"sourcePortRanges"`
-	// The CIDR or source IP ranges.
-	Sources []AddressPrefixItemResponse `pulumi:"sources"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Description           string                      `pulumi:"description"`
+	DestinationPortRanges []string                    `pulumi:"destinationPortRanges"`
+	Destinations          []AddressPrefixItemResponse `pulumi:"destinations"`
+	Direction             string                      `pulumi:"direction"`
+	DisplayName           string                      `pulumi:"displayName"`
+	Etag                  string                      `pulumi:"etag"`
+	Flag                  *string                     `pulumi:"flag"`
+	Id                    string                      `pulumi:"id"`
+	Kind                  string                      `pulumi:"kind"`
+	Name                  string                      `pulumi:"name"`
+	Protocol              string                      `pulumi:"protocol"`
+	ProvisioningState     string                      `pulumi:"provisioningState"`
+	SourcePortRanges      []string                    `pulumi:"sourcePortRanges"`
+	Sources               []AddressPrefixItemResponse `pulumi:"sources"`
+	SystemData            SystemDataResponse          `pulumi:"systemData"`
+	Type                  string                      `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
-// API Version: 2021-03-01-preview.
 func LookupUeba(ctx *pulumi.Context, args *LookupUebaArgs, opts ...pulumi.InvokeOption) (*LookupUebaResult, error) {
 	var rv LookupUebaResult
 	err := ctx.Invoke("azure-native:securityinsights:getUeba", args, &rv, opts...)
@@ -19,31 +17,19 @@ func LookupUeba(ctx *pulumi.Context, args *LookupUebaArgs, opts ...pulumi.Invoke
 }
 
 type LookupUebaArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SettingsName                        string `pulumi:"settingsName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Settings with single toggle.
 type LookupUebaResult struct {
-	// The relevant data sources that enriched by ueba
-	DataSources []string `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the setting
-	// Expected value is 'Ueba'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	DataSources []string           `pulumi:"dataSources"`
+	Etag        *string            `pulumi:"etag"`
+	Id          string             `pulumi:"id"`
+	Kind        string             `pulumi:"kind"`
+	Name        string             `pulumi:"name"`
+	SystemData  SystemDataResponse `pulumi:"systemData"`
+	Type        string             `pulumi:"type"`
 }

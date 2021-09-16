@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Kubernetes cluster specialized for web workloads by Azure App Service
-// API Version: 2021-01-01.
 type KubeEnvironment struct {
 	pulumi.CustomResourceState
 

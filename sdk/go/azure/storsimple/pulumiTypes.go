@@ -11,12 +11,9 @@ import (
 )
 
 type AsymmetricEncryptedSecret struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value string `pulumi:"value"`
+	EncryptionAlgorithm      EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	EncryptionCertThumbprint *string             `pulumi:"encryptionCertThumbprint"`
+	Value                    string              `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretInput is an input type that accepts AsymmetricEncryptedSecretArgs and AsymmetricEncryptedSecretOutput values.
@@ -31,12 +28,9 @@ type AsymmetricEncryptedSecretInput interface {
 }
 
 type AsymmetricEncryptedSecretArgs struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value pulumi.StringInput `pulumi:"value"`
+	EncryptionAlgorithm      EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
+	EncryptionCertThumbprint pulumi.StringPtrInput    `pulumi:"encryptionCertThumbprint"`
+	Value                    pulumi.StringInput       `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutputWit
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() EncryptionAlgorithmOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) EncryptionAlgorithm { return v.EncryptionAlgorithm }).(EncryptionAlgorithmOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -155,7 +146,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) Elem() AsymmetricEncryptedSecretOutp
 	}).(AsymmetricEncryptedSecretOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() EncryptionAlgorithmPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *EncryptionAlgorithm {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() EncryptionAlgo
 	}).(EncryptionAlgorithmPtrOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertThumbprint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -186,12 +174,9 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type AsymmetricEncryptedSecretResponse struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+	EncryptionAlgorithm      string  `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value string `pulumi:"value"`
+	Value                    string  `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretResponseInput is an input type that accepts AsymmetricEncryptedSecretResponseArgs and AsymmetricEncryptedSecretResponseOutput values.
@@ -206,12 +191,9 @@ type AsymmetricEncryptedSecretResponseInput interface {
 }
 
 type AsymmetricEncryptedSecretResponseArgs struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+	EncryptionAlgorithm      pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value                    pulumi.StringInput    `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretResponseArgs) ElementType() reflect.Type {
@@ -291,17 +273,14 @@ func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResp
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -330,7 +309,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Elem() AsymmetricEncryptedSe
 	}).(AsymmetricEncryptedSecretResponseOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -340,7 +318,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -350,7 +327,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertThumbprint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -361,14 +337,10 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 }
 
 type BandwidthSchedule struct {
-	// The days of the week when this schedule is applicable.
-	Days []DayOfWeek `pulumi:"days"`
-	// The rate in Mbps.
-	RateInMbps int `pulumi:"rateInMbps"`
-	// The start time of the schedule.
-	Start Time `pulumi:"start"`
-	// The stop time of the schedule.
-	Stop Time `pulumi:"stop"`
+	Days       []DayOfWeek `pulumi:"days"`
+	RateInMbps int         `pulumi:"rateInMbps"`
+	Start      Time        `pulumi:"start"`
+	Stop       Time        `pulumi:"stop"`
 }
 
 // BandwidthScheduleInput is an input type that accepts BandwidthScheduleArgs and BandwidthScheduleOutput values.
@@ -383,14 +355,10 @@ type BandwidthScheduleInput interface {
 }
 
 type BandwidthScheduleArgs struct {
-	// The days of the week when this schedule is applicable.
-	Days DayOfWeekArrayInput `pulumi:"days"`
-	// The rate in Mbps.
-	RateInMbps pulumi.IntInput `pulumi:"rateInMbps"`
-	// The start time of the schedule.
-	Start TimeInput `pulumi:"start"`
-	// The stop time of the schedule.
-	Stop TimeInput `pulumi:"stop"`
+	Days       DayOfWeekArrayInput `pulumi:"days"`
+	RateInMbps pulumi.IntInput     `pulumi:"rateInMbps"`
+	Start      TimeInput           `pulumi:"start"`
+	Stop       TimeInput           `pulumi:"stop"`
 }
 
 func (BandwidthScheduleArgs) ElementType() reflect.Type {
@@ -444,22 +412,18 @@ func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx contex
 	return o
 }
 
-// The days of the week when this schedule is applicable.
 func (o BandwidthScheduleOutput) Days() DayOfWeekArrayOutput {
 	return o.ApplyT(func(v BandwidthSchedule) []DayOfWeek { return v.Days }).(DayOfWeekArrayOutput)
 }
 
-// The rate in Mbps.
 func (o BandwidthScheduleOutput) RateInMbps() pulumi.IntOutput {
 	return o.ApplyT(func(v BandwidthSchedule) int { return v.RateInMbps }).(pulumi.IntOutput)
 }
 
-// The start time of the schedule.
 func (o BandwidthScheduleOutput) Start() TimeOutput {
 	return o.ApplyT(func(v BandwidthSchedule) Time { return v.Start }).(TimeOutput)
 }
 
-// The stop time of the schedule.
 func (o BandwidthScheduleOutput) Stop() TimeOutput {
 	return o.ApplyT(func(v BandwidthSchedule) Time { return v.Stop }).(TimeOutput)
 }
@@ -485,14 +449,10 @@ func (o BandwidthScheduleArrayOutput) Index(i pulumi.IntInput) BandwidthSchedule
 }
 
 type BandwidthScheduleResponse struct {
-	// The days of the week when this schedule is applicable.
-	Days []string `pulumi:"days"`
-	// The rate in Mbps.
-	RateInMbps int `pulumi:"rateInMbps"`
-	// The start time of the schedule.
-	Start TimeResponse `pulumi:"start"`
-	// The stop time of the schedule.
-	Stop TimeResponse `pulumi:"stop"`
+	Days       []string     `pulumi:"days"`
+	RateInMbps int          `pulumi:"rateInMbps"`
+	Start      TimeResponse `pulumi:"start"`
+	Stop       TimeResponse `pulumi:"stop"`
 }
 
 // BandwidthScheduleResponseInput is an input type that accepts BandwidthScheduleResponseArgs and BandwidthScheduleResponseOutput values.
@@ -507,14 +467,10 @@ type BandwidthScheduleResponseInput interface {
 }
 
 type BandwidthScheduleResponseArgs struct {
-	// The days of the week when this schedule is applicable.
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	// The rate in Mbps.
-	RateInMbps pulumi.IntInput `pulumi:"rateInMbps"`
-	// The start time of the schedule.
-	Start TimeResponseInput `pulumi:"start"`
-	// The stop time of the schedule.
-	Stop TimeResponseInput `pulumi:"stop"`
+	Days       pulumi.StringArrayInput `pulumi:"days"`
+	RateInMbps pulumi.IntInput         `pulumi:"rateInMbps"`
+	Start      TimeResponseInput       `pulumi:"start"`
+	Stop       TimeResponseInput       `pulumi:"stop"`
 }
 
 func (BandwidthScheduleResponseArgs) ElementType() reflect.Type {
@@ -568,22 +524,18 @@ func (o BandwidthScheduleResponseOutput) ToBandwidthScheduleResponseOutputWithCo
 	return o
 }
 
-// The days of the week when this schedule is applicable.
 func (o BandwidthScheduleResponseOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BandwidthScheduleResponse) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
-// The rate in Mbps.
 func (o BandwidthScheduleResponseOutput) RateInMbps() pulumi.IntOutput {
 	return o.ApplyT(func(v BandwidthScheduleResponse) int { return v.RateInMbps }).(pulumi.IntOutput)
 }
 
-// The start time of the schedule.
 func (o BandwidthScheduleResponseOutput) Start() TimeResponseOutput {
 	return o.ApplyT(func(v BandwidthScheduleResponse) TimeResponse { return v.Start }).(TimeResponseOutput)
 }
 
-// The stop time of the schedule.
 func (o BandwidthScheduleResponseOutput) Stop() TimeResponseOutput {
 	return o.ApplyT(func(v BandwidthScheduleResponse) TimeResponse { return v.Stop }).(TimeResponseOutput)
 }
@@ -609,10 +561,8 @@ func (o BandwidthScheduleResponseArrayOutput) Index(i pulumi.IntInput) Bandwidth
 }
 
 type FailoverSetEligibilityResultResponse struct {
-	// The error message, if the failover set is not eligible for failover.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// Represents if this failover set is eligible for failover or not.
-	IsEligibleForFailover *bool `pulumi:"isEligibleForFailover"`
+	ErrorMessage          *string `pulumi:"errorMessage"`
+	IsEligibleForFailover *bool   `pulumi:"isEligibleForFailover"`
 }
 
 // FailoverSetEligibilityResultResponseInput is an input type that accepts FailoverSetEligibilityResultResponseArgs and FailoverSetEligibilityResultResponseOutput values.
@@ -627,10 +577,8 @@ type FailoverSetEligibilityResultResponseInput interface {
 }
 
 type FailoverSetEligibilityResultResponseArgs struct {
-	// The error message, if the failover set is not eligible for failover.
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// Represents if this failover set is eligible for failover or not.
-	IsEligibleForFailover pulumi.BoolPtrInput `pulumi:"isEligibleForFailover"`
+	ErrorMessage          pulumi.StringPtrInput `pulumi:"errorMessage"`
+	IsEligibleForFailover pulumi.BoolPtrInput   `pulumi:"isEligibleForFailover"`
 }
 
 func (FailoverSetEligibilityResultResponseArgs) ElementType() reflect.Type {
@@ -710,12 +658,10 @@ func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResu
 	}).(FailoverSetEligibilityResultResponsePtrOutput)
 }
 
-// The error message, if the failover set is not eligible for failover.
 func (o FailoverSetEligibilityResultResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
-// Represents if this failover set is eligible for failover or not.
 func (o FailoverSetEligibilityResultResponseOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *bool { return v.IsEligibleForFailover }).(pulumi.BoolPtrOutput)
 }
@@ -744,7 +690,6 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) Elem() FailoverSetEligibi
 	}).(FailoverSetEligibilityResultResponseOutput)
 }
 
-// The error message, if the failover set is not eligible for failover.
 func (o FailoverSetEligibilityResultResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *string {
 		if v == nil {
@@ -754,7 +699,6 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) ErrorMessage() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents if this failover set is eligible for failover or not.
 func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *bool {
 		if v == nil {
@@ -765,10 +709,8 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() p
 }
 
 type FailoverSetResponse struct {
-	// The eligibility result of the failover set, for failover.
-	EligibilityResult *FailoverSetEligibilityResultResponse `pulumi:"eligibilityResult"`
-	// The list of meta data of volume containers, which are part of the failover set.
-	VolumeContainers []VolumeContainerFailoverMetadataResponse `pulumi:"volumeContainers"`
+	EligibilityResult *FailoverSetEligibilityResultResponse     `pulumi:"eligibilityResult"`
+	VolumeContainers  []VolumeContainerFailoverMetadataResponse `pulumi:"volumeContainers"`
 }
 
 // FailoverSetResponseInput is an input type that accepts FailoverSetResponseArgs and FailoverSetResponseOutput values.
@@ -783,10 +725,8 @@ type FailoverSetResponseInput interface {
 }
 
 type FailoverSetResponseArgs struct {
-	// The eligibility result of the failover set, for failover.
-	EligibilityResult FailoverSetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
-	// The list of meta data of volume containers, which are part of the failover set.
-	VolumeContainers VolumeContainerFailoverMetadataResponseArrayInput `pulumi:"volumeContainers"`
+	EligibilityResult FailoverSetEligibilityResultResponsePtrInput      `pulumi:"eligibilityResult"`
+	VolumeContainers  VolumeContainerFailoverMetadataResponseArrayInput `pulumi:"volumeContainers"`
 }
 
 func (FailoverSetResponseArgs) ElementType() reflect.Type {
@@ -840,12 +780,10 @@ func (o FailoverSetResponseOutput) ToFailoverSetResponseOutputWithContext(ctx co
 	return o
 }
 
-// The eligibility result of the failover set, for failover.
 func (o FailoverSetResponseOutput) EligibilityResult() FailoverSetEligibilityResultResponsePtrOutput {
 	return o.ApplyT(func(v FailoverSetResponse) *FailoverSetEligibilityResultResponse { return v.EligibilityResult }).(FailoverSetEligibilityResultResponsePtrOutput)
 }
 
-// The list of meta data of volume containers, which are part of the failover set.
 func (o FailoverSetResponseOutput) VolumeContainers() VolumeContainerFailoverMetadataResponseArrayOutput {
 	return o.ApplyT(func(v FailoverSetResponse) []VolumeContainerFailoverMetadataResponse { return v.VolumeContainers }).(VolumeContainerFailoverMetadataResponseArrayOutput)
 }
@@ -871,28 +809,17 @@ func (o FailoverSetResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetResp
 }
 
 type FailoverTargetResponse struct {
-	// The amount of free local storage available on the device in bytes.
-	AvailableLocalStorageInBytes *float64 `pulumi:"availableLocalStorageInBytes"`
-	// The amount of free tiered storage available for the device in bytes.
-	AvailableTieredStorageInBytes *float64 `pulumi:"availableTieredStorageInBytes"`
-	// The count of data containers on the device.
-	DataContainersCount *int `pulumi:"dataContainersCount"`
-	// The path ID of the device.
-	DeviceId *string `pulumi:"deviceId"`
-	// The geo location (applicable only for cloud appliances) of the device.
-	DeviceLocation *string `pulumi:"deviceLocation"`
-	// The software version of the device.
-	DeviceSoftwareVersion *string `pulumi:"deviceSoftwareVersion"`
-	// The status of the device.
-	DeviceStatus *string `pulumi:"deviceStatus"`
-	// The eligibility result of the device, as a failover target device.
-	EligibilityResult *TargetEligibilityResultResponse `pulumi:"eligibilityResult"`
-	// The friendly name for the current version of software on the device.
-	FriendlyDeviceSoftwareVersion *string `pulumi:"friendlyDeviceSoftwareVersion"`
-	// The model number of the device.
-	ModelDescription *string `pulumi:"modelDescription"`
-	// The count of volumes on the device.
-	VolumesCount *int `pulumi:"volumesCount"`
+	AvailableLocalStorageInBytes  *float64                         `pulumi:"availableLocalStorageInBytes"`
+	AvailableTieredStorageInBytes *float64                         `pulumi:"availableTieredStorageInBytes"`
+	DataContainersCount           *int                             `pulumi:"dataContainersCount"`
+	DeviceId                      *string                          `pulumi:"deviceId"`
+	DeviceLocation                *string                          `pulumi:"deviceLocation"`
+	DeviceSoftwareVersion         *string                          `pulumi:"deviceSoftwareVersion"`
+	DeviceStatus                  *string                          `pulumi:"deviceStatus"`
+	EligibilityResult             *TargetEligibilityResultResponse `pulumi:"eligibilityResult"`
+	FriendlyDeviceSoftwareVersion *string                          `pulumi:"friendlyDeviceSoftwareVersion"`
+	ModelDescription              *string                          `pulumi:"modelDescription"`
+	VolumesCount                  *int                             `pulumi:"volumesCount"`
 }
 
 // FailoverTargetResponseInput is an input type that accepts FailoverTargetResponseArgs and FailoverTargetResponseOutput values.
@@ -907,28 +834,17 @@ type FailoverTargetResponseInput interface {
 }
 
 type FailoverTargetResponseArgs struct {
-	// The amount of free local storage available on the device in bytes.
-	AvailableLocalStorageInBytes pulumi.Float64PtrInput `pulumi:"availableLocalStorageInBytes"`
-	// The amount of free tiered storage available for the device in bytes.
-	AvailableTieredStorageInBytes pulumi.Float64PtrInput `pulumi:"availableTieredStorageInBytes"`
-	// The count of data containers on the device.
-	DataContainersCount pulumi.IntPtrInput `pulumi:"dataContainersCount"`
-	// The path ID of the device.
-	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
-	// The geo location (applicable only for cloud appliances) of the device.
-	DeviceLocation pulumi.StringPtrInput `pulumi:"deviceLocation"`
-	// The software version of the device.
-	DeviceSoftwareVersion pulumi.StringPtrInput `pulumi:"deviceSoftwareVersion"`
-	// The status of the device.
-	DeviceStatus pulumi.StringPtrInput `pulumi:"deviceStatus"`
-	// The eligibility result of the device, as a failover target device.
-	EligibilityResult TargetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
-	// The friendly name for the current version of software on the device.
-	FriendlyDeviceSoftwareVersion pulumi.StringPtrInput `pulumi:"friendlyDeviceSoftwareVersion"`
-	// The model number of the device.
-	ModelDescription pulumi.StringPtrInput `pulumi:"modelDescription"`
-	// The count of volumes on the device.
-	VolumesCount pulumi.IntPtrInput `pulumi:"volumesCount"`
+	AvailableLocalStorageInBytes  pulumi.Float64PtrInput                  `pulumi:"availableLocalStorageInBytes"`
+	AvailableTieredStorageInBytes pulumi.Float64PtrInput                  `pulumi:"availableTieredStorageInBytes"`
+	DataContainersCount           pulumi.IntPtrInput                      `pulumi:"dataContainersCount"`
+	DeviceId                      pulumi.StringPtrInput                   `pulumi:"deviceId"`
+	DeviceLocation                pulumi.StringPtrInput                   `pulumi:"deviceLocation"`
+	DeviceSoftwareVersion         pulumi.StringPtrInput                   `pulumi:"deviceSoftwareVersion"`
+	DeviceStatus                  pulumi.StringPtrInput                   `pulumi:"deviceStatus"`
+	EligibilityResult             TargetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
+	FriendlyDeviceSoftwareVersion pulumi.StringPtrInput                   `pulumi:"friendlyDeviceSoftwareVersion"`
+	ModelDescription              pulumi.StringPtrInput                   `pulumi:"modelDescription"`
+	VolumesCount                  pulumi.IntPtrInput                      `pulumi:"volumesCount"`
 }
 
 func (FailoverTargetResponseArgs) ElementType() reflect.Type {
@@ -982,57 +898,46 @@ func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutputWithContext(
 	return o
 }
 
-// The amount of free local storage available on the device in bytes.
 func (o FailoverTargetResponseOutput) AvailableLocalStorageInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableLocalStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of free tiered storage available for the device in bytes.
 func (o FailoverTargetResponseOutput) AvailableTieredStorageInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableTieredStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The count of data containers on the device.
 func (o FailoverTargetResponseOutput) DataContainersCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.DataContainersCount }).(pulumi.IntPtrOutput)
 }
 
-// The path ID of the device.
 func (o FailoverTargetResponseOutput) DeviceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
 }
 
-// The geo location (applicable only for cloud appliances) of the device.
 func (o FailoverTargetResponseOutput) DeviceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceLocation }).(pulumi.StringPtrOutput)
 }
 
-// The software version of the device.
 func (o FailoverTargetResponseOutput) DeviceSoftwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceSoftwareVersion }).(pulumi.StringPtrOutput)
 }
 
-// The status of the device.
 func (o FailoverTargetResponseOutput) DeviceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceStatus }).(pulumi.StringPtrOutput)
 }
 
-// The eligibility result of the device, as a failover target device.
 func (o FailoverTargetResponseOutput) EligibilityResult() TargetEligibilityResultResponsePtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *TargetEligibilityResultResponse { return v.EligibilityResult }).(TargetEligibilityResultResponsePtrOutput)
 }
 
-// The friendly name for the current version of software on the device.
 func (o FailoverTargetResponseOutput) FriendlyDeviceSoftwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.FriendlyDeviceSoftwareVersion }).(pulumi.StringPtrOutput)
 }
 
-// The model number of the device.
 func (o FailoverTargetResponseOutput) ModelDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.ModelDescription }).(pulumi.StringPtrOutput)
 }
 
-// The count of volumes on the device.
 func (o FailoverTargetResponseOutput) VolumesCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.VolumesCount }).(pulumi.IntPtrOutput)
 }
@@ -1058,7 +963,6 @@ func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTarg
 }
 
 type ManagerIntrinsicSettings struct {
-	// The type of StorSimple Manager.
 	Type ManagerType `pulumi:"type"`
 }
 
@@ -1074,7 +978,6 @@ type ManagerIntrinsicSettingsInput interface {
 }
 
 type ManagerIntrinsicSettingsArgs struct {
-	// The type of StorSimple Manager.
 	Type ManagerTypeInput `pulumi:"type"`
 }
 
@@ -1155,7 +1058,6 @@ func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutputWithC
 	}).(ManagerIntrinsicSettingsPtrOutput)
 }
 
-// The type of StorSimple Manager.
 func (o ManagerIntrinsicSettingsOutput) Type() ManagerTypeOutput {
 	return o.ApplyT(func(v ManagerIntrinsicSettings) ManagerType { return v.Type }).(ManagerTypeOutput)
 }
@@ -1184,7 +1086,6 @@ func (o ManagerIntrinsicSettingsPtrOutput) Elem() ManagerIntrinsicSettingsOutput
 	}).(ManagerIntrinsicSettingsOutput)
 }
 
-// The type of StorSimple Manager.
 func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
 	return o.ApplyT(func(v *ManagerIntrinsicSettings) *ManagerType {
 		if v == nil {
@@ -1195,7 +1096,6 @@ func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
 }
 
 type ManagerIntrinsicSettingsResponse struct {
-	// The type of StorSimple Manager.
 	Type string `pulumi:"type"`
 }
 
@@ -1211,7 +1111,6 @@ type ManagerIntrinsicSettingsResponseInput interface {
 }
 
 type ManagerIntrinsicSettingsResponseArgs struct {
-	// The type of StorSimple Manager.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1292,7 +1191,6 @@ func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsRespon
 	}).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
 
-// The type of StorSimple Manager.
 func (o ManagerIntrinsicSettingsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagerIntrinsicSettingsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1321,7 +1219,6 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Elem() ManagerIntrinsicSettin
 	}).(ManagerIntrinsicSettingsResponseOutput)
 }
 
-// The type of StorSimple Manager.
 func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) *string {
 		if v == nil {
@@ -1332,7 +1229,6 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type ManagerSku struct {
-	// Refers to the sku name which should be "Standard"
 	Name ManagerSkuType `pulumi:"name"`
 }
 
@@ -1348,7 +1244,6 @@ type ManagerSkuInput interface {
 }
 
 type ManagerSkuArgs struct {
-	// Refers to the sku name which should be "Standard"
 	Name ManagerSkuTypeInput `pulumi:"name"`
 }
 
@@ -1429,7 +1324,6 @@ func (o ManagerSkuOutput) ToManagerSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ManagerSkuPtrOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuOutput) Name() ManagerSkuTypeOutput {
 	return o.ApplyT(func(v ManagerSku) ManagerSkuType { return v.Name }).(ManagerSkuTypeOutput)
 }
@@ -1458,7 +1352,6 @@ func (o ManagerSkuPtrOutput) Elem() ManagerSkuOutput {
 	}).(ManagerSkuOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
 	return o.ApplyT(func(v *ManagerSku) *ManagerSkuType {
 		if v == nil {
@@ -1469,7 +1362,6 @@ func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
 }
 
 type ManagerSkuResponse struct {
-	// Refers to the sku name which should be "Standard"
 	Name string `pulumi:"name"`
 }
 
@@ -1485,7 +1377,6 @@ type ManagerSkuResponseInput interface {
 }
 
 type ManagerSkuResponseArgs struct {
-	// Refers to the sku name which should be "Standard"
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1566,7 +1457,6 @@ func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutputWithContext(ctx c
 	}).(ManagerSkuResponsePtrOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagerSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1595,7 +1485,6 @@ func (o ManagerSkuResponsePtrOutput) Elem() ManagerSkuResponseOutput {
 	}).(ManagerSkuResponseOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagerSkuResponse) *string {
 		if v == nil {
@@ -1606,12 +1495,9 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ScheduleRecurrence struct {
-	// The recurrence type.
-	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
-	// The recurrence value.
-	RecurrenceValue int `pulumi:"recurrenceValue"`
-	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList []DayOfWeek `pulumi:"weeklyDaysList"`
+	RecurrenceType  RecurrenceType `pulumi:"recurrenceType"`
+	RecurrenceValue int            `pulumi:"recurrenceValue"`
+	WeeklyDaysList  []DayOfWeek    `pulumi:"weeklyDaysList"`
 }
 
 // ScheduleRecurrenceInput is an input type that accepts ScheduleRecurrenceArgs and ScheduleRecurrenceOutput values.
@@ -1626,12 +1512,9 @@ type ScheduleRecurrenceInput interface {
 }
 
 type ScheduleRecurrenceArgs struct {
-	// The recurrence type.
-	RecurrenceType RecurrenceTypeInput `pulumi:"recurrenceType"`
-	// The recurrence value.
-	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
-	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList DayOfWeekArrayInput `pulumi:"weeklyDaysList"`
+	RecurrenceType  RecurrenceTypeInput `pulumi:"recurrenceType"`
+	RecurrenceValue pulumi.IntInput     `pulumi:"recurrenceValue"`
+	WeeklyDaysList  DayOfWeekArrayInput `pulumi:"weeklyDaysList"`
 }
 
 func (ScheduleRecurrenceArgs) ElementType() reflect.Type {
@@ -1711,17 +1594,14 @@ func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutputWithContext(ctx c
 	}).(ScheduleRecurrencePtrOutput)
 }
 
-// The recurrence type.
 func (o ScheduleRecurrenceOutput) RecurrenceType() RecurrenceTypeOutput {
 	return o.ApplyT(func(v ScheduleRecurrence) RecurrenceType { return v.RecurrenceType }).(RecurrenceTypeOutput)
 }
 
-// The recurrence value.
 func (o ScheduleRecurrenceOutput) RecurrenceValue() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRecurrence) int { return v.RecurrenceValue }).(pulumi.IntOutput)
 }
 
-// The week days list. Applicable only for schedules of recurrence type 'weekly'.
 func (o ScheduleRecurrenceOutput) WeeklyDaysList() DayOfWeekArrayOutput {
 	return o.ApplyT(func(v ScheduleRecurrence) []DayOfWeek { return v.WeeklyDaysList }).(DayOfWeekArrayOutput)
 }
@@ -1750,7 +1630,6 @@ func (o ScheduleRecurrencePtrOutput) Elem() ScheduleRecurrenceOutput {
 	}).(ScheduleRecurrenceOutput)
 }
 
-// The recurrence type.
 func (o ScheduleRecurrencePtrOutput) RecurrenceType() RecurrenceTypePtrOutput {
 	return o.ApplyT(func(v *ScheduleRecurrence) *RecurrenceType {
 		if v == nil {
@@ -1760,7 +1639,6 @@ func (o ScheduleRecurrencePtrOutput) RecurrenceType() RecurrenceTypePtrOutput {
 	}).(RecurrenceTypePtrOutput)
 }
 
-// The recurrence value.
 func (o ScheduleRecurrencePtrOutput) RecurrenceValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleRecurrence) *int {
 		if v == nil {
@@ -1770,7 +1648,6 @@ func (o ScheduleRecurrencePtrOutput) RecurrenceValue() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The week days list. Applicable only for schedules of recurrence type 'weekly'.
 func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() DayOfWeekArrayOutput {
 	return o.ApplyT(func(v *ScheduleRecurrence) []DayOfWeek {
 		if v == nil {
@@ -1781,12 +1658,9 @@ func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() DayOfWeekArrayOutput {
 }
 
 type ScheduleRecurrenceResponse struct {
-	// The recurrence type.
-	RecurrenceType string `pulumi:"recurrenceType"`
-	// The recurrence value.
-	RecurrenceValue int `pulumi:"recurrenceValue"`
-	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList []string `pulumi:"weeklyDaysList"`
+	RecurrenceType  string   `pulumi:"recurrenceType"`
+	RecurrenceValue int      `pulumi:"recurrenceValue"`
+	WeeklyDaysList  []string `pulumi:"weeklyDaysList"`
 }
 
 // ScheduleRecurrenceResponseInput is an input type that accepts ScheduleRecurrenceResponseArgs and ScheduleRecurrenceResponseOutput values.
@@ -1801,12 +1675,9 @@ type ScheduleRecurrenceResponseInput interface {
 }
 
 type ScheduleRecurrenceResponseArgs struct {
-	// The recurrence type.
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
-	// The recurrence value.
-	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
-	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList pulumi.StringArrayInput `pulumi:"weeklyDaysList"`
+	RecurrenceType  pulumi.StringInput      `pulumi:"recurrenceType"`
+	RecurrenceValue pulumi.IntInput         `pulumi:"recurrenceValue"`
+	WeeklyDaysList  pulumi.StringArrayInput `pulumi:"weeklyDaysList"`
 }
 
 func (ScheduleRecurrenceResponseArgs) ElementType() reflect.Type {
@@ -1886,17 +1757,14 @@ func (o ScheduleRecurrenceResponseOutput) ToScheduleRecurrenceResponsePtrOutputW
 	}).(ScheduleRecurrenceResponsePtrOutput)
 }
 
-// The recurrence type.
 func (o ScheduleRecurrenceResponseOutput) RecurrenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleRecurrenceResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
 }
 
-// The recurrence value.
 func (o ScheduleRecurrenceResponseOutput) RecurrenceValue() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRecurrenceResponse) int { return v.RecurrenceValue }).(pulumi.IntOutput)
 }
 
-// The week days list. Applicable only for schedules of recurrence type 'weekly'.
 func (o ScheduleRecurrenceResponseOutput) WeeklyDaysList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduleRecurrenceResponse) []string { return v.WeeklyDaysList }).(pulumi.StringArrayOutput)
 }
@@ -1925,7 +1793,6 @@ func (o ScheduleRecurrenceResponsePtrOutput) Elem() ScheduleRecurrenceResponseOu
 	}).(ScheduleRecurrenceResponseOutput)
 }
 
-// The recurrence type.
 func (o ScheduleRecurrenceResponsePtrOutput) RecurrenceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleRecurrenceResponse) *string {
 		if v == nil {
@@ -1935,7 +1802,6 @@ func (o ScheduleRecurrenceResponsePtrOutput) RecurrenceType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recurrence value.
 func (o ScheduleRecurrenceResponsePtrOutput) RecurrenceValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleRecurrenceResponse) *int {
 		if v == nil {
@@ -1945,7 +1811,6 @@ func (o ScheduleRecurrenceResponsePtrOutput) RecurrenceValue() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The week days list. Applicable only for schedules of recurrence type 'weekly'.
 func (o ScheduleRecurrenceResponsePtrOutput) WeeklyDaysList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduleRecurrenceResponse) []string {
 		if v == nil {
@@ -1956,11 +1821,8 @@ func (o ScheduleRecurrenceResponsePtrOutput) WeeklyDaysList() pulumi.StringArray
 }
 
 type TargetEligibilityErrorMessageResponse struct {
-	// The localized error message stating the reason why the device is not eligible as a target device.
-	Message *string `pulumi:"message"`
-	// The localized resolution message for the error.
+	Message    *string `pulumi:"message"`
 	Resolution *string `pulumi:"resolution"`
-	// The result code for the error, due to which the device does not qualify as a failover target device.
 	ResultCode *string `pulumi:"resultCode"`
 }
 
@@ -1976,11 +1838,8 @@ type TargetEligibilityErrorMessageResponseInput interface {
 }
 
 type TargetEligibilityErrorMessageResponseArgs struct {
-	// The localized error message stating the reason why the device is not eligible as a target device.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The localized resolution message for the error.
+	Message    pulumi.StringPtrInput `pulumi:"message"`
 	Resolution pulumi.StringPtrInput `pulumi:"resolution"`
-	// The result code for the error, due to which the device does not qualify as a failover target device.
 	ResultCode pulumi.StringPtrInput `pulumi:"resultCode"`
 }
 
@@ -2035,17 +1894,14 @@ func (o TargetEligibilityErrorMessageResponseOutput) ToTargetEligibilityErrorMes
 	return o
 }
 
-// The localized error message stating the reason why the device is not eligible as a target device.
 func (o TargetEligibilityErrorMessageResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The localized resolution message for the error.
 func (o TargetEligibilityErrorMessageResponseOutput) Resolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
-// The result code for the error, due to which the device does not qualify as a failover target device.
 func (o TargetEligibilityErrorMessageResponseOutput) ResultCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.ResultCode }).(pulumi.StringPtrOutput)
 }
@@ -2071,10 +1927,8 @@ func (o TargetEligibilityErrorMessageResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type TargetEligibilityResultResponse struct {
-	// The eligibility status of device, as a failover target device.
-	EligibilityStatus *string `pulumi:"eligibilityStatus"`
-	// The list of error messages, if a device does not qualify as a failover target device.
-	Messages []TargetEligibilityErrorMessageResponse `pulumi:"messages"`
+	EligibilityStatus *string                                 `pulumi:"eligibilityStatus"`
+	Messages          []TargetEligibilityErrorMessageResponse `pulumi:"messages"`
 }
 
 // TargetEligibilityResultResponseInput is an input type that accepts TargetEligibilityResultResponseArgs and TargetEligibilityResultResponseOutput values.
@@ -2089,10 +1943,8 @@ type TargetEligibilityResultResponseInput interface {
 }
 
 type TargetEligibilityResultResponseArgs struct {
-	// The eligibility status of device, as a failover target device.
-	EligibilityStatus pulumi.StringPtrInput `pulumi:"eligibilityStatus"`
-	// The list of error messages, if a device does not qualify as a failover target device.
-	Messages TargetEligibilityErrorMessageResponseArrayInput `pulumi:"messages"`
+	EligibilityStatus pulumi.StringPtrInput                           `pulumi:"eligibilityStatus"`
+	Messages          TargetEligibilityErrorMessageResponseArrayInput `pulumi:"messages"`
 }
 
 func (TargetEligibilityResultResponseArgs) ElementType() reflect.Type {
@@ -2172,12 +2024,10 @@ func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponse
 	}).(TargetEligibilityResultResponsePtrOutput)
 }
 
-// The eligibility status of device, as a failover target device.
 func (o TargetEligibilityResultResponseOutput) EligibilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetEligibilityResultResponse) *string { return v.EligibilityStatus }).(pulumi.StringPtrOutput)
 }
 
-// The list of error messages, if a device does not qualify as a failover target device.
 func (o TargetEligibilityResultResponseOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
 	return o.ApplyT(func(v TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse { return v.Messages }).(TargetEligibilityErrorMessageResponseArrayOutput)
 }
@@ -2206,7 +2056,6 @@ func (o TargetEligibilityResultResponsePtrOutput) Elem() TargetEligibilityResult
 	}).(TargetEligibilityResultResponseOutput)
 }
 
-// The eligibility status of device, as a failover target device.
 func (o TargetEligibilityResultResponsePtrOutput) EligibilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetEligibilityResultResponse) *string {
 		if v == nil {
@@ -2216,7 +2065,6 @@ func (o TargetEligibilityResultResponsePtrOutput) EligibilityStatus() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of error messages, if a device does not qualify as a failover target device.
 func (o TargetEligibilityResultResponsePtrOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
 	return o.ApplyT(func(v *TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse {
 		if v == nil {
@@ -2227,11 +2075,8 @@ func (o TargetEligibilityResultResponsePtrOutput) Messages() TargetEligibilityEr
 }
 
 type Time struct {
-	// The hour.
-	Hours int `pulumi:"hours"`
-	// The minute.
+	Hours   int `pulumi:"hours"`
 	Minutes int `pulumi:"minutes"`
-	// The second.
 	Seconds int `pulumi:"seconds"`
 }
 
@@ -2247,11 +2092,8 @@ type TimeInput interface {
 }
 
 type TimeArgs struct {
-	// The hour.
-	Hours pulumi.IntInput `pulumi:"hours"`
-	// The minute.
+	Hours   pulumi.IntInput `pulumi:"hours"`
 	Minutes pulumi.IntInput `pulumi:"minutes"`
-	// The second.
 	Seconds pulumi.IntInput `pulumi:"seconds"`
 }
 
@@ -2281,27 +2123,21 @@ func (o TimeOutput) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return o
 }
 
-// The hour.
 func (o TimeOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Hours }).(pulumi.IntOutput)
 }
 
-// The minute.
 func (o TimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
-// The second.
 func (o TimeOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Seconds }).(pulumi.IntOutput)
 }
 
 type TimeResponse struct {
-	// The hour.
-	Hours int `pulumi:"hours"`
-	// The minute.
+	Hours   int `pulumi:"hours"`
 	Minutes int `pulumi:"minutes"`
-	// The second.
 	Seconds int `pulumi:"seconds"`
 }
 
@@ -2317,11 +2153,8 @@ type TimeResponseInput interface {
 }
 
 type TimeResponseArgs struct {
-	// The hour.
-	Hours pulumi.IntInput `pulumi:"hours"`
-	// The minute.
+	Hours   pulumi.IntInput `pulumi:"hours"`
 	Minutes pulumi.IntInput `pulumi:"minutes"`
-	// The second.
 	Seconds pulumi.IntInput `pulumi:"seconds"`
 }
 
@@ -2351,26 +2184,21 @@ func (o TimeResponseOutput) ToTimeResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The hour.
 func (o TimeResponseOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Hours }).(pulumi.IntOutput)
 }
 
-// The minute.
 func (o TimeResponseOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
-// The second.
 func (o TimeResponseOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Seconds }).(pulumi.IntOutput)
 }
 
 type VolumeContainerFailoverMetadataResponse struct {
-	// The path ID of the volume container.
-	VolumeContainerId *string `pulumi:"volumeContainerId"`
-	// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
-	Volumes []VolumeFailoverMetadataResponse `pulumi:"volumes"`
+	VolumeContainerId *string                          `pulumi:"volumeContainerId"`
+	Volumes           []VolumeFailoverMetadataResponse `pulumi:"volumes"`
 }
 
 // VolumeContainerFailoverMetadataResponseInput is an input type that accepts VolumeContainerFailoverMetadataResponseArgs and VolumeContainerFailoverMetadataResponseOutput values.
@@ -2385,10 +2213,8 @@ type VolumeContainerFailoverMetadataResponseInput interface {
 }
 
 type VolumeContainerFailoverMetadataResponseArgs struct {
-	// The path ID of the volume container.
-	VolumeContainerId pulumi.StringPtrInput `pulumi:"volumeContainerId"`
-	// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
-	Volumes VolumeFailoverMetadataResponseArrayInput `pulumi:"volumes"`
+	VolumeContainerId pulumi.StringPtrInput                    `pulumi:"volumeContainerId"`
+	Volumes           VolumeFailoverMetadataResponseArrayInput `pulumi:"volumes"`
 }
 
 func (VolumeContainerFailoverMetadataResponseArgs) ElementType() reflect.Type {
@@ -2442,12 +2268,10 @@ func (o VolumeContainerFailoverMetadataResponseOutput) ToVolumeContainerFailover
 	return o
 }
 
-// The path ID of the volume container.
 func (o VolumeContainerFailoverMetadataResponseOutput) VolumeContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) *string { return v.VolumeContainerId }).(pulumi.StringPtrOutput)
 }
 
-// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
 func (o VolumeContainerFailoverMetadataResponseOutput) Volumes() VolumeFailoverMetadataResponseArrayOutput {
 	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) []VolumeFailoverMetadataResponse { return v.Volumes }).(VolumeFailoverMetadataResponseArrayOutput)
 }
@@ -2473,20 +2297,13 @@ func (o VolumeContainerFailoverMetadataResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 type VolumeFailoverMetadataResponse struct {
-	// The date at which the snapshot was taken.
-	BackupCreatedDate *string `pulumi:"backupCreatedDate"`
-	// The path ID of the backup-element for this volume, inside the backup set.
-	BackupElementId *string `pulumi:"backupElementId"`
-	// The path ID of the backup set.
-	BackupId *string `pulumi:"backupId"`
-	// The path ID of the backup policy using which the snapshot was taken.
-	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// The size of the volume in bytes at the time the snapshot was taken.
-	SizeInBytes *float64 `pulumi:"sizeInBytes"`
-	// The path ID of the volume.
-	VolumeId *string `pulumi:"volumeId"`
-	// The type of the volume.
-	VolumeType *string `pulumi:"volumeType"`
+	BackupCreatedDate *string  `pulumi:"backupCreatedDate"`
+	BackupElementId   *string  `pulumi:"backupElementId"`
+	BackupId          *string  `pulumi:"backupId"`
+	BackupPolicyId    *string  `pulumi:"backupPolicyId"`
+	SizeInBytes       *float64 `pulumi:"sizeInBytes"`
+	VolumeId          *string  `pulumi:"volumeId"`
+	VolumeType        *string  `pulumi:"volumeType"`
 }
 
 // VolumeFailoverMetadataResponseInput is an input type that accepts VolumeFailoverMetadataResponseArgs and VolumeFailoverMetadataResponseOutput values.
@@ -2501,20 +2318,13 @@ type VolumeFailoverMetadataResponseInput interface {
 }
 
 type VolumeFailoverMetadataResponseArgs struct {
-	// The date at which the snapshot was taken.
-	BackupCreatedDate pulumi.StringPtrInput `pulumi:"backupCreatedDate"`
-	// The path ID of the backup-element for this volume, inside the backup set.
-	BackupElementId pulumi.StringPtrInput `pulumi:"backupElementId"`
-	// The path ID of the backup set.
-	BackupId pulumi.StringPtrInput `pulumi:"backupId"`
-	// The path ID of the backup policy using which the snapshot was taken.
-	BackupPolicyId pulumi.StringPtrInput `pulumi:"backupPolicyId"`
-	// The size of the volume in bytes at the time the snapshot was taken.
-	SizeInBytes pulumi.Float64PtrInput `pulumi:"sizeInBytes"`
-	// The path ID of the volume.
-	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
-	// The type of the volume.
-	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+	BackupCreatedDate pulumi.StringPtrInput  `pulumi:"backupCreatedDate"`
+	BackupElementId   pulumi.StringPtrInput  `pulumi:"backupElementId"`
+	BackupId          pulumi.StringPtrInput  `pulumi:"backupId"`
+	BackupPolicyId    pulumi.StringPtrInput  `pulumi:"backupPolicyId"`
+	SizeInBytes       pulumi.Float64PtrInput `pulumi:"sizeInBytes"`
+	VolumeId          pulumi.StringPtrInput  `pulumi:"volumeId"`
+	VolumeType        pulumi.StringPtrInput  `pulumi:"volumeType"`
 }
 
 func (VolumeFailoverMetadataResponseArgs) ElementType() reflect.Type {
@@ -2568,37 +2378,30 @@ func (o VolumeFailoverMetadataResponseOutput) ToVolumeFailoverMetadataResponseOu
 	return o
 }
 
-// The date at which the snapshot was taken.
 func (o VolumeFailoverMetadataResponseOutput) BackupCreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupCreatedDate }).(pulumi.StringPtrOutput)
 }
 
-// The path ID of the backup-element for this volume, inside the backup set.
 func (o VolumeFailoverMetadataResponseOutput) BackupElementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupElementId }).(pulumi.StringPtrOutput)
 }
 
-// The path ID of the backup set.
 func (o VolumeFailoverMetadataResponseOutput) BackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
-// The path ID of the backup policy using which the snapshot was taken.
 func (o VolumeFailoverMetadataResponseOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in bytes at the time the snapshot was taken.
 func (o VolumeFailoverMetadataResponseOutput) SizeInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The path ID of the volume.
 func (o VolumeFailoverMetadataResponseOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the volume.
 func (o VolumeFailoverMetadataResponseOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

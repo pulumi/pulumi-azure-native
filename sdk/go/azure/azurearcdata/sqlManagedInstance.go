@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SqlManagedInstance.
-// API Version: 2021-06-01-preview.
 type SqlManagedInstance struct {
 	pulumi.CustomResourceState
 
