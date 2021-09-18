@@ -16029,7 +16029,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -16069,7 +16073,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -16295,7 +16303,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -16335,7 +16347,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -16507,7 +16523,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -16547,7 +16567,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -17657,7 +17681,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -17697,7 +17725,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -18638,7 +18670,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -18678,7 +18714,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -22536,6 +22576,7 @@
           "Korea Central",
           "Brazil South",
           "Brazil Southeast",
+          "West US 3",
           "Japan East",
           "UK West",
           "West US",
@@ -22606,6 +22647,8 @@
           "Southeast Asia",
           "Korea Central",
           "Brazil South",
+          "Brazil Southeast",
+          "West US 3",
           "Japan East",
           "UK West",
           "West US",
@@ -22925,7 +22968,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -22965,7 +23012,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -23868,6 +23919,8 @@
           "Southeast Asia",
           "Korea Central",
           "Brazil South",
+          "Brazil Southeast",
+          "West US 3",
           "Japan East",
           "UK West",
           "West US",
@@ -23911,6 +23964,8 @@
         "defaultApiVersion": "2020-04-01",
         "locationMappings": null,
         "locations": [
+          "Brazil Southeast",
+          "West US 3",
           "UAE North",
           "Australia Central 2",
           "UAE Central",
@@ -24497,7 +24552,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -24537,7 +24596,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -24812,7 +24875,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -24852,7 +24919,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -26405,7 +26476,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -26445,7 +26520,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -26615,7 +26694,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -26655,7 +26738,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -27518,7 +27605,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -27558,7 +27649,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -28019,7 +28114,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -28059,7 +28158,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -28753,7 +28856,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -28793,7 +28900,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -28967,7 +29078,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -29007,7 +29122,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -35440,6 +35559,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35491,6 +35612,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35574,6 +35697,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35628,6 +35753,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35708,6 +35835,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35762,6 +35891,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35816,6 +35947,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35875,6 +36008,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -35945,6 +36080,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -36015,6 +36152,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -36088,6 +36227,8 @@
           "France South",
           "South India",
           "Korea South",
+          "Canada East",
+          "West US 3",
           "Sweden Central"
         ],
         "properties": null,
@@ -36128,7 +36269,11 @@
           "West US",
           "UK West",
           "South Africa North",
-          "Brazil South"
+          "Brazil South",
+          "Switzerland North",
+          "Switzerland West",
+          "Germany West Central",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "workspaces/dataExports"
@@ -36299,7 +36444,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -44020,7 +44169,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -44060,7 +44213,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -50356,7 +50513,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -50396,7 +50557,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -52719,7 +52884,11 @@
           "Norway East",
           "Norway West",
           "France South",
-          "South India"
+          "South India",
+          "Korea South",
+          "Canada East",
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "solutions"
@@ -65019,7 +65188,8 @@
           "East US 2",
           "Australia East",
           "UK South",
-          "West US 2"
+          "West US 2",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "workspaces"
@@ -65041,7 +65211,8 @@
           "East US 2",
           "Australia East",
           "UK South",
-          "West US 2"
+          "West US 2",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "workspaces/dicomservices"
@@ -65063,7 +65234,8 @@
           "East US 2",
           "Australia East",
           "UK South",
-          "West US 2"
+          "West US 2",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "workspaces/iotconnectors"
@@ -65085,7 +65257,8 @@
           "East US 2",
           "Australia East",
           "UK South",
-          "West US 2"
+          "West US 2",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "workspaces/iotconnectors/fhirdestinations"
@@ -65107,7 +65280,8 @@
           "East US 2",
           "Australia East",
           "UK South",
-          "West US 2"
+          "West US 2",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "workspaces/fhirservices"
@@ -67216,7 +67390,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -67256,7 +67434,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -67417,7 +67599,11 @@
           },
           {
             "location": "South Africa North",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "South Central US",
@@ -67457,7 +67643,11 @@
           },
           {
             "location": "Korea Central",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "West US 3",
@@ -69658,7 +69848,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/84codes.CloudAMQP",
     "namespace": "84codes.CloudAMQP",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69734,7 +69924,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Crypteron.DataSecurity",
     "namespace": "Crypteron.DataSecurity",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83999,6 +84189,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-15",
           "2021-03-15-preview",
           "2020-07-15-privatepreview"
         ],
@@ -84137,6 +84328,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-15",
           "2021-03-15-preview",
           "2020-07-15-privatepreview"
         ],
@@ -93476,7 +93668,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93537,7 +93729,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93598,7 +93790,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93659,7 +93851,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93720,7 +93912,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93781,7 +93973,7 @@
           "2017-06-05-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2017-06-05-preview",
+        "defaultApiVersion": "2018-04-02",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -93802,14 +93994,12 @@
           "UK West",
           "Central India",
           "South India",
-          "Central US EUAP",
           "North Central US",
           "South Central US",
           "Brazil South",
           "Japan East",
           "Japan West",
           "West US 2",
-          "East US 2 EUAP",
           "Korea Central",
           "Korea South",
           "France Central",
@@ -93942,13 +94132,13 @@
           "UK West",
           "Central India",
           "South India",
-          "West Central US",
-          "West US 2",
           "North Central US",
           "South Central US",
           "Brazil South",
           "Japan East",
           "Japan West",
+          "West Central US",
+          "West US 2",
           "Korea Central",
           "Korea South",
           "France Central",
@@ -95927,7 +96117,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Paraleap.CloudMonix",
     "namespace": "Paraleap.CloudMonix",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -95990,7 +96180,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Pokitdok.Platform",
     "namespace": "Pokitdok.Platform",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -96053,7 +96243,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/RavenHq.Db",
     "namespace": "RavenHq.Db",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -96118,7 +96308,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Raygun.CrashReporting",
     "namespace": "Raygun.CrashReporting",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -96181,7 +96371,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Sendgrid.Email",
     "namespace": "Sendgrid.Email",
-    "providerAuthorizationConsentState": null,
+    "providerAuthorizationConsentState": "NotRequired",
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
