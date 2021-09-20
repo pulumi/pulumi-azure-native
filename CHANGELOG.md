@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.29.0 (2021-09-20)
+
 #### New resources:
 
 - `hdinsight.PrivateEndpointConnection`
@@ -28,8 +34,6 @@ CHANGELOG
 
 - Fix `authorization.getClientConfig` when using Managed Identities
   [#1008](https://github.com/pulumi/pulumi-azure-native/issues/1008).
-
----
 
 ## 1.28.0 (2021-09-13)
 
