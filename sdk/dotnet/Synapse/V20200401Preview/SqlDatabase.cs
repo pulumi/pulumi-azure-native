@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
+        /// Sql database data retention.
+        /// </summary>
+        [Output("dataRetention")]
+        public Output<Outputs.SqlDatabaseDataRetentionResponse?> DataRetention { get; private set; } = null!;
+
+        /// <summary>
         /// The Guid of the database.
         /// </summary>
         [Output("databaseGuid")]
@@ -40,13 +46,13 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the database.
+        /// The status of the database.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Storage redundancy of the database.
+        /// The storage redundancy of the database.
         /// </summary>
         [Output("storageRedundancy")]
         public Output<string?> StorageRedundancy { get; private set; } = null!;
@@ -125,6 +131,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Input<string>? Collation { get; set; }
 
         /// <summary>
+        /// Sql database data retention.
+        /// </summary>
+        [Input("dataRetention")]
+        public Input<Inputs.SqlDatabaseDataRetentionArgs>? DataRetention { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -143,10 +155,10 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Input<string>? SqlDatabaseName { get; set; }
 
         /// <summary>
-        /// Storage redundancy of the database.
+        /// The storage redundancy of the database.
         /// </summary>
         [Input("storageRedundancy")]
-        public InputUnion<string, Pulumi.AzureNative.Synapse.V20200401Preview.SqlDatabaseStorageRedundancyType>? StorageRedundancy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20200401Preview.StorageRedundancy>? StorageRedundancy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

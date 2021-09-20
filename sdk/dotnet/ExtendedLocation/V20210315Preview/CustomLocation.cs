@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
     /// <summary>
     /// Custom Locations definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:extendedlocation/v20210315preview:customLocation")]
+    [AzureNativeResourceType("azure-native:extendedlocation/v20210315preview:CustomLocation")]
     public partial class CustomLocation : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomLocation(string name, CustomLocationArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:extendedlocation/v20210315preview:customLocation", name, args ?? new CustomLocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:extendedlocation/v20210315preview:CustomLocation", name, args ?? new CustomLocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomLocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:extendedlocation/v20210315preview:customLocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:extendedlocation/v20210315preview:CustomLocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation/v20210315preview:customLocation"},
-                    new Pulumi.Alias { Type = "azure-native:extendedlocation:customLocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation:customLocation"},
-                    new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210815:customLocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation/v20210815:customLocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation/v20210315preview:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210815:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:extendedlocation/v20210815:CustomLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

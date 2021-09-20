@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./cluster";
 export * from "./consumerGroup";
 export * from "./disasterRecoveryConfig";
 export * from "./eventHub";
 export * from "./eventHubAuthorizationRule";
+export * from "./getCluster";
 export * from "./getConsumerGroup";
 export * from "./getDisasterRecoveryConfig";
 export * from "./getEventHub";
@@ -29,6 +31,7 @@ export * from "./privateEndpointConnection";
 export * from "../../types/enums/eventhub/v20210601preview";
 
 // Import resources to register:
+import { Cluster } from "./cluster";
 import { ConsumerGroup } from "./consumerGroup";
 import { DisasterRecoveryConfig } from "./disasterRecoveryConfig";
 import { EventHub } from "./eventHub";
@@ -42,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:eventhub/v20210601preview:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20210601preview:ConsumerGroup":
                 return new ConsumerGroup(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig":

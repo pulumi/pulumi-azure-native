@@ -5,15 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'SqlDatabaseStorageRedundancyType',
+    'StorageRedundancy',
 ]
 
 
-class SqlDatabaseStorageRedundancyType(str, Enum):
+class StorageRedundancy(str, Enum):
     """
-    Storage redundancy of the database.
+    The storage redundancy of the database.
     """
-    GEO = "Geo"
-    GEO_ZONE = "GeoZone"
     LOCAL = "Local"
+    GEO = "Geo"
     ZONE = "Zone"
+    GEO_ZONE = "GeoZone"

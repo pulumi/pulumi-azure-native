@@ -47,6 +47,10 @@ export interface GetSqlDatabaseResult {
      */
     readonly collation?: string;
     /**
+     * Sql database data retention.
+     */
+    readonly dataRetention?: outputs.synapse.v20200401preview.SqlDatabaseDataRetentionResponse;
+    /**
      * The Guid of the database.
      */
     readonly databaseGuid: string;
@@ -63,11 +67,11 @@ export interface GetSqlDatabaseResult {
      */
     readonly name: string;
     /**
-     * Status of the database.
+     * The status of the database.
      */
     readonly status: string;
     /**
-     * Storage redundancy of the database.
+     * The storage redundancy of the database.
      */
     readonly storageRedundancy?: string;
     /**

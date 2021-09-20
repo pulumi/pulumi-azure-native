@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['SqlDatabaseArgs', 'SqlDatabase']
 
@@ -18,24 +19,28 @@ class SqlDatabaseArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
+                 data_retention: Optional[pulumi.Input['SqlDatabaseDataRetentionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
-                 storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
+                 storage_redundancy: Optional[pulumi.Input[Union[str, 'StorageRedundancy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SqlDatabase resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] collation: The collation of the database.
+        :param pulumi.Input['SqlDatabaseDataRetentionArgs'] data_retention: Sql database data retention.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] sql_database_name: The name of the sql database.
-        :param pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']] storage_redundancy: Storage redundancy of the database.
+        :param pulumi.Input[Union[str, 'StorageRedundancy']] storage_redundancy: The storage redundancy of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
+        if data_retention is not None:
+            pulumi.set(__self__, "data_retention", data_retention)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sql_database_name is not None:
@@ -82,6 +87,18 @@ class SqlDatabaseArgs:
         pulumi.set(self, "collation", value)
 
     @property
+    @pulumi.getter(name="dataRetention")
+    def data_retention(self) -> Optional[pulumi.Input['SqlDatabaseDataRetentionArgs']]:
+        """
+        Sql database data retention.
+        """
+        return pulumi.get(self, "data_retention")
+
+    @data_retention.setter
+    def data_retention(self, value: Optional[pulumi.Input['SqlDatabaseDataRetentionArgs']]):
+        pulumi.set(self, "data_retention", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -107,14 +124,14 @@ class SqlDatabaseArgs:
 
     @property
     @pulumi.getter(name="storageRedundancy")
-    def storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]]:
+    def storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'StorageRedundancy']]]:
         """
-        Storage redundancy of the database.
+        The storage redundancy of the database.
         """
         return pulumi.get(self, "storage_redundancy")
 
     @storage_redundancy.setter
-    def storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]]):
+    def storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'StorageRedundancy']]]):
         pulumi.set(self, "storage_redundancy", value)
 
     @property
@@ -136,10 +153,11 @@ class SqlDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 data_retention: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseDataRetentionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
-                 storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
+                 storage_redundancy: Optional[pulumi.Input[Union[str, 'StorageRedundancy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -149,10 +167,11 @@ class SqlDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The collation of the database.
+        :param pulumi.Input[pulumi.InputType['SqlDatabaseDataRetentionArgs']] data_retention: Sql database data retention.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_database_name: The name of the sql database.
-        :param pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']] storage_redundancy: Storage redundancy of the database.
+        :param pulumi.Input[Union[str, 'StorageRedundancy']] storage_redundancy: The storage redundancy of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -181,10 +200,11 @@ class SqlDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 data_retention: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseDataRetentionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
-                 storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
+                 storage_redundancy: Optional[pulumi.Input[Union[str, 'StorageRedundancy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -200,6 +220,7 @@ class SqlDatabase(pulumi.CustomResource):
             __props__ = SqlDatabaseArgs.__new__(SqlDatabaseArgs)
 
             __props__.__dict__["collation"] = collation
+            __props__.__dict__["data_retention"] = data_retention
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -240,6 +261,7 @@ class SqlDatabase(pulumi.CustomResource):
         __props__ = SqlDatabaseArgs.__new__(SqlDatabaseArgs)
 
         __props__.__dict__["collation"] = None
+        __props__.__dict__["data_retention"] = None
         __props__.__dict__["database_guid"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -257,6 +279,14 @@ class SqlDatabase(pulumi.CustomResource):
         The collation of the database.
         """
         return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter(name="dataRetention")
+    def data_retention(self) -> pulumi.Output[Optional['outputs.SqlDatabaseDataRetentionResponse']]:
+        """
+        Sql database data retention.
+        """
+        return pulumi.get(self, "data_retention")
 
     @property
     @pulumi.getter(name="databaseGuid")
@@ -286,7 +316,7 @@ class SqlDatabase(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the database.
+        The status of the database.
         """
         return pulumi.get(self, "status")
 
@@ -294,7 +324,7 @@ class SqlDatabase(pulumi.CustomResource):
     @pulumi.getter(name="storageRedundancy")
     def storage_redundancy(self) -> pulumi.Output[Optional[str]]:
         """
-        Storage redundancy of the database.
+        The storage redundancy of the database.
         """
         return pulumi.get(self, "storage_redundancy")
 

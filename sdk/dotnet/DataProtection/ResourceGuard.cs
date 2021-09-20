@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
-    /// API Version: 2021-07-01.
+    /// API Version: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : Pulumi.CustomResource
@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.DataProtection
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:ResourceGuard"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:ResourceGuard"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210701:ResourceGuard"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:ResourceGuard"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20211001preview:ResourceGuard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

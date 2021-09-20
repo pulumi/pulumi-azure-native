@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Key release policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        public readonly Outputs.KeyReleasePolicyResponse? ReleasePolicy;
+        /// <summary>
         /// Key rotation policy in response. It will be used for both output and input. Omitted if empty
         /// </summary>
         public readonly Outputs.RotationPolicyResponse? RotationPolicy;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 
             string name,
 
+            Outputs.KeyReleasePolicyResponse? releasePolicy,
+
             Outputs.RotationPolicyResponse? rotationPolicy,
 
             ImmutableDictionary<string, string> tags,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
             Kty = kty;
             Location = location;
             Name = name;
+            ReleasePolicy = releasePolicy;
             RotationPolicy = rotationPolicy;
             Tags = tags;
             Type = type;

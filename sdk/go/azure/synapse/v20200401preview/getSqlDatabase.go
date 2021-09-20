@@ -24,14 +24,15 @@ type LookupSqlDatabaseArgs struct {
 
 // A sql database resource.
 type LookupSqlDatabaseResult struct {
-	Collation         *string            `pulumi:"collation"`
-	DatabaseGuid      string             `pulumi:"databaseGuid"`
-	Id                string             `pulumi:"id"`
-	Location          string             `pulumi:"location"`
-	Name              string             `pulumi:"name"`
-	Status            string             `pulumi:"status"`
-	StorageRedundancy *string            `pulumi:"storageRedundancy"`
-	SystemData        SystemDataResponse `pulumi:"systemData"`
-	Tags              map[string]string  `pulumi:"tags"`
-	Type              string             `pulumi:"type"`
+	Collation         *string                           `pulumi:"collation"`
+	DataRetention     *SqlDatabaseDataRetentionResponse `pulumi:"dataRetention"`
+	DatabaseGuid      string                            `pulumi:"databaseGuid"`
+	Id                string                            `pulumi:"id"`
+	Location          string                            `pulumi:"location"`
+	Name              string                            `pulumi:"name"`
+	Status            string                            `pulumi:"status"`
+	StorageRedundancy *string                           `pulumi:"storageRedundancy"`
+	SystemData        SystemDataResponse                `pulumi:"systemData"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	Type              string                            `pulumi:"type"`
 }

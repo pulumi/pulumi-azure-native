@@ -40,6 +40,10 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
+     * Sql database data retention.
+     */
+    public readonly dataRetention!: pulumi.Output<outputs.synapse.v20200401preview.SqlDatabaseDataRetentionResponse | undefined>;
+    /**
      * The Guid of the database.
      */
     public /*out*/ readonly databaseGuid!: pulumi.Output<string>;
@@ -52,11 +56,11 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Status of the database.
+     * The status of the database.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Storage redundancy of the database.
+     * The storage redundancy of the database.
      */
     public readonly storageRedundancy!: pulumi.Output<string | undefined>;
     /**
@@ -90,6 +94,7 @@ export class SqlDatabase extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["collation"] = args ? args.collation : undefined;
+            inputs["dataRetention"] = args ? args.dataRetention : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlDatabaseName"] = args ? args.sqlDatabaseName : undefined;
@@ -103,6 +108,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["collation"] = undefined /*out*/;
+            inputs["dataRetention"] = undefined /*out*/;
             inputs["databaseGuid"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -130,6 +136,10 @@ export interface SqlDatabaseArgs {
      */
     collation?: pulumi.Input<string>;
     /**
+     * Sql database data retention.
+     */
+    dataRetention?: pulumi.Input<inputs.synapse.v20200401preview.SqlDatabaseDataRetentionArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -142,9 +152,9 @@ export interface SqlDatabaseArgs {
      */
     sqlDatabaseName?: pulumi.Input<string>;
     /**
-     * Storage redundancy of the database.
+     * The storage redundancy of the database.
      */
-    storageRedundancy?: pulumi.Input<string | enums.synapse.v20200401preview.SqlDatabaseStorageRedundancyType>;
+    storageRedundancy?: pulumi.Input<string | enums.synapse.v20200401preview.StorageRedundancy>;
     /**
      * Resource tags.
      */

@@ -426,6 +426,302 @@ func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ClusterSku struct {
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+}
+
+// ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
+// You can construct a concrete instance of `ClusterSkuInput` via:
+//
+//          ClusterSkuArgs{...}
+type ClusterSkuInput interface {
+	pulumi.Input
+
+	ToClusterSkuOutput() ClusterSkuOutput
+	ToClusterSkuOutputWithContext(context.Context) ClusterSkuOutput
+}
+
+type ClusterSkuArgs struct {
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSku)(nil)).Elem()
+}
+
+func (i ClusterSkuArgs) ToClusterSkuOutput() ClusterSkuOutput {
+	return i.ToClusterSkuOutputWithContext(context.Background())
+}
+
+func (i ClusterSkuArgs) ToClusterSkuOutputWithContext(ctx context.Context) ClusterSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuOutput)
+}
+
+func (i ClusterSkuArgs) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
+	return i.ToClusterSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuOutput).ToClusterSkuPtrOutputWithContext(ctx)
+}
+
+// ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
+// You can construct a concrete instance of `ClusterSkuPtrInput` via:
+//
+//          ClusterSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterSkuPtrInput interface {
+	pulumi.Input
+
+	ToClusterSkuPtrOutput() ClusterSkuPtrOutput
+	ToClusterSkuPtrOutputWithContext(context.Context) ClusterSkuPtrOutput
+}
+
+type clusterSkuPtrType ClusterSkuArgs
+
+func ClusterSkuPtr(v *ClusterSkuArgs) ClusterSkuPtrInput {
+	return (*clusterSkuPtrType)(v)
+}
+
+func (*clusterSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSku)(nil)).Elem()
+}
+
+func (i *clusterSkuPtrType) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
+	return i.ToClusterSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
+}
+
+type ClusterSkuOutput struct{ *pulumi.OutputState }
+
+func (ClusterSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSku)(nil)).Elem()
+}
+
+func (o ClusterSkuOutput) ToClusterSkuOutput() ClusterSkuOutput {
+	return o
+}
+
+func (o ClusterSkuOutput) ToClusterSkuOutputWithContext(ctx context.Context) ClusterSkuOutput {
+	return o
+}
+
+func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
+	return o.ToClusterSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
+		return &v
+	}).(ClusterSkuPtrOutput)
+}
+
+func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ClusterSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSku)(nil)).Elem()
+}
+
+func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
+	return o
+}
+
+func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
+	return o
+}
+
+func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
+	return o.ApplyT(func(v *ClusterSku) ClusterSku {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSku
+		return ret
+	}).(ClusterSkuOutput)
+}
+
+func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSkuResponse struct {
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+}
+
+// ClusterSkuResponseInput is an input type that accepts ClusterSkuResponseArgs and ClusterSkuResponseOutput values.
+// You can construct a concrete instance of `ClusterSkuResponseInput` via:
+//
+//          ClusterSkuResponseArgs{...}
+type ClusterSkuResponseInput interface {
+	pulumi.Input
+
+	ToClusterSkuResponseOutput() ClusterSkuResponseOutput
+	ToClusterSkuResponseOutputWithContext(context.Context) ClusterSkuResponseOutput
+}
+
+type ClusterSkuResponseArgs struct {
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterSkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSkuResponse)(nil)).Elem()
+}
+
+func (i ClusterSkuResponseArgs) ToClusterSkuResponseOutput() ClusterSkuResponseOutput {
+	return i.ToClusterSkuResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterSkuResponseArgs) ToClusterSkuResponseOutputWithContext(ctx context.Context) ClusterSkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponseOutput)
+}
+
+func (i ClusterSkuResponseArgs) ToClusterSkuResponsePtrOutput() ClusterSkuResponsePtrOutput {
+	return i.ToClusterSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSkuResponseArgs) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponseOutput).ToClusterSkuResponsePtrOutputWithContext(ctx)
+}
+
+// ClusterSkuResponsePtrInput is an input type that accepts ClusterSkuResponseArgs, ClusterSkuResponsePtr and ClusterSkuResponsePtrOutput values.
+// You can construct a concrete instance of `ClusterSkuResponsePtrInput` via:
+//
+//          ClusterSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToClusterSkuResponsePtrOutput() ClusterSkuResponsePtrOutput
+	ToClusterSkuResponsePtrOutputWithContext(context.Context) ClusterSkuResponsePtrOutput
+}
+
+type clusterSkuResponsePtrType ClusterSkuResponseArgs
+
+func ClusterSkuResponsePtr(v *ClusterSkuResponseArgs) ClusterSkuResponsePtrInput {
+	return (*clusterSkuResponsePtrType)(v)
+}
+
+func (*clusterSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSkuResponse)(nil)).Elem()
+}
+
+func (i *clusterSkuResponsePtrType) ToClusterSkuResponsePtrOutput() ClusterSkuResponsePtrOutput {
+	return i.ToClusterSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSkuResponsePtrType) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponsePtrOutput)
+}
+
+type ClusterSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSkuResponse)(nil)).Elem()
+}
+
+func (o ClusterSkuResponseOutput) ToClusterSkuResponseOutput() ClusterSkuResponseOutput {
+	return o
+}
+
+func (o ClusterSkuResponseOutput) ToClusterSkuResponseOutputWithContext(ctx context.Context) ClusterSkuResponseOutput {
+	return o
+}
+
+func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResponsePtrOutput {
+	return o.ToClusterSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
+		return &v
+	}).(ClusterSkuResponsePtrOutput)
+}
+
+func (o ClusterSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ClusterSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSkuResponse)(nil)).Elem()
+}
+
+func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResponsePtrOutput {
+	return o
+}
+
+func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
+	return o
+}
+
+func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSkuResponse
+		return ret
+	}).(ClusterSkuResponseOutput)
+}
+
+func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectionState struct {
 	Description *string `pulumi:"description"`
 	Status      *string `pulumi:"status"`
@@ -4029,6 +4325,10 @@ func init() {
 	pulumi.RegisterOutputType(CaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClusterSkuOutput{})
+	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSkuResponseOutput{})
+	pulumi.RegisterOutputType(ClusterSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})

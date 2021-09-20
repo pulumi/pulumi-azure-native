@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'SkuV3Args',
+    'SqlDatabaseDataRetentionArgs',
 ]
 
 @pulumi.input_type
@@ -50,5 +51,45 @@ class SkuV3Args:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SqlDatabaseDataRetentionArgs:
+    def __init__(__self__, *,
+                 drop_retention_period: Optional[pulumi.Input[str]] = None,
+                 retention_period: Optional[pulumi.Input[str]] = None):
+        """
+        Sql database data retention.
+        :param pulumi.Input[str] drop_retention_period: Specifies the dropped database retention period (ISO8601 format).
+        :param pulumi.Input[str] retention_period: Specifies the data retention period (ISO8601 format).
+        """
+        if drop_retention_period is not None:
+            pulumi.set(__self__, "drop_retention_period", drop_retention_period)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @property
+    @pulumi.getter(name="dropRetentionPeriod")
+    def drop_retention_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the dropped database retention period (ISO8601 format).
+        """
+        return pulumi.get(self, "drop_retention_period")
+
+    @drop_retention_period.setter
+    def drop_retention_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drop_retention_period", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data retention period (ISO8601 format).
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retention_period", value)
 
 

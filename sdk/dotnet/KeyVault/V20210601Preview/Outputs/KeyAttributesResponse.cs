@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Outputs
         /// </summary>
         public readonly double? Expires;
         /// <summary>
+        /// Indicates if the private key can be exported.
+        /// </summary>
+        public readonly bool? Exportable;
+        /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         public readonly double? NotBefore;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Outputs
 
             double? expires,
 
+            bool? exportable,
+
             double? notBefore,
 
             string recoveryLevel,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Outputs
             Created = created;
             Enabled = enabled;
             Expires = expires;
+            Exportable = exportable;
             NotBefore = notBefore;
             RecoveryLevel = recoveryLevel;
             Updated = updated;

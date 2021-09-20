@@ -15,6 +15,7 @@ __all__ = [
     'ConfigurationSettingResponse',
     'GuestConfigurationAssignmentPropertiesResponse',
     'GuestConfigurationNavigationResponse',
+    'VMSSVMInfoResponse',
 ]
 
 @pulumi.output_type
@@ -182,10 +183,14 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
             suggest = "last_compliance_status_checked"
         elif key == "latestReportId":
             suggest = "latest_report_id"
+        elif key == "parameterHash":
+            suggest = "parameter_hash"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "guestConfiguration":
             suggest = "guest_configuration"
+        elif key == "vmssVMList":
+            suggest = "vmss_vm_list"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GuestConfigurationAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -203,28 +208,35 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
                  compliance_status: str,
                  last_compliance_status_checked: str,
                  latest_report_id: str,
+                 parameter_hash: str,
                  provisioning_state: str,
                  context: Optional[str] = None,
-                 guest_configuration: Optional['outputs.GuestConfigurationNavigationResponse'] = None):
+                 guest_configuration: Optional['outputs.GuestConfigurationNavigationResponse'] = None,
+                 vmss_vm_list: Optional[Sequence['outputs.VMSSVMInfoResponse']] = None):
         """
         Guest configuration assignment properties.
         :param str assignment_hash: Combined hash of the configuration package and parameters.
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param str last_compliance_status_checked: Date and time when last compliance status was checked.
         :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
+        :param str parameter_hash: parameter hash for the guest configuration assignment. 
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str context: The source which initiated the guest configuration assignment. Ex: Azure Policy
         :param 'GuestConfigurationNavigationResponse' guest_configuration: The guest configuration to assign.
+        :param Sequence['VMSSVMInfoResponse'] vmss_vm_list: The list of VM Compliance data for VMSS
         """
         pulumi.set(__self__, "assignment_hash", assignment_hash)
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "last_compliance_status_checked", last_compliance_status_checked)
         pulumi.set(__self__, "latest_report_id", latest_report_id)
+        pulumi.set(__self__, "parameter_hash", parameter_hash)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if context is not None:
             pulumi.set(__self__, "context", context)
         if guest_configuration is not None:
             pulumi.set(__self__, "guest_configuration", guest_configuration)
+        if vmss_vm_list is not None:
+            pulumi.set(__self__, "vmss_vm_list", vmss_vm_list)
 
     @property
     @pulumi.getter(name="assignmentHash")
@@ -259,6 +271,14 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         return pulumi.get(self, "latest_report_id")
 
     @property
+    @pulumi.getter(name="parameterHash")
+    def parameter_hash(self) -> str:
+        """
+        parameter hash for the guest configuration assignment. 
+        """
+        return pulumi.get(self, "parameter_hash")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -282,6 +302,14 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         """
         return pulumi.get(self, "guest_configuration")
 
+    @property
+    @pulumi.getter(name="vmssVMList")
+    def vmss_vm_list(self) -> Optional[Sequence['outputs.VMSSVMInfoResponse']]:
+        """
+        The list of VM Compliance data for VMSS
+        """
+        return pulumi.get(self, "vmss_vm_list")
+
 
 @pulumi.output_type
 class GuestConfigurationNavigationResponse(dict):
@@ -291,10 +319,14 @@ class GuestConfigurationNavigationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "assignmentType":
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "assignmentType":
             suggest = "assignment_type"
         elif key == "configurationParameter":
             suggest = "configuration_parameter"
+        elif key == "configurationProtectedParameter":
+            suggest = "configuration_protected_parameter"
         elif key == "configurationSetting":
             suggest = "configuration_setting"
         elif key == "contentHash":
@@ -314,8 +346,10 @@ class GuestConfigurationNavigationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 content_type: str,
                  assignment_type: Optional[str] = None,
                  configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+                 configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  content_hash: Optional[str] = None,
                  content_uri: Optional[str] = None,
@@ -324,8 +358,10 @@ class GuestConfigurationNavigationResponse(dict):
                  version: Optional[str] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+        :param str content_type: Specifies the content type of the configuration. Possible values could be Builtin or Custom.
         :param str assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param Sequence['ConfigurationParameterResponse'] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
@@ -333,10 +369,13 @@ class GuestConfigurationNavigationResponse(dict):
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
+        pulumi.set(__self__, "content_type", content_type)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
         if configuration_parameter is not None:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+        if configuration_protected_parameter is not None:
+            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
         if configuration_setting is not None:
             pulumi.set(__self__, "configuration_setting", configuration_setting)
         if content_hash is not None:
@@ -349,6 +388,14 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "name", name)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        Specifies the content type of the configuration. Possible values could be Builtin or Custom.
+        """
+        return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -365,6 +412,14 @@ class GuestConfigurationNavigationResponse(dict):
         The configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_parameter")
+
+    @property
+    @pulumi.getter(name="configurationProtectedParameter")
+    def configuration_protected_parameter(self) -> Optional[Sequence['outputs.ConfigurationParameterResponse']]:
+        """
+        The protected configuration parameters for the guest configuration.
+        """
+        return pulumi.get(self, "configuration_protected_parameter")
 
     @property
     @pulumi.getter(name="configurationSetting")
@@ -413,5 +468,96 @@ class GuestConfigurationNavigationResponse(dict):
         Version of the guest configuration.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class VMSSVMInfoResponse(dict):
+    """
+    Information about VMSS VM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceStatus":
+            suggest = "compliance_status"
+        elif key == "lastComplianceChecked":
+            suggest = "last_compliance_checked"
+        elif key == "latestReportId":
+            suggest = "latest_report_id"
+        elif key == "vmId":
+            suggest = "vm_id"
+        elif key == "vmResourceId":
+            suggest = "vm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VMSSVMInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VMSSVMInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VMSSVMInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_status: str,
+                 last_compliance_checked: str,
+                 latest_report_id: str,
+                 vm_id: str,
+                 vm_resource_id: str):
+        """
+        Information about VMSS VM
+        :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
+        :param str last_compliance_checked: Date and time when last compliance status was checked.
+        :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
+        :param str vm_id: UUID of the VM.
+        :param str vm_resource_id: Azure resource Id of the VM.
+        """
+        pulumi.set(__self__, "compliance_status", compliance_status)
+        pulumi.set(__self__, "last_compliance_checked", last_compliance_checked)
+        pulumi.set(__self__, "latest_report_id", latest_report_id)
+        pulumi.set(__self__, "vm_id", vm_id)
+        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+
+    @property
+    @pulumi.getter(name="complianceStatus")
+    def compliance_status(self) -> str:
+        """
+        A value indicating compliance status of the machine for the assigned guest configuration.
+        """
+        return pulumi.get(self, "compliance_status")
+
+    @property
+    @pulumi.getter(name="lastComplianceChecked")
+    def last_compliance_checked(self) -> str:
+        """
+        Date and time when last compliance status was checked.
+        """
+        return pulumi.get(self, "last_compliance_checked")
+
+    @property
+    @pulumi.getter(name="latestReportId")
+    def latest_report_id(self) -> str:
+        """
+        Id of the latest report for the guest configuration assignment. 
+        """
+        return pulumi.get(self, "latest_report_id")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> str:
+        """
+        UUID of the VM.
+        """
+        return pulumi.get(self, "vm_id")
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> str:
+        """
+        Azure resource Id of the VM.
+        """
+        return pulumi.get(self, "vm_resource_id")
 
 

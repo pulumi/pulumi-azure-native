@@ -14,18 +14,19 @@ import (
 type Key struct {
 	pulumi.CustomResourceState
 
-	Attributes        KeyAttributesResponsePtrOutput  `pulumi:"attributes"`
-	CurveName         pulumi.StringPtrOutput          `pulumi:"curveName"`
-	KeyOps            pulumi.StringArrayOutput        `pulumi:"keyOps"`
-	KeySize           pulumi.IntPtrOutput             `pulumi:"keySize"`
-	KeyUri            pulumi.StringOutput             `pulumi:"keyUri"`
-	KeyUriWithVersion pulumi.StringOutput             `pulumi:"keyUriWithVersion"`
-	Kty               pulumi.StringPtrOutput          `pulumi:"kty"`
-	Location          pulumi.StringOutput             `pulumi:"location"`
-	Name              pulumi.StringOutput             `pulumi:"name"`
-	RotationPolicy    RotationPolicyResponsePtrOutput `pulumi:"rotationPolicy"`
-	Tags              pulumi.StringMapOutput          `pulumi:"tags"`
-	Type              pulumi.StringOutput             `pulumi:"type"`
+	Attributes        KeyAttributesResponsePtrOutput    `pulumi:"attributes"`
+	CurveName         pulumi.StringPtrOutput            `pulumi:"curveName"`
+	KeyOps            pulumi.StringArrayOutput          `pulumi:"keyOps"`
+	KeySize           pulumi.IntPtrOutput               `pulumi:"keySize"`
+	KeyUri            pulumi.StringOutput               `pulumi:"keyUri"`
+	KeyUriWithVersion pulumi.StringOutput               `pulumi:"keyUriWithVersion"`
+	Kty               pulumi.StringPtrOutput            `pulumi:"kty"`
+	Location          pulumi.StringOutput               `pulumi:"location"`
+	Name              pulumi.StringOutput               `pulumi:"name"`
+	ReleasePolicy     KeyReleasePolicyResponsePtrOutput `pulumi:"releasePolicy"`
+	RotationPolicy    RotationPolicyResponsePtrOutput   `pulumi:"rotationPolicy"`
+	Tags              pulumi.StringMapOutput            `pulumi:"tags"`
+	Type              pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.

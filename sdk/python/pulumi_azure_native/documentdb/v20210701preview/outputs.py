@@ -705,7 +705,7 @@ class CassandraViewGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: float,
-                 view_definition: Optional[str] = None):
+                 view_definition: str):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Cassandra view
@@ -717,8 +717,7 @@ class CassandraViewGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
-        if view_definition is not None:
-            pulumi.set(__self__, "view_definition", view_definition)
+        pulumi.set(__self__, "view_definition", view_definition)
 
     @property
     @pulumi.getter
@@ -754,7 +753,7 @@ class CassandraViewGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> Optional[str]:
+    def view_definition(self) -> str:
         """
         View Definition of the Cosmos DB Cassandra view
         """

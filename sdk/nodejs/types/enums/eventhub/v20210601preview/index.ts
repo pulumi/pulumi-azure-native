@@ -10,6 +10,15 @@ export const AccessRights = {
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
 
+export const ClusterSkuName = {
+    Dedicated: "Dedicated",
+} as const;
+
+/**
+ * Name of this SKU.
+ */
+export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName];
+
 export const DefaultAction = {
     Allow: "Allow",
     Deny: "Deny",

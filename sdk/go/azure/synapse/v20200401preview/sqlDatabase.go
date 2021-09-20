@@ -14,15 +14,16 @@ import (
 type SqlDatabase struct {
 	pulumi.CustomResourceState
 
-	Collation         pulumi.StringPtrOutput   `pulumi:"collation"`
-	DatabaseGuid      pulumi.StringOutput      `pulumi:"databaseGuid"`
-	Location          pulumi.StringOutput      `pulumi:"location"`
-	Name              pulumi.StringOutput      `pulumi:"name"`
-	Status            pulumi.StringOutput      `pulumi:"status"`
-	StorageRedundancy pulumi.StringPtrOutput   `pulumi:"storageRedundancy"`
-	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
-	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
-	Type              pulumi.StringOutput      `pulumi:"type"`
+	Collation         pulumi.StringPtrOutput                    `pulumi:"collation"`
+	DataRetention     SqlDatabaseDataRetentionResponsePtrOutput `pulumi:"dataRetention"`
+	DatabaseGuid      pulumi.StringOutput                       `pulumi:"databaseGuid"`
+	Location          pulumi.StringOutput                       `pulumi:"location"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	Status            pulumi.StringOutput                       `pulumi:"status"`
+	StorageRedundancy pulumi.StringPtrOutput                    `pulumi:"storageRedundancy"`
+	SystemData        SystemDataResponseOutput                  `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -76,18 +77,20 @@ func (SqlDatabaseState) ElementType() reflect.Type {
 }
 
 type sqlDatabaseArgs struct {
-	Collation         *string           `pulumi:"collation"`
-	Location          *string           `pulumi:"location"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	SqlDatabaseName   *string           `pulumi:"sqlDatabaseName"`
-	StorageRedundancy *string           `pulumi:"storageRedundancy"`
-	Tags              map[string]string `pulumi:"tags"`
-	WorkspaceName     string            `pulumi:"workspaceName"`
+	Collation         *string                   `pulumi:"collation"`
+	DataRetention     *SqlDatabaseDataRetention `pulumi:"dataRetention"`
+	Location          *string                   `pulumi:"location"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	SqlDatabaseName   *string                   `pulumi:"sqlDatabaseName"`
+	StorageRedundancy *string                   `pulumi:"storageRedundancy"`
+	Tags              map[string]string         `pulumi:"tags"`
+	WorkspaceName     string                    `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlDatabase resource.
 type SqlDatabaseArgs struct {
 	Collation         pulumi.StringPtrInput
+	DataRetention     SqlDatabaseDataRetentionPtrInput
 	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 	SqlDatabaseName   pulumi.StringPtrInput

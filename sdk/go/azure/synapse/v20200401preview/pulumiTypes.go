@@ -306,6 +306,302 @@ func (o SkuV3ResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SqlDatabaseDataRetention struct {
+	DropRetentionPeriod *string `pulumi:"dropRetentionPeriod"`
+	RetentionPeriod     *string `pulumi:"retentionPeriod"`
+}
+
+// SqlDatabaseDataRetentionInput is an input type that accepts SqlDatabaseDataRetentionArgs and SqlDatabaseDataRetentionOutput values.
+// You can construct a concrete instance of `SqlDatabaseDataRetentionInput` via:
+//
+//          SqlDatabaseDataRetentionArgs{...}
+type SqlDatabaseDataRetentionInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseDataRetentionOutput() SqlDatabaseDataRetentionOutput
+	ToSqlDatabaseDataRetentionOutputWithContext(context.Context) SqlDatabaseDataRetentionOutput
+}
+
+type SqlDatabaseDataRetentionArgs struct {
+	DropRetentionPeriod pulumi.StringPtrInput `pulumi:"dropRetentionPeriod"`
+	RetentionPeriod     pulumi.StringPtrInput `pulumi:"retentionPeriod"`
+}
+
+func (SqlDatabaseDataRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseDataRetention)(nil)).Elem()
+}
+
+func (i SqlDatabaseDataRetentionArgs) ToSqlDatabaseDataRetentionOutput() SqlDatabaseDataRetentionOutput {
+	return i.ToSqlDatabaseDataRetentionOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseDataRetentionArgs) ToSqlDatabaseDataRetentionOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionOutput)
+}
+
+func (i SqlDatabaseDataRetentionArgs) ToSqlDatabaseDataRetentionPtrOutput() SqlDatabaseDataRetentionPtrOutput {
+	return i.ToSqlDatabaseDataRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseDataRetentionArgs) ToSqlDatabaseDataRetentionPtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionOutput).ToSqlDatabaseDataRetentionPtrOutputWithContext(ctx)
+}
+
+// SqlDatabaseDataRetentionPtrInput is an input type that accepts SqlDatabaseDataRetentionArgs, SqlDatabaseDataRetentionPtr and SqlDatabaseDataRetentionPtrOutput values.
+// You can construct a concrete instance of `SqlDatabaseDataRetentionPtrInput` via:
+//
+//          SqlDatabaseDataRetentionArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlDatabaseDataRetentionPtrInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseDataRetentionPtrOutput() SqlDatabaseDataRetentionPtrOutput
+	ToSqlDatabaseDataRetentionPtrOutputWithContext(context.Context) SqlDatabaseDataRetentionPtrOutput
+}
+
+type sqlDatabaseDataRetentionPtrType SqlDatabaseDataRetentionArgs
+
+func SqlDatabaseDataRetentionPtr(v *SqlDatabaseDataRetentionArgs) SqlDatabaseDataRetentionPtrInput {
+	return (*sqlDatabaseDataRetentionPtrType)(v)
+}
+
+func (*sqlDatabaseDataRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseDataRetention)(nil)).Elem()
+}
+
+func (i *sqlDatabaseDataRetentionPtrType) ToSqlDatabaseDataRetentionPtrOutput() SqlDatabaseDataRetentionPtrOutput {
+	return i.ToSqlDatabaseDataRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlDatabaseDataRetentionPtrType) ToSqlDatabaseDataRetentionPtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionPtrOutput)
+}
+
+type SqlDatabaseDataRetentionOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseDataRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseDataRetention)(nil)).Elem()
+}
+
+func (o SqlDatabaseDataRetentionOutput) ToSqlDatabaseDataRetentionOutput() SqlDatabaseDataRetentionOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionOutput) ToSqlDatabaseDataRetentionOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionOutput) ToSqlDatabaseDataRetentionPtrOutput() SqlDatabaseDataRetentionPtrOutput {
+	return o.ToSqlDatabaseDataRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o SqlDatabaseDataRetentionOutput) ToSqlDatabaseDataRetentionPtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseDataRetention) *SqlDatabaseDataRetention {
+		return &v
+	}).(SqlDatabaseDataRetentionPtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionOutput) DropRetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseDataRetention) *string { return v.DropRetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseDataRetention) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+type SqlDatabaseDataRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseDataRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseDataRetention)(nil)).Elem()
+}
+
+func (o SqlDatabaseDataRetentionPtrOutput) ToSqlDatabaseDataRetentionPtrOutput() SqlDatabaseDataRetentionPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionPtrOutput) ToSqlDatabaseDataRetentionPtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionPtrOutput) Elem() SqlDatabaseDataRetentionOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetention) SqlDatabaseDataRetention {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseDataRetention
+		return ret
+	}).(SqlDatabaseDataRetentionOutput)
+}
+
+func (o SqlDatabaseDataRetentionPtrOutput) DropRetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DropRetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionPtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type SqlDatabaseDataRetentionResponse struct {
+	DropRetentionPeriod *string `pulumi:"dropRetentionPeriod"`
+	RetentionPeriod     *string `pulumi:"retentionPeriod"`
+}
+
+// SqlDatabaseDataRetentionResponseInput is an input type that accepts SqlDatabaseDataRetentionResponseArgs and SqlDatabaseDataRetentionResponseOutput values.
+// You can construct a concrete instance of `SqlDatabaseDataRetentionResponseInput` via:
+//
+//          SqlDatabaseDataRetentionResponseArgs{...}
+type SqlDatabaseDataRetentionResponseInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseDataRetentionResponseOutput() SqlDatabaseDataRetentionResponseOutput
+	ToSqlDatabaseDataRetentionResponseOutputWithContext(context.Context) SqlDatabaseDataRetentionResponseOutput
+}
+
+type SqlDatabaseDataRetentionResponseArgs struct {
+	DropRetentionPeriod pulumi.StringPtrInput `pulumi:"dropRetentionPeriod"`
+	RetentionPeriod     pulumi.StringPtrInput `pulumi:"retentionPeriod"`
+}
+
+func (SqlDatabaseDataRetentionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseDataRetentionResponse)(nil)).Elem()
+}
+
+func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponseOutput() SqlDatabaseDataRetentionResponseOutput {
+	return i.ToSqlDatabaseDataRetentionResponseOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponseOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponseOutput)
+}
+
+func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
+	return i.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponseOutput).ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx)
+}
+
+// SqlDatabaseDataRetentionResponsePtrInput is an input type that accepts SqlDatabaseDataRetentionResponseArgs, SqlDatabaseDataRetentionResponsePtr and SqlDatabaseDataRetentionResponsePtrOutput values.
+// You can construct a concrete instance of `SqlDatabaseDataRetentionResponsePtrInput` via:
+//
+//          SqlDatabaseDataRetentionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlDatabaseDataRetentionResponsePtrInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput
+	ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Context) SqlDatabaseDataRetentionResponsePtrOutput
+}
+
+type sqlDatabaseDataRetentionResponsePtrType SqlDatabaseDataRetentionResponseArgs
+
+func SqlDatabaseDataRetentionResponsePtr(v *SqlDatabaseDataRetentionResponseArgs) SqlDatabaseDataRetentionResponsePtrInput {
+	return (*sqlDatabaseDataRetentionResponsePtrType)(v)
+}
+
+func (*sqlDatabaseDataRetentionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseDataRetentionResponse)(nil)).Elem()
+}
+
+func (i *sqlDatabaseDataRetentionResponsePtrType) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
+	return i.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlDatabaseDataRetentionResponsePtrType) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponsePtrOutput)
+}
+
+type SqlDatabaseDataRetentionResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseDataRetentionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseDataRetentionResponse)(nil)).Elem()
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponseOutput() SqlDatabaseDataRetentionResponseOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponseOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponseOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
+	return o.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseDataRetentionResponse) *SqlDatabaseDataRetentionResponse {
+		return &v
+	}).(SqlDatabaseDataRetentionResponsePtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) DropRetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseDataRetentionResponse) *string { return v.DropRetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionResponseOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseDataRetentionResponse) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+type SqlDatabaseDataRetentionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseDataRetentionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseDataRetentionResponse)(nil)).Elem()
+}
+
+func (o SqlDatabaseDataRetentionResponsePtrOutput) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionResponsePtrOutput) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
+	return o
+}
+
+func (o SqlDatabaseDataRetentionResponsePtrOutput) Elem() SqlDatabaseDataRetentionResponseOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetentionResponse) SqlDatabaseDataRetentionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseDataRetentionResponse
+		return ret
+	}).(SqlDatabaseDataRetentionResponseOutput)
+}
+
+func (o SqlDatabaseDataRetentionResponsePtrOutput) DropRetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetentionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DropRetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SqlDatabaseDataRetentionResponsePtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseDataRetentionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
 type SystemDataResponse struct {
 	CreatedAt          string `pulumi:"createdAt"`
 	CreatedBy          string `pulumi:"createdBy"`
@@ -519,6 +815,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuV3PtrOutput{})
 	pulumi.RegisterOutputType(SkuV3ResponseOutput{})
 	pulumi.RegisterOutputType(SkuV3ResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseDataRetentionOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseDataRetentionPtrOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseDataRetentionResponseOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseDataRetentionResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

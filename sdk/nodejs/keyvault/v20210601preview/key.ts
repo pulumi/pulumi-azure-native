@@ -69,6 +69,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Key release policy in response. It will be used for both output and input. Omitted if empty
+     */
+    public /*out*/ readonly releasePolicy!: pulumi.Output<outputs.keyvault.v20210601preview.KeyReleasePolicyResponse | undefined>;
+    /**
      * Key rotation policy in response. It will be used for both output and input. Omitted if empty
      */
     public /*out*/ readonly rotationPolicy!: pulumi.Output<outputs.keyvault.v20210601preview.RotationPolicyResponse | undefined>;
@@ -115,6 +119,7 @@ export class Key extends pulumi.CustomResource {
             inputs["kty"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["releasePolicy"] = undefined /*out*/;
             inputs["rotationPolicy"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -127,6 +132,7 @@ export class Key extends pulumi.CustomResource {
             inputs["kty"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["releasePolicy"] = undefined /*out*/;
             inputs["rotationPolicy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

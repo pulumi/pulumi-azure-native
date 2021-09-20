@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'SkuV3Response',
+    'SqlDatabaseDataRetentionResponse',
     'SystemDataResponse',
 ]
 
@@ -46,6 +47,60 @@ class SkuV3Response(dict):
         The tier or edition of the particular SKU, e.g. Basic, Premium.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SqlDatabaseDataRetentionResponse(dict):
+    """
+    Sql database data retention.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dropRetentionPeriod":
+            suggest = "drop_retention_period"
+        elif key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDatabaseDataRetentionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDatabaseDataRetentionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDatabaseDataRetentionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 drop_retention_period: Optional[str] = None,
+                 retention_period: Optional[str] = None):
+        """
+        Sql database data retention.
+        :param str drop_retention_period: Specifies the dropped database retention period (ISO8601 format).
+        :param str retention_period: Specifies the data retention period (ISO8601 format).
+        """
+        if drop_retention_period is not None:
+            pulumi.set(__self__, "drop_retention_period", drop_retention_period)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @property
+    @pulumi.getter(name="dropRetentionPeriod")
+    def drop_retention_period(self) -> Optional[str]:
+        """
+        Specifies the dropped database retention period (ISO8601 format).
+        """
+        return pulumi.get(self, "drop_retention_period")
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[str]:
+        """
+        Specifies the data retention period (ISO8601 format).
+        """
+        return pulumi.get(self, "retention_period")
 
 
 @pulumi.output_type

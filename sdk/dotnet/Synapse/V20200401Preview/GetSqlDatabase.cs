@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         public readonly string? Collation;
         /// <summary>
+        /// Sql database data retention.
+        /// </summary>
+        public readonly Outputs.SqlDatabaseDataRetentionResponse? DataRetention;
+        /// <summary>
         /// The Guid of the database.
         /// </summary>
         public readonly string DatabaseGuid;
@@ -69,11 +73,11 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Status of the database.
+        /// The status of the database.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Storage redundancy of the database.
+        /// The storage redundancy of the database.
         /// </summary>
         public readonly string? StorageRedundancy;
         /// <summary>
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         [OutputConstructor]
         private GetSqlDatabaseResult(
             string? collation,
+
+            Outputs.SqlDatabaseDataRetentionResponse? dataRetention,
 
             string databaseGuid,
 
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
             string type)
         {
             Collation = collation;
+            DataRetention = dataRetention;
             DatabaseGuid = databaseGuid;
             Id = id;
             Location = location;

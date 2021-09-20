@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Outputs
         /// </summary>
         public readonly string LatestReportId;
         /// <summary>
+        /// parameter hash for the guest configuration assignment. 
+        /// </summary>
+        public readonly string ParameterHash;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Outputs
 
             string latestReportId,
 
+            string parameterHash,
+
             string provisioningState,
 
             string resourceType,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Outputs
             LastComplianceStatusChecked = lastComplianceStatusChecked;
             LatestAssignmentReport = latestAssignmentReport;
             LatestReportId = latestReportId;
+            ParameterHash = parameterHash;
             ProvisioningState = provisioningState;
             ResourceType = resourceType;
             TargetResourceId = targetResourceId;

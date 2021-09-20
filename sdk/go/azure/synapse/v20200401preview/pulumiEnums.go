@@ -10,126 +10,126 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type SqlDatabaseStorageRedundancyType string
+type StorageRedundancy string
 
 const (
-	SqlDatabaseStorageRedundancyTypeGeo     = SqlDatabaseStorageRedundancyType("Geo")
-	SqlDatabaseStorageRedundancyTypeGeoZone = SqlDatabaseStorageRedundancyType("GeoZone")
-	SqlDatabaseStorageRedundancyTypeLocal   = SqlDatabaseStorageRedundancyType("Local")
-	SqlDatabaseStorageRedundancyTypeZone    = SqlDatabaseStorageRedundancyType("Zone")
+	StorageRedundancyLocal   = StorageRedundancy("Local")
+	StorageRedundancyGeo     = StorageRedundancy("Geo")
+	StorageRedundancyZone    = StorageRedundancy("Zone")
+	StorageRedundancyGeoZone = StorageRedundancy("GeoZone")
 )
 
-func (SqlDatabaseStorageRedundancyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseStorageRedundancyType)(nil)).Elem()
+func (StorageRedundancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageRedundancy)(nil)).Elem()
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToSqlDatabaseStorageRedundancyTypeOutput() SqlDatabaseStorageRedundancyTypeOutput {
-	return pulumi.ToOutput(e).(SqlDatabaseStorageRedundancyTypeOutput)
+func (e StorageRedundancy) ToStorageRedundancyOutput() StorageRedundancyOutput {
+	return pulumi.ToOutput(e).(StorageRedundancyOutput)
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToSqlDatabaseStorageRedundancyTypeOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SqlDatabaseStorageRedundancyTypeOutput)
+func (e StorageRedundancy) ToStorageRedundancyOutputWithContext(ctx context.Context) StorageRedundancyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageRedundancyOutput)
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToSqlDatabaseStorageRedundancyTypePtrOutput() SqlDatabaseStorageRedundancyTypePtrOutput {
-	return e.ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(context.Background())
+func (e StorageRedundancy) ToStorageRedundancyPtrOutput() StorageRedundancyPtrOutput {
+	return e.ToStorageRedundancyPtrOutputWithContext(context.Background())
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypePtrOutput {
-	return SqlDatabaseStorageRedundancyType(e).ToSqlDatabaseStorageRedundancyTypeOutputWithContext(ctx).ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(ctx)
+func (e StorageRedundancy) ToStorageRedundancyPtrOutputWithContext(ctx context.Context) StorageRedundancyPtrOutput {
+	return StorageRedundancy(e).ToStorageRedundancyOutputWithContext(ctx).ToStorageRedundancyPtrOutputWithContext(ctx)
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToStringOutput() pulumi.StringOutput {
+func (e StorageRedundancy) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e StorageRedundancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e StorageRedundancy) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SqlDatabaseStorageRedundancyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e StorageRedundancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SqlDatabaseStorageRedundancyTypeOutput struct{ *pulumi.OutputState }
+type StorageRedundancyOutput struct{ *pulumi.OutputState }
 
-func (SqlDatabaseStorageRedundancyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseStorageRedundancyType)(nil)).Elem()
+func (StorageRedundancyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageRedundancy)(nil)).Elem()
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToSqlDatabaseStorageRedundancyTypeOutput() SqlDatabaseStorageRedundancyTypeOutput {
+func (o StorageRedundancyOutput) ToStorageRedundancyOutput() StorageRedundancyOutput {
 	return o
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToSqlDatabaseStorageRedundancyTypeOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypeOutput {
+func (o StorageRedundancyOutput) ToStorageRedundancyOutputWithContext(ctx context.Context) StorageRedundancyOutput {
 	return o
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToSqlDatabaseStorageRedundancyTypePtrOutput() SqlDatabaseStorageRedundancyTypePtrOutput {
-	return o.ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(context.Background())
+func (o StorageRedundancyOutput) ToStorageRedundancyPtrOutput() StorageRedundancyPtrOutput {
+	return o.ToStorageRedundancyPtrOutputWithContext(context.Background())
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseStorageRedundancyType) *SqlDatabaseStorageRedundancyType {
+func (o StorageRedundancyOutput) ToStorageRedundancyPtrOutputWithContext(ctx context.Context) StorageRedundancyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageRedundancy) *StorageRedundancy {
 		return &v
-	}).(SqlDatabaseStorageRedundancyTypePtrOutput)
+	}).(StorageRedundancyPtrOutput)
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o StorageRedundancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlDatabaseStorageRedundancyType) string {
+func (o StorageRedundancyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageRedundancy) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StorageRedundancyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SqlDatabaseStorageRedundancyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlDatabaseStorageRedundancyType) *string {
+func (o StorageRedundancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageRedundancy) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type SqlDatabaseStorageRedundancyTypePtrOutput struct{ *pulumi.OutputState }
+type StorageRedundancyPtrOutput struct{ *pulumi.OutputState }
 
-func (SqlDatabaseStorageRedundancyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabaseStorageRedundancyType)(nil)).Elem()
+func (StorageRedundancyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageRedundancy)(nil)).Elem()
 }
 
-func (o SqlDatabaseStorageRedundancyTypePtrOutput) ToSqlDatabaseStorageRedundancyTypePtrOutput() SqlDatabaseStorageRedundancyTypePtrOutput {
+func (o StorageRedundancyPtrOutput) ToStorageRedundancyPtrOutput() StorageRedundancyPtrOutput {
 	return o
 }
 
-func (o SqlDatabaseStorageRedundancyTypePtrOutput) ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypePtrOutput {
+func (o StorageRedundancyPtrOutput) ToStorageRedundancyPtrOutputWithContext(ctx context.Context) StorageRedundancyPtrOutput {
 	return o
 }
 
-func (o SqlDatabaseStorageRedundancyTypePtrOutput) Elem() SqlDatabaseStorageRedundancyTypeOutput {
-	return o.ApplyT(func(v *SqlDatabaseStorageRedundancyType) SqlDatabaseStorageRedundancyType {
+func (o StorageRedundancyPtrOutput) Elem() StorageRedundancyOutput {
+	return o.ApplyT(func(v *StorageRedundancy) StorageRedundancy {
 		if v != nil {
 			return *v
 		}
-		var ret SqlDatabaseStorageRedundancyType
+		var ret StorageRedundancy
 		return ret
-	}).(SqlDatabaseStorageRedundancyTypeOutput)
+	}).(StorageRedundancyOutput)
 }
 
-func (o SqlDatabaseStorageRedundancyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StorageRedundancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SqlDatabaseStorageRedundancyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SqlDatabaseStorageRedundancyType) *string {
+func (o StorageRedundancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageRedundancy) *string {
 		if e == nil {
 			return nil
 		}
@@ -138,45 +138,45 @@ func (o SqlDatabaseStorageRedundancyTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// SqlDatabaseStorageRedundancyTypeInput is an input type that accepts SqlDatabaseStorageRedundancyTypeArgs and SqlDatabaseStorageRedundancyTypeOutput values.
-// You can construct a concrete instance of `SqlDatabaseStorageRedundancyTypeInput` via:
+// StorageRedundancyInput is an input type that accepts StorageRedundancyArgs and StorageRedundancyOutput values.
+// You can construct a concrete instance of `StorageRedundancyInput` via:
 //
-//          SqlDatabaseStorageRedundancyTypeArgs{...}
-type SqlDatabaseStorageRedundancyTypeInput interface {
+//          StorageRedundancyArgs{...}
+type StorageRedundancyInput interface {
 	pulumi.Input
 
-	ToSqlDatabaseStorageRedundancyTypeOutput() SqlDatabaseStorageRedundancyTypeOutput
-	ToSqlDatabaseStorageRedundancyTypeOutputWithContext(context.Context) SqlDatabaseStorageRedundancyTypeOutput
+	ToStorageRedundancyOutput() StorageRedundancyOutput
+	ToStorageRedundancyOutputWithContext(context.Context) StorageRedundancyOutput
 }
 
-var sqlDatabaseStorageRedundancyTypePtrType = reflect.TypeOf((**SqlDatabaseStorageRedundancyType)(nil)).Elem()
+var storageRedundancyPtrType = reflect.TypeOf((**StorageRedundancy)(nil)).Elem()
 
-type SqlDatabaseStorageRedundancyTypePtrInput interface {
+type StorageRedundancyPtrInput interface {
 	pulumi.Input
 
-	ToSqlDatabaseStorageRedundancyTypePtrOutput() SqlDatabaseStorageRedundancyTypePtrOutput
-	ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(context.Context) SqlDatabaseStorageRedundancyTypePtrOutput
+	ToStorageRedundancyPtrOutput() StorageRedundancyPtrOutput
+	ToStorageRedundancyPtrOutputWithContext(context.Context) StorageRedundancyPtrOutput
 }
 
-type sqlDatabaseStorageRedundancyTypePtr string
+type storageRedundancyPtr string
 
-func SqlDatabaseStorageRedundancyTypePtr(v string) SqlDatabaseStorageRedundancyTypePtrInput {
-	return (*sqlDatabaseStorageRedundancyTypePtr)(&v)
+func StorageRedundancyPtr(v string) StorageRedundancyPtrInput {
+	return (*storageRedundancyPtr)(&v)
 }
 
-func (*sqlDatabaseStorageRedundancyTypePtr) ElementType() reflect.Type {
-	return sqlDatabaseStorageRedundancyTypePtrType
+func (*storageRedundancyPtr) ElementType() reflect.Type {
+	return storageRedundancyPtrType
 }
 
-func (in *sqlDatabaseStorageRedundancyTypePtr) ToSqlDatabaseStorageRedundancyTypePtrOutput() SqlDatabaseStorageRedundancyTypePtrOutput {
-	return pulumi.ToOutput(in).(SqlDatabaseStorageRedundancyTypePtrOutput)
+func (in *storageRedundancyPtr) ToStorageRedundancyPtrOutput() StorageRedundancyPtrOutput {
+	return pulumi.ToOutput(in).(StorageRedundancyPtrOutput)
 }
 
-func (in *sqlDatabaseStorageRedundancyTypePtr) ToSqlDatabaseStorageRedundancyTypePtrOutputWithContext(ctx context.Context) SqlDatabaseStorageRedundancyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SqlDatabaseStorageRedundancyTypePtrOutput)
+func (in *storageRedundancyPtr) ToStorageRedundancyPtrOutputWithContext(ctx context.Context) StorageRedundancyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageRedundancyPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(SqlDatabaseStorageRedundancyTypeOutput{})
-	pulumi.RegisterOutputType(SqlDatabaseStorageRedundancyTypePtrOutput{})
+	pulumi.RegisterOutputType(StorageRedundancyOutput{})
+	pulumi.RegisterOutputType(StorageRedundancyPtrOutput{})
 }

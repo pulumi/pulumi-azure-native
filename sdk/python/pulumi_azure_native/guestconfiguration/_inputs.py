@@ -209,6 +209,7 @@ class GuestConfigurationNavigationArgs:
     def __init__(__self__, *,
                  assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+                 configuration_protected_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  configuration_setting: Optional[pulumi.Input['ConfigurationSettingArgs']] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
@@ -219,6 +220,7 @@ class GuestConfigurationNavigationArgs:
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
         :param pulumi.Input['ConfigurationSettingArgs'] configuration_setting: The configuration setting for the guest configuration.
         :param pulumi.Input[str] content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param pulumi.Input[str] content_uri: Uri of the storage where guest configuration package is uploaded.
@@ -230,6 +232,8 @@ class GuestConfigurationNavigationArgs:
             pulumi.set(__self__, "assignment_type", assignment_type)
         if configuration_parameter is not None:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+        if configuration_protected_parameter is not None:
+            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
         if configuration_setting is not None:
             pulumi.set(__self__, "configuration_setting", configuration_setting)
         if content_hash is not None:
@@ -266,6 +270,18 @@ class GuestConfigurationNavigationArgs:
     @configuration_parameter.setter
     def configuration_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
         pulumi.set(self, "configuration_parameter", value)
+
+    @property
+    @pulumi.getter(name="configurationProtectedParameter")
+    def configuration_protected_parameter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
+        """
+        The protected configuration parameters for the guest configuration.
+        """
+        return pulumi.get(self, "configuration_protected_parameter")
+
+    @configuration_protected_parameter.setter
+    def configuration_protected_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
+        pulumi.set(self, "configuration_protected_parameter", value)
 
     @property
     @pulumi.getter(name="configurationSetting")

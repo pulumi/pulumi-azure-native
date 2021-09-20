@@ -80,6 +80,10 @@ export interface GetKeyResult {
      */
     readonly name: string;
     /**
+     * Key release policy in response. It will be used for both output and input. Omitted if empty
+     */
+    readonly releasePolicy?: outputs.keyvault.v20210601preview.KeyReleasePolicyResponse;
+    /**
      * Key rotation policy in response. It will be used for both output and input. Omitted if empty
      */
     readonly rotationPolicy?: outputs.keyvault.v20210601preview.RotationPolicyResponse;

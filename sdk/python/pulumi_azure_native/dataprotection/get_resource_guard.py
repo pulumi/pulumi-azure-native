@@ -140,7 +140,7 @@ def get_resource_guard(resource_group_name: Optional[str] = None,
                        resource_guards_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGuardResult:
     """
-    API Version: 2021-07-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.

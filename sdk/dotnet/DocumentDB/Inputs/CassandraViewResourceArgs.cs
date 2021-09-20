@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// <summary>
         /// View Definition of the Cosmos DB Cassandra view
         /// </summary>
-        [Input("viewDefinition")]
-        public Input<string>? ViewDefinition { get; set; }
+        [Input("viewDefinition", required: true)]
+        public Input<string> ViewDefinition { get; set; } = null!;
 
         public CassandraViewResourceArgs()
         {

@@ -3003,7 +3003,7 @@ type CassandraViewGetPropertiesResponseResource struct {
 	Id             string  `pulumi:"id"`
 	Rid            string  `pulumi:"rid"`
 	Ts             float64 `pulumi:"ts"`
-	ViewDefinition *string `pulumi:"viewDefinition"`
+	ViewDefinition string  `pulumi:"viewDefinition"`
 }
 
 // CassandraViewGetPropertiesResponseResourceInput is an input type that accepts CassandraViewGetPropertiesResponseResourceArgs and CassandraViewGetPropertiesResponseResourceOutput values.
@@ -3018,11 +3018,11 @@ type CassandraViewGetPropertiesResponseResourceInput interface {
 }
 
 type CassandraViewGetPropertiesResponseResourceArgs struct {
-	Etag           pulumi.StringInput    `pulumi:"etag"`
-	Id             pulumi.StringInput    `pulumi:"id"`
-	Rid            pulumi.StringInput    `pulumi:"rid"`
-	Ts             pulumi.Float64Input   `pulumi:"ts"`
-	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
+	Etag           pulumi.StringInput  `pulumi:"etag"`
+	Id             pulumi.StringInput  `pulumi:"id"`
+	Rid            pulumi.StringInput  `pulumi:"rid"`
+	Ts             pulumi.Float64Input `pulumi:"ts"`
+	ViewDefinition pulumi.StringInput  `pulumi:"viewDefinition"`
 }
 
 func (CassandraViewGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -3118,8 +3118,8 @@ func (o CassandraViewGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Out
 	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
-func (o CassandraViewGetPropertiesResponseResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
+func (o CassandraViewGetPropertiesResponseResourceOutput) ViewDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.ViewDefinition }).(pulumi.StringOutput)
 }
 
 type CassandraViewGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -3187,13 +3187,13 @@ func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ViewDefinition() pu
 		if v == nil {
 			return nil
 		}
-		return v.ViewDefinition
+		return &v.ViewDefinition
 	}).(pulumi.StringPtrOutput)
 }
 
 type CassandraViewResource struct {
-	Id             string  `pulumi:"id"`
-	ViewDefinition *string `pulumi:"viewDefinition"`
+	Id             string `pulumi:"id"`
+	ViewDefinition string `pulumi:"viewDefinition"`
 }
 
 // CassandraViewResourceInput is an input type that accepts CassandraViewResourceArgs and CassandraViewResourceOutput values.
@@ -3208,8 +3208,8 @@ type CassandraViewResourceInput interface {
 }
 
 type CassandraViewResourceArgs struct {
-	Id             pulumi.StringInput    `pulumi:"id"`
-	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	ViewDefinition pulumi.StringInput `pulumi:"viewDefinition"`
 }
 
 func (CassandraViewResourceArgs) ElementType() reflect.Type {
@@ -3293,8 +3293,8 @@ func (o CassandraViewResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraViewResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o CassandraViewResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraViewResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
+func (o CassandraViewResourceOutput) ViewDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewResource) string { return v.ViewDefinition }).(pulumi.StringOutput)
 }
 
 type CassandraViewResourcePtrOutput struct{ *pulumi.OutputState }
@@ -3335,7 +3335,7 @@ func (o CassandraViewResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.ViewDefinition
+		return &v.ViewDefinition
 	}).(pulumi.StringPtrOutput)
 }
 

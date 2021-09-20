@@ -2,14 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const SqlDatabaseStorageRedundancyType = {
-    Geo: "Geo",
-    GeoZone: "GeoZone",
+export const StorageRedundancy = {
     Local: "Local",
+    Geo: "Geo",
     Zone: "Zone",
+    GeoZone: "GeoZone",
 } as const;
 
 /**
- * Storage redundancy of the database.
+ * The storage redundancy of the database.
  */
-export type SqlDatabaseStorageRedundancyType = (typeof SqlDatabaseStorageRedundancyType)[keyof typeof SqlDatabaseStorageRedundancyType];
+export type StorageRedundancy = (typeof StorageRedundancy)[keyof typeof StorageRedundancy];

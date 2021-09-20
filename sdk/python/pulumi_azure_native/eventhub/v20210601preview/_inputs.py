@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'CaptureDescriptionArgs',
+    'ClusterSkuArgs',
     'ConnectionStateArgs',
     'DestinationArgs',
     'EncryptionArgs',
@@ -127,6 +128,45 @@ class CaptureDescriptionArgs:
     @skip_empty_archives.setter
     def skip_empty_archives(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_empty_archives", value)
+
+
+@pulumi.input_type
+class ClusterSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'ClusterSkuName']],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        SKU parameters particular to a cluster instance.
+        :param pulumi.Input[Union[str, 'ClusterSkuName']] name: Name of this SKU.
+        :param pulumi.Input[int] capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'ClusterSkuName']]:
+        """
+        Name of this SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'ClusterSkuName']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
 
 @pulumi.input_type

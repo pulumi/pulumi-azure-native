@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
+    'ClusterSkuName',
     'DefaultAction',
     'EncodingCaptureDescription',
     'EndPointProvisioningState',
@@ -24,6 +25,13 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
+
+
+class ClusterSkuName(str, Enum):
+    """
+    Name of this SKU.
+    """
+    DEDICATED = "Dedicated"
 
 
 class DefaultAction(str, Enum):

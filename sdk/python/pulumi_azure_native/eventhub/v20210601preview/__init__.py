@@ -6,10 +6,12 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cluster import *
 from .consumer_group import *
 from .disaster_recovery_config import *
 from .event_hub import *
 from .event_hub_authorization_rule import *
+from .get_cluster import *
 from .get_consumer_group import *
 from .get_disaster_recovery_config import *
 from .get_event_hub import *

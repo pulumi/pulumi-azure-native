@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
         public Input<double>? Expires { get; set; }
 
         /// <summary>
+        /// Indicates if the private key can be exported.
+        /// </summary>
+        [Input("exportable")]
+        public Input<bool>? Exportable { get; set; }
+
+        /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         [Input("notBefore")]

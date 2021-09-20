@@ -37,6 +37,36 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     }
 
     /// <summary>
+    /// Name of this SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSkuName : IEquatable<ClusterSkuName>
+    {
+        private readonly string _value;
+
+        private ClusterSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSkuName Dedicated { get; } = new ClusterSkuName("Dedicated");
+
+        public static bool operator ==(ClusterSkuName left, ClusterSkuName right) => left.Equals(right);
+        public static bool operator !=(ClusterSkuName left, ClusterSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSkuName other && Equals(other);
+        public bool Equals(ClusterSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Default Action for Network Rule Set
     /// </summary>
     [EnumType]

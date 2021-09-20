@@ -1547,8 +1547,11 @@ type GuestConfigurationAssignmentPropertiesResponse struct {
 	LastComplianceStatusChecked string                                `pulumi:"lastComplianceStatusChecked"`
 	LatestAssignmentReport      *AssignmentReportResponse             `pulumi:"latestAssignmentReport"`
 	LatestReportId              string                                `pulumi:"latestReportId"`
+	ParameterHash               string                                `pulumi:"parameterHash"`
 	ProvisioningState           string                                `pulumi:"provisioningState"`
+	ResourceType                string                                `pulumi:"resourceType"`
 	TargetResourceId            string                                `pulumi:"targetResourceId"`
+	VmssVMList                  []VMSSVMInfoResponse                  `pulumi:"vmssVMList"`
 }
 
 // GuestConfigurationAssignmentPropertiesResponseInput is an input type that accepts GuestConfigurationAssignmentPropertiesResponseArgs and GuestConfigurationAssignmentPropertiesResponseOutput values.
@@ -1570,8 +1573,11 @@ type GuestConfigurationAssignmentPropertiesResponseArgs struct {
 	LastComplianceStatusChecked pulumi.StringInput                           `pulumi:"lastComplianceStatusChecked"`
 	LatestAssignmentReport      AssignmentReportResponsePtrInput             `pulumi:"latestAssignmentReport"`
 	LatestReportId              pulumi.StringInput                           `pulumi:"latestReportId"`
+	ParameterHash               pulumi.StringInput                           `pulumi:"parameterHash"`
 	ProvisioningState           pulumi.StringInput                           `pulumi:"provisioningState"`
+	ResourceType                pulumi.StringInput                           `pulumi:"resourceType"`
 	TargetResourceId            pulumi.StringInput                           `pulumi:"targetResourceId"`
+	VmssVMList                  VMSSVMInfoResponseArrayInput                 `pulumi:"vmssVMList"`
 }
 
 func (GuestConfigurationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1683,12 +1689,24 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestReportId() p
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.LatestReportId }).(pulumi.StringOutput)
 }
 
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) ParameterHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ParameterHash }).(pulumi.StringOutput)
+}
+
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.TargetResourceId }).(pulumi.StringOutput)
+}
+
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) VmssVMList() VMSSVMInfoResponseArrayOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) []VMSSVMInfoResponse { return v.VmssVMList }).(VMSSVMInfoResponseArrayOutput)
 }
 
 type GuestConfigurationAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1778,12 +1796,30 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestReportId(
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ParameterHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParameterHash
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1796,15 +1832,25 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceI
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) VmssVMList() VMSSVMInfoResponseArrayOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) []VMSSVMInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VmssVMList
+	}).(VMSSVMInfoResponseArrayOutput)
+}
+
 type GuestConfigurationNavigation struct {
-	AssignmentType         *string                  `pulumi:"assignmentType"`
-	ConfigurationParameter []ConfigurationParameter `pulumi:"configurationParameter"`
-	ConfigurationSetting   *ConfigurationSetting    `pulumi:"configurationSetting"`
-	ContentHash            *string                  `pulumi:"contentHash"`
-	ContentUri             *string                  `pulumi:"contentUri"`
-	Kind                   *string                  `pulumi:"kind"`
-	Name                   *string                  `pulumi:"name"`
-	Version                *string                  `pulumi:"version"`
+	AssignmentType                  *string                  `pulumi:"assignmentType"`
+	ConfigurationParameter          []ConfigurationParameter `pulumi:"configurationParameter"`
+	ConfigurationProtectedParameter []ConfigurationParameter `pulumi:"configurationProtectedParameter"`
+	ConfigurationSetting            *ConfigurationSetting    `pulumi:"configurationSetting"`
+	ContentHash                     *string                  `pulumi:"contentHash"`
+	ContentUri                      *string                  `pulumi:"contentUri"`
+	Kind                            *string                  `pulumi:"kind"`
+	Name                            *string                  `pulumi:"name"`
+	Version                         *string                  `pulumi:"version"`
 }
 
 // GuestConfigurationNavigationInput is an input type that accepts GuestConfigurationNavigationArgs and GuestConfigurationNavigationOutput values.
@@ -1819,14 +1865,15 @@ type GuestConfigurationNavigationInput interface {
 }
 
 type GuestConfigurationNavigationArgs struct {
-	AssignmentType         pulumi.StringPtrInput            `pulumi:"assignmentType"`
-	ConfigurationParameter ConfigurationParameterArrayInput `pulumi:"configurationParameter"`
-	ConfigurationSetting   ConfigurationSettingPtrInput     `pulumi:"configurationSetting"`
-	ContentHash            pulumi.StringPtrInput            `pulumi:"contentHash"`
-	ContentUri             pulumi.StringPtrInput            `pulumi:"contentUri"`
-	Kind                   pulumi.StringPtrInput            `pulumi:"kind"`
-	Name                   pulumi.StringPtrInput            `pulumi:"name"`
-	Version                pulumi.StringPtrInput            `pulumi:"version"`
+	AssignmentType                  pulumi.StringPtrInput            `pulumi:"assignmentType"`
+	ConfigurationParameter          ConfigurationParameterArrayInput `pulumi:"configurationParameter"`
+	ConfigurationProtectedParameter ConfigurationParameterArrayInput `pulumi:"configurationProtectedParameter"`
+	ConfigurationSetting            ConfigurationSettingPtrInput     `pulumi:"configurationSetting"`
+	ContentHash                     pulumi.StringPtrInput            `pulumi:"contentHash"`
+	ContentUri                      pulumi.StringPtrInput            `pulumi:"contentUri"`
+	Kind                            pulumi.StringPtrInput            `pulumi:"kind"`
+	Name                            pulumi.StringPtrInput            `pulumi:"name"`
+	Version                         pulumi.StringPtrInput            `pulumi:"version"`
 }
 
 func (GuestConfigurationNavigationArgs) ElementType() reflect.Type {
@@ -1914,6 +1961,12 @@ func (o GuestConfigurationNavigationOutput) ConfigurationParameter() Configurati
 	return o.ApplyT(func(v GuestConfigurationNavigation) []ConfigurationParameter { return v.ConfigurationParameter }).(ConfigurationParameterArrayOutput)
 }
 
+func (o GuestConfigurationNavigationOutput) ConfigurationProtectedParameter() ConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigation) []ConfigurationParameter {
+		return v.ConfigurationProtectedParameter
+	}).(ConfigurationParameterArrayOutput)
+}
+
 func (o GuestConfigurationNavigationOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *ConfigurationSetting { return v.ConfigurationSetting }).(ConfigurationSettingPtrOutput)
 }
@@ -1980,6 +2033,15 @@ func (o GuestConfigurationNavigationPtrOutput) ConfigurationParameter() Configur
 	}).(ConfigurationParameterArrayOutput)
 }
 
+func (o GuestConfigurationNavigationPtrOutput) ConfigurationProtectedParameter() ConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigation) []ConfigurationParameter {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationProtectedParameter
+	}).(ConfigurationParameterArrayOutput)
+}
+
 func (o GuestConfigurationNavigationPtrOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *ConfigurationSetting {
 		if v == nil {
@@ -2035,14 +2097,16 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 }
 
 type GuestConfigurationNavigationResponse struct {
-	AssignmentType         *string                          `pulumi:"assignmentType"`
-	ConfigurationParameter []ConfigurationParameterResponse `pulumi:"configurationParameter"`
-	ConfigurationSetting   *ConfigurationSettingResponse    `pulumi:"configurationSetting"`
-	ContentHash            *string                          `pulumi:"contentHash"`
-	ContentUri             *string                          `pulumi:"contentUri"`
-	Kind                   *string                          `pulumi:"kind"`
-	Name                   *string                          `pulumi:"name"`
-	Version                *string                          `pulumi:"version"`
+	AssignmentType                  *string                          `pulumi:"assignmentType"`
+	ConfigurationParameter          []ConfigurationParameterResponse `pulumi:"configurationParameter"`
+	ConfigurationProtectedParameter []ConfigurationParameterResponse `pulumi:"configurationProtectedParameter"`
+	ConfigurationSetting            *ConfigurationSettingResponse    `pulumi:"configurationSetting"`
+	ContentHash                     *string                          `pulumi:"contentHash"`
+	ContentType                     string                           `pulumi:"contentType"`
+	ContentUri                      *string                          `pulumi:"contentUri"`
+	Kind                            *string                          `pulumi:"kind"`
+	Name                            *string                          `pulumi:"name"`
+	Version                         *string                          `pulumi:"version"`
 }
 
 // GuestConfigurationNavigationResponseInput is an input type that accepts GuestConfigurationNavigationResponseArgs and GuestConfigurationNavigationResponseOutput values.
@@ -2057,14 +2121,16 @@ type GuestConfigurationNavigationResponseInput interface {
 }
 
 type GuestConfigurationNavigationResponseArgs struct {
-	AssignmentType         pulumi.StringPtrInput                    `pulumi:"assignmentType"`
-	ConfigurationParameter ConfigurationParameterResponseArrayInput `pulumi:"configurationParameter"`
-	ConfigurationSetting   ConfigurationSettingResponsePtrInput     `pulumi:"configurationSetting"`
-	ContentHash            pulumi.StringPtrInput                    `pulumi:"contentHash"`
-	ContentUri             pulumi.StringPtrInput                    `pulumi:"contentUri"`
-	Kind                   pulumi.StringPtrInput                    `pulumi:"kind"`
-	Name                   pulumi.StringPtrInput                    `pulumi:"name"`
-	Version                pulumi.StringPtrInput                    `pulumi:"version"`
+	AssignmentType                  pulumi.StringPtrInput                    `pulumi:"assignmentType"`
+	ConfigurationParameter          ConfigurationParameterResponseArrayInput `pulumi:"configurationParameter"`
+	ConfigurationProtectedParameter ConfigurationParameterResponseArrayInput `pulumi:"configurationProtectedParameter"`
+	ConfigurationSetting            ConfigurationSettingResponsePtrInput     `pulumi:"configurationSetting"`
+	ContentHash                     pulumi.StringPtrInput                    `pulumi:"contentHash"`
+	ContentType                     pulumi.StringInput                       `pulumi:"contentType"`
+	ContentUri                      pulumi.StringPtrInput                    `pulumi:"contentUri"`
+	Kind                            pulumi.StringPtrInput                    `pulumi:"kind"`
+	Name                            pulumi.StringPtrInput                    `pulumi:"name"`
+	Version                         pulumi.StringPtrInput                    `pulumi:"version"`
 }
 
 func (GuestConfigurationNavigationResponseArgs) ElementType() reflect.Type {
@@ -2154,6 +2220,12 @@ func (o GuestConfigurationNavigationResponseOutput) ConfigurationParameter() Con
 	}).(ConfigurationParameterResponseArrayOutput)
 }
 
+func (o GuestConfigurationNavigationResponseOutput) ConfigurationProtectedParameter() ConfigurationParameterResponseArrayOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
+		return v.ConfigurationProtectedParameter
+	}).(ConfigurationParameterResponseArrayOutput)
+}
+
 func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() ConfigurationSettingResponsePtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *ConfigurationSettingResponse {
 		return v.ConfigurationSetting
@@ -2162,6 +2234,10 @@ func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() Confi
 
 func (o GuestConfigurationNavigationResponseOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
+}
+
+func (o GuestConfigurationNavigationResponseOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
 func (o GuestConfigurationNavigationResponseOutput) ContentUri() pulumi.StringPtrOutput {
@@ -2222,6 +2298,15 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationParameter() 
 	}).(ConfigurationParameterResponseArrayOutput)
 }
 
+func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationProtectedParameter() ConfigurationParameterResponseArrayOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationProtectedParameter
+	}).(ConfigurationParameterResponseArrayOutput)
+}
+
 func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationSetting() ConfigurationSettingResponsePtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *ConfigurationSettingResponse {
 		if v == nil {
@@ -2237,6 +2322,15 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ContentHash() pulumi.Stri
 			return nil
 		}
 		return v.ContentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GuestConfigurationNavigationResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2424,6 +2518,124 @@ func (o VMInfoResponsePtrOutput) Uuid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VMSSVMInfoResponse struct {
+	ComplianceStatus      string `pulumi:"complianceStatus"`
+	LastComplianceChecked string `pulumi:"lastComplianceChecked"`
+	LatestReportId        string `pulumi:"latestReportId"`
+	VmId                  string `pulumi:"vmId"`
+	VmResourceId          string `pulumi:"vmResourceId"`
+}
+
+// VMSSVMInfoResponseInput is an input type that accepts VMSSVMInfoResponseArgs and VMSSVMInfoResponseOutput values.
+// You can construct a concrete instance of `VMSSVMInfoResponseInput` via:
+//
+//          VMSSVMInfoResponseArgs{...}
+type VMSSVMInfoResponseInput interface {
+	pulumi.Input
+
+	ToVMSSVMInfoResponseOutput() VMSSVMInfoResponseOutput
+	ToVMSSVMInfoResponseOutputWithContext(context.Context) VMSSVMInfoResponseOutput
+}
+
+type VMSSVMInfoResponseArgs struct {
+	ComplianceStatus      pulumi.StringInput `pulumi:"complianceStatus"`
+	LastComplianceChecked pulumi.StringInput `pulumi:"lastComplianceChecked"`
+	LatestReportId        pulumi.StringInput `pulumi:"latestReportId"`
+	VmId                  pulumi.StringInput `pulumi:"vmId"`
+	VmResourceId          pulumi.StringInput `pulumi:"vmResourceId"`
+}
+
+func (VMSSVMInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSVMInfoResponse)(nil)).Elem()
+}
+
+func (i VMSSVMInfoResponseArgs) ToVMSSVMInfoResponseOutput() VMSSVMInfoResponseOutput {
+	return i.ToVMSSVMInfoResponseOutputWithContext(context.Background())
+}
+
+func (i VMSSVMInfoResponseArgs) ToVMSSVMInfoResponseOutputWithContext(ctx context.Context) VMSSVMInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSVMInfoResponseOutput)
+}
+
+// VMSSVMInfoResponseArrayInput is an input type that accepts VMSSVMInfoResponseArray and VMSSVMInfoResponseArrayOutput values.
+// You can construct a concrete instance of `VMSSVMInfoResponseArrayInput` via:
+//
+//          VMSSVMInfoResponseArray{ VMSSVMInfoResponseArgs{...} }
+type VMSSVMInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToVMSSVMInfoResponseArrayOutput() VMSSVMInfoResponseArrayOutput
+	ToVMSSVMInfoResponseArrayOutputWithContext(context.Context) VMSSVMInfoResponseArrayOutput
+}
+
+type VMSSVMInfoResponseArray []VMSSVMInfoResponseInput
+
+func (VMSSVMInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSVMInfoResponse)(nil)).Elem()
+}
+
+func (i VMSSVMInfoResponseArray) ToVMSSVMInfoResponseArrayOutput() VMSSVMInfoResponseArrayOutput {
+	return i.ToVMSSVMInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VMSSVMInfoResponseArray) ToVMSSVMInfoResponseArrayOutputWithContext(ctx context.Context) VMSSVMInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSVMInfoResponseArrayOutput)
+}
+
+type VMSSVMInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (VMSSVMInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSVMInfoResponse)(nil)).Elem()
+}
+
+func (o VMSSVMInfoResponseOutput) ToVMSSVMInfoResponseOutput() VMSSVMInfoResponseOutput {
+	return o
+}
+
+func (o VMSSVMInfoResponseOutput) ToVMSSVMInfoResponseOutputWithContext(ctx context.Context) VMSSVMInfoResponseOutput {
+	return o
+}
+
+func (o VMSSVMInfoResponseOutput) ComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSVMInfoResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
+}
+
+func (o VMSSVMInfoResponseOutput) LastComplianceChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSVMInfoResponse) string { return v.LastComplianceChecked }).(pulumi.StringOutput)
+}
+
+func (o VMSSVMInfoResponseOutput) LatestReportId() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSVMInfoResponse) string { return v.LatestReportId }).(pulumi.StringOutput)
+}
+
+func (o VMSSVMInfoResponseOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSVMInfoResponse) string { return v.VmId }).(pulumi.StringOutput)
+}
+
+func (o VMSSVMInfoResponseOutput) VmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSVMInfoResponse) string { return v.VmResourceId }).(pulumi.StringOutput)
+}
+
+type VMSSVMInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMSSVMInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSVMInfoResponse)(nil)).Elem()
+}
+
+func (o VMSSVMInfoResponseArrayOutput) ToVMSSVMInfoResponseArrayOutput() VMSSVMInfoResponseArrayOutput {
+	return o
+}
+
+func (o VMSSVMInfoResponseArrayOutput) ToVMSSVMInfoResponseArrayOutputWithContext(ctx context.Context) VMSSVMInfoResponseArrayOutput {
+	return o
+}
+
+func (o VMSSVMInfoResponseArrayOutput) Index(i pulumi.IntInput) VMSSVMInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMSSVMInfoResponse {
+		return vs[0].([]VMSSVMInfoResponse)[vs[1].(int)]
+	}).(VMSSVMInfoResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentInfoResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentInfoResponsePtrOutput{})
@@ -2453,4 +2665,6 @@ func init() {
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponsePtrOutput{})
 	pulumi.RegisterOutputType(VMInfoResponseOutput{})
 	pulumi.RegisterOutputType(VMInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(VMSSVMInfoResponseOutput{})
+	pulumi.RegisterOutputType(VMSSVMInfoResponseArrayOutput{})
 }

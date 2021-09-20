@@ -8,31 +8,31 @@ using Pulumi;
 namespace Pulumi.AzureNative.Synapse.V20200401Preview
 {
     /// <summary>
-    /// Storage redundancy of the database.
+    /// The storage redundancy of the database.
     /// </summary>
     [EnumType]
-    public readonly struct SqlDatabaseStorageRedundancyType : IEquatable<SqlDatabaseStorageRedundancyType>
+    public readonly struct StorageRedundancy : IEquatable<StorageRedundancy>
     {
         private readonly string _value;
 
-        private SqlDatabaseStorageRedundancyType(string value)
+        private StorageRedundancy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SqlDatabaseStorageRedundancyType Geo { get; } = new SqlDatabaseStorageRedundancyType("Geo");
-        public static SqlDatabaseStorageRedundancyType GeoZone { get; } = new SqlDatabaseStorageRedundancyType("GeoZone");
-        public static SqlDatabaseStorageRedundancyType Local { get; } = new SqlDatabaseStorageRedundancyType("Local");
-        public static SqlDatabaseStorageRedundancyType Zone { get; } = new SqlDatabaseStorageRedundancyType("Zone");
+        public static StorageRedundancy Local { get; } = new StorageRedundancy("Local");
+        public static StorageRedundancy Geo { get; } = new StorageRedundancy("Geo");
+        public static StorageRedundancy Zone { get; } = new StorageRedundancy("Zone");
+        public static StorageRedundancy GeoZone { get; } = new StorageRedundancy("GeoZone");
 
-        public static bool operator ==(SqlDatabaseStorageRedundancyType left, SqlDatabaseStorageRedundancyType right) => left.Equals(right);
-        public static bool operator !=(SqlDatabaseStorageRedundancyType left, SqlDatabaseStorageRedundancyType right) => !left.Equals(right);
+        public static bool operator ==(StorageRedundancy left, StorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(StorageRedundancy left, StorageRedundancy right) => !left.Equals(right);
 
-        public static explicit operator string(SqlDatabaseStorageRedundancyType value) => value._value;
+        public static explicit operator string(StorageRedundancy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SqlDatabaseStorageRedundancyType other && Equals(other);
-        public bool Equals(SqlDatabaseStorageRedundancyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is StorageRedundancy other && Equals(other);
+        public bool Equals(StorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

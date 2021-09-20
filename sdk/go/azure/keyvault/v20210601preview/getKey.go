@@ -24,17 +24,18 @@ type LookupKeyArgs struct {
 
 // The key resource.
 type LookupKeyResult struct {
-	Attributes        *KeyAttributesResponse  `pulumi:"attributes"`
-	CurveName         *string                 `pulumi:"curveName"`
-	Id                string                  `pulumi:"id"`
-	KeyOps            []string                `pulumi:"keyOps"`
-	KeySize           *int                    `pulumi:"keySize"`
-	KeyUri            string                  `pulumi:"keyUri"`
-	KeyUriWithVersion string                  `pulumi:"keyUriWithVersion"`
-	Kty               *string                 `pulumi:"kty"`
-	Location          string                  `pulumi:"location"`
-	Name              string                  `pulumi:"name"`
-	RotationPolicy    *RotationPolicyResponse `pulumi:"rotationPolicy"`
-	Tags              map[string]string       `pulumi:"tags"`
-	Type              string                  `pulumi:"type"`
+	Attributes        *KeyAttributesResponse    `pulumi:"attributes"`
+	CurveName         *string                   `pulumi:"curveName"`
+	Id                string                    `pulumi:"id"`
+	KeyOps            []string                  `pulumi:"keyOps"`
+	KeySize           *int                      `pulumi:"keySize"`
+	KeyUri            string                    `pulumi:"keyUri"`
+	KeyUriWithVersion string                    `pulumi:"keyUriWithVersion"`
+	Kty               *string                   `pulumi:"kty"`
+	Location          string                    `pulumi:"location"`
+	Name              string                    `pulumi:"name"`
+	ReleasePolicy     *KeyReleasePolicyResponse `pulumi:"releasePolicy"`
+	RotationPolicy    *RotationPolicyResponse   `pulumi:"rotationPolicy"`
+	Tags              map[string]string         `pulumi:"tags"`
+	Type              string                    `pulumi:"type"`
 }

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
     public sealed class TriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        /// The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         /// </summary>
         [Input("timeAfterCreate")]
         public Input<string>? TimeAfterCreate { get; set; }
 
         /// <summary>
-        /// The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        /// The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         /// </summary>
         [Input("timeBeforeExpiry")]
         public Input<string>? TimeBeforeExpiry { get; set; }

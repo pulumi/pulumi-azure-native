@@ -4962,6 +4962,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20211001preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20211001preview",
+  "classes": {
+   "azure-native:dataprotection/v20211001preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20211001preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20211001preview:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20211001preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -7159,6 +7170,7 @@ _utilities.register(
   "mod": "eventhub/v20210601preview",
   "fqn": "pulumi_azure_native.eventhub.v20210601preview",
   "classes": {
+   "azure-native:eventhub/v20210601preview:Cluster": "Cluster",
    "azure-native:eventhub/v20210601preview:ConsumerGroup": "ConsumerGroup",
    "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig": "DisasterRecoveryConfig",
    "azure-native:eventhub/v20210601preview:EventHub": "EventHub",
@@ -7174,7 +7186,7 @@ _utilities.register(
   "mod": "extendedlocation",
   "fqn": "pulumi_azure_native.extendedlocation",
   "classes": {
-   "azure-native:extendedlocation:customLocation": "CustomLocation"
+   "azure-native:extendedlocation:CustomLocation": "CustomLocation"
   }
  },
  {
@@ -7182,7 +7194,7 @@ _utilities.register(
   "mod": "extendedlocation/v20210315preview",
   "fqn": "pulumi_azure_native.extendedlocation.v20210315preview",
   "classes": {
-   "azure-native:extendedlocation/v20210315preview:customLocation": "CustomLocation"
+   "azure-native:extendedlocation/v20210315preview:CustomLocation": "CustomLocation"
   }
  },
  {
@@ -8295,6 +8307,14 @@ _utilities.register(
   "classes": {
    "azure-native:kubernetesconfiguration/v20210501preview:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20210901",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20210901",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20210901:Extension": "Extension"
   }
  },
  {

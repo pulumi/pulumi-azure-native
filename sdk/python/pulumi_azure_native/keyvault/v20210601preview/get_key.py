@@ -20,7 +20,7 @@ class GetKeyResult:
     """
     The key resource.
     """
-    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, rotation_policy=None, tags=None, type=None):
+    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, release_policy=None, rotation_policy=None, tags=None, type=None):
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
@@ -51,6 +51,9 @@ class GetKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if release_policy and not isinstance(release_policy, dict):
+            raise TypeError("Expected argument 'release_policy' to be a dict")
+        pulumi.set(__self__, "release_policy", release_policy)
         if rotation_policy and not isinstance(rotation_policy, dict):
             raise TypeError("Expected argument 'rotation_policy' to be a dict")
         pulumi.set(__self__, "rotation_policy", rotation_policy)
@@ -139,6 +142,14 @@ class GetKeyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> Optional['outputs.KeyReleasePolicyResponse']:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
+
+    @property
     @pulumi.getter(name="rotationPolicy")
     def rotation_policy(self) -> Optional['outputs.RotationPolicyResponse']:
         """
@@ -179,6 +190,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             kty=self.kty,
             location=self.location,
             name=self.name,
+            release_policy=self.release_policy,
             rotation_policy=self.rotation_policy,
             tags=self.tags,
             type=self.type)
@@ -217,6 +229,7 @@ def get_key(key_name: Optional[str] = None,
         kty=__ret__.kty,
         location=__ret__.location,
         name=__ret__.name,
+        release_policy=__ret__.release_policy,
         rotation_policy=__ret__.rotation_policy,
         tags=__ret__.tags,
         type=__ret__.type)

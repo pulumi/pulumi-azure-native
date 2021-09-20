@@ -128,7 +128,7 @@ class ResourceGuard(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2021-07-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class ResourceGuard(pulumi.CustomResource):
                  args: ResourceGuardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-07-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +193,7 @@ class ResourceGuard(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210701:ResourceGuard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:ResourceGuard"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20211001preview:ResourceGuard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGuard, __self__).__init__(
             'azure-native:dataprotection:ResourceGuard',

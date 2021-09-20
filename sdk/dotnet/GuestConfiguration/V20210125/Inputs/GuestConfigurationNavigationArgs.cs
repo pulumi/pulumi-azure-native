@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Inputs
             set => _configurationParameter = value;
         }
 
+        [Input("configurationProtectedParameter")]
+        private InputList<Inputs.ConfigurationParameterArgs>? _configurationProtectedParameter;
+
+        /// <summary>
+        /// The protected configuration parameters for the guest configuration.
+        /// </summary>
+        public InputList<Inputs.ConfigurationParameterArgs> ConfigurationProtectedParameter
+        {
+            get => _configurationProtectedParameter ?? (_configurationProtectedParameter = new InputList<Inputs.ConfigurationParameterArgs>());
+            set => _configurationProtectedParameter = value;
+        }
+
         /// <summary>
         /// The configuration setting for the guest configuration.
         /// </summary>

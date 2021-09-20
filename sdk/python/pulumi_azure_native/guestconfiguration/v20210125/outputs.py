@@ -499,6 +499,8 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
             suggest = "last_compliance_status_checked"
         elif key == "latestReportId":
             suggest = "latest_report_id"
+        elif key == "parameterHash":
+            suggest = "parameter_hash"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "resourceType":
@@ -528,6 +530,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
                  compliance_status: str,
                  last_compliance_status_checked: str,
                  latest_report_id: str,
+                 parameter_hash: str,
                  provisioning_state: str,
                  resource_type: str,
                  target_resource_id: str,
@@ -541,6 +544,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param str last_compliance_status_checked: Date and time when last compliance status was checked.
         :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
+        :param str parameter_hash: parameter hash for the guest configuration assignment. 
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str resource_type: Type of the resource - VMSS / VM
         :param str target_resource_id: VM resource Id.
@@ -553,6 +557,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "last_compliance_status_checked", last_compliance_status_checked)
         pulumi.set(__self__, "latest_report_id", latest_report_id)
+        pulumi.set(__self__, "parameter_hash", parameter_hash)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "target_resource_id", target_resource_id)
@@ -596,6 +601,14 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         Id of the latest report for the guest configuration assignment. 
         """
         return pulumi.get(self, "latest_report_id")
+
+    @property
+    @pulumi.getter(name="parameterHash")
+    def parameter_hash(self) -> str:
+        """
+        parameter hash for the guest configuration assignment. 
+        """
+        return pulumi.get(self, "parameter_hash")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -662,10 +675,14 @@ class GuestConfigurationNavigationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "assignmentType":
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "assignmentType":
             suggest = "assignment_type"
         elif key == "configurationParameter":
             suggest = "configuration_parameter"
+        elif key == "configurationProtectedParameter":
+            suggest = "configuration_protected_parameter"
         elif key == "configurationSetting":
             suggest = "configuration_setting"
         elif key == "contentHash":
@@ -685,8 +702,10 @@ class GuestConfigurationNavigationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 content_type: str,
                  assignment_type: Optional[str] = None,
                  configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+                 configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  content_hash: Optional[str] = None,
                  content_uri: Optional[str] = None,
@@ -695,8 +714,10 @@ class GuestConfigurationNavigationResponse(dict):
                  version: Optional[str] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+        :param str content_type: Specifies the content type of the configuration. Possible values could be Builtin or Custom.
         :param str assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param Sequence['ConfigurationParameterResponse'] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
@@ -704,10 +725,13 @@ class GuestConfigurationNavigationResponse(dict):
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
+        pulumi.set(__self__, "content_type", content_type)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
         if configuration_parameter is not None:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+        if configuration_protected_parameter is not None:
+            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
         if configuration_setting is not None:
             pulumi.set(__self__, "configuration_setting", configuration_setting)
         if content_hash is not None:
@@ -720,6 +744,14 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "name", name)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        Specifies the content type of the configuration. Possible values could be Builtin or Custom.
+        """
+        return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -736,6 +768,14 @@ class GuestConfigurationNavigationResponse(dict):
         The configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_parameter")
+
+    @property
+    @pulumi.getter(name="configurationProtectedParameter")
+    def configuration_protected_parameter(self) -> Optional[Sequence['outputs.ConfigurationParameterResponse']]:
+        """
+        The protected configuration parameters for the guest configuration.
+        """
+        return pulumi.get(self, "configuration_protected_parameter")
 
     @property
     @pulumi.getter(name="configurationSetting")

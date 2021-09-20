@@ -20,10 +20,13 @@ class GetSqlDatabaseResult:
     """
     A sql database resource.
     """
-    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, name=None, status=None, storage_redundancy=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, collation=None, data_retention=None, database_guid=None, id=None, location=None, name=None, status=None, storage_redundancy=None, system_data=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
+        if data_retention and not isinstance(data_retention, dict):
+            raise TypeError("Expected argument 'data_retention' to be a dict")
+        pulumi.set(__self__, "data_retention", data_retention)
         if database_guid and not isinstance(database_guid, str):
             raise TypeError("Expected argument 'database_guid' to be a str")
         pulumi.set(__self__, "database_guid", database_guid)
@@ -61,6 +64,14 @@ class GetSqlDatabaseResult:
         return pulumi.get(self, "collation")
 
     @property
+    @pulumi.getter(name="dataRetention")
+    def data_retention(self) -> Optional['outputs.SqlDatabaseDataRetentionResponse']:
+        """
+        Sql database data retention.
+        """
+        return pulumi.get(self, "data_retention")
+
+    @property
     @pulumi.getter(name="databaseGuid")
     def database_guid(self) -> str:
         """
@@ -96,7 +107,7 @@ class GetSqlDatabaseResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Status of the database.
+        The status of the database.
         """
         return pulumi.get(self, "status")
 
@@ -104,7 +115,7 @@ class GetSqlDatabaseResult:
     @pulumi.getter(name="storageRedundancy")
     def storage_redundancy(self) -> Optional[str]:
         """
-        Storage redundancy of the database.
+        The storage redundancy of the database.
         """
         return pulumi.get(self, "storage_redundancy")
 
@@ -140,6 +151,7 @@ class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
             yield self
         return GetSqlDatabaseResult(
             collation=self.collation,
+            data_retention=self.data_retention,
             database_guid=self.database_guid,
             id=self.id,
             location=self.location,
@@ -175,6 +187,7 @@ def get_sql_database(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSqlDatabaseResult(
         collation=__ret__.collation,
+        data_retention=__ret__.data_retention,
         database_guid=__ret__.database_guid,
         id=__ret__.id,
         location=__ret__.location,

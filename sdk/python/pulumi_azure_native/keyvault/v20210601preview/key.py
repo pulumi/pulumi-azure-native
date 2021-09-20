@@ -181,6 +181,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["kty"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["release_policy"] = None
             __props__.__dict__["rotation_policy"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20210601preview:Key"), pulumi.Alias(type_="azure-native:keyvault:Key"), pulumi.Alias(type_="azure-nextgen:keyvault:Key"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:Key")])
@@ -216,6 +217,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["kty"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["release_policy"] = None
         __props__.__dict__["rotation_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -289,6 +291,14 @@ class Key(pulumi.CustomResource):
         Name of the key vault resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> pulumi.Output[Optional['outputs.KeyReleasePolicyResponse']]:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
 
     @property
     @pulumi.getter(name="rotationPolicy")

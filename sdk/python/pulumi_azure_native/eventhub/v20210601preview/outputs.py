@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'CaptureDescriptionResponse',
+    'ClusterSkuResponse',
     'ConnectionStateResponse',
     'DestinationResponse',
     'EncryptionResponse',
@@ -130,6 +131,40 @@ class CaptureDescriptionResponse(dict):
         A value that indicates whether to Skip Empty Archives
         """
         return pulumi.get(self, "skip_empty_archives")
+
+
+@pulumi.output_type
+class ClusterSkuResponse(dict):
+    """
+    SKU parameters particular to a cluster instance.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        SKU parameters particular to a cluster instance.
+        :param str name: Name of this SKU.
+        :param int capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        """
+        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type

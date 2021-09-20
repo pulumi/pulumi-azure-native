@@ -41,9 +41,17 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
         /// </summary>
         public readonly string LatestReportId;
         /// <summary>
+        /// parameter hash for the guest configuration assignment. 
+        /// </summary>
+        public readonly string ParameterHash;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The list of VM Compliance data for VMSS
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VMSSVMInfoResponse> VmssVMList;
 
         [OutputConstructor]
         private GuestConfigurationAssignmentPropertiesResponse(
@@ -59,7 +67,11 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
 
             string latestReportId,
 
-            string provisioningState)
+            string parameterHash,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.VMSSVMInfoResponse> vmssVMList)
         {
             AssignmentHash = assignmentHash;
             ComplianceStatus = complianceStatus;
@@ -67,7 +79,9 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
             GuestConfiguration = guestConfiguration;
             LastComplianceStatusChecked = lastComplianceStatusChecked;
             LatestReportId = latestReportId;
+            ParameterHash = parameterHash;
             ProvisioningState = provisioningState;
+            VmssVMList = vmssVMList;
         }
     }
 }

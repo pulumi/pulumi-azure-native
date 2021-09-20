@@ -48,6 +48,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.KeyVault.V20210601Preview.JsonWebKeyType>? Kty { get; set; }
 
         /// <summary>
+        /// Key release policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        [Input("releasePolicy")]
+        public Input<Inputs.KeyReleasePolicyArgs>? ReleasePolicy { get; set; }
+
+        /// <summary>
         /// Key rotation policy in response. It will be used for both output and input. Omitted if empty
         /// </summary>
         [Input("rotationPolicy")]

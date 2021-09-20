@@ -15,6 +15,7 @@ __all__ = [
     'IPRuleArgs',
     'KeyAttributesArgs',
     'KeyPropertiesArgs',
+    'KeyReleasePolicyArgs',
     'KeyRotationPolicyAttributesArgs',
     'LifetimeActionArgs',
     'MHSMIPRuleArgs',
@@ -155,17 +156,21 @@ class KeyAttributesArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expires: Optional[pulumi.Input[float]] = None,
+                 exportable: Optional[pulumi.Input[bool]] = None,
                  not_before: Optional[pulumi.Input[float]] = None):
         """
         The object attributes managed by the Azure Key Vault service.
         :param pulumi.Input[bool] enabled: Determines whether or not the object is enabled.
         :param pulumi.Input[float] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[bool] exportable: Indicates if the private key can be exported.
         :param pulumi.Input[float] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if expires is not None:
             pulumi.set(__self__, "expires", expires)
+        if exportable is not None:
+            pulumi.set(__self__, "exportable", exportable)
         if not_before is not None:
             pulumi.set(__self__, "not_before", not_before)
 
@@ -194,6 +199,18 @@ class KeyAttributesArgs:
         pulumi.set(self, "expires", value)
 
     @property
+    @pulumi.getter
+    def exportable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the private key can be exported.
+        """
+        return pulumi.get(self, "exportable")
+
+    @exportable.setter
+    def exportable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exportable", value)
+
+    @property
     @pulumi.getter(name="notBefore")
     def not_before(self) -> Optional[pulumi.Input[float]]:
         """
@@ -214,6 +231,7 @@ class KeyPropertiesArgs:
                  key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]] = None,
                  key_size: Optional[pulumi.Input[int]] = None,
                  kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None,
+                 release_policy: Optional[pulumi.Input['KeyReleasePolicyArgs']] = None,
                  rotation_policy: Optional[pulumi.Input['RotationPolicyArgs']] = None):
         """
         The properties of the key.
@@ -221,6 +239,7 @@ class KeyPropertiesArgs:
         :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         :param pulumi.Input[Union[str, 'JsonWebKeyType']] kty: The type of the key. For valid values, see JsonWebKeyType.
+        :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: Key release policy in response. It will be used for both output and input. Omitted if empty
         :param pulumi.Input['RotationPolicyArgs'] rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
         """
         if attributes is not None:
@@ -233,6 +252,8 @@ class KeyPropertiesArgs:
             pulumi.set(__self__, "key_size", key_size)
         if kty is not None:
             pulumi.set(__self__, "kty", kty)
+        if release_policy is not None:
+            pulumi.set(__self__, "release_policy", release_policy)
         if rotation_policy is not None:
             pulumi.set(__self__, "rotation_policy", rotation_policy)
 
@@ -294,6 +315,18 @@ class KeyPropertiesArgs:
         pulumi.set(self, "kty", value)
 
     @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> Optional[pulumi.Input['KeyReleasePolicyArgs']]:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
+
+    @release_policy.setter
+    def release_policy(self, value: Optional[pulumi.Input['KeyReleasePolicyArgs']]):
+        pulumi.set(self, "release_policy", value)
+
+    @property
     @pulumi.getter(name="rotationPolicy")
     def rotation_policy(self) -> Optional[pulumi.Input['RotationPolicyArgs']]:
         """
@@ -304,6 +337,47 @@ class KeyPropertiesArgs:
     @rotation_policy.setter
     def rotation_policy(self, value: Optional[pulumi.Input['RotationPolicyArgs']]):
         pulumi.set(self, "rotation_policy", value)
+
+
+@pulumi.input_type
+class KeyReleasePolicyArgs:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content_type: Content type and version of key release policy
+        :param pulumi.Input[str] data: Blob encoding the policy rules under which the key can be released.
+        """
+        if content_type is None:
+            content_type = 'application/json; charset=utf-8'
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type and version of key release policy
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blob encoding the policy rules under which the key can be released.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
 
 
 @pulumi.input_type
@@ -1117,8 +1191,8 @@ class TriggerArgs:
                  time_after_create: Optional[pulumi.Input[str]] = None,
                  time_before_expiry: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] time_after_create: The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
-        :param pulumi.Input[str] time_before_expiry: The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        :param pulumi.Input[str] time_after_create: The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        :param pulumi.Input[str] time_before_expiry: The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
         if time_after_create is not None:
             pulumi.set(__self__, "time_after_create", time_after_create)
@@ -1129,7 +1203,7 @@ class TriggerArgs:
     @pulumi.getter(name="timeAfterCreate")
     def time_after_create(self) -> Optional[pulumi.Input[str]]:
         """
-        The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
         return pulumi.get(self, "time_after_create")
 
@@ -1141,7 +1215,7 @@ class TriggerArgs:
     @pulumi.getter(name="timeBeforeExpiry")
     def time_before_expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
         return pulumi.get(self, "time_before_expiry")
 

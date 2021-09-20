@@ -52,24 +52,24 @@ func NewCustomLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:extendedlocation:customLocation"),
+			Type: pulumi.String("azure-nextgen:extendedlocation:CustomLocation"),
 		},
 		{
-			Type: pulumi.String("azure-native:extendedlocation/v20210315preview:customLocation"),
+			Type: pulumi.String("azure-native:extendedlocation/v20210315preview:CustomLocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:extendedlocation/v20210315preview:customLocation"),
+			Type: pulumi.String("azure-nextgen:extendedlocation/v20210315preview:CustomLocation"),
 		},
 		{
-			Type: pulumi.String("azure-native:extendedlocation/v20210815:customLocation"),
+			Type: pulumi.String("azure-native:extendedlocation/v20210815:CustomLocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:extendedlocation/v20210815:customLocation"),
+			Type: pulumi.String("azure-nextgen:extendedlocation/v20210815:CustomLocation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomLocation
-	err := ctx.RegisterResource("azure-native:extendedlocation:customLocation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:extendedlocation:CustomLocation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func NewCustomLocation(ctx *pulumi.Context,
 func GetCustomLocation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomLocationState, opts ...pulumi.ResourceOption) (*CustomLocation, error) {
 	var resource CustomLocation
-	err := ctx.ReadResource("azure-native:extendedlocation:customLocation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:extendedlocation:CustomLocation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

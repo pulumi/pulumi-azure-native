@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationParameterResponse> ConfigurationParameter;
         /// <summary>
+        /// The protected configuration parameters for the guest configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConfigurationParameterResponse> ConfigurationProtectedParameter;
+        /// <summary>
         /// The configuration setting for the guest configuration.
         /// </summary>
         public readonly Outputs.ConfigurationSettingResponse? ConfigurationSetting;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625.Outputs
         /// Combined hash of the guest configuration package and configuration parameters.
         /// </summary>
         public readonly string? ContentHash;
+        /// <summary>
+        /// Specifies the content type of the configuration. Possible values could be Builtin or Custom.
+        /// </summary>
+        public readonly string ContentType;
         /// <summary>
         /// Uri of the storage where guest configuration package is uploaded.
         /// </summary>
@@ -55,9 +63,13 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625.Outputs
 
             ImmutableArray<Outputs.ConfigurationParameterResponse> configurationParameter,
 
+            ImmutableArray<Outputs.ConfigurationParameterResponse> configurationProtectedParameter,
+
             Outputs.ConfigurationSettingResponse? configurationSetting,
 
             string? contentHash,
+
+            string contentType,
 
             string? contentUri,
 
@@ -69,8 +81,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625.Outputs
         {
             AssignmentType = assignmentType;
             ConfigurationParameter = configurationParameter;
+            ConfigurationProtectedParameter = configurationProtectedParameter;
             ConfigurationSetting = configurationSetting;
             ContentHash = contentHash;
+            ContentType = contentType;
             ContentUri = contentUri;
             Kind = kind;
             Name = name;

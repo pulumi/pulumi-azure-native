@@ -7,7 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .custom_location import *
-from .getcustom_location import *
+from .get_custom_location import *
 from ._inputs import *
 from . import outputs
 

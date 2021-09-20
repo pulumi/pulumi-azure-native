@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
         /// <summary>
         /// View Definition of the Cosmos DB Cassandra view
         /// </summary>
-        public readonly string? ViewDefinition;
+        public readonly string ViewDefinition;
 
         [OutputConstructor]
         private CassandraViewGetPropertiesResponseResource(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
 
             double ts,
 
-            string? viewDefinition)
+            string viewDefinition)
         {
             Etag = etag;
             Id = id;

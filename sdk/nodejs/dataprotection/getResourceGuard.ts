@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-07-01.
+ * API Version: 2021-10-01-preview.
  */
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
     if (!opts) {
