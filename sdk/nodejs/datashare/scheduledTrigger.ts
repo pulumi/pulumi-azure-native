@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A type of trigger based on schedule
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export class ScheduledTrigger extends pulumi.CustomResource {
     /**

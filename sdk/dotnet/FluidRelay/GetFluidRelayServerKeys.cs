@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.FluidRelay
     {
         /// <summary>
         /// The set of available keys for this server.
-        /// API Version: 2021-06-15-preview.
+        /// API Version: 2021-03-12-preview.
         /// </summary>
         public static Task<GetFluidRelayServerKeysResult> InvokeAsync(GetFluidRelayServerKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerKeysResult>("azure-native:fluidrelay:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysArgs(), options.WithVersion());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.FluidRelay
     {
         /// <summary>
         /// A FluidRelay Server.
-        /// API Version: 2021-06-15-preview.
+        /// API Version: 2021-03-12-preview.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithVersion());
@@ -56,10 +56,6 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The type of identity used for the resource.
-        /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,8 +88,6 @@ namespace Pulumi.AzureNative.FluidRelay
 
             string id,
 
-            Outputs.IdentityResponse? identity,
-
             string location,
 
             string name,
@@ -109,7 +103,6 @@ namespace Pulumi.AzureNative.FluidRelay
             FluidRelayEndpoints = fluidRelayEndpoints;
             FrsTenantId = frsTenantId;
             Id = id;
-            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

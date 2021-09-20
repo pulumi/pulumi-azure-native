@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure storage blob folder data set.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetResult> {
     if (!opts) {

@@ -6,8 +6,8 @@ CHANGELOG
 #### New resources:
 
 - `hdinsight.PrivateEndpointConnection`
-- `azure-native.labservices:LabPlan`
-- `azure-native.labservices:Schedule`
+- `labservices:LabPlan`
+- `labservices:Schedule`
 
 #### New functions:
 
@@ -21,6 +21,8 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15971))
 - `redis.Redis` now has configuration properties specified correctly
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15674))
+- `extendedlocation.customLocation` casing corrected to `extendedlocation.CustomLocation`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15676))  
 
 #### Bug Fixes
 

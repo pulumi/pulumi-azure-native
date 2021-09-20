@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A FluidRelay Server.
- * API Version: 2021-06-15-preview.
+ * API Version: 2021-03-12-preview.
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class FluidRelayServer extends pulumi.CustomResource {
      * The Fluid tenantId for this server
      */
     public /*out*/ readonly frsTenantId!: pulumi.Output<string>;
-    /**
-     * The type of identity used for the resource.
-     */
-    public readonly identity!: pulumi.Output<outputs.fluidrelay.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -87,7 +83,6 @@ export class FluidRelayServer extends pulumi.CustomResource {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -100,7 +95,6 @@ export class FluidRelayServer extends pulumi.CustomResource {
         } else {
             inputs["fluidRelayEndpoints"] = undefined /*out*/;
             inputs["frsTenantId"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -121,10 +115,6 @@ export class FluidRelayServer extends pulumi.CustomResource {
  * The set of arguments for constructing a FluidRelayServer resource.
  */
 export interface FluidRelayServerArgs {
-    /**
-     * The type of identity used for the resource.
-     */
-    identity?: pulumi.Input<inputs.fluidrelay.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

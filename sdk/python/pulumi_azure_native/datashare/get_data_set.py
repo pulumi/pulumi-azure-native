@@ -15,7 +15,7 @@ __all__ = [
     'get_data_set',
 ]
 
-warnings.warn("""Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, KustoTableDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.""", DeprecationWarning)
+warnings.warn("""Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataSetResult:
@@ -100,7 +100,7 @@ def get_data_set(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
     A DataSet data transfer object.
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.
@@ -108,7 +108,7 @@ def get_data_set(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    pulumi.log.warn("""get_data_set is deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, KustoTableDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.""")
+    pulumi.log.warn("""get_data_set is deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetName'] = data_set_name

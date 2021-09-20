@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// List response for get ShareSynchronization.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-native:datashare:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());

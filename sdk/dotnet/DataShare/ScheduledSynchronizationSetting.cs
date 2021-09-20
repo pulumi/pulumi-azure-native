@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A type of synchronization setting based on schedule
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ScheduledSynchronizationSetting")]
     public partial class ScheduledSynchronizationSetting : Pulumi.CustomResource

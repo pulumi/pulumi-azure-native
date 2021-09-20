@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A Trigger data transfer object.
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [Obsolete(@"Please use one of the variants: ScheduledTrigger.")]
     [AzureNativeResourceType("azure-native:datashare:Trigger")]

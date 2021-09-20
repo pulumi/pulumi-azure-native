@@ -64,7 +64,7 @@ def list_share_synchronizations(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationsResult:
     """
     List response for get ShareSynchronization.
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.

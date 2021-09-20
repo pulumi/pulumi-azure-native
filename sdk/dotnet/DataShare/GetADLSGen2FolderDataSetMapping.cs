@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// An ADLS Gen2 folder data set mapping.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetADLSGen2FolderDataSetMappingResult> InvokeAsync(GetADLSGen2FolderDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FolderDataSetMappingResult>("azure-native:datashare:getADLSGen2FolderDataSetMapping", args ?? new GetADLSGen2FolderDataSetMappingArgs(), options.WithVersion());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.FluidRelay
 {
     /// <summary>
     /// A FluidRelay Server.
-    /// API Version: 2021-06-15-preview.
+    /// API Version: 2021-03-12-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay:FluidRelayServer")]
     public partial class FluidRelayServer : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         [Output("frsTenantId")]
         public Output<string> FrsTenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity used for the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -123,12 +117,6 @@ namespace Pulumi.AzureNative.FluidRelay
 
     public sealed class FluidRelayServerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of identity used for the resource.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

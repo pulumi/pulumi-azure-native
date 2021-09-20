@@ -183,7 +183,7 @@ def get_adls_gen2_file_system_data_set_mapping(account_name: Optional[str] = Non
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FileSystemDataSetMappingResult:
     """
     An ADLS Gen2 file system data set mapping.
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.

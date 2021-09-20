@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A Blob container data set mapping.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetBlobContainerDataSetMappingResult> InvokeAsync(GetBlobContainerDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetMappingResult>("azure-native:datashare:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingArgs(), options.WithVersion());

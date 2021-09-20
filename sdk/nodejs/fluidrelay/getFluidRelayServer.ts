@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A FluidRelay Server.
- * API Version: 2021-06-15-preview.
+ * API Version: 2021-03-12-preview.
  */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
     if (!opts) {
@@ -50,10 +50,6 @@ export interface GetFluidRelayServerResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The type of identity used for the resource.
-     */
-    readonly identity?: outputs.fluidrelay.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */

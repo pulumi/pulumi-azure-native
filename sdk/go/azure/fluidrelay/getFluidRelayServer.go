@@ -26,7 +26,6 @@ type LookupFluidRelayServerResult struct {
 	FluidRelayEndpoints FluidRelayEndpointsResponse `pulumi:"fluidRelayEndpoints"`
 	FrsTenantId         string                      `pulumi:"frsTenantId"`
 	Id                  string                      `pulumi:"id"`
-	Identity            *IdentityResponse           `pulumi:"identity"`
 	Location            string                      `pulumi:"location"`
 	Name                string                      `pulumi:"name"`
 	ProvisioningState   *string                     `pulumi:"provisioningState"`

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A share data transfer object.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     if (!opts) {

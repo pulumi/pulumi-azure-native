@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// An Azure storage blob folder data set.
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:BlobFolderDataSet")]
     public partial class BlobFolderDataSet : Pulumi.CustomResource

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// An Azure storage blob folder data set.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetBlobFolderDataSetResult> InvokeAsync(GetBlobFolderDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetResult>("azure-native:datashare:getBlobFolderDataSet", args ?? new GetBlobFolderDataSetArgs(), options.WithVersion());

@@ -183,7 +183,7 @@ def get_sql_dw_table_data_set_mapping(account_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDWTableDataSetMappingResult:
     """
     A SQL DW Table data set mapping.
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.

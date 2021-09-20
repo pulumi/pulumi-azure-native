@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A Synchronization Setting data transfer object.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSynchronizationSettingResult> InvokeAsync(GetSynchronizationSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSynchronizationSettingResult>("azure-native:datashare:getSynchronizationSetting", args ?? new GetSynchronizationSettingArgs(), options.WithVersion());

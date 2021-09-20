@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL DB table data set.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getSqlDBTableDataSet(args: GetSqlDBTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetResult> {
     if (!opts) {

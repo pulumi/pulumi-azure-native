@@ -190,7 +190,7 @@ class SqlDWTableDataSetMapping(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL DW Table data set mapping.
-        API Version: 2021-08-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +214,7 @@ class SqlDWTableDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL DW Table data set mapping.
-        API Version: 2021-08-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param SqlDWTableDataSetMappingArgs args: The arguments to use to populate this resource's properties.

@@ -65,10 +65,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KustoDatabaseDataSet{}
 	case "azure-native:datashare:KustoDatabaseDataSetMapping":
 		r = &KustoDatabaseDataSetMapping{}
-	case "azure-native:datashare:KustoTableDataSet":
-		r = &KustoTableDataSet{}
-	case "azure-native:datashare:KustoTableDataSetMapping":
-		r = &KustoTableDataSetMapping{}
 	case "azure-native:datashare:ScheduledSynchronizationSetting":
 		r = &ScheduledSynchronizationSetting{}
 	case "azure-native:datashare:ScheduledTrigger":

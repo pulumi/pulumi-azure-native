@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A Synapse Workspace Sql Pool Table data set.
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet")]
     public partial class SynapseWorkspaceSqlPoolTableDataSet : Pulumi.CustomResource

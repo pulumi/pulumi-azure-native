@@ -59,7 +59,7 @@ def get_fluid_relay_server_keys(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluidRelayServerKeysResult:
     """
     The set of available keys for this server.
-    API Version: 2021-06-15-preview.
+    API Version: 2021-03-12-preview.
 
 
     :param str name: The resource name.

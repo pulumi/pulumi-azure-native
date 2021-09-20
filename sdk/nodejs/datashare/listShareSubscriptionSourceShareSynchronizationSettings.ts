@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List response for get source share Synchronization settings
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function listShareSubscriptionSourceShareSynchronizationSettings(args: ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
     if (!opts) {

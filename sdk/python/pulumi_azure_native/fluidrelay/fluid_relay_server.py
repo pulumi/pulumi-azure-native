@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 
@@ -17,7 +16,6 @@ __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 class FluidRelayServerArgs:
     def __init__(__self__, *,
                  resource_group: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
@@ -25,15 +23,12 @@ class FluidRelayServerArgs:
         """
         The set of arguments for constructing a FluidRelayServer resource.
         :param pulumi.Input[str] resource_group: The resource group containing the resource.
-        :param pulumi.Input['IdentityArgs'] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provision states for FluidRelay RP
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group", resource_group)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -54,18 +49,6 @@ class FluidRelayServerArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
-        """
-        The type of identity used for the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -121,7 +104,6 @@ class FluidRelayServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
@@ -130,11 +112,10 @@ class FluidRelayServer(pulumi.CustomResource):
                  __props__=None):
         """
         A FluidRelay Server.
-        API Version: 2021-06-15-preview.
+        API Version: 2021-03-12-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provision states for FluidRelay RP
@@ -149,7 +130,7 @@ class FluidRelayServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A FluidRelay Server.
-        API Version: 2021-06-15-preview.
+        API Version: 2021-03-12-preview.
 
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +147,6 @@ class FluidRelayServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
@@ -184,7 +164,6 @@ class FluidRelayServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluidRelayServerArgs.__new__(FluidRelayServerArgs)
 
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["provisioning_state"] = provisioning_state
@@ -222,7 +201,6 @@ class FluidRelayServer(pulumi.CustomResource):
 
         __props__.__dict__["fluid_relay_endpoints"] = None
         __props__.__dict__["frs_tenant_id"] = None
-        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -246,14 +224,6 @@ class FluidRelayServer(pulumi.CustomResource):
         The Fluid tenantId for this server
         """
         return pulumi.get(self, "frs_tenant_id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
-        """
-        The type of identity used for the resource.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

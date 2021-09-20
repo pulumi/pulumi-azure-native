@@ -44,8 +44,6 @@ export * from "./getKustoClusterDataSet";
 export * from "./getKustoClusterDataSetMapping";
 export * from "./getKustoDatabaseDataSet";
 export * from "./getKustoDatabaseDataSetMapping";
-export * from "./getKustoTableDataSet";
-export * from "./getKustoTableDataSetMapping";
 export * from "./getScheduledSynchronizationSetting";
 export * from "./getScheduledTrigger";
 export * from "./getShare";
@@ -63,8 +61,6 @@ export * from "./kustoClusterDataSet";
 export * from "./kustoClusterDataSetMapping";
 export * from "./kustoDatabaseDataSet";
 export * from "./kustoDatabaseDataSetMapping";
-export * from "./kustoTableDataSet";
-export * from "./kustoTableDataSetMapping";
 export * from "./listShareSubscriptionSourceShareSynchronizationSettings";
 export * from "./listShareSubscriptionSynchronizationDetails";
 export * from "./listShareSubscriptionSynchronizations";
@@ -124,8 +120,6 @@ import { KustoClusterDataSet } from "./kustoClusterDataSet";
 import { KustoClusterDataSetMapping } from "./kustoClusterDataSetMapping";
 import { KustoDatabaseDataSet } from "./kustoDatabaseDataSet";
 import { KustoDatabaseDataSetMapping } from "./kustoDatabaseDataSetMapping";
-import { KustoTableDataSet } from "./kustoTableDataSet";
-import { KustoTableDataSetMapping } from "./kustoTableDataSetMapping";
 import { ScheduledSynchronizationSetting } from "./scheduledSynchronizationSetting";
 import { ScheduledTrigger } from "./scheduledTrigger";
 import { Share } from "./share";
@@ -187,10 +181,6 @@ const _module = {
                 return new KustoDatabaseDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare:KustoDatabaseDataSetMapping":
                 return new KustoDatabaseDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare:KustoTableDataSet":
-                return new KustoTableDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare:KustoTableDataSetMapping":
-                return new KustoTableDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:ScheduledSynchronizationSetting":
                 return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
             case "azure-native:datashare:ScheduledTrigger":

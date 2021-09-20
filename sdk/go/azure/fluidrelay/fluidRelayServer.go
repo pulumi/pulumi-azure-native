@@ -18,8 +18,6 @@ type FluidRelayServer struct {
 	FluidRelayEndpoints FluidRelayEndpointsResponseOutput `pulumi:"fluidRelayEndpoints"`
 	// The Fluid tenantId for this server
 	FrsTenantId pulumi.StringOutput `pulumi:"frsTenantId"`
-	// The type of identity used for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -94,8 +92,6 @@ func (FluidRelayServerState) ElementType() reflect.Type {
 }
 
 type fluidRelayServerArgs struct {
-	// The type of identity used for the resource.
-	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -110,8 +106,6 @@ type fluidRelayServerArgs struct {
 
 // The set of arguments for constructing a FluidRelayServer resource.
 type FluidRelayServerArgs struct {
-	// The type of identity used for the resource.
-	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The resource name.

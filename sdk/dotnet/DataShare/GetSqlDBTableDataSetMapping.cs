@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A SQL DB Table data set mapping.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSqlDBTableDataSetMappingResult> InvokeAsync(GetSqlDBTableDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithVersion());

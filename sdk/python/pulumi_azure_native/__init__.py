@@ -4998,8 +4998,6 @@ _utilities.register(
    "azure-native:datashare:KustoClusterDataSetMapping": "KustoClusterDataSetMapping",
    "azure-native:datashare:KustoDatabaseDataSet": "KustoDatabaseDataSet",
    "azure-native:datashare:KustoDatabaseDataSetMapping": "KustoDatabaseDataSetMapping",
-   "azure-native:datashare:KustoTableDataSet": "KustoTableDataSet",
-   "azure-native:datashare:KustoTableDataSetMapping": "KustoTableDataSetMapping",
    "azure-native:datashare:ScheduledSynchronizationSetting": "ScheduledSynchronizationSetting",
    "azure-native:datashare:ScheduledTrigger": "ScheduledTrigger",
    "azure-native:datashare:Share": "Share",

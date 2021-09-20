@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A type of trigger based on schedule
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetScheduledTriggerResult> InvokeAsync(GetScheduledTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerArgs(), options.WithVersion());

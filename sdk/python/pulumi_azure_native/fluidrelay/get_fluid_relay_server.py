@@ -20,7 +20,7 @@ class GetFluidRelayServerResult:
     """
     A FluidRelay Server.
     """
-    def __init__(__self__, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if fluid_relay_endpoints and not isinstance(fluid_relay_endpoints, dict):
             raise TypeError("Expected argument 'fluid_relay_endpoints' to be a dict")
         pulumi.set(__self__, "fluid_relay_endpoints", fluid_relay_endpoints)
@@ -30,9 +30,6 @@ class GetFluidRelayServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,14 +72,6 @@ class GetFluidRelayServerResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        The type of identity used for the resource.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -142,7 +131,6 @@ class AwaitableGetFluidRelayServerResult(GetFluidRelayServerResult):
             fluid_relay_endpoints=self.fluid_relay_endpoints,
             frs_tenant_id=self.frs_tenant_id,
             id=self.id,
-            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -156,7 +144,7 @@ def get_fluid_relay_server(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluidRelayServerResult:
     """
     A FluidRelay Server.
-    API Version: 2021-06-15-preview.
+    API Version: 2021-03-12-preview.
 
 
     :param str name: The resource name.
@@ -175,7 +163,6 @@ def get_fluid_relay_server(name: Optional[str] = None,
         fluid_relay_endpoints=__ret__.fluid_relay_endpoints,
         frs_tenant_id=__ret__.frs_tenant_id,
         id=__ret__.id,
-        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

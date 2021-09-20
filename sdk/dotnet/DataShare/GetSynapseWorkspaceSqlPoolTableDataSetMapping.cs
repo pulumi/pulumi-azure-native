@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A Synapse Workspace Sql Pool Table data set mapping
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> InvokeAsync(GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult>("azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSetMapping", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs(), options.WithVersion());

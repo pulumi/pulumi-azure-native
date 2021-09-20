@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A SQL DW Table data set mapping.
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:SqlDWTableDataSetMapping")]
     public partial class SqlDWTableDataSetMapping : Pulumi.CustomResource

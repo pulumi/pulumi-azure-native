@@ -171,7 +171,7 @@ def get_blob_folder_data_set(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobFolderDataSetResult:
     """
     An Azure storage blob folder data set.
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.

@@ -112,7 +112,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         An account data transfer object.
-        API Version: 2021-08-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An account data transfer object.
-        API Version: 2021-08-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

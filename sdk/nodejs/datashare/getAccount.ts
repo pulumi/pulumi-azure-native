@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An account data transfer object.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {

@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ProvisioningState',
-    'ResourceIdentityType',
 ]
 
 
@@ -17,11 +16,3 @@ class ProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
     CANCELED = "Canceled"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"

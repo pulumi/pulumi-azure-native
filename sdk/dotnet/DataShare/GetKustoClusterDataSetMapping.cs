@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A Kusto cluster data set mapping
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetKustoClusterDataSetMappingResult> InvokeAsync(GetKustoClusterDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetMappingResult>("azure-native:datashare:getKustoClusterDataSetMapping", args ?? new GetKustoClusterDataSetMappingArgs(), options.WithVersion());

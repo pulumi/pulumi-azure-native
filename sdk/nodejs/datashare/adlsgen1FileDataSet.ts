@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen 1 file data set.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export class ADLSGen1FileDataSet extends pulumi.CustomResource {
     /**

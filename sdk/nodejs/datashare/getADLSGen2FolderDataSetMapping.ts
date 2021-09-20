@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen2 folder data set mapping.
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
     if (!opts) {

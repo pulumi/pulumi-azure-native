@@ -65,7 +65,7 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationDetailsResult:
     """
     details of synchronization
-    API Version: 2021-08-01.
+    API Version: 2020-09-01.
 
 
     :param str account_name: The name of the share account.

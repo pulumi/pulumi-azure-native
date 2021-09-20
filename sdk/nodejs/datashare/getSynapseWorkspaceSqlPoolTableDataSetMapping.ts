@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Synapse Workspace Sql Pool Table data set mapping
- * API Version: 2021-08-01.
+ * API Version: 2020-09-01.
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetMapping(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
     if (!opts) {
