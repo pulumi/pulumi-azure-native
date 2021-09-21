@@ -136,13 +136,7 @@ new web.WebAppConnectionStrings("conns", {
     },
 });
 
-new web.WebAppAuthSettings("auth", {
-    resourceGroupName: resourceGroup.name,
-    name: app.name,
-    enabled: true,
-});
-
-new web.WebAppAuthSettingsV2("authv2", {
+new web.WebAppAuthSettingsV2("auth", {
     resourceGroupName: resourceGroup.name,
     name: app.name,
     httpSettings: {

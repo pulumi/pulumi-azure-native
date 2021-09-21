@@ -120,6 +120,12 @@ const appService = new web.WebApp("app", {
     },
 });
 
+new web.WebAppAuthSettings("auth", {
+    resourceGroupName: resourceGroup.name,
+    name: appService.name,
+    enabled: true,
+});
+
 new web.WebAppSlotConfigurationNames("names", {
     resourceGroupName: resourceGroup.name,
     name: appService.name,
