@@ -224,8 +224,10 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 			if typeName != "" {
 				var defaultBody map[string]interface{}
-				if !hasDelete {
-					// The /list pattern that we handle here seems to universally have this shape of the default body.
+				if v, has := defaultResourcesStateNormalized[normalizePath(path)]; has {
+					defaultBody = v
+				} else if !hasDelete {
+					// The /list pattern that we handle here seems to (almost) universally have this shape of the default body.
 					// Instead of maintaining the resources in defaultResourcesState, we can hard-code it here.
 					defaultBody = map[string]interface{}{
 						"properties": map[string]interface{}{},

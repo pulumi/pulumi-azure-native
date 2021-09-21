@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Bug Fixes
+
+- Fix the destroy operation for `web.WebAppAuthSettings`
+  [#947](https://github.com/pulumi/pulumi-azure-native/issues/947).
 
 ---
 
