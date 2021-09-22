@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kubernetes
 {
     /// <summary>
     /// Represents a connected cluster.
-    /// API Version: 2021-10-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : Pulumi.CustomResource

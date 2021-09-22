@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes
     {
         /// <summary>
         /// Represents a connected cluster.
-        /// API Version: 2021-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());

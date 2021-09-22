@@ -264,7 +264,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedClusterResult:
     """
     Represents a connected cluster.
-    API Version: 2021-10-01.
+    API Version: 2021-03-01.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
