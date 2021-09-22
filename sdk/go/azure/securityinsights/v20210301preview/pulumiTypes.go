@@ -8972,6 +8972,302 @@ func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MetadataCategories struct {
+	Domains   []string `pulumi:"domains"`
+	Verticals []string `pulumi:"verticals"`
+}
+
+// MetadataCategoriesInput is an input type that accepts MetadataCategoriesArgs and MetadataCategoriesOutput values.
+// You can construct a concrete instance of `MetadataCategoriesInput` via:
+//
+//          MetadataCategoriesArgs{...}
+type MetadataCategoriesInput interface {
+	pulumi.Input
+
+	ToMetadataCategoriesOutput() MetadataCategoriesOutput
+	ToMetadataCategoriesOutputWithContext(context.Context) MetadataCategoriesOutput
+}
+
+type MetadataCategoriesArgs struct {
+	Domains   pulumi.StringArrayInput `pulumi:"domains"`
+	Verticals pulumi.StringArrayInput `pulumi:"verticals"`
+}
+
+func (MetadataCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategories)(nil)).Elem()
+}
+
+func (i MetadataCategoriesArgs) ToMetadataCategoriesOutput() MetadataCategoriesOutput {
+	return i.ToMetadataCategoriesOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoriesArgs) ToMetadataCategoriesOutputWithContext(ctx context.Context) MetadataCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesOutput)
+}
+
+func (i MetadataCategoriesArgs) ToMetadataCategoriesPtrOutput() MetadataCategoriesPtrOutput {
+	return i.ToMetadataCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoriesArgs) ToMetadataCategoriesPtrOutputWithContext(ctx context.Context) MetadataCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesOutput).ToMetadataCategoriesPtrOutputWithContext(ctx)
+}
+
+// MetadataCategoriesPtrInput is an input type that accepts MetadataCategoriesArgs, MetadataCategoriesPtr and MetadataCategoriesPtrOutput values.
+// You can construct a concrete instance of `MetadataCategoriesPtrInput` via:
+//
+//          MetadataCategoriesArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToMetadataCategoriesPtrOutput() MetadataCategoriesPtrOutput
+	ToMetadataCategoriesPtrOutputWithContext(context.Context) MetadataCategoriesPtrOutput
+}
+
+type metadataCategoriesPtrType MetadataCategoriesArgs
+
+func MetadataCategoriesPtr(v *MetadataCategoriesArgs) MetadataCategoriesPtrInput {
+	return (*metadataCategoriesPtrType)(v)
+}
+
+func (*metadataCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategories)(nil)).Elem()
+}
+
+func (i *metadataCategoriesPtrType) ToMetadataCategoriesPtrOutput() MetadataCategoriesPtrOutput {
+	return i.ToMetadataCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataCategoriesPtrType) ToMetadataCategoriesPtrOutputWithContext(ctx context.Context) MetadataCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesPtrOutput)
+}
+
+type MetadataCategoriesOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategories)(nil)).Elem()
+}
+
+func (o MetadataCategoriesOutput) ToMetadataCategoriesOutput() MetadataCategoriesOutput {
+	return o
+}
+
+func (o MetadataCategoriesOutput) ToMetadataCategoriesOutputWithContext(ctx context.Context) MetadataCategoriesOutput {
+	return o
+}
+
+func (o MetadataCategoriesOutput) ToMetadataCategoriesPtrOutput() MetadataCategoriesPtrOutput {
+	return o.ToMetadataCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataCategoriesOutput) ToMetadataCategoriesPtrOutputWithContext(ctx context.Context) MetadataCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataCategories) *MetadataCategories {
+		return &v
+	}).(MetadataCategoriesPtrOutput)
+}
+
+func (o MetadataCategoriesOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategories) []string { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+func (o MetadataCategoriesOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategories) []string { return v.Verticals }).(pulumi.StringArrayOutput)
+}
+
+type MetadataCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategories)(nil)).Elem()
+}
+
+func (o MetadataCategoriesPtrOutput) ToMetadataCategoriesPtrOutput() MetadataCategoriesPtrOutput {
+	return o
+}
+
+func (o MetadataCategoriesPtrOutput) ToMetadataCategoriesPtrOutputWithContext(ctx context.Context) MetadataCategoriesPtrOutput {
+	return o
+}
+
+func (o MetadataCategoriesPtrOutput) Elem() MetadataCategoriesOutput {
+	return o.ApplyT(func(v *MetadataCategories) MetadataCategories {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataCategories
+		return ret
+	}).(MetadataCategoriesOutput)
+}
+
+func (o MetadataCategoriesPtrOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Domains
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MetadataCategoriesPtrOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Verticals
+	}).(pulumi.StringArrayOutput)
+}
+
+type MetadataCategoriesResponse struct {
+	Domains   []string `pulumi:"domains"`
+	Verticals []string `pulumi:"verticals"`
+}
+
+// MetadataCategoriesResponseInput is an input type that accepts MetadataCategoriesResponseArgs and MetadataCategoriesResponseOutput values.
+// You can construct a concrete instance of `MetadataCategoriesResponseInput` via:
+//
+//          MetadataCategoriesResponseArgs{...}
+type MetadataCategoriesResponseInput interface {
+	pulumi.Input
+
+	ToMetadataCategoriesResponseOutput() MetadataCategoriesResponseOutput
+	ToMetadataCategoriesResponseOutputWithContext(context.Context) MetadataCategoriesResponseOutput
+}
+
+type MetadataCategoriesResponseArgs struct {
+	Domains   pulumi.StringArrayInput `pulumi:"domains"`
+	Verticals pulumi.StringArrayInput `pulumi:"verticals"`
+}
+
+func (MetadataCategoriesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategoriesResponse)(nil)).Elem()
+}
+
+func (i MetadataCategoriesResponseArgs) ToMetadataCategoriesResponseOutput() MetadataCategoriesResponseOutput {
+	return i.ToMetadataCategoriesResponseOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoriesResponseArgs) ToMetadataCategoriesResponseOutputWithContext(ctx context.Context) MetadataCategoriesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesResponseOutput)
+}
+
+func (i MetadataCategoriesResponseArgs) ToMetadataCategoriesResponsePtrOutput() MetadataCategoriesResponsePtrOutput {
+	return i.ToMetadataCategoriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoriesResponseArgs) ToMetadataCategoriesResponsePtrOutputWithContext(ctx context.Context) MetadataCategoriesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesResponseOutput).ToMetadataCategoriesResponsePtrOutputWithContext(ctx)
+}
+
+// MetadataCategoriesResponsePtrInput is an input type that accepts MetadataCategoriesResponseArgs, MetadataCategoriesResponsePtr and MetadataCategoriesResponsePtrOutput values.
+// You can construct a concrete instance of `MetadataCategoriesResponsePtrInput` via:
+//
+//          MetadataCategoriesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataCategoriesResponsePtrInput interface {
+	pulumi.Input
+
+	ToMetadataCategoriesResponsePtrOutput() MetadataCategoriesResponsePtrOutput
+	ToMetadataCategoriesResponsePtrOutputWithContext(context.Context) MetadataCategoriesResponsePtrOutput
+}
+
+type metadataCategoriesResponsePtrType MetadataCategoriesResponseArgs
+
+func MetadataCategoriesResponsePtr(v *MetadataCategoriesResponseArgs) MetadataCategoriesResponsePtrInput {
+	return (*metadataCategoriesResponsePtrType)(v)
+}
+
+func (*metadataCategoriesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategoriesResponse)(nil)).Elem()
+}
+
+func (i *metadataCategoriesResponsePtrType) ToMetadataCategoriesResponsePtrOutput() MetadataCategoriesResponsePtrOutput {
+	return i.ToMetadataCategoriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataCategoriesResponsePtrType) ToMetadataCategoriesResponsePtrOutputWithContext(ctx context.Context) MetadataCategoriesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoriesResponsePtrOutput)
+}
+
+type MetadataCategoriesResponseOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoriesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategoriesResponse)(nil)).Elem()
+}
+
+func (o MetadataCategoriesResponseOutput) ToMetadataCategoriesResponseOutput() MetadataCategoriesResponseOutput {
+	return o
+}
+
+func (o MetadataCategoriesResponseOutput) ToMetadataCategoriesResponseOutputWithContext(ctx context.Context) MetadataCategoriesResponseOutput {
+	return o
+}
+
+func (o MetadataCategoriesResponseOutput) ToMetadataCategoriesResponsePtrOutput() MetadataCategoriesResponsePtrOutput {
+	return o.ToMetadataCategoriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataCategoriesResponseOutput) ToMetadataCategoriesResponsePtrOutputWithContext(ctx context.Context) MetadataCategoriesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataCategoriesResponse) *MetadataCategoriesResponse {
+		return &v
+	}).(MetadataCategoriesResponsePtrOutput)
+}
+
+func (o MetadataCategoriesResponseOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategoriesResponse) []string { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+func (o MetadataCategoriesResponseOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategoriesResponse) []string { return v.Verticals }).(pulumi.StringArrayOutput)
+}
+
+type MetadataCategoriesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoriesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategoriesResponse)(nil)).Elem()
+}
+
+func (o MetadataCategoriesResponsePtrOutput) ToMetadataCategoriesResponsePtrOutput() MetadataCategoriesResponsePtrOutput {
+	return o
+}
+
+func (o MetadataCategoriesResponsePtrOutput) ToMetadataCategoriesResponsePtrOutputWithContext(ctx context.Context) MetadataCategoriesResponsePtrOutput {
+	return o
+}
+
+func (o MetadataCategoriesResponsePtrOutput) Elem() MetadataCategoriesResponseOutput {
+	return o.ApplyT(func(v *MetadataCategoriesResponse) MetadataCategoriesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataCategoriesResponse
+		return ret
+	}).(MetadataCategoriesResponseOutput)
+}
+
+func (o MetadataCategoriesResponsePtrOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategoriesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Domains
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MetadataCategoriesResponsePtrOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategoriesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Verticals
+	}).(pulumi.StringArrayOutput)
+}
+
 type MetadataDependencies struct {
 	ContentId *string                `pulumi:"contentId"`
 	Criteria  []MetadataDependencies `pulumi:"criteria"`
@@ -14509,6 +14805,10 @@ func init() {
 	pulumi.RegisterOutputType(MetadataAuthorPtrOutput{})
 	pulumi.RegisterOutputType(MetadataAuthorResponseOutput{})
 	pulumi.RegisterOutputType(MetadataAuthorResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetadataCategoriesOutput{})
+	pulumi.RegisterOutputType(MetadataCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(MetadataCategoriesResponseOutput{})
+	pulumi.RegisterOutputType(MetadataCategoriesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MetadataDependenciesOutput{})
 	pulumi.RegisterOutputType(MetadataDependenciesPtrOutput{})
 	pulumi.RegisterOutputType(MetadataDependenciesArrayOutput{})

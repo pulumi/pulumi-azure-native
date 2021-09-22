@@ -52,6 +52,10 @@ export interface GetMetadataResult {
      */
     readonly author?: outputs.securityinsights.v20210301preview.MetadataAuthorResponse;
     /**
+     * Categories for the solution content item
+     */
+    readonly categories?: outputs.securityinsights.v20210301preview.MetadataCategoriesResponse;
+    /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
     readonly contentId?: string;
@@ -64,6 +68,10 @@ export interface GetMetadataResult {
      */
     readonly etag?: string;
     /**
+     * first publish date solution content item
+     */
+    readonly firstPublishDate?: string;
+    /**
      * Azure resource Id
      */
     readonly id: string;
@@ -72,6 +80,10 @@ export interface GetMetadataResult {
      */
     readonly kind: string;
     /**
+     * last publish date for the solution content item
+     */
+    readonly lastPublishDate?: string;
+    /**
      * Azure resource name
      */
     readonly name: string;
@@ -79,6 +91,10 @@ export interface GetMetadataResult {
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */
     readonly parentId: string;
+    /**
+     * Providers for the solution content item
+     */
+    readonly providers?: string[];
     /**
      * Source of the content.  This is where/how it was created.
      */

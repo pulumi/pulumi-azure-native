@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.MetadataAuthorResponse?> Author { get; private set; } = null!;
 
         /// <summary>
+        /// Categories for the solution content item
+        /// </summary>
+        [Output("categories")]
+        public Output<Outputs.MetadataCategoriesResponse?> Categories { get; private set; } = null!;
+
+        /// <summary>
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
         [Output("contentId")]
@@ -41,10 +47,22 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// first publish date solution content item
+        /// </summary>
+        [Output("firstPublishDate")]
+        public Output<string?> FirstPublishDate { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of content the metadata is for.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// last publish date for the solution content item
+        /// </summary>
+        [Output("lastPublishDate")]
+        public Output<string?> LastPublishDate { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -57,6 +75,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
+
+        /// <summary>
+        /// Providers for the solution content item
+        /// </summary>
+        [Output("providers")]
+        public Output<ImmutableArray<string>> Providers { get; private set; } = null!;
 
         /// <summary>
         /// Source of the content.  This is where/how it was created.
@@ -146,6 +170,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.MetadataAuthorArgs>? Author { get; set; }
 
         /// <summary>
+        /// Categories for the solution content item
+        /// </summary>
+        [Input("categories")]
+        public Input<Inputs.MetadataCategoriesArgs>? Categories { get; set; }
+
+        /// <summary>
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
         [Input("contentId")]
@@ -164,10 +194,22 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// first publish date solution content item
+        /// </summary>
+        [Input("firstPublishDate")]
+        public Input<string>? FirstPublishDate { get; set; }
+
+        /// <summary>
         /// The kind of content the metadata is for.
         /// </summary>
         [Input("kind", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Kind> Kind { get; set; } = null!;
+
+        /// <summary>
+        /// last publish date for the solution content item
+        /// </summary>
+        [Input("lastPublishDate")]
+        public Input<string>? LastPublishDate { get; set; }
 
         /// <summary>
         /// The Metadata name.
@@ -186,6 +228,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
+
+        [Input("providers")]
+        private InputList<string>? _providers;
+
+        /// <summary>
+        /// Providers for the solution content item
+        /// </summary>
+        public InputList<string> Providers
+        {
+            get => _providers ?? (_providers = new InputList<string>());
+            set => _providers = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

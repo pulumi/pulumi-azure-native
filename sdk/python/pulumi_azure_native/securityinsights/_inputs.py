@@ -28,6 +28,7 @@ __all__ = [
     'IncidentOwnerInfoArgs',
     'MCASDataConnectorDataTypesArgs',
     'MetadataAuthorArgs',
+    'MetadataCategoriesArgs',
     'MetadataDependenciesArgs',
     'MetadataSourceArgs',
     'MetadataSupportArgs',
@@ -919,6 +920,46 @@ class MetadataAuthorArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MetadataCategoriesArgs:
+    def __init__(__self__, *,
+                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        ies for the solution content item
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: domain for the solution content item
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] verticals: Industry verticals for the solution content item
+        """
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if verticals is not None:
+            pulumi.set(__self__, "verticals", verticals)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        domain for the solution content item
+        """
+        return pulumi.get(self, "domains")
+
+    @domains.setter
+    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domains", value)
+
+    @property
+    @pulumi.getter
+    def verticals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Industry verticals for the solution content item
+        """
+        return pulumi.get(self, "verticals")
+
+    @verticals.setter
+    def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "verticals", value)
 
 
 @pulumi.input_type

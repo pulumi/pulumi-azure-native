@@ -41,6 +41,10 @@ export class Metadata extends pulumi.CustomResource {
      */
     public readonly author!: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
     /**
+     * Categories for the solution content item
+     */
+    public readonly categories!: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
+    /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
     public readonly contentId!: pulumi.Output<string | undefined>;
@@ -53,9 +57,17 @@ export class Metadata extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * first publish date solution content item
+     */
+    public readonly firstPublishDate!: pulumi.Output<string | undefined>;
+    /**
      * The kind of content the metadata is for.
      */
     public readonly kind!: pulumi.Output<string>;
+    /**
+     * last publish date for the solution content item
+     */
+    public readonly lastPublishDate!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name
      */
@@ -64,6 +76,10 @@ export class Metadata extends pulumi.CustomResource {
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */
     public readonly parentId!: pulumi.Output<string>;
+    /**
+     * Providers for the solution content item
+     */
+    public readonly providers!: pulumi.Output<string[] | undefined>;
     /**
      * Source of the content.  This is where/how it was created.
      */
@@ -112,13 +128,17 @@ export class Metadata extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["author"] = args ? args.author : undefined;
+            inputs["categories"] = args ? args.categories : undefined;
             inputs["contentId"] = args ? args.contentId : undefined;
             inputs["dependencies"] = args ? args.dependencies : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
             inputs["metadataName"] = args ? args.metadataName : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             inputs["parentId"] = args ? args.parentId : undefined;
+            inputs["providers"] = args ? args.providers : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["support"] = args ? args.support : undefined;
@@ -129,12 +149,16 @@ export class Metadata extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["author"] = undefined /*out*/;
+            inputs["categories"] = undefined /*out*/;
             inputs["contentId"] = undefined /*out*/;
             inputs["dependencies"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["firstPublishDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["lastPublishDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["parentId"] = undefined /*out*/;
+            inputs["providers"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
             inputs["support"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -159,6 +183,10 @@ export interface MetadataArgs {
      */
     author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs>;
     /**
+     * Categories for the solution content item
+     */
+    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
+    /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
     contentId?: pulumi.Input<string>;
@@ -171,9 +199,17 @@ export interface MetadataArgs {
      */
     etag?: pulumi.Input<string>;
     /**
+     * first publish date solution content item
+     */
+    firstPublishDate?: pulumi.Input<string>;
+    /**
      * The kind of content the metadata is for.
      */
     kind: pulumi.Input<string | enums.securityinsights.Kind>;
+    /**
+     * last publish date for the solution content item
+     */
+    lastPublishDate?: pulumi.Input<string>;
     /**
      * The Metadata name.
      */
@@ -186,6 +222,10 @@ export interface MetadataArgs {
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */
     parentId: pulumi.Input<string>;
+    /**
+     * Providers for the solution content item
+     */
+    providers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

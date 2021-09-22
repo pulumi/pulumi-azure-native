@@ -25,17 +25,21 @@ type LookupMetadataArgs struct {
 
 // Metadata resource definition.
 type LookupMetadataResult struct {
-	Author       *MetadataAuthorResponse       `pulumi:"author"`
-	ContentId    *string                       `pulumi:"contentId"`
-	Dependencies *MetadataDependenciesResponse `pulumi:"dependencies"`
-	Etag         *string                       `pulumi:"etag"`
-	Id           string                        `pulumi:"id"`
-	Kind         string                        `pulumi:"kind"`
-	Name         string                        `pulumi:"name"`
-	ParentId     string                        `pulumi:"parentId"`
-	Source       *MetadataSourceResponse       `pulumi:"source"`
-	Support      *MetadataSupportResponse      `pulumi:"support"`
-	SystemData   SystemDataResponse            `pulumi:"systemData"`
-	Type         string                        `pulumi:"type"`
-	Version      *string                       `pulumi:"version"`
+	Author           *MetadataAuthorResponse       `pulumi:"author"`
+	Categories       *MetadataCategoriesResponse   `pulumi:"categories"`
+	ContentId        *string                       `pulumi:"contentId"`
+	Dependencies     *MetadataDependenciesResponse `pulumi:"dependencies"`
+	Etag             *string                       `pulumi:"etag"`
+	FirstPublishDate *string                       `pulumi:"firstPublishDate"`
+	Id               string                        `pulumi:"id"`
+	Kind             string                        `pulumi:"kind"`
+	LastPublishDate  *string                       `pulumi:"lastPublishDate"`
+	Name             string                        `pulumi:"name"`
+	ParentId         string                        `pulumi:"parentId"`
+	Providers        []string                      `pulumi:"providers"`
+	Source           *MetadataSourceResponse       `pulumi:"source"`
+	Support          *MetadataSupportResponse      `pulumi:"support"`
+	SystemData       SystemDataResponse            `pulumi:"systemData"`
+	Type             string                        `pulumi:"type"`
+	Version          *string                       `pulumi:"version"`
 }

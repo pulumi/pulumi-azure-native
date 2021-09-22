@@ -22,10 +22,14 @@ class MetadataArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
+                 categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 first_publish_date: Optional[pulumi.Input[str]] = None,
+                 last_publish_date: Optional[pulumi.Input[str]] = None,
                  metadata_name: Optional[pulumi.Input[str]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
                  support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -37,10 +41,14 @@ class MetadataArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['MetadataAuthorArgs'] author: The creator of the content item.
+        :param pulumi.Input['MetadataCategoriesArgs'] categories: Categories for the solution content item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input['MetadataDependenciesArgs'] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] first_publish_date: first publish date solution content item
+        :param pulumi.Input[str] last_publish_date: last publish date for the solution content item
         :param pulumi.Input[str] metadata_name: The Metadata name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Providers for the solution content item
         :param pulumi.Input['MetadataSourceArgs'] source: Source of the content.  This is where/how it was created.
         :param pulumi.Input['MetadataSupportArgs'] support: Support information for the metadata - type, name, contact information
         :param pulumi.Input[str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
@@ -52,14 +60,22 @@ class MetadataArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if author is not None:
             pulumi.set(__self__, "author", author)
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if content_id is not None:
             pulumi.set(__self__, "content_id", content_id)
         if dependencies is not None:
             pulumi.set(__self__, "dependencies", dependencies)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if first_publish_date is not None:
+            pulumi.set(__self__, "first_publish_date", first_publish_date)
+        if last_publish_date is not None:
+            pulumi.set(__self__, "last_publish_date", last_publish_date)
         if metadata_name is not None:
             pulumi.set(__self__, "metadata_name", metadata_name)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if support is not None:
@@ -140,6 +156,18 @@ class MetadataArgs:
         pulumi.set(self, "author", value)
 
     @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input['MetadataCategoriesArgs']]:
+        """
+        Categories for the solution content item
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input['MetadataCategoriesArgs']]):
+        pulumi.set(self, "categories", value)
+
+    @property
     @pulumi.getter(name="contentId")
     def content_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -176,6 +204,30 @@ class MetadataArgs:
         pulumi.set(self, "etag", value)
 
     @property
+    @pulumi.getter(name="firstPublishDate")
+    def first_publish_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        first publish date solution content item
+        """
+        return pulumi.get(self, "first_publish_date")
+
+    @first_publish_date.setter
+    def first_publish_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "first_publish_date", value)
+
+    @property
+    @pulumi.getter(name="lastPublishDate")
+    def last_publish_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        last publish date for the solution content item
+        """
+        return pulumi.get(self, "last_publish_date")
+
+    @last_publish_date.setter
+    def last_publish_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_publish_date", value)
+
+    @property
     @pulumi.getter(name="metadataName")
     def metadata_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -186,6 +238,18 @@ class MetadataArgs:
     @metadata_name.setter
     def metadata_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metadata_name", value)
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Providers for the solution content item
+        """
+        return pulumi.get(self, "providers")
+
+    @providers.setter
+    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "providers", value)
 
     @property
     @pulumi.getter
@@ -230,13 +294,17 @@ class Metadata(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
+                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 last_publish_date: Optional[pulumi.Input[str]] = None,
                  metadata_name: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
                  support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
@@ -250,13 +318,17 @@ class Metadata(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: The creator of the content item.
+        :param pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']] categories: Categories for the solution content item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] first_publish_date: first publish date solution content item
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of content the metadata is for.
+        :param pulumi.Input[str] last_publish_date: last publish date for the solution content item
         :param pulumi.Input[str] metadata_name: The Metadata name.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] parent_id: Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Providers for the solution content item
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: Source of the content.  This is where/how it was created.
         :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: Support information for the metadata - type, name, contact information
@@ -289,13 +361,17 @@ class Metadata(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
+                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 last_publish_date: Optional[pulumi.Input[str]] = None,
                  metadata_name: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
                  support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
@@ -314,12 +390,15 @@ class Metadata(pulumi.CustomResource):
             __props__ = MetadataArgs.__new__(MetadataArgs)
 
             __props__.__dict__["author"] = author
+            __props__.__dict__["categories"] = categories
             __props__.__dict__["content_id"] = content_id
             __props__.__dict__["dependencies"] = dependencies
             __props__.__dict__["etag"] = etag
+            __props__.__dict__["first_publish_date"] = first_publish_date
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
+            __props__.__dict__["last_publish_date"] = last_publish_date
             __props__.__dict__["metadata_name"] = metadata_name
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
@@ -327,6 +406,7 @@ class Metadata(pulumi.CustomResource):
             if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")
             __props__.__dict__["parent_id"] = parent_id
+            __props__.__dict__["providers"] = providers
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -364,12 +444,16 @@ class Metadata(pulumi.CustomResource):
         __props__ = MetadataArgs.__new__(MetadataArgs)
 
         __props__.__dict__["author"] = None
+        __props__.__dict__["categories"] = None
         __props__.__dict__["content_id"] = None
         __props__.__dict__["dependencies"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["first_publish_date"] = None
         __props__.__dict__["kind"] = None
+        __props__.__dict__["last_publish_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parent_id"] = None
+        __props__.__dict__["providers"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["support"] = None
         __props__.__dict__["system_data"] = None
@@ -384,6 +468,14 @@ class Metadata(pulumi.CustomResource):
         The creator of the content item.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter
+    def categories(self) -> pulumi.Output[Optional['outputs.MetadataCategoriesResponse']]:
+        """
+        Categories for the solution content item
+        """
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter(name="contentId")
@@ -410,12 +502,28 @@ class Metadata(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="firstPublishDate")
+    def first_publish_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        first publish date solution content item
+        """
+        return pulumi.get(self, "first_publish_date")
+
+    @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
         The kind of content the metadata is for.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastPublishDate")
+    def last_publish_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        last publish date for the solution content item
+        """
+        return pulumi.get(self, "last_publish_date")
 
     @property
     @pulumi.getter
@@ -432,6 +540,14 @@ class Metadata(pulumi.CustomResource):
         Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         """
         return pulumi.get(self, "parent_id")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Providers for the solution content item
+        """
+        return pulumi.get(self, "providers")
 
     @property
     @pulumi.getter

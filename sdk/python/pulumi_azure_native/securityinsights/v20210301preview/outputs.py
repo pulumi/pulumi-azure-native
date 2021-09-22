@@ -44,6 +44,7 @@ __all__ = [
     'MTPDataConnectorDataTypesResponse',
     'MTPDataConnectorDataTypesResponseIncidents',
     'MetadataAuthorResponse',
+    'MetadataCategoriesResponse',
     'MetadataDependenciesResponse',
     'MetadataSourceResponse',
     'MetadataSupportResponse',
@@ -1764,6 +1765,41 @@ class MetadataAuthorResponse(dict):
         Name of the author. Company or person.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MetadataCategoriesResponse(dict):
+    """
+    ies for the solution content item
+    """
+    def __init__(__self__, *,
+                 domains: Optional[Sequence[str]] = None,
+                 verticals: Optional[Sequence[str]] = None):
+        """
+        ies for the solution content item
+        :param Sequence[str] domains: domain for the solution content item
+        :param Sequence[str] verticals: Industry verticals for the solution content item
+        """
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if verticals is not None:
+            pulumi.set(__self__, "verticals", verticals)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[Sequence[str]]:
+        """
+        domain for the solution content item
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter
+    def verticals(self) -> Optional[Sequence[str]]:
+        """
+        Industry verticals for the solution content item
+        """
+        return pulumi.get(self, "verticals")
 
 
 @pulumi.output_type

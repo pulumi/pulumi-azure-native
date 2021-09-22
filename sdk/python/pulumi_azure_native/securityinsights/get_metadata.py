@@ -20,10 +20,13 @@ class GetMetadataResult:
     """
     Metadata resource definition.
     """
-    def __init__(__self__, author=None, content_id=None, dependencies=None, etag=None, id=None, kind=None, name=None, parent_id=None, source=None, support=None, system_data=None, type=None, version=None):
+    def __init__(__self__, author=None, categories=None, content_id=None, dependencies=None, etag=None, first_publish_date=None, id=None, kind=None, last_publish_date=None, name=None, parent_id=None, providers=None, source=None, support=None, system_data=None, type=None, version=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
+        if categories and not isinstance(categories, dict):
+            raise TypeError("Expected argument 'categories' to be a dict")
+        pulumi.set(__self__, "categories", categories)
         if content_id and not isinstance(content_id, str):
             raise TypeError("Expected argument 'content_id' to be a str")
         pulumi.set(__self__, "content_id", content_id)
@@ -33,18 +36,27 @@ class GetMetadataResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if first_publish_date and not isinstance(first_publish_date, str):
+            raise TypeError("Expected argument 'first_publish_date' to be a str")
+        pulumi.set(__self__, "first_publish_date", first_publish_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if last_publish_date and not isinstance(last_publish_date, str):
+            raise TypeError("Expected argument 'last_publish_date' to be a str")
+        pulumi.set(__self__, "last_publish_date", last_publish_date)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if parent_id and not isinstance(parent_id, str):
             raise TypeError("Expected argument 'parent_id' to be a str")
         pulumi.set(__self__, "parent_id", parent_id)
+        if providers and not isinstance(providers, list):
+            raise TypeError("Expected argument 'providers' to be a list")
+        pulumi.set(__self__, "providers", providers)
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
@@ -68,6 +80,14 @@ class GetMetadataResult:
         The creator of the content item.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional['outputs.MetadataCategoriesResponse']:
+        """
+        Categories for the solution content item
+        """
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter(name="contentId")
@@ -94,6 +114,14 @@ class GetMetadataResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="firstPublishDate")
+    def first_publish_date(self) -> Optional[str]:
+        """
+        first publish date solution content item
+        """
+        return pulumi.get(self, "first_publish_date")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -110,6 +138,14 @@ class GetMetadataResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="lastPublishDate")
+    def last_publish_date(self) -> Optional[str]:
+        """
+        last publish date for the solution content item
+        """
+        return pulumi.get(self, "last_publish_date")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -124,6 +160,14 @@ class GetMetadataResult:
         Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         """
         return pulumi.get(self, "parent_id")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[Sequence[str]]:
+        """
+        Providers for the solution content item
+        """
+        return pulumi.get(self, "providers")
 
     @property
     @pulumi.getter
@@ -173,13 +217,17 @@ class AwaitableGetMetadataResult(GetMetadataResult):
             yield self
         return GetMetadataResult(
             author=self.author,
+            categories=self.categories,
             content_id=self.content_id,
             dependencies=self.dependencies,
             etag=self.etag,
+            first_publish_date=self.first_publish_date,
             id=self.id,
             kind=self.kind,
+            last_publish_date=self.last_publish_date,
             name=self.name,
             parent_id=self.parent_id,
+            providers=self.providers,
             source=self.source,
             support=self.support,
             system_data=self.system_data,
@@ -215,13 +263,17 @@ def get_metadata(metadata_name: Optional[str] = None,
 
     return AwaitableGetMetadataResult(
         author=__ret__.author,
+        categories=__ret__.categories,
         content_id=__ret__.content_id,
         dependencies=__ret__.dependencies,
         etag=__ret__.etag,
+        first_publish_date=__ret__.first_publish_date,
         id=__ret__.id,
         kind=__ret__.kind,
+        last_publish_date=__ret__.last_publish_date,
         name=__ret__.name,
         parent_id=__ret__.parent_id,
+        providers=__ret__.providers,
         source=__ret__.source,
         support=__ret__.support,
         system_data=__ret__.system_data,

@@ -60,6 +60,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.MetadataAuthorResponse? Author;
         /// <summary>
+        /// Categories for the solution content item
+        /// </summary>
+        public readonly Outputs.MetadataCategoriesResponse? Categories;
+        /// <summary>
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
         public readonly string? ContentId;
@@ -72,6 +76,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// first publish date solution content item
+        /// </summary>
+        public readonly string? FirstPublishDate;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -80,6 +88,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// last publish date for the solution content item
+        /// </summary>
+        public readonly string? LastPublishDate;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
@@ -87,6 +99,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         /// </summary>
         public readonly string ParentId;
+        /// <summary>
+        /// Providers for the solution content item
+        /// </summary>
+        public readonly ImmutableArray<string> Providers;
         /// <summary>
         /// Source of the content.  This is where/how it was created.
         /// </summary>
@@ -112,19 +128,27 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetMetadataResult(
             Outputs.MetadataAuthorResponse? author,
 
+            Outputs.MetadataCategoriesResponse? categories,
+
             string? contentId,
 
             Outputs.MetadataDependenciesResponse? dependencies,
 
             string? etag,
 
+            string? firstPublishDate,
+
             string id,
 
             string kind,
 
+            string? lastPublishDate,
+
             string name,
 
             string parentId,
+
+            ImmutableArray<string> providers,
 
             Outputs.MetadataSourceResponse? source,
 
@@ -137,13 +161,17 @@ namespace Pulumi.AzureNative.SecurityInsights
             string? version)
         {
             Author = author;
+            Categories = categories;
             ContentId = contentId;
             Dependencies = dependencies;
             Etag = etag;
+            FirstPublishDate = firstPublishDate;
             Id = id;
             Kind = kind;
+            LastPublishDate = lastPublishDate;
             Name = name;
             ParentId = parentId;
+            Providers = providers;
             Source = source;
             Support = support;
             SystemData = systemData;
