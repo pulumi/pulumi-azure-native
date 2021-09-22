@@ -89,6 +89,9 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/transparentDataEncryption/{transparentDataEncryptionName}": {
 		"status": "Disabled",
 	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettings": {
+		"enabled": false,
+	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/logs": {
 		"applicationLogs": map[string]string{},
 	},
