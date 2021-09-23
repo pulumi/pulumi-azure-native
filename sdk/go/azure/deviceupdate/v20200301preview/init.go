@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "azure-native:deviceupdate/v20200301preview:Instance":
 		r = &Instance{}
+	case "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

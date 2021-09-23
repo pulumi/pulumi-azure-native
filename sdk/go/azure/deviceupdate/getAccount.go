@@ -23,13 +23,14 @@ type LookupAccountArgs struct {
 
 // Device Update account details.
 type LookupAccountResult struct {
-	HostName          string             `pulumi:"hostName"`
-	Id                string             `pulumi:"id"`
-	Identity          *IdentityResponse  `pulumi:"identity"`
-	Location          string             `pulumi:"location"`
-	Name              string             `pulumi:"name"`
-	ProvisioningState string             `pulumi:"provisioningState"`
-	SystemData        SystemDataResponse `pulumi:"systemData"`
-	Tags              map[string]string  `pulumi:"tags"`
-	Type              string             `pulumi:"type"`
+	HostName            string             `pulumi:"hostName"`
+	Id                  string             `pulumi:"id"`
+	Identity            *IdentityResponse  `pulumi:"identity"`
+	Location            string             `pulumi:"location"`
+	Name                string             `pulumi:"name"`
+	ProvisioningState   string             `pulumi:"provisioningState"`
+	PublicNetworkAccess *string            `pulumi:"publicNetworkAccess"`
+	SystemData          SystemDataResponse `pulumi:"systemData"`
+	Tags                map[string]string  `pulumi:"tags"`
+	Type                string             `pulumi:"type"`
 }

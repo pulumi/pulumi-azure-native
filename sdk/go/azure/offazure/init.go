@@ -23,8 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:offazure:HyperVSite":
 		r = &HyperVSite{}
-	case "azure-native:offazure:MasterSite":
-		r = &MasterSite{}
+	case "azure-native:offazure:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	case "azure-native:offazure:Site":
 		r = &Site{}
 	default:

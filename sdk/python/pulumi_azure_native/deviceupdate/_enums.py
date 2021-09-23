@@ -5,8 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'ResourceIdentityType',
 ]
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for the container registry.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):

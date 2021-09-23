@@ -95,6 +95,12 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationProtectionContainerMapping"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationProtectionContainerMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectionContainerMapping

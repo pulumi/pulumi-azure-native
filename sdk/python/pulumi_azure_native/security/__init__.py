@@ -13,6 +13,8 @@ from .assessment import *
 from .assessment_metadata_in_subscription import *
 from .automation import *
 from .connector import *
+from .custom_assessment_automation import *
+from .custom_entity_store_assignment import *
 from .device_security_group import *
 from .get_adaptive_application_control import *
 from .get_advanced_threat_protection import *
@@ -21,6 +23,8 @@ from .get_assessment import *
 from .get_assessment_metadata_in_subscription import *
 from .get_automation import *
 from .get_connector import *
+from .get_custom_assessment_automation import *
+from .get_custom_entity_store_assignment import *
 from .get_device_security_group import *
 from .get_ingestion_setting import *
 from .get_iot_security_solution import *
@@ -63,6 +67,8 @@ if typing.TYPE_CHECKING:
     v20210115preview = __v20210115preview
     import pulumi_azure_native.security.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.security.v20210701preview as __v20210701preview
+    v20210701preview = __v20210701preview
 else:
     v20150601preview = _utilities.lazy_import('pulumi_azure_native.security.v20150601preview')
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
@@ -74,4 +80,5 @@ else:
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.security.v20200701preview')
     v20210115preview = _utilities.lazy_import('pulumi_azure_native.security.v20210115preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.security.v20210601')
+    v20210701preview = _utilities.lazy_import('pulumi_azure_native.security.v20210701preview')
 

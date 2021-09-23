@@ -112,6 +112,8 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210101preview:Application"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210701preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210901privatepreview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

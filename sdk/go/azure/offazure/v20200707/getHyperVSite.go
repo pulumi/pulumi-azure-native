@@ -28,6 +28,7 @@ type LookupHyperVSiteResult struct {
 	Location   *string                `pulumi:"location"`
 	Name       *string                `pulumi:"name"`
 	Properties SitePropertiesResponse `pulumi:"properties"`
+	SystemData SystemDataResponse     `pulumi:"systemData"`
 	Tags       map[string]string      `pulumi:"tags"`
 	Type       string                 `pulumi:"type"`
 }

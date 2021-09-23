@@ -6,10 +6,10 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .get_hyper_v_site import *
-from .get_master_site import *
+from .get_private_endpoint_connection import *
 from .get_site import *
 from .hyper_v_site import *
-from .master_site import *
+from .private_endpoint_connection import *
 from .site import *
 from ._inputs import *
 from . import outputs

@@ -71,7 +71,7 @@ export interface GetInstanceResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceupdate.v20200301preview.SystemDataResponse;
     /**

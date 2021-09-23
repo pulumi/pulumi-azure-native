@@ -46,7 +46,13 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -133,6 +139,12 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DeviceUpdate.V20200301Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -152,6 +164,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 
         public AccountArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

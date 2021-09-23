@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     Device Update account details.
     """
-    def __init__(__self__, host_name=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, host_name=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -39,6 +39,9 @@ class GetAccountResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -98,10 +101,18 @@ class GetAccountResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for the container registry.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -134,6 +145,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -166,6 +178,7 @@ def get_account(account_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

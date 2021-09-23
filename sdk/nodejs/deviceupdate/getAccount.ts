@@ -63,7 +63,11 @@ export interface GetAccountResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Whether or not public network access is allowed for the container registry.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceupdate.SystemDataResponse;
     /**

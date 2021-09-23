@@ -3,7 +3,25 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `deviceupdate.PrivateEndpointConnection`
+- `offazure.PrivateEndpointConnection`
+- `security.CustomAssessmentAutomation`
+- `security.CustomEntityStoreAssignment`
+
+#### New functions:
+
+- `deviceupdate.getPrivateEndpointConnection`
+- `offazure.getPrivateEndpointConnection`
+- `security.getCustomAssessmentAutomation`
+- `security.getCustomEntityStoreAssignment`
+
+#### Breaking Changes published by Microsoft:
+
+- The response shape is undefine for the `offsite.MasterSite` resource,
+  so we had to remove it from our SDKs until this problem is resolved
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14776))
 
 ---
 

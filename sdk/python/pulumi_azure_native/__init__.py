@@ -4421,6 +4421,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20210801preview",
+  "fqn": "pulumi_azure_native.databox.v20210801preview",
+  "classes": {
+   "azure-native:databox/v20210801preview:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -6084,7 +6092,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
    "azure-native:deviceupdate:Account": "Account",
-   "azure-native:deviceupdate:Instance": "Instance"
+   "azure-native:deviceupdate:Instance": "Instance",
+   "azure-native:deviceupdate:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -6093,7 +6102,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.deviceupdate.v20200301preview",
   "classes": {
    "azure-native:deviceupdate/v20200301preview:Account": "Account",
-   "azure-native:deviceupdate/v20200301preview:Instance": "Instance"
+   "azure-native:deviceupdate/v20200301preview:Instance": "Instance",
+   "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -12219,7 +12229,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.offazure",
   "classes": {
    "azure-native:offazure:HyperVSite": "HyperVSite",
-   "azure-native:offazure:MasterSite": "MasterSite",
+   "azure-native:offazure:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:offazure:Site": "Site"
   }
  },
@@ -12238,7 +12248,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.offazure.v20200707",
   "classes": {
    "azure-native:offazure/v20200707:HyperVSite": "HyperVSite",
-   "azure-native:offazure/v20200707:MasterSite": "MasterSite",
+   "azure-native:offazure/v20200707:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:offazure/v20200707:Site": "Site"
   }
  },
@@ -13054,6 +13064,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20210801",
+  "fqn": "pulumi_azure_native.recoveryservices.v20210801",
+  "classes": {
+   "azure-native:recoveryservices/v20210801:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20210801:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20210801:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20210801:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20210801:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20210801:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20210801:ReplicationvCenter": "ReplicationvCenter"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -13563,6 +13590,8 @@ _utilities.register(
    "azure-native:security:AssessmentMetadataInSubscription": "AssessmentMetadataInSubscription",
    "azure-native:security:Automation": "Automation",
    "azure-native:security:Connector": "Connector",
+   "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
+   "azure-native:security:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
@@ -13666,6 +13695,15 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20210601:Assessment": "Assessment",
    "azure-native:security/v20210601:AssessmentMetadataInSubscription": "AssessmentMetadataInSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20210701preview",
+  "fqn": "pulumi_azure_native.security.v20210701preview",
+  "classes": {
+   "azure-native:security/v20210701preview:CustomAssessmentAutomation": "CustomAssessmentAutomation",
+   "azure-native:security/v20210701preview:CustomEntityStoreAssignment": "CustomEntityStoreAssignment"
   }
  },
  {
@@ -14200,6 +14238,19 @@ _utilities.register(
    "azure-native:servicefabric/v20210701preview:ManagedCluster": "ManagedCluster",
    "azure-native:servicefabric/v20210701preview:NodeType": "NodeType",
    "azure-native:servicefabric/v20210701preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20210901privatepreview",
+  "fqn": "pulumi_azure_native.servicefabric.v20210901privatepreview",
+  "classes": {
+   "azure-native:servicefabric/v20210901privatepreview:Application": "Application",
+   "azure-native:servicefabric/v20210901privatepreview:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20210901privatepreview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20210901privatepreview:NodeType": "NodeType",
+   "azure-native:servicefabric/v20210901privatepreview:Service": "Service"
   }
  },
  {

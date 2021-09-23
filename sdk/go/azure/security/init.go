@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Automation{}
 	case "azure-native:security:Connector":
 		r = &Connector{}
+	case "azure-native:security:CustomAssessmentAutomation":
+		r = &CustomAssessmentAutomation{}
+	case "azure-native:security:CustomEntityStoreAssignment":
+		r = &CustomEntityStoreAssignment{}
 	case "azure-native:security:DeviceSecurityGroup":
 		r = &DeviceSecurityGroup{}
 	case "azure-native:security:IngestionSetting":

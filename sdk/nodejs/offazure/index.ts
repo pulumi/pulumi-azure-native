@@ -6,10 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getHyperVSite";
-export * from "./getMasterSite";
+export * from "./getPrivateEndpointConnection";
 export * from "./getSite";
 export * from "./hyperVSite";
-export * from "./masterSite";
+export * from "./privateEndpointConnection";
 export * from "./site";
 
 // Export sub-modules:
@@ -23,7 +23,7 @@ export {
 
 // Import resources to register:
 import { HyperVSite } from "./hyperVSite";
-import { MasterSite } from "./masterSite";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Site } from "./site";
 
 const _module = {
@@ -32,8 +32,8 @@ const _module = {
         switch (type) {
             case "azure-native:offazure:HyperVSite":
                 return new HyperVSite(name, <any>undefined, { urn })
-            case "azure-native:offazure:MasterSite":
-                return new MasterSite(name, <any>undefined, { urn })
+            case "azure-native:offazure:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:offazure:Site":
                 return new Site(name, <any>undefined, { urn })
             default:

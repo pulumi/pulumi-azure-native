@@ -10,330 +10,465 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type MasterSiteProperties struct {
-	AllowMultipleSites  *bool    `pulumi:"allowMultipleSites"`
-	PublicNetworkAccess *string  `pulumi:"publicNetworkAccess"`
-	Sites               []string `pulumi:"sites"`
+type PrivateEndpointConnectionPropertiesResponse struct {
+	PrivateEndpoint                   ResourceIdResponse                         `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 }
 
-// MasterSitePropertiesInput is an input type that accepts MasterSitePropertiesArgs and MasterSitePropertiesOutput values.
-// You can construct a concrete instance of `MasterSitePropertiesInput` via:
+// PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesResponseInput` via:
 //
-//          MasterSitePropertiesArgs{...}
-type MasterSitePropertiesInput interface {
+//          PrivateEndpointConnectionPropertiesResponseArgs{...}
+type PrivateEndpointConnectionPropertiesResponseInput interface {
 	pulumi.Input
 
-	ToMasterSitePropertiesOutput() MasterSitePropertiesOutput
-	ToMasterSitePropertiesOutputWithContext(context.Context) MasterSitePropertiesOutput
+	ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput
+	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-type MasterSitePropertiesArgs struct {
-	AllowMultipleSites  pulumi.BoolPtrInput     `pulumi:"allowMultipleSites"`
-	PublicNetworkAccess pulumi.StringPtrInput   `pulumi:"publicNetworkAccess"`
-	Sites               pulumi.StringArrayInput `pulumi:"sites"`
+type PrivateEndpointConnectionPropertiesResponseArgs struct {
+	PrivateEndpoint                   ResourceIdResponseInput                           `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
 }
 
-func (MasterSitePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MasterSiteProperties)(nil)).Elem()
+func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
 }
 
-func (i MasterSitePropertiesArgs) ToMasterSitePropertiesOutput() MasterSitePropertiesOutput {
-	return i.ToMasterSitePropertiesOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
+	return i.ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Background())
 }
 
-func (i MasterSitePropertiesArgs) ToMasterSitePropertiesOutputWithContext(ctx context.Context) MasterSitePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesOutput)
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-func (i MasterSitePropertiesArgs) ToMasterSitePropertiesPtrOutput() MasterSitePropertiesPtrOutput {
-	return i.ToMasterSitePropertiesPtrOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i MasterSitePropertiesArgs) ToMasterSitePropertiesPtrOutputWithContext(ctx context.Context) MasterSitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesOutput).ToMasterSitePropertiesPtrOutputWithContext(ctx)
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput).ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx)
 }
 
-// MasterSitePropertiesPtrInput is an input type that accepts MasterSitePropertiesArgs, MasterSitePropertiesPtr and MasterSitePropertiesPtrOutput values.
-// You can construct a concrete instance of `MasterSitePropertiesPtrInput` via:
+// PrivateEndpointConnectionPropertiesResponsePtrInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs, PrivateEndpointConnectionPropertiesResponsePtr and PrivateEndpointConnectionPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesResponsePtrInput` via:
 //
-//          MasterSitePropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type MasterSitePropertiesPtrInput interface {
+type PrivateEndpointConnectionPropertiesResponsePtrInput interface {
 	pulumi.Input
 
-	ToMasterSitePropertiesPtrOutput() MasterSitePropertiesPtrOutput
-	ToMasterSitePropertiesPtrOutputWithContext(context.Context) MasterSitePropertiesPtrOutput
+	ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput
+	ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput
 }
 
-type masterSitePropertiesPtrType MasterSitePropertiesArgs
+type privateEndpointConnectionPropertiesResponsePtrType PrivateEndpointConnectionPropertiesResponseArgs
 
-func MasterSitePropertiesPtr(v *MasterSitePropertiesArgs) MasterSitePropertiesPtrInput {
-	return (*masterSitePropertiesPtrType)(v)
+func PrivateEndpointConnectionPropertiesResponsePtr(v *PrivateEndpointConnectionPropertiesResponseArgs) PrivateEndpointConnectionPropertiesResponsePtrInput {
+	return (*privateEndpointConnectionPropertiesResponsePtrType)(v)
 }
 
-func (*masterSitePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MasterSiteProperties)(nil)).Elem()
+func (*privateEndpointConnectionPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
 }
 
-func (i *masterSitePropertiesPtrType) ToMasterSitePropertiesPtrOutput() MasterSitePropertiesPtrOutput {
-	return i.ToMasterSitePropertiesPtrOutputWithContext(context.Background())
+func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *masterSitePropertiesPtrType) ToMasterSitePropertiesPtrOutputWithContext(ctx context.Context) MasterSitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesPtrOutput)
+func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-type MasterSitePropertiesOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
-func (MasterSitePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MasterSiteProperties)(nil)).Elem()
+func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
 }
 
-func (o MasterSitePropertiesOutput) ToMasterSitePropertiesOutput() MasterSitePropertiesOutput {
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o
 }
 
-func (o MasterSitePropertiesOutput) ToMasterSitePropertiesOutputWithContext(ctx context.Context) MasterSitePropertiesOutput {
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
 	return o
 }
 
-func (o MasterSitePropertiesOutput) ToMasterSitePropertiesPtrOutput() MasterSitePropertiesPtrOutput {
-	return o.ToMasterSitePropertiesPtrOutputWithContext(context.Background())
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return o.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (o MasterSitePropertiesOutput) ToMasterSitePropertiesPtrOutputWithContext(ctx context.Context) MasterSitePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterSiteProperties) *MasterSiteProperties {
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
-	}).(MasterSitePropertiesPtrOutput)
+	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-func (o MasterSitePropertiesOutput) AllowMultipleSites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MasterSiteProperties) *bool { return v.AllowMultipleSites }).(pulumi.BoolPtrOutput)
+func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() ResourceIdResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) ResourceIdResponse { return v.PrivateEndpoint }).(ResourceIdResponseOutput)
 }
 
-func (o MasterSitePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MasterSiteProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-func (o MasterSitePropertiesOutput) Sites() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MasterSiteProperties) []string { return v.Sites }).(pulumi.StringArrayOutput)
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-type MasterSitePropertiesPtrOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (MasterSitePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MasterSiteProperties)(nil)).Elem()
+func (PrivateEndpointConnectionPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
 }
 
-func (o MasterSitePropertiesPtrOutput) ToMasterSitePropertiesPtrOutput() MasterSitePropertiesPtrOutput {
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o MasterSitePropertiesPtrOutput) ToMasterSitePropertiesPtrOutputWithContext(ctx context.Context) MasterSitePropertiesPtrOutput {
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o MasterSitePropertiesPtrOutput) Elem() MasterSitePropertiesOutput {
-	return o.ApplyT(func(v *MasterSiteProperties) MasterSiteProperties {
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
 		if v != nil {
 			return *v
 		}
-		var ret MasterSiteProperties
+		var ret PrivateEndpointConnectionPropertiesResponse
 		return ret
-	}).(MasterSitePropertiesOutput)
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-func (o MasterSitePropertiesPtrOutput) AllowMultipleSites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MasterSiteProperties) *bool {
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() ResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *ResourceIdResponse {
 		if v == nil {
 			return nil
 		}
-		return v.AllowMultipleSites
-	}).(pulumi.BoolPtrOutput)
+		return &v.PrivateEndpoint
+	}).(ResourceIdResponsePtrOutput)
 }
 
-func (o MasterSitePropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MasterSiteProperties) *string {
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
 			return nil
 		}
-		return v.PublicNetworkAccess
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MasterSitePropertiesPtrOutput) Sites() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MasterSiteProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Sites
-	}).(pulumi.StringArrayOutput)
+type PrivateLinkServiceConnectionStateResponse struct {
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
-type MasterSitePropertiesResponse struct {
-	AllowMultipleSites  *bool    `pulumi:"allowMultipleSites"`
-	PublicNetworkAccess *string  `pulumi:"publicNetworkAccess"`
-	Sites               []string `pulumi:"sites"`
-}
-
-// MasterSitePropertiesResponseInput is an input type that accepts MasterSitePropertiesResponseArgs and MasterSitePropertiesResponseOutput values.
-// You can construct a concrete instance of `MasterSitePropertiesResponseInput` via:
+// PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponseInput` via:
 //
-//          MasterSitePropertiesResponseArgs{...}
-type MasterSitePropertiesResponseInput interface {
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
+type PrivateLinkServiceConnectionStateResponseInput interface {
 	pulumi.Input
 
-	ToMasterSitePropertiesResponseOutput() MasterSitePropertiesResponseOutput
-	ToMasterSitePropertiesResponseOutputWithContext(context.Context) MasterSitePropertiesResponseOutput
+	ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput
+	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-type MasterSitePropertiesResponseArgs struct {
-	AllowMultipleSites  pulumi.BoolPtrInput     `pulumi:"allowMultipleSites"`
-	PublicNetworkAccess pulumi.StringPtrInput   `pulumi:"publicNetworkAccess"`
-	Sites               pulumi.StringArrayInput `pulumi:"sites"`
+type PrivateLinkServiceConnectionStateResponseArgs struct {
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
-func (MasterSitePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MasterSitePropertiesResponse)(nil)).Elem()
+func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
 }
 
-func (i MasterSitePropertiesResponseArgs) ToMasterSitePropertiesResponseOutput() MasterSitePropertiesResponseOutput {
-	return i.ToMasterSitePropertiesResponseOutputWithContext(context.Background())
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
 }
 
-func (i MasterSitePropertiesResponseArgs) ToMasterSitePropertiesResponseOutputWithContext(ctx context.Context) MasterSitePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesResponseOutput)
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-func (i MasterSitePropertiesResponseArgs) ToMasterSitePropertiesResponsePtrOutput() MasterSitePropertiesResponsePtrOutput {
-	return i.ToMasterSitePropertiesResponsePtrOutputWithContext(context.Background())
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
 }
 
-func (i MasterSitePropertiesResponseArgs) ToMasterSitePropertiesResponsePtrOutputWithContext(ctx context.Context) MasterSitePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesResponseOutput).ToMasterSitePropertiesResponsePtrOutputWithContext(ctx)
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
 }
 
-// MasterSitePropertiesResponsePtrInput is an input type that accepts MasterSitePropertiesResponseArgs, MasterSitePropertiesResponsePtr and MasterSitePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `MasterSitePropertiesResponsePtrInput` via:
+// PrivateLinkServiceConnectionStateResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs, PrivateLinkServiceConnectionStateResponsePtr and PrivateLinkServiceConnectionStateResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponsePtrInput` via:
 //
-//          MasterSitePropertiesResponseArgs{...}
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type MasterSitePropertiesResponsePtrInput interface {
+type PrivateLinkServiceConnectionStateResponsePtrInput interface {
 	pulumi.Input
 
-	ToMasterSitePropertiesResponsePtrOutput() MasterSitePropertiesResponsePtrOutput
-	ToMasterSitePropertiesResponsePtrOutputWithContext(context.Context) MasterSitePropertiesResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
 }
 
-type masterSitePropertiesResponsePtrType MasterSitePropertiesResponseArgs
+type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
 
-func MasterSitePropertiesResponsePtr(v *MasterSitePropertiesResponseArgs) MasterSitePropertiesResponsePtrInput {
-	return (*masterSitePropertiesResponsePtrType)(v)
+func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
+	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
 }
 
-func (*masterSitePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MasterSitePropertiesResponse)(nil)).Elem()
+func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
 }
 
-func (i *masterSitePropertiesResponsePtrType) ToMasterSitePropertiesResponsePtrOutput() MasterSitePropertiesResponsePtrOutput {
-	return i.ToMasterSitePropertiesResponsePtrOutputWithContext(context.Background())
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *masterSitePropertiesResponsePtrType) ToMasterSitePropertiesResponsePtrOutputWithContext(ctx context.Context) MasterSitePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesResponsePtrOutput)
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-type MasterSitePropertiesResponseOutput struct{ *pulumi.OutputState }
+type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
-func (MasterSitePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MasterSitePropertiesResponse)(nil)).Elem()
+func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
 }
 
-func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponseOutput() MasterSitePropertiesResponseOutput {
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
 	return o
 }
 
-func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponseOutputWithContext(ctx context.Context) MasterSitePropertiesResponseOutput {
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
 	return o
 }
 
-func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponsePtrOutput() MasterSitePropertiesResponsePtrOutput {
-	return o.ToMasterSitePropertiesResponsePtrOutputWithContext(context.Background())
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
 }
 
-func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponsePtrOutputWithContext(ctx context.Context) MasterSitePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterSitePropertiesResponse) *MasterSitePropertiesResponse {
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
-	}).(MasterSitePropertiesResponsePtrOutput)
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-func (o MasterSitePropertiesResponseOutput) AllowMultipleSites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MasterSitePropertiesResponse) *bool { return v.AllowMultipleSites }).(pulumi.BoolPtrOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-func (o MasterSitePropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MasterSitePropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o MasterSitePropertiesResponseOutput) Sites() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MasterSitePropertiesResponse) []string { return v.Sites }).(pulumi.StringArrayOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type MasterSitePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (MasterSitePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MasterSitePropertiesResponse)(nil)).Elem()
+func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
 }
 
-func (o MasterSitePropertiesResponsePtrOutput) ToMasterSitePropertiesResponsePtrOutput() MasterSitePropertiesResponsePtrOutput {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o
 }
 
-func (o MasterSitePropertiesResponsePtrOutput) ToMasterSitePropertiesResponsePtrOutputWithContext(ctx context.Context) MasterSitePropertiesResponsePtrOutput {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o
 }
 
-func (o MasterSitePropertiesResponsePtrOutput) Elem() MasterSitePropertiesResponseOutput {
-	return o.ApplyT(func(v *MasterSitePropertiesResponse) MasterSitePropertiesResponse {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
 		if v != nil {
 			return *v
 		}
-		var ret MasterSitePropertiesResponse
+		var ret PrivateLinkServiceConnectionStateResponse
 		return ret
-	}).(MasterSitePropertiesResponseOutput)
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-func (o MasterSitePropertiesResponsePtrOutput) AllowMultipleSites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MasterSitePropertiesResponse) *bool {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AllowMultipleSites
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o MasterSitePropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MasterSitePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicNetworkAccess
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MasterSitePropertiesResponsePtrOutput) Sites() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MasterSitePropertiesResponse) []string {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Sites
-	}).(pulumi.StringArrayOutput)
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdResponse struct {
+	Id string `pulumi:"id"`
+}
+
+// ResourceIdResponseInput is an input type that accepts ResourceIdResponseArgs and ResourceIdResponseOutput values.
+// You can construct a concrete instance of `ResourceIdResponseInput` via:
+//
+//          ResourceIdResponseArgs{...}
+type ResourceIdResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdResponseOutput() ResourceIdResponseOutput
+	ToResourceIdResponseOutputWithContext(context.Context) ResourceIdResponseOutput
+}
+
+type ResourceIdResponseArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ResourceIdResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdResponse)(nil)).Elem()
+}
+
+func (i ResourceIdResponseArgs) ToResourceIdResponseOutput() ResourceIdResponseOutput {
+	return i.ToResourceIdResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdResponseArgs) ToResourceIdResponseOutputWithContext(ctx context.Context) ResourceIdResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseOutput)
+}
+
+func (i ResourceIdResponseArgs) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
+	return i.ToResourceIdResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdResponseArgs) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseOutput).ToResourceIdResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceIdResponsePtrInput is an input type that accepts ResourceIdResponseArgs, ResourceIdResponsePtr and ResourceIdResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceIdResponsePtrInput` via:
+//
+//          ResourceIdResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput
+	ToResourceIdResponsePtrOutputWithContext(context.Context) ResourceIdResponsePtrOutput
+}
+
+type resourceIdResponsePtrType ResourceIdResponseArgs
+
+func ResourceIdResponsePtr(v *ResourceIdResponseArgs) ResourceIdResponsePtrInput {
+	return (*resourceIdResponsePtrType)(v)
+}
+
+func (*resourceIdResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdResponse)(nil)).Elem()
+}
+
+func (i *resourceIdResponsePtrType) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
+	return i.ToResourceIdResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdResponsePtrType) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponsePtrOutput)
+}
+
+type ResourceIdResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdResponse)(nil)).Elem()
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponseOutput() ResourceIdResponseOutput {
+	return o
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponseOutputWithContext(ctx context.Context) ResourceIdResponseOutput {
+	return o
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
+	return o.ToResourceIdResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
+		return &v
+	}).(ResourceIdResponsePtrOutput)
+}
+
+func (o ResourceIdResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ResourceIdResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdResponse)(nil)).Elem()
+}
+
+func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
+}
+
+func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type SiteAgentProperties struct {
@@ -1464,11 +1599,221 @@ func (o SiteSpnPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(MasterSitePropertiesOutput{})
-	pulumi.RegisterOutputType(MasterSitePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(MasterSitePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(MasterSitePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesResponseOutput{})
@@ -1481,4 +1826,6 @@ func init() {
 	pulumi.RegisterOutputType(SiteSpnPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

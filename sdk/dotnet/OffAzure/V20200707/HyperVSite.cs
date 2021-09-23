@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         [Output("properties")]
         public Output<Outputs.SitePropertiesResponse> Properties { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 

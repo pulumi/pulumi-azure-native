@@ -12,6 +12,8 @@ export * from "./assessment";
 export * from "./assessmentMetadataInSubscription";
 export * from "./automation";
 export * from "./connector";
+export * from "./customAssessmentAutomation";
+export * from "./customEntityStoreAssignment";
 export * from "./deviceSecurityGroup";
 export * from "./getAdaptiveApplicationControl";
 export * from "./getAdvancedThreatProtection";
@@ -20,6 +22,8 @@ export * from "./getAssessment";
 export * from "./getAssessmentMetadataInSubscription";
 export * from "./getAutomation";
 export * from "./getConnector";
+export * from "./getCustomAssessmentAutomation";
+export * from "./getCustomEntityStoreAssignment";
 export * from "./getDeviceSecurityGroup";
 export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
@@ -52,6 +56,7 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
+import * as v20210701preview from "./v20210701preview";
 
 export {
     v20150601preview,
@@ -64,6 +69,7 @@ export {
     v20200701preview,
     v20210115preview,
     v20210601,
+    v20210701preview,
 };
 
 // Import resources to register:
@@ -74,6 +80,8 @@ import { Assessment } from "./assessment";
 import { AssessmentMetadataInSubscription } from "./assessmentMetadataInSubscription";
 import { Automation } from "./automation";
 import { Connector } from "./connector";
+import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
+import { CustomEntityStoreAssignment } from "./customEntityStoreAssignment";
 import { DeviceSecurityGroup } from "./deviceSecurityGroup";
 import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
@@ -101,6 +109,10 @@ const _module = {
                 return new Automation(name, <any>undefined, { urn })
             case "azure-native:security:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "azure-native:security:CustomAssessmentAutomation":
+                return new CustomAssessmentAutomation(name, <any>undefined, { urn })
+            case "azure-native:security:CustomEntityStoreAssignment":
+                return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security:IngestionSetting":

@@ -14,14 +14,15 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	HostName          pulumi.StringOutput       `pulumi:"hostName"`
-	Identity          IdentityResponsePtrOutput `pulumi:"identity"`
-	Location          pulumi.StringOutput       `pulumi:"location"`
-	Name              pulumi.StringOutput       `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput       `pulumi:"provisioningState"`
-	SystemData        SystemDataResponseOutput  `pulumi:"systemData"`
-	Tags              pulumi.StringMapOutput    `pulumi:"tags"`
-	Type              pulumi.StringOutput       `pulumi:"type"`
+	HostName            pulumi.StringOutput       `pulumi:"hostName"`
+	Identity            IdentityResponsePtrOutput `pulumi:"identity"`
+	Location            pulumi.StringOutput       `pulumi:"location"`
+	Name                pulumi.StringOutput       `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput       `pulumi:"provisioningState"`
+	PublicNetworkAccess pulumi.StringPtrOutput    `pulumi:"publicNetworkAccess"`
+	SystemData          SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput    `pulumi:"tags"`
+	Type                pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -33,6 +34,9 @@ func NewAccount(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -78,20 +82,22 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	AccountName       *string           `pulumi:"accountName"`
-	Identity          *Identity         `pulumi:"identity"`
-	Location          *string           `pulumi:"location"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	AccountName         *string           `pulumi:"accountName"`
+	Identity            *Identity         `pulumi:"identity"`
+	Location            *string           `pulumi:"location"`
+	PublicNetworkAccess *string           `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	AccountName       pulumi.StringPtrInput
-	Identity          IdentityPtrInput
-	Location          pulumi.StringPtrInput
-	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	AccountName         pulumi.StringPtrInput
+	Identity            IdentityPtrInput
+	Location            pulumi.StringPtrInput
+	PublicNetworkAccess pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

@@ -68,7 +68,11 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

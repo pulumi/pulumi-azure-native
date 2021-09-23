@@ -62,6 +62,10 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         /// Nested properties of VMWare site.
         /// </summary>
         public readonly Outputs.SitePropertiesResponse Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
 
             Outputs.SitePropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

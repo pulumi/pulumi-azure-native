@@ -20,7 +20,7 @@ class GetSiteResult:
     """
     Site REST Resource.
     """
-    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -36,6 +36,9 @@ class GetSiteResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,6 +87,14 @@ class GetSiteResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
@@ -108,6 +119,7 @@ class AwaitableGetSiteResult(GetSiteResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -137,5 +149,6 @@ def get_site(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

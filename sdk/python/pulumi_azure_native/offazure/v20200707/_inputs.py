@@ -9,67 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
-    'MasterSitePropertiesArgs',
     'SiteAgentPropertiesArgs',
     'SitePropertiesArgs',
     'SiteSpnPropertiesArgs',
 ]
-
-@pulumi.input_type
-class MasterSitePropertiesArgs:
-    def __init__(__self__, *,
-                 allow_multiple_sites: Optional[pulumi.Input[bool]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Class for site properties.
-        :param pulumi.Input[bool] allow_multiple_sites: Value indicating whether multiple sites per site type are allowed.
-        :param pulumi.Input[str] public_network_access: State of public network access.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sites: List of sites that are a part of Master Site.
-        """
-        if allow_multiple_sites is not None:
-            pulumi.set(__self__, "allow_multiple_sites", allow_multiple_sites)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if sites is not None:
-            pulumi.set(__self__, "sites", sites)
-
-    @property
-    @pulumi.getter(name="allowMultipleSites")
-    def allow_multiple_sites(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Value indicating whether multiple sites per site type are allowed.
-        """
-        return pulumi.get(self, "allow_multiple_sites")
-
-    @allow_multiple_sites.setter
-    def allow_multiple_sites(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_multiple_sites", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        State of public network access.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_network_access", value)
-
-    @property
-    @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of sites that are a part of Master Site.
-        """
-        return pulumi.get(self, "sites")
-
-    @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "sites", value)
-
 
 @pulumi.input_type
 class SiteAgentPropertiesArgs:
