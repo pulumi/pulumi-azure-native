@@ -5,6 +5,7 @@ CHANGELOG
 
 #### New resources:
 
+- `apimanagement.PrivateEndpointConnectionByName`
 - `deviceupdate.PrivateEndpointConnection`
 - `offazure.PrivateEndpointConnection`
 - `security.CustomAssessmentAutomation`
@@ -12,6 +13,7 @@ CHANGELOG
 
 #### New functions:
 
+- `apimanagement.getPrivateEndpointConnectionByName`
 - `deviceupdate.getPrivateEndpointConnection`
 - `offazure.getPrivateEndpointConnection`
 - `security.getCustomAssessmentAutomation`
