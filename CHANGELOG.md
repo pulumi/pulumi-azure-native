@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.31.0 (2021-09-23)
+
 #### New resources:
 
 - `apimanagement.PrivateEndpointConnectionByName`
@@ -24,8 +30,6 @@ CHANGELOG
 - The response shape is undefine for the `offsite.MasterSite` resource,
   so we had to remove it from our SDKs until this problem is resolved
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14776))
-
----
 
 ## 1.30.0 (2021-09-22)
 
